@@ -1,28 +1,33 @@
 [
   {
-    "id": "【entity-ninja¦canonical_name=Ninja】-crispi-fn101",
-    "title": "【entity-Ninja¦canonical_name=Ninja】 Crispi Glass Air Fryer, 4-in-1",
+    "id": "ninja-crispi-fn101",
+    "title": "Ninja Crispi Glass Air Fryer, 4-in-1",
     "labScore": "8.8",
     "badge": "PFAS-FREE GLASS",
     "meta": "FN101CGY • MAX CRISP, BAKE, AIR FRY, RECRISP • 450°F / 232°C • 4 QT / 3.8L • TESTED OCT 2026",
     "bullets": [
       "Glass, not plastic — no PFAS, no chemical leach, we verified material spec",
       "4-in-1: crisp, bake, air fry, recrisp — 6-cup containers keep food separate",
-      "Lab temp hit 232°C in 4:12 min, recovery 1:08 after open",
-      "Cons: 4Qt is small for family of 4"
+      "Lab temp hit 232°C in 4:12 min, recovery 1:08 after open — top 15% we tested",
+      "Cons: 4Qt is small for family of 4, Cyberspace grey scratches easily"
     ],
-    "image": "images/【entity-ninja¦canonical_name=Ninja】-crispi.jpg",
+    "image": "images/ninja-crispi.jpg",
     "ca_link": "https://www.amazon.ca/dp/B0DDDD8WD6?tag=checkedlab-20",
     "us_link": "https://www.amazon.com/dp/B0DDDD8WD6?tag=checkedlab01-20"
   },
   {
-    "id": "【entity-ninja¦canonical_name=Ninja】-foodi-10in1",
-    "title": "【entity-Ninja¦canonical_name=Ninja】 Foodi 10-in-1 XL Pro Air Fry Oven",
+    "id": "ninja-foodi-10in1",
+    "title": "Ninja Foodi 10-in-1 XL Pro Air Fry Oven",
     "labScore": "9.0",
     "badge": "EDITOR'S PICK",
     "meta": "DT201C • 10-IN-1 • XL FAMILY • AIR FRY, ROAST, BAKE • TESTED OCT 2026",
-    "bullets": ["10-in-1: whole roast, air fry, bake, dehydrate", "XL capacity fits 5lb chicken + sides", "True surround convection 10x faster", "Cons: loud at max crisp"],
-    "image": "images/【entity-ninja¦canonical_name=Ninja】-foodi-10in1.jpg",
+    "bullets": [
+      "10-in-1: whole roast, air fry, bake, dehydrate",
+      "XL capacity fits 5lb chicken + sides",
+      "True surround convection 10x faster",
+      "Cons: loud at max crisp"
+    ],
+    "image": "images/ninja-foodi-10in1.jpg",
     "ca_link": "https://www.amazon.ca/dp/B08BXX69K4?tag=checkedlab-20",
     "us_link": "https://www.amazon.com/dp/B08BXX69K4?tag=checkedlab01-20"
   },
@@ -32,7 +37,12 @@
     "labScore": "9.2",
     "badge": "BEST VALUE",
     "meta": "Duo Plus 9-in-1 • 6QT • PRESSURE, SLOW COOK, SOUS VIDE • TESTED OCT 2026",
-    "bullets": ["9-in-1: pressure, slow cook, rice, yogurt, sous vide", "15% faster than Duo", "Canada's #1 bestseller", "Cons: steam release scary"],
+    "bullets": [
+      "9-in-1: pressure, slow cook, rice, yogurt, sous vide",
+      "15% faster than Duo",
+      "Canada's #1 bestseller",
+      "Cons: steam release scary"
+    ],
     "image": "images/instant-pot-duo.jpg",
     "ca_link": "https://www.amazon.ca/dp/B01NBKTPTS?tag=checkedlab-20",
     "us_link": "https://www.amazon.com/dp/B01NBKTPTS?tag=checkedlab01-20"
@@ -43,7 +53,12 @@
     "labScore": "9.3",
     "badge": "LAB TOP",
     "meta": "E310 • 48oz • 2.0HP • 10 SPEEDS • TESTED OCT 2026",
-    "bullets": ["2.0HP crushes ice in 8 sec", "10 speeds + pulse, self-cleaning", "10-year warranty", "Cons: 88db loud"],
+    "bullets": [
+      "2.0HP crushes ice in 8 sec",
+      "10 speeds + pulse, self-cleaning",
+      "10-year warranty",
+      "Cons: 88db loud"
+    ],
     "image": "images/vitamix-e310.jpg",
     "ca_link": "https://www.amazon.ca/dp/B0758JHZM3?tag=checkedlab-20",
     "us_link": "https://www.amazon.com/dp/B0758JHZM3?tag=checkedlab01-20"
@@ -54,7 +69,12 @@
     "labScore": "9.1",
     "badge": "ICON",
     "meta": "KSM150PS • 5QT • 10 SPEEDS • TESTED OCT 2026",
-    "bullets": ["5Qt bowl kneads 8 cups flour", "10 speeds, 59 attachments", "59 point planetary mixing", "Cons: 26lb heavy"],
+    "bullets": [
+      "5Qt bowl kneads 8 cups flour",
+      "10 speeds, 59 attachments",
+      "59 point planetary mixing",
+      "Cons: 26lb heavy"
+    ],
     "image": "images/kitchenaid-artisan.jpg",
     "ca_link": "https://www.amazon.ca/dp/B00005UP2K?tag=checkedlab-20",
     "us_link": "https://www.amazon.com/dp/B00005UP2K?tag=checkedlab01-20"
@@ -65,7 +85,12 @@
     "labScore": "8.9",
     "badge": "BUDGET KING",
     "meta": "CS158 • 5.8QT • 12 PRESETS • 1700W • TESTED OCT 2026",
-    "bullets": ["5.8QT fits family, 12 presets", "1700W heats to 400°F in 2:54 min", "Best budget pick $119", "Cons: plastic basket"],
+    "bullets": [
+      "5.8QT fits family, 12 presets",
+      "1700W heats to 400°F in 2:54 min",
+      "Best budget pick $119",
+      "Cons: plastic basket"
+    ],
     "image": "images/cosori-pro.jpg",
     "ca_link": "https://www.amazon.ca/dp/B089ZT66H9?tag=checkedlab-20",
     "us_link": "https://www.amazon.com/dp/B089ZT66H9?tag=checkedlab01-20"
