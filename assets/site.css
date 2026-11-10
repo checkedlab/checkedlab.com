@@ -384,13 +384,21 @@ body:not([data-page="product"]) .evidence { order: 10; }
 .p-img {
   background: var(--surface);
   display: flex;
-  align-items: flex-start;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
   padding: 28px 28px 8px;
   min-height: 0;
   flex: 0 0 auto;
 }
-.p-img img { max-width: 100%; max-height: 300px; width: auto; object-fit: contain; }
+.p-img a { display: flex; justify-content: center; max-width: 100%; }
+.p-img img { max-width: 100%; max-height: 300px; width: auto; height: auto; object-fit: contain; }
+.img-credit {
+  margin: 8px 0 0;
+  font-size: 12px;
+  line-height: 1.4;
+  color: var(--muted);
+}
 
 .badge {
   position: static;

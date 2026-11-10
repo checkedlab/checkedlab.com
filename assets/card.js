@@ -170,15 +170,52 @@
       : "Recall-checked against CPSC and Health Canada." + (hasSpecs ? " Specs are from the maker." : "");
   }
 
-  function imageHtml(product) {
+  function imageSrc(product) {
     if (!product.image) return "";
-    return '<img src="/' + esc(String(product.image).replace(/^\/+/, "")) + '" alt="' + esc(product.title) + '">';
+    var src = String(product.image);
+    if (/^https:\/\//.test(src)) return src;
+    return "/" + src.replace(/^\/+/, "");
   }
 
-  function photoColumn(product) {
-    var img = imageHtml(product);
+  function imageTag(product) {
+    var src = imageSrc(product);
+    if (!src) return "";
+    var meta = product.image_source || {};
+    var size = "";
+    if (meta.width) size += ' width="' + esc(meta.width) + '"';
+    if (meta.height) size += ' height="' + esc(meta.height) + '"';
+    return '<img src="' + esc(src) + '" alt="' + esc(product.title) + '"' + size + ' loading="lazy" decoding="async">';
+  }
+
+  function imageFigure(product, reg) {
+    var img = imageTag(product);
     if (!img) return "";
-    return '<div class="p-side"><div class="p-img">' + img + "</div></div>";
+    var meta = product.image_source || {};
+    var credit = meta.kind === "maker" && meta.credit
+      ? '<p class="img-credit">' + esc(meta.credit) + "</p>"
+      : "";
+    if (meta.kind === "amazon") {
+      img = '<a href="' + esc(safeUrl(storeUrl(product, reg || "US", "amazon"))) + '" target="_blank" rel="' + REL + '">' + img + "</a>";
+    }
+    return img + credit;
+  }
+
+  function imageHtml(product) {
+    return imageFigure(product, "US");
+  }
+
+  function photoColumn(product, reg) {
+    var fig = imageFigure(product, reg);
+    if (!fig) return "";
+    return '<div class="p-side"><div class="p-img">' + fig + "</div></div>";
+  }
+
+  function imageColumn(product) {
+    if (!imageSrc(product)) return "";
+    return '<div class="p-side"><div class="p-img">' +
+      '<span class="only-us">' + imageFigure(product, "US") + "</span>" +
+      '<span class="only-ca">' + imageFigure(product, "CA") + "</span>" +
+      "</div></div>";
   }
 
   function productPath(product) {
@@ -206,7 +243,7 @@
         checkList(product) +
         evidenceList(product) +
       "</div>" +
-      photoColumn(product) +
+      photoColumn(product, reg) +
     "</article>";
   }
 
@@ -219,6 +256,7 @@
     badgeHtml: badgeHtml,
     honestLine: honestLine,
     imageHtml: imageHtml,
+    imageColumn: imageColumn,
     recallFor: recallFor,
     productPath: productPath,
     visibleTitle: visibleTitle,

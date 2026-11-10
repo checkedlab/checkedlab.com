@@ -5,7 +5,7 @@
     "category": "kitchen",
     "receipt": null,
     "meta": "FN101 • SPECS PER NINJA",
-    "image": "images/ninja-crispi.jpg",
+    "image": "https://m.media-amazon.com/images/P/B0DDDD8WD6.01.LZZZZZZZ.jpg",
     "recallMatch": {
       "brand": [
         "ninja",
@@ -95,7 +95,13 @@
         "source": "Ninja",
         "url": "https://www.sharkninja.com/ninja-crispi-4-in-1-portable-glass-air-fryer-cooking-system/FN101GY.html"
       }
-    ]
+    ],
+    "image_source": {
+      "kind": "amazon",
+      "asin": "B0DDDD8WD6",
+      "width": 500,
+      "height": 500
+    }
   },
   {
     "id": "ninja-foodi-10in1",
@@ -103,7 +109,7 @@
     "category": "kitchen",
     "receipt": null,
     "meta": "DT201C • CANADIAN MODEL • ASIN B08LQY2XF5 ON AMAZON.CA",
-    "image": "images/ninja-foodi-10in1.jpg",
+    "image": "https://m.media-amazon.com/images/P/B08LQY2XF5.01.LZZZZZZZ.jpg",
     "recallMatch": {
       "brand": [
         "ninja",
@@ -208,7 +214,13 @@
         "source": "Ninja",
         "url": "https://www.sharkninja.ca/ninja-foodi-10-in-1-xl-pro-air-fry-oven/DT201C.html"
       }
-    ]
+    ],
+    "image_source": {
+      "kind": "amazon",
+      "asin": "B08LQY2XF5",
+      "width": 500,
+      "height": 500
+    }
   },
   {
     "id": "instant-pot-duo-plus",
@@ -216,7 +228,7 @@
     "category": "kitchen",
     "receipt": null,
     "meta": "6 QT MULTI-COOKER • NO SOURCED SPEED FIGURE",
-    "image": "images/instant-pot-duo.jpg",
+    "image": "https://m.media-amazon.com/images/P/B01NBKTPTS.01.LZZZZZZZ.jpg",
     "recallMatch": {
       "brand": [
         "instant pot",
@@ -286,7 +298,13 @@
         "source": "Instant Pot",
         "url": "https://instantpot.com/products/instant-pot-duo-plus-6qt-multi-use-pressure-cooker-v3"
       }
-    ]
+    ],
+    "image_source": {
+      "kind": "amazon",
+      "asin": "B01NBKTPTS",
+      "width": 500,
+      "height": 500
+    }
   },
   {
     "id": "vitamix-e310",
@@ -294,7 +312,7 @@
     "category": "kitchen",
     "receipt": null,
     "meta": "E310 • SPECS PER VITAMIX",
-    "image": "images/vitamix-e310.jpg",
+    "image": "https://m.media-amazon.com/images/P/B0758JHZM3.01.LZZZZZZZ.jpg",
     "recallMatch": {
       "brand": [
         "vitamix"
@@ -383,7 +401,13 @@
         "source": "Vitamix",
         "url": "https://www.vitamix.com/us/en_us/products/e310"
       }
-    ]
+    ],
+    "image_source": {
+      "kind": "amazon",
+      "asin": "B0758JHZM3",
+      "width": 500,
+      "height": 500
+    }
   },
   {
     "id": "kitchenaid-artisan",
@@ -391,7 +415,7 @@
     "category": "kitchen",
     "receipt": null,
     "meta": "KSM150PS • SPECS PER KITCHENAID",
-    "image": "images/kitchenaid-artisan.jpg",
+    "image": "https://m.media-amazon.com/images/P/B00005UP2K.01.LZZZZZZZ.jpg",
     "recallMatch": {
       "brand": [
         "kitchenaid"
@@ -480,7 +504,13 @@
         "source": "KitchenAid",
         "url": "https://www.kitchenaid.com/countertop-appliances/stand-mixers/tilt-head-stand-mixers/p.artisan-series-5-quart-tilt-head-stand-mixer.KSM150PSER.html"
       }
-    ]
+    ],
+    "image_source": {
+      "kind": "amazon",
+      "asin": "B00005UP2K",
+      "width": 500,
+      "height": 500
+    }
   },
   {
     "id": "cosori-pro-5-8",
@@ -488,7 +518,7 @@
     "category": "kitchen",
     "receipt": null,
     "meta": "COSORI • CS358-AF SERIES • AMAZON.COM ASIN B089ZT66H9",
-    "image": "images/cosori-pro.jpg",
+    "image": "https://m.media-amazon.com/images/P/B089ZT66H9.01.LZZZZZZZ.jpg",
     "recallMatch": {
       "brand": [
         "cosori"
@@ -567,7 +597,13 @@
         "source": "COSORI",
         "url": "https://cdn.accentuate.io/4894973755480/1613980148681/01.06_M1_CS358-AF_2020-09-29_WEB_US_en.pdf?v=0"
       }
-    ]
+    ],
+    "image_source": {
+      "kind": "amazon",
+      "asin": "B089ZT66H9",
+      "width": 500,
+      "height": 500
+    }
   },
   {
     "receipt": null,
@@ -664,7 +700,8 @@
         "source": "Lasko",
         "url": "https://lasko.com/products/lasko-ct32150-32-digital-ceramic-tower-space-heater-with-remote-control-black"
       }
-    ]
+    ],
+    "image_source": null
   },
   {
     "receipt": null,
@@ -760,13 +797,14 @@
         "source": "Lasko",
         "url": "https://lasko.com/products/lasko-ready-heat-14-ceramic-tower-space-heater-oscillating-2-heat-settings-timer-thermostat"
       }
-    ]
+    ],
+    "image_source": null
   },
   {
     "receipt": null,
-    "image": null,
+    "image": "https://m.media-amazon.com/images/P/B09C24TYGQ.01.LZZZZZZZ.jpg",
     "asin": {
-      "us": null,
+      "us": "B09C24TYGQ",
       "ca": null
     },
     "checks": [
@@ -845,7 +883,13 @@
         "source": "Levoit",
         "url": "https://levoit.com/products/classic-300s-smart-ultrasonic-top-fill-cool-mist-humidifier"
       }
-    ]
+    ],
+    "image_source": {
+      "kind": "amazon",
+      "asin": "B09C24TYGQ",
+      "width": 500,
+      "height": 500
+    }
   },
   {
     "receipt": null,
@@ -897,13 +941,14 @@
         "loftec"
       ],
       "modelConfirmed": true
-    }
+    },
+    "image_source": null
   },
   {
     "receipt": null,
-    "image": null,
+    "image": "https://m.media-amazon.com/images/P/B07HQNXVZQ.01.LZZZZZZZ.jpg",
     "asin": {
-      "us": null,
+      "us": "B07HQNXVZQ",
       "ca": null
     },
     "checks": [
@@ -1001,13 +1046,19 @@
         "source": "Snow Joe",
         "url": "https://files.snowjoe.com/product-manuals/24V-SS10_MANUAL_MR3_05062021_FINAL.pdf"
       }
-    ]
+    ],
+    "image_source": {
+      "kind": "amazon",
+      "asin": "B07HQNXVZQ",
+      "width": 500,
+      "height": 500
+    }
   },
   {
     "receipt": null,
-    "image": null,
+    "image": "https://m.media-amazon.com/images/P/B015TKUPIC.01.LZZZZZZZ.jpg",
     "asin": {
-      "us": null,
+      "us": "B015TKUPIC",
       "ca": null
     },
     "checks": [
@@ -1091,11 +1142,17 @@
         "source": "NOCO",
         "url": "https://no.co/gb40"
       }
-    ]
+    ],
+    "image_source": {
+      "kind": "amazon",
+      "asin": "B015TKUPIC",
+      "width": 500,
+      "height": 500
+    }
   },
   {
     "receipt": null,
-    "image": null,
+    "image": "https://m.media-amazon.com/images/P/B07MVY7K43.01.LZZZZZZZ.jpg",
     "asin": {
       "us": "B07MVY7K43",
       "ca": "B07MVY7K43"
@@ -1187,13 +1244,19 @@
         "source": "NOCO",
         "url": "https://no.co/gb50"
       }
-    ]
+    ],
+    "image_source": {
+      "kind": "amazon",
+      "asin": "B07MVY7K43",
+      "width": 500,
+      "height": 500
+    }
   },
   {
     "receipt": null,
-    "image": null,
+    "image": "https://m.media-amazon.com/images/P/B000CITK8S.01.LZZZZZZZ.jpg",
     "asin": {
-      "us": null,
+      "us": "B000CITK8S",
       "ca": null
     },
     "checks": [
@@ -1278,13 +1341,19 @@
         "source": "Battery Tender",
         "url": "https://www.batterytender.com/products/junior"
       }
-    ]
+    ],
+    "image_source": {
+      "kind": "amazon",
+      "asin": "B000CITK8S",
+      "width": 500,
+      "height": 500
+    }
   },
   {
     "receipt": null,
-    "image": null,
+    "image": "https://m.media-amazon.com/images/P/B07VCVCTHC.01.LZZZZZZZ.jpg",
     "asin": {
-      "us": null,
+      "us": "B07VCVCTHC",
       "ca": null
     },
     "checks": [
@@ -1363,11 +1432,17 @@
         "source": "Bosch",
         "url": "https://www.boschautoparts.com/p/icon-wiper-blades"
       }
-    ]
+    ],
+    "image_source": {
+      "kind": "amazon",
+      "asin": "B07VCVCTHC",
+      "width": 234,
+      "height": 500
+    }
   },
   {
     "receipt": null,
-    "image": null,
+    "image": "https://m.media-amazon.com/images/P/B00BTKAPUU.01.LZZZZZZZ.jpg",
     "asin": {
       "us": "B00BTKAPUU",
       "ca": "B00BTKAPUU"
@@ -1455,13 +1530,19 @@
         "source": "Coway",
         "url": "https://cowaymega.com/products/mighty-ap-1512hh"
       }
-    ]
+    ],
+    "image_source": {
+      "kind": "amazon",
+      "asin": "B00BTKAPUU",
+      "width": 500,
+      "height": 500
+    }
   },
   {
     "receipt": null,
-    "image": null,
+    "image": "https://m.media-amazon.com/images/P/B0G19ZCNP9.01.LZZZZZZZ.jpg",
     "asin": {
-      "us": null,
+      "us": "B0G19ZCNP9",
       "ca": null
     },
     "checks": [
@@ -1546,7 +1627,13 @@
         "source": "Levoit",
         "url": "https://levoit.com/cdn/shop/files/HEAPAPLVSUS0073A_Core_300S-P_Smart_Air_Purifier_manual_US_A2-240918_4855d907-1d27-4231-ad1c-82899f56e370.pdf?v=12210007380621608458"
       }
-    ]
+    ],
+    "image_source": {
+      "kind": "amazon",
+      "asin": "B0G19ZCNP9",
+      "width": 500,
+      "height": 500
+    }
   },
   {
     "receipt": null,
@@ -1630,7 +1717,8 @@
         "source": "Midea",
         "url": "https://www.midea.com/us/store/cooling-and-heating/dehumidifiers/midea-cube-20-pt-dehumidifier-for-basement--room--or-garage---co.mad50s1qwt"
       }
-    ]
+    ],
+    "image_source": null
   },
   {
     "receipt": null,
@@ -1720,13 +1808,14 @@
         "source": "Brita",
         "url": "https://www.brita.com/products/brita-tahoe-water-pitcher-elite-filter/"
       }
-    ]
+    ],
+    "image_source": null
   },
   {
     "receipt": null,
-    "image": null,
+    "image": "https://m.media-amazon.com/images/P/B000L3XYZ4.01.LZZZZZZZ.jpg",
     "asin": {
-      "us": null,
+      "us": "B000L3XYZ4",
       "ca": null
     },
     "checks": [
@@ -1806,7 +1895,13 @@
         "source": "PetSafe",
         "url": "https://www.petsafe.com/p/drinkwell-platinum-fountain/PWW00-13703/"
       }
-    ]
+    ],
+    "image_source": {
+      "kind": "amazon",
+      "asin": "B000L3XYZ4",
+      "width": 500,
+      "height": 500
+    }
   },
   {
     "receipt": null,
@@ -1892,7 +1987,8 @@
         "source": "Whisker",
         "url": "https://www.whisker.com/litter-robot-4"
       }
-    ]
+    ],
+    "image_source": null
   },
   {
     "receipt": null,
@@ -1982,13 +2078,14 @@
         "source": "PETLIBRO",
         "url": "https://petlibro.com/products/granary-2-series"
       }
-    ]
+    ],
+    "image_source": null
   },
   {
     "receipt": null,
-    "image": null,
+    "image": "https://m.media-amazon.com/images/P/B07MZD93QQ.01.LZZZZZZZ.jpg",
     "asin": {
-      "us": null,
+      "us": "B07MZD93QQ",
       "ca": null
     },
     "checks": [
@@ -2077,7 +2174,13 @@
         "source": "FURminator",
         "url": "https://www.furminator.com/products/tools/deshedding-tools/undercoat-deshedding-tool-medium-dog-short-hair"
       }
-    ]
+    ],
+    "image_source": {
+      "kind": "amazon",
+      "asin": "B07MZD93QQ",
+      "width": 500,
+      "height": 500
+    }
   },
   {
     "receipt": null,
@@ -2162,7 +2265,8 @@
         "source": "Purple",
         "url": "https://purple.com/pillows/harmony"
       }
-    ]
+    ],
+    "image_source": null
   },
   {
     "receipt": null,
@@ -2250,7 +2354,8 @@
         "source": "Tempur-Pedic",
         "url": "https://www.tempurpedic.com/shop-pillows/tempur-neck-pillow/"
       }
-    ]
+    ],
+    "image_source": null
   },
   {
     "receipt": null,
@@ -2342,7 +2447,8 @@
         "source": "Brooklinen",
         "url": "https://www.brooklinen.com/products/luxe-core-sheet-set"
       }
-    ]
+    ],
+    "image_source": null
   },
   {
     "receipt": null,
@@ -2436,13 +2542,14 @@
         "source": "Herman Miller",
         "url": "https://www.hermanmiller.com/products/seating/office-chairs/aeron-chair/"
       }
-    ]
+    ],
+    "image_source": null
   },
   {
     "receipt": null,
-    "image": null,
+    "image": "https://m.media-amazon.com/images/P/B09LD8VFS1.01.LZZZZZZZ.jpg",
     "asin": {
-      "us": null,
+      "us": "B09LD8VFS1",
       "ca": null
     },
     "checks": [
@@ -2515,7 +2622,13 @@
         "source": "Philips",
         "url": "https://www.usa.philips.com/c-p/HX3681_26/4100-series-sonic-electric-toothbrush"
       }
-    ]
+    ],
+    "image_source": {
+      "kind": "amazon",
+      "asin": "B09LD8VFS1",
+      "width": 500,
+      "height": 500
+    }
   },
   {
     "receipt": null,
@@ -2575,11 +2688,12 @@
         "source": "Braun",
         "url": "https://us.braun.com/en-us/service/products/parts/5764/20000334"
       }
-    ]
+    ],
+    "image_source": null
   },
   {
     "receipt": null,
-    "image": null,
+    "image": "https://m.media-amazon.com/images/P/B09XS7JWHH.01.LZZZZZZZ.jpg",
     "asin": {
       "us": "B09XS7JWHH",
       "ca": "B09XS7JWHH"
@@ -2672,13 +2786,19 @@
         "source": "Sony",
         "url": "https://electronics.sony.com/audio/headphones/headband/p/wh1000xm5-b"
       }
-    ]
+    ],
+    "image_source": {
+      "kind": "amazon",
+      "asin": "B09XS7JWHH",
+      "width": 500,
+      "height": 491
+    }
   },
   {
     "receipt": null,
-    "image": null,
+    "image": "https://m.media-amazon.com/images/P/B09VPHVT2Z.01.LZZZZZZZ.jpg",
     "asin": {
-      "us": null,
+      "us": "B09VPHVT2Z",
       "ca": null
     },
     "checks": [
@@ -2794,7 +2914,13 @@
         "source": "Anker",
         "url": "https://www.anker.com/products/a1289"
       }
-    ]
+    ],
+    "image_source": {
+      "kind": "amazon",
+      "asin": "B09VPHVT2Z",
+      "width": 400,
+      "height": 500
+    }
   },
   {
     "id": "breville-bes870xl",
@@ -2802,7 +2928,7 @@
     "category": "kitchen",
     "receipt": null,
     "meta": "BES870 • SPECS PER BREVILLE",
-    "image": null,
+    "image": "https://m.media-amazon.com/images/P/B00CH9QWOU.01.LZZZZZZZ.jpg",
     "recallMatch": {
       "brand": [
         "breville"
@@ -2854,7 +2980,7 @@
     ],
     "bin": [],
     "asin": {
-      "us": null,
+      "us": "B00CH9QWOU",
       "ca": null
     },
     "searchQuery": "Breville Barista Express BES870XL",
@@ -2896,7 +3022,13 @@
         "source": "Breville",
         "url": "https://www.breville.com/en-us/product/bes870"
       }
-    ]
+    ],
+    "image_source": {
+      "kind": "amazon",
+      "asin": "B00CH9QWOU",
+      "width": 500,
+      "height": 500
+    }
   },
   {
     "id": "breville-bov900",
@@ -2904,7 +3036,7 @@
     "category": "kitchen",
     "receipt": null,
     "meta": "BOV900 • SPECS PER BREVILLE",
-    "image": null,
+    "image": "https://m.media-amazon.com/images/P/B01N5UPTZS.01.LZZZZZZZ.jpg",
     "recallMatch": {
       "brand": [
         "breville"
@@ -2956,7 +3088,7 @@
     ],
     "bin": [],
     "asin": {
-      "us": null,
+      "us": "B01N5UPTZS",
       "ca": null
     },
     "searchQuery": "Breville Smart Oven Air Fryer Pro BOV900",
@@ -2998,7 +3130,13 @@
         "source": "Breville",
         "url": "https://www.breville.com/en-us/product/bov900"
       }
-    ]
+    ],
+    "image_source": {
+      "kind": "amazon",
+      "asin": "B01N5UPTZS",
+      "width": 500,
+      "height": 500
+    }
   },
   {
     "id": "moccamaster-kbgv",
@@ -3006,7 +3144,7 @@
     "category": "kitchen",
     "receipt": null,
     "meta": "KBGV • SPECS PER TECHNIVORM",
-    "image": null,
+    "image": "https://m.media-amazon.com/images/P/B093DYPBYR.01.LZZZZZZZ.jpg",
     "recallMatch": {
       "brand": [
         "technivorm",
@@ -3058,7 +3196,7 @@
     ],
     "bin": [],
     "asin": {
-      "us": null,
+      "us": "B093DYPBYR",
       "ca": null
     },
     "searchQuery": "Technivorm Moccamaster KBGV Select",
@@ -3100,7 +3238,13 @@
         "source": "Technivorm",
         "url": "https://us.moccamaster.com/products/kbgv"
       }
-    ]
+    ],
+    "image_source": {
+      "kind": "amazon",
+      "asin": "B093DYPBYR",
+      "width": 500,
+      "height": 500
+    }
   },
   {
     "id": "aeropress-original",
@@ -3201,7 +3345,8 @@
         "source": "AeroPress",
         "url": "https://aeropress.com/products/aeropress-coffee-maker"
       }
-    ]
+    ],
+    "image_source": null
   },
   {
     "id": "fellow-stagg-ekg",
@@ -3296,7 +3441,8 @@
         "source": "Fellow",
         "url": "https://fellowproducts.com/products/stagg-ekg-electric-pour-over-kettle"
       }
-    ]
+    ],
+    "image_source": null
   },
   {
     "id": "lodge-classic-skillet",
@@ -3304,7 +3450,7 @@
     "category": "kitchen",
     "receipt": null,
     "meta": "L8SK3 • SPECS PER LODGE",
-    "image": null,
+    "image": "https://m.media-amazon.com/images/P/B00WTSCXIS.01.LZZZZZZZ.jpg",
     "recallMatch": {
       "brand": [
         "lodge"
@@ -3355,7 +3501,7 @@
     ],
     "bin": [],
     "asin": {
-      "us": null,
+      "us": "B00WTSCXIS",
       "ca": null
     },
     "searchQuery": "Lodge 10.25 Inch Classic Cast Iron Skillet",
@@ -3397,7 +3543,13 @@
         "source": "Lodge",
         "url": "https://www.lodgecastiron.com/products/round-cast-iron-classic-skillet?variant=51685752439156"
       }
-    ]
+    ],
+    "image_source": {
+      "kind": "amazon",
+      "asin": "B00WTSCXIS",
+      "width": 500,
+      "height": 500
+    }
   },
   {
     "id": "lecreuset-signature-5-5",
@@ -3405,7 +3557,7 @@
     "category": "kitchen",
     "receipt": null,
     "meta": "5.5 QT • SPECS PER LE CREUSET",
-    "image": null,
+    "image": "https://m.media-amazon.com/images/P/B00VWMFLQI.01.LZZZZZZZ.jpg",
     "recallMatch": {
       "brand": [
         "le creuset"
@@ -3456,7 +3608,7 @@
     ],
     "bin": [],
     "asin": {
-      "us": null,
+      "us": "B00VWMFLQI",
       "ca": null
     },
     "searchQuery": "Le Creuset Signature Round Dutch Oven, 5.5 qt",
@@ -3498,7 +3650,13 @@
         "source": "Le Creuset",
         "url": "https://www.lecreuset.com/signature-round-dutch-oven-with-crucible-knob-5-1-2-qt-flamme-doree/21177026183471.html"
       }
-    ]
+    ],
+    "image_source": {
+      "kind": "amazon",
+      "asin": "B00VWMFLQI",
+      "width": 500,
+      "height": 333
+    }
   },
   {
     "id": "allclad-d3-4112",
@@ -3600,7 +3758,8 @@
         "source": "All-Clad",
         "url": "https://www.all-clad.com/d3-stainless-3-ply-bonded-cookware-fry-pan-12-inch.html"
       }
-    ]
+    ],
+    "image_source": null
   },
   {
     "id": "cuisinart-dfp-14bcny",
@@ -3608,7 +3767,7 @@
     "category": "kitchen",
     "receipt": null,
     "meta": "DFP-14BCNY • SPECS PER CUISINART",
-    "image": null,
+    "image": "https://m.media-amazon.com/images/P/B01AXM4WV2.01.LZZZZZZZ.jpg",
     "recallMatch": {
       "brand": [
         "cuisinart"
@@ -3684,7 +3843,7 @@
       }
     ],
     "asin": {
-      "us": null,
+      "us": "B01AXM4WV2",
       "ca": null
     },
     "searchQuery": "Cuisinart Custom 14-Cup Food Processor DFP-14BCNY",
@@ -3726,7 +3885,13 @@
         "source": "Cuisinart",
         "url": "https://www.cuisinart.com/custom-14-cup-food-processor/DFP-14BCNY.html"
       }
-    ]
+    ],
+    "image_source": {
+      "kind": "amazon",
+      "asin": "B01AXM4WV2",
+      "width": 500,
+      "height": 500
+    }
   },
   {
     "id": "zojirushi-ns-zcc10",
@@ -3734,7 +3899,7 @@
     "category": "kitchen",
     "receipt": null,
     "meta": "NS-ZCC10 • SPECS PER ZOJIRUSHI",
-    "image": null,
+    "image": "https://m.media-amazon.com/images/P/B00007J5U7.01.LZZZZZZZ.jpg",
     "recallMatch": {
       "brand": [
         "zojirushi"
@@ -3786,7 +3951,7 @@
     ],
     "bin": [],
     "asin": {
-      "us": null,
+      "us": "B00007J5U7",
       "ca": null
     },
     "searchQuery": "Zojirushi Neuro Fuzzy Rice Cooker NS-ZCC10",
@@ -3822,7 +3987,13 @@
         "source": "Zojirushi",
         "url": "https://store.zojirushi.com/products/nszcc"
       }
-    ]
+    ],
+    "image_source": {
+      "kind": "amazon",
+      "asin": "B00007J5U7",
+      "width": 500,
+      "height": 388
+    }
   },
   {
     "id": "chemex-cm-6a",
@@ -3923,7 +4094,8 @@
         "source": "Chemex",
         "url": "https://chemexcoffeemaker.com/products/six-cup-classic-chemex"
       }
-    ]
+    ],
+    "image_source": null
   },
   {
     "id": "anova-precision-nano",
@@ -4024,7 +4196,8 @@
         "source": "Anova Culinary",
         "url": "https://anovaculinary.com/products/anova-precision-cooker-nano"
       }
-    ]
+    ],
+    "image_source": null
   },
   {
     "id": "wusthof-classic-8",
@@ -4032,7 +4205,7 @@
     "category": "kitchen",
     "receipt": null,
     "meta": "1040100120 • SPECS PER WUSTHOF",
-    "image": null,
+    "image": "https://m.media-amazon.com/images/P/B00009ZK08.01.LZZZZZZZ.jpg",
     "recallMatch": {
       "brand": [
         "wusthof"
@@ -4083,7 +4256,7 @@
     ],
     "bin": [],
     "asin": {
-      "us": null,
+      "us": "B00009ZK08",
       "ca": null
     },
     "searchQuery": "Wusthof Classic 8-Inch Cook's Knife",
@@ -4125,7 +4298,13 @@
         "source": "Wusthof",
         "url": "https://www.wusthof.com/products/wusthof-classic-8-cooks-knife-1040100120"
       }
-    ]
+    ],
+    "image_source": {
+      "kind": "amazon",
+      "asin": "B00009ZK08",
+      "width": 500,
+      "height": 375
+    }
   },
   {
     "id": "nordic-ware-43100",
@@ -4133,7 +4312,7 @@
     "category": "kitchen",
     "receipt": null,
     "meta": "43100 • SPECS PER NORDIC WARE",
-    "image": null,
+    "image": "https://m.media-amazon.com/images/P/B0049C2S32.01.LZZZZZZZ.jpg",
     "recallMatch": {
       "brand": [
         "nordic ware"
@@ -4184,7 +4363,7 @@
     ],
     "bin": [],
     "asin": {
-      "us": null,
+      "us": "B0049C2S32",
       "ca": null
     },
     "searchQuery": "Nordic Ware Naturals Baker's Half Sheet",
@@ -4226,7 +4405,13 @@
         "source": "Nordic Ware",
         "url": "https://www.nordicware.com/products/naturals-bakers-half-sheet/"
       }
-    ]
+    ],
+    "image_source": {
+      "kind": "amazon",
+      "asin": "B0049C2S32",
+      "width": 500,
+      "height": 500
+    }
   },
   {
     "id": "dreo-atom-316",
@@ -4327,7 +4512,8 @@
         "source": "Dreo",
         "url": "https://www.dreo.com/products/dreo-space-heater-atom-316"
       }
-    ]
+    ],
+    "image_source": null
   },
   {
     "id": "honeywell-hev615w",
@@ -4428,7 +4614,8 @@
         "source": "Honeywell",
         "url": "https://www.honeywellstore.com/store/products/honeywell-top-fill-cool-moisture-tower-humidifier-hev615w.htm"
       }
-    ]
+    ],
+    "image_source": null
   },
   {
     "id": "toro-power-clear-38753",
@@ -4559,7 +4746,8 @@
         "source": "Toro",
         "url": "https://www.toro.com/en/product/38753"
       }
-    ]
+    ],
+    "image_source": null
   },
   {
     "id": "peet-original",
@@ -4660,7 +4848,8 @@
         "source": "PEET",
         "url": "https://www.peetdryer.com/products/original-peet"
       }
-    ]
+    ],
+    "image_source": null
   },
   {
     "id": "stanley-classic-1-5",
@@ -4668,7 +4857,7 @@
     "category": "winter",
     "receipt": null,
     "meta": "1.5 QT • SPECS PER STANLEY",
-    "image": null,
+    "image": "https://m.media-amazon.com/images/P/B0GC9JP4YL.01.LZZZZZZZ.jpg",
     "recallMatch": {
       "brand": [
         "stanley"
@@ -4719,7 +4908,7 @@
     ],
     "bin": [],
     "asin": {
-      "us": null,
+      "us": "B0GC9JP4YL",
       "ca": null
     },
     "searchQuery": "Stanley Classic Legendary Bottle, 1.5 qt",
@@ -4761,7 +4950,13 @@
         "source": "Stanley",
         "url": "https://www.stanley1913.com/products/classic-legendary-bottle-1-5-qt"
       }
-    ]
+    ],
+    "image_source": {
+      "kind": "amazon",
+      "asin": "B0GC9JP4YL",
+      "width": 421,
+      "height": 500
+    }
   },
   {
     "id": "mr-heater-mh9bx",
@@ -4863,7 +5058,8 @@
         "source": "Mr. Heater",
         "url": "https://mrheater.com/products/portable-buddy-heater"
       }
-    ]
+    ],
+    "image_source": null
   },
   {
     "id": "pendleton-eco-wise",
@@ -4964,7 +5160,8 @@
         "source": "Pendleton",
         "url": "https://www.pendleton-usa.com/product/eco-wise-wool-solid-blanket/70080.html"
       }
-    ]
+    ],
+    "image_source": null
   },
   {
     "id": "vornado-avh2",
@@ -4972,7 +5169,7 @@
     "category": "winter",
     "receipt": null,
     "meta": "AVH2 • SPECS PER VORNADO",
-    "image": null,
+    "image": "https://m.media-amazon.com/images/P/B08HSPX7XT.01.LZZZZZZZ.jpg",
     "recallMatch": {
       "brand": [
         "vornado"
@@ -5023,7 +5220,7 @@
     ],
     "bin": [],
     "asin": {
-      "us": null,
+      "us": "B08HSPX7XT",
       "ca": null
     },
     "searchQuery": "Vornado AVH2 Whole Room Heater",
@@ -5065,7 +5262,13 @@
         "source": "Vornado",
         "url": "https://vornado.com/products/avh2-advanced-whole-room-heater-with-auto-climate"
       }
-    ]
+    ],
+    "image_source": {
+      "kind": "amazon",
+      "asin": "B08HSPX7XT",
+      "width": 500,
+      "height": 500
+    }
   },
   {
     "id": "delonghi-trd40615e",
@@ -5073,7 +5276,7 @@
     "category": "winter",
     "receipt": null,
     "meta": "TRD40615E • SPECS PER DE'LONGHI",
-    "image": null,
+    "image": "https://m.media-amazon.com/images/P/B00G96S4Y8.01.LZZZZZZZ.jpg",
     "recallMatch": {
       "brand": [
         "de'longhi",
@@ -5125,7 +5328,7 @@
     ],
     "bin": [],
     "asin": {
-      "us": null,
+      "us": "B00G96S4Y8",
       "ca": null
     },
     "searchQuery": "De'Longhi Dragon 4 Radiator TRD40615E",
@@ -5167,7 +5370,13 @@
         "source": "De'Longhi",
         "url": "https://www.delonghi.com/en-us/p/radiator-space-heater-trd40615e-dragon-4-oil-filled-radiator/TRD40615E-6A.html"
       }
-    ]
+    ],
+    "image_source": {
+      "kind": "amazon",
+      "asin": "B00G96S4Y8",
+      "width": 344,
+      "height": 500
+    }
   },
   {
     "id": "ego-snt2110",
@@ -5175,7 +5384,7 @@
     "category": "winter",
     "receipt": null,
     "meta": "SNT2110 • SPECS PER EGO",
-    "image": null,
+    "image": "https://m.media-amazon.com/images/P/B08JQJBDM2.01.LZZZZZZZ.jpg",
     "recallMatch": {
       "brand": [
         "ego"
@@ -5226,7 +5435,7 @@
     ],
     "bin": [],
     "asin": {
-      "us": null,
+      "us": "B08JQJBDM2",
       "ca": null
     },
     "searchQuery": "EGO Power+ 21-inch Snow Blower with Steel Auger",
@@ -5268,7 +5477,13 @@
         "source": "EGO",
         "url": "https://egopowerplus.com/snow-blower-steel-auger-snt2110/"
       }
-    ]
+    ],
+    "image_source": {
+      "kind": "amazon",
+      "asin": "B08JQJBDM2",
+      "width": 500,
+      "height": 500
+    }
   },
   {
     "id": "sunjoe-spx3000",
@@ -5276,7 +5491,7 @@
     "category": "car-garage",
     "receipt": null,
     "meta": "SPX3000 • SPECS PER SUN JOE",
-    "image": null,
+    "image": "https://m.media-amazon.com/images/P/B00CPGMUXW.01.LZZZZZZZ.jpg",
     "recallMatch": {
       "brand": [
         "sun joe"
@@ -5327,7 +5542,7 @@
     ],
     "bin": [],
     "asin": {
-      "us": null,
+      "us": "B00CPGMUXW",
       "ca": null
     },
     "searchQuery": "Sun Joe SPX3000 Electric Pressure Washer",
@@ -5369,7 +5584,13 @@
         "source": "Sun Joe",
         "url": "https://files.snowjoe.com/product-manuals/SPX3000_MANUAL_ENG_02042020_MR12_FINAL.pdf"
       }
-    ]
+    ],
+    "image_source": {
+      "kind": "amazon",
+      "asin": "B00CPGMUXW",
+      "width": 500,
+      "height": 500
+    }
   },
   {
     "id": "viair-88p",
@@ -5377,7 +5598,7 @@
     "category": "car-garage",
     "receipt": null,
     "meta": "88P • SPECS PER VIAIR",
-    "image": null,
+    "image": "https://m.media-amazon.com/images/P/B005ASY23I.01.LZZZZZZZ.jpg",
     "recallMatch": {
       "brand": [
         "viair"
@@ -5429,7 +5650,7 @@
     ],
     "bin": [],
     "asin": {
-      "us": null,
+      "us": "B005ASY23I",
       "ca": null
     },
     "searchQuery": "VIAIR 88P Portable Compressor",
@@ -5465,7 +5686,13 @@
         "source": "VIAIR",
         "url": "https://viaircorp.com/products/88p-portable-compressor"
       }
-    ]
+    ],
+    "image_source": {
+      "kind": "amazon",
+      "asin": "B005ASY23I",
+      "width": 500,
+      "height": 500
+    }
   },
   {
     "id": "innova-5210",
@@ -5560,7 +5787,8 @@
         "source": "Innova",
         "url": "https://www.innova.com/products/carscan-advisor-5210"
       }
-    ]
+    ],
+    "image_source": null
   },
   {
     "id": "garmin-dash-mini-2",
@@ -5568,7 +5796,7 @@
     "category": "car-garage",
     "receipt": null,
     "meta": "DASH CAM MINI 2 • SPECS PER GARMIN",
-    "image": null,
+    "image": "https://m.media-amazon.com/images/P/B0931YZ82P.01.LZZZZZZZ.jpg",
     "recallMatch": {
       "brand": [
         "garmin"
@@ -5619,7 +5847,7 @@
     ],
     "bin": [],
     "asin": {
-      "us": null,
+      "us": "B0931YZ82P",
       "ca": null
     },
     "searchQuery": "Garmin Dash Cam Mini 2",
@@ -5655,7 +5883,13 @@
         "source": "Garmin",
         "url": "https://www.garmin.com/en-US/p/731428/"
       }
-    ]
+    ],
+    "image_source": {
+      "kind": "amazon",
+      "asin": "B0931YZ82P",
+      "width": 500,
+      "height": 500
+    }
   },
   {
     "id": "chamberlain-b6850",
@@ -5758,7 +5992,8 @@
         "source": "Chamberlain",
         "url": "https://www.chamberlain.com/1-1-4-hps-belt-drive-opener-with-battery-backup-built-in-camera-and-myq-connectivity/p/B6850"
       }
-    ]
+    ],
+    "image_source": null
   },
   {
     "id": "tekton-24335",
@@ -5853,7 +6088,8 @@
         "source": "TEKTON",
         "url": "https://www.tekton.com/1-2-inch-drive-micrometer-torque-wrench-24335"
       }
-    ]
+    ],
+    "image_source": null
   },
   {
     "id": "obdlink-mx-plus",
@@ -5949,7 +6185,8 @@
         "source": "OBDLink",
         "url": "https://www.obdlink.com/products/obdlink-mxp/"
       }
-    ]
+    ],
+    "image_source": null
   },
   {
     "id": "fluke-117",
@@ -5957,7 +6194,7 @@
     "category": "car-garage",
     "receipt": null,
     "meta": "FLUKE 117 • SPECS PER FLUKE",
-    "image": null,
+    "image": "https://m.media-amazon.com/images/P/B000O3LUEI.01.LZZZZZZZ.jpg",
     "recallMatch": {
       "brand": [
         "fluke"
@@ -6023,7 +6260,7 @@
     ],
     "bin": [],
     "asin": {
-      "us": null,
+      "us": "B000O3LUEI",
       "ca": null
     },
     "searchQuery": "Fluke 117 Electrician's Multimeter",
@@ -6059,7 +6296,13 @@
         "source": "Fluke",
         "url": "https://www.fluke.com/en-us/product/electrical-testing/digital-multimeters/fluke-117"
       }
-    ]
+    ],
+    "image_source": {
+      "kind": "amazon",
+      "asin": "B000O3LUEI",
+      "width": 357,
+      "height": 500
+    }
   },
   {
     "id": "dewalt-dcd771",
@@ -6067,7 +6310,7 @@
     "category": "car-garage",
     "receipt": null,
     "meta": "DCD771 • SPECS PER DEWALT",
-    "image": null,
+    "image": "https://m.media-amazon.com/images/P/B00ET5VMTU.01.LZZZZZZZ.jpg",
     "recallMatch": {
       "brand": [
         "dewalt"
@@ -6118,7 +6361,7 @@
     ],
     "bin": [],
     "asin": {
-      "us": null,
+      "us": "B00ET5VMTU",
       "ca": null
     },
     "searchQuery": "DeWalt 20V MAX Compact Drill DCD771",
@@ -6154,7 +6397,13 @@
         "source": "DeWalt",
         "url": "https://www.dewalt.com/en-us/product/dcd771c2/20v-max-compact-drilldriver-kit-2-batteries"
       }
-    ]
+    ],
+    "image_source": {
+      "kind": "amazon",
+      "asin": "B00ET5VMTU",
+      "width": 500,
+      "height": 500
+    }
   },
   {
     "id": "ctek-mxs-5",
@@ -6250,7 +6499,8 @@
         "source": "CTEK",
         "url": "https://ctek.com/en-us/products/mxs-5-0-na"
       }
-    ]
+    ],
+    "image_source": null
   },
   {
     "id": "bluedriver",
@@ -6339,7 +6589,8 @@
         "source": "BlueDriver",
         "url": "https://us.bluedriver.com/"
       }
-    ]
+    ],
+    "image_source": null
   },
   {
     "id": "fanttik-x8-apex",
@@ -6434,7 +6685,8 @@
         "source": "Fanttik",
         "url": "https://fanttik.com/products/x8-apex-tire-inflator"
       }
-    ]
+    ],
+    "image_source": null
   },
   {
     "id": "honeywell-hpa300",
@@ -6529,7 +6781,8 @@
         "source": "Honeywell",
         "url": "https://www.honeywellstore.com/store/products/hpa300-true-hepa-whole-room-air-purifier-with-allergen-remover.htm"
       }
-    ]
+    ],
+    "image_source": null
   },
   {
     "id": "blueair-211i-max",
@@ -6625,7 +6878,8 @@
         "source": "Blueair",
         "url": "https://www.blueair.com/products/blue-pure-211i-max"
       }
-    ]
+    ],
+    "image_source": null
   },
   {
     "id": "aquasana-claryum",
@@ -6720,7 +6974,8 @@
         "source": "Aquasana",
         "url": "https://www.aquasana.com/under-sink-water-filters/claryum-2-stage/brushed-nickel-100391677.html"
       }
-    ]
+    ],
+    "image_source": null
   },
   {
     "id": "waterdrop-g3p600",
@@ -6815,7 +7070,8 @@
         "source": "Waterdrop",
         "url": "https://www.waterdropfilter.com/products/waterdrop-reverse-osmosis-water-filtration-system"
       }
-    ]
+    ],
+    "image_source": null
   },
   {
     "id": "ispring-rcc7",
@@ -6910,7 +7166,8 @@
         "source": "iSpring",
         "url": "https://www.ispringfilter.com/products/5-stage-essence-ro-water-filtration-system-ispring-rcc7-5-stage-residential-under-sink-reverse-osmosis-water-filter-system-wqa-certified-75-gpd"
       }
-    ]
+    ],
+    "image_source": null
   },
   {
     "id": "apec-roes-50",
@@ -6918,7 +7175,7 @@
     "category": "air-water",
     "receipt": null,
     "meta": "ROES-50 • SPECS PER APEC",
-    "image": null,
+    "image": "https://m.media-amazon.com/images/P/B00I0ZGOZM.01.LZZZZZZZ.jpg",
     "recallMatch": {
       "brand": [
         "apec"
@@ -6969,7 +7226,7 @@
     ],
     "bin": [],
     "asin": {
-      "us": null,
+      "us": "B00I0ZGOZM",
       "ca": null
     },
     "searchQuery": "APEC ROES-50 Essence Reverse Osmosis",
@@ -7005,7 +7262,13 @@
         "source": "APEC",
         "url": "https://www.apecwater.com/products/roes-50"
       }
-    ]
+    ],
+    "image_source": {
+      "kind": "amazon",
+      "asin": "B00I0ZGOZM",
+      "width": 500,
+      "height": 500
+    }
   },
   {
     "id": "coway-airmega-250",
@@ -7013,7 +7276,7 @@
     "category": "air-water",
     "receipt": null,
     "meta": "AIRMEGA 250 • SPECS PER COWAY",
-    "image": null,
+    "image": "https://m.media-amazon.com/images/P/B08H4DZ5MD.01.LZZZZZZZ.jpg",
     "recallMatch": {
       "brand": [
         "coway"
@@ -7064,7 +7327,7 @@
     ],
     "bin": [],
     "asin": {
-      "us": null,
+      "us": "B08H4DZ5MD",
       "ca": null
     },
     "searchQuery": "Coway Airmega 250 Air Purifier",
@@ -7100,7 +7363,13 @@
         "source": "Coway",
         "url": "https://cowaymega.com/products/airmega-250"
       }
-    ]
+    ],
+    "image_source": {
+      "kind": "amazon",
+      "asin": "B08H4DZ5MD",
+      "width": 500,
+      "height": 500
+    }
   },
   {
     "id": "winix-5500-2",
@@ -7201,7 +7470,8 @@
         "source": "Winix",
         "url": "https://www.winixamerica.com/wp-content/uploads/2025/03/5500-2_User-Manual_V5-V3.pdf"
       }
-    ]
+    ],
+    "image_source": null
   },
   {
     "id": "dremel-7760",
@@ -7209,7 +7479,7 @@
     "category": "pet",
     "receipt": null,
     "meta": "7760 • SPECS PER DREMEL",
-    "image": null,
+    "image": "https://m.media-amazon.com/images/P/B0DJ3JR93D.01.LZZZZZZZ.jpg",
     "recallMatch": {
       "brand": [
         "dremel"
@@ -7260,7 +7530,7 @@
     ],
     "bin": [],
     "asin": {
-      "us": null,
+      "us": "B0DJ3JR93D",
       "ca": null
     },
     "searchQuery": "Dremel 7760 Pet Nail Grooming Kit",
@@ -7296,7 +7566,13 @@
         "source": "Dremel",
         "url": "https://www.dremel.com/us/en/p/7760-pgkd-f0137760dc"
       }
-    ]
+    ],
+    "image_source": {
+      "kind": "amazon",
+      "asin": "B0DJ3JR93D",
+      "width": 500,
+      "height": 500
+    }
   },
   {
     "id": "petsafe-scoopfree-plus",
@@ -7392,7 +7668,8 @@
         "source": "PetSafe",
         "url": "https://www.petsafe.com/p/self-cleaning-litter-box-scoopfree-crystal-plus/PAL00-18016/"
       }
-    ]
+    ],
+    "image_source": null
   },
   {
     "id": "catit-flower-fountain",
@@ -7400,7 +7677,7 @@
     "category": "pet",
     "receipt": null,
     "meta": "FLOWER FOUNTAIN • SPECS PER CATIT",
-    "image": null,
+    "image": "https://m.media-amazon.com/images/P/B0146QXOB0.01.LZZZZZZZ.jpg",
     "recallMatch": {
       "brand": [
         "catit"
@@ -7451,7 +7728,7 @@
     ],
     "bin": [],
     "asin": {
-      "us": null,
+      "us": "B0146QXOB0",
       "ca": null
     },
     "searchQuery": "Catit Flower Fountain",
@@ -7487,7 +7764,13 @@
         "source": "Catit",
         "url": "https://www.catit.com/products/drinking-fountains/flower-fountain/"
       }
-    ]
+    ],
+    "image_source": {
+      "kind": "amazon",
+      "asin": "B0146QXOB0",
+      "width": 500,
+      "height": 500
+    }
   },
   {
     "id": "feliway-optimum",
@@ -7495,7 +7778,7 @@
     "category": "pet",
     "receipt": null,
     "meta": "FELIWAY OPTIMUM • SPECS PER FELIWAY",
-    "image": null,
+    "image": "https://m.media-amazon.com/images/P/B0HF17YSM5.01.LZZZZZZZ.jpg",
     "recallMatch": {
       "brand": [
         "feliway"
@@ -7546,7 +7829,7 @@
     ],
     "bin": [],
     "asin": {
-      "us": null,
+      "us": "B0HF17YSM5",
       "ca": null
     },
     "searchQuery": "Feliway Optimum Diffuser",
@@ -7582,7 +7865,13 @@
         "source": "Feliway",
         "url": "https://us.feliway.com/products/feliway-optimum-diffuser-refill-kit-48ml-30-day"
       }
-    ]
+    ],
+    "image_source": {
+      "kind": "amazon",
+      "asin": "B0HF17YSM5",
+      "width": 500,
+      "height": 500
+    }
   },
   {
     "id": "kong-classic",
@@ -7677,7 +7966,8 @@
         "source": "KONG",
         "url": "https://www.kongcompany.com/kong-classic/"
       }
-    ]
+    ],
+    "image_source": null
   },
   {
     "id": "whisker-feeder-robot",
@@ -7772,7 +8062,8 @@
         "source": "Whisker",
         "url": "https://www.whisker.com/feeder-robot"
       }
-    ]
+    ],
+    "image_source": null
   },
   {
     "id": "sleepypod-clickit",
@@ -7867,7 +8158,8 @@
         "source": "Sleepypod",
         "url": "https://sleepypod.com/products/sport-bundle"
       }
-    ]
+    ],
+    "image_source": null
   },
   {
     "id": "furbo-360",
@@ -7962,7 +8254,8 @@
         "source": "Furbo",
         "url": "https://furbo.com/us/products/furbo-dog-cam-360"
       }
-    ]
+    ],
+    "image_source": null
   },
   {
     "id": "casper-original",
@@ -8057,7 +8350,8 @@
         "source": "Casper",
         "url": "https://casper.com/products/original-foam-v1"
       }
-    ]
+    ],
+    "image_source": null
   },
   {
     "id": "saatva-classic",
@@ -8152,7 +8446,8 @@
         "source": "Saatva",
         "url": "https://saatvahelp.saatva.com/hc/en-us/articles/11914686059543-What-are-the-Saatva-Classic-specs"
       }
-    ]
+    ],
+    "image_source": null
   },
   {
     "id": "coop-original-pillow",
@@ -8248,7 +8543,8 @@
         "source": "Coop Sleep Goods",
         "url": "https://coopsleepgoods.com/products/the-original-pillow"
       }
-    ]
+    ],
+    "image_source": null
   },
   {
     "id": "hatch-restore-3",
@@ -8343,7 +8639,8 @@
         "source": "Hatch",
         "url": "https://www.hatch.co/quickstart/restore-3/controls-guide"
       }
-    ]
+    ],
+    "image_source": null
   },
   {
     "id": "lectrofan-classic",
@@ -8446,7 +8743,8 @@
         "source": "Adaptive Sound Technologies",
         "url": "https://www.soundofsleep.com/wp-content/uploads/2019/02/LectroFan-Classic-Owners-Manual.pdf"
       }
-    ]
+    ],
+    "image_source": null
   },
   {
     "id": "steelcase-leap",
@@ -8454,7 +8752,7 @@
     "category": "sleep",
     "receipt": null,
     "meta": "LEAP • SPECS PER STEELCASE",
-    "image": null,
+    "image": "https://m.media-amazon.com/images/P/B006H1QYBA.01.LZZZZZZZ.jpg",
     "recallMatch": {
       "brand": [
         "steelcase"
@@ -8505,7 +8803,7 @@
     ],
     "bin": [],
     "asin": {
-      "us": null,
+      "us": "B006H1QYBA",
       "ca": null
     },
     "searchQuery": "Steelcase Leap Chair",
@@ -8541,7 +8839,13 @@
         "source": "Steelcase",
         "url": "https://store.steelcase.com/seating/ergonomic-chairs/leap"
       }
-    ]
+    ],
+    "image_source": {
+      "kind": "amazon",
+      "asin": "B006H1QYBA",
+      "width": 500,
+      "height": 500
+    }
   },
   {
     "id": "zinus-green-tea-12",
@@ -8549,7 +8853,7 @@
     "category": "sleep",
     "receipt": null,
     "meta": "GREEN TEA • SPECS PER ZINUS",
-    "image": null,
+    "image": "https://m.media-amazon.com/images/P/B0CKZ1CK1H.01.LZZZZZZZ.jpg",
     "recallMatch": {
       "brand": [
         "zinus"
@@ -8600,7 +8904,7 @@
     ],
     "bin": [],
     "asin": {
-      "us": null,
+      "us": "B0CKZ1CK1H",
       "ca": null
     },
     "searchQuery": "Zinus 12-Inch Green Tea Memory Foam Mattress",
@@ -8636,7 +8940,13 @@
         "source": "Zinus",
         "url": "https://www.zinus.com/pages/true-med"
       }
-    ]
+    ],
+    "image_source": {
+      "kind": "amazon",
+      "asin": "B0CKZ1CK1H",
+      "width": 500,
+      "height": 500
+    }
   },
   {
     "id": "manta-sleep-mask",
@@ -8731,7 +9041,8 @@
         "source": "Manta",
         "url": "https://mantasleep.com/products/manta-sleep-mask"
       }
-    ]
+    ],
+    "image_source": null
   },
   {
     "id": "buffy-cloud-comforter",
@@ -8826,7 +9137,8 @@
         "source": "Buffy",
         "url": "https://buffy.co/products/cloud-tencel-lyocell-comforter"
       }
-    ]
+    ],
+    "image_source": null
   },
   {
     "id": "philips-hf3520",
@@ -8834,7 +9146,7 @@
     "category": "sleep",
     "receipt": null,
     "meta": "HF3520 • SPECS PER PHILIPS",
-    "image": null,
+    "image": "https://m.media-amazon.com/images/P/B0093162RM.01.LZZZZZZZ.jpg",
     "recallMatch": {
       "brand": [
         "philips"
@@ -8885,7 +9197,7 @@
     ],
     "bin": [],
     "asin": {
-      "us": null,
+      "us": "B0093162RM",
       "ca": null
     },
     "searchQuery": "Philips SmartSleep Wake-up Light HF3520",
@@ -8921,7 +9233,13 @@
         "source": "Philips",
         "url": "https://www.usa.philips.com/c-p/HF3520_60/smartsleep"
       }
-    ]
+    ],
+    "image_source": {
+      "kind": "amazon",
+      "asin": "B0093162RM",
+      "width": 500,
+      "height": 410
+    }
   },
   {
     "id": "oral-b-io-3",
@@ -9017,7 +9335,8 @@
         "source": "Oral-B",
         "url": "https://oralb.com/en-us/products/oral-b-io-series-3-clean-protect-rechargeable-electric-toothbrush-matte-white/"
       }
-    ]
+    ],
+    "image_source": null
   },
   {
     "id": "garmin-forerunner-265",
@@ -9112,7 +9431,8 @@
         "source": "Garmin",
         "url": "https://www.garmin.com/en-US/p/886785/"
       }
-    ]
+    ],
+    "image_source": null
   },
   {
     "id": "jbl-charge-5",
@@ -9120,7 +9440,7 @@
     "category": "personal-tech",
     "receipt": null,
     "meta": "CHARGE 5 • SPECS PER JBL",
-    "image": null,
+    "image": "https://m.media-amazon.com/images/P/B08X4YMTPM.01.LZZZZZZZ.jpg",
     "recallMatch": {
       "brand": [
         "jbl"
@@ -9171,7 +9491,7 @@
     ],
     "bin": [],
     "asin": {
-      "us": null,
+      "us": "B08X4YMTPM",
       "ca": null
     },
     "searchQuery": "JBL Charge 5 Speaker",
@@ -9207,7 +9527,13 @@
         "source": "JBL",
         "url": "https://www.jbl.com/on/demandware.static/-/Sites-masterCatalog_Harman/default/dw317bf698/pdfs/JBL_Charge5_SpecSheet_English.pdf"
       }
-    ]
+    ],
+    "image_source": {
+      "kind": "amazon",
+      "asin": "B08X4YMTPM",
+      "width": 500,
+      "height": 500
+    }
   },
   {
     "id": "gopro-hero13",
@@ -9215,7 +9541,7 @@
     "category": "personal-tech",
     "receipt": null,
     "meta": "HERO13 • SPECS PER GOPRO",
-    "image": null,
+    "image": "https://m.media-amazon.com/images/P/B0DCQVQDQ7.01.LZZZZZZZ.jpg",
     "recallMatch": {
       "brand": [
         "gopro"
@@ -9267,7 +9593,7 @@
     ],
     "bin": [],
     "asin": {
-      "us": null,
+      "us": "B0DCQVQDQ7",
       "ca": null
     },
     "searchQuery": "GoPro HERO13 Black",
@@ -9303,7 +9629,13 @@
         "source": "GoPro",
         "url": "https://gopro.com/en/us/shop/cameras/buy/hero13black/CHDHX-131-master.html"
       }
-    ]
+    ],
+    "image_source": {
+      "kind": "amazon",
+      "asin": "B0DCQVQDQ7",
+      "width": 500,
+      "height": 500
+    }
   },
   {
     "id": "shokz-openrun-pro-2",
@@ -9398,7 +9730,8 @@
         "source": "Shokz",
         "url": "https://shokz.com/pages/openrunpro2"
       }
-    ]
+    ],
+    "image_source": null
   },
   {
     "id": "philips-oneblade-360",
@@ -9495,7 +9828,8 @@
         "source": "Philips Norelco",
         "url": "https://www.usa.philips.com/c-p/QP4631_90/oneblade-360-with-connectivity-face-plus-body"
       }
-    ]
+    ],
+    "image_source": null
   },
   {
     "id": "airpods-pro-3",
@@ -9503,7 +9837,7 @@
     "category": "personal-tech",
     "receipt": null,
     "meta": "AIRPODS PRO 3 • SPECS PER APPLE",
-    "image": null,
+    "image": "https://m.media-amazon.com/images/P/B0FQFB8FMG.01.LZZZZZZZ.jpg",
     "recallMatch": {
       "brand": [
         "apple"
@@ -9554,7 +9888,7 @@
     ],
     "bin": [],
     "asin": {
-      "us": null,
+      "us": "B0FQFB8FMG",
       "ca": null
     },
     "searchQuery": "Apple AirPods Pro 3",
@@ -9590,7 +9924,13 @@
         "source": "Apple",
         "url": "https://www.apple.com/airpods-pro/"
       }
-    ]
+    ],
+    "image_source": {
+      "kind": "amazon",
+      "asin": "B0FQFB8FMG",
+      "width": 500,
+      "height": 500
+    }
   },
   {
     "id": "anker-nano-30w",
@@ -9680,7 +10020,8 @@
         "source": "Anker",
         "url": "https://www.anker.com/products/a2147"
       }
-    ]
+    ],
+    "image_source": null
   },
   {
     "id": "bose-qc-ultra",
@@ -9775,7 +10116,8 @@
         "source": "Bose",
         "url": "https://www.bose.com/p/headphones/bose-quietcomfort-ultra-headphones/QCUH-HEADPHONEARN.html"
       }
-    ]
+    ],
+    "image_source": null
   },
   {
     "id": "logitech-mx-master-3s",
@@ -9783,7 +10125,7 @@
     "category": "personal-tech",
     "receipt": null,
     "meta": "MX MASTER 3S • SPECS PER LOGITECH",
-    "image": null,
+    "image": "https://m.media-amazon.com/images/P/B0FB21526X.01.LZZZZZZZ.jpg",
     "recallMatch": {
       "brand": [
         "logitech"
@@ -9834,7 +10176,7 @@
     ],
     "bin": [],
     "asin": {
-      "us": null,
+      "us": "B0FB21526X",
       "ca": null
     },
     "searchQuery": "Logitech MX Master 3S",
@@ -9870,7 +10212,13 @@
         "source": "Logitech",
         "url": "https://www.logitech.com/en-us/shop/p/mx-master-3s.910-007500"
       }
-    ]
+    ],
+    "image_source": {
+      "kind": "amazon",
+      "asin": "B0FB21526X",
+      "width": 500,
+      "height": 500
+    }
   },
   {
     "id": "sonos-era-100",
@@ -9965,7 +10313,8 @@
         "source": "Sonos",
         "url": "https://www.sonos.com/en-us/shop/era-100"
       }
-    ]
+    ],
+    "image_source": null
   },
   {
     "id": "theragun-prime",
@@ -10069,7 +10418,8 @@
         "source": "Therabody",
         "url": "https://www.therabody.com/products/theragun-prime-gen-6-massage-gun"
       }
-    ]
+    ],
+    "image_source": null
   },
   {
     "id": "baratza-encore-esp",
@@ -10077,7 +10427,7 @@
     "category": "kitchen",
     "receipt": null,
     "meta": "ENCORE ESP • SPECS PER BARATZA",
-    "image": null,
+    "image": "https://m.media-amazon.com/images/P/B0BW272XCV.01.LZZZZZZZ.jpg",
     "recallMatch": {
       "brand": [
         "baratza"
@@ -10129,7 +10479,7 @@
     ],
     "bin": [],
     "asin": {
-      "us": null,
+      "us": "B0BW272XCV",
       "ca": null
     },
     "searchQuery": "Baratza Encore ESP",
@@ -10171,7 +10521,13 @@
         "source": "Baratza",
         "url": "https://www.baratza.com/en-us/product/zcg495"
       }
-    ]
+    ],
+    "image_source": {
+      "kind": "amazon",
+      "asin": "B0BW272XCV",
+      "width": 500,
+      "height": 500
+    }
   },
   {
     "id": "keychron-v3",
@@ -10272,7 +10628,8 @@
         "source": "Keychron",
         "url": "https://www.keychron.com/products/keychron-v3-qmk-custom-mechanical-keyboard-iso-layout-collection"
       }
-    ]
+    ],
+    "image_source": null
   },
   {
     "id": "ninja-creami-nc301",
@@ -10280,7 +10637,7 @@
     "category": "kitchen",
     "receipt": null,
     "meta": "NC301 • SPECS PER NINJA",
-    "image": null,
+    "image": "https://m.media-amazon.com/images/P/B08QXB9BH5.01.LZZZZZZZ.jpg",
     "recallMatch": {
       "brand": [
         "ninja",
@@ -10332,7 +10689,7 @@
     ],
     "bin": [],
     "asin": {
-      "us": null,
+      "us": "B08QXB9BH5",
       "ca": null
     },
     "searchQuery": "Ninja CREAMi 7-in-1 Ice Cream Maker NC301",
@@ -10374,7 +10731,13 @@
         "source": "Ninja",
         "url": "https://www.sharkninja.com/ninja-creami-7-in-1-ice-cream-maker/NC301.html"
       }
-    ]
+    ],
+    "image_source": {
+      "kind": "amazon",
+      "asin": "B08QXB9BH5",
+      "width": 500,
+      "height": 500
+    }
   },
   {
     "id": "helix-midnight",
@@ -10463,7 +10826,8 @@
         "source": "Helix",
         "url": "https://helixsleep.com/products/midnight"
       }
-    ]
+    ],
+    "image_source": null
   },
   {
     "id": "levoit-vital-200s",
@@ -10471,7 +10835,7 @@
     "category": "air-water",
     "receipt": null,
     "meta": "VITAL 200S-P • SPECS PER LEVOIT",
-    "image": null,
+    "image": "https://m.media-amazon.com/images/P/B0BGPF71Q6.01.LZZZZZZZ.jpg",
     "recallMatch": {
       "brand": [
         "levoit"
@@ -10523,7 +10887,7 @@
     ],
     "bin": [],
     "asin": {
-      "us": null,
+      "us": "B0BGPF71Q6",
       "ca": null
     },
     "searchQuery": "Levoit Vital 200S-P Air Purifier",
@@ -10565,7 +10929,13 @@
         "source": "Levoit",
         "url": "https://levoit.com/products/vital-200s-p-smart-air-purifier"
       }
-    ]
+    ],
+    "image_source": {
+      "kind": "amazon",
+      "asin": "B0BGPF71Q6",
+      "width": 430,
+      "height": 500
+    }
   },
   {
     "id": "waterpik-wp-660",
@@ -10573,7 +10943,7 @@
     "category": "personal-tech",
     "receipt": null,
     "meta": "WP-660 • SPECS PER WATERPIK",
-    "image": null,
+    "image": "https://m.media-amazon.com/images/P/B00HFQQ0VU.01.LZZZZZZZ.jpg",
     "recallMatch": {
       "brand": [
         "waterpik"
@@ -10624,7 +10994,7 @@
     ],
     "bin": [],
     "asin": {
-      "us": null,
+      "us": "B00HFQQ0VU",
       "ca": null
     },
     "searchQuery": "Waterpik Aquarius Water Flosser WP-660",
@@ -10666,7 +11036,13 @@
         "source": "Waterpik",
         "url": "https://www.waterpik.com/products/dental-water-flosser/WP-660/"
       }
-    ]
+    ],
+    "image_source": {
+      "kind": "amazon",
+      "asin": "B00HFQQ0VU",
+      "width": 500,
+      "height": 500
+    }
   },
   {
     "id": "levoit-lv600hh",
@@ -10674,7 +11050,7 @@
     "category": "air-water",
     "receipt": null,
     "meta": "LV600HH • SPECS PER LEVOIT",
-    "image": null,
+    "image": "https://m.media-amazon.com/images/P/B08FHZTYJB.01.LZZZZZZZ.jpg",
     "recallMatch": {
       "brand": [
         "levoit"
@@ -10725,7 +11101,7 @@
     ],
     "bin": [],
     "asin": {
-      "us": null,
+      "us": "B08FHZTYJB",
       "ca": null
     },
     "searchQuery": "Levoit LV600HH Hybrid Ultrasonic Humidifier",
@@ -10767,7 +11143,13 @@
         "source": "Levoit",
         "url": "https://levoit.com/products/lv600hh-hybrid-ultrasonic-humidifier"
       }
-    ]
+    ],
+    "image_source": {
+      "kind": "amazon",
+      "asin": "B08FHZTYJB",
+      "width": 500,
+      "height": 500
+    }
   },
   {
     "id": "zerowater-zp010",
@@ -10869,7 +11251,8 @@
         "source": "ZeroWater",
         "url": "https://zerowater.com/products/10-cup-water-filter-pitcher"
       }
-    ]
+    ],
+    "image_source": null
   },
   {
     "id": "levoit-core-600s",
@@ -10877,7 +11260,7 @@
     "category": "air-water",
     "receipt": null,
     "meta": "CORE 600S-P • SPECS PER LEVOIT",
-    "image": null,
+    "image": "https://m.media-amazon.com/images/P/B09BJMY8HL.01.LZZZZZZZ.jpg",
     "recallMatch": {
       "brand": [
         "levoit"
@@ -10929,7 +11312,7 @@
     ],
     "bin": [],
     "asin": {
-      "us": null,
+      "us": "B09BJMY8HL",
       "ca": null
     },
     "searchQuery": "Levoit Core 600S-P Smart Air Purifier",
@@ -10959,7 +11342,13 @@
         "source": "Levoit",
         "url": "https://levoit.com/products/core-600s-p-smart-air-purifier"
       }
-    ]
+    ],
+    "image_source": {
+      "kind": "amazon",
+      "asin": "B09BJMY8HL",
+      "width": 500,
+      "height": 500
+    }
   },
   {
     "id": "homelabs-50-pint",
@@ -10967,7 +11356,7 @@
     "category": "air-water",
     "receipt": null,
     "meta": "50 PINT • SPECS PER HOMELABS",
-    "image": null,
+    "image": "https://m.media-amazon.com/images/P/B073VBWKJZ.01.LZZZZZZZ.jpg",
     "recallMatch": {
       "brand": [
         "homelabs"
@@ -11018,7 +11407,7 @@
     ],
     "bin": [],
     "asin": {
-      "us": null,
+      "us": "B073VBWKJZ",
       "ca": null
     },
     "searchQuery": "hOmeLabs 50 Pint Wi-Fi Dehumidifier",
@@ -11060,7 +11449,13 @@
         "source": "hOmeLabs",
         "url": "https://www.homelabs.com/products/7000-sq-ft-wifi-enabled-dehumidifier"
       }
-    ]
+    ],
+    "image_source": {
+      "kind": "amazon",
+      "asin": "B073VBWKJZ",
+      "width": 500,
+      "height": 478
+    }
   },
   {
     "id": "pioneer-raindrop-6023",
@@ -11161,7 +11556,8 @@
         "source": "Pioneer Pet",
         "url": "https://pioneerpet.com/product/stainless-steel-raindrop-60oz/"
       }
-    ]
+    ],
+    "image_source": null
   },
   {
     "id": "petsafe-easy-walk",
@@ -11169,7 +11565,7 @@
     "category": "pet",
     "receipt": null,
     "meta": "EASY WALK • SPECS PER PETSAFE",
-    "image": null,
+    "image": "https://m.media-amazon.com/images/P/B00Z9I6SPY.01.LZZZZZZZ.jpg",
     "recallMatch": {
       "brand": [
         "petsafe"
@@ -11220,7 +11616,7 @@
     ],
     "bin": [],
     "asin": {
-      "us": null,
+      "us": "B00Z9I6SPY",
       "ca": null
     },
     "searchQuery": "PetSafe Easy Walk Harness",
@@ -11256,7 +11652,13 @@
         "source": "PetSafe",
         "url": "https://www.petsafe.com/p/easy-walk-harness/EWH-HC-P-BLK/"
       }
-    ]
+    ],
+    "image_source": {
+      "kind": "amazon",
+      "asin": "B00Z9I6SPY",
+      "width": 500,
+      "height": 500
+    }
   },
   {
     "id": "petsafe-simply-feed",
@@ -11358,7 +11760,8 @@
         "source": "PetSafe",
         "url": "https://www.petsafe.com/p/healthy-pet-simply-feed/PFD00-14574/"
       }
-    ]
+    ],
+    "image_source": null
   },
   {
     "id": "kurgo-tru-fit-smart",
@@ -11460,7 +11863,8 @@
         "source": "Kurgo",
         "url": "https://www.kurgo.com/p/tru-fit-smart-dog-walking-harness/K01174"
       }
-    ]
+    ],
+    "image_source": null
   },
   {
     "id": "outward-hound-fun-feeder",
@@ -11468,7 +11872,7 @@
     "category": "pet",
     "receipt": null,
     "meta": "SLO BOWL • SPECS PER OUTWARD HOUND",
-    "image": null,
+    "image": "https://m.media-amazon.com/images/P/B0787FVCBW.01.LZZZZZZZ.jpg",
     "recallMatch": {
       "brand": [
         "outward hound"
@@ -11519,7 +11923,7 @@
     ],
     "bin": [],
     "asin": {
-      "us": null,
+      "us": "B0787FVCBW",
       "ca": null
     },
     "searchQuery": "Outward Hound Fun Feeder Slo Bowl",
@@ -11555,6 +11959,12 @@
         "source": "Outward Hound",
         "url": "https://outwardhound.com/fun-feeder-slo-bowl-slow-feeder-dog-bowl/"
       }
-    ]
+    ],
+    "image_source": {
+      "kind": "amazon",
+      "asin": "B0787FVCBW",
+      "width": 500,
+      "height": 500
+    }
   }
 ]

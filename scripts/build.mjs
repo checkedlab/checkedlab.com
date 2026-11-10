@@ -211,7 +211,8 @@ function jsonLd(product) {
     category: HUB_NAME[hub]
   };
   if (product.image) {
-    productNode.image = ORIGIN + "/" + String(product.image).replace(/^\/+/, "");
+    const src = String(product.image);
+    productNode.image = /^https:\/\//.test(src) ? src : ORIGIN + "/" + src.replace(/^\/+/, "");
   }
   if (product.model) productNode.model = product.model;
   if (product.sourceName) productNode.brand = { "@type": "Brand", name: product.sourceName };
@@ -357,7 +358,7 @@ ${card.checkList(product)}
 <div class="only-us">${card.storeButtons(product, "US")}</div>
 <div class="only-ca">${card.storeButtons(product, "CA")}</div>
 </div>
-${product.image ? `<div class="p-side"><div class="p-img">${card.imageHtml(product)}</div></div>` : ""}
+${card.imageColumn(product)}
 </article>
 <p class="lede"><a href="/${hub}/">All ${card.esc(name)} models</a></p>
 </div>
@@ -445,8 +446,9 @@ function verifyOutput(pages) {
     if (!html.includes("checkedlab01-20") || !html.includes("checkedlab-20")) {
       throw new Error("Amazon tags missing on " + product.id);
     }
-    const us = html.split('<div class="only-ca">')[0];
-    const ca = html.split('<div class="only-ca">')[1] || "";
+    const blocks = (cls) => html.match(new RegExp(`<(span|div|a) class="${cls}"[^>]*>[\\s\\S]*?<\\/\\1>`, "g")) || [];
+    const us = blocks("only-us").join("\n");
+    const ca = blocks("only-ca").join("\n");
     if (us.includes("checkedlab-20") || ca.includes("checkedlab01-20")) {
       throw new Error("Amazon tags crossed regions on " + product.id);
     }
