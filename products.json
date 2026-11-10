@@ -2,14 +2,12 @@
   {
     "id": "ninja-crispi-fn101",
     "title": "Ninja Crispi Glass Air Fryer, 4-in-1",
-    "labScore": "8.8",
-    "badge": "PFAS-FREE GLASS",
-    "meta": "FN101CGY • MAX CRISP, BAKE, AIR FRY, RECRISP • 450°F / 232°C • 4 QT / 3.8L • TESTED OCT 2026",
+    "badge": "NOT TESTED BY US",
+    "meta": "FN101 • SPECS PER NINJA • NOT OUR MEASUREMENT",
     "bullets": [
-      "Glass, not plastic — no PFAS, no chemical leach, we verified material spec",
-      "4-in-1: crisp, bake, air fry, recrisp — 6-cup containers keep food separate",
-      "Lab temp hit 232°C in 4:12 min, recovery 1:08 after open — top 15% we tested",
-      "Cons: 4Qt is small for family of 4, Cyberspace grey scratches easily"
+      "Per Ninja: 1,500 W, a 4-qt glass container and a 6-cup glass container, and four modes (Max Crisp, Bake, Air Fry, Recrisp). <a href=\"https://www.sharkninja.com/ninja-crispi-4-in-1-portable-glass-air-fryer-cooking-system/FN101GY.html\" target=\"_blank\" rel=\"noopener noreferrer\">Ninja Crispi page</a>",
+      "Per Ninja, on that same page: CleanCrisp glassware is designed to cook and store without PFAS and PTFE, and the accessories are dishwasher safe.",
+      "Checked Lab did not buy this unit and did not measure heat-up time, recovery, or noise."
     ],
     "image": "images/ninja-crispi.jpg",
     "ca_link": "https://www.amazon.ca/dp/B0DDDD8WD6?tag=checkedlab-20",
@@ -18,14 +16,12 @@
   {
     "id": "ninja-foodi-10in1",
     "title": "Ninja Foodi 10-in-1 XL Pro Air Fry Oven",
-    "labScore": "9.0",
-    "badge": "EDITOR'S PICK",
-    "meta": "DT201C • 10-IN-1 • XL FAMILY • AIR FRY, ROAST, BAKE • TESTED OCT 2026",
+    "badge": "NOT TESTED BY US",
+    "meta": "DT201C • SPECS PER NINJA CANADA • NOT OUR MEASUREMENT",
     "bullets": [
-      "10-in-1: whole roast, air fry, bake, dehydrate",
-      "XL capacity fits 5lb chicken + sides",
-      "True surround convection 10x faster",
-      "Cons: loud at max crisp"
+      "Per Ninja Canada: 1,800 W and ten functions (Air Fry, Air Roast, Bake, Whole Roast, Broil, Toast, Bagel, Dehydrate, Reheat, Pizza). <a href=\"https://www.ninjakitchen.ca/products/ninja-foodi-10-in-1-xl-pro-air-fry-oven-zidDT201C\" target=\"_blank\" rel=\"noopener noreferrer\">Ninja Canada page</a>",
+      "Per Ninja Canada, on that same page: up to 10× the convection power of a traditional full-size convection oven, a stated 90-second preheat, and room for a 5 lb chicken. That is the manufacturer’s claim, not a Checked Lab measurement.",
+      "Checked Lab did not buy this oven and did not test loudness."
     ],
     "image": "images/ninja-foodi-10in1.jpg",
     "ca_link": "https://www.amazon.ca/dp/B08BXX69K4?tag=checkedlab-20",
@@ -33,15 +29,12 @@
   },
   {
     "id": "instant-pot-duo-plus",
-    "title": "Instant Pot Duo Plus 9-in-1, 6Qt",
-    "labScore": "9.2",
-    "badge": "BEST VALUE",
-    "meta": "Duo Plus 9-in-1 • 6QT • PRESSURE, SLOW COOK, SOUS VIDE • TESTED OCT 2026",
+    "title": "Instant Pot Duo Plus, 6Qt",
+    "badge": "NOT TESTED BY US",
+    "meta": "6 QT MULTI-COOKER • NO SOURCED MEASUREMENTS",
     "bullets": [
-      "9-in-1: pressure, slow cook, rice, yogurt, sous vide",
-      "15% faster than Duo",
-      "Canada's #1 bestseller",
-      "Cons: steam release scary"
+      "Per Instant Pot: the Duo Plus is a 6-quart multi-cooker. <a href=\"https://instantpot.com/products/instant-pot-duo-plus-6qt-multi-use-pressure-cooker-v3\" target=\"_blank\" rel=\"noopener noreferrer\">Instant Pot page</a> Checked Lab did not buy this listing and did not lab-test it.",
+      "No speed, bestseller, or pressure figure is shown. We do not have a source we can tie to a number for this listing."
     ],
     "image": "images/instant-pot-duo.jpg",
     "ca_link": "https://www.amazon.ca/dp/B01NBKTPTS?tag=checkedlab-20",
@@ -50,14 +43,12 @@
   {
     "id": "vitamix-e310",
     "title": "Vitamix E310 Explorian Blender, 48oz",
-    "labScore": "9.3",
-    "badge": "LAB TOP",
-    "meta": "E310 • 48oz • 2.0HP • 10 SPEEDS • TESTED OCT 2026",
+    "badge": "NOT TESTED BY US",
+    "meta": "E310 • SPECS PER VITAMIX • NOT OUR MEASUREMENT",
     "bullets": [
-      "2.0HP crushes ice in 8 sec",
-      "10 speeds + pulse, self-cleaning",
-      "10-year warranty",
-      "Cons: 88db loud"
+      "Per Vitamix: a 2 HP motor, a 48 oz container, and 10 variable speeds. The machine can self-clean in 30 to 60 seconds with dish soap and warm water. <a href=\"https://www.vitamix.com/us/en_us/products/e310\" target=\"_blank\" rel=\"noopener noreferrer\">Vitamix E310 page</a>",
+      "Per Vitamix Canada: a 5-year full warranty. <a href=\"https://www.vitamix.com/ca/en_us/products/e310\" target=\"_blank\" rel=\"noopener noreferrer\">Vitamix Canada page</a>",
+      "Checked Lab did not buy this blender and did not measure noise or ice-crush time."
     ],
     "image": "images/vitamix-e310.jpg",
     "ca_link": "https://www.amazon.ca/dp/B0758JHZM3?tag=checkedlab-20",
@@ -66,14 +57,12 @@
   {
     "id": "kitchenaid-artisan",
     "title": "KitchenAid Artisan Stand Mixer 5-Qt",
-    "labScore": "9.1",
-    "badge": "ICON",
-    "meta": "KSM150PS • 5QT • 10 SPEEDS • TESTED OCT 2026",
+    "badge": "NOT TESTED BY US",
+    "meta": "KSM150PS • SPECS PER KITCHENAID • NOT OUR MEASUREMENT",
     "bullets": [
-      "5Qt bowl kneads 8 cups flour",
-      "10 speeds, 59 attachments",
-      "59 point planetary mixing",
-      "Cons: 26lb heavy"
+      "Per KitchenAid: Artisan Series 5-quart tilt-head stand mixer (KSM150PS) with 10 speeds. <a href=\"https://www.kitchenaid.com/countertop-appliances/stand-mixers/tilt-head-stand-mixers/p.artisan-series-5-quart-tilt-head-stand-mixer.KSM150PSER.html\" target=\"_blank\" rel=\"noopener noreferrer\">KitchenAid page</a>",
+      "Per KitchenAid, on that same page: more than 10 optional hub-powered attachments, sold separately.",
+      "Checked Lab did not buy this mixer and did not measure weight, wobble, or dough capacity."
     ],
     "image": "images/kitchenaid-artisan.jpg",
     "ca_link": "https://www.amazon.ca/dp/B00005UP2K?tag=checkedlab-20",
@@ -81,15 +70,12 @@
   },
   {
     "id": "cosori-pro-5-8",
-    "title": "COSORI Pro II Air Fryer 5.8QT, 12-in-1",
-    "labScore": "8.9",
-    "badge": "BUDGET KING",
-    "meta": "CS158 • 5.8QT • 12 PRESETS • 1700W • TESTED OCT 2026",
+    "title": "COSORI Pro II Air Fryer",
+    "badge": "NOT TESTED BY US",
+    "meta": "PRO II • NO SOURCED MEASUREMENTS",
     "bullets": [
-      "5.8QT fits family, 12 presets",
-      "1700W heats to 400°F in 2:54 min",
-      "Best budget pick $119",
-      "Cons: plastic basket"
+      "COSORI Pro II air fryer. Checked Lab did not buy it and did not lab-test it.",
+      "No wattage, heat-up time, or price is shown. We could not quote a manufacturer spec page for those figures."
     ],
     "image": "images/cosori-pro.jpg",
     "ca_link": "https://www.amazon.ca/dp/B089ZT66H9?tag=checkedlab-20",
