@@ -1,11 +1,23 @@
-/* Renders Price Truth cards from products.json. Prices stay empty unless the file has a real number. */
+/* Store buttons and recall status. No price, stock, or check time is rendered. */
 (function () {
   var KEY = "checkedlab-region";
+  var REL = "sponsored nofollow noopener";
   var STORES = {
-    US: ["Amazon.com", "Best Buy", "Walmart", "Target", "Home Depot"],
-    CA: ["Amazon.ca", "Best Buy CA", "Canadian Tire", "Walmart.ca", "Wayfair.ca"]
+    US: [
+      { id: "amazon", name: "Amazon", label: "Check price on Amazon" },
+      { id: "bestbuy", name: "Best Buy", label: "Check price at Best Buy" },
+      { id: "walmart", name: "Walmart", label: "Check price at Walmart" },
+      { id: "target", name: "Target", label: "Check price at Target" },
+      { id: "homedepot", name: "Home Depot", label: "Check price at Home Depot" }
+    ],
+    CA: [
+      { id: "amazon", name: "Amazon", label: "Check price on Amazon" },
+      { id: "bestbuy", name: "Best Buy", label: "Check price at Best Buy" },
+      { id: "canadiantire", name: "Canadian Tire", label: "Check price at Canadian Tire" },
+      { id: "walmart", name: "Walmart", label: "Check price at Walmart" },
+      { id: "wayfair", name: "Wayfair", label: "Check price at Wayfair" }
+    ]
   };
-  var CURRENCY = { US: "USD", CA: "CAD" };
 
   function region() {
     return document.documentElement.dataset.region === "CA" ? "CA" : "US";
@@ -30,170 +42,137 @@
     return "";
   }
 
-  function blankPrice(offer) {
-    return offer.price == null || offer.price === "";
+  function queryFor(product) {
+    var q = product.searchQuery || product.title || "";
+    return String(q).trim();
   }
 
-  function priceText(offer) {
-    if (blankPrice(offer)) return "not checked yet";
-    var currency = offer.currency || CURRENCY[region()];
-    return currency + " " + offer.price;
+  function amazonAsin(product, reg) {
+    var asin = product.asin && product.asin[regionKey(reg)];
+    if (typeof asin === "string" && /^[A-Z0-9]{10}$/.test(asin)) return asin;
+    return "";
   }
 
-  function whenText(value) {
-    return value ? String(value) : "not checked yet";
-  }
-
-  function stockText(offer) {
-    if (offer.inStock === true) return "in stock";
-    if (offer.inStock === false) return "out of stock";
-    return "not checked yet";
-  }
-
-  function rowsFor(product, reg) {
-    var have = ((product.offers || {})[regionKey(reg)] || []).slice();
-    return STORES[reg].map(function (name) {
-      var found = null;
-      for (var i = 0; i < have.length; i++) {
-        if (have[i].store === name) found = have[i];
+  function storeUrl(product, reg, storeId) {
+    var q = encodeURIComponent(queryFor(product));
+    if (storeId === "amazon") {
+      var asin = amazonAsin(product, reg);
+      if (asin) {
+        return reg === "CA"
+          ? "https://www.amazon.ca/dp/" + asin + "?tag=checkedlab-20"
+          : "https://www.amazon.com/dp/" + asin + "?tag=checkedlab01-20";
       }
-      return found || {
-        store: name,
-        url: null,
-        price: null,
-        currency: CURRENCY[reg],
-        checkedAt: null,
-        inStock: null
-      };
-    });
-  }
-
-  function historyFor(product, reg) {
-    var history = product.priceHistory;
-    if (!history) return null;
-    var row = history[regionKey(reg)];
-    if (!row || row.low90 == null || row.typicalSale == null || !row.source) return null;
-    return row;
-  }
-
-  function currentPrice(product, reg) {
-    var rows = rowsFor(product, reg);
-    for (var i = 0; i < rows.length; i++) {
-      if (!blankPrice(rows[i])) return rows[i];
+      return reg === "CA"
+        ? "https://www.amazon.ca/s?k=" + q + "&tag=checkedlab-20"
+        : "https://www.amazon.com/s?k=" + q + "&tag=checkedlab01-20";
     }
-    return null;
+    if (reg === "US") {
+      if (storeId === "bestbuy") return "https://www.bestbuy.com/site/searchpage.jsp?st=" + q;
+      if (storeId === "walmart") return "https://www.walmart.com/search?q=" + q;
+      if (storeId === "target") return "https://www.target.com/s?searchTerm=" + q;
+      if (storeId === "homedepot") return "https://www.homedepot.com/s/" + q;
+    }
+    if (storeId === "bestbuy") return "https://www.bestbuy.ca/en-ca/search?search=" + q;
+    if (storeId === "canadiantire") return "https://www.canadiantire.ca/en/search-results.html?q=" + q;
+    if (storeId === "walmart") return "https://www.walmart.ca/en/search?q=" + q;
+    if (storeId === "wayfair") return "https://www.wayfair.ca/keyword.php?keyword=" + q;
+    return "";
   }
 
-  function linkHtml(url, label, sponsored) {
+  function outbound(url, label) {
     var href = safeUrl(url);
     if (!href) return esc(label);
-    var rel = sponsored ? "sponsored noopener noreferrer" : "noopener noreferrer";
-    return '<a href="' + esc(href) + '" target="_blank" rel="' + rel + '">' + esc(label) + "</a>";
-  }
-
-  function isAmazon(url) {
-    return typeof url === "string" && /amazon\.(com|ca)/.test(url) && /[?&]tag=checkedlab/.test(url);
+    return '<a href="' + esc(href) + '" target="_blank" rel="' + REL + '">' + esc(label) + "</a>";
   }
 
   function recallBlock(rec) {
-    rec = rec || { status: "not_checked" };
+    rec = rec || { status: "not_recorded" };
     if (rec.status === "bin") {
-      var source = rec.url ? " " + linkHtml(rec.url, "Recall notice", false) : "";
+      var source = rec.url ? " " + outbound(rec.url, "Recall notice") : "";
       return '<p class="recall recall-bin"><strong>BIN.</strong> ' + esc(rec.detail || "A recall matches this model.") + source + "</p>";
     }
     if (rec.status === "none" && rec.checkedAt) {
       var html = '<p class="recall">No recall found as of ' + esc(rec.checkedAt) + ".</p>";
       var other = rec.other || [];
       if (other.length) {
-        html += '<p class="recall-other">Other recalls for this brand did not match this model: ' +
+        html += '<p class="recall-other">Other recalls that mention this brand name: ' +
           other.map(function (item) {
-            return linkHtml(item.url, item.title || "Recall", false);
+            return outbound(item.url, item.title || "Recall");
           }).join("; ") + "</p>";
       }
       return html;
     }
     if (rec.status === "unconfirmed") {
       var links = (rec.other || []).map(function (item) {
-        return linkHtml(item.url, item.title || "Recall", false);
+        return outbound(item.url, item.title || "Recall");
       }).join("; ");
       return '<p class="recall">' + esc(rec.detail || "Recall status is not confirmed for this listing.") +
         (rec.checkedAt ? " Checked " + esc(rec.checkedAt) + "." : "") +
         (links ? " " + links : "") + "</p>";
     }
-    return '<p class="recall">Recall: not checked yet.</p>';
-  }
-
-  function meterBlock(product, reg) {
-    var history = historyFor(product, reg);
-    if (!history) return "";
-    var price = currentPrice(product, reg);
-    var decision = "not checked yet";
-    if (price && Number(price.price) <= Number(history.low90)) decision = "BUY NOW";
-    else if (price) decision = "WAIT";
-    var source = history.url ? " Source: " + linkHtml(history.url, history.source, false) : " Source: " + esc(history.source);
-    var flag = '<p class="fake-flag">Fake-sale flag: not checked yet.</p>';
-    if (history.fakeSale === true && history.fakeSaleUrl) {
-      flag = '<p class="fake-flag">Fake-sale flag: the compared “was” price was not in the checked history. ' +
-        linkHtml(history.fakeSaleUrl, "Source", false) + "</p>";
-    } else if (history.fakeSale === false && history.fakeSaleUrl) {
-      flag = '<p class="fake-flag">Fake-sale flag: not raised on the checked history. ' +
-        linkHtml(history.fakeSaleUrl, "Source", false) + "</p>";
-    }
-    return '<p class="meter">' + esc(decision) + ". 90-day low " + esc(history.currency || CURRENCY[reg]) + " " +
-      esc(history.low90) + ". Typical sale " + esc(history.currency || CURRENCY[reg]) + " " +
-      esc(history.typicalSale) + "." + source + "</p>" + flag;
+    return '<p class="recall">A recall check has not been recorded for this listing.</p>';
   }
 
   function evidenceList(product) {
     var items = product.evidence || [];
-    if (!items.length) {
-      return "<p class=\"p-note\">No sourced evidence lines are on this card yet.</p>";
-    }
+    if (!items.length) return "";
     return "<ul class=\"evidence\">" + items.map(function (item) {
-      var agrees = item.agrees === true ? " The linked page states this." : " Not cross-checked against a second source.";
-      var source = item.url ? linkHtml(item.url, item.source || "Source", false) : esc(item.source || "Source");
-      return "<li>" + esc(item.claim || "") + " " + source + "." + esc(agrees) + "</li>";
+      var note = item.agrees === true ? " The linked page states this." : "";
+      var source = item.url ? outbound(item.url, item.source || "Source") : esc(item.source || "Source");
+      return "<li>" + esc(item.claim || "") + " " + source + "." + esc(note) + "</li>";
     }).join("") + "</ul>";
   }
 
+  function checkList(product) {
+    var items = product.checks || [
+      "Confirm the model on the box matches the model named here.",
+      "Confirm the store listing is this model, not a similar one.",
+      "Read the recall line on this card before you buy."
+    ];
+    var extra = product.sourceUrl
+      ? "<li>Read the model page, then decide. " + outbound(product.sourceUrl, product.sourceName || "Model page") + ".</li>"
+      : "";
+    return '<h3 class="check-title">What to check before you buy</h3><ul class="evidence">' +
+      items.map(function (item) { return "<li>" + esc(item) + "</li>"; }).join("") +
+      extra + "</ul>";
+  }
+
+  function storeButtons(product, reg) {
+    return '<div class="store-links">' + STORES[reg].map(function (store) {
+      var url = storeUrl(product, reg, store.id);
+      return '<a class="store-btn" href="' + esc(safeUrl(url)) + '" target="_blank" rel="' + REL + '">' + esc(store.label) + "</a>";
+    }).join("") + "</div>";
+  }
+
   function card(product, reg) {
-    var recall = (product.recall || {})[regionKey(reg)] || { status: "not_checked" };
+    var recall = (product.recall || {})[regionKey(reg)] || { status: "not_recorded" };
+    var waiting = recall.status === "unconfirmed" || recall.status === "not_recorded" || !recall.status;
     var badge = recall.status === "bin"
       ? '<span class="badge badge-bin">BIN</span>'
-      : '<span class="badge">' + (product.badge === "bought" ? "BOUGHT BY US" : "CHECKED BY US") + "</span>";
-    var rows = rowsFor(product, reg).map(function (offer) {
-      return "<tr><td>" + linkHtml(offer.url, offer.store, isAmazon(offer.url)) + "</td><td>" +
-        esc(priceText(offer)) + "</td><td>" + esc(whenText(offer.checkedAt)) + "</td><td>" +
-        esc(stockText(offer)) + "</td></tr>";
-    }).join("");
-    var amazon = null;
-    rowsFor(product, reg).forEach(function (offer) {
-      if (!amazon && offer.url && /amazon\./.test(offer.url)) amazon = offer;
-    });
-    var button = amazon
-      ? '<a class="btn" href="' + esc(safeUrl(amazon.url)) + '" target="_blank" rel="sponsored noopener noreferrer">Shop on ' + esc(amazon.store) + "</a>"
-      : "";
-    var boughtNote = product.badge === "bought"
-      ? "Bought by us. A receipt is linked on this card."
-      : "Checked by us means we checked sources and recalls. It is not a hands-on test, and we did not buy this product.";
+      : waiting
+        ? '<span class="badge">CHECK MODEL</span>'
+        : '<span class="badge">RECALL-CHECKED</span>';
+    var hasSpecs = product.evidence && product.evidence.length;
+    var honest = waiting
+      ? "The model on this card still needs a recall check."
+      : "Recall-checked against CPSC and Health Canada." + (hasSpecs ? " Specs are from the maker." : "");
+    var image = product.image
+      ? '<img src="/' + esc(String(product.image).replace(/^\/+/, "")) + '" alt="' + esc(product.title) + '">'
+      : '<div class="no-photo"><b>' + esc(product.model || product.title) + '</b><span>No photo on this card. Match the model on the store listing.</span></div>';
     return '<article class="product-grid" id="' + esc(product.id) + '">' +
       '<div class="p-main">' +
-        '<section class="price-truth">' +
-          '<div class="pt-kicker">PRICE TRUTH · ' + (reg === "CA" ? "CAD" : "USD") + "</div>" +
-          '<p class="pt-verdict">' + esc(product.verdict || "Not bought or lab-tested by Checked Lab.") + "</p>" +
-          '<div class="pt-table-wrap"><table class="pt-table"><thead><tr><th>STORE</th><th>PRICE</th><th>CHECKED</th><th>STOCK</th></tr></thead><tbody>' +
-          rows + "</tbody></table></div>" +
-          meterBlock(product, reg) +
-          recallBlock(recall) +
-        "</section>" +
         badge +
         '<h2 class="p-title">' + esc(product.title) + "</h2>" +
-        '<p class="p-note">' + esc(boughtNote) + "</p>" +
         '<p class="p-meta">' + esc(product.meta || "") + "</p>" +
+        '<p class="p-note">' + esc(honest) + "</p>" +
+        '<p class="price-note">Prices change often, check the current price at the store.</p>' +
+        '<p class="affiliate-note">Amazon link is an affiliate link</p>' +
+        storeButtons(product, reg) +
+        recallBlock(recall) +
+        checkList(product) +
         evidenceList(product) +
-        button +
       "</div>" +
-      '<div class="p-side"><div class="p-img"><img src="/' + esc(String(product.image || "").replace(/^\/+/, "")) + '" alt="' + esc(product.title) + '"></div></div>' +
+      '<div class="p-side"><div class="p-img">' + image + "</div></div>" +
     "</article>";
   }
 
@@ -207,20 +186,20 @@
     if (page === "category") {
       shown = list.filter(function (product) { return product.category === category; });
     } else if (page === "home") {
-      shown = list.filter(function (product) { return product.category === "kitchen"; });
+      var limit = parseInt(document.body.dataset.limit || "3", 10);
+      if (!limit || limit < 1) limit = 3;
+      shown = list.filter(function (product) { return product.category === "kitchen"; }).slice(0, limit);
     } else if (page === "bin") {
       shown = list.filter(function (product) {
         var recall = product.recall || {};
-        var us = (recall.us || {}).status === "bin";
-        var ca = (recall.ca || {}).status === "bin";
-        return us || ca || (product.bin && product.bin.length);
+        return (recall.us || {}).status === "bin" || (recall.ca || {}).status === "bin" || (product.bin && product.bin.length);
       });
     } else {
       return;
     }
     if (!shown.length) {
       mount.innerHTML = page === "bin"
-        ? '<p class="empty">Nothing is on the BIN list. A product lands here only when a recall record matches its brand and model, or when a sourced evidence check fails. An unconfirmed model is not a BIN.</p>'
+        ? '<p class="empty">Nothing is on the BIN list. A product lands here only when a recall record matches its brand and model. An unconfirmed model is not a BIN.</p>'
         : '<p class="empty">No products in this category yet. This is not a ranking and not a test.</p>';
       return;
     }

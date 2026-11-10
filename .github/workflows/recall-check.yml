@@ -8,6 +8,10 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: recall-check
+  cancel-in-progress: false
+
 jobs:
   check:
     runs-on: ubuntu-latest
@@ -16,6 +20,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      - name: Self-test the matcher
+        run: python scripts/check_recalls.py --self-test
       - name: Match public recall feeds
         run: python scripts/check_recalls.py
       - name: Commit recall status

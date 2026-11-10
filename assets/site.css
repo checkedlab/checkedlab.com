@@ -63,12 +63,23 @@ html[data-region="US"] .only-ca,html[data-region="CA"] .only-us{display:none}
 .evidence li{font-size:13px;color:#aaa;line-height:1.55;padding-left:14px;position:relative;margin-bottom:8px}
 .evidence li:before{content:"—";position:absolute;left:0;color:#444}
 .evidence a{color:#ddd}
-.btn{margin-top:8px;padding:12px 18px;border-radius:100px;text-decoration:none;font-weight:700;font-size:13px;display:inline-flex;background:#fff;color:#000}
+.price-note{color:#eee;font-size:14px;line-height:1.5;margin:8px 0 12px}
+.store-links{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 12px}
+.store-btn{display:inline-flex;align-items:center;padding:10px 14px;border-radius:100px;text-decoration:none;font-weight:700;font-size:13px;background:#fff;color:#000}
+.store-btn:hover{background:#e8e8e8}
+.check-title{font-size:12px;letter-spacing:.12em;color:#888;margin:16px 0 8px}
+.no-photo{padding:28px 16px;text-align:center;color:#eee}
+.no-photo b{display:block;font-size:18px;letter-spacing:-.02em;margin-bottom:8px}
+.no-photo span{display:block;font-size:13px;line-height:1.45;color:#aaa}
 footer{border-top:1px solid #222;padding:28px 24px;text-align:center;color:#666;font-size:12px;letter-spacing:.04em;line-height:1.7}
 footer a{color:#888;text-decoration:none}
 footer a:hover{color:#fff}
+.affiliate-note{font-size:11px;letter-spacing:.08em;color:#887e5e;margin:0 0 10px}
 @media(max-width:900px){
-  .product-grid{grid-template-columns:1fr}
+  .product-grid{grid-template-columns:minmax(0,1fr)}
+  .p-main{min-width:0}
+  .pt-table-wrap{overflow-x:auto}
+  .pt-table{min-width:520px}
   header{flex-wrap:wrap}
   .topbar{flex-direction:column}
   h1{font-size:40px}

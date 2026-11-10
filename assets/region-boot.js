@@ -1,4 +1,4 @@
-/* Default region: saved choice, then browser locale, then a Canadian time zone, else US. */
+/* Saved choice wins. A Canadian time zone overrides en-US. Otherwise language, else US. */
 (function () {
   var KEY = "checkedlab-region";
   var CA_TZ = {
@@ -48,17 +48,18 @@
 
   var saved = null;
   try { saved = localStorage.getItem(KEY); } catch (e) {}
-  var region = saved === "US" || saved === "CA" ? saved : null;
-  if (!region) {
-    var langs = navigator.languages && navigator.languages.length
-      ? navigator.languages
-      : [navigator.language || ""];
-    region = fromLanguages(langs);
+  if (saved === "US" || saved === "CA") {
+    document.documentElement.dataset.region = saved;
+    return;
   }
-  if (!region) {
-    var tz = "";
-    try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || ""; } catch (e) {}
-    region = CA_TZ[tz] ? "CA" : "US";
+  var tz = "";
+  try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || ""; } catch (e) {}
+  if (CA_TZ[tz]) {
+    document.documentElement.dataset.region = "CA";
+    return;
   }
-  document.documentElement.dataset.region = region;
+  var langs = navigator.languages && navigator.languages.length
+    ? navigator.languages
+    : [navigator.language || ""];
+  document.documentElement.dataset.region = fromLanguages(langs) || "US";
 })();
