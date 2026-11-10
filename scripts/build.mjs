@@ -22,20 +22,44 @@ const HUB_NAME = {
   sleep: "Sleep",
   "personal-tech": "Personal tech"
 };
+const ICONS = {
+  winter: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M4 8l16 8M20 8L4 16"/></svg>',
+  "car-garage": '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 14h16v4H4zM6 14l2-4h8l2 4"/><circle cx="7.5" cy="18" r="1.2"/><circle cx="16.5" cy="18" r="1.2"/></svg>',
+  "air-water": '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4c3 3 5 5.5 5 8.5a5 5 0 1 1-10 0C7 9.5 9 7 12 4z"/></svg>',
+  pet: '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="8" cy="8" r="2"/><circle cx="16" cy="8" r="2"/><circle cx="6.5" cy="13" r="1.6"/><circle cx="17.5" cy="13" r="1.6"/><path d="M9 16c.8 2 5.2 2 6 0"/></svg>',
+  kitchen: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 10h12v7a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2zM9 10V7M15 10V7"/></svg>',
+  sleep: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 5a7 7 0 1 0 4 12 8 8 0 1 1-4-12z"/></svg>',
+  "personal-tech": '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 0 1 16 0"/><path d="M4 12v3a2 2 0 0 0 2 2h1v-5H4zM20 12v3a2 2 0 0 1-2 2h-1v-5h3z"/></svg>'
+};
 const NAV = [
-  ["winter", "WINTER"],
-  ["car-garage", "CAR & GARAGE"],
-  ["air-water", "AIR & WATER"],
-  ["pet", "PET"],
-  ["kitchen", "KITCHEN"],
-  ["sleep", "SLEEP"],
-  ["personal-tech", "PERSONAL TECH"]
+  ["winter", "Winter"],
+  ["car-garage", "Car & garage"],
+  ["air-water", "Air & water"],
+  ["pet", "Pet"],
+  ["kitchen", "Kitchen"],
+  ["sleep", "Sleep"],
+  ["personal-tech", "Personal tech"]
 ];
+const POPULAR_IDS = [
+  "vitamix-e310",
+  "kitchenaid-artisan",
+  "instant-pot-duo-plus",
+  "coway-ap-1512hh",
+  "sony-wh-1000xm5",
+  "gopro-hero13",
+  "ninja-crispi-fn101",
+  "breville-bes870xl"
+];
+const POP_START = "<!-- checkedlab:popular start -->";
+const POP_END = "<!-- checkedlab:popular end -->";
+const REC_START = "<!-- checkedlab:recalls start -->";
+const REC_END = "<!-- checkedlab:recalls end -->";
 const SOURCE_LABELS = {
   "https://www.saferproducts.gov/RestWebServices/Recall": "CPSC SaferProducts",
   "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3": "Health Canada open dataset"
 };
 const COMMERCE = /^(offers|price|priceCurrency|lowPrice|highPrice|aggregateRating|review|reviewRating|ratingValue|ratingCount|reviewCount)$/i;
+const FONT_PRELOAD = '<link rel="preload" href="/assets/fonts/source-sans-3-latin.woff2" as="font" type="font/woff2" crossorigin>';
 
 const products = JSON.parse(readFileSync(join(root, "products.json"), "utf8"));
 assertProducts(products);
@@ -46,18 +70,23 @@ const byHub = new Map(HUBS.map((hub) => [hub, products.filter((product) => produ
 for (const hub of HUBS) {
   const file = join(root, hub, "index.html");
   let html = readFileSync(file, "utf8");
-  html = fillMount(html, byHub.get(hub).map((product) => card.card(product, "US")).join("\n"));
+  html = fillMount(html, byHub.get(hub).map((product, index) => card.card(product, "US", index === 0 ? { eager: true } : {})).join("\n"));
+  const lead = byHub.get(hub).find((product) => card.schemaImage(product));
+  html = ensureImagePreload(html, lead);
   html = pointItemList(html, hub);
-  html = ensureCardScript(html);
+  html = ensureFontPreload(ensureCardScript(html));
   writeFileSync(file, html);
 }
 
 {
   const file = join(root, "index.html");
   let html = readFileSync(file, "utf8");
-  const shown = products.filter((product) => product.category === "kitchen").slice(0, 3);
-  html = fillMount(html, shown.map((product) => card.card(product, "US")).join("\n"));
-  html = ensureCardScript(html);
+  const byId = new Map(products.map((product) => [product.id, product]));
+  const popular = POPULAR_IDS.map((id) => byId.get(id)).filter(Boolean);
+  const recalls = products.filter(isBin);
+  html = fillMount(html, popular.map((product) => card.card(product, "US")).join("\n"), POP_START, POP_END);
+  html = fillMount(html, recalls.length ? recalls.map((product) => card.card(product, "US")).join("\n") : '<p class="empty">No official model recall is on the list.</p>', REC_START, REC_END);
+  html = ensureFontPreload(ensureCardScript(html));
   writeFileSync(file, html);
 }
 
@@ -66,7 +95,7 @@ for (const hub of HUBS) {
   let html = readFileSync(file, "utf8");
   const shown = products.filter(isBin);
   html = fillMount(html, shown.length ? shown.map((product) => card.card(product, "US")).join("\n") : BIN_EMPTY);
-  html = ensureCardScript(html);
+  html = ensureFontPreload(ensureCardScript(html));
   writeFileSync(file, html);
 }
 
@@ -74,7 +103,7 @@ const pages = [];
 for (const product of products) {
   const dir = join(root, product.category, product.id);
   mkdirSync(dir, { recursive: true });
-  const html = productPage(product);
+  const html = ensureFontPreload(productPage(product));
   writeFileSync(join(dir, "index.html"), html);
   pages.push(product);
 }
@@ -87,6 +116,11 @@ for (const hub of HUBS) {
       rmSync(full, { recursive: true, force: true });
     }
   }
+}
+
+for (const rel of ["how-we-check/index.html", "404.html"]) {
+  const file = join(root, rel);
+  writeFileSync(file, ensureFontPreload(readFileSync(file, "utf8")));
 }
 
 writeSitemap(pages);
@@ -118,16 +152,18 @@ function assertRenderer() {
       us: { status: "bin", detail: "A recall matches this model.", url: "https://www.cpsc.gov/Recalls/example" }
     }
   }, "US");
-  for (const bit of ['data-category="kitchen"', "badge-bin", "recall-bin", "Recall notice"]) {
+  for (const bit of ['data-category="kitchen"', "badge-bin", "Official recall found", "See specs and stores"]) {
     if (!bin.includes(bit)) throw new Error("BIN card missing " + bit);
   }
-  if (bin.includes("p-side") || bin.includes("no-photo")) throw new Error("Card without a photo rendered a photo column");
+  if (bin.includes("p-side") || bin.includes("store-btn") || bin.includes("check-title") || bin.includes("evidence")) {
+    throw new Error("Hub card includes a product-page block");
+  }
   if (/\$\d/.test(bin) || bin.includes("offers")) throw new Error("Renderer emitted a price");
-  const plain = card.card(products[0], "US");
-  if (!plain.includes("checkedlab01-20") || plain.includes("checkedlab-20")) {
+  const usStores = card.storeButtons(products[0], "US");
+  if (!usStores.includes("checkedlab01-20") || usStores.includes("checkedlab-20")) {
     throw new Error("US card has the wrong Amazon tag");
   }
-  const canada = card.card(products.find((product) => product.asin && product.asin.ca) || products[0], "CA");
+  const canada = card.storeButtons(products.find((product) => product.asin && product.asin.ca) || products[0], "CA");
   if (!canada.includes("checkedlab-20") || canada.includes("checkedlab01-20")) {
     throw new Error("CA card has the wrong Amazon tag");
   }
@@ -138,10 +174,11 @@ function isBin(product) {
   return (recall.us || {}).status === "bin" || (recall.ca || {}).status === "bin" || (product.bin && product.bin.length);
 }
 
-function fillMount(html, inner) {
-  const block = START + "\n" + inner + "\n" + END;
-  const pattern = new RegExp(START.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + "[\\s\\S]*?" + END.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"));
+function fillMount(html, inner, start = START, end = END) {
+  const block = start + "\n" + inner + "\n" + end;
+  const pattern = new RegExp(start.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + "[\\s\\S]*?" + end.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"));
   if (pattern.test(html)) return html.replace(pattern, block);
+  if (start !== START) throw new Error("Missing mount markers " + start);
   const mount = '<div id="product-mount"></div>';
   if (!html.includes(mount)) throw new Error("Missing #product-mount");
   return html.replace(mount, '<div id="product-mount" data-rendered-region="US">\n' + block + "\n</div>");
@@ -156,11 +193,34 @@ function pointItemList(html, hub) {
   return html;
 }
 
+function ensureFontPreload(html) {
+  if (html.includes("/assets/fonts/source-sans-3-latin.woff2")) return html;
+  return html.replace('<link rel="stylesheet"', FONT_PRELOAD + '\n<link rel="stylesheet"');
+}
+
+function ensureImagePreload(html, product) {
+  const src = product ? card.schemaImage(product) : "";
+  const link = src && !/^https:\/\//.test(src)
+    ? '<link rel="preload" as="image" href="' + src + '" fetchpriority="high">'
+    : "";
+  if (html.includes('rel="preload" as="image"')) {
+    return link ? html.replace(/<link rel="preload" as="image"[^>]*>/, link) : html.replace(/\n?<link rel="preload" as="image"[^>]*>/, "");
+  }
+  return link ? html.replace('<link rel="stylesheet"', link + '\n<link rel="stylesheet"') : html;
+}
+
 function ensureCardScript(html) {
   if (html.includes('src="/assets/card.js"')) return html;
   const site = '<script src="/assets/site.js"></script>';
+  const siteDefer = '<script src="/assets/site.js" defer></script>';
+  if (html.includes('src="/assets/card.js"')) {
+    return html
+      .replace('<script src="/assets/card.js"></script>', '<script src="/assets/card.js" defer></script>')
+      .replace(site, siteDefer);
+  }
+  if (html.includes(siteDefer)) return html.replace(siteDefer, '<script src="/assets/card.js" defer></script>\n' + siteDefer);
   if (!html.includes(site)) throw new Error("Missing site.js");
-  return html.replace(site, '<script src="/assets/card.js"></script>\n' + site);
+  return html.replace(site, '<script src="/assets/card.js" defer></script>\n' + siteDefer);
 }
 
 function specList(product) {
@@ -210,8 +270,9 @@ function jsonLd(product) {
     url: url,
     category: HUB_NAME[hub]
   };
-  if (product.image) {
-    productNode.image = ORIGIN + "/" + String(product.image).replace(/^\/+/, "");
+  const image = card.schemaImage(product);
+  if (image && !/amazon\.com/i.test(image)) {
+    productNode.image = /^https:\/\//.test(image) ? image : ORIGIN + image;
   }
   if (product.model) productNode.model = product.model;
   if (product.sourceName) productNode.brand = { "@type": "Brand", name: product.sourceName };
@@ -255,10 +316,10 @@ function assertNoCommerce(value) {
 }
 
 function nav(current) {
-  return '<nav class="cats">\n' + NAV.map(([hub, label]) => {
+  return '<nav class="cats" aria-label="Hubs">\n' + NAV.map(([hub, label]) => {
     const currentAttr = hub === current ? ' aria-current="page"' : "";
-    return '<a href="/' + hub + '/"' + currentAttr + ">" + label + "</a>";
-  }).join("\n") + '\n<a class="cats-util" href="/how-we-check/">HOW WE CHECK</a>\n<a class="cats-util" href="/bin-list/">BIN LIST</a>\n</nav>';
+    return '<a href="/' + hub + '/"' + currentAttr + ">" + ICONS[hub] + "<span>" + label + "</span></a>";
+  }).join("\n") + '\n<a class="cats-util" href="/how-we-check/">How we check</a>\n<a class="cats-util" href="/bin-list/">BIN list</a>\n</nav>';
 }
 
 function productPage(product) {
@@ -280,6 +341,7 @@ function productPage(product) {
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>${card.esc(product.title)} — Checked Lab</title>
 <meta name="description" content="${card.esc(desc)}">
+${indexable(product) ? "" : '<meta name="robots" content="noindex">\n'}
 <meta property="og:title" content="${card.esc(product.title)} — Checked Lab">
 <meta property="og:description" content="${card.esc(desc)}">
 <meta property="og:type" content="website">
@@ -295,10 +357,9 @@ function productPage(product) {
 <link rel="icon" type="image/png" href="/favicon.png">
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="preload" href="/assets/fonts/newsreader-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/source-sans-3-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/site.css">
-<meta name="theme-color" content="#F7F6F3">
+<meta name="theme-color" content="#F5F5F7">
 <script type="application/ld+json">
 ${jsonLd(product)}
 </script>
@@ -332,7 +393,7 @@ ${nav(hub)}
 <span aria-hidden="true">/</span>
 <span aria-current="page">${card.esc(product.title)}</span>
 </nav>
-<article class="product-grid" id="${card.esc(product.id)}" data-category="${card.esc(hub)}">
+<article class="product-grid${card.schemaImage(product) ? "" : " no-photo"}" id="${card.esc(product.id)}" data-category="${card.esc(hub)}">
 <div class="p-main">
 <span class="only-us">${card.badgeHtml(us)}</span>
 <span class="only-ca">${card.badgeHtml(ca)}</span>
@@ -340,6 +401,8 @@ ${nav(hub)}
 <p class="p-meta">${card.esc(product.meta || "")}</p>
 <p class="p-note only-us">${card.esc(card.honestLine(product, us))}</p>
 <p class="p-note only-ca">${card.esc(card.honestLine(product, ca))}</p>
+<div class="only-us">${card.storeButtons(product, "US")}</div>
+<div class="only-ca">${card.storeButtons(product, "CA")}</div>
 <h2 class="check-title">Why it's listed</h2>
 <p class="why-note">${card.esc(why)}</p>
 ${specList(product)}
@@ -357,7 +420,7 @@ ${card.checkList(product)}
 <div class="only-us">${card.storeButtons(product, "US")}</div>
 <div class="only-ca">${card.storeButtons(product, "CA")}</div>
 </div>
-${product.image ? `<div class="p-side"><div class="p-img">${card.imageHtml(product)}</div></div>` : ""}
+${card.imageColumn(product)}
 </article>
 <p class="lede"><a href="/${hub}/">All ${card.esc(name)} models</a></p>
 </div>
@@ -367,10 +430,10 @@ ${product.image ? `<div class="p-side"><div class="p-img">${card.imageHtml(produ
 <div class="foot">
 <p>As an Amazon Associate I earn from qualifying purchases.</p>
 <p>© 2026 CHECKED LAB<br>Winnipeg, MB</p>
-<p class="foot-mail"><a href="mailto:hello@checkedlab.com">hello@</a><a href="mailto:support@checkedlab.com">support@</a><a href="mailto:press@checkedlab.com">press@</a><a href="mailto:legal@checkedlab.com">legal@</a></p>
+<p class="foot-mail"><a href="/how-we-check/">How we check</a><a href="/bin-list/">BIN list</a><a href="mailto:hello@checkedlab.com">hello@</a><a href="mailto:support@checkedlab.com">support@</a><a href="mailto:press@checkedlab.com">press@</a><a href="mailto:legal@checkedlab.com">legal@</a></p>
 </div>
 </footer>
-<script src="/assets/site.js"></script>
+<script src="/assets/site.js" defer></script>
 </body>
 </html>
 `;
@@ -398,7 +461,7 @@ function writeSitemap(pages) {
   for (const loc of staticUrls) {
     lines.push("  <url><loc>" + loc + "</loc><lastmod>2026-11-10</lastmod></url>");
   }
-  for (const product of pages) {
+  for (const product of pages.filter(indexable)) {
     lines.push("  <url><loc>" + ORIGIN + card.productPath(product) + "</loc><lastmod>" + lastmod(product) + "</lastmod></url>");
   }
   lines.push("</urlset>", "");
@@ -425,8 +488,8 @@ function publishDist() {
 function verifyOutput(pages) {
   for (const hub of HUBS) {
     const html = readFileSync(join(root, hub, "index.html"), "utf8");
-    const found = [...html.matchAll(/<article class="product-grid"[\s\S]*?<\/article>/g)].map((match) => match[0]);
-    const expected = byHub.get(hub).map((product) => card.card(product, "US"));
+    const found = [...html.matchAll(/<article class="(?:product-grid hub-card|product-row)"[\s\S]*?<\/article>/g)].map((match) => match[0]);
+    const expected = byHub.get(hub).map((product, index) => card.card(product, "US", index === 0 ? { eager: true } : {}));
     if (found.length !== expected.length) throw new Error(hub + " card count " + found.length);
     expected.forEach((markup, index) => {
       if (found[index] !== markup) throw new Error(hub + " card " + index + " does not match card()");
@@ -445,17 +508,34 @@ function verifyOutput(pages) {
     if (!html.includes("checkedlab01-20") || !html.includes("checkedlab-20")) {
       throw new Error("Amazon tags missing on " + product.id);
     }
-    const us = html.split('<div class="only-ca">')[0];
-    const ca = html.split('<div class="only-ca">')[1] || "";
+    const blocks = (cls) => html.match(new RegExp(`<(span|div|a) class="${cls}"[^>]*>[\\s\\S]*?<\\/\\1>`, "g")) || [];
+    const us = blocks("only-us").join("\n");
+    const ca = blocks("only-ca").join("\n");
     if (us.includes("checkedlab-20") || ca.includes("checkedlab01-20")) {
       throw new Error("Amazon tags crossed regions on " + product.id);
     }
     if (!html.includes("<h1 class=\"p-title\">" + card.visibleTitle(product.title) + "</h1>")) {
       throw new Error("H1 mismatch on " + product.id);
     }
+    if (/media-amazon\.com|images-amazon\.com/i.test(html)) {
+      throw new Error("Amazon image on " + product.id);
+    }
+    const noindex = html.includes('<meta name="robots" content="noindex">');
+    if (indexable(product) === noindex) throw new Error("Index flag mismatch on " + product.id);
   }
   const sitemap = readFileSync(join(root, "sitemap.xml"), "utf8");
-  if ((sitemap.match(/<loc>/g) || []).length !== 10 + pages.length) {
+  const indexed = pages.filter(indexable);
+  if ((sitemap.match(/<loc>/g) || []).length !== 10 + indexed.length) {
     throw new Error("Sitemap URL count");
   }
+  for (const product of pages) {
+    const loc = ORIGIN + card.productPath(product);
+    if (indexable(product) !== sitemap.includes("<loc>" + loc + "</loc>")) {
+      throw new Error("Sitemap listing mismatch on " + product.id);
+    }
+  }
+}
+
+function indexable(product) {
+  return Array.isArray(product.specs) && product.specs.length >= 3;
 }
