@@ -148,15 +148,33 @@ footer a:hover{color:var(--ink);text-decoration:underline}
 }
 @media(prefers-reduced-motion:reduce){*{transition:none!important}}
 
-/* P2: neutral category illustration for cards without a photo (CSS only, no JS). Not a product photo. */
-#lasko-ct32150 .no-photo,#lasko-ct14401 .no-photo{--illo:url(/assets/illus/tower_heater.svg)}
+/* No-photo cards show the hub drawing. Not a product photo.
+   A closer object overrides the hub. No drawing: the media column is removed. */
+.product-grid[data-category="winter"] .no-photo{--illo:url(/assets/illus/tower_heater.svg)}
+.product-grid[data-category="car-garage"] .no-photo{--illo:url(/assets/illus/jump_starter.svg)}
+.product-grid[data-category="air-water"] .no-photo{--illo:url(/assets/illus/purifier.svg)}
+.product-grid[data-category="sleep"] .no-photo{--illo:url(/assets/illus/sheets.svg)}
+.product-grid[data-category="personal-tech"] .no-photo{--illo:url(/assets/illus/headphones.svg)}
+.product-grid[data-category="pet"] .no-photo,
+.product-grid[data-category="kitchen"] .no-photo{--illo:url(/assets/illus/seal.svg)}
 #levoit-classic-300s .no-photo{--illo:url(/assets/illus/humidifier.svg)}
-#noco-gb40 .no-photo,#noco-gb50 .no-photo{--illo:url(/assets/illus/jump_starter.svg)}
-#coway-ap-1512hh .no-photo,#levoit-core-300s-p .no-photo{--illo:url(/assets/illus/purifier.svg)}
-#sony-wh-1000xm5 .no-photo{--illo:url(/assets/illus/headphones.svg)}
-#brooklinen-luxe-core .no-photo{--illo:url(/assets/illus/sheets.svg)}
-.no-photo::before{content:"";display:block;width:200px;height:200px;margin:0 auto 6px;background:var(--illo,none) center/contain no-repeat}
-.product-grid:not([id="x"]) .no-photo::after{content:"Illustration";display:block;margin-top:10px;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);opacity:.8}
+.no-photo::before,.no-photo::after{content:none;display:none}
+.product-grid[data-category="winter"] .no-photo::before,
+.product-grid[data-category="car-garage"] .no-photo::before,
+.product-grid[data-category="air-water"] .no-photo::before,
+.product-grid[data-category="pet"] .no-photo::before,
+.product-grid[data-category="kitchen"] .no-photo::before,
+.product-grid[data-category="sleep"] .no-photo::before,
+.product-grid[data-category="personal-tech"] .no-photo::before{content:"";display:block;width:200px;height:200px;margin:0 auto 6px;background:var(--illo) center/contain no-repeat}
+.product-grid[data-category="winter"] .no-photo::after,
+.product-grid[data-category="car-garage"] .no-photo::after,
+.product-grid[data-category="air-water"] .no-photo::after,
+.product-grid[data-category="pet"] .no-photo::after,
+.product-grid[data-category="kitchen"] .no-photo::after,
+.product-grid[data-category="sleep"] .no-photo::after,
+.product-grid[data-category="personal-tech"] .no-photo::after{content:"Illustration";display:block;margin-top:10px;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);opacity:.8}
+.product-grid:not([data-category="winter"]):not([data-category="car-garage"]):not([data-category="air-water"]):not([data-category="pet"]):not([data-category="kitchen"]):not([data-category="sleep"]):not([data-category="personal-tech"]):not(:has(img)){grid-template-columns:minmax(0,1fr)}
+.product-grid:not([data-category="winter"]):not([data-category="car-garage"]):not([data-category="air-water"]):not([data-category="pet"]):not([data-category="kitchen"]):not([data-category="sleep"]):not([data-category="personal-tech"]):not(:has(img)) .p-side{display:none}
 /* Evidence (maker claims) list follows the checklist: filled marker instead of a to-do box */
 .evidence + .evidence{margin-top:2px;padding-top:10px;border-top:1px dashed var(--line)}
 .evidence + .evidence li::before{border:0;background:var(--hub);border-radius:50%;width:8px;height:8px;top:15px;left:4px}

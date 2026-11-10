@@ -159,7 +159,7 @@
     var image = product.image
       ? '<img src="/' + esc(String(product.image).replace(/^\/+/, "")) + '" alt="' + esc(product.title) + '">'
       : '<div class="no-photo"><b>' + esc(product.model || product.title) + '</b><span>No photo on this card. Match the model on the store listing.</span></div>';
-    return '<article class="product-grid" id="' + esc(product.id) + '">' +
+    return '<article class="product-grid" id="' + esc(product.id) + '" data-category="' + esc(product.category || "") + '">' +
       '<div class="p-main">' +
         badge +
         '<h2 class="p-title">' + esc(product.title) + "</h2>" +
