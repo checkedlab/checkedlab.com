@@ -118,9 +118,10 @@ function assertRenderer() {
       us: { status: "bin", detail: "A recall matches this model.", url: "https://www.cpsc.gov/Recalls/example" }
     }
   }, "US");
-  for (const bit of ['data-category="kitchen"', "badge-bin", "recall-bin", "Recall notice", "no-photo", "Match the model on the store listing."]) {
+  for (const bit of ['data-category="kitchen"', "badge-bin", "recall-bin", "Recall notice"]) {
     if (!bin.includes(bit)) throw new Error("BIN card missing " + bit);
   }
+  if (bin.includes("p-side") || bin.includes("no-photo")) throw new Error("Card without a photo rendered a photo column");
   if (/\$\d/.test(bin) || bin.includes("offers")) throw new Error("Renderer emitted a price");
   const plain = card.card(products[0], "US");
   if (!plain.includes("checkedlab01-20") || plain.includes("checkedlab-20")) {
@@ -257,7 +258,7 @@ function nav(current) {
   return '<nav class="cats">\n' + NAV.map(([hub, label]) => {
     const currentAttr = hub === current ? ' aria-current="page"' : "";
     return '<a href="/' + hub + '/"' + currentAttr + ">" + label + "</a>";
-  }).join("\n") + "\n</nav>";
+  }).join("\n") + '\n<a class="cats-util" href="/how-we-check/">HOW WE CHECK</a>\n<a class="cats-util" href="/bin-list/">BIN LIST</a>\n</nav>';
 }
 
 function productPage(product) {
@@ -294,11 +295,10 @@ function productPage(product) {
 <link rel="icon" type="image/png" href="/favicon.png">
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preload" href="/assets/fonts/newsreader-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/source-sans-3-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/site.css">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,500..700,30..100&family=Libre+Franklin:wght@500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
-<meta name="theme-color" content="#F7F2EA">
+<meta name="theme-color" content="#F7F6F3">
 <script type="application/ld+json">
 ${jsonLd(product)}
 </script>
@@ -306,6 +306,7 @@ ${jsonLd(product)}
 <body data-page="product" data-category="${card.esc(hub)}">
 ${DISCLOSURE}
 <div class="topbar"><span>● CHECKED LAB • EST 2026 • NO SPONSORS</span><span>hello@checkedlab.com • press@checkedlab.com • legal@checkedlab.com</span></div>
+<div class="masthead">
 <header>
 <a class="logo" href="/">CHECKED LAB <i>CHECKED BEFORE YOU BUY</i></a>
 <div class="header-actions">
@@ -320,6 +321,7 @@ ${DISCLOSURE}
 </div>
 </header>
 ${nav(hub)}
+</div>
 
 <main>
 <div class="wrap">
@@ -355,14 +357,18 @@ ${card.checkList(product)}
 <div class="only-us">${card.storeButtons(product, "US")}</div>
 <div class="only-ca">${card.storeButtons(product, "CA")}</div>
 </div>
-<div class="p-side"><div class="p-img">${card.imageHtml(product)}</div></div>
+${product.image ? `<div class="p-side"><div class="p-img">${card.imageHtml(product)}</div></div>` : ""}
 </article>
 <p class="lede"><a href="/${hub}/">All ${card.esc(name)} models</a></p>
 </div>
 </main>
 
 <footer>
-As an Amazon Associate I earn from qualifying purchases. © 2026 CHECKED LAB • Winnipeg, MB • <a href="mailto:hello@checkedlab.com">hello@</a> • <a href="mailto:support@checkedlab.com">support@</a> • <a href="mailto:press@checkedlab.com">press@</a> • <a href="mailto:legal@checkedlab.com">legal@</a>
+<div class="foot">
+<p>As an Amazon Associate I earn from qualifying purchases.</p>
+<p>© 2026 CHECKED LAB<br>Winnipeg, MB</p>
+<p class="foot-mail"><a href="mailto:hello@checkedlab.com">hello@</a><a href="mailto:support@checkedlab.com">support@</a><a href="mailto:press@checkedlab.com">press@</a><a href="mailto:legal@checkedlab.com">legal@</a></p>
+</div>
 </footer>
 <script src="/assets/site.js"></script>
 </body>
@@ -405,7 +411,7 @@ function publishDist() {
   mkdirSync(dist);
   const skip = new Set([".git", ".github", "dist", "node_modules", "scripts", "vercel.json"]);
   for (const entry of readdirSync(root)) {
-    if (entry.startsWith(".") || skip.has(entry)) continue;
+    if (entry.startsWith(".") || skip.has(entry) || entry.endsWith(".md")) continue;
     cpSync(join(root, entry), join(dist, entry), { recursive: true });
   }
   if (!statSync(join(dist, "index.html")).isFile()) throw new Error("dist is missing index.html");
@@ -413,6 +419,7 @@ function publishDist() {
     throw new Error("dist is missing a product page");
   }
   if (!statSync(join(dist, "404.html")).isFile()) throw new Error("dist is missing 404.html");
+  if (readdirSync(dist).some((entry) => entry.endsWith(".md"))) throw new Error("dist copied a markdown file");
 }
 
 function verifyOutput(pages) {
@@ -425,6 +432,8 @@ function verifyOutput(pages) {
       if (found[index] !== markup) throw new Error(hub + " card " + index + " does not match card()");
     });
     if (!html.includes(DISCLOSURE)) throw new Error(hub + " disclosure changed");
+    if (/not tested/i.test(html)) throw new Error(hub + " still says not tested");
+    if (/older cards/i.test(html)) throw new Error(hub + " still mentions older cards");
   }
   const coway = readFileSync(join(root, "air-water", "coway-ap-1512hh", "index.html"), "utf8");
   if (!coway.includes("https://cowaymega.com/products/mighty-ap-1512hh")) {

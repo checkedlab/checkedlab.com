@@ -99,7 +99,7 @@
       return '<p class="recall recall-bin"><strong>BIN.</strong> ' + esc(rec.detail || "A recall matches this model.") + source + "</p>";
     }
     if (rec.status === "none" && rec.checkedAt) {
-      var html = '<p class="recall">No recall found as of ' + esc(rec.checkedAt) + ".</p>";
+      var html = '<p class="recall recall-clear">No recall found as of ' + esc(rec.checkedAt) + ".</p>";
       var other = rec.other || [];
       if (other.length) {
         html += '<p class="recall-other">Other recalls that mention this brand name: ' +
@@ -113,11 +113,11 @@
       var links = (rec.other || []).map(function (item) {
         return outbound(item.url, item.title || "Recall");
       }).join("; ");
-      return '<p class="recall">' + esc(rec.detail || "Recall status is not confirmed for this listing.") +
+      return '<p class="recall recall-wait">' + esc(rec.detail || "Recall status is not confirmed for this listing.") +
         (rec.checkedAt ? " Checked " + esc(rec.checkedAt) + "." : "") +
         (links ? " " + links : "") + "</p>";
     }
-    return '<p class="recall">A recall check has not been recorded for this listing.</p>';
+    return '<p class="recall recall-wait">A recall check has not been recorded for this listing.</p>';
   }
 
   function evidenceList(product) {
@@ -158,8 +158,8 @@
   function badgeHtml(recall) {
     var waiting = recall.status === "unconfirmed" || recall.status === "not_recorded" || !recall.status;
     if (recall.status === "bin") return '<span class="badge badge-bin">BIN</span>';
-    if (waiting) return '<span class="badge">CHECK MODEL</span>';
-    return '<span class="badge">RECALL-CHECKED</span>';
+    if (waiting) return '<span class="badge badge-wait">CHECK MODEL</span>';
+    return '<span class="badge badge-clear">RECALL-CHECKED</span>';
   }
 
   function honestLine(product, recall) {
@@ -171,9 +171,14 @@
   }
 
   function imageHtml(product) {
-    return product.image
-      ? '<img src="/' + esc(String(product.image).replace(/^\/+/, "")) + '" alt="' + esc(product.title) + '">'
-      : '<div class="no-photo"><b>' + esc(product.model || product.title) + '</b><span>Match the model on the store listing.</span></div>';
+    if (!product.image) return "";
+    return '<img src="/' + esc(String(product.image).replace(/^\/+/, "")) + '" alt="' + esc(product.title) + '">';
+  }
+
+  function photoColumn(product) {
+    var img = imageHtml(product);
+    if (!img) return "";
+    return '<div class="p-side"><div class="p-img">' + img + "</div></div>";
   }
 
   function productPath(product) {
@@ -195,7 +200,7 @@
         checkList(product) +
         evidenceList(product) +
       "</div>" +
-      '<div class="p-side"><div class="p-img">' + imageHtml(product) + "</div></div>" +
+      photoColumn(product) +
     "</article>";
   }
 
