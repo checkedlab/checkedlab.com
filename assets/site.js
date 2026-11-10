@@ -22,6 +22,29 @@
     if (!mount) return;
     mount.innerHTML = html;
     mount.setAttribute("data-rendered-region", reg);
+    reveal(mount);
+  }
+
+  function reveal(root) {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    var scope = root && root.querySelectorAll ? root : document;
+    var nodes = scope.querySelectorAll ? scope.querySelectorAll(".product-grid, .hero, .recall-band") : [];
+    if (!nodes.length && root && root.classList && root.classList.contains("product-grid")) nodes = [root];
+    if (!window.CheckedLabReveal) {
+      window.CheckedLabReveal = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("in");
+          window.CheckedLabReveal.unobserve(entry.target);
+        });
+      }, { threshold: 0.12 });
+    }
+    Array.prototype.forEach.call(nodes, function (el) {
+      var rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight * 0.92) return;
+      el.classList.add("reveal");
+      window.CheckedLabReveal.observe(el);
+    });
   }
 
   function mountProducts(list) {
@@ -101,6 +124,8 @@
     if (!event.target || !event.target.hasAttribute("data-model-search")) return;
     mountProducts(products);
   });
+
+  reveal(document);
 
   if (document.getElementById("product-mount") || document.getElementById("popular-mount")) {
     fetch("/products.json")
