@@ -69,7 +69,9 @@ const byHub = new Map(HUBS.map((hub) => [hub, products.filter((product) => produ
 for (const hub of HUBS) {
   const file = join(root, hub, "index.html");
   let html = readFileSync(file, "utf8");
-  html = fillMount(html, byHub.get(hub).map((product) => card.card(product, "US")).join("\n"));
+  html = fillMount(html, byHub.get(hub).map((product, index) => card.card(product, "US", index === 0 ? { eager: true } : {})).join("\n"));
+  const lead = byHub.get(hub).find((product) => card.schemaImage(product));
+  html = ensureImagePreload(html, lead);
   html = pointItemList(html, hub);
   html = ensureCardScript(html);
   writeFileSync(file, html);
@@ -144,16 +146,18 @@ function assertRenderer() {
       us: { status: "bin", detail: "A recall matches this model.", url: "https://www.cpsc.gov/Recalls/example" }
     }
   }, "US");
-  for (const bit of ['data-category="kitchen"', "badge-bin", "recall-bin", "Recall notice"]) {
+  for (const bit of ['data-category="kitchen"', "badge-bin", "Official recall found", "See specs and stores"]) {
     if (!bin.includes(bit)) throw new Error("BIN card missing " + bit);
   }
-  if (bin.includes("p-side") || bin.includes("no-photo")) throw new Error("Card without a photo rendered a photo column");
+  if (bin.includes("p-side") || bin.includes("store-btn") || bin.includes("check-title") || bin.includes("evidence")) {
+    throw new Error("Hub card includes a product-page block");
+  }
   if (/\$\d/.test(bin) || bin.includes("offers")) throw new Error("Renderer emitted a price");
-  const plain = card.card(products[0], "US");
-  if (!plain.includes("checkedlab01-20") || plain.includes("checkedlab-20")) {
+  const usStores = card.storeButtons(products[0], "US");
+  if (!usStores.includes("checkedlab01-20") || usStores.includes("checkedlab-20")) {
     throw new Error("US card has the wrong Amazon tag");
   }
-  const canada = card.card(products.find((product) => product.asin && product.asin.ca) || products[0], "CA");
+  const canada = card.storeButtons(products.find((product) => product.asin && product.asin.ca) || products[0], "CA");
   if (!canada.includes("checkedlab-20") || canada.includes("checkedlab01-20")) {
     throw new Error("CA card has the wrong Amazon tag");
   }
@@ -183,11 +187,29 @@ function pointItemList(html, hub) {
   return html;
 }
 
+function ensureImagePreload(html, product) {
+  const src = product ? card.schemaImage(product) : "";
+  const link = src && !/^https:\/\//.test(src)
+    ? '<link rel="preload" as="image" href="' + src + '" fetchpriority="high">'
+    : "";
+  if (html.includes('rel="preload" as="image"')) {
+    return link ? html.replace(/<link rel="preload" as="image"[^>]*>/, link) : html.replace(/\n?<link rel="preload" as="image"[^>]*>/, "");
+  }
+  return link ? html.replace('<link rel="stylesheet"', link + '\n<link rel="stylesheet"') : html;
+}
+
 function ensureCardScript(html) {
   if (html.includes('src="/assets/card.js"')) return html;
   const site = '<script src="/assets/site.js"></script>';
+  const siteDefer = '<script src="/assets/site.js" defer></script>';
+  if (html.includes('src="/assets/card.js"')) {
+    return html
+      .replace('<script src="/assets/card.js"></script>', '<script src="/assets/card.js" defer></script>')
+      .replace(site, siteDefer);
+  }
+  if (html.includes(siteDefer)) return html.replace(siteDefer, '<script src="/assets/card.js" defer></script>\n' + siteDefer);
   if (!html.includes(site)) throw new Error("Missing site.js");
-  return html.replace(site, '<script src="/assets/card.js"></script>\n' + site);
+  return html.replace(site, '<script src="/assets/card.js" defer></script>\n' + siteDefer);
 }
 
 function specList(product) {
@@ -324,8 +346,6 @@ ${indexable(product) ? "" : '<meta name="robots" content="noindex">\n'}
 <link rel="icon" type="image/png" href="/favicon.png">
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="preload" href="/assets/fonts/newsreader-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/assets/fonts/source-sans-3-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/site.css">
 <meta name="theme-color" content="#F5F5F7">
 <script type="application/ld+json">
@@ -361,7 +381,7 @@ ${nav(hub)}
 <span aria-hidden="true">/</span>
 <span aria-current="page">${card.esc(product.title)}</span>
 </nav>
-<article class="product-grid" id="${card.esc(product.id)}" data-category="${card.esc(hub)}">
+<article class="product-grid${card.schemaImage(product) ? "" : " no-photo"}" id="${card.esc(product.id)}" data-category="${card.esc(hub)}">
 <div class="p-main">
 <span class="only-us">${card.badgeHtml(us)}</span>
 <span class="only-ca">${card.badgeHtml(ca)}</span>
@@ -399,7 +419,7 @@ ${card.imageColumn(product)}
 <p class="foot-mail"><a href="/how-we-check/">How we check</a><a href="/bin-list/">BIN list</a><a href="mailto:hello@checkedlab.com">hello@</a><a href="mailto:support@checkedlab.com">support@</a><a href="mailto:press@checkedlab.com">press@</a><a href="mailto:legal@checkedlab.com">legal@</a></p>
 </div>
 </footer>
-<script src="/assets/site.js"></script>
+<script src="/assets/site.js" defer></script>
 </body>
 </html>
 `;
@@ -454,8 +474,8 @@ function publishDist() {
 function verifyOutput(pages) {
   for (const hub of HUBS) {
     const html = readFileSync(join(root, hub, "index.html"), "utf8");
-    const found = [...html.matchAll(/<article class="product-grid"[\s\S]*?<\/article>/g)].map((match) => match[0]);
-    const expected = byHub.get(hub).map((product) => card.card(product, "US"));
+    const found = [...html.matchAll(/<article class="(?:product-grid hub-card|product-row)"[\s\S]*?<\/article>/g)].map((match) => match[0]);
+    const expected = byHub.get(hub).map((product, index) => card.card(product, "US", index === 0 ? { eager: true } : {}));
     if (found.length !== expected.length) throw new Error(hub + " card count " + found.length);
     expected.forEach((markup, index) => {
       if (found[index] !== markup) throw new Error(hub + " card " + index + " does not match card()");

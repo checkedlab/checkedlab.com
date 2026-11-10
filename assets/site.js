@@ -40,6 +40,7 @@
       }, { threshold: 0.12 });
     }
     Array.prototype.forEach.call(nodes, function (el) {
+      if (el.querySelector && el.querySelector('[fetchpriority="high"]')) return;
       var rect = el.getBoundingClientRect();
       if (rect.top < window.innerHeight * 0.92) return;
       el.classList.add("reveal");
@@ -85,7 +86,7 @@
     } else {
       return;
     }
-    if (mount.querySelector(".product-grid") && mount.getAttribute("data-rendered-region") === reg) return;
+    if (mount.querySelector(".product-grid, .product-row") && mount.getAttribute("data-rendered-region") === reg) return;
     if (!shown.length) {
       paint(mount, page === "bin"
         ? '<p class="empty">Nothing is on the BIN list. A product lands here only when a recall record matches its brand and model. An unconfirmed model is not a BIN.</p>'
@@ -99,7 +100,7 @@
 
   function render() {
     var mount = document.getElementById("product-mount");
-    if (mount && !products.length && mount.querySelector(".product-grid")) return;
+    if (mount && !products.length && mount.querySelector(".product-grid, .product-row")) return;
     mountProducts(products);
   }
 

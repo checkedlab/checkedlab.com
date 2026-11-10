@@ -99,7 +99,7 @@
       return '<p class="recall recall-bin"><strong>Official recall found.</strong> ' + esc(rec.detail || "A recall matches this model.") + source + "</p>";
     }
     if (rec.status === "none" && rec.checkedAt) {
-      var html = '<p class="recall recall-clear">No recall found as of ' + esc(rec.checkedAt) + ".</p>";
+      var html = '<p class="recall recall-clear">No recall found as of ' + recallDate(rec.checkedAt) + ".</p>";
       var other = rec.other || [];
       if (other.length) {
         html += '<p class="recall-other">Other recalls that mention this brand name: ' +
@@ -114,7 +114,7 @@
         return outbound(item.url, item.title || "Recall");
       }).join("; ");
       return '<p class="recall recall-wait">' + esc(rec.detail || "Recall status is not confirmed for this listing.") +
-        (rec.checkedAt ? " Checked " + esc(rec.checkedAt) + "." : "") +
+        (rec.checkedAt ? " Checked " + recallDate(rec.checkedAt) + "." : "") +
         (links ? " " + links : "") + "</p>";
     }
     return '<p class="recall recall-wait">A recall check has not been recorded for this listing.</p>';
@@ -147,7 +147,8 @@
   function storeButtons(product, reg) {
     return '<div class="store-links">' + STORES[reg].map(function (store) {
       var url = storeUrl(product, reg, store.id);
-      return '<a class="store-btn" href="' + esc(safeUrl(url)) + '" target="_blank" rel="' + REL + '">' + esc(store.label) + "</a>";
+      var primary = store.id === "amazon" ? " store-primary" : "";
+      return '<a class="store-btn' + primary + '" href="' + esc(safeUrl(url)) + '" target="_blank" rel="' + REL + '">' + esc(store.label) + "</a>";
     }).join("") + "</div>";
   }
 
@@ -180,21 +181,43 @@
     if (!product.image || amazonImage(product)) return "";
     var src = String(product.image);
     if (/^https:\/\//.test(src)) return src;
-    return "/" + src.replace(/^\/+/, "");
+    src = "/" + src.replace(/^\/+/, "");
+    if (/\.jpe?g$/i.test(src)) return src.replace(/\.jpe?g$/i, ".webp");
+    return src;
   }
 
-  function imageTag(product) {
+  function recallDate(value) {
+    return '<span class="recall-date">' + esc(value) + "</span>";
+  }
+
+  function imageTag(product, opts) {
+    opts = opts || {};
     var src = imageSrc(product);
     if (!src) return "";
     var meta = product.image_source || {};
     var size = "";
-    if (meta.width) size += ' width="' + esc(meta.width) + '"';
-    if (meta.height) size += ' height="' + esc(meta.height) + '"';
-    return '<img src="' + esc(src) + '" alt="' + esc(product.title) + '"' + size + ' loading="lazy" decoding="async">';
+    var width = Number(meta.width) || 0;
+    var height = Number(meta.height) || 0;
+    if (width && height && /\.webp$/i.test(src)) {
+      var scale = Math.min(1, 800 / Math.max(width, height));
+      width = Math.round(width * scale);
+      height = Math.round(height * scale);
+    }
+    if (width) size += ' width="' + width + '"';
+    if (height) size += ' height="' + height + '"';
+    var extra = "";
+    if (/\.webp$/i.test(src) && meta.width > 400) {
+      var fullW = Math.min(800, Number(meta.width));
+      var small = src.replace(/\.webp$/i, "-400.webp");
+      extra = ' srcset="' + esc(small) + ' 400w, ' + esc(src) + " " + fullW + 'w" sizes="' +
+        esc(opts.sizes || "(min-width: 1100px) 220px, 46vw") + '"';
+    }
+    var load = opts.eager ? ' fetchpriority="high" decoding="async"' : ' loading="lazy" decoding="async"';
+    return '<img src="' + esc(src) + '"' + extra + ' alt="' + esc(product.title) + '"' + size + load + ">";
   }
 
-  function imageFigure(product, reg) {
-    var img = imageTag(product);
+  function imageFigure(product, reg, opts) {
+    var img = imageTag(product, opts);
     if (!img) return "";
     var meta = product.image_source || {};
     var credit = meta.kind === "maker" && meta.credit
@@ -207,8 +230,8 @@
     return imageFigure(product, "US");
   }
 
-  function photoColumn(product, reg) {
-    var fig = imageFigure(product, reg);
+  function photoColumn(product, reg, opts) {
+    var fig = imageFigure(product, reg, opts);
     if (!fig) return "";
     return '<div class="p-side"><div class="p-img">' + fig + "</div></div>";
   }
@@ -216,9 +239,22 @@
   function imageColumn(product) {
     if (!imageSrc(product)) return "";
     return '<div class="p-side"><div class="p-img">' +
-      '<span class="only-us">' + imageFigure(product, "US") + "</span>" +
-      '<span class="only-ca">' + imageFigure(product, "CA") + "</span>" +
+      imageFigure(product, "US", { eager: true, sizes: "(min-width: 800px) 480px, 92vw" }) +
       "</div></div>";
+  }
+
+  function modelLine(product) {
+    return product.model || product.meta || "";
+  }
+
+  function hubSpecs(product) {
+    var specs = (product.specs || []).filter(function (spec) {
+      return spec && spec.label && spec.value;
+    }).slice(0, 2);
+    if (!specs.length) return "";
+    return '<ul class="hub-specs">' + specs.map(function (spec) {
+      return "<li><span>" + esc(spec.label) + "</span> " + esc(spec.value) + "</li>";
+    }).join("") + "</ul>";
   }
 
   function productPath(product) {
@@ -231,23 +267,20 @@
     return esc(title).replace(/([A-Za-z0-9])-([A-Za-z0-9])/g, "$1\u2011$2");
   }
 
-  function card(product, reg) {
+  function card(product, reg, opts) {
+    opts = opts || {};
     var recall = recallFor(product, reg);
-    return '<article class="product-grid" id="' + esc(product.id) + '" data-category="' + esc(product.category || "") + '">' +
-      '<div class="p-main">' +
-        badgeHtml(recall) +
-        '<h2 class="p-title"><a href="' + esc(productPath(product)) + '">' + visibleTitle(product.title) + "</a></h2>" +
-        '<p class="p-meta">' + esc(product.meta || "") + "</p>" +
-        '<p class="p-note">' + esc(honestLine(product, recall)) + "</p>" +
-        '<p class="price-note">Prices change often, check the current price at the store.</p>' +
-        '<p class="affiliate-note">Amazon link is an affiliate link</p>' +
-        storeButtons(product, reg) +
-        recallBlock(recall) +
-        checkList(product) +
-        evidenceList(product) +
-      "</div>" +
-      photoColumn(product, reg) +
-    "</article>";
+    var href = esc(productPath(product));
+    var title = '<h2 class="p-title"><a href="' + href + '">' + visibleTitle(product.title) + "</a></h2>";
+    var meta = '<p class="p-meta">' + esc(modelLine(product)) + "</p>";
+    var more = '<a class="hub-more" href="' + href + '">See specs and stores</a>';
+    var photo = photoColumn(product, reg, opts);
+    var id = ' id="' + esc(product.id) + '" data-category="' + esc(product.category || "") + '"';
+    if (!photo) {
+      return '<article class="product-row"' + id + ">" + badgeHtml(recall) + title + meta + more + "</article>";
+    }
+    return '<article class="product-grid hub-card"' + id + ">" + photo +
+      '<div class="p-main">' + badgeHtml(recall) + title + meta + hubSpecs(product) + more + "</div></article>";
   }
 
   return {
