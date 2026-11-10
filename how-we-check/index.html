@@ -47,19 +47,18 @@
 <h2>What we check</h2>
 <ul>
 <li>Manufacturer pages, and only the sentences those pages actually state. The link sits next to the sentence.</li>
-<li>Store rows for the region you are in. US rows are Amazon.com, Best Buy, Walmart, Target, and Home Depot, in USD. Canada rows are Amazon.ca, Best Buy CA, Canadian Tire, Walmart.ca, and Wayfair.ca, in CAD.</li>
+<li>Store buttons for the region you are in. US buttons go to Amazon.com, Best Buy, Walmart, Target, and Home Depot. Canada buttons go to Amazon.ca, Best Buy, Canadian Tire, Walmart, and Wayfair. The button opens that store’s search for the brand and model, or the Amazon product page when the ASIN is already verified.</li>
 <li>US recalls from the CPSC SaferProducts API, and Canadian recalls from Health Canada’s open dataset d38de914-c94c-429b-8ab1-8776c31643e3. A daily GitHub Action reruns that match.</li>
 </ul>
 <h2>What we do not do</h2>
 <ul>
 <li>We do not buy products for review. “Bought by us” is used only when a receipt is on the card. None of the current products have that badge.</li>
 <li>We do not run a hands-on test, a 30-day lab, or our own noise, heat, or power measurements.</li>
-<li>We do not invent prices, ratings, check times, stock, or test scores. If a price or a time has not been checked, the cell says “not checked yet.”</li>
-<li>The BUY NOW / WAIT meter and the fake-sale flag stay off unless a real price history, with a source, is stored for that region.</li>
+<li>We do not type in prices by hand, and we do not show a price, a stock flag, a check time, a BUY NOW / WAIT line, or a fake-sale claim. There is no compliant free price feed we can run without store API keys or scraping that breaks a store’s terms. Amazon’s Product Advertising API needs keys and qualifying sales, so it is not connected.</li>
 <li>Brands do not pay for placement and do not edit these pages.</li>
 </ul>
-<h2>Price Truth</h2>
-<p>The box at the top of a product card is the price check for the region you selected. Each store has its own checked time. Amazon links use the affiliate tag already in the repo: checkedlab01-20 on Amazon.com and checkedlab-20 on Amazon.ca. Other stores have no link until we have a real product URL. Those tags are not placeholders we made up.</p>
+<h2>Prices</h2>
+<p>Each card says: prices change often, check the current price at the store. Amazon.com links use the tag already in the repo, checkedlab01-20. Amazon.ca links use checkedlab-20. A verified ASIN opens the product page. Otherwise the button is an Amazon search for that brand and model, with the same tag. Other stores open their own search for that same brand and model. Those links are sponsored, nofollow, and open in a new tab.</p>
 <h2>Recalls</h2>
 <p>A red BIN means the brand and the model token both appear in one recall record. A different product from the same brand is not a BIN. It can be listed under the card as a recall that did not match this model. If we have not confirmed the model number, the card says the recall status is not confirmed. That is not a clearance and not a BIN.</p>
 <p>“No recall found as of {date}” means the check ran on that date and no record matched this model. It is not a promise that a recall can never exist.</p>

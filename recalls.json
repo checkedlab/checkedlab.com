@@ -139,6 +139,483 @@
           }
         ]
       }
+    },
+    "lasko-ct32150": {
+      "us": {
+        "status": "none",
+        "checkedAt": "2026-11-10",
+        "url": "https://www.saferproducts.gov/RestWebServices/Recall",
+        "detail": null,
+        "other": []
+      },
+      "ca": {
+        "status": "none",
+        "checkedAt": "2026-11-10",
+        "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
+        "detail": null,
+        "other": []
+      }
+    },
+    "lasko-ct14401": {
+      "us": {
+        "status": "none",
+        "checkedAt": "2026-11-10",
+        "url": "https://www.saferproducts.gov/RestWebServices/Recall",
+        "detail": null,
+        "other": []
+      },
+      "ca": {
+        "status": "none",
+        "checkedAt": "2026-11-10",
+        "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
+        "detail": null,
+        "other": []
+      }
+    },
+    "levoit-classic-300s": {
+      "us": {
+        "status": "none",
+        "checkedAt": "2026-11-10",
+        "url": "https://www.saferproducts.gov/RestWebServices/Recall",
+        "detail": null,
+        "other": []
+      },
+      "ca": {
+        "status": "none",
+        "checkedAt": "2026-11-10",
+        "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
+        "detail": null,
+        "other": []
+      }
+    },
+    "sunbeam-trl8ws": {
+      "us": {
+        "status": "none",
+        "checkedAt": "2026-11-10",
+        "url": "https://www.saferproducts.gov/RestWebServices/Recall",
+        "detail": null,
+        "other": []
+      },
+      "ca": {
+        "status": "none",
+        "checkedAt": "2026-11-10",
+        "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
+        "detail": null,
+        "other": []
+      }
+    },
+    "snowjoe-24v-ss10": {
+      "us": {
+        "status": "none",
+        "checkedAt": "2026-11-10",
+        "url": "https://www.saferproducts.gov/RestWebServices/Recall",
+        "detail": null,
+        "other": []
+      },
+      "ca": {
+        "status": "none",
+        "checkedAt": "2026-11-10",
+        "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
+        "detail": null,
+        "other": []
+      }
+    },
+    "noco-gb40": {
+      "us": {
+        "status": "none",
+        "checkedAt": "2026-11-10",
+        "url": "https://www.saferproducts.gov/RestWebServices/Recall",
+        "detail": null,
+        "other": []
+      },
+      "ca": {
+        "status": "none",
+        "checkedAt": "2026-11-10",
+        "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
+        "detail": null,
+        "other": []
+      }
+    },
+    "noco-gb50": {
+      "us": {
+        "status": "none",
+        "checkedAt": "2026-11-10",
+        "url": "https://www.saferproducts.gov/RestWebServices/Recall",
+        "detail": null,
+        "other": []
+      },
+      "ca": {
+        "status": "none",
+        "checkedAt": "2026-11-10",
+        "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
+        "detail": null,
+        "other": []
+      }
+    },
+    "battery-tender-junior": {
+      "us": {
+        "status": "none",
+        "checkedAt": "2026-11-10",
+        "url": "https://www.saferproducts.gov/RestWebServices/Recall",
+        "detail": null,
+        "other": []
+      },
+      "ca": {
+        "status": "none",
+        "checkedAt": "2026-11-10",
+        "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
+        "detail": null,
+        "other": []
+      }
+    },
+    "bosch-icon": {
+      "us": {
+        "status": "none",
+        "checkedAt": "2026-11-10",
+        "url": "https://www.saferproducts.gov/RestWebServices/Recall",
+        "detail": null,
+        "other": []
+      },
+      "ca": {
+        "status": "none",
+        "checkedAt": "2026-11-10",
+        "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
+        "detail": null,
+        "other": []
+      }
+    },
+    "coway-ap-1512hh": {
+      "us": {
+        "status": "none",
+        "checkedAt": "2026-11-10",
+        "url": "https://www.saferproducts.gov/RestWebServices/Recall",
+        "detail": null,
+        "other": []
+      },
+      "ca": {
+        "status": "none",
+        "checkedAt": "2026-11-10",
+        "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
+        "detail": null,
+        "other": []
+      }
+    },
+    "levoit-core-300s-p": {
+      "us": {
+        "status": "none",
+        "checkedAt": "2026-11-10",
+        "url": "https://www.saferproducts.gov/RestWebServices/Recall",
+        "detail": null,
+        "other": []
+      },
+      "ca": {
+        "status": "none",
+        "checkedAt": "2026-11-10",
+        "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
+        "detail": null,
+        "other": []
+      }
+    },
+    "midea-mad50s1qwt": {
+      "us": {
+        "status": "none",
+        "checkedAt": "2026-11-10",
+        "url": "https://www.saferproducts.gov/RestWebServices/Recall",
+        "detail": null,
+        "other": []
+      },
+      "ca": {
+        "status": "none",
+        "checkedAt": "2026-11-10",
+        "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
+        "detail": null,
+        "other": []
+      }
+    },
+    "brita-tahoe-elite": {
+      "us": {
+        "status": "none",
+        "checkedAt": "2026-11-10",
+        "url": "https://www.saferproducts.gov/RestWebServices/Recall",
+        "detail": null,
+        "other": []
+      },
+      "ca": {
+        "status": "none",
+        "checkedAt": "2026-11-10",
+        "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
+        "detail": null,
+        "other": []
+      }
+    },
+    "petsafe-drinkwell-platinum": {
+      "us": {
+        "status": "none",
+        "checkedAt": "2026-11-10",
+        "url": "https://www.saferproducts.gov/RestWebServices/Recall",
+        "detail": null,
+        "other": []
+      },
+      "ca": {
+        "status": "none",
+        "checkedAt": "2026-11-10",
+        "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
+        "detail": null,
+        "other": []
+      }
+    },
+    "litter-robot-4": {
+      "us": {
+        "status": "none",
+        "checkedAt": "2026-11-10",
+        "url": "https://www.saferproducts.gov/RestWebServices/Recall",
+        "detail": null,
+        "other": []
+      },
+      "ca": {
+        "status": "none",
+        "checkedAt": "2026-11-10",
+        "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
+        "detail": null,
+        "other": []
+      }
+    },
+    "petlibro-plaf105": {
+      "us": {
+        "status": "none",
+        "checkedAt": "2026-11-10",
+        "url": "https://www.saferproducts.gov/RestWebServices/Recall",
+        "detail": null,
+        "other": []
+      },
+      "ca": {
+        "status": "none",
+        "checkedAt": "2026-11-10",
+        "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
+        "detail": null,
+        "other": []
+      }
+    },
+    "furminator-medium-short": {
+      "us": {
+        "status": "none",
+        "checkedAt": "2026-11-10",
+        "url": "https://www.saferproducts.gov/RestWebServices/Recall",
+        "detail": null,
+        "other": [
+          {
+            "title": "Spectrum Brands Pet Care Recalls Pet Fur deShedding Conditioner Due to Risk of Exposure to Bacteria",
+            "url": "https://www.cpsc.gov/Recalls/2024/Spectrum-Brands-Pet-Care-Recalls-Pet-Fur-deShedding-Conditioner-Due-to-Risk-of-Exposure-to-Bacteria",
+            "date": "2024-06-06",
+            "source": "CPSC",
+            "archived": false
+          }
+        ]
+      },
+      "ca": {
+        "status": "none",
+        "checkedAt": "2026-11-10",
+        "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
+        "detail": null,
+        "other": [
+          {
+            "title": "FURminator deShedding Ultra Premium Dog Conditioner (1 Gallon) recalled due to microbial contamination",
+            "url": "https://recalls-rappels.canada.ca/en/alert-recall/furminator-deshedding-ultra-premium-dog-conditioner-1-gallon-recalled-due-microbial",
+            "date": "2024-06-06",
+            "source": "Health Canada",
+            "archived": false
+          }
+        ]
+      }
+    },
+    "purple-harmony": {
+      "us": {
+        "status": "none",
+        "checkedAt": "2026-11-10",
+        "url": "https://www.saferproducts.gov/RestWebServices/Recall",
+        "detail": null,
+        "other": [
+          {
+            "title": "Wayfair Recalls Style Life Eleven Baby Loungers Due to Suffocation Risk and Fall Hazard; Violation of Federal Regulations for Infant Sleep Products; Sold Exclusively on Wayfair.com by Bespoke Clothing Valley (Royalbelle) through Zoomie Kids (Recall Alert)",
+            "url": "https://www.cpsc.gov/Recalls/2025/Wayfair-Recalls-Style-Life-Eleven-Baby-Loungers-Due-to-Suffocation-Risk-and-Fall-Hazard-Violation-of-Federal-Regulations-for-Infant-Sleep-Products-Sold-Exclusively-on-Wayfair-com-by-Bespoke-Clothing-Valley-Royalbelle-through-Zoomie-Kids-Recall-Alert",
+            "date": "2025-02-27",
+            "source": "CPSC",
+            "archived": false
+          }
+        ]
+      },
+      "ca": {
+        "status": "none",
+        "checkedAt": "2026-11-10",
+        "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
+        "detail": null,
+        "other": []
+      }
+    },
+    "tempur-neck": {
+      "us": {
+        "status": "none",
+        "checkedAt": "2026-11-10",
+        "url": "https://www.saferproducts.gov/RestWebServices/Recall",
+        "detail": null,
+        "other": []
+      },
+      "ca": {
+        "status": "none",
+        "checkedAt": "2026-11-10",
+        "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
+        "detail": null,
+        "other": []
+      }
+    },
+    "brooklinen-luxe-core": {
+      "us": {
+        "status": "none",
+        "checkedAt": "2026-11-10",
+        "url": "https://www.saferproducts.gov/RestWebServices/Recall",
+        "detail": null,
+        "other": []
+      },
+      "ca": {
+        "status": "none",
+        "checkedAt": "2026-11-10",
+        "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
+        "detail": null,
+        "other": []
+      }
+    },
+    "herman-miller-aeron": {
+      "us": {
+        "status": "none",
+        "checkedAt": "2026-11-10",
+        "url": "https://www.saferproducts.gov/RestWebServices/Recall",
+        "detail": null,
+        "other": [
+          {
+            "title": "Herman Miller Recalls Fiberglass Rocking Chairs Due to Fall Hazard",
+            "url": "https://www.cpsc.gov/Recalls/2018/Herman-Miller-Recalls-Fiberglass-Rocking-Chairs",
+            "date": "2017-10-17",
+            "source": "CPSC",
+            "archived": false
+          }
+        ]
+      },
+      "ca": {
+        "status": "none",
+        "checkedAt": "2026-11-10",
+        "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
+        "detail": null,
+        "other": [
+          {
+            "title": "Herman Miller recalls Eames Molded Fiberglass Rocking Chairs",
+            "url": "https://recalls-rappels.canada.ca/en/alert-recall/herman-miller-recalls-eames-molded-fiberglass-rocking-chairs",
+            "date": "2017-10-17",
+            "source": "Health Canada",
+            "archived": true
+          }
+        ]
+      }
+    },
+    "philips-hx3681": {
+      "us": {
+        "status": "none",
+        "checkedAt": "2026-11-10",
+        "url": "https://www.saferproducts.gov/RestWebServices/Recall",
+        "detail": null,
+        "other": []
+      },
+      "ca": {
+        "status": "none",
+        "checkedAt": "2026-11-10",
+        "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
+        "detail": null,
+        "other": []
+      }
+    },
+    "braun-70-n1000s": {
+      "us": {
+        "status": "none",
+        "checkedAt": "2026-11-10",
+        "url": "https://www.saferproducts.gov/RestWebServices/Recall",
+        "detail": null,
+        "other": []
+      },
+      "ca": {
+        "status": "none",
+        "checkedAt": "2026-11-10",
+        "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
+        "detail": null,
+        "other": []
+      }
+    },
+    "sony-wh-1000xm5": {
+      "us": {
+        "status": "none",
+        "checkedAt": "2026-11-10",
+        "url": "https://www.saferproducts.gov/RestWebServices/Recall",
+        "detail": null,
+        "other": []
+      },
+      "ca": {
+        "status": "none",
+        "checkedAt": "2026-11-10",
+        "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
+        "detail": null,
+        "other": []
+      }
+    },
+    "anker-a1289": {
+      "us": {
+        "status": "none",
+        "checkedAt": "2026-11-10",
+        "url": "https://www.saferproducts.gov/RestWebServices/Recall",
+        "detail": null,
+        "other": [
+          {
+            "title": "More than One Million Anker Power Banks Recalled Due to Fire and Burn Hazards; Manufactured by Anker Innovations",
+            "url": "https://www.cpsc.gov/Recalls/2025/More-than-One-Million-Anker-Power-Banks-Recalled-Due-to-Fire-and-Burn-Hazards-Manufactured-by-Anker-Innovations",
+            "date": "2025-06-12",
+            "source": "CPSC",
+            "archived": false
+          },
+          {
+            "title": "Anker Power Banks Recalled Due to Fire and Burn Hazards; Manufactured by Anker Innovations",
+            "url": "https://www.cpsc.gov/Recalls/2025/Anker-Power-Banks-Recalled-Due-to-Fire-and-Burn-Hazards-Manufactured-by-Anker-Innovations",
+            "date": "2024-10-17",
+            "source": "CPSC",
+            "archived": false
+          },
+          {
+            "title": "Fantasia Trading Recalls Anker Power Banks Due to Fire Hazard",
+            "url": "https://www.cpsc.gov/Recalls/2023/Fantasia-Trading-Recalls-Anker-Power-Banks-Due-to-Fire-Hazard",
+            "date": "2023-03-09",
+            "source": "CPSC",
+            "archived": false
+          }
+        ]
+      },
+      "ca": {
+        "status": "none",
+        "checkedAt": "2026-11-10",
+        "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
+        "detail": null,
+        "other": [
+          {
+            "title": "Anker Power Bank A1647 and Anker Zolo Power Banks A1681 and A1689 sold on Amazon.ca recalled due to fire hazard",
+            "url": "https://recalls-rappels.canada.ca/en/alert-recall/anker-power-bank-a1647-and-anker-zolo-power-banks-a1681-and-a1689-sold-amazonca",
+            "date": "2025-06-27",
+            "source": "Health Canada",
+            "archived": false
+          },
+          {
+            "title": "Anker 535 Power Bank (PowerCore 20K) A1366 recalled due to fire hazard",
+            "url": "https://recalls-rappels.canada.ca/en/alert-recall/anker-535-power-bank-powercore-20k-a1366-recalled-due-fire-hazard",
+            "date": "2023-02-23",
+            "source": "Health Canada",
+            "archived": false
+          }
+        ]
+      }
     }
   }
 }
