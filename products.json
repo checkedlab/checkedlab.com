@@ -257,8 +257,8 @@
     ],
     "bin": [],
     "asin": {
-      "us": null,
-      "ca": null
+      "us": "B0758JHZM3",
+      "ca": "B0758JHZM3"
     },
     "searchQuery": "Vitamix E310 Explorian Blender, 48oz",
     "checks": [
@@ -751,8 +751,8 @@
     "receipt": null,
     "image": null,
     "asin": {
-      "us": null,
-      "ca": null
+      "us": "B07MVY7K43",
+      "ca": "B07MVY7K43"
     },
     "checks": [
       "Confirm the model on the box matches GB50.",
@@ -933,8 +933,8 @@
     "receipt": null,
     "image": null,
     "asin": {
-      "us": null,
-      "ca": null
+      "us": "B00BTKAPUU",
+      "ca": "B00BTKAPUU"
     },
     "checks": [
       "Confirm the model on the box matches the model named here.",
@@ -960,7 +960,7 @@
     "evidence": [
       {
         "claim": "CADR listed as 233 smoke, 246 dust, and 240 pollen.",
-        "source": "Cowaymega",
+        "source": "Coway",
         "url": "https://cowaymega.com/products/mighty-ap-1512hh",
         "agrees": true
       }
@@ -973,7 +973,7 @@
     "meta": "COWAY • AP-1512HH • MODEL PAGE LINKED",
     "searchQuery": "Coway AP-1512HH",
     "sourceUrl": "https://cowaymega.com/products/mighty-ap-1512hh",
-    "sourceName": "Cowaymega",
+    "sourceName": "Coway",
     "recallMatch": {
       "brand": [
         "coway"
@@ -1769,8 +1769,8 @@
     "receipt": null,
     "image": null,
     "asin": {
-      "us": null,
-      "ca": null
+      "us": "B09XS7JWHH",
+      "ca": "B09XS7JWHH"
     },
     "checks": [
       "Confirm the model on the box matches the model named here.",

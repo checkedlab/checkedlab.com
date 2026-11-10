@@ -1,3 +1,15 @@
 {
-  "trailingSlash": true
+  "trailingSlash": true,
+  "redirects": [
+    {
+      "source": "/pets",
+      "destination": "/pet/",
+      "permanent": true
+    },
+    {
+      "source": "/pets/",
+      "destination": "/pet/",
+      "permanent": true
+    }
+  ]
 }
