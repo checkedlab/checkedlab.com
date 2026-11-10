@@ -336,7 +336,7 @@ ${nav(hub)}
 <div class="p-main">
 <span class="only-us">${card.badgeHtml(us)}</span>
 <span class="only-ca">${card.badgeHtml(ca)}</span>
-<h1 class="p-title">${card.esc(product.title)}</h1>
+<h1 class="p-title">${card.visibleTitle(product.title)}</h1>
 <p class="p-meta">${card.esc(product.meta || "")}</p>
 <p class="p-note only-us">${card.esc(card.honestLine(product, us))}</p>
 <p class="p-note only-ca">${card.esc(card.honestLine(product, ca))}</p>
@@ -450,7 +450,7 @@ function verifyOutput(pages) {
     if (us.includes("checkedlab-20") || ca.includes("checkedlab01-20")) {
       throw new Error("Amazon tags crossed regions on " + product.id);
     }
-    if (!html.includes("<h1 class=\"p-title\">" + card.esc(product.title) + "</h1>")) {
+    if (!html.includes("<h1 class=\"p-title\">" + card.visibleTitle(product.title) + "</h1>")) {
       throw new Error("H1 mismatch on " + product.id);
     }
   }

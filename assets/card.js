@@ -185,12 +185,18 @@
     return "/" + String(product.category || "") + "/" + String(product.id || "") + "/";
   }
 
+  /* Visible titles only. A hyphen between letters or digits is a model token
+     (AP-1512HH, 70-N1000s) and must not be a line-break opportunity. */
+  function visibleTitle(title) {
+    return esc(title).replace(/([A-Za-z0-9])-([A-Za-z0-9])/g, "$1\u2011$2");
+  }
+
   function card(product, reg) {
     var recall = recallFor(product, reg);
     return '<article class="product-grid" id="' + esc(product.id) + '" data-category="' + esc(product.category || "") + '">' +
       '<div class="p-main">' +
         badgeHtml(recall) +
-        '<h2 class="p-title"><a href="' + esc(productPath(product)) + '">' + esc(product.title) + "</a></h2>" +
+        '<h2 class="p-title"><a href="' + esc(productPath(product)) + '">' + visibleTitle(product.title) + "</a></h2>" +
         '<p class="p-meta">' + esc(product.meta || "") + "</p>" +
         '<p class="p-note">' + esc(honestLine(product, recall)) + "</p>" +
         '<p class="price-note">Prices change often, check the current price at the store.</p>' +
@@ -215,6 +221,7 @@
     imageHtml: imageHtml,
     recallFor: recallFor,
     productPath: productPath,
+    visibleTitle: visibleTitle,
     esc: esc
   };
 });
