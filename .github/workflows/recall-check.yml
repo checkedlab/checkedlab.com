@@ -24,11 +24,17 @@ jobs:
         run: python scripts/check_recalls.py --self-test
       - name: Match public recall feeds
         run: python scripts/check_recalls.py
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Rebuild static cards and product pages
+        run: node scripts/build.mjs
       - name: Commit recall status
         run: |
           git config user.name "checkedlab-recall-check"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add products.json recalls.json
+          git add products.json recalls.json sitemap.xml index.html bin-list/index.html
+          git add winter car-garage air-water pet kitchen sleep personal-tech
           if git diff --cached --quiet; then
             echo "No recall changes"
           else
