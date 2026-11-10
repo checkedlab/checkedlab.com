@@ -155,26 +155,23 @@ footer a:hover{color:var(--ink);text-decoration:underline}
 .product-grid[data-category="air-water"] .no-photo{--illo:url(/assets/illus/purifier.svg)}
 .product-grid[data-category="sleep"] .no-photo{--illo:url(/assets/illus/sheets.svg)}
 .product-grid[data-category="personal-tech"] .no-photo{--illo:url(/assets/illus/headphones.svg)}
-.product-grid[data-category="pet"] .no-photo,
-.product-grid[data-category="kitchen"] .no-photo{--illo:url(/assets/illus/seal.svg)}
+.product-grid[data-category="pet"] .no-photo{--illo:url(/assets/illus/pet.svg)}
 #levoit-classic-300s .no-photo{--illo:url(/assets/illus/humidifier.svg)}
 .no-photo::before,.no-photo::after{content:none;display:none}
 .product-grid[data-category="winter"] .no-photo::before,
 .product-grid[data-category="car-garage"] .no-photo::before,
 .product-grid[data-category="air-water"] .no-photo::before,
 .product-grid[data-category="pet"] .no-photo::before,
-.product-grid[data-category="kitchen"] .no-photo::before,
 .product-grid[data-category="sleep"] .no-photo::before,
 .product-grid[data-category="personal-tech"] .no-photo::before{content:"";display:block;width:200px;height:200px;margin:0 auto 6px;background:var(--illo) center/contain no-repeat}
 .product-grid[data-category="winter"] .no-photo::after,
 .product-grid[data-category="car-garage"] .no-photo::after,
 .product-grid[data-category="air-water"] .no-photo::after,
 .product-grid[data-category="pet"] .no-photo::after,
-.product-grid[data-category="kitchen"] .no-photo::after,
 .product-grid[data-category="sleep"] .no-photo::after,
 .product-grid[data-category="personal-tech"] .no-photo::after{content:"Illustration";display:block;margin-top:10px;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);opacity:.8}
-.product-grid:not([data-category="winter"]):not([data-category="car-garage"]):not([data-category="air-water"]):not([data-category="pet"]):not([data-category="kitchen"]):not([data-category="sleep"]):not([data-category="personal-tech"]):not(:has(img)){grid-template-columns:minmax(0,1fr)}
-.product-grid:not([data-category="winter"]):not([data-category="car-garage"]):not([data-category="air-water"]):not([data-category="pet"]):not([data-category="kitchen"]):not([data-category="sleep"]):not([data-category="personal-tech"]):not(:has(img)) .p-side{display:none}
+.product-grid:not([data-category="winter"]):not([data-category="car-garage"]):not([data-category="air-water"]):not([data-category="pet"]):not([data-category="sleep"]):not([data-category="personal-tech"]):not(:has(img)){grid-template-columns:minmax(0,1fr)}
+.product-grid:not([data-category="winter"]):not([data-category="car-garage"]):not([data-category="air-water"]):not([data-category="pet"]):not([data-category="sleep"]):not([data-category="personal-tech"]):not(:has(img)) .p-side{display:none}
 /* Evidence (maker claims) list follows the checklist: filled marker instead of a to-do box */
 .evidence + .evidence{margin-top:2px;padding-top:10px;border-top:1px dashed var(--line)}
 .evidence + .evidence li::before{border:0;background:var(--hub);border-radius:50%;width:8px;height:8px;top:15px;left:4px}
