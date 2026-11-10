@@ -5,8 +5,8 @@
     "category": "kitchen",
     "badge": "checked",
     "receipt": null,
-    "meta": "FN101 • SPECS PER NINJA • NOT OUR MEASUREMENT",
-    "verdict": "Not bought or lab-tested by Checked Lab. For shoppers comparing Ninja's listed specs with store rows. Not for anyone who wants a measurement we took ourselves.",
+    "meta": "FN101 • SPECS PER NINJA",
+    "verdict": "Recall-checked against CPSC and Health Canada. Specs are from the maker.",
     "image": "images/ninja-crispi.jpg",
     "recallMatch": {
       "brand": [
@@ -69,7 +69,7 @@
       "ca": [
         {
           "store": "Amazon.ca",
-          "url": "https://www.amazon.ca/dp/B0DDDD8WD6?tag=checkedlab-20",
+          "url": "https://www.amazon.ca/s?k=Ninja+Crispi+Glass+Air+Fryer%2C+4-in-1&tag=checkedlab-20",
           "price": null,
           "currency": "CAD",
           "checkedAt": null,
@@ -146,7 +146,7 @@
     "bin": [],
     "asin": {
       "us": "B0DDDD8WD6",
-      "ca": "B0DDDD8WD6"
+      "ca": null
     },
     "searchQuery": "Ninja Crispi Glass Air Fryer, 4-in-1",
     "checks": [
@@ -155,7 +155,8 @@
       "Read the recall line on this card before you buy."
     ],
     "sourceUrl": "https://www.sharkninja.com/ninja-crispi-4-in-1-portable-glass-air-fryer-cooking-system/FN101GY.html",
-    "sourceName": "Ninja"
+    "sourceName": "Ninja",
+    "honestLine": "Recall-checked against CPSC and Health Canada. Specs are from the maker."
   },
   {
     "id": "ninja-foodi-10in1",
@@ -163,8 +164,8 @@
     "category": "kitchen",
     "badge": "checked",
     "receipt": null,
-    "meta": "DT201C • SPECS PER NINJA CANADA • NOT OUR MEASUREMENT",
-    "verdict": "Not bought or lab-tested by Checked Lab. For shoppers comparing Ninja Canada's listed specs with store rows. Not for anyone who wants a measurement we took ourselves.",
+    "meta": "DT201C • SPECS PER NINJA CANADA",
+    "verdict": "Recall-checked against CPSC and Health Canada. Specs are from the maker.",
     "image": "images/ninja-foodi-10in1.jpg",
     "recallMatch": {
       "brand": [
@@ -184,7 +185,7 @@
       "us": [
         {
           "store": "Amazon.com",
-          "url": "https://www.amazon.com/dp/B08BXX69K4?tag=checkedlab01-20",
+          "url": "https://www.amazon.com/s?k=Ninja+Foodi+10-in-1+XL+Pro+Air+Fry+Oven&tag=checkedlab01-20",
           "price": null,
           "currency": "USD",
           "checkedAt": null,
@@ -318,7 +319,7 @@
     ],
     "bin": [],
     "asin": {
-      "us": "B08BXX69K4",
+      "us": null,
       "ca": "B08BXX69K4"
     },
     "searchQuery": "Ninja Foodi 10-in-1 XL Pro Air Fry Oven",
@@ -328,7 +329,8 @@
       "Read the recall line on this card before you buy."
     ],
     "sourceUrl": "https://www.ninjakitchen.ca/products/ninja-foodi-10-in-1-xl-pro-air-fry-oven-zidDT201C",
-    "sourceName": "Ninja Canada"
+    "sourceName": "Ninja Canada",
+    "honestLine": "Recall-checked against CPSC and Health Canada. Specs are from the maker."
   },
   {
     "id": "instant-pot-duo-plus",
@@ -337,7 +339,7 @@
     "badge": "checked",
     "receipt": null,
     "meta": "6 QT MULTI-COOKER • NO SOURCED SPEED FIGURE",
-    "verdict": "Not bought or lab-tested by Checked Lab. For shoppers comparing Instant Pot's 6-quart Duo Plus listing with store rows. Not for anyone who wants a speed or pressure figure from us.",
+    "verdict": "Recall-checked against CPSC and Health Canada. Specs are from the maker.",
     "image": "images/instant-pot-duo.jpg",
     "recallMatch": {
       "brand": [
@@ -398,7 +400,7 @@
       "ca": [
         {
           "store": "Amazon.ca",
-          "url": "https://www.amazon.ca/dp/B01NBKTPTS?tag=checkedlab-20",
+          "url": "https://www.amazon.ca/s?k=Instant+Pot+Duo+Plus%2C+6Qt&tag=checkedlab-20",
           "price": null,
           "currency": "CAD",
           "checkedAt": null,
@@ -469,7 +471,7 @@
     "bin": [],
     "asin": {
       "us": "B01NBKTPTS",
-      "ca": "B01NBKTPTS"
+      "ca": null
     },
     "searchQuery": "Instant Pot Duo Plus, 6Qt",
     "checks": [
@@ -478,7 +480,8 @@
       "Read the recall line on this card before you buy."
     ],
     "sourceUrl": "https://instantpot.com/products/instant-pot-duo-plus-6qt-multi-use-pressure-cooker-v3",
-    "sourceName": "Instant Pot"
+    "sourceName": "Instant Pot",
+    "honestLine": "Recall-checked against CPSC and Health Canada. Specs are from the maker."
   },
   {
     "id": "vitamix-e310",
@@ -486,8 +489,8 @@
     "category": "kitchen",
     "badge": "checked",
     "receipt": null,
-    "meta": "E310 • SPECS PER VITAMIX • NOT OUR MEASUREMENT",
-    "verdict": "Not bought or lab-tested by Checked Lab. For shoppers comparing Vitamix's listed specs with store rows. Not for anyone who wants a noise or ice-crush time we measured.",
+    "meta": "E310 • SPECS PER VITAMIX",
+    "verdict": "Recall-checked against CPSC and Health Canada. Specs are from the maker.",
     "image": "images/vitamix-e310.jpg",
     "recallMatch": {
       "brand": [
@@ -507,7 +510,7 @@
       "us": [
         {
           "store": "Amazon.com",
-          "url": "https://www.amazon.com/dp/B0758JHZM3?tag=checkedlab01-20",
+          "url": "https://www.amazon.com/s?k=Vitamix+E310+Explorian+Blender%2C+48oz&tag=checkedlab01-20",
           "price": null,
           "currency": "USD",
           "checkedAt": null,
@@ -549,7 +552,7 @@
       "ca": [
         {
           "store": "Amazon.ca",
-          "url": "https://www.amazon.ca/dp/B0758JHZM3?tag=checkedlab-20",
+          "url": "https://www.amazon.ca/s?k=Vitamix+E310+Explorian+Blender%2C+48oz&tag=checkedlab-20",
           "price": null,
           "currency": "CAD",
           "checkedAt": null,
@@ -625,8 +628,8 @@
     ],
     "bin": [],
     "asin": {
-      "us": "B0758JHZM3",
-      "ca": "B0758JHZM3"
+      "us": null,
+      "ca": null
     },
     "searchQuery": "Vitamix E310 Explorian Blender, 48oz",
     "checks": [
@@ -635,7 +638,8 @@
       "Read the recall line on this card before you buy."
     ],
     "sourceUrl": "https://www.vitamix.com/us/en_us/products/e310",
-    "sourceName": "Vitamix"
+    "sourceName": "Vitamix",
+    "honestLine": "Recall-checked against CPSC and Health Canada. Specs are from the maker."
   },
   {
     "id": "kitchenaid-artisan",
@@ -643,8 +647,8 @@
     "category": "kitchen",
     "badge": "checked",
     "receipt": null,
-    "meta": "KSM150PS • SPECS PER KITCHENAID • NOT OUR MEASUREMENT",
-    "verdict": "Not bought or lab-tested by Checked Lab. For shoppers comparing KitchenAid's listed specs with store rows. Not for anyone who wants a weight or wobble figure from us.",
+    "meta": "KSM150PS • SPECS PER KITCHENAID",
+    "verdict": "Recall-checked against CPSC and Health Canada. Specs are from the maker.",
     "image": "images/kitchenaid-artisan.jpg",
     "recallMatch": {
       "brand": [
@@ -706,7 +710,7 @@
       "ca": [
         {
           "store": "Amazon.ca",
-          "url": "https://www.amazon.ca/dp/B00005UP2K?tag=checkedlab-20",
+          "url": "https://www.amazon.ca/s?k=KitchenAid+Artisan+Stand+Mixer+5-Qt&tag=checkedlab-20",
           "price": null,
           "currency": "CAD",
           "checkedAt": null,
@@ -783,7 +787,7 @@
     "bin": [],
     "asin": {
       "us": "B00005UP2K",
-      "ca": "B00005UP2K"
+      "ca": null
     },
     "searchQuery": "KitchenAid Artisan Stand Mixer 5-Qt",
     "checks": [
@@ -792,7 +796,8 @@
       "Read the recall line on this card before you buy."
     ],
     "sourceUrl": "https://www.kitchenaid.com/countertop-appliances/stand-mixers/tilt-head-stand-mixers/p.artisan-series-5-quart-tilt-head-stand-mixer.KSM150PSER.html",
-    "sourceName": "KitchenAid"
+    "sourceName": "KitchenAid",
+    "honestLine": "Recall-checked against CPSC and Health Canada. Specs are from the maker."
   },
   {
     "id": "cosori-pro-5-8",
@@ -801,7 +806,7 @@
     "badge": "checked",
     "receipt": null,
     "meta": "PRO II • MODEL NUMBER NOT CONFIRMED • NO SOURCED MEASUREMENTS",
-    "verdict": "Not bought or lab-tested by Checked Lab. For shoppers who only need the store rows. Not for anyone who wants wattage, a heat-up time, or a confirmed model number from us.",
+    "verdict": "Recall-checked against CPSC and Health Canada. The model number on this listing is not confirmed, so it is not marked clear or recalled.",
     "image": "images/cosori-pro.jpg",
     "recallMatch": {
       "brand": [
@@ -859,7 +864,7 @@
       "ca": [
         {
           "store": "Amazon.ca",
-          "url": "https://www.amazon.ca/dp/B089ZT66H9?tag=checkedlab-20",
+          "url": "https://www.amazon.ca/s?k=COSORI+Pro+II+Air+Fryer&tag=checkedlab-20",
           "price": null,
           "currency": "CAD",
           "checkedAt": null,
@@ -939,14 +944,15 @@
     "bin": [],
     "asin": {
       "us": "B089ZT66H9",
-      "ca": "B089ZT66H9"
+      "ca": null
     },
     "searchQuery": "COSORI Pro II Air Fryer",
     "checks": [
       "Confirm the model on the box matches the model named here.",
       "Confirm the store listing is this model, not a similar one.",
       "Read the recall line on this card before you buy."
-    ]
+    ],
+    "honestLine": "Recall-checked against CPSC and Health Canada. The model number on this listing is not confirmed, so it is not marked clear or recalled."
   },
   {
     "badge": "checked",

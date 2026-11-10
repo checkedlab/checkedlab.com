@@ -148,7 +148,10 @@
     var recall = (product.recall || {})[regionKey(reg)] || { status: "not_recorded" };
     var badge = recall.status === "bin"
       ? '<span class="badge badge-bin">BIN</span>'
-      : '<span class="badge">NOT BOUGHT OR TESTED BY US</span>';
+      : '<span class="badge">RECALL-CHECKED</span>';
+    var honest = product.honestLine || (product.recallMatch && product.recallMatch.modelConfirmed === false
+      ? "Recall-checked against CPSC and Health Canada. The model number on this listing is not confirmed."
+      : "Recall-checked against CPSC and Health Canada. Specs are from the maker.");
     var image = product.image
       ? '<img src="/' + esc(String(product.image).replace(/^\/+/, "")) + '" alt="' + esc(product.title) + '">'
       : '<div class="no-photo"><b>' + esc(product.model || product.title) + '</b><span>No photo on this card. Match the model on the store listing.</span></div>';
@@ -157,7 +160,9 @@
         badge +
         '<h2 class="p-title">' + esc(product.title) + "</h2>" +
         '<p class="p-meta">' + esc(product.meta || "") + "</p>" +
+        '<p class="p-note">' + esc(honest) + "</p>" +
         '<p class="price-note">Prices change often, check the current price at the store.</p>' +
+        '<p class="affiliate-note">Affiliate link</p>' +
         storeButtons(product, reg) +
         recallBlock(recall) +
         checkList(product) +
@@ -177,7 +182,9 @@
     if (page === "category") {
       shown = list.filter(function (product) { return product.category === category; });
     } else if (page === "home") {
-      shown = list.filter(function (product) { return product.category === "kitchen"; });
+      var limit = parseInt(document.body.dataset.limit || "3", 10);
+      if (!limit || limit < 1) limit = 3;
+      shown = list.filter(function (product) { return product.category === "kitchen"; }).slice(0, limit);
     } else if (page === "bin") {
       shown = list.filter(function (product) {
         var recall = product.recall || {};

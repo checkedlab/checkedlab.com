@@ -74,8 +74,12 @@ html[data-region="US"] .only-ca,html[data-region="CA"] .only-us{display:none}
 footer{border-top:1px solid #222;padding:28px 24px;text-align:center;color:#666;font-size:12px;letter-spacing:.04em;line-height:1.7}
 footer a{color:#888;text-decoration:none}
 footer a:hover{color:#fff}
+.affiliate-note{font-size:11px;letter-spacing:.08em;color:#887e5e;margin:0 0 10px}
 @media(max-width:900px){
-  .product-grid{grid-template-columns:1fr}
+  .product-grid{grid-template-columns:minmax(0,1fr)}
+  .p-main{min-width:0}
+  .pt-table-wrap{overflow-x:auto}
+  .pt-table{min-width:520px}
   header{flex-wrap:wrap}
   .topbar{flex-direction:column}
   h1{font-size:40px}
