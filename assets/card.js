@@ -171,19 +171,31 @@
       : "Recall-checked against CPSC and Health Canada." + (hasSpecs ? " Specs are from the maker." : "");
   }
 
-  function amazonImage(product) {
+  function amazonSlot(product, reg) {
     var meta = product.image_source || {};
-    var src = String(product.image || "");
-    return meta.kind === "amazon" || /media-amazon\.com|ssl-images-amazon\.com|images-amazon\.com/i.test(src);
+    if (meta.kind !== "amazon") return null;
+    var slot = meta[reg === "CA" ? "ca" : "us"];
+    if (!slot || !slot.url || !slot.width || !slot.height) return null;
+    var url = String(slot.url);
+    if (!/^https:\/\/m\.media-amazon\.com\/images\/I\/[A-Za-z0-9+._-]+\.jpg$/.test(url)) return null;
+    if (/\/images\/P\//.test(url)) return null;
+    return slot;
   }
 
   function imageSrc(product) {
-    if (!product.image || amazonImage(product)) return "";
+    var meta = product.image_source || {};
+    if (!product.image || meta.kind === "amazon") return "";
     var src = String(product.image);
+    if (/media-amazon\.com|ssl-images-amazon\.com|images-amazon\.com/i.test(src)) return "";
     if (/^https:\/\//.test(src)) return src;
     src = "/" + src.replace(/^\/+/, "");
     if (/\.jpe?g$/i.test(src)) return src.replace(/\.jpe?g$/i, ".webp");
     return src;
+  }
+
+  function schemaImage(product) {
+    if ((product.image_source || {}).kind === "amazon") return "";
+    return imageSrc(product);
   }
 
   function recallDate(value) {
@@ -192,13 +204,14 @@
 
   function imageTag(product, opts) {
     opts = opts || {};
-    var src = imageSrc(product);
+    var slot = amazonSlot(product, opts.region || "US");
+    var src = slot ? slot.url : imageSrc(product);
     if (!src) return "";
-    var meta = product.image_source || {};
+    var meta = slot || product.image_source || {};
     var size = "";
     var width = Number(meta.width) || 0;
     var height = Number(meta.height) || 0;
-    if (width && height && /\.webp$/i.test(src)) {
+    if (!slot && width && height && /\.webp$/i.test(src)) {
       var scale = Math.min(1, 800 / Math.max(width, height));
       width = Math.round(width * scale);
       height = Math.round(height * scale);
@@ -206,20 +219,26 @@
     if (width) size += ' width="' + width + '"';
     if (height) size += ' height="' + height + '"';
     var extra = "";
-    if (/\.webp$/i.test(src) && meta.width > 400) {
+    if (!slot && /\.webp$/i.test(src) && meta.width > 400) {
       var fullW = Math.min(800, Number(meta.width));
       var small = src.replace(/\.webp$/i, "-400.webp");
       extra = ' srcset="' + esc(small) + ' 400w, ' + esc(src) + " " + fullW + 'w" sizes="' +
         esc(opts.sizes || "(min-width: 1100px) 220px, 46vw") + '"';
     }
-    var load = opts.eager ? ' fetchpriority="high" decoding="async"' : ' loading="lazy" decoding="async"';
+    var load = slot || !opts.eager ? ' loading="lazy" decoding="async"' : ' fetchpriority="high" decoding="async"';
     return '<img src="' + esc(src) + '"' + extra + ' alt="' + esc(product.title) + '"' + size + load + ">";
   }
 
   function imageFigure(product, reg, opts) {
+    opts = Object.assign({ region: reg || "US" }, opts || {});
     var img = imageTag(product, opts);
     if (!img) return "";
     var meta = product.image_source || {};
+    if (meta.kind === "amazon") {
+      var href = safeUrl(storeUrl(product, opts.region, "amazon"));
+      if (!href) return "";
+      return '<a href="' + esc(href) + '" target="_blank" rel="' + REL + '">' + img + "</a>";
+    }
     var credit = meta.kind === "maker" && meta.credit
       ? '<p class="img-credit">' + esc(meta.credit) + "</p>"
       : "";
@@ -237,6 +256,15 @@
   }
 
   function imageColumn(product) {
+    if ((product.image_source || {}).kind === "amazon") {
+      var us = imageFigure(product, "US", { region: "US", sizes: "(min-width: 800px) 480px, 92vw" });
+      var ca = imageFigure(product, "CA", { region: "CA", sizes: "(min-width: 800px) 480px, 92vw" });
+      if (!us && !ca) return "";
+      return '<div class="p-side"><div class="p-img">' +
+        (us ? '<span class="only-us">' + us + "</span>" : "") +
+        (ca ? '<span class="only-ca">' + ca + "</span>" : "") +
+        "</div></div>";
+    }
     if (!imageSrc(product)) return "";
     return '<div class="p-side"><div class="p-img">' +
       imageFigure(product, "US", { eager: true, sizes: "(min-width: 800px) 480px, 92vw" }) +
@@ -293,7 +321,7 @@
     honestLine: honestLine,
     imageHtml: imageHtml,
     imageColumn: imageColumn,
-    schemaImage: imageSrc,
+    schemaImage: schemaImage,
     recallFor: recallFor,
     productPath: productPath,
     visibleTitle: visibleTitle,

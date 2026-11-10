@@ -130,13 +130,32 @@ publishDist();
 console.log(`Wrote ${pages.length} product pages and ${HUBS.length} hub card lists.`);
 
 function assertImages(list) {
+  const paApiImage = /^https:\/\/m\.media-amazon\.com\/images\/I\/[A-Za-z0-9+._-]+\.jpg$/;
   for (const product of list) {
     const src = product.image_source || null;
     const image = product.image ? String(product.image) : "";
-    if (/media-amazon\.com|images-amazon\.com|ssl-images-amazon\.com/i.test(image)) {
-      throw new Error("Amazon image URL on " + product.id);
+    if (/\/images\/P\/|ssl-images-amazon\.com/i.test(image)) {
+      throw new Error("Unsanctioned Amazon image URL on " + product.id);
+    }
+    if (src && src.kind === "amazon") {
+      if (image) throw new Error("Amazon image must be hotlinked from image_source, not stored, on " + product.id);
+      const slots = ["us", "ca"].filter((key) => src[key]);
+      if (!slots.length || !src.sourceUrl || !src.license) {
+        throw new Error("Amazon image on " + product.id + " needs a PA-API URL, dimensions, source, and license note");
+      }
+      for (const key of slots) {
+        const slot = src[key];
+        if (!paApiImage.test(slot.url || "") || !slot.width || !slot.height) {
+          throw new Error("Amazon image on " + product.id + " is not a Creators API images/I URL with dimensions");
+        }
+      }
+      if (card.schemaImage(product)) throw new Error("Amazon image leaked into JSON-LD on " + product.id);
+      continue;
     }
     if (!image) continue;
+    if (/media-amazon\.com|images-amazon\.com/i.test(image)) {
+      throw new Error("Amazon image URL on " + product.id);
+    }
     if (!src || !src.sourceUrl || !src.license || !src.credit) {
       throw new Error("Image on " + product.id + " needs a source URL, license note, and credit");
     }
@@ -182,6 +201,26 @@ function assertRenderer() {
   const canada = card.storeButtons(products.find((product) => product.asin && product.asin.ca) || products[0], "CA");
   if (!canada.includes("checkedlab-20") || canada.includes("checkedlab01-20")) {
     throw new Error("CA card has the wrong Amazon tag");
+  }
+  const amazon = {
+    id: "example-photo",
+    title: "Example photo",
+    category: "kitchen",
+    meta: "EXAMPLE",
+    asin: { us: "B00TEST0001" },
+    image_source: {
+      kind: "amazon",
+      us: { url: "https://m.media-amazon.com/images/I/41FYkVPzrIL._SL160_.jpg", width: 160, height: 160 },
+      sourceUrl: "https://affiliate-program.amazon.com/creatorsapi/docs/en-us/api-reference/resources/images",
+      license: "Creators API image URL, hotlinked and linked to the tagged product page."
+    }
+  };
+  const photo = card.imageColumn(amazon);
+  if (!photo.includes("checkedlab01-20") || !photo.includes("loading=\"lazy\"") || !photo.includes("width=\"160\"")) {
+    throw new Error("Amazon image was not linked, lazy, and sized");
+  }
+  if (photo.includes("/images/P/") || card.schemaImage(amazon)) {
+    throw new Error("Amazon image used an unsanctioned URL or entered JSON-LD");
   }
 }
 
