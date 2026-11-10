@@ -128,3 +128,43 @@ h2 { font-family: var(--serif); font-weight: 520; font-size: 32px; letter-spacin
   .card img, .hero-photo img { transition: transform .4s ease; }
   .card:hover img { transform: scale(1.04); }
 }
+
+/* Home fold: copper stage, one promise, a large search, photo cards in the first screen. */
+body.home { background: #6E2F1C; }
+body.home .disclosure { max-width: none; background: #4E1E12; color: #F6E7DC; }
+body.home .disclosure strong { color: #fff; }
+body.home .mast { max-width: 1180px; border-bottom: 0; padding-top: 14px; }
+body.home .logo, body.home .nav a { color: #FFF8F2; }
+body.home .logo i { color: #F0C7B4; }
+body.home .region span { border-color: #F0C7B4; color: #FFF8F2; }
+body.home .region span[aria-current="true"] { background: #FFF8F2; color: #4E1E12; border-color: #FFF8F2; }
+body.home .wrap { max-width: 1180px; padding-top: 8px; }
+body.home .hero { margin-bottom: 18px; align-items: center; gap: 20px; }
+body.home .hero-photo { min-height: 0; border-radius: 18px; box-shadow: 0 18px 40px rgba(0,0,0,.28); }
+body.home .hero-photo img { height: 240px; }
+body.home h1 { color: #FFF8F2; font-size: 34px; margin-bottom: 14px; }
+body.home .find { display: grid; gap: 6px; }
+body.home .find label { color: #F6E7DC; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+body.home .find input {
+  width: 100%; font: 650 18px/1.2 var(--sans); color: #1A1612; background: #fff;
+  border: 3px solid #1A1612; border-radius: 12px; padding: 14px 16px; min-height: 56px;
+}
+body.home .empty { color: #FFF8F2; font-weight: 650; }
+body.home .rail { margin: 18px 0; }
+body.home .rail h2, body.home #hubs { color: #FFF8F2; }
+body.home .foot { color: #F6E7DC; border-top-color: #8C4A36; }
+body.home .popular .card { grid-template-columns: 1fr; border: 0; box-shadow: 0 10px 24px rgba(0,0,0,.18); }
+body.home .popular .card img { width: 100%; height: 148px; }
+@media (max-width: 799px) {
+  body.home .disclosure { font-size: 12px; padding: 6px 16px; }
+  body.home .nav { flex-wrap: nowrap; overflow-x: auto; max-width: 100%; }
+  body.home .hero-photo img { height: 150px; }
+  body.home h1 { font-size: 28px; }
+  body.home .popular .card img { height: 120px; }
+}
+@media (min-width: 800px) {
+  body.home .hero-photo img { height: 320px; }
+  body.home h1 { font-size: 48px; }
+  body.home .popular .row { grid-template-columns: repeat(4, 1fr); }
+}
+[hidden] { display: none !important; }

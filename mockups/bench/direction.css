@@ -93,6 +93,37 @@ h2 { font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; margin:
   .product .hero-photo img { height: 280px; }
 }
 @media (prefers-reduced-motion: no-preference) {
-  .card, .rowlink { transition: background .15s ease; }
-  .card:hover, .rowlink:hover { background: #F7F8F9; }
+  .card, .rowlink { transition: background .15s ease, transform .15s ease; }
+  .card:hover, .rowlink:hover { background: #FFF6CC; }
+  body.home .card:hover { transform: translateY(-3px); }
 }
+
+/* Home fold: black stage, yellow search, photo cards hard against the type. */
+body.home { background: #101114; }
+body.home .bar { background: #E10600; color: #fff; font-weight: 650; }
+body.home .mast { background: #101114; border-bottom: 0; }
+body.home .logo, body.home .nav a, body.home .region { color: #fff; }
+body.home .logo b { color: #FFE14A; }
+body.home .hero { background: #101114; border: 0; margin: 0; align-items: center; }
+body.home .hero-photo { background: transparent; }
+body.home .hero-photo img { height: 220px; background: transparent; }
+body.home .hero-copy { padding: 8px 16px 12px; }
+body.home h1 { color: #fff; font-size: 34px; letter-spacing: -0.04em; }
+body.home .lede { display: none; }
+body.home .find { display: grid; gap: 6px; margin-top: 8px; }
+body.home .find label { color: #FFE14A; font-size: 12px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; }
+body.home .find input {
+  width: 100%; min-height: 58px; border: 0; border-radius: 4px;
+  background: #FFE14A; color: #101114; font: 800 18px/1.2 var(--sans); padding: 14px 16px;
+}
+body.home .wrap { padding-top: 8px; }
+body.home h2, body.home .empty { color: #fff; }
+body.home .grid.four .card { border: 0; border-top: 5px solid #E10600; }
+body.home .foot { color: #C8CCD2; border-top-color: #2A2D33; }
+@media (min-width: 800px) {
+  body.home .hero { grid-template-columns: 1.05fr 0.95fr; }
+  body.home .hero-photo img { height: 300px; }
+  body.home h1 { font-size: 46px; }
+  body.home .grid.four .card img { height: 150px; }
+}
+[hidden] { display: none !important; }

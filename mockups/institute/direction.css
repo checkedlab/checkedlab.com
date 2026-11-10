@@ -103,3 +103,35 @@ h2 { font-family: var(--serif); font-weight: 520; font-size: 30px; margin: 8px 0
   .iconbar a { transition: background .15s ease; }
   .iconbar a:hover { background: #F3F7F4; }
 }
+
+/* Home fold: the dark band holds the promise, the search, the photo, and the first cards. */
+body.home .hero { padding-top: 12px; padding-bottom: 12px; }
+body.home .hero-copy h1 { font-size: 34px; }
+body.home .lede { display: none; }
+body.home .find { display: grid; gap: 6px; margin: 12px 0 4px; }
+body.home .find label { color: #F6C445; font-size: 12px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; }
+body.home .find input {
+  width: 100%; min-height: 56px; border: 0; border-radius: 4px;
+  background: #F6C445; color: #10241C; font: 800 18px/1.2 var(--sans); padding: 14px 16px;
+}
+body.home .frame { border: 6px solid #F6C445; padding: 8px; }
+body.home .frame img { height: 220px; }
+body.home .wrap { padding-top: 16px; }
+body.home .cards.three { margin-top: 0; }
+body.home .cards.three .card { border: 0; border-left: 6px solid #0C5436; box-shadow: 0 14px 28px rgba(16,36,28,.16); }
+body.home .cards.three .card img { height: 150px; }
+body.home .empty { color: var(--paper); font-weight: 700; margin: 8px 0 0; }
+@media (max-width: 799px) {
+  body.home .nav { flex-wrap: nowrap; overflow-x: auto; }
+  body.home .hero-copy h1 { font-size: 30px; }
+  body.home .frame img { height: 120px; }
+  body.home .hero { padding-top: 4px; padding-bottom: 4px; }
+  body.home .iconbar .in { display: flex; overflow-x: auto; }
+  body.home .iconbar a { flex: 0 0 auto; border-bottom: 0; white-space: nowrap; }
+  body.home .cards.three .card img { height: 120px; }
+}
+@media (min-width: 800px) {
+  body.home .hero-copy h1 { font-size: 52px; }
+  body.home .frame img { height: 300px; }
+}
+[hidden] { display: none !important; }
