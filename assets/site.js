@@ -65,7 +65,7 @@
       var recalls = list.filter(isBin).filter(function (product) {
         return !q || blob(product).indexOf(q) !== -1;
       });
-      if (title) title.textContent = q ? "Matches" : "Popular this month";
+      if (title) title.textContent = q ? "Matches" : "Start here";
       if (empty) empty.hidden = popular.length !== 0;
       paint(document.getElementById("popular-mount"), popular.map(function (product) {
         return window.CheckedLabCard.card(product, reg);
