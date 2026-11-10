@@ -40,7 +40,11 @@ def token_present(haystack: str, token: str) -> bool:
 
     'e310' matches 'E310' and not the VIN fragment 'TE310' or 'E3100'.
     'dt201' matches 'DT201C' because a trailing letter is still that model.
+    A token with ® must keep the mark, so the colour word 'purple' does not match.
     """
+    if "®" in token:
+        word = normalize(token)
+        return re.search(rf"(?<![a-z0-9]){re.escape(word)}\s*®", haystack, re.I) is not None
     needle = normalize(token)
     if not needle:
         return False
@@ -275,7 +279,20 @@ def self_test() -> None:
     unclear = {"recallMatch": {"brand": ["cosori"], "models": [], "family": ["air fryer"], "modelConfirmed": False}}
     result = classify(unclear, [cosori])
     assert result["status"] == "unconfirmed", result
+    purple = {"recallMatch": {"brand": ["purple innovation", "purple®"], "models": ["harmony"], "family": ["pillow"], "modelConfirmed": True}}
+    lounger = hit_from({
+        "Title": "Wayfair recalls purple baby loungers",
+        "URL": "https://example.com/lounger",
+    }, "Wayfair recalls purple baby loungers", "CPSC")
+    assert classify(purple, [lounger])["status"] == "none"
+    assert classify(purple, [lounger])["other"] == []
+    marked = hit_from({
+        "Title": "Purple Innovation recalls the Purple® Harmony pillow",
+        "URL": "https://example.com/harmony",
+    }, "Purple Innovation recalls the Purple® Harmony pillow", "CPSC")
+    assert classify(purple, [marked])["status"] == "bin"
     assert token_present("CS158-AF", "cs158")
+    assert not token_present("CS158-AF", "cs358")
     assert not token_present("1HFTE310*54000015", "e310")
     assert not token_present("E3100", "e310")
     print("self-test ok")

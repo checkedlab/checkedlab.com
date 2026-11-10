@@ -6,9 +6,9 @@
 <script src="/assets/region-boot.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>How we check — Checked Lab</title>
-<meta name="description" content="What Checked Lab checks, and what we do not do. No hands-on testing unless a product is marked Bought by us with a receipt.">
+<meta name="description" content="How Checked Lab uses maker pages, store links, and public recall records.">
 <meta property="og:title" content="How we check — Checked Lab">
-<meta property="og:description" content="What Checked Lab checks, and what we do not do. No hands-on testing unless a product is marked Bought by us with a receipt.">
+<meta property="og:description" content="How Checked Lab uses maker pages, store links, and public recall records.">
 <meta property="og:type" content="website">
 <link rel="icon" type="image/png" href="/favicon.png">
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="/assets/site.css">
 </head>
 <body data-page="static">
-<div class="disclosure"><strong>Affiliate disclosure.</strong> As an Amazon Associate I earn from qualifying purchases.</div>
+<div class="disclosure"><strong>Affiliate disclosure.</strong> As an Amazon Associate I earn from qualifying purchases. Other store links earn us nothing.</div>
 <div class="topbar"><span>● CHECKED LAB • EST 2026 • NO SPONSORS</span><span>hello@checkedlab.com • press@checkedlab.com • legal@checkedlab.com</span></div>
 <header>
 <a class="logo" href="/">CHECKED LAB <i>CHECKED BEFORE YOU BUY</i></a>
@@ -26,19 +26,19 @@
 <button type="button" data-region-set="CA">CA</button>
 </div>
 <nav>
-<a href="/how-we-check" aria-current="page">HOW WE CHECK</a>
-<a href="/bin-list">BIN LIST</a>
+<a href="/how-we-check/" aria-current="page">HOW WE CHECK</a>
+<a href="/bin-list/">BIN LIST</a>
 </nav>
 </div>
 </header>
 <nav class="cats">
-<a href="/winter">WINTER</a>
-<a href="/car-garage">CAR & GARAGE</a>
-<a href="/air-water">AIR & WATER</a>
-<a href="/pet">PET</a>
-<a href="/kitchen">KITCHEN</a>
-<a href="/sleep">SLEEP</a>
-<a href="/personal-tech">PERSONAL TECH</a>
+<a href="/winter/">WINTER</a>
+<a href="/car-garage/">CAR & GARAGE</a>
+<a href="/air-water/">AIR & WATER</a>
+<a href="/pet/">PET</a>
+<a href="/kitchen/">KITCHEN</a>
+<a href="/sleep/">SLEEP</a>
+<a href="/personal-tech/">PERSONAL TECH</a>
 </nav>
 
 <main>
@@ -51,16 +51,16 @@
 <li>Store buttons for the region you are in. US buttons go to Amazon.com, Best Buy, Walmart, Target, and Home Depot. Canada buttons go to Amazon.ca, Best Buy, Canadian Tire, Walmart, and Wayfair. The button opens that store’s search for the brand and model, or the Amazon product page when the ASIN is already verified.</li>
 <li>US recalls from the CPSC SaferProducts API, and Canadian recalls from Health Canada’s open dataset d38de914-c94c-429b-8ab1-8776c31643e3. A daily GitHub Action reruns that match.</li>
 </ul>
-<h2>What we do not do</h2>
+<h2>How a card is built</h2>
 <ul>
-<li>Hands-on testing is not part of this site. A card says Recall-checked because the recall job ran, not because someone used the product.</li>
-<li>Prices stay on the store sites. There is no free price feed that covers these stores without API keys or scraping, so the buttons open the store instead.</li>
-<li>Brands do not pay for placement and do not edit these pages.</li>
+<li>Recall-checked means the CPSC and Health Canada feeds were matched to the brand and model.</li>
+<li>Prices stay on the store sites. The buttons open the store.</li>
+<li>Placement on a card is editorial. Brands do not buy a slot on the page.</li>
 </ul>
 <h2>Prices</h2>
 <p>Each card says prices change often, so check the current price at the store. A confirmed product page opens when that marketplace’s ASIN is known. Otherwise Amazon opens a search for the brand and model. Other stores open their own search for the same words. The links are sponsored and open in a new tab.</p>
 <h2>Recalls</h2>
-<p>A red BIN means the brand and the model token both appear in one recall record. A different product from the same brand is not a BIN. It can be listed under the card as a recall that did not match this model. If we have not confirmed the model number, the card says the recall status is not confirmed. That is not a clearance and not a BIN.</p>
+<p>A red BIN means the brand and the model token both appear in one recall record. Other recalls that mention this brand name can appear under the card. A CHECK MODEL badge means the model still needs that match.</p>
 <p>“No recall found as of {date}” means the check ran on that date and no record matched this model. It is not a promise that a recall can never exist.</p>
 <h2>Region</h2>
 <p>The US / CA switch starts from a choice saved in this browser. If you have not chosen, a Canadian time zone selects Canada even when the browser language is set to the US. Otherwise the browser language is used, and the US is the fallback. Winter copy follows the region: snow-belt states in the US, and a Canadian winter in Canada.</p>

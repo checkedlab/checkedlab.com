@@ -3,10 +3,8 @@
     "id": "ninja-crispi-fn101",
     "title": "Ninja Crispi Glass Air Fryer, 4-in-1",
     "category": "kitchen",
-    "badge": "checked",
     "receipt": null,
     "meta": "FN101 • SPECS PER NINJA",
-    "verdict": "Recall-checked against CPSC and Health Canada. Specs are from the maker.",
     "image": "images/ninja-crispi.jpg",
     "recallMatch": {
       "brand": [
@@ -22,96 +20,6 @@
         "crispi"
       ],
       "modelConfirmed": true
-    },
-    "offers": {
-      "us": [
-        {
-          "store": "Amazon.com",
-          "url": "https://www.amazon.com/dp/B0DDDD8WD6?tag=checkedlab01-20",
-          "price": null,
-          "currency": "USD",
-          "checkedAt": null,
-          "inStock": null
-        },
-        {
-          "store": "Best Buy",
-          "url": null,
-          "price": null,
-          "currency": "USD",
-          "checkedAt": null,
-          "inStock": null
-        },
-        {
-          "store": "Walmart",
-          "url": null,
-          "price": null,
-          "currency": "USD",
-          "checkedAt": null,
-          "inStock": null
-        },
-        {
-          "store": "Target",
-          "url": null,
-          "price": null,
-          "currency": "USD",
-          "checkedAt": null,
-          "inStock": null
-        },
-        {
-          "store": "Home Depot",
-          "url": null,
-          "price": null,
-          "currency": "USD",
-          "checkedAt": null,
-          "inStock": null
-        }
-      ],
-      "ca": [
-        {
-          "store": "Amazon.ca",
-          "url": "https://www.amazon.ca/s?k=Ninja+Crispi+Glass+Air+Fryer%2C+4-in-1&tag=checkedlab-20",
-          "price": null,
-          "currency": "CAD",
-          "checkedAt": null,
-          "inStock": null
-        },
-        {
-          "store": "Best Buy CA",
-          "url": null,
-          "price": null,
-          "currency": "CAD",
-          "checkedAt": null,
-          "inStock": null
-        },
-        {
-          "store": "Canadian Tire",
-          "url": null,
-          "price": null,
-          "currency": "CAD",
-          "checkedAt": null,
-          "inStock": null
-        },
-        {
-          "store": "Walmart.ca",
-          "url": null,
-          "price": null,
-          "currency": "CAD",
-          "checkedAt": null,
-          "inStock": null
-        },
-        {
-          "store": "Wayfair.ca",
-          "url": null,
-          "price": null,
-          "currency": "CAD",
-          "checkedAt": null,
-          "inStock": null
-        }
-      ]
-    },
-    "priceHistory": {
-      "us": null,
-      "ca": null
     },
     "recall": {
       "us": {
@@ -155,17 +63,14 @@
       "Read the recall line on this card before you buy."
     ],
     "sourceUrl": "https://www.sharkninja.com/ninja-crispi-4-in-1-portable-glass-air-fryer-cooking-system/FN101GY.html",
-    "sourceName": "Ninja",
-    "honestLine": "Recall-checked against CPSC and Health Canada. Specs are from the maker."
+    "sourceName": "Ninja"
   },
   {
     "id": "ninja-foodi-10in1",
     "title": "Ninja Foodi 10-in-1 XL Pro Air Fry Oven",
     "category": "kitchen",
-    "badge": "checked",
     "receipt": null,
-    "meta": "DT201C • SPECS PER NINJA CANADA",
-    "verdict": "Recall-checked against CPSC and Health Canada. Specs are from the maker.",
+    "meta": "DT201C • CANADIAN MODEL • ASIN B08LQY2XF5 ON AMAZON.CA",
     "image": "images/ninja-foodi-10in1.jpg",
     "recallMatch": {
       "brand": [
@@ -180,96 +85,6 @@
         "foodi"
       ],
       "modelConfirmed": true
-    },
-    "offers": {
-      "us": [
-        {
-          "store": "Amazon.com",
-          "url": "https://www.amazon.com/s?k=Ninja+Foodi+10-in-1+XL+Pro+Air+Fry+Oven&tag=checkedlab01-20",
-          "price": null,
-          "currency": "USD",
-          "checkedAt": null,
-          "inStock": null
-        },
-        {
-          "store": "Best Buy",
-          "url": null,
-          "price": null,
-          "currency": "USD",
-          "checkedAt": null,
-          "inStock": null
-        },
-        {
-          "store": "Walmart",
-          "url": null,
-          "price": null,
-          "currency": "USD",
-          "checkedAt": null,
-          "inStock": null
-        },
-        {
-          "store": "Target",
-          "url": null,
-          "price": null,
-          "currency": "USD",
-          "checkedAt": null,
-          "inStock": null
-        },
-        {
-          "store": "Home Depot",
-          "url": null,
-          "price": null,
-          "currency": "USD",
-          "checkedAt": null,
-          "inStock": null
-        }
-      ],
-      "ca": [
-        {
-          "store": "Amazon.ca",
-          "url": "https://www.amazon.ca/dp/B08BXX69K4?tag=checkedlab-20",
-          "price": null,
-          "currency": "CAD",
-          "checkedAt": null,
-          "inStock": null
-        },
-        {
-          "store": "Best Buy CA",
-          "url": null,
-          "price": null,
-          "currency": "CAD",
-          "checkedAt": null,
-          "inStock": null
-        },
-        {
-          "store": "Canadian Tire",
-          "url": null,
-          "price": null,
-          "currency": "CAD",
-          "checkedAt": null,
-          "inStock": null
-        },
-        {
-          "store": "Walmart.ca",
-          "url": null,
-          "price": null,
-          "currency": "CAD",
-          "checkedAt": null,
-          "inStock": null
-        },
-        {
-          "store": "Wayfair.ca",
-          "url": null,
-          "price": null,
-          "currency": "CAD",
-          "checkedAt": null,
-          "inStock": null
-        }
-      ]
-    },
-    "priceHistory": {
-      "us": null,
-      "ca": null
     },
     "recall": {
       "us": {
@@ -320,26 +135,23 @@
     "bin": [],
     "asin": {
       "us": null,
-      "ca": "B08BXX69K4"
+      "ca": "B08LQY2XF5"
     },
-    "searchQuery": "Ninja Foodi 10-in-1 XL Pro Air Fry Oven",
+    "searchQuery": "Ninja Foodi DT201C",
     "checks": [
       "Confirm the model on the box matches the model named here.",
       "Confirm the store listing is this model, not a similar one.",
       "Read the recall line on this card before you buy."
     ],
     "sourceUrl": "https://www.ninjakitchen.ca/products/ninja-foodi-10-in-1-xl-pro-air-fry-oven-zidDT201C",
-    "sourceName": "Ninja Canada",
-    "honestLine": "Recall-checked against CPSC and Health Canada. Specs are from the maker."
+    "sourceName": "Ninja Canada"
   },
   {
     "id": "instant-pot-duo-plus",
     "title": "Instant Pot Duo Plus, 6Qt",
     "category": "kitchen",
-    "badge": "checked",
     "receipt": null,
     "meta": "6 QT MULTI-COOKER • NO SOURCED SPEED FIGURE",
-    "verdict": "Recall-checked against CPSC and Health Canada. Specs are from the maker.",
     "image": "images/instant-pot-duo.jpg",
     "recallMatch": {
       "brand": [
@@ -353,96 +165,6 @@
         "duo plus"
       ],
       "modelConfirmed": true
-    },
-    "offers": {
-      "us": [
-        {
-          "store": "Amazon.com",
-          "url": "https://www.amazon.com/dp/B01NBKTPTS?tag=checkedlab01-20",
-          "price": null,
-          "currency": "USD",
-          "checkedAt": null,
-          "inStock": null
-        },
-        {
-          "store": "Best Buy",
-          "url": null,
-          "price": null,
-          "currency": "USD",
-          "checkedAt": null,
-          "inStock": null
-        },
-        {
-          "store": "Walmart",
-          "url": null,
-          "price": null,
-          "currency": "USD",
-          "checkedAt": null,
-          "inStock": null
-        },
-        {
-          "store": "Target",
-          "url": null,
-          "price": null,
-          "currency": "USD",
-          "checkedAt": null,
-          "inStock": null
-        },
-        {
-          "store": "Home Depot",
-          "url": null,
-          "price": null,
-          "currency": "USD",
-          "checkedAt": null,
-          "inStock": null
-        }
-      ],
-      "ca": [
-        {
-          "store": "Amazon.ca",
-          "url": "https://www.amazon.ca/s?k=Instant+Pot+Duo+Plus%2C+6Qt&tag=checkedlab-20",
-          "price": null,
-          "currency": "CAD",
-          "checkedAt": null,
-          "inStock": null
-        },
-        {
-          "store": "Best Buy CA",
-          "url": null,
-          "price": null,
-          "currency": "CAD",
-          "checkedAt": null,
-          "inStock": null
-        },
-        {
-          "store": "Canadian Tire",
-          "url": null,
-          "price": null,
-          "currency": "CAD",
-          "checkedAt": null,
-          "inStock": null
-        },
-        {
-          "store": "Walmart.ca",
-          "url": null,
-          "price": null,
-          "currency": "CAD",
-          "checkedAt": null,
-          "inStock": null
-        },
-        {
-          "store": "Wayfair.ca",
-          "url": null,
-          "price": null,
-          "currency": "CAD",
-          "checkedAt": null,
-          "inStock": null
-        }
-      ]
-    },
-    "priceHistory": {
-      "us": null,
-      "ca": null
     },
     "recall": {
       "us": {
@@ -480,17 +202,14 @@
       "Read the recall line on this card before you buy."
     ],
     "sourceUrl": "https://instantpot.com/products/instant-pot-duo-plus-6qt-multi-use-pressure-cooker-v3",
-    "sourceName": "Instant Pot",
-    "honestLine": "Recall-checked against CPSC and Health Canada. Specs are from the maker."
+    "sourceName": "Instant Pot"
   },
   {
     "id": "vitamix-e310",
     "title": "Vitamix E310 Explorian Blender, 48oz",
     "category": "kitchen",
-    "badge": "checked",
     "receipt": null,
     "meta": "E310 • SPECS PER VITAMIX",
-    "verdict": "Recall-checked against CPSC and Health Canada. Specs are from the maker.",
     "image": "images/vitamix-e310.jpg",
     "recallMatch": {
       "brand": [
@@ -505,96 +224,6 @@
         "explorian"
       ],
       "modelConfirmed": true
-    },
-    "offers": {
-      "us": [
-        {
-          "store": "Amazon.com",
-          "url": "https://www.amazon.com/s?k=Vitamix+E310+Explorian+Blender%2C+48oz&tag=checkedlab01-20",
-          "price": null,
-          "currency": "USD",
-          "checkedAt": null,
-          "inStock": null
-        },
-        {
-          "store": "Best Buy",
-          "url": null,
-          "price": null,
-          "currency": "USD",
-          "checkedAt": null,
-          "inStock": null
-        },
-        {
-          "store": "Walmart",
-          "url": null,
-          "price": null,
-          "currency": "USD",
-          "checkedAt": null,
-          "inStock": null
-        },
-        {
-          "store": "Target",
-          "url": null,
-          "price": null,
-          "currency": "USD",
-          "checkedAt": null,
-          "inStock": null
-        },
-        {
-          "store": "Home Depot",
-          "url": null,
-          "price": null,
-          "currency": "USD",
-          "checkedAt": null,
-          "inStock": null
-        }
-      ],
-      "ca": [
-        {
-          "store": "Amazon.ca",
-          "url": "https://www.amazon.ca/s?k=Vitamix+E310+Explorian+Blender%2C+48oz&tag=checkedlab-20",
-          "price": null,
-          "currency": "CAD",
-          "checkedAt": null,
-          "inStock": null
-        },
-        {
-          "store": "Best Buy CA",
-          "url": null,
-          "price": null,
-          "currency": "CAD",
-          "checkedAt": null,
-          "inStock": null
-        },
-        {
-          "store": "Canadian Tire",
-          "url": null,
-          "price": null,
-          "currency": "CAD",
-          "checkedAt": null,
-          "inStock": null
-        },
-        {
-          "store": "Walmart.ca",
-          "url": null,
-          "price": null,
-          "currency": "CAD",
-          "checkedAt": null,
-          "inStock": null
-        },
-        {
-          "store": "Wayfair.ca",
-          "url": null,
-          "price": null,
-          "currency": "CAD",
-          "checkedAt": null,
-          "inStock": null
-        }
-      ]
-    },
-    "priceHistory": {
-      "us": null,
-      "ca": null
     },
     "recall": {
       "us": {
@@ -638,17 +267,14 @@
       "Read the recall line on this card before you buy."
     ],
     "sourceUrl": "https://www.vitamix.com/us/en_us/products/e310",
-    "sourceName": "Vitamix",
-    "honestLine": "Recall-checked against CPSC and Health Canada. Specs are from the maker."
+    "sourceName": "Vitamix"
   },
   {
     "id": "kitchenaid-artisan",
     "title": "KitchenAid Artisan Stand Mixer 5-Qt",
     "category": "kitchen",
-    "badge": "checked",
     "receipt": null,
     "meta": "KSM150PS • SPECS PER KITCHENAID",
-    "verdict": "Recall-checked against CPSC and Health Canada. Specs are from the maker.",
     "image": "images/kitchenaid-artisan.jpg",
     "recallMatch": {
       "brand": [
@@ -663,96 +289,6 @@
         "ksm150"
       ],
       "modelConfirmed": true
-    },
-    "offers": {
-      "us": [
-        {
-          "store": "Amazon.com",
-          "url": "https://www.amazon.com/dp/B00005UP2K?tag=checkedlab01-20",
-          "price": null,
-          "currency": "USD",
-          "checkedAt": null,
-          "inStock": null
-        },
-        {
-          "store": "Best Buy",
-          "url": null,
-          "price": null,
-          "currency": "USD",
-          "checkedAt": null,
-          "inStock": null
-        },
-        {
-          "store": "Walmart",
-          "url": null,
-          "price": null,
-          "currency": "USD",
-          "checkedAt": null,
-          "inStock": null
-        },
-        {
-          "store": "Target",
-          "url": null,
-          "price": null,
-          "currency": "USD",
-          "checkedAt": null,
-          "inStock": null
-        },
-        {
-          "store": "Home Depot",
-          "url": null,
-          "price": null,
-          "currency": "USD",
-          "checkedAt": null,
-          "inStock": null
-        }
-      ],
-      "ca": [
-        {
-          "store": "Amazon.ca",
-          "url": "https://www.amazon.ca/s?k=KitchenAid+Artisan+Stand+Mixer+5-Qt&tag=checkedlab-20",
-          "price": null,
-          "currency": "CAD",
-          "checkedAt": null,
-          "inStock": null
-        },
-        {
-          "store": "Best Buy CA",
-          "url": null,
-          "price": null,
-          "currency": "CAD",
-          "checkedAt": null,
-          "inStock": null
-        },
-        {
-          "store": "Canadian Tire",
-          "url": null,
-          "price": null,
-          "currency": "CAD",
-          "checkedAt": null,
-          "inStock": null
-        },
-        {
-          "store": "Walmart.ca",
-          "url": null,
-          "price": null,
-          "currency": "CAD",
-          "checkedAt": null,
-          "inStock": null
-        },
-        {
-          "store": "Wayfair.ca",
-          "url": null,
-          "price": null,
-          "currency": "CAD",
-          "checkedAt": null,
-          "inStock": null
-        }
-      ]
-    },
-    "priceHistory": {
-      "us": null,
-      "ca": null
     },
     "recall": {
       "us": {
@@ -796,180 +332,26 @@
       "Read the recall line on this card before you buy."
     ],
     "sourceUrl": "https://www.kitchenaid.com/countertop-appliances/stand-mixers/tilt-head-stand-mixers/p.artisan-series-5-quart-tilt-head-stand-mixer.KSM150PSER.html",
-    "sourceName": "KitchenAid",
-    "honestLine": "Recall-checked against CPSC and Health Canada. Specs are from the maker."
+    "sourceName": "KitchenAid"
   },
   {
     "id": "cosori-pro-5-8",
     "title": "COSORI Pro II Air Fryer",
     "category": "kitchen",
-    "badge": "checked",
     "receipt": null,
-    "meta": "PRO II • MODEL NUMBER NOT CONFIRMED • NO SOURCED MEASUREMENTS",
-    "verdict": "Recall-checked against CPSC and Health Canada. The model number on this listing is not confirmed, so it is not marked clear or recalled.",
+    "meta": "COSORI • CS358-AF SERIES • AMAZON.COM ASIN B089ZT66H9",
     "image": "images/cosori-pro.jpg",
     "recallMatch": {
       "brand": [
         "cosori"
       ],
-      "models": [],
+      "models": [
+        "cs358"
+      ],
       "family": [
         "air fryer"
       ],
-      "modelConfirmed": false
-    },
-    "offers": {
-      "us": [
-        {
-          "store": "Amazon.com",
-          "url": "https://www.amazon.com/dp/B089ZT66H9?tag=checkedlab01-20",
-          "price": null,
-          "currency": "USD",
-          "checkedAt": null,
-          "inStock": null
-        },
-        {
-          "store": "Best Buy",
-          "url": null,
-          "price": null,
-          "currency": "USD",
-          "checkedAt": null,
-          "inStock": null
-        },
-        {
-          "store": "Walmart",
-          "url": null,
-          "price": null,
-          "currency": "USD",
-          "checkedAt": null,
-          "inStock": null
-        },
-        {
-          "store": "Target",
-          "url": null,
-          "price": null,
-          "currency": "USD",
-          "checkedAt": null,
-          "inStock": null
-        },
-        {
-          "store": "Home Depot",
-          "url": null,
-          "price": null,
-          "currency": "USD",
-          "checkedAt": null,
-          "inStock": null
-        }
-      ],
-      "ca": [
-        {
-          "store": "Amazon.ca",
-          "url": "https://www.amazon.ca/s?k=COSORI+Pro+II+Air+Fryer&tag=checkedlab-20",
-          "price": null,
-          "currency": "CAD",
-          "checkedAt": null,
-          "inStock": null
-        },
-        {
-          "store": "Best Buy CA",
-          "url": null,
-          "price": null,
-          "currency": "CAD",
-          "checkedAt": null,
-          "inStock": null
-        },
-        {
-          "store": "Canadian Tire",
-          "url": null,
-          "price": null,
-          "currency": "CAD",
-          "checkedAt": null,
-          "inStock": null
-        },
-        {
-          "store": "Walmart.ca",
-          "url": null,
-          "price": null,
-          "currency": "CAD",
-          "checkedAt": null,
-          "inStock": null
-        },
-        {
-          "store": "Wayfair.ca",
-          "url": null,
-          "price": null,
-          "currency": "CAD",
-          "checkedAt": null,
-          "inStock": null
-        }
-      ]
-    },
-    "priceHistory": {
-      "us": null,
-      "ca": null
-    },
-    "recall": {
-      "us": {
-        "status": "unconfirmed",
-        "checkedAt": "2026-11-10",
-        "url": "https://www.cpsc.gov/Recalls/2023/Two-Million-COSORI-Air-Fryers-Recalled-by-Atekcity-Due-to-Fire-and-Burn-Hazards",
-        "detail": "Model number for this listing is not confirmed, so this is not marked recalled or clear.",
-        "other": [
-          {
-            "title": "Two Million COSORI® Air Fryers Recalled by Atekcity Due to Fire and Burn Hazards",
-            "url": "https://www.cpsc.gov/Recalls/2023/Two-Million-COSORI-Air-Fryers-Recalled-by-Atekcity-Due-to-Fire-and-Burn-Hazards",
-            "date": "2023-02-23",
-            "source": "CPSC",
-            "archived": false
-          }
-        ]
-      },
-      "ca": {
-        "status": "unconfirmed",
-        "checkedAt": "2026-11-10",
-        "url": "https://recalls-rappels.canada.ca/en/alert-recall/certain-models-cosori-branded-air-fryers-recalled-due-potential-fire-hazard",
-        "detail": "Model number for this listing is not confirmed, so this is not marked recalled or clear.",
-        "other": [
-          {
-            "title": "Certain models of Cosori-branded Air Fryers recalled due to potential fire hazard",
-            "url": "https://recalls-rappels.canada.ca/en/alert-recall/certain-models-cosori-branded-air-fryers-recalled-due-potential-fire-hazard",
-            "date": "2023-02-23",
-            "source": "Health Canada",
-            "archived": false
-          }
-        ]
-      }
-    },
-    "evidence": [],
-    "bin": [],
-    "asin": {
-      "us": "B089ZT66H9",
-      "ca": null
-    },
-    "searchQuery": "COSORI Pro II Air Fryer",
-    "checks": [
-      "Confirm the model on the box matches the model named here.",
-      "Confirm the store listing is this model, not a similar one.",
-      "Read the recall line on this card before you buy."
-    ],
-    "honestLine": "Recall-checked against CPSC and Health Canada. The model number on this listing is not confirmed, so it is not marked clear or recalled."
-  },
-  {
-    "badge": "checked",
-    "receipt": null,
-    "image": null,
-    "asin": {
-      "us": null,
-      "ca": null
-    },
-    "checks": [
-      "Confirm the model on the box matches the model named here.",
-      "Confirm the store listing is this model, not a similar one.",
-      "Read the recall line on this card before you buy."
-    ],
-    "priceHistory": {
-      "us": null,
-      "ca": null
+      "modelConfirmed": true
     },
     "recall": {
       "us": {
@@ -987,7 +369,68 @@
         "other": []
       }
     },
-    "evidence": [],
+    "evidence": [
+      {
+        "claim": "The CS358-AF series manual calls it a smart 5.8-quart air fryer.",
+        "source": "COSORI",
+        "url": "https://cdn.accentuate.io/4894973755480/1613980148681/01.06_M1_CS358-AF_2020-09-29_WEB_US_en.pdf?v=0",
+        "agrees": true
+      }
+    ],
+    "bin": [],
+    "asin": {
+      "us": "B089ZT66H9",
+      "ca": null
+    },
+    "searchQuery": "COSORI Pro II Air Fryer",
+    "checks": [
+      "Confirm the model on the box matches the model named here.",
+      "Confirm the store listing is this model, not a similar one.",
+      "Read the recall line on this card before you buy."
+    ]
+  },
+  {
+    "receipt": null,
+    "image": null,
+    "asin": {
+      "us": null,
+      "ca": null
+    },
+    "checks": [
+      "Confirm the model on the box matches the model named here.",
+      "Confirm the store listing is this model, not a similar one.",
+      "Read the recall line on this card before you buy."
+    ],
+    "recall": {
+      "us": {
+        "status": "none",
+        "checkedAt": "2026-11-10",
+        "url": "https://www.saferproducts.gov/RestWebServices/Recall",
+        "detail": null,
+        "other": []
+      },
+      "ca": {
+        "status": "none",
+        "checkedAt": "2026-11-10",
+        "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
+        "detail": null,
+        "other": []
+      }
+    },
+    "evidence": [
+      {
+        "claim": "900 W to 1,500 W, with a tip-over switch and overheat protection. ETL listed.",
+        "source": "Lasko",
+        "url": "https://lasko.com/products/lasko-ct32150-32-digital-ceramic-tower-space-heater-with-remote-control-black",
+        "agrees": true
+      },
+      {
+        "claim": "Listed height 31.6 inches.",
+        "source": "Lasko",
+        "url": "https://lasko.com/products/lasko-ct32150-32-digital-ceramic-tower-space-heater-with-remote-control-black",
+        "agrees": true
+      }
+    ],
     "bin": [],
     "id": "lasko-ct32150",
     "category": "winter",
@@ -1012,7 +455,6 @@
     }
   },
   {
-    "badge": "checked",
     "receipt": null,
     "image": null,
     "asin": {
@@ -1024,10 +466,6 @@
       "Confirm the store listing is this model, not a similar one.",
       "Read the recall line on this card before you buy."
     ],
-    "priceHistory": {
-      "us": null,
-      "ca": null
-    },
     "recall": {
       "us": {
         "status": "none",
@@ -1044,7 +482,20 @@
         "other": []
       }
     },
-    "evidence": [],
+    "evidence": [
+      {
+        "claim": "900 W to 1,500 W, with overheat protection. ETL listed.",
+        "source": "Lasko",
+        "url": "https://lasko.com/products/lasko-ready-heat-14-ceramic-tower-space-heater-oscillating-2-heat-settings-timer-thermostat",
+        "agrees": true
+      },
+      {
+        "claim": "Listed height 14 inches.",
+        "source": "Lasko",
+        "url": "https://lasko.com/products/lasko-ready-heat-14-ceramic-tower-space-heater-oscillating-2-heat-settings-timer-thermostat",
+        "agrees": true
+      }
+    ],
     "bin": [],
     "id": "lasko-ct14401",
     "category": "winter",
@@ -1068,7 +519,6 @@
     }
   },
   {
-    "badge": "checked",
     "receipt": null,
     "image": null,
     "asin": {
@@ -1080,10 +530,6 @@
       "Confirm the store listing is this model, not a similar one.",
       "Read the recall line on this card before you buy."
     ],
-    "priceHistory": {
-      "us": null,
-      "ca": null
-    },
     "recall": {
       "us": {
         "status": "none",
@@ -1100,7 +546,14 @@
         "other": []
       }
     },
-    "evidence": [],
+    "evidence": [
+      {
+        "claim": "6-liter tank, up to 60 hours on low, coverage listed as 505 square feet.",
+        "source": "Levoit",
+        "url": "https://levoit.com/products/classic-300s-smart-ultrasonic-top-fill-cool-mist-humidifier",
+        "agrees": true
+      }
+    ],
     "bin": [],
     "id": "levoit-classic-300s",
     "category": "winter",
@@ -1125,7 +578,6 @@
     }
   },
   {
-    "badge": "checked",
     "receipt": null,
     "image": null,
     "asin": {
@@ -1133,14 +585,10 @@
       "ca": null
     },
     "checks": [
-      "Confirm the model on the box matches the model named here.",
-      "Confirm the store listing is this model, not a similar one.",
+      "Confirm the model on the box matches TSL8WS.",
+      "Confirm the store listing is this heated throw, not a similar Sunbeam throw.",
       "Read the recall line on this card before you buy."
     ],
-    "priceHistory": {
-      "us": null,
-      "ca": null
-    },
     "recall": {
       "us": {
         "status": "none",
@@ -1159,30 +607,29 @@
     },
     "evidence": [],
     "bin": [],
-    "id": "sunbeam-trl8ws",
+    "id": "sunbeam-tsl8ws",
     "category": "winter",
-    "title": "Sunbeam LoftTec Heated Throw TRL8WS",
-    "model": "TRL8WS",
-    "meta": "SUNBEAM • TRL8WS • MODEL PAGE LINKED",
-    "searchQuery": "Sunbeam LoftTec TRL8WS",
-    "sourceUrl": "https://www.sunbeam.com/heated-bedding/throws/sunbeam-lofttec-heated-throw/TRL8WS-R-MASTER.html",
-    "sourceName": "Sunbeam",
+    "title": "Sunbeam LoftTec Heated Throw TSL8WS",
+    "model": "TSL8WS",
+    "meta": "SUNBEAM • TSL8WS • LOFTTEC • CANADA MANUAL LIST",
+    "searchQuery": "Sunbeam LoftTec TSL8WS",
+    "sourceUrl": "https://www.sunbeam.ca/en_CA/service-&-support/instruction-manuals/heated-bedding/heated-throws/bedding-throws-manual.html",
+    "sourceName": "Sunbeam Canada",
     "recallMatch": {
       "brand": [
         "sunbeam"
       ],
       "models": [
-        "trl8ws",
-        "lofttec"
+        "tsl8ws"
       ],
       "family": [
-        "heated throw"
+        "loftec",
+        "loftec"
       ],
       "modelConfirmed": true
     }
   },
   {
-    "badge": "checked",
     "receipt": null,
     "image": null,
     "asin": {
@@ -1194,10 +641,6 @@
       "Confirm the store listing is this model, not a similar one.",
       "Read the recall line on this card before you buy."
     ],
-    "priceHistory": {
-      "us": null,
-      "ca": null
-    },
     "recall": {
       "us": {
         "status": "none",
@@ -1214,7 +657,14 @@
         "other": []
       }
     },
-    "evidence": [],
+    "evidence": [
+      {
+        "claim": "The Snow Joe page titles this model as a 24-volt, 10-inch cordless snow shovel.",
+        "source": "Snow Joe",
+        "url": "https://snowjoe.com/products/snow-joe-24v-ss10-cordless-snow-shovel-24-volt-10-inch-4-ah",
+        "agrees": true
+      }
+    ],
     "bin": [],
     "id": "snowjoe-24v-ss10",
     "category": "winter",
@@ -1240,7 +690,6 @@
     }
   },
   {
-    "badge": "checked",
     "receipt": null,
     "image": null,
     "asin": {
@@ -1252,10 +701,6 @@
       "Confirm the store listing is this model, not a similar one.",
       "Read the recall line on this card before you buy."
     ],
-    "priceHistory": {
-      "us": null,
-      "ca": null
-    },
     "recall": {
       "us": {
         "status": "none",
@@ -1272,7 +717,14 @@
         "other": []
       }
     },
-    "evidence": [],
+    "evidence": [
+      {
+        "claim": "1,000 amps. Gas engines up to 6 liters and diesel engines up to 3 liters.",
+        "source": "NOCO",
+        "url": "https://no.co/gb40",
+        "agrees": true
+      }
+    ],
     "bin": [],
     "id": "noco-gb40",
     "category": "car-garage",
@@ -1296,7 +748,6 @@
     }
   },
   {
-    "badge": "checked",
     "receipt": null,
     "image": null,
     "asin": {
@@ -1304,15 +755,10 @@
       "ca": null
     },
     "checks": [
-      "Confirm the model on the box matches the model named here.",
-      "Confirm the store listing is this model, not a similar one.",
-      "Read the recall line on this card before you buy.",
-      "GB50 is a different NOCO model from the GB40. Confirm the listing says GB50."
+      "Confirm the model on the box matches GB50.",
+      "Confirm the store listing is GB50, not the GB40.",
+      "Read the recall line on this card before you buy."
     ],
-    "priceHistory": {
-      "us": null,
-      "ca": null
-    },
     "recall": {
       "us": {
         "status": "none",
@@ -1329,7 +775,20 @@
         "other": []
       }
     },
-    "evidence": [],
+    "evidence": [
+      {
+        "claim": "1,500 amps for a 12V jump start.",
+        "source": "NOCO",
+        "url": "https://no.co/gb50",
+        "agrees": true
+      },
+      {
+        "claim": "Gas engines up to 7 liters and diesel engines up to 4.5 liters. Weight listed as 2.7 pounds.",
+        "source": "NOCO",
+        "url": "https://no.co/gb50",
+        "agrees": true
+      }
+    ],
     "bin": [],
     "id": "noco-gb50",
     "category": "car-garage",
@@ -1337,7 +796,7 @@
     "model": "GB50",
     "meta": "NOCO • GB50 • NAMED ON THE OFFICIAL GB40 HOW-TO PAGE",
     "searchQuery": "NOCO GB50",
-    "sourceUrl": "https://no.co/gb40/how-to",
+    "sourceUrl": "https://no.co/gb50",
     "sourceName": "NOCO",
     "recallMatch": {
       "brand": [
@@ -1353,7 +812,6 @@
     }
   },
   {
-    "badge": "checked",
     "receipt": null,
     "image": null,
     "asin": {
@@ -1365,10 +823,6 @@
       "Confirm the store listing is this model, not a similar one.",
       "Read the recall line on this card before you buy."
     ],
-    "priceHistory": {
-      "us": null,
-      "ca": null
-    },
     "recall": {
       "us": {
         "status": "none",
@@ -1385,7 +839,14 @@
         "other": []
       }
     },
-    "evidence": [],
+    "evidence": [
+      {
+        "claim": "12V, 750mA, for lead-acid, AGM, gel, and sealed batteries from 3Ah to 30Ah.",
+        "source": "Battery Tender",
+        "url": "https://www.batterytender.com/products/junior",
+        "agrees": true
+      }
+    ],
     "bin": [],
     "id": "battery-tender-junior",
     "category": "car-garage",
@@ -1410,7 +871,6 @@
     }
   },
   {
-    "badge": "checked",
     "receipt": null,
     "image": null,
     "asin": {
@@ -1423,10 +883,6 @@
       "Read the recall line on this card before you buy.",
       "ICON is a blade line, not one length. Match the length to the vehicle before you buy."
     ],
-    "priceHistory": {
-      "us": null,
-      "ca": null
-    },
     "recall": {
       "us": {
         "status": "none",
@@ -1443,7 +899,14 @@
         "other": []
       }
     },
-    "evidence": [],
+    "evidence": [
+      {
+        "claim": "Bosch says ICON beam blades last up to 40% longer than other premium blades.",
+        "source": "Bosch",
+        "url": "https://www.boschautoparts.com/p/icon-wiper-blades",
+        "agrees": true
+      }
+    ],
     "bin": [],
     "id": "bosch-icon",
     "category": "car-garage",
@@ -1467,7 +930,6 @@
     }
   },
   {
-    "badge": "checked",
     "receipt": null,
     "image": null,
     "asin": {
@@ -1479,10 +941,6 @@
       "Confirm the store listing is this model, not a similar one.",
       "Read the recall line on this card before you buy."
     ],
-    "priceHistory": {
-      "us": null,
-      "ca": null
-    },
     "recall": {
       "us": {
         "status": "none",
@@ -1499,7 +957,14 @@
         "other": []
       }
     },
-    "evidence": [],
+    "evidence": [
+      {
+        "claim": "CADR listed as 233 smoke, 246 dust, and 240 pollen.",
+        "source": "Cowaymega",
+        "url": "https://cowaymega.com/products/mighty-ap-1512hh",
+        "agrees": true
+      }
+    ],
     "bin": [],
     "id": "coway-ap-1512hh",
     "category": "air-water",
@@ -1525,7 +990,6 @@
     }
   },
   {
-    "badge": "checked",
     "receipt": null,
     "image": null,
     "asin": {
@@ -1537,10 +1001,6 @@
       "Confirm the store listing is this model, not a similar one.",
       "Read the recall line on this card before you buy."
     ],
-    "priceHistory": {
-      "us": null,
-      "ca": null
-    },
     "recall": {
       "us": {
         "status": "none",
@@ -1557,7 +1017,14 @@
         "other": []
       }
     },
-    "evidence": [],
+    "evidence": [
+      {
+        "claim": "The Core 300S-P manual lists AC 120V, 60Hz, and 39W rated power.",
+        "source": "Levoit",
+        "url": "https://levoit.com/cdn/shop/files/HEAPAPLVSUS0073A_Core_300S-P_Smart_Air_Purifier_manual_US_A2-240918_4855d907-1d27-4231-ad1c-82899f56e370.pdf?v=12210007380621608458",
+        "agrees": true
+      }
+    ],
     "bin": [],
     "id": "levoit-core-300s-p",
     "category": "air-water",
@@ -1582,7 +1049,6 @@
     }
   },
   {
-    "badge": "checked",
     "receipt": null,
     "image": null,
     "asin": {
@@ -1595,10 +1061,6 @@
       "Read the recall line on this card before you buy.",
       "The manufacturer URL slug says 20 pt and the model code is MAD50S1QWT. Confirm the capacity on the store listing before you buy."
     ],
-    "priceHistory": {
-      "us": null,
-      "ca": null
-    },
     "recall": {
       "us": {
         "status": "none",
@@ -1639,7 +1101,6 @@
     }
   },
   {
-    "badge": "checked",
     "receipt": null,
     "image": null,
     "asin": {
@@ -1651,10 +1112,6 @@
       "Confirm the store listing is this model, not a similar one.",
       "Read the recall line on this card before you buy."
     ],
-    "priceHistory": {
-      "us": null,
-      "ca": null
-    },
     "recall": {
       "us": {
         "status": "none",
@@ -1671,7 +1128,14 @@
         "other": []
       }
     },
-    "evidence": [],
+    "evidence": [
+      {
+        "claim": "10-cup pitcher. The Elite filter is listed with a 6-month filter life.",
+        "source": "Brita",
+        "url": "https://www.brita.com/products/brita-tahoe-water-pitcher-elite-filter/",
+        "agrees": true
+      }
+    ],
     "bin": [],
     "id": "brita-tahoe-elite",
     "category": "air-water",
@@ -1695,7 +1159,6 @@
     }
   },
   {
-    "badge": "checked",
     "receipt": null,
     "image": null,
     "asin": {
@@ -1707,10 +1170,6 @@
       "Confirm the store listing is this model, not a similar one.",
       "Read the recall line on this card before you buy."
     ],
-    "priceHistory": {
-      "us": null,
-      "ca": null
-    },
     "recall": {
       "us": {
         "status": "none",
@@ -1727,7 +1186,14 @@
         "other": []
       }
     },
-    "evidence": [],
+    "evidence": [
+      {
+        "claim": "168 oz capacity. PetSafe lists the fountain as BPA-free.",
+        "source": "PetSafe",
+        "url": "https://www.petsafe.com/p/drinkwell-platinum-fountain/PWW00-13703/",
+        "agrees": true
+      }
+    ],
     "bin": [],
     "id": "petsafe-drinkwell-platinum",
     "category": "pet",
@@ -1753,7 +1219,6 @@
     }
   },
   {
-    "badge": "checked",
     "receipt": null,
     "image": null,
     "asin": {
@@ -1765,10 +1230,6 @@
       "Confirm the store listing is this model, not a similar one.",
       "Read the recall line on this card before you buy."
     ],
-    "priceHistory": {
-      "us": null,
-      "ca": null
-    },
     "recall": {
       "us": {
         "status": "none",
@@ -1812,7 +1273,6 @@
     }
   },
   {
-    "badge": "checked",
     "receipt": null,
     "image": null,
     "asin": {
@@ -1824,10 +1284,6 @@
       "Confirm the store listing is this model, not a similar one.",
       "Read the recall line on this card before you buy."
     ],
-    "priceHistory": {
-      "us": null,
-      "ca": null
-    },
     "recall": {
       "us": {
         "status": "none",
@@ -1844,7 +1300,14 @@
         "other": []
       }
     },
-    "evidence": [],
+    "evidence": [
+      {
+        "claim": "The Granary 2 Series page names model PLAF105 and a kibble size of 2–15 mm.",
+        "source": "PETLIBRO",
+        "url": "https://petlibro.com/products/granary-2-series",
+        "agrees": true
+      }
+    ],
     "bin": [],
     "id": "petlibro-plaf105",
     "category": "pet",
@@ -1868,7 +1331,6 @@
     }
   },
   {
-    "badge": "checked",
     "receipt": null,
     "image": null,
     "asin": {
@@ -1881,10 +1343,6 @@
       "Read the recall line on this card before you buy.",
       "Match the pet size and coat length. This page is the medium dog, short hair tool."
     ],
-    "priceHistory": {
-      "us": null,
-      "ca": null
-    },
     "recall": {
       "us": {
         "status": "none",
@@ -1917,7 +1375,14 @@
         ]
       }
     },
-    "evidence": [],
+    "evidence": [
+      {
+        "claim": "FURminator says this deShedding tool reduces loose hair up to 90% with regular use.",
+        "source": "FURminator",
+        "url": "https://www.furminator.com/products/tools/deshedding-tools/undercoat-deshedding-tool-medium-dog-short-hair",
+        "agrees": true
+      }
+    ],
     "bin": [],
     "id": "furminator-medium-short",
     "category": "pet",
@@ -1941,7 +1406,6 @@
     }
   },
   {
-    "badge": "checked",
     "receipt": null,
     "image": null,
     "asin": {
@@ -1953,25 +1417,13 @@
       "Confirm the store listing is this model, not a similar one.",
       "Read the recall line on this card before you buy."
     ],
-    "priceHistory": {
-      "us": null,
-      "ca": null
-    },
     "recall": {
       "us": {
         "status": "none",
         "checkedAt": "2026-11-10",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
-        "other": [
-          {
-            "title": "Wayfair Recalls Style Life Eleven Baby Loungers Due to Suffocation Risk and Fall Hazard; Violation of Federal Regulations for Infant Sleep Products; Sold Exclusively on Wayfair.com by Bespoke Clothing Valley (Royalbelle) through Zoomie Kids (Recall Alert)",
-            "url": "https://www.cpsc.gov/Recalls/2025/Wayfair-Recalls-Style-Life-Eleven-Baby-Loungers-Due-to-Suffocation-Risk-and-Fall-Hazard-Violation-of-Federal-Regulations-for-Infant-Sleep-Products-Sold-Exclusively-on-Wayfair-com-by-Bespoke-Clothing-Valley-Royalbelle-through-Zoomie-Kids-Recall-Alert",
-            "date": "2025-02-27",
-            "source": "CPSC",
-            "archived": false
-          }
-        ]
+        "other": []
       },
       "ca": {
         "status": "none",
@@ -1981,7 +1433,14 @@
         "other": []
       }
     },
-    "evidence": [],
+    "evidence": [
+      {
+        "claim": "Cover listed as 92% nylon and 8% spandex. Core listed as ventilated Talalay latex.",
+        "source": "Purple",
+        "url": "https://purple.com/pillows/harmony",
+        "agrees": true
+      }
+    ],
     "bin": [],
     "id": "purple-harmony",
     "category": "sleep",
@@ -1993,7 +1452,8 @@
     "sourceName": "Purple",
     "recallMatch": {
       "brand": [
-        "purple"
+        "purple innovation",
+        "purple®"
       ],
       "models": [
         "harmony"
@@ -2005,7 +1465,6 @@
     }
   },
   {
-    "badge": "checked",
     "receipt": null,
     "image": null,
     "asin": {
@@ -2018,10 +1477,6 @@
       "Read the recall line on this card before you buy.",
       "TEMPUR-Neck comes in more than one size. Confirm the size on the store listing."
     ],
-    "priceHistory": {
-      "us": null,
-      "ca": null
-    },
     "recall": {
       "us": {
         "status": "none",
@@ -2038,7 +1493,14 @@
         "other": []
       }
     },
-    "evidence": [],
+    "evidence": [
+      {
+        "claim": "Ergonomic shape in small, medium, and large, with a removable washable cover.",
+        "source": "Tempur-Pedic",
+        "url": "https://www.tempurpedic.com/shop-pillows/tempur-neck-pillow/",
+        "agrees": true
+      }
+    ],
     "bin": [],
     "id": "tempur-neck",
     "category": "sleep",
@@ -2065,7 +1527,6 @@
     }
   },
   {
-    "badge": "checked",
     "receipt": null,
     "image": null,
     "asin": {
@@ -2078,10 +1539,6 @@
       "Read the recall line on this card before you buy.",
       "Confirm the bed size. Twin sets include one pillowcase. King sets include king pillowcases."
     ],
-    "priceHistory": {
-      "us": null,
-      "ca": null
-    },
     "recall": {
       "us": {
         "status": "none",
@@ -2098,7 +1555,14 @@
         "other": []
       }
     },
-    "evidence": [],
+    "evidence": [
+      {
+        "claim": "100% long-staple cotton, 495 thread count. The set includes a flat sheet, a fitted sheet, and pillowcases.",
+        "source": "Brooklinen",
+        "url": "https://www.brooklinen.com/products/luxe-core-sheet-set",
+        "agrees": true
+      }
+    ],
     "bin": [],
     "id": "brooklinen-luxe-core",
     "category": "sleep",
@@ -2123,7 +1587,6 @@
     }
   },
   {
-    "badge": "checked",
     "receipt": null,
     "image": null,
     "asin": {
@@ -2136,10 +1599,6 @@
       "Read the recall line on this card before you buy.",
       "Aeron is sold in more than one size. Confirm size A, B, or C on the listing."
     ],
-    "priceHistory": {
-      "us": null,
-      "ca": null
-    },
     "recall": {
       "us": {
         "status": "none",
@@ -2196,7 +1655,6 @@
     }
   },
   {
-    "badge": "checked",
     "receipt": null,
     "image": null,
     "asin": {
@@ -2208,10 +1666,6 @@
       "Confirm the store listing is this model, not a similar one.",
       "Read the recall line on this card before you buy."
     ],
-    "priceHistory": {
-      "us": null,
-      "ca": null
-    },
     "recall": {
       "us": {
         "status": "none",
@@ -2228,7 +1682,14 @@
         "other": []
       }
     },
-    "evidence": [],
+    "evidence": [
+      {
+        "claim": "Philips lists a 14-day battery, plus QuadPacer and SmarTimer, on the HX3681/26 page.",
+        "source": "Philips",
+        "url": "https://www.usa.philips.com/c-p/HX3681_26/4100-series-sonic-electric-toothbrush",
+        "agrees": true
+      }
+    ],
     "bin": [],
     "id": "philips-hx3681",
     "category": "personal-tech",
@@ -2253,7 +1714,6 @@
     }
   },
   {
-    "badge": "checked",
     "receipt": null,
     "image": null,
     "asin": {
@@ -2261,14 +1721,10 @@
       "ca": null
     },
     "checks": [
-      "Confirm the model on the box matches the model named here.",
-      "Confirm the store listing is this model, not a similar one.",
+      "Confirm the box says 70-N1000s. Braun's US parts list includes that model with the Series 7 73S shaving head.",
+      "Confirm the store listing is this shaver, not a different Series 7 code.",
       "Read the recall line on this card before you buy."
     ],
-    "priceHistory": {
-      "us": null,
-      "ca": null
-    },
     "recall": {
       "us": {
         "status": "none",
@@ -2293,8 +1749,8 @@
     "model": "70-N1000s",
     "meta": "BRAUN • 70-N1000S • MODEL PAGE LINKED",
     "searchQuery": "Braun Series 7 70-N1000s",
-    "sourceUrl": "https://in.braun.com/en-in/male-grooming/shavers-for-men/series-7/series-7-70-n1000s",
-    "sourceName": "Braun",
+    "sourceUrl": "https://us.braun.com/en-us/service/products/parts/5764/20000334",
+    "sourceName": "Braun US",
     "recallMatch": {
       "brand": [
         "braun"
@@ -2310,7 +1766,6 @@
     }
   },
   {
-    "badge": "checked",
     "receipt": null,
     "image": null,
     "asin": {
@@ -2322,10 +1777,6 @@
       "Confirm the store listing is this model, not a similar one.",
       "Read the recall line on this card before you buy."
     ],
-    "priceHistory": {
-      "us": null,
-      "ca": null
-    },
     "recall": {
       "us": {
         "status": "none",
@@ -2342,7 +1793,14 @@
         "other": []
       }
     },
-    "evidence": [],
+    "evidence": [
+      {
+        "claim": "Sony lists up to 30 hours of battery life on the WH-1000XM5 page.",
+        "source": "Sony",
+        "url": "https://electronics.sony.com/audio/headphones/headband/p/wh1000xm5-b",
+        "agrees": true
+      }
+    ],
     "bin": [],
     "id": "sony-wh-1000xm5",
     "category": "personal-tech",
@@ -2367,7 +1825,6 @@
     }
   },
   {
-    "badge": "checked",
     "receipt": null,
     "image": null,
     "asin": {
@@ -2379,10 +1836,6 @@
       "Confirm the store listing is this model, not a similar one.",
       "Read the recall line on this card before you buy."
     ],
-    "priceHistory": {
-      "us": null,
-      "ca": null
-    },
     "recall": {
       "us": {
         "status": "none",
@@ -2436,7 +1889,14 @@
         ]
       }
     },
-    "evidence": [],
+    "evidence": [
+      {
+        "claim": "24,000mAh capacity and 140W maximum USB-C output.",
+        "source": "Anker",
+        "url": "https://www.anker.com/products/a1289",
+        "agrees": true
+      }
+    ],
     "bin": [],
     "id": "anker-a1289",
     "category": "personal-tech",

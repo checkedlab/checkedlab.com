@@ -110,34 +110,18 @@
     },
     "cosori-pro-5-8": {
       "us": {
-        "status": "unconfirmed",
+        "status": "none",
         "checkedAt": "2026-11-10",
-        "url": "https://www.cpsc.gov/Recalls/2023/Two-Million-COSORI-Air-Fryers-Recalled-by-Atekcity-Due-to-Fire-and-Burn-Hazards",
-        "detail": "Model number for this listing is not confirmed, so this is not marked recalled or clear.",
-        "other": [
-          {
-            "title": "Two Million COSORI® Air Fryers Recalled by Atekcity Due to Fire and Burn Hazards",
-            "url": "https://www.cpsc.gov/Recalls/2023/Two-Million-COSORI-Air-Fryers-Recalled-by-Atekcity-Due-to-Fire-and-Burn-Hazards",
-            "date": "2023-02-23",
-            "source": "CPSC",
-            "archived": false
-          }
-        ]
+        "url": "https://www.saferproducts.gov/RestWebServices/Recall",
+        "detail": null,
+        "other": []
       },
       "ca": {
-        "status": "unconfirmed",
+        "status": "none",
         "checkedAt": "2026-11-10",
-        "url": "https://recalls-rappels.canada.ca/en/alert-recall/certain-models-cosori-branded-air-fryers-recalled-due-potential-fire-hazard",
-        "detail": "Model number for this listing is not confirmed, so this is not marked recalled or clear.",
-        "other": [
-          {
-            "title": "Certain models of Cosori-branded Air Fryers recalled due to potential fire hazard",
-            "url": "https://recalls-rappels.canada.ca/en/alert-recall/certain-models-cosori-branded-air-fryers-recalled-due-potential-fire-hazard",
-            "date": "2023-02-23",
-            "source": "Health Canada",
-            "archived": false
-          }
-        ]
+        "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
+        "detail": null,
+        "other": []
       }
     },
     "lasko-ct32150": {
@@ -188,7 +172,7 @@
         "other": []
       }
     },
-    "sunbeam-trl8ws": {
+    "sunbeam-tsl8ws": {
       "us": {
         "status": "none",
         "checkedAt": "2026-11-10",
@@ -434,15 +418,7 @@
         "checkedAt": "2026-11-10",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
-        "other": [
-          {
-            "title": "Wayfair Recalls Style Life Eleven Baby Loungers Due to Suffocation Risk and Fall Hazard; Violation of Federal Regulations for Infant Sleep Products; Sold Exclusively on Wayfair.com by Bespoke Clothing Valley (Royalbelle) through Zoomie Kids (Recall Alert)",
-            "url": "https://www.cpsc.gov/Recalls/2025/Wayfair-Recalls-Style-Life-Eleven-Baby-Loungers-Due-to-Suffocation-Risk-and-Fall-Hazard-Violation-of-Federal-Regulations-for-Infant-Sleep-Products-Sold-Exclusively-on-Wayfair-com-by-Bespoke-Clothing-Valley-Royalbelle-through-Zoomie-Kids-Recall-Alert",
-            "date": "2025-02-27",
-            "source": "CPSC",
-            "archived": false
-          }
-        ]
+        "other": []
       },
       "ca": {
         "status": "none",

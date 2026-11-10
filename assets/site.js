@@ -95,7 +95,7 @@
       var html = '<p class="recall">No recall found as of ' + esc(rec.checkedAt) + ".</p>";
       var other = rec.other || [];
       if (other.length) {
-        html += '<p class="recall-other">Other recalls for this brand did not match this model: ' +
+        html += '<p class="recall-other">Other recalls that mention this brand name: ' +
           other.map(function (item) {
             return outbound(item.url, item.title || "Recall");
           }).join("; ") + "</p>";
@@ -146,12 +146,16 @@
 
   function card(product, reg) {
     var recall = (product.recall || {})[regionKey(reg)] || { status: "not_recorded" };
+    var waiting = recall.status === "unconfirmed" || recall.status === "not_recorded" || !recall.status;
     var badge = recall.status === "bin"
       ? '<span class="badge badge-bin">BIN</span>'
-      : '<span class="badge">RECALL-CHECKED</span>';
-    var honest = product.honestLine || (product.recallMatch && product.recallMatch.modelConfirmed === false
-      ? "Recall-checked against CPSC and Health Canada. The model number on this listing is not confirmed."
-      : "Recall-checked against CPSC and Health Canada. Specs are from the maker.");
+      : waiting
+        ? '<span class="badge">CHECK MODEL</span>'
+        : '<span class="badge">RECALL-CHECKED</span>';
+    var hasSpecs = product.evidence && product.evidence.length;
+    var honest = waiting
+      ? "The model on this card still needs a recall check."
+      : "Recall-checked against CPSC and Health Canada." + (hasSpecs ? " Specs are from the maker." : "");
     var image = product.image
       ? '<img src="/' + esc(String(product.image).replace(/^\/+/, "")) + '" alt="' + esc(product.title) + '">'
       : '<div class="no-photo"><b>' + esc(product.model || product.title) + '</b><span>No photo on this card. Match the model on the store listing.</span></div>';
@@ -162,7 +166,7 @@
         '<p class="p-meta">' + esc(product.meta || "") + "</p>" +
         '<p class="p-note">' + esc(honest) + "</p>" +
         '<p class="price-note">Prices change often, check the current price at the store.</p>' +
-        '<p class="affiliate-note">Affiliate link</p>' +
+        '<p class="affiliate-note">Amazon link is an affiliate link</p>' +
         storeButtons(product, reg) +
         recallBlock(recall) +
         checkList(product) +
