@@ -1571,6 +1571,12 @@
     },
     "specs": [
       {
+        "label": "Capacity",
+        "value": "50 pints/day",
+        "source": "Midea",
+        "url": "https://www.midea.com/us/store/cooling-and-heating/dehumidifiers/midea-cube-20-pt-dehumidifier-for-basement--room--or-garage---co.mad50s1qwt"
+      },
+      {
         "label": "Width",
         "value": "14.76 in",
         "source": "Midea",
