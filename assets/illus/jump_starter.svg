@@ -1,0 +1,18 @@
+<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg"><defs>
+<linearGradient id="gMetal" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#3a3733"/><stop offset=".45" stop-color="#5a554e"/><stop offset="1" stop-color="#2b2926"/></linearGradient>
+<linearGradient id="gCream" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#e9e2d6"/><stop offset=".4" stop-color="#fbf8f2"/><stop offset="1" stop-color="#d9d0c2"/></linearGradient>
+<linearGradient id="gGlass" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity=".75"/><stop offset="1" stop-color="#cfe3ea" stop-opacity=".45"/></linearGradient>
+<linearGradient id="gWarm" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffb46b"/><stop offset="1" stop-color="#e2582b"/></linearGradient>
+<radialGradient id="gGlow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#ff9a4d" stop-opacity=".55"/><stop offset="1" stop-color="#ff9a4d" stop-opacity="0"/></radialGradient>
+<linearGradient id="gAccent" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#2E3033"/><stop offset=".5" stop-color="#C08A2B"/><stop offset="1" stop-color="#2E3033"/></linearGradient>
+</defs><ellipse cx="200" cy="372" rx="125" ry="14" fill="#2a2116" opacity=".16"/>
+<path d="M120 170 q-40 -40 -70 -20" stroke="#c0392b" stroke-width="10" fill="none" stroke-linecap="round"/>
+<path d="M280 170 q40 -40 70 -20" stroke="#222" stroke-width="10" fill="none" stroke-linecap="round"/>
+<g transform="translate(26 120) rotate(-20)"><rect width="46" height="26" rx="6" fill="#c0392b"/><path d="M6 26 l-6 18 M18 26 l-4 18 M30 26 l0 18" stroke="#8c8c8c" stroke-width="4"/></g>
+<g transform="translate(330 104) rotate(20)"><rect width="46" height="26" rx="6" fill="#2b2b2b"/><path d="M14 26 l2 18 M26 26 l4 18 M38 26 l6 18" stroke="#8c8c8c" stroke-width="4"/></g>
+<rect x="96" y="150" width="208" height="206" rx="30" fill="url(#gMetal)"/>
+<rect x="96" y="150" width="208" height="42" rx="21" fill="#C08A2B"/>
+<rect x="124" y="222" width="152" height="70" rx="14" fill="#1f1d1b" stroke="#5e5850" stroke-width="2"/>
+<g fill="#C08A2B"><rect x="138" y="244" width="24" height="26" rx="4" opacity="0.35"/><rect x="172" y="244" width="24" height="26" rx="4" opacity="0.51"/><rect x="206" y="244" width="24" height="26" rx="4" opacity="0.6699999999999999"/><rect x="240" y="244" width="24" height="26" rx="4" opacity="0.83"/></g>
+<circle cx="200" cy="320" r="12" fill="#e8e0d2"/>
+</svg>

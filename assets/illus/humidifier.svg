@@ -1,0 +1,16 @@
+<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg"><defs>
+<linearGradient id="gMetal" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#3a3733"/><stop offset=".45" stop-color="#5a554e"/><stop offset="1" stop-color="#2b2926"/></linearGradient>
+<linearGradient id="gCream" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#e9e2d6"/><stop offset=".4" stop-color="#fbf8f2"/><stop offset="1" stop-color="#d9d0c2"/></linearGradient>
+<linearGradient id="gGlass" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity=".75"/><stop offset="1" stop-color="#cfe3ea" stop-opacity=".45"/></linearGradient>
+<linearGradient id="gWarm" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffb46b"/><stop offset="1" stop-color="#e2582b"/></linearGradient>
+<radialGradient id="gGlow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#ff9a4d" stop-opacity=".55"/><stop offset="1" stop-color="#ff9a4d" stop-opacity="0"/></radialGradient>
+<linearGradient id="gAccent" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#7C2E2B"/><stop offset=".5" stop-color="#B0453F"/><stop offset="1" stop-color="#7C2E2B"/></linearGradient>
+</defs><ellipse cx="200" cy="372" rx="110" ry="14" fill="#2a2116" opacity=".16"/>
+<g fill="none" stroke="#c7d6dc" stroke-width="10" stroke-linecap="round" opacity=".9"><path d="M200 96 q-26-30 0-58 q24-26 0-48"/><path d="M226 100 q24-34 4-62"/><path d="M176 102 q-22-30 -6-58"/></g>
+<path d="M134 120 q66-24 132 0 l18 210 q2 30-30 30 h-108 q-32 0-30-30z" fill="url(#gCream)" stroke="#cfc4b2" stroke-width="2"/>
+<ellipse cx="200" cy="120" rx="66" ry="14" fill="#efe8dd" stroke="#cfc4b2" stroke-width="2"/>
+<circle cx="200" cy="120" r="10" fill="#9fb8c1"/>
+<rect x="150" y="170" width="100" height="110" rx="20" fill="#cfe3ea" opacity=".55"/>
+<rect x="150" y="226" width="100" height="54" rx="0" fill="#9fc6d3" opacity=".45"/>
+<circle cx="200" cy="314" r="12" fill="#B0453F"/>
+</svg>
