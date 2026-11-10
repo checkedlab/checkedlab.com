@@ -59,6 +59,7 @@ const SOURCE_LABELS = {
   "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3": "Health Canada open dataset"
 };
 const COMMERCE = /^(offers|price|priceCurrency|lowPrice|highPrice|aggregateRating|review|reviewRating|ratingValue|ratingCount|reviewCount)$/i;
+const FONT_PRELOAD = '<link rel="preload" href="/assets/fonts/source-sans-3-latin.woff2" as="font" type="font/woff2" crossorigin>';
 
 const products = JSON.parse(readFileSync(join(root, "products.json"), "utf8"));
 assertProducts(products);
@@ -73,7 +74,7 @@ for (const hub of HUBS) {
   const lead = byHub.get(hub).find((product) => card.schemaImage(product));
   html = ensureImagePreload(html, lead);
   html = pointItemList(html, hub);
-  html = ensureCardScript(html);
+  html = ensureFontPreload(ensureCardScript(html));
   writeFileSync(file, html);
 }
 
@@ -85,7 +86,7 @@ for (const hub of HUBS) {
   const recalls = products.filter(isBin);
   html = fillMount(html, popular.map((product) => card.card(product, "US")).join("\n"), POP_START, POP_END);
   html = fillMount(html, recalls.length ? recalls.map((product) => card.card(product, "US")).join("\n") : '<p class="empty">No official model recall is on the list.</p>', REC_START, REC_END);
-  html = ensureCardScript(html);
+  html = ensureFontPreload(ensureCardScript(html));
   writeFileSync(file, html);
 }
 
@@ -94,7 +95,7 @@ for (const hub of HUBS) {
   let html = readFileSync(file, "utf8");
   const shown = products.filter(isBin);
   html = fillMount(html, shown.length ? shown.map((product) => card.card(product, "US")).join("\n") : BIN_EMPTY);
-  html = ensureCardScript(html);
+  html = ensureFontPreload(ensureCardScript(html));
   writeFileSync(file, html);
 }
 
@@ -102,7 +103,7 @@ const pages = [];
 for (const product of products) {
   const dir = join(root, product.category, product.id);
   mkdirSync(dir, { recursive: true });
-  const html = productPage(product);
+  const html = ensureFontPreload(productPage(product));
   writeFileSync(join(dir, "index.html"), html);
   pages.push(product);
 }
@@ -115,6 +116,11 @@ for (const hub of HUBS) {
       rmSync(full, { recursive: true, force: true });
     }
   }
+}
+
+for (const rel of ["how-we-check/index.html", "404.html"]) {
+  const file = join(root, rel);
+  writeFileSync(file, ensureFontPreload(readFileSync(file, "utf8")));
 }
 
 writeSitemap(pages);
@@ -185,6 +191,11 @@ function pointItemList(html, hub) {
     html = html.split(from).join(to);
   }
   return html;
+}
+
+function ensureFontPreload(html) {
+  if (html.includes("/assets/fonts/source-sans-3-latin.woff2")) return html;
+  return html.replace('<link rel="stylesheet"', FONT_PRELOAD + '\n<link rel="stylesheet"');
 }
 
 function ensureImagePreload(html, product) {
@@ -346,6 +357,7 @@ ${indexable(product) ? "" : '<meta name="robots" content="noindex">\n'}
 <link rel="icon" type="image/png" href="/favicon.png">
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preload" href="/assets/fonts/source-sans-3-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/site.css">
 <meta name="theme-color" content="#F5F5F7">
 <script type="application/ld+json">
@@ -389,6 +401,8 @@ ${nav(hub)}
 <p class="p-meta">${card.esc(product.meta || "")}</p>
 <p class="p-note only-us">${card.esc(card.honestLine(product, us))}</p>
 <p class="p-note only-ca">${card.esc(card.honestLine(product, ca))}</p>
+<div class="only-us">${card.storeButtons(product, "US")}</div>
+<div class="only-ca">${card.storeButtons(product, "CA")}</div>
 <h2 class="check-title">Why it's listed</h2>
 <p class="why-note">${card.esc(why)}</p>
 ${specList(product)}
