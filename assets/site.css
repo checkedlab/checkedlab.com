@@ -363,7 +363,7 @@ footer { background: var(--bg); color: var(--ink); border-top: 1px solid var(--l
 @media (min-width: 800px) {
   .cats { grid-template-columns: repeat(7, 1fr); padding-left: 22px; padding-right: 22px; }
   .hero { padding-top: 36px; text-align: left; }
-  body[data-page="home"] .hero-inner { grid-template-columns: 1.05fr 0.95fr; align-items: center; justify-items: stretch; }
+  body[data-page="home"] .hero-inner:has(.hero-photo) { grid-template-columns: 1.05fr 0.95fr; align-items: center; justify-items: stretch; }
   .store-links { flex-wrap: wrap; }
   .hero-photo img { height: 340px; }
   body[data-page="home"] h1 { font-size: 52px; max-width: 14ch; }

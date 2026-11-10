@@ -63,6 +63,7 @@ const FONT_PRELOAD = '<link rel="preload" href="/assets/fonts/source-sans-3-lati
 
 const products = JSON.parse(readFileSync(join(root, "products.json"), "utf8"));
 assertProducts(products);
+assertImages(products);
 assertRenderer();
 
 const byHub = new Map(HUBS.map((hub) => [hub, products.filter((product) => product.category === hub)]));
@@ -127,6 +128,21 @@ writeSitemap(pages);
 verifyOutput(pages);
 publishDist();
 console.log(`Wrote ${pages.length} product pages and ${HUBS.length} hub card lists.`);
+
+function assertImages(list) {
+  for (const product of list) {
+    const src = product.image_source || null;
+    const image = product.image ? String(product.image) : "";
+    if (/media-amazon\.com|images-amazon\.com|ssl-images-amazon\.com/i.test(image)) {
+      throw new Error("Amazon image URL on " + product.id);
+    }
+    if (!image) continue;
+    if (!src || !src.sourceUrl || !src.license || !src.credit) {
+      throw new Error("Image on " + product.id + " needs a source URL, license note, and credit");
+    }
+    if (!/^https:\/\//.test(src.sourceUrl)) throw new Error("Image source is not https on " + product.id);
+  }
+}
 
 function assertProducts(list) {
   if (!Array.isArray(list) || !list.length) throw new Error("products.json is empty");
