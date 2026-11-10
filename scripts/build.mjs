@@ -22,15 +22,38 @@ const HUB_NAME = {
   sleep: "Sleep",
   "personal-tech": "Personal tech"
 };
+const ICONS = {
+  winter: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M4 8l16 8M20 8L4 16"/></svg>',
+  "car-garage": '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 14h16v4H4zM6 14l2-4h8l2 4"/><circle cx="7.5" cy="18" r="1.2"/><circle cx="16.5" cy="18" r="1.2"/></svg>',
+  "air-water": '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4c3 3 5 5.5 5 8.5a5 5 0 1 1-10 0C7 9.5 9 7 12 4z"/></svg>',
+  pet: '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="8" cy="8" r="2"/><circle cx="16" cy="8" r="2"/><circle cx="6.5" cy="13" r="1.6"/><circle cx="17.5" cy="13" r="1.6"/><path d="M9 16c.8 2 5.2 2 6 0"/></svg>',
+  kitchen: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 10h12v7a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2zM9 10V7M15 10V7"/></svg>',
+  sleep: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 5a7 7 0 1 0 4 12 8 8 0 1 1-4-12z"/></svg>',
+  "personal-tech": '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 0 1 16 0"/><path d="M4 12v3a2 2 0 0 0 2 2h1v-5H4zM20 12v3a2 2 0 0 1-2 2h-1v-5h3z"/></svg>'
+};
 const NAV = [
-  ["winter", "WINTER"],
-  ["car-garage", "CAR & GARAGE"],
-  ["air-water", "AIR & WATER"],
-  ["pet", "PET"],
-  ["kitchen", "KITCHEN"],
-  ["sleep", "SLEEP"],
-  ["personal-tech", "PERSONAL TECH"]
+  ["winter", "Winter"],
+  ["car-garage", "Car & garage"],
+  ["air-water", "Air & water"],
+  ["pet", "Pet"],
+  ["kitchen", "Kitchen"],
+  ["sleep", "Sleep"],
+  ["personal-tech", "Personal tech"]
 ];
+const POPULAR_IDS = [
+  "vitamix-e310",
+  "kitchenaid-artisan",
+  "instant-pot-duo-plus",
+  "coway-ap-1512hh",
+  "sony-wh-1000xm5",
+  "gopro-hero13",
+  "ninja-crispi-fn101",
+  "breville-bes870xl"
+];
+const POP_START = "<!-- checkedlab:popular start -->";
+const POP_END = "<!-- checkedlab:popular end -->";
+const REC_START = "<!-- checkedlab:recalls start -->";
+const REC_END = "<!-- checkedlab:recalls end -->";
 const SOURCE_LABELS = {
   "https://www.saferproducts.gov/RestWebServices/Recall": "CPSC SaferProducts",
   "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3": "Health Canada open dataset"
@@ -55,8 +78,11 @@ for (const hub of HUBS) {
 {
   const file = join(root, "index.html");
   let html = readFileSync(file, "utf8");
-  const shown = products.filter((product) => product.category === "kitchen").slice(0, 3);
-  html = fillMount(html, shown.map((product) => card.card(product, "US")).join("\n"));
+  const byId = new Map(products.map((product) => [product.id, product]));
+  const popular = POPULAR_IDS.map((id) => byId.get(id)).filter(Boolean);
+  const recalls = products.filter(isBin);
+  html = fillMount(html, popular.map((product) => card.card(product, "US")).join("\n"), POP_START, POP_END);
+  html = fillMount(html, recalls.length ? recalls.map((product) => card.card(product, "US")).join("\n") : '<p class="empty">No official model recall is on the list.</p>', REC_START, REC_END);
   html = ensureCardScript(html);
   writeFileSync(file, html);
 }
@@ -138,10 +164,11 @@ function isBin(product) {
   return (recall.us || {}).status === "bin" || (recall.ca || {}).status === "bin" || (product.bin && product.bin.length);
 }
 
-function fillMount(html, inner) {
-  const block = START + "\n" + inner + "\n" + END;
-  const pattern = new RegExp(START.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + "[\\s\\S]*?" + END.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"));
+function fillMount(html, inner, start = START, end = END) {
+  const block = start + "\n" + inner + "\n" + end;
+  const pattern = new RegExp(start.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + "[\\s\\S]*?" + end.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"));
   if (pattern.test(html)) return html.replace(pattern, block);
+  if (start !== START) throw new Error("Missing mount markers " + start);
   const mount = '<div id="product-mount"></div>';
   if (!html.includes(mount)) throw new Error("Missing #product-mount");
   return html.replace(mount, '<div id="product-mount" data-rendered-region="US">\n' + block + "\n</div>");
@@ -256,10 +283,10 @@ function assertNoCommerce(value) {
 }
 
 function nav(current) {
-  return '<nav class="cats">\n' + NAV.map(([hub, label]) => {
+  return '<nav class="cats" aria-label="Hubs">\n' + NAV.map(([hub, label]) => {
     const currentAttr = hub === current ? ' aria-current="page"' : "";
-    return '<a href="/' + hub + '/"' + currentAttr + ">" + label + "</a>";
-  }).join("\n") + '\n<a class="cats-util" href="/how-we-check/">HOW WE CHECK</a>\n<a class="cats-util" href="/bin-list/">BIN LIST</a>\n</nav>';
+    return '<a href="/' + hub + '/"' + currentAttr + ">" + ICONS[hub] + "<span>" + label + "</span></a>";
+  }).join("\n") + '\n<a class="cats-util" href="/how-we-check/">How we check</a>\n<a class="cats-util" href="/bin-list/">BIN list</a>\n</nav>';
 }
 
 function productPage(product) {
@@ -300,7 +327,7 @@ ${indexable(product) ? "" : '<meta name="robots" content="noindex">\n'}
 <link rel="preload" href="/assets/fonts/newsreader-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/source-sans-3-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/site.css">
-<meta name="theme-color" content="#F7F6F3">
+<meta name="theme-color" content="#101114">
 <script type="application/ld+json">
 ${jsonLd(product)}
 </script>

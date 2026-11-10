@@ -96,7 +96,7 @@
     rec = rec || { status: "not_recorded" };
     if (rec.status === "bin") {
       var source = rec.url ? " " + outbound(rec.url, "Recall notice") : "";
-      return '<p class="recall recall-bin"><strong>BIN.</strong> ' + esc(rec.detail || "A recall matches this model.") + source + "</p>";
+      return '<p class="recall recall-bin"><strong>Official recall found.</strong> ' + esc(rec.detail || "A recall matches this model.") + source + "</p>";
     }
     if (rec.status === "none" && rec.checkedAt) {
       var html = '<p class="recall recall-clear">No recall found as of ' + esc(rec.checkedAt) + ".</p>";
@@ -157,9 +157,9 @@
 
   function badgeHtml(recall) {
     var waiting = recall.status === "unconfirmed" || recall.status === "not_recorded" || !recall.status;
-    if (recall.status === "bin") return '<span class="badge badge-bin">BIN</span>';
-    if (waiting) return '<span class="badge badge-wait">CHECK MODEL</span>';
-    return '<span class="badge badge-clear">RECALL-CHECKED</span>';
+    if (recall.status === "bin") return '<span class="badge badge-bin">Official recall found</span>';
+    if (waiting) return '<span class="badge badge-wait">Check model</span>';
+    return '<span class="badge badge-clear">Recall checked</span>';
   }
 
   function honestLine(product, recall) {
