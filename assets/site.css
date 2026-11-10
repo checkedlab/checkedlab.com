@@ -177,7 +177,7 @@ footer a:hover{color:var(--ink);text-decoration:underline}
 /* Evidence (maker claims) list follows the checklist: filled marker instead of a to-do box */
 .evidence + .evidence{margin-top:2px;padding-top:10px;border-top:1px dashed var(--line)}
 .evidence + .evidence li::before,
-.why-note + .evidence li::before{border:0;background:var(--hub);border-radius:50%;width:8px;height:8px;top:15px;left:4px}
+body[data-page="product"] .evidence li::before{border:0;background:var(--hub);border-radius:50%;width:8px;height:8px;top:15px;left:4px}
 .recall-other + .p-meta{margin-top:12px}
 .crumbs{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:28px 0 4px;font-size:13px;font-weight:700;color:var(--muted)}
 .crumbs a{color:var(--ink-2);text-decoration:none}
@@ -185,6 +185,14 @@ footer a:hover{color:var(--ink);text-decoration:underline}
 .crumbs [aria-current="page"]{color:var(--ink);font-weight:700}
 body[data-page="product"] h1.p-title{max-width:none}
 .why-note{font-family:var(--f-body);color:var(--ink-2);font-size:18px;line-height:1.6;margin:0 0 8px}
+.specs{margin:4px 0 8px}
+.spec{display:grid;grid-template-columns:minmax(96px,.4fr) 1fr;gap:4px 14px;align-items:baseline;padding:9px 0;border-bottom:1px solid var(--line)}
+.spec:last-child{border-bottom:0}
+.spec dt{font-size:13px;font-weight:700;color:var(--ink)}
+.spec dd{margin:0;font-family:var(--f-body);font-size:16px;line-height:1.45;color:var(--ink-2)}
+.specs a{display:inline-block;margin-left:8px;font-family:var(--f-ui);font-size:12px;font-weight:700;line-height:1;color:var(--hub-deep);background:var(--hub-tint);border-radius:var(--r-pill);padding:5px 9px;text-decoration:none;vertical-align:1px}
+.specs a::after{content:" ↗"}
+.specs a:hover{background:var(--hub-deep);color:#fff}
 @media(max-width:640px){
   .cats{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;padding-bottom:10px}
   .cats::-webkit-scrollbar{display:none}

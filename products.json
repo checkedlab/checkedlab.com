@@ -63,7 +63,39 @@
       "Read the recall line on this card before you buy."
     ],
     "sourceUrl": "https://www.sharkninja.com/ninja-crispi-4-in-1-portable-glass-air-fryer-cooking-system/FN101GY.html",
-    "sourceName": "Ninja"
+    "sourceName": "Ninja",
+    "specs": [
+      {
+        "label": "Power",
+        "value": "1,500 W",
+        "source": "Ninja",
+        "url": "https://www.sharkninja.com/ninja-crispi-4-in-1-portable-glass-air-fryer-cooking-system/FN101GY.html"
+      },
+      {
+        "label": "Containers",
+        "value": "4-qt and 6-cup CleanCrisp glass",
+        "source": "Ninja",
+        "url": "https://www.sharkninja.com/ninja-crispi-4-in-1-portable-glass-air-fryer-cooking-system/FN101GY.html"
+      },
+      {
+        "label": "Modes",
+        "value": "Max Crisp, Bake, Air Fry, and Recrisp",
+        "source": "Ninja",
+        "url": "https://www.sharkninja.com/ninja-crispi-4-in-1-portable-glass-air-fryer-cooking-system/FN101GY.html"
+      },
+      {
+        "label": "Dimensions",
+        "value": "11.5 × 9.76 × 11.81 in",
+        "source": "Ninja",
+        "url": "https://www.sharkninja.com/ninja-crispi-4-in-1-portable-glass-air-fryer-cooking-system/FN101GY.html"
+      },
+      {
+        "label": "Weight",
+        "value": "14.55 lb",
+        "source": "Ninja",
+        "url": "https://www.sharkninja.com/ninja-crispi-4-in-1-portable-glass-air-fryer-cooking-system/FN101GY.html"
+      }
+    ]
   },
   {
     "id": "ninja-foodi-10in1",
@@ -144,7 +176,39 @@
       "Read the recall line on this card before you buy."
     ],
     "sourceUrl": "https://www.ninjakitchen.ca/products/ninja-foodi-10-in-1-xl-pro-air-fry-oven-zidDT201C",
-    "sourceName": "Ninja Canada"
+    "sourceName": "Ninja Canada",
+    "specs": [
+      {
+        "label": "Power",
+        "value": "1,800 W",
+        "source": "Ninja",
+        "url": "https://www.sharkninja.ca/ninja-foodi-10-in-1-xl-pro-air-fry-oven/DT201C.html"
+      },
+      {
+        "label": "Functions",
+        "value": "Air Fry, Whole Roast, Air Roast, Bake, Dehydrate, Pizza, Broil, Toast, Bagel, and Reheat",
+        "source": "Ninja",
+        "url": "https://www.sharkninja.ca/ninja-foodi-10-in-1-xl-pro-air-fry-oven/DT201C.html"
+      },
+      {
+        "label": "Capacity",
+        "value": "Fits a 5 lb chicken and a sheet pan of vegetables, two 12 in pizzas, or a 12 lb turkey",
+        "source": "Ninja",
+        "url": "https://www.sharkninja.ca/ninja-foodi-10-in-1-xl-pro-air-fry-oven/DT201C.html"
+      },
+      {
+        "label": "Dimensions",
+        "value": "62.2 × 50.6 × 42.49 cm",
+        "source": "Ninja",
+        "url": "https://www.sharkninja.ca/ninja-foodi-10-in-1-xl-pro-air-fry-oven/DT201C.html"
+      },
+      {
+        "label": "Warranty",
+        "value": "1 year limited",
+        "source": "Ninja",
+        "url": "https://www.sharkninja.ca/ninja-foodi-10-in-1-xl-pro-air-fry-oven/DT201C.html"
+      }
+    ]
   },
   {
     "id": "instant-pot-duo-plus",
@@ -202,7 +266,27 @@
       "Read the recall line on this card before you buy."
     ],
     "sourceUrl": "https://instantpot.com/products/instant-pot-duo-plus-6qt-multi-use-pressure-cooker-v3",
-    "sourceName": "Instant Pot"
+    "sourceName": "Instant Pot",
+    "specs": [
+      {
+        "label": "Capacity",
+        "value": "6 quart",
+        "source": "Instant Pot",
+        "url": "https://instantpot.com/products/instant-pot-duo-plus-6qt-multi-use-pressure-cooker-v3"
+      },
+      {
+        "label": "Functions",
+        "value": "Pressure, slow cook, steam, and sauté",
+        "source": "Instant Pot",
+        "url": "https://instantpot.com/products/instant-pot-duo-plus-6qt-multi-use-pressure-cooker-v3"
+      },
+      {
+        "label": "Cleanup",
+        "value": "Dishwasher-safe",
+        "source": "Instant Pot",
+        "url": "https://instantpot.com/products/instant-pot-duo-plus-6qt-multi-use-pressure-cooker-v3"
+      }
+    ]
   },
   {
     "id": "vitamix-e310",
@@ -267,7 +351,39 @@
       "Read the recall line on this card before you buy."
     ],
     "sourceUrl": "https://www.vitamix.com/us/en_us/products/e310",
-    "sourceName": "Vitamix"
+    "sourceName": "Vitamix",
+    "specs": [
+      {
+        "label": "Motor",
+        "value": "2 HP",
+        "source": "Vitamix",
+        "url": "https://www.vitamix.com/us/en_us/products/e310"
+      },
+      {
+        "label": "Container",
+        "value": "48 oz",
+        "source": "Vitamix",
+        "url": "https://www.vitamix.com/us/en_us/products/e310"
+      },
+      {
+        "label": "Dimensions",
+        "value": "9 × 8 × 18 in",
+        "source": "Vitamix",
+        "url": "https://www.vitamix.com/us/en_us/products/e310"
+      },
+      {
+        "label": "Weight",
+        "value": "10.5 lb",
+        "source": "Vitamix",
+        "url": "https://www.vitamix.com/us/en_us/products/e310"
+      },
+      {
+        "label": "Warranty",
+        "value": "5-year full warranty",
+        "source": "Vitamix",
+        "url": "https://www.vitamix.com/us/en_us/products/e310"
+      }
+    ]
   },
   {
     "id": "kitchenaid-artisan",
@@ -332,7 +448,39 @@
       "Read the recall line on this card before you buy."
     ],
     "sourceUrl": "https://www.kitchenaid.com/countertop-appliances/stand-mixers/tilt-head-stand-mixers/p.artisan-series-5-quart-tilt-head-stand-mixer.KSM150PSER.html",
-    "sourceName": "KitchenAid"
+    "sourceName": "KitchenAid",
+    "specs": [
+      {
+        "label": "Capacity",
+        "value": "5 quart",
+        "source": "KitchenAid",
+        "url": "https://www.kitchenaid.com/countertop-appliances/stand-mixers/tilt-head-stand-mixers/p.artisan-series-5-quart-tilt-head-stand-mixer.KSM150PSER.html"
+      },
+      {
+        "label": "Speeds",
+        "value": "10",
+        "source": "KitchenAid",
+        "url": "https://www.kitchenaid.com/countertop-appliances/stand-mixers/tilt-head-stand-mixers/p.artisan-series-5-quart-tilt-head-stand-mixer.KSM150PSER.html"
+      },
+      {
+        "label": "Bowl",
+        "value": "5 quart stainless steel, dishwasher-safe",
+        "source": "KitchenAid",
+        "url": "https://www.kitchenaid.com/countertop-appliances/stand-mixers/tilt-head-stand-mixers/p.artisan-series-5-quart-tilt-head-stand-mixer.KSM150PSER.html"
+      },
+      {
+        "label": "Attachments",
+        "value": "More than 10 optional hub-powered attachments, sold separately",
+        "source": "KitchenAid",
+        "url": "https://www.kitchenaid.com/countertop-appliances/stand-mixers/tilt-head-stand-mixers/p.artisan-series-5-quart-tilt-head-stand-mixer.KSM150PSER.html"
+      },
+      {
+        "label": "Model",
+        "value": "KSM150PSER",
+        "source": "KitchenAid",
+        "url": "https://www.kitchenaid.com/countertop-appliances/stand-mixers/tilt-head-stand-mixers/p.artisan-series-5-quart-tilt-head-stand-mixer.KSM150PSER.html"
+      }
+    ]
   },
   {
     "id": "cosori-pro-5-8",
@@ -387,6 +535,38 @@
       "Confirm the model on the box matches the model named here.",
       "Confirm the store listing is this model, not a similar one.",
       "Read the recall line on this card before you buy."
+    ],
+    "specs": [
+      {
+        "label": "Capacity",
+        "value": "5.8 qt / 5.5 L",
+        "source": "COSORI",
+        "url": "https://cdn.accentuate.io/4894973755480/1613980148681/01.06_M1_CS358-AF_2020-09-29_WEB_US_en.pdf?v=0"
+      },
+      {
+        "label": "Rated power",
+        "value": "1,700 W",
+        "source": "COSORI",
+        "url": "https://cdn.accentuate.io/4894973755480/1613980148681/01.06_M1_CS358-AF_2020-09-29_WEB_US_en.pdf?v=0"
+      },
+      {
+        "label": "Power supply",
+        "value": "AC 120 V, 60 Hz",
+        "source": "COSORI",
+        "url": "https://cdn.accentuate.io/4894973755480/1613980148681/01.06_M1_CS358-AF_2020-09-29_WEB_US_en.pdf?v=0"
+      },
+      {
+        "label": "Dimensions",
+        "value": "11.8 × 13.8 × 12.6 in",
+        "source": "COSORI",
+        "url": "https://cdn.accentuate.io/4894973755480/1613980148681/01.06_M1_CS358-AF_2020-09-29_WEB_US_en.pdf?v=0"
+      },
+      {
+        "label": "Weight",
+        "value": "12.3 lb",
+        "source": "COSORI",
+        "url": "https://cdn.accentuate.io/4894973755480/1613980148681/01.06_M1_CS358-AF_2020-09-29_WEB_US_en.pdf?v=0"
+      }
     ]
   },
   {
@@ -452,7 +632,39 @@
         "ceramic tower"
       ],
       "modelConfirmed": true
-    }
+    },
+    "specs": [
+      {
+        "label": "Heat output",
+        "value": "900 W to 1,500 W",
+        "source": "Lasko",
+        "url": "https://lasko.com/products/lasko-ct32150-32-digital-ceramic-tower-space-heater-with-remote-control-black"
+      },
+      {
+        "label": "Voltage",
+        "value": "120 V",
+        "source": "Lasko",
+        "url": "https://lasko.com/products/lasko-ct32150-32-digital-ceramic-tower-space-heater-with-remote-control-black"
+      },
+      {
+        "label": "Height",
+        "value": "31.6 in",
+        "source": "Lasko",
+        "url": "https://lasko.com/products/lasko-ct32150-32-digital-ceramic-tower-space-heater-with-remote-control-black"
+      },
+      {
+        "label": "Weight",
+        "value": "5.7 lb",
+        "source": "Lasko",
+        "url": "https://lasko.com/products/lasko-ct32150-32-digital-ceramic-tower-space-heater-with-remote-control-black"
+      },
+      {
+        "label": "Safety",
+        "value": "ETL listed, tip-over switch, and overheat protection",
+        "source": "Lasko",
+        "url": "https://lasko.com/products/lasko-ct32150-32-digital-ceramic-tower-space-heater-with-remote-control-black"
+      }
+    ]
   },
   {
     "receipt": null,
@@ -516,7 +728,39 @@
         "ct14401"
       ],
       "modelConfirmed": true
-    }
+    },
+    "specs": [
+      {
+        "label": "Heat output",
+        "value": "900 W to 1,500 W",
+        "source": "Lasko",
+        "url": "https://lasko.com/products/lasko-ready-heat-14-ceramic-tower-space-heater-oscillating-2-heat-settings-timer-thermostat"
+      },
+      {
+        "label": "Voltage",
+        "value": "120 V",
+        "source": "Lasko",
+        "url": "https://lasko.com/products/lasko-ready-heat-14-ceramic-tower-space-heater-oscillating-2-heat-settings-timer-thermostat"
+      },
+      {
+        "label": "Height",
+        "value": "14 in",
+        "source": "Lasko",
+        "url": "https://lasko.com/products/lasko-ready-heat-14-ceramic-tower-space-heater-oscillating-2-heat-settings-timer-thermostat"
+      },
+      {
+        "label": "Weight",
+        "value": "3.3 lb",
+        "source": "Lasko",
+        "url": "https://lasko.com/products/lasko-ready-heat-14-ceramic-tower-space-heater-oscillating-2-heat-settings-timer-thermostat"
+      },
+      {
+        "label": "Safety",
+        "value": "ETL listed and overheat protection",
+        "source": "Lasko",
+        "url": "https://lasko.com/products/lasko-ready-heat-14-ceramic-tower-space-heater-oscillating-2-heat-settings-timer-thermostat"
+      }
+    ]
   },
   {
     "receipt": null,
@@ -575,7 +819,33 @@
         "humidifier"
       ],
       "modelConfirmed": true
-    }
+    },
+    "specs": [
+      {
+        "label": "Tank",
+        "value": "6 L",
+        "source": "Levoit",
+        "url": "https://levoit.com/products/classic-300s-smart-ultrasonic-top-fill-cool-mist-humidifier"
+      },
+      {
+        "label": "Runtime",
+        "value": "Up to 60 hours",
+        "source": "Levoit",
+        "url": "https://levoit.com/products/classic-300s-smart-ultrasonic-top-fill-cool-mist-humidifier"
+      },
+      {
+        "label": "Coverage",
+        "value": "505 ft²",
+        "source": "Levoit",
+        "url": "https://levoit.com/products/classic-300s-smart-ultrasonic-top-fill-cool-mist-humidifier"
+      },
+      {
+        "label": "Mist levels",
+        "value": "4",
+        "source": "Levoit",
+        "url": "https://levoit.com/products/classic-300s-smart-ultrasonic-top-fill-cool-mist-humidifier"
+      }
+    ]
   },
   {
     "receipt": null,
@@ -687,7 +957,21 @@
         "snow shovel"
       ],
       "modelConfirmed": true
-    }
+    },
+    "specs": [
+      {
+        "label": "Battery voltage",
+        "value": "24 V",
+        "source": "Snow Joe",
+        "url": "https://shopjoe.com/products/snow-joe-24v-ss10-cordless-snow-shovel-24-volt-10-inch-4-ah"
+      },
+      {
+        "label": "Clearing width",
+        "value": "10 in",
+        "source": "Snow Joe",
+        "url": "https://shopjoe.com/products/snow-joe-24v-ss10-cordless-snow-shovel-24-volt-10-inch-4-ah"
+      }
+    ]
   },
   {
     "receipt": null,
@@ -745,7 +1029,39 @@
         "jump starter"
       ],
       "modelConfirmed": true
-    }
+    },
+    "specs": [
+      {
+        "label": "Peak current",
+        "value": "1,000 A at 12 V",
+        "source": "NOCO",
+        "url": "https://no.co/gb40"
+      },
+      {
+        "label": "Gas engines",
+        "value": "Up to 6 L",
+        "source": "NOCO",
+        "url": "https://no.co/gb40"
+      },
+      {
+        "label": "Diesel engines",
+        "value": "Up to 3 L",
+        "source": "NOCO",
+        "url": "https://no.co/gb40"
+      },
+      {
+        "label": "Weight",
+        "value": "2.4 lb",
+        "source": "NOCO",
+        "url": "https://no.co/gb40"
+      },
+      {
+        "label": "Enclosure",
+        "value": "IP65",
+        "source": "NOCO",
+        "url": "https://no.co/gb40"
+      }
+    ]
   },
   {
     "receipt": null,
@@ -809,7 +1125,39 @@
         "jump starter"
       ],
       "modelConfirmed": true
-    }
+    },
+    "specs": [
+      {
+        "label": "Peak current",
+        "value": "1,500 A at 12 V",
+        "source": "NOCO",
+        "url": "https://no.co/gb50"
+      },
+      {
+        "label": "Gas engines",
+        "value": "Up to 7 L",
+        "source": "NOCO",
+        "url": "https://no.co/gb50"
+      },
+      {
+        "label": "Diesel engines",
+        "value": "Up to 4.5 L",
+        "source": "NOCO",
+        "url": "https://no.co/gb50"
+      },
+      {
+        "label": "Weight",
+        "value": "2.7 lb",
+        "source": "NOCO",
+        "url": "https://no.co/gb50"
+      },
+      {
+        "label": "Enclosure",
+        "value": "IP65",
+        "source": "NOCO",
+        "url": "https://no.co/gb50"
+      }
+    ]
   },
   {
     "receipt": null,
@@ -868,7 +1216,39 @@
         "battery charger"
       ],
       "modelConfirmed": true
-    }
+    },
+    "specs": [
+      {
+        "label": "Output",
+        "value": "12 V, 750 mA",
+        "source": "Battery Tender",
+        "url": "https://www.batterytender.com/products/junior"
+      },
+      {
+        "label": "Battery range",
+        "value": "3 Ah to 30 Ah",
+        "source": "Battery Tender",
+        "url": "https://www.batterytender.com/products/junior"
+      },
+      {
+        "label": "Battery types",
+        "value": "Lead-acid, AGM, gel, and sealed",
+        "source": "Battery Tender",
+        "url": "https://www.batterytender.com/products/junior"
+      },
+      {
+        "label": "Dimensions",
+        "value": "4.4 × 2.15 × 2.9 in",
+        "source": "Battery Tender",
+        "url": "https://www.batterytender.com/products/junior"
+      },
+      {
+        "label": "Weight",
+        "value": "0.65 lb, charger only",
+        "source": "Battery Tender",
+        "url": "https://www.batterytender.com/products/junior"
+      }
+    ]
   },
   {
     "receipt": null,
@@ -927,7 +1307,33 @@
         "wiper"
       ],
       "modelConfirmed": true
-    }
+    },
+    "specs": [
+      {
+        "label": "Blade type",
+        "value": "Beam",
+        "source": "Bosch",
+        "url": "https://www.boschautoparts.com/p/icon-wiper-blades"
+      },
+      {
+        "label": "Edge",
+        "value": "Patented beam design with exclusive rubber",
+        "source": "Bosch",
+        "url": "https://www.boschautoparts.com/p/icon-wiper-blades"
+      },
+      {
+        "label": "Connector",
+        "value": "Weather-shield double locking connector",
+        "source": "Bosch",
+        "url": "https://www.boschautoparts.com/p/icon-wiper-blades"
+      },
+      {
+        "label": "Spoiler",
+        "value": "Asymmetrical flexible spoiler",
+        "source": "Bosch",
+        "url": "https://www.boschautoparts.com/p/icon-wiper-blades"
+      }
+    ]
   },
   {
     "receipt": null,
@@ -987,7 +1393,39 @@
         "mighty"
       ],
       "modelConfirmed": true
-    }
+    },
+    "specs": [
+      {
+        "label": "CADR",
+        "value": "233 smoke, 246 dust, 240 pollen",
+        "source": "Coway",
+        "url": "https://cowaymega.com/products/mighty-ap-1512hh"
+      },
+      {
+        "label": "Room coverage",
+        "value": "361 ft² at 4.8 air changes per hour",
+        "source": "Coway",
+        "url": "https://cowaymega.com/products/mighty-ap-1512hh"
+      },
+      {
+        "label": "Dimensions",
+        "value": "16.8 × 18.3 × 9.6 in",
+        "source": "Coway",
+        "url": "https://cowaymega.com/products/mighty-ap-1512hh"
+      },
+      {
+        "label": "Weight",
+        "value": "12.3 lb",
+        "source": "Coway",
+        "url": "https://cowaymega.com/products/mighty-ap-1512hh"
+      },
+      {
+        "label": "Power",
+        "value": "77 W",
+        "source": "Coway",
+        "url": "https://cowaymega.com/products/mighty-ap-1512hh"
+      }
+    ]
   },
   {
     "receipt": null,
@@ -1046,7 +1484,39 @@
         "air purifier"
       ],
       "modelConfirmed": true
-    }
+    },
+    "specs": [
+      {
+        "label": "Power supply",
+        "value": "AC 120 V, 60 Hz",
+        "source": "Levoit",
+        "url": "https://levoit.com/cdn/shop/files/HEAPAPLVSUS0073A_Core_300S-P_Smart_Air_Purifier_manual_US_A2-240918_4855d907-1d27-4231-ad1c-82899f56e370.pdf?v=12210007380621608458"
+      },
+      {
+        "label": "Rated power",
+        "value": "39 W",
+        "source": "Levoit",
+        "url": "https://levoit.com/cdn/shop/files/HEAPAPLVSUS0073A_Core_300S-P_Smart_Air_Purifier_manual_US_A2-240918_4855d907-1d27-4231-ad1c-82899f56e370.pdf?v=12210007380621608458"
+      },
+      {
+        "label": "Noise",
+        "value": "22–54.5 dB",
+        "source": "Levoit",
+        "url": "https://levoit.com/cdn/shop/files/HEAPAPLVSUS0073A_Core_300S-P_Smart_Air_Purifier_manual_US_A2-240918_4855d907-1d27-4231-ad1c-82899f56e370.pdf?v=12210007380621608458"
+      },
+      {
+        "label": "Dimensions",
+        "value": "8.7 × 8.7 × 14.2 in",
+        "source": "Levoit",
+        "url": "https://levoit.com/cdn/shop/files/HEAPAPLVSUS0073A_Core_300S-P_Smart_Air_Purifier_manual_US_A2-240918_4855d907-1d27-4231-ad1c-82899f56e370.pdf?v=12210007380621608458"
+      },
+      {
+        "label": "Weight",
+        "value": "7.48 lb",
+        "source": "Levoit",
+        "url": "https://levoit.com/cdn/shop/files/HEAPAPLVSUS0073A_Core_300S-P_Smart_Air_Purifier_manual_US_A2-240918_4855d907-1d27-4231-ad1c-82899f56e370.pdf?v=12210007380621608458"
+      }
+    ]
   },
   {
     "receipt": null,
@@ -1098,7 +1568,39 @@
         "cube"
       ],
       "modelConfirmed": true
-    }
+    },
+    "specs": [
+      {
+        "label": "Capacity",
+        "value": "50 pints/day",
+        "source": "Midea",
+        "url": "https://www.midea.com/us/store/cooling-and-heating/dehumidifiers/midea-cube-20-pt-dehumidifier-for-basement--room--or-garage---co.mad50s1qwt"
+      },
+      {
+        "label": "Width",
+        "value": "14.76 in",
+        "source": "Midea",
+        "url": "https://www.midea.com/us/store/cooling-and-heating/dehumidifiers/midea-cube-20-pt-dehumidifier-for-basement--room--or-garage---co.mad50s1qwt"
+      },
+      {
+        "label": "Height",
+        "value": "14.57 in",
+        "source": "Midea",
+        "url": "https://www.midea.com/us/store/cooling-and-heating/dehumidifiers/midea-cube-20-pt-dehumidifier-for-basement--room--or-garage---co.mad50s1qwt"
+      },
+      {
+        "label": "Depth",
+        "value": "14.45 in",
+        "source": "Midea",
+        "url": "https://www.midea.com/us/store/cooling-and-heating/dehumidifiers/midea-cube-20-pt-dehumidifier-for-basement--room--or-garage---co.mad50s1qwt"
+      },
+      {
+        "label": "Weight",
+        "value": "41.54 lb",
+        "source": "Midea",
+        "url": "https://www.midea.com/us/store/cooling-and-heating/dehumidifiers/midea-cube-20-pt-dehumidifier-for-basement--room--or-garage---co.mad50s1qwt"
+      }
+    ]
   },
   {
     "receipt": null,
@@ -1156,7 +1658,39 @@
         "pitcher"
       ],
       "modelConfirmed": true
-    }
+    },
+    "specs": [
+      {
+        "label": "Capacity",
+        "value": "10 cup",
+        "source": "Brita",
+        "url": "https://www.brita.com/products/brita-tahoe-water-pitcher-elite-filter/"
+      },
+      {
+        "label": "Filter life",
+        "value": "6 months",
+        "source": "Brita",
+        "url": "https://www.brita.com/products/brita-tahoe-water-pitcher-elite-filter/"
+      },
+      {
+        "label": "Height",
+        "value": "10.39 in",
+        "source": "Brita",
+        "url": "https://www.brita.com/products/brita-tahoe-water-pitcher-elite-filter/"
+      },
+      {
+        "label": "Width",
+        "value": "5.68 in",
+        "source": "Brita",
+        "url": "https://www.brita.com/products/brita-tahoe-water-pitcher-elite-filter/"
+      },
+      {
+        "label": "Weight",
+        "value": "1.5 lb",
+        "source": "Brita",
+        "url": "https://www.brita.com/products/brita-tahoe-water-pitcher-elite-filter/"
+      }
+    ]
   },
   {
     "receipt": null,
@@ -1216,7 +1750,33 @@
         "fountain"
       ],
       "modelConfirmed": true
-    }
+    },
+    "specs": [
+      {
+        "label": "Capacity",
+        "value": "168 oz",
+        "source": "PetSafe",
+        "url": "https://www.petsafe.com/p/drinkwell-platinum-fountain/PWW00-13703/"
+      },
+      {
+        "label": "Dimensions",
+        "value": "15.8 × 10.3 × 10.0 in",
+        "source": "PetSafe",
+        "url": "https://www.petsafe.com/p/drinkwell-platinum-fountain/PWW00-13703/"
+      },
+      {
+        "label": "Material",
+        "value": "BPA-free, top-shelf dishwasher safe",
+        "source": "PetSafe",
+        "url": "https://www.petsafe.com/p/drinkwell-platinum-fountain/PWW00-13703/"
+      },
+      {
+        "label": "Power",
+        "value": "Plug-in",
+        "source": "PetSafe",
+        "url": "https://www.petsafe.com/p/drinkwell-platinum-fountain/PWW00-13703/"
+      }
+    ]
   },
   {
     "receipt": null,
@@ -1270,7 +1830,39 @@
         "litter"
       ],
       "modelConfirmed": true
-    }
+    },
+    "specs": [
+      {
+        "label": "Power",
+        "value": "15 V DC",
+        "source": "Whisker",
+        "url": "https://www.whisker.com/litter-robot-4"
+      },
+      {
+        "label": "Height",
+        "value": "29.5 in",
+        "source": "Whisker",
+        "url": "https://www.whisker.com/litter-robot-4"
+      },
+      {
+        "label": "Footprint",
+        "value": "22 × 27 in",
+        "source": "Whisker",
+        "url": "https://www.whisker.com/litter-robot-4"
+      },
+      {
+        "label": "Entryway",
+        "value": "15.75 × 15.75 in",
+        "source": "Whisker",
+        "url": "https://www.whisker.com/litter-robot-4"
+      },
+      {
+        "label": "Weight",
+        "value": "24 lb empty",
+        "source": "Whisker",
+        "url": "https://www.whisker.com/litter-robot-4"
+      }
+    ]
   },
   {
     "receipt": null,
@@ -1328,7 +1920,39 @@
         "granary"
       ],
       "modelConfirmed": true
-    }
+    },
+    "specs": [
+      {
+        "label": "Model",
+        "value": "PLAF105",
+        "source": "PETLIBRO",
+        "url": "https://petlibro.com/products/granary-2-series"
+      },
+      {
+        "label": "Food tank",
+        "value": "5 L",
+        "source": "PETLIBRO",
+        "url": "https://petlibro.com/products/granary-2-series"
+      },
+      {
+        "label": "Dimensions",
+        "value": "14.05 × 7.09 × 14.02 in",
+        "source": "PETLIBRO",
+        "url": "https://petlibro.com/products/granary-2-series"
+      },
+      {
+        "label": "Net weight",
+        "value": "6.59 lb",
+        "source": "PETLIBRO",
+        "url": "https://petlibro.com/products/granary-2-series"
+      },
+      {
+        "label": "Kibble size",
+        "value": "2–15 mm",
+        "source": "PETLIBRO",
+        "url": "https://petlibro.com/products/granary-2-series"
+      }
+    ]
   },
   {
     "receipt": null,
@@ -1403,7 +2027,27 @@
         "deshedding"
       ],
       "modelConfirmed": true
-    }
+    },
+    "specs": [
+      {
+        "label": "Dog size",
+        "value": "Medium, 25 to 50 lb",
+        "source": "FURminator",
+        "url": "https://www.furminator.com/products/tools/deshedding-tools/undercoat-deshedding-tool-medium-dog-short-hair"
+      },
+      {
+        "label": "Coat",
+        "value": "Short hair",
+        "source": "FURminator",
+        "url": "https://www.furminator.com/products/tools/deshedding-tools/undercoat-deshedding-tool-medium-dog-short-hair"
+      },
+      {
+        "label": "Edge",
+        "value": "Stainless steel",
+        "source": "FURminator",
+        "url": "https://www.furminator.com/products/tools/deshedding-tools/undercoat-deshedding-tool-medium-dog-short-hair"
+      }
+    ]
   },
   {
     "receipt": null,
@@ -1462,7 +2106,33 @@
         "pillow"
       ],
       "modelConfirmed": true
-    }
+    },
+    "specs": [
+      {
+        "label": "Cover",
+        "value": "92% nylon, 8% spandex",
+        "source": "Purple",
+        "url": "https://purple.com/pillows/harmony"
+      },
+      {
+        "label": "Core",
+        "value": "Ventilated Talalay latex",
+        "source": "Purple",
+        "url": "https://purple.com/pillows/harmony"
+      },
+      {
+        "label": "Standard, low",
+        "value": "26 × 17 × 5.5 in, 4.2 lb",
+        "source": "Purple",
+        "url": "https://purple.com/pillows/harmony"
+      },
+      {
+        "label": "King, low",
+        "value": "34 × 17 × 5.5 in, 6 lb",
+        "source": "Purple",
+        "url": "https://purple.com/pillows/harmony"
+      }
+    ]
   },
   {
     "receipt": null,
@@ -1524,7 +2194,33 @@
         "pillow"
       ],
       "modelConfirmed": true
-    }
+    },
+    "specs": [
+      {
+        "label": "Sizes",
+        "value": "Small 20 × 12.5 × 3.5 in, medium 20 × 12.5 × 4 in, large 20 × 12.5 × 4.75 in",
+        "source": "Tempur-Pedic",
+        "url": "https://www.tempurpedic.com/shop-pillows/tempur-neck-pillow/"
+      },
+      {
+        "label": "Cover",
+        "value": "100% polyester knit, hypoallergenic",
+        "source": "Tempur-Pedic",
+        "url": "https://www.tempurpedic.com/shop-pillows/tempur-neck-pillow/"
+      },
+      {
+        "label": "Cover care",
+        "value": "Removable and washable",
+        "source": "Tempur-Pedic",
+        "url": "https://www.tempurpedic.com/shop-pillows/tempur-neck-pillow/"
+      },
+      {
+        "label": "Fill",
+        "value": "TEMPUR-Material",
+        "source": "Tempur-Pedic",
+        "url": "https://www.tempurpedic.com/shop-pillows/tempur-neck-pillow/"
+      }
+    ]
   },
   {
     "receipt": null,
@@ -1584,7 +2280,39 @@
         "sheet"
       ],
       "modelConfirmed": true
-    }
+    },
+    "specs": [
+      {
+        "label": "Material",
+        "value": "100% long-staple cotton",
+        "source": "Brooklinen",
+        "url": "https://www.brooklinen.com/products/luxe-core-sheet-set"
+      },
+      {
+        "label": "Thread count",
+        "value": "495",
+        "source": "Brooklinen",
+        "url": "https://www.brooklinen.com/products/luxe-core-sheet-set"
+      },
+      {
+        "label": "Set",
+        "value": "1 flat sheet, 1 fitted sheet, and 2 pillowcases",
+        "source": "Brooklinen",
+        "url": "https://www.brooklinen.com/products/luxe-core-sheet-set"
+      },
+      {
+        "label": "Fitted sheet",
+        "value": "Designed for mattresses up to 16 in deep",
+        "source": "Brooklinen",
+        "url": "https://www.brooklinen.com/products/luxe-core-sheet-set"
+      },
+      {
+        "label": "Made in",
+        "value": "Portugal",
+        "source": "Brooklinen",
+        "url": "https://www.brooklinen.com/products/luxe-core-sheet-set"
+      }
+    ]
   },
   {
     "receipt": null,
@@ -1652,7 +2380,33 @@
         "chair"
       ],
       "modelConfirmed": true
-    }
+    },
+    "specs": [
+      {
+        "label": "Sizes",
+        "value": "A, B, and C",
+        "source": "Herman Miller",
+        "url": "https://www.hermanmiller.com/products/seating/office-chairs/aeron-chair/"
+      },
+      {
+        "label": "Suspension",
+        "value": "8Z Pellicle",
+        "source": "Herman Miller",
+        "url": "https://www.hermanmiller.com/products/seating/office-chairs/aeron-chair/"
+      },
+      {
+        "label": "Tilt",
+        "value": "Harmonic 2 Tilt",
+        "source": "Herman Miller",
+        "url": "https://www.hermanmiller.com/products/seating/office-chairs/aeron-chair/"
+      },
+      {
+        "label": "Lumbar",
+        "value": "Adjustable PostureFit SL",
+        "source": "Herman Miller",
+        "url": "https://www.hermanmiller.com/products/seating/office-chairs/aeron-chair/"
+      }
+    ]
   },
   {
     "receipt": null,
@@ -1711,7 +2465,27 @@
         "4100"
       ],
       "modelConfirmed": true
-    }
+    },
+    "specs": [
+      {
+        "label": "Battery",
+        "value": "14-day battery life",
+        "source": "Philips",
+        "url": "https://www.usa.philips.com/c-p/HX3681_26/4100-series-sonic-electric-toothbrush"
+      },
+      {
+        "label": "Timer",
+        "value": "QuadPacer and SmarTimer",
+        "source": "Philips",
+        "url": "https://www.usa.philips.com/c-p/HX3681_26/4100-series-sonic-electric-toothbrush"
+      },
+      {
+        "label": "Warranty",
+        "value": "2 years",
+        "source": "Philips",
+        "url": "https://www.usa.philips.com/c-p/HX3681_26/4100-series-sonic-electric-toothbrush"
+      }
+    ]
   },
   {
     "receipt": null,
@@ -1763,7 +2537,15 @@
         "series 7"
       ],
       "modelConfirmed": true
-    }
+    },
+    "specs": [
+      {
+        "label": "Shaving head",
+        "value": "Series 7 73S, listed as compatible with 70-N1000s",
+        "source": "Braun",
+        "url": "https://us.braun.com/en-us/service/products/parts/5764/20000334"
+      }
+    ]
   },
   {
     "receipt": null,
@@ -1822,7 +2604,15 @@
         "headphone"
       ],
       "modelConfirmed": true
-    }
+    },
+    "specs": [
+      {
+        "label": "Battery",
+        "value": "Up to 30 hours",
+        "source": "Sony",
+        "url": "https://electronics.sony.com/audio/headphones/headband/p/wh1000xm5-b"
+      }
+    ]
   },
   {
     "receipt": null,
@@ -1918,6 +2708,32 @@
         "power bank"
       ],
       "modelConfirmed": true
-    }
+    },
+    "specs": [
+      {
+        "label": "Capacity",
+        "value": "24,000 mAh",
+        "source": "Anker",
+        "url": "https://www.anker.com/products/a1289"
+      },
+      {
+        "label": "USB-C output",
+        "value": "140 W maximum",
+        "source": "Anker",
+        "url": "https://www.anker.com/products/a1289"
+      },
+      {
+        "label": "Dimensions",
+        "value": "6.13 × 2.15 × 1.95 in",
+        "source": "Anker",
+        "url": "https://www.anker.com/products/a1289"
+      },
+      {
+        "label": "Weight",
+        "value": "22.22 oz",
+        "source": "Anker",
+        "url": "https://www.anker.com/products/a1289"
+      }
+    ]
   }
 ]

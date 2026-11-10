@@ -162,6 +162,19 @@ function ensureCardScript(html) {
   return html.replace(site, '<script src="/assets/card.js"></script>\n' + site);
 }
 
+function specList(product) {
+  const specs = Array.isArray(product.specs) ? product.specs : [];
+  if (!specs.length) return "";
+  const rows = specs.map((spec) => {
+    if (!spec || !spec.label || !spec.value || !spec.url) throw new Error("Incomplete spec on " + product.id);
+    if (!/^https:\/\//.test(spec.url)) throw new Error("Spec source is not https on " + product.id);
+    if (/\$\d/.test(spec.label + spec.value)) throw new Error("Spec looks like a price on " + product.id);
+    const link = ' <a href="' + card.esc(spec.url) + '" target="_blank" rel="noopener">Source</a>';
+    return '<div class="spec"><dt>' + card.esc(spec.label) + "</dt><dd>" + card.esc(spec.value) + link + "</dd></div>";
+  }).join("");
+  return '<h2 class="check-title">Key specs</h2><dl class="specs">' + rows + "</dl>";
+}
+
 function sourceLine(rec) {
   if (!rec || !rec.url || rec.status === "bin") return "";
   const label = SOURCE_LABELS[rec.url] || rec.url;
@@ -201,6 +214,15 @@ function jsonLd(product) {
   }
   if (product.model) productNode.model = product.model;
   if (product.sourceName) productNode.brand = { "@type": "Brand", name: product.sourceName };
+  const specs = Array.isArray(product.specs) ? product.specs : [];
+  if (specs.length) {
+    productNode.additionalProperty = specs.map((spec) => ({
+      "@type": "PropertyValue",
+      name: spec.label,
+      value: spec.value,
+      url: spec.url
+    }));
+  }
   const graph = {
     "@context": "https://schema.org",
     "@graph": [
@@ -318,6 +340,7 @@ ${nav(hub)}
 <p class="p-note only-ca">${card.esc(card.honestLine(product, ca))}</p>
 <h2 class="check-title">Why it's listed</h2>
 <p class="why-note">${card.esc(why)}</p>
+${specList(product)}
 ${card.evidenceList(product)}
 <h2 class="check-title">Recall check</h2>
 <p class="p-meta">United States</p>
