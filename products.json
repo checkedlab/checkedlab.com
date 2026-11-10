@@ -5,7 +5,7 @@
     "category": "kitchen",
     "receipt": null,
     "meta": "FN101 \u2022 SPECS PER NINJA",
-    "image": "images/ninja-crispi.jpg",
+    "image": null,
     "recallMatch": {
       "brand": [
         "ninja",
@@ -96,11 +96,7 @@
         "url": "https://www.sharkninja.com/ninja-crispi-4-in-1-portable-glass-air-fryer-cooking-system/FN101GY.html"
       }
     ],
-    "image_source": {
-      "kind": "file",
-      "width": 2048,
-      "height": 2048
-    }
+    "image_source": null
   },
   {
     "id": "ninja-foodi-10in1",
@@ -108,7 +104,7 @@
     "category": "kitchen",
     "receipt": null,
     "meta": "DT201C \u2022 CANADIAN MODEL \u2022 ASIN B08LQY2XF5 ON AMAZON.CA",
-    "image": "images/ninja-foodi-10in1.jpg",
+    "image": null,
     "recallMatch": {
       "brand": [
         "ninja",
@@ -214,11 +210,7 @@
         "url": "https://www.sharkninja.ca/ninja-foodi-10-in-1-xl-pro-air-fry-oven/DT201C.html"
       }
     ],
-    "image_source": {
-      "kind": "file",
-      "width": 400,
-      "height": 350
-    }
+    "image_source": null
   },
   {
     "id": "instant-pot-duo-plus",
@@ -226,7 +218,7 @@
     "category": "kitchen",
     "receipt": null,
     "meta": "6 QT MULTI-COOKER \u2022 NO SOURCED SPEED FIGURE",
-    "image": "images/instant-pot-duo.jpg",
+    "image": null,
     "recallMatch": {
       "brand": [
         "instant pot",
@@ -297,11 +289,7 @@
         "url": "https://instantpot.com/products/instant-pot-duo-plus-6qt-multi-use-pressure-cooker-v3"
       }
     ],
-    "image_source": {
-      "kind": "file",
-      "width": 894,
-      "height": 894
-    }
+    "image_source": null
   },
   {
     "id": "vitamix-e310",
@@ -309,7 +297,7 @@
     "category": "kitchen",
     "receipt": null,
     "meta": "E310 \u2022 SPECS PER VITAMIX",
-    "image": "images/vitamix-e310.jpg",
+    "image": null,
     "recallMatch": {
       "brand": [
         "vitamix"
@@ -399,11 +387,7 @@
         "url": "https://www.vitamix.com/us/en_us/products/e310"
       }
     ],
-    "image_source": {
-      "kind": "file",
-      "width": 768,
-      "height": 768
-    }
+    "image_source": null
   },
   {
     "id": "kitchenaid-artisan",
@@ -411,7 +395,7 @@
     "category": "kitchen",
     "receipt": null,
     "meta": "KSM150PS \u2022 SPECS PER KITCHENAID",
-    "image": "images/kitchenaid-artisan.jpg",
+    "image": null,
     "recallMatch": {
       "brand": [
         "kitchenaid"
@@ -501,11 +485,7 @@
         "url": "https://www.kitchenaid.com/countertop-appliances/stand-mixers/tilt-head-stand-mixers/p.artisan-series-5-quart-tilt-head-stand-mixer.KSM150PSER.html"
       }
     ],
-    "image_source": {
-      "kind": "file",
-      "width": 1200,
-      "height": 1467
-    }
+    "image_source": null
   },
   {
     "id": "cosori-pro-5-8",
@@ -513,7 +493,7 @@
     "category": "kitchen",
     "receipt": null,
     "meta": "COSORI \u2022 CS358-AF SERIES \u2022 AMAZON.COM ASIN B089ZT66H9",
-    "image": "images/cosori-pro.jpg",
+    "image": null,
     "recallMatch": {
       "brand": [
         "cosori"
@@ -593,11 +573,7 @@
         "url": "https://cdn.accentuate.io/4894973755480/1613980148681/01.06_M1_CS358-AF_2020-09-29_WEB_US_en.pdf?v=0"
       }
     ],
-    "image_source": {
-      "kind": "file",
-      "width": 2048,
-      "height": 2048
-    },
+    "image_source": null,
     "sourceUrl": "https://cdn.accentuate.io/4894973755480/1613980148681/01.06_M1_CS358-AF_2020-09-29_WEB_US_en.pdf?v=0",
     "sourceName": "COSORI"
   },
