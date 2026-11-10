@@ -409,7 +409,7 @@ function publishDist() {
   const dist = join(root, "dist");
   rmSync(dist, { recursive: true, force: true });
   mkdirSync(dist);
-  const skip = new Set([".git", ".github", "dist", "node_modules", "scripts", "vercel.json"]);
+  const skip = new Set([".git", ".github", "dist", "node_modules", "scripts", "vercel.json", "mockups"]);
   for (const entry of readdirSync(root)) {
     if (entry.startsWith(".") || skip.has(entry) || entry.endsWith(".md")) continue;
     cpSync(join(root, entry), join(dist, entry), { recursive: true });
@@ -420,6 +420,12 @@ function publishDist() {
   }
   if (!statSync(join(dist, "404.html")).isFile()) throw new Error("dist is missing 404.html");
   if (readdirSync(dist).some((entry) => entry.endsWith(".md"))) throw new Error("dist copied a markdown file");
+  try {
+    statSync(join(dist, "mockups"));
+    throw new Error("dist copied mockups");
+  } catch (err) {
+    if (!err || err.code !== "ENOENT") throw err;
+  }
 }
 
 function verifyOutput(pages) {
@@ -458,4 +464,5 @@ function verifyOutput(pages) {
   if ((sitemap.match(/<loc>/g) || []).length !== 10 + pages.length) {
     throw new Error("Sitemap URL count");
   }
+  if (sitemap.includes("/mockups")) throw new Error("sitemap includes mockups");
 }
