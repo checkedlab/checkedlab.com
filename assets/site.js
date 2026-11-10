@@ -200,7 +200,7 @@
     if (!shown.length) {
       mount.innerHTML = page === "bin"
         ? '<p class="empty">Nothing is on the BIN list. A product lands here only when a recall record matches its brand and model. An unconfirmed model is not a BIN.</p>'
-        : '<p class="empty">No products in this category yet. This is not a ranking and not a test.</p>';
+        : '<p class="empty">No products in this category yet. Recall-checked and maker-sourced. More picks coming.</p>';
       return;
     }
     mount.innerHTML = shown.map(function (product) { return card(product, reg); }).join("");
