@@ -181,8 +181,7 @@ function descriptionFor(product) {
   return [
     product.title + ".",
     recallSentence(us, "US"),
-    recallSentence(ca, "Canadian"),
-    "Checked Lab does not test this product."
+    recallSentence(ca, "Canadian")
   ].join(" ");
 }
 
@@ -247,8 +246,8 @@ function productPage(product) {
   const us = card.recallFor(product, "US");
   const ca = card.recallFor(product, "CA");
   const why = (product.evidence || []).length
-    ? "Checked Lab lists this model so the recall check and the maker page are in one place. The lines below are what that maker page states. Checked Lab does not test this product."
-    : "Checked Lab lists this model so the recall check and the maker page are in one place. No maker spec line is on this page yet. Checked Lab does not test this product.";
+    ? "Checked Lab lists this model so the recall check and the maker page are in one place. The lines below are what that maker page states."
+    : "Checked Lab lists this model so the recall check and the maker page are in one place. No maker spec line is on this page yet.";
   return `<!DOCTYPE html>
 <html lang="en" data-region="US">
 <head>

@@ -176,7 +176,9 @@ footer a:hover{color:var(--ink);text-decoration:underline}
 .product-grid:not([data-category="winter"]):not([data-category="car-garage"]):not([data-category="air-water"]):not([data-category="pet"]):not([data-category="sleep"]):not([data-category="personal-tech"]):not(:has(img)) .p-side{display:none}
 /* Evidence (maker claims) list follows the checklist: filled marker instead of a to-do box */
 .evidence + .evidence{margin-top:2px;padding-top:10px;border-top:1px dashed var(--line)}
-.evidence + .evidence li::before{border:0;background:var(--hub);border-radius:50%;width:8px;height:8px;top:15px;left:4px}
+.evidence + .evidence li::before,
+.why-note + .evidence li::before{border:0;background:var(--hub);border-radius:50%;width:8px;height:8px;top:15px;left:4px}
+.recall-other + .p-meta{margin-top:12px}
 .crumbs{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:28px 0 4px;font-size:13px;font-weight:700;color:var(--muted)}
 .crumbs a{color:var(--ink-2);text-decoration:none}
 .crumbs a:hover{text-decoration:underline;text-underline-offset:3px}
