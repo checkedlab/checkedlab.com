@@ -210,9 +210,9 @@ function jsonLd(product) {
     url: url,
     category: HUB_NAME[hub]
   };
-  if (product.image) {
-    const src = String(product.image);
-    productNode.image = /^https:\/\//.test(src) ? src : ORIGIN + "/" + src.replace(/^\/+/, "");
+  const image = card.schemaImage(product);
+  if (image && !/amazon\.com/i.test(image)) {
+    productNode.image = /^https:\/\//.test(image) ? image : ORIGIN + image;
   }
   if (product.model) productNode.model = product.model;
   if (product.sourceName) productNode.brand = { "@type": "Brand", name: product.sourceName };
@@ -281,6 +281,7 @@ function productPage(product) {
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>${card.esc(product.title)} — Checked Lab</title>
 <meta name="description" content="${card.esc(desc)}">
+${indexable(product) ? "" : '<meta name="robots" content="noindex">\n'}
 <meta property="og:title" content="${card.esc(product.title)} — Checked Lab">
 <meta property="og:description" content="${card.esc(desc)}">
 <meta property="og:type" content="website">
@@ -399,7 +400,7 @@ function writeSitemap(pages) {
   for (const loc of staticUrls) {
     lines.push("  <url><loc>" + loc + "</loc><lastmod>2026-11-10</lastmod></url>");
   }
-  for (const product of pages) {
+  for (const product of pages.filter(indexable)) {
     lines.push("  <url><loc>" + ORIGIN + card.productPath(product) + "</loc><lastmod>" + lastmod(product) + "</lastmod></url>");
   }
   lines.push("</urlset>", "");
@@ -455,9 +456,25 @@ function verifyOutput(pages) {
     if (!html.includes("<h1 class=\"p-title\">" + card.visibleTitle(product.title) + "</h1>")) {
       throw new Error("H1 mismatch on " + product.id);
     }
+    if (/media-amazon\.com|images-amazon\.com/i.test(html)) {
+      throw new Error("Amazon image on " + product.id);
+    }
+    const noindex = html.includes('<meta name="robots" content="noindex">');
+    if (indexable(product) === noindex) throw new Error("Index flag mismatch on " + product.id);
   }
   const sitemap = readFileSync(join(root, "sitemap.xml"), "utf8");
-  if ((sitemap.match(/<loc>/g) || []).length !== 10 + pages.length) {
+  const indexed = pages.filter(indexable);
+  if ((sitemap.match(/<loc>/g) || []).length !== 10 + indexed.length) {
     throw new Error("Sitemap URL count");
   }
+  for (const product of pages) {
+    const loc = ORIGIN + card.productPath(product);
+    if (indexable(product) !== sitemap.includes("<loc>" + loc + "</loc>")) {
+      throw new Error("Sitemap listing mismatch on " + product.id);
+    }
+  }
+}
+
+function indexable(product) {
+  return Array.isArray(product.specs) && product.specs.length >= 3;
 }

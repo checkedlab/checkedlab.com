@@ -170,8 +170,14 @@
       : "Recall-checked against CPSC and Health Canada." + (hasSpecs ? " Specs are from the maker." : "");
   }
 
+  function amazonImage(product) {
+    var meta = product.image_source || {};
+    var src = String(product.image || "");
+    return meta.kind === "amazon" || /media-amazon\.com|ssl-images-amazon\.com|images-amazon\.com/i.test(src);
+  }
+
   function imageSrc(product) {
-    if (!product.image) return "";
+    if (!product.image || amazonImage(product)) return "";
     var src = String(product.image);
     if (/^https:\/\//.test(src)) return src;
     return "/" + src.replace(/^\/+/, "");
@@ -194,9 +200,6 @@
     var credit = meta.kind === "maker" && meta.credit
       ? '<p class="img-credit">' + esc(meta.credit) + "</p>"
       : "";
-    if (meta.kind === "amazon") {
-      img = '<a href="' + esc(safeUrl(storeUrl(product, reg || "US", "amazon"))) + '" target="_blank" rel="' + REL + '">' + img + "</a>";
-    }
     return img + credit;
   }
 
@@ -257,6 +260,7 @@
     honestLine: honestLine,
     imageHtml: imageHtml,
     imageColumn: imageColumn,
+    schemaImage: imageSrc,
     recallFor: recallFor,
     productPath: productPath,
     visibleTitle: visibleTitle,

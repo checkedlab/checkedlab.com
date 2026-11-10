@@ -51,7 +51,7 @@
         "detail": null,
         "other": [
           {
-            "title": "Ninja Foodi Tendercrisp multi-cookers’ pressure cooking lid recalled due to potential burn hazard",
+            "title": "Ninja Foodi Tendercrisp multi-cookers\u2019 pressure cooking lid recalled due to potential burn hazard",
             "url": "https://recalls-rappels.canada.ca/en/alert-recall/ninja-foodi-tendercrisp-multi-cookers-pressure-cooking-lid-recalled-due-potential-burn",
             "date": "2025-05-01",
             "source": "Health Canada",
@@ -726,7 +726,7 @@
         "status": "bin",
         "checkedAt": "2026-11-10",
         "url": "https://www.cpsc.gov/Recalls/2017/Cuisinart-Food-Processors-Recalled-by-Conair",
-        "detail": "CPSC recall matches this model: Cuisinart Food Processors Recalled by Conair Due to Laceration Hazard.",
+        "detail": "CPSC recall, December 13, 2016: Cuisinart food processors recalled by Conair for a laceration hazard. Only blades with four rivets are recalled. This model number begins with DFP-14, which is in the recalled series.",
         "other": [
           {
             "title": "Cuisinart Food Processors Recalled by Conair Due to Laceration Hazard",
@@ -738,19 +738,11 @@
         ]
       },
       "ca": {
-        "status": "none",
+        "status": "bin",
         "checkedAt": "2026-11-10",
-        "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
-        "detail": null,
-        "other": [
-          {
-            "title": "Cuisinart 7-Cup (1.75 L) Food Processor",
-            "url": "https://recalls-rappels.canada.ca/en/alert-recall/cuisinart-7-cup-175-food-processor",
-            "date": "2013-08-06",
-            "source": "Health Canada",
-            "archived": true
-          }
-        ]
+        "url": "https://recalls-rappels.canada.ca/en/alert-recall/conair-consumer-products-ulc-recalls-riveted-blades-cuisinart-food-processors",
+        "detail": "Health Canada RA-61428, December 13, 2016, joint with the CPSC: Conair Consumer Products ULC recalls riveted blades in Cuisinart food processors. Only blades with four rivets are recalled. This model number begins with DFP-14, which is in the recalled series.",
+        "other": []
       }
     },
     "zojirushi-ns-zcc10": {
@@ -895,14 +887,14 @@
         "detail": null,
         "other": [
           {
-            "title": "Toro® Power Clear™ Snow Blower and Push Recycler Mower",
+            "title": "Toro\u00ae Power Clear\u2122 Snow Blower and Push Recycler Mower",
             "url": "https://recalls-rappels.canada.ca/en/alert-recall/toror-power-cleartm-snow-blower-and-push-recycler-mower",
             "date": "2011-04-26",
             "source": "Health Canada",
             "archived": true
           },
           {
-            "title": "Toro® Power Clear 180 Snow Blower",
+            "title": "Toro\u00ae Power Clear 180 Snow Blower",
             "url": "https://recalls-rappels.canada.ca/en/alert-recall/toror-power-clear-180-snow-blower",
             "date": "2010-07-14",
             "source": "Health Canada",
