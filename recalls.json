@@ -1,0 +1,144 @@
+{
+  "checkedAt": "2026-11-10",
+  "sources": {
+    "us": {
+      "name": "CPSC SaferProducts Recall API",
+      "url": "https://www.saferproducts.gov/RestWebServices/Recall"
+    },
+    "ca": {
+      "name": "Health Canada Recalls and Safety Alerts open data",
+      "dataset": "d38de914-c94c-429b-8ab1-8776c31643e3",
+      "url": "https://recalls-rappels.canada.ca/sites/default/files/opendata-donneesouvertes/HCRSAMOpenData.json"
+    }
+  },
+  "products": {
+    "ninja-crispi-fn101": {
+      "us": {
+        "status": "none",
+        "checkedAt": "2026-11-10",
+        "url": "https://www.saferproducts.gov/RestWebServices/Recall",
+        "detail": null,
+        "other": []
+      },
+      "ca": {
+        "status": "none",
+        "checkedAt": "2026-11-10",
+        "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
+        "detail": null,
+        "other": []
+      }
+    },
+    "ninja-foodi-10in1": {
+      "us": {
+        "status": "none",
+        "checkedAt": "2026-11-10",
+        "url": "https://www.saferproducts.gov/RestWebServices/Recall",
+        "detail": null,
+        "other": [
+          {
+            "title": "SharkNinja Recalls 1.8 Million Foodi Multi-Function Pressure Cookers Due to Burn Hazard; Serious Burn Injuries Reported",
+            "url": "https://www.cpsc.gov/Recalls/2025/SharkNinja-Recalls-1-8-Million-Foodi-Multi-Function-Pressure-Cookers-Due-to-Burn-Hazard-Serious-Burn-Injuries-Reported",
+            "date": "2025-05-01",
+            "source": "CPSC",
+            "archived": false
+          }
+        ]
+      },
+      "ca": {
+        "status": "none",
+        "checkedAt": "2026-11-10",
+        "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
+        "detail": null,
+        "other": [
+          {
+            "title": "Ninja Foodi Tendercrisp multi-cookers’ pressure cooking lid recalled due to potential burn hazard",
+            "url": "https://recalls-rappels.canada.ca/en/alert-recall/ninja-foodi-tendercrisp-multi-cookers-pressure-cooking-lid-recalled-due-potential-burn",
+            "date": "2025-05-01",
+            "source": "Health Canada",
+            "archived": false
+          }
+        ]
+      }
+    },
+    "instant-pot-duo-plus": {
+      "us": {
+        "status": "none",
+        "checkedAt": "2026-11-10",
+        "url": "https://www.saferproducts.gov/RestWebServices/Recall",
+        "detail": null,
+        "other": []
+      },
+      "ca": {
+        "status": "none",
+        "checkedAt": "2026-11-10",
+        "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
+        "detail": null,
+        "other": []
+      }
+    },
+    "vitamix-e310": {
+      "us": {
+        "status": "none",
+        "checkedAt": "2026-11-10",
+        "url": "https://www.saferproducts.gov/RestWebServices/Recall",
+        "detail": null,
+        "other": []
+      },
+      "ca": {
+        "status": "none",
+        "checkedAt": "2026-11-10",
+        "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
+        "detail": null,
+        "other": []
+      }
+    },
+    "kitchenaid-artisan": {
+      "us": {
+        "status": "none",
+        "checkedAt": "2026-11-10",
+        "url": "https://www.saferproducts.gov/RestWebServices/Recall",
+        "detail": null,
+        "other": []
+      },
+      "ca": {
+        "status": "none",
+        "checkedAt": "2026-11-10",
+        "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
+        "detail": null,
+        "other": []
+      }
+    },
+    "cosori-pro-5-8": {
+      "us": {
+        "status": "unconfirmed",
+        "checkedAt": "2026-11-10",
+        "url": "https://www.cpsc.gov/Recalls/2023/Two-Million-COSORI-Air-Fryers-Recalled-by-Atekcity-Due-to-Fire-and-Burn-Hazards",
+        "detail": "Model number for this listing is not confirmed, so this is not marked recalled or clear.",
+        "other": [
+          {
+            "title": "Two Million COSORI® Air Fryers Recalled by Atekcity Due to Fire and Burn Hazards",
+            "url": "https://www.cpsc.gov/Recalls/2023/Two-Million-COSORI-Air-Fryers-Recalled-by-Atekcity-Due-to-Fire-and-Burn-Hazards",
+            "date": "2023-02-23",
+            "source": "CPSC",
+            "archived": false
+          }
+        ]
+      },
+      "ca": {
+        "status": "unconfirmed",
+        "checkedAt": "2026-11-10",
+        "url": "https://recalls-rappels.canada.ca/en/alert-recall/certain-models-cosori-branded-air-fryers-recalled-due-potential-fire-hazard",
+        "detail": "Model number for this listing is not confirmed, so this is not marked recalled or clear.",
+        "other": [
+          {
+            "title": "Certain models of Cosori-branded Air Fryers recalled due to potential fire hazard",
+            "url": "https://recalls-rappels.canada.ca/en/alert-recall/certain-models-cosori-branded-air-fryers-recalled-due-potential-fire-hazard",
+            "date": "2023-02-23",
+            "source": "Health Canada",
+            "archived": false
+          }
+        ]
+      }
+    }
+  }
+}

@@ -2,146 +2,72 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<script src="/assets/region-boot.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Checked Lab — Checked before you buy</title>
-<meta name="description" content="CHECKED BEFORE YOU BUY. Lab evidence means results from independent labs and tests, not a lab we run. Real CAD prices. We bin the BS. We may earn a commission from Amazon and other links.">
-<meta property="og:title" content="CHECKED BEFORE YOU BUY.">
-<meta property="og:description" content="Lab evidence. Real CAD prices. We bin the BS. Lab evidence means independent labs and tests. Checked Lab does not run its own lab.">
+<meta name="description" content="CHECKED BEFORE YOU BUY. Lab evidence means independent labs and tests. USD and CAD prices appear only after a real check. We do not run a lab.">
+<meta property="og:title" content="Checked Lab — Checked before you buy">
+<meta property="og:description" content="CHECKED BEFORE YOU BUY. Lab evidence means independent labs and tests. USD and CAD prices appear only after a real check. We do not run a lab.">
 <meta property="og:type" content="website">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CHECKED BEFORE YOU BUY.">
-<meta name="twitter:description" content="Lab evidence from independent labs and tests. Real CAD prices. We bin the BS.">
-<link rel="icon" type="image/png" href="favicon.png">
-<link rel="icon" type="image/x-icon" href="favicon.ico">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{background:#080808;color:#fff;font-family:Inter,system-ui,sans-serif}
-.disclosure{background:#1a170c;border-bottom:1px solid #4a4120;color:#f0e2b0;font-size:14px;line-height:1.5;padding:12px 24px;text-align:center}
-.disclosure strong{color:#fff;font-weight:700}
-.topbar{background:#111;border-bottom:1px solid #222;padding:8px 24px;display:flex;justify-content:space-between;font-size:11px;color:#666;letter-spacing:0.08em}
-.topbar span{color:#888}
-header{padding:20px 32px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;background:rgba(8,8,8,.9);backdrop-filter:blur(12px);border-bottom:1px solid #222;z-index:10}
-.logo{font-weight:900;letter-spacing:0.14em;font-size:18px}
-.logo i{font-style:normal;color:#444;font-weight:400;font-size:11px;letter-spacing:0.1em;margin-left:12px}
-nav{display:flex;gap:24px;font-size:11px;letter-spacing:0.12em}
-nav a{color:#666;text-decoration:none}
-nav a:hover{color:#fff}
-.hero{padding:96px 24px 64px;max-width:1200px;margin:0 auto;text-align:center}
-.kicker{display:inline-flex;gap:8px;align-items:center;border:1px solid #222;border-radius:100px;padding:6px 14px;font-size:11px;color:#666;letter-spacing:0.12em;margin-bottom:28px}
-.kicker b{width:6px;height:6px;background:#0f0;border-radius:50%;display:inline-block;box-shadow:0 0 8px #0f0}
-h1{font-size:clamp(32px,6vw,68px);font-weight:900;line-height:0.95;letter-spacing:-0.03em}
-.sub{margin:28px auto 0;max-width:720px;color:#777;font-size:17px;line-height:1.6}
-.slogan{color:#eee;font-size:20px;font-weight:600}
-.explain{margin-top:14px;font-size:15px}
-.country-switch{margin:40px auto 0;display:inline-flex;background:#111;border:1px solid #222;border-radius:100px;padding:4px}
-.country-switch button{padding:10px 18px;border-radius:100px;border:0;background:transparent;color:#666;font-size:12px;letter-spacing:0.08em;cursor:pointer}
-.country-switch button.active{background:#fff;color:#000;font-weight:700}
-.grid{max-width:1200px;margin:48px auto 0;padding:0 24px;display:flex;flex-direction:column;gap:24px}
-.product-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:1px;background:#222;border:1px solid #222;border-radius:16px;overflow:hidden}
-.p-main{background:#0f0f0f;padding:32px}
-.p-score{display:flex;gap:12px;align-items:center;margin-bottom:20px;flex-wrap:wrap}
-.badge{background:#1a1a1a;border:1px solid #222;border-radius:6px;padding:4px 8px;font-size:10px;letter-spacing:0.08em;color:#888}
-.p-note{color:#aaa;font-size:13px;line-height:1.5;margin-bottom:16px}
-.p-title{font-size:28px;font-weight:800;line-height:1.1;letter-spacing:-0.02em;margin-bottom:8px}
-.p-meta{color:#666;font-size:12px;letter-spacing:0.06em;margin-bottom:20px}
-.p-bullets{list-style:none;margin-bottom:28px}
-.p-bullets li{font-size:13px;color:#aaa;line-height:1.6;padding-left:14px;position:relative;margin-bottom:8px}
-.p-bullets li:before{content:"—";position:absolute;left:0;color:#444}
-.p-bullets a{color:#ddd;text-decoration:underline}
-.ctas{display:flex;gap:10px;flex-wrap:wrap}
-.btn{padding:14px 20px;border-radius:100px;text-decoration:none;font-weight:700;font-size:13px;display:inline-flex;align-items:center;gap:8px;transition:all .15s}
-.btn-ca{background:#fff;color:#000}
-.btn-us{background:transparent;border:1px solid #333;color:#fff}
-.btn:hover{transform:translateY(-1px)}
-.p-side{background:#0a0a0a;padding:0;display:flex;flex-direction:column}
-.p-img{flex:1;background:#111;display:flex;align-items:center;justify-content:center;padding:24px;min-height:320px}
-.p-img img{max-width:100%;max-height:340px;object-fit:contain}
-.p-stats{border-top:1px solid #222;display:grid;grid-template-columns:1fr 1fr}
-.stat{padding:16px 20px;border-right:1px solid #222}
-.stat:nth-child(2n){border-right:0}
-.stat b{display:block;font-size:16px;font-weight:800}
-.stat span{font-size:10px;color:#666;letter-spacing:0.08em}
-.method{max-width:1200px;margin:48px auto 0;padding:0 24px;display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#222;border-left:1px solid #222;border-right:1px solid #222}
-.m-card{background:#080808;padding:24px}
-.m-card h4{font-size:11px;letter-spacing:0.12em;color:#555;margin-bottom:12px}
-.m-card p{font-size:13px;line-height:1.6;color:#888}
-footer{border-top:1px solid #222;padding:28px 24px;text-align:center;color:#444;font-size:11px;letter-spacing:0.06em;line-height:1.8}
-footer a{color:#666;text-decoration:none}
-footer a:hover{color:#fff}
-@media(max-width:900px){.product-grid{grid-template-columns:1fr} .method{grid-template-columns:1fr} h1{font-size:40px} .topbar{flex-direction:column;gap:4px}}
-</style>
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/assets/site.css">
 </head>
-<body>
+<body data-page="home">
 <div class="disclosure"><strong>Affiliate disclosure.</strong> Checked Lab may earn a commission from Amazon and other links, at no extra cost to you. We do not buy products to test them, and we do not run a lab.</div>
 <div class="topbar"><span>● CHECKED LAB • EST 2026 • NO SPONSORS</span><span>hello@checkedlab.com • press@checkedlab.com • legal@checkedlab.com</span></div>
 <header>
-<div class="logo">CHECKED LAB <i>CHECKED BEFORE YOU BUY</i></div>
-<nav><a href="#method">METHOD</a><a href="#shop">SHOP</a><a href="mailto:hello@checkedlab.com">CONTACT</a></nav>
+<a class="logo" href="/">CHECKED LAB <i>CHECKED BEFORE YOU BUY</i></a>
+<div class="header-actions">
+<div class="country-switch">
+<button type="button" data-region-set="US">US</button>
+<button type="button" data-region-set="CA">CA</button>
+</div>
+<nav>
+<a href="/how-we-check">HOW WE CHECK</a>
+<a href="/bin-list">BIN LIST</a>
+</nav>
+</div>
 </header>
+<nav class="cats">
+<a href="/winter">WINTER</a>
+<a href="/car-garage">CAR & GARAGE</a>
+<a href="/air-water">AIR & WATER</a>
+<a href="/pet">PET</a>
+<a href="/kitchen">KITCHEN</a>
+<a href="/sleep">SLEEP</a>
+<a href="/personal-tech">PERSONAL TECH</a>
+</nav>
+
+<main>
 <div class="hero">
-<div class="kicker"><b></b> <span id="count">1</span> PRODUCTS LISTED • NOT TESTED BY US • CA + US</div>
+<div class="kicker">US AND CANADA • NOT TESTED BY US</div>
 <h1>CHECKED BEFORE YOU BUY.</h1>
-<p class="sub slogan">Lab evidence. Real CAD prices. We bin the BS.</p>
-<p class="sub explain">“Lab evidence” means results gathered from independent labs and published tests. Checked Lab does not run that lab, and we do not buy products to test them. A figure stays on this page only with a link to the manufacturer or an independent test. Prices in CAD are the retailer’s price on Amazon.ca, not a price we measured.</p>
-<div class="country-switch" id="countrySwitch">
-<button class="active" data-cc="CA" onclick="setCountry('CA')">🇨🇦 CANADA</button>
-<button data-cc="US" onclick="setCountry('US')">🇺🇸 USA</button>
+<p class="sub slogan only-us">Lab evidence. Real USD prices. We bin the BS.</p>
+<p class="sub slogan only-ca">Lab evidence. Real CAD prices. We bin the BS.</p>
+<p class="sub explain only-us">“Lab evidence” means results gathered from independent labs and published tests. Checked Lab does not run that lab and does not buy products to test them. A figure stays on a page only with a source link. USD prices are the store’s price, and only after a check. An empty price says “not checked yet.”</p>
+<p class="sub explain only-ca">“Lab evidence” means results gathered from independent labs and published tests. Checked Lab does not run that lab and does not buy products to test them. A figure stays on a page only with a source link. CAD prices are the store’s price, and only after a check. An empty price says “not checked yet.”</p>
 </div>
+<div class="wrap">
+<div class="tiles">
+<a class="tile" href="/winter"><b>WINTER</b><span class="only-us">Snow-belt states: Northeast, Midwest, Mountain West, and Alaska. No picks yet.</span><span class="only-ca">Canadian winter: long cold, dry indoor air, and storms. No picks yet.</span></a>
+<a class="tile" href="/car-garage"><b>CAR &amp; GARAGE</b><span class="only-us">Cold starts and garage gear for the US. No picks yet.</span><span class="only-ca">Cold starts and garage gear for Canada. No picks yet.</span></a>
+<a class="tile" href="/air-water"><b>AIR &amp; WATER</b><span>Purifiers, dehumidifiers, and filters. No picks yet.</span></a>
+<a class="tile" href="/pet"><b>PET</b><span>Litter, fountains, feeders, grooming. No picks yet.</span></a>
+<a class="tile" href="/kitchen"><b>KITCHEN</b><span>Six products already listed. Specs are quoted from manufacturers. Not tested by us.</span></a>
+<a class="tile" href="/sleep"><b>SLEEP</b><span>Mattresses, bedding, and chairs. No picks yet.</span></a>
+<a class="tile" href="/personal-tech"><b>PERSONAL TECH</b><span>Toothbrushes, shavers, headphones, phone gear. No picks yet.</span></a>
 </div>
-
-<div class="grid" id="shop"></div>
-
-<div class="method" id="method">
-<div class="m-card"><h4>01 / LAB EVIDENCE</h4><p>We gather published results from independent labs and tests. We do not run a lab, and we do not log our own temps, times, or noise.</p></div>
-<div class="m-card"><h4>02 / WHAT WE DO NOT DO</h4><p>We do not buy products with our own money for review. There is no 30-day test and no Winnipeg lab. If we cannot link a source, the number comes off the page.</p></div>
-<div class="m-card"><h4>03 / AFFILIATE LINKS</h4><p>Amazon.ca and Amazon.com buttons are affiliate links. We may earn a commission. Brands do not pay for placement and do not edit this page. The CAD price is the store’s, not ours.</p></div>
+<h2 class="section-title">KITCHEN PICKS ON THE LIST</h2>
+<p class="lede">These six were already on the site. Each card leads with Price Truth. Prices and check times stay empty until a real check is written down. There is no BUY NOW / WAIT meter, because there is no price history on file.</p>
+<div id="product-mount"></div>
 </div>
+</main>
 
 <footer>
 Affiliate disclosure: we may earn a commission from Amazon and other links. © 2026 CHECKED LAB • Winnipeg, MB • <a href="mailto:hello@checkedlab.com">hello@</a> • <a href="mailto:support@checkedlab.com">support@</a> • <a href="mailto:press@checkedlab.com">press@</a> • <a href="mailto:legal@checkedlab.com">legal@</a>
 </footer>
-
-<script>
-let allProducts = [];
-function setCountry(cc){
-  document.querySelectorAll('.country-switch button').forEach(b=>b.classList.remove('active'));
-  document.querySelector(`[data-cc="${cc}"]`).classList.add('active');
-}
-function render(products){
-  const grid = document.getElementById('shop');
-  grid.innerHTML = '';
-  products.forEach(p=>{
-    const el = document.createElement('div');
-    el.className = 'product-grid';
-    el.innerHTML = `
-    <div class="p-main">
-      <div class="p-score"><div class="badge">${p.badge}</div></div>
-      <div class="p-title">${p.title}</div>
-      <p class="p-note">Not tested by Checked Lab. Any figure below is quoted from the linked source.</p>
-      <div class="p-meta">${p.meta}</div>
-      <ul class="p-bullets">${p.bullets.map(b=>`<li>${b}</li>`).join('')}</ul>
-      <div class="ctas">
-        <a class="btn btn-ca" href="${p.ca_link}" target="_blank" rel="sponsored noopener noreferrer">🇨🇦 Shop on Amazon.ca</a>
-        <a class="btn btn-us" href="${p.us_link}" target="_blank" rel="sponsored noopener noreferrer">🇺🇸 Shop on Amazon.com</a>
-      </div>
-    </div>
-    <div class="p-side">
-      <div class="p-img"><img src="${p.image}" alt="${p.title}" loading="lazy"></div>
-      <div class="p-stats">
-        <div class="stat"><b>NOT OURS</b><span>NO LAB TEST</span></div>
-        <div class="stat"><b>NO SCORE</b><span>FROM US</span></div>
-        <div class="stat"><b>0 SPONSORS</b><span>NO BS</span></div>
-        <div class="stat"><b>2 STORES</b><span>CA + US</span></div>
-      </div>
-    </div>`;
-    grid.appendChild(el);
-  });
-  document.getElementById('count').textContent = products.length;
-}
-fetch('products.json').then(r=>r.json()).then(data=>{allProducts=data; render(data);}).catch(e=>{console.error(e);});
-const isUS = navigator.language && navigator.language.includes('en-US');
-if(isUS) setCountry('US');
-</script>
+<script src="/assets/site.js"></script>
 </body>
 </html>
