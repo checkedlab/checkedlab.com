@@ -2,83 +2,880 @@
   {
     "id": "ninja-crispi-fn101",
     "title": "Ninja Crispi Glass Air Fryer, 4-in-1",
-    "badge": "NOT TESTED BY US",
+    "category": "kitchen",
+    "badge": "checked",
+    "receipt": null,
     "meta": "FN101 • SPECS PER NINJA • NOT OUR MEASUREMENT",
-    "bullets": [
-      "Per Ninja: 1,500 W, a 4-qt glass container and a 6-cup glass container, and four modes (Max Crisp, Bake, Air Fry, Recrisp). <a href=\"https://www.sharkninja.com/ninja-crispi-4-in-1-portable-glass-air-fryer-cooking-system/FN101GY.html\" target=\"_blank\" rel=\"noopener noreferrer\">Ninja Crispi page</a>",
-      "Per Ninja, on that same page: CleanCrisp glassware is designed to cook and store without PFAS and PTFE, and the accessories are dishwasher safe.",
-      "Checked Lab did not buy this unit and did not measure heat-up time, recovery, or noise."
-    ],
+    "verdict": "Not bought or lab-tested by Checked Lab. For shoppers comparing Ninja's listed specs with store rows. Not for anyone who wants a measurement we took ourselves.",
     "image": "images/ninja-crispi.jpg",
-    "ca_link": "https://www.amazon.ca/dp/B0DDDD8WD6?tag=checkedlab-20",
-    "us_link": "https://www.amazon.com/dp/B0DDDD8WD6?tag=checkedlab01-20"
+    "recallMatch": {
+      "brand": [
+        "ninja",
+        "sharkninja"
+      ],
+      "models": [
+        "fn101",
+        "fn101cgy",
+        "fn101gy"
+      ],
+      "family": [
+        "crispi"
+      ],
+      "modelConfirmed": true
+    },
+    "offers": {
+      "us": [
+        {
+          "store": "Amazon.com",
+          "url": "https://www.amazon.com/dp/B0DDDD8WD6?tag=checkedlab01-20",
+          "price": null,
+          "currency": "USD",
+          "checkedAt": null,
+          "inStock": null
+        },
+        {
+          "store": "Best Buy",
+          "url": null,
+          "price": null,
+          "currency": "USD",
+          "checkedAt": null,
+          "inStock": null
+        },
+        {
+          "store": "Walmart",
+          "url": null,
+          "price": null,
+          "currency": "USD",
+          "checkedAt": null,
+          "inStock": null
+        },
+        {
+          "store": "Target",
+          "url": null,
+          "price": null,
+          "currency": "USD",
+          "checkedAt": null,
+          "inStock": null
+        },
+        {
+          "store": "Home Depot",
+          "url": null,
+          "price": null,
+          "currency": "USD",
+          "checkedAt": null,
+          "inStock": null
+        }
+      ],
+      "ca": [
+        {
+          "store": "Amazon.ca",
+          "url": "https://www.amazon.ca/dp/B0DDDD8WD6?tag=checkedlab-20",
+          "price": null,
+          "currency": "CAD",
+          "checkedAt": null,
+          "inStock": null
+        },
+        {
+          "store": "Best Buy CA",
+          "url": null,
+          "price": null,
+          "currency": "CAD",
+          "checkedAt": null,
+          "inStock": null
+        },
+        {
+          "store": "Canadian Tire",
+          "url": null,
+          "price": null,
+          "currency": "CAD",
+          "checkedAt": null,
+          "inStock": null
+        },
+        {
+          "store": "Walmart.ca",
+          "url": null,
+          "price": null,
+          "currency": "CAD",
+          "checkedAt": null,
+          "inStock": null
+        },
+        {
+          "store": "Wayfair.ca",
+          "url": null,
+          "price": null,
+          "currency": "CAD",
+          "checkedAt": null,
+          "inStock": null
+        }
+      ]
+    },
+    "priceHistory": {
+      "us": null,
+      "ca": null
+    },
+    "recall": {
+      "us": {
+        "status": "none",
+        "checkedAt": "2026-11-10",
+        "url": "https://www.saferproducts.gov/RestWebServices/Recall",
+        "detail": null,
+        "other": []
+      },
+      "ca": {
+        "status": "none",
+        "checkedAt": "2026-11-10",
+        "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
+        "detail": null,
+        "other": []
+      }
+    },
+    "evidence": [
+      {
+        "claim": "1,500 W, a 4-qt glass container, a 6-cup glass container, and four modes: Max Crisp, Bake, Air Fry, and Recrisp.",
+        "source": "Ninja",
+        "url": "https://www.sharkninja.com/ninja-crispi-4-in-1-portable-glass-air-fryer-cooking-system/FN101GY.html",
+        "agrees": true
+      },
+      {
+        "claim": "CleanCrisp glassware is designed to cook and store without PFAS and PTFE, and the accessories are dishwasher safe.",
+        "source": "Ninja",
+        "url": "https://www.sharkninja.com/ninja-crispi-4-in-1-portable-glass-air-fryer-cooking-system/FN101GY.html",
+        "agrees": true
+      }
+    ],
+    "bin": []
   },
   {
     "id": "ninja-foodi-10in1",
     "title": "Ninja Foodi 10-in-1 XL Pro Air Fry Oven",
-    "badge": "NOT TESTED BY US",
+    "category": "kitchen",
+    "badge": "checked",
+    "receipt": null,
     "meta": "DT201C • SPECS PER NINJA CANADA • NOT OUR MEASUREMENT",
-    "bullets": [
-      "Per Ninja Canada: 1,800 W and ten functions (Air Fry, Air Roast, Bake, Whole Roast, Broil, Toast, Bagel, Dehydrate, Reheat, Pizza). <a href=\"https://www.ninjakitchen.ca/products/ninja-foodi-10-in-1-xl-pro-air-fry-oven-zidDT201C\" target=\"_blank\" rel=\"noopener noreferrer\">Ninja Canada page</a>",
-      "Per Ninja Canada, on that same page: up to 10× the convection power of a traditional full-size convection oven, a stated 90-second preheat, and room for a 5 lb chicken. That is the manufacturer’s claim, not a Checked Lab measurement.",
-      "Checked Lab did not buy this oven and did not test loudness."
-    ],
+    "verdict": "Not bought or lab-tested by Checked Lab. For shoppers comparing Ninja Canada's listed specs with store rows. Not for anyone who wants a measurement we took ourselves.",
     "image": "images/ninja-foodi-10in1.jpg",
-    "ca_link": "https://www.amazon.ca/dp/B08BXX69K4?tag=checkedlab-20",
-    "us_link": "https://www.amazon.com/dp/B08BXX69K4?tag=checkedlab01-20"
+    "recallMatch": {
+      "brand": [
+        "ninja",
+        "sharkninja"
+      ],
+      "models": [
+        "dt201",
+        "dt201c"
+      ],
+      "family": [
+        "foodi"
+      ],
+      "modelConfirmed": true
+    },
+    "offers": {
+      "us": [
+        {
+          "store": "Amazon.com",
+          "url": "https://www.amazon.com/dp/B08BXX69K4?tag=checkedlab01-20",
+          "price": null,
+          "currency": "USD",
+          "checkedAt": null,
+          "inStock": null
+        },
+        {
+          "store": "Best Buy",
+          "url": null,
+          "price": null,
+          "currency": "USD",
+          "checkedAt": null,
+          "inStock": null
+        },
+        {
+          "store": "Walmart",
+          "url": null,
+          "price": null,
+          "currency": "USD",
+          "checkedAt": null,
+          "inStock": null
+        },
+        {
+          "store": "Target",
+          "url": null,
+          "price": null,
+          "currency": "USD",
+          "checkedAt": null,
+          "inStock": null
+        },
+        {
+          "store": "Home Depot",
+          "url": null,
+          "price": null,
+          "currency": "USD",
+          "checkedAt": null,
+          "inStock": null
+        }
+      ],
+      "ca": [
+        {
+          "store": "Amazon.ca",
+          "url": "https://www.amazon.ca/dp/B08BXX69K4?tag=checkedlab-20",
+          "price": null,
+          "currency": "CAD",
+          "checkedAt": null,
+          "inStock": null
+        },
+        {
+          "store": "Best Buy CA",
+          "url": null,
+          "price": null,
+          "currency": "CAD",
+          "checkedAt": null,
+          "inStock": null
+        },
+        {
+          "store": "Canadian Tire",
+          "url": null,
+          "price": null,
+          "currency": "CAD",
+          "checkedAt": null,
+          "inStock": null
+        },
+        {
+          "store": "Walmart.ca",
+          "url": null,
+          "price": null,
+          "currency": "CAD",
+          "checkedAt": null,
+          "inStock": null
+        },
+        {
+          "store": "Wayfair.ca",
+          "url": null,
+          "price": null,
+          "currency": "CAD",
+          "checkedAt": null,
+          "inStock": null
+        }
+      ]
+    },
+    "priceHistory": {
+      "us": null,
+      "ca": null
+    },
+    "recall": {
+      "us": {
+        "status": "none",
+        "checkedAt": "2026-11-10",
+        "url": "https://www.saferproducts.gov/RestWebServices/Recall",
+        "detail": null,
+        "other": [
+          {
+            "title": "SharkNinja Recalls 1.8 Million Foodi Multi-Function Pressure Cookers Due to Burn Hazard; Serious Burn Injuries Reported",
+            "url": "https://www.cpsc.gov/Recalls/2025/SharkNinja-Recalls-1-8-Million-Foodi-Multi-Function-Pressure-Cookers-Due-to-Burn-Hazard-Serious-Burn-Injuries-Reported",
+            "date": "2025-05-01",
+            "source": "CPSC",
+            "archived": false
+          }
+        ]
+      },
+      "ca": {
+        "status": "none",
+        "checkedAt": "2026-11-10",
+        "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
+        "detail": null,
+        "other": [
+          {
+            "title": "Ninja Foodi Tendercrisp multi-cookers’ pressure cooking lid recalled due to potential burn hazard",
+            "url": "https://recalls-rappels.canada.ca/en/alert-recall/ninja-foodi-tendercrisp-multi-cookers-pressure-cooking-lid-recalled-due-potential-burn",
+            "date": "2025-05-01",
+            "source": "Health Canada",
+            "archived": false
+          }
+        ]
+      }
+    },
+    "evidence": [
+      {
+        "claim": "1,800 W and ten functions: Air Fry, Air Roast, Bake, Whole Roast, Broil, Toast, Bagel, Dehydrate, Reheat, and Pizza.",
+        "source": "Ninja Canada",
+        "url": "https://www.ninjakitchen.ca/products/ninja-foodi-10-in-1-xl-pro-air-fry-oven-zidDT201C",
+        "agrees": true
+      },
+      {
+        "claim": "Up to 10× the convection power of a traditional full-size convection oven, a stated 90-second preheat, and room for a 5 lb chicken. This is Ninja Canada's claim, not a Checked Lab measurement.",
+        "source": "Ninja Canada",
+        "url": "https://www.ninjakitchen.ca/products/ninja-foodi-10-in-1-xl-pro-air-fry-oven-zidDT201C",
+        "agrees": true
+      }
+    ],
+    "bin": []
   },
   {
     "id": "instant-pot-duo-plus",
     "title": "Instant Pot Duo Plus, 6Qt",
-    "badge": "NOT TESTED BY US",
-    "meta": "6 QT MULTI-COOKER • NO SOURCED MEASUREMENTS",
-    "bullets": [
-      "Per Instant Pot: the Duo Plus is a 6-quart multi-cooker. <a href=\"https://instantpot.com/products/instant-pot-duo-plus-6qt-multi-use-pressure-cooker-v3\" target=\"_blank\" rel=\"noopener noreferrer\">Instant Pot page</a> Checked Lab did not buy this listing and did not lab-test it.",
-      "No speed, bestseller, or pressure figure is shown. We do not have a source we can tie to a number for this listing."
-    ],
+    "category": "kitchen",
+    "badge": "checked",
+    "receipt": null,
+    "meta": "6 QT MULTI-COOKER • NO SOURCED SPEED FIGURE",
+    "verdict": "Not bought or lab-tested by Checked Lab. For shoppers comparing Instant Pot's 6-quart Duo Plus listing with store rows. Not for anyone who wants a speed or pressure figure from us.",
     "image": "images/instant-pot-duo.jpg",
-    "ca_link": "https://www.amazon.ca/dp/B01NBKTPTS?tag=checkedlab-20",
-    "us_link": "https://www.amazon.com/dp/B01NBKTPTS?tag=checkedlab01-20"
+    "recallMatch": {
+      "brand": [
+        "instant pot",
+        "instantpot"
+      ],
+      "models": [
+        "duo plus"
+      ],
+      "family": [
+        "duo plus"
+      ],
+      "modelConfirmed": true
+    },
+    "offers": {
+      "us": [
+        {
+          "store": "Amazon.com",
+          "url": "https://www.amazon.com/dp/B01NBKTPTS?tag=checkedlab01-20",
+          "price": null,
+          "currency": "USD",
+          "checkedAt": null,
+          "inStock": null
+        },
+        {
+          "store": "Best Buy",
+          "url": null,
+          "price": null,
+          "currency": "USD",
+          "checkedAt": null,
+          "inStock": null
+        },
+        {
+          "store": "Walmart",
+          "url": null,
+          "price": null,
+          "currency": "USD",
+          "checkedAt": null,
+          "inStock": null
+        },
+        {
+          "store": "Target",
+          "url": null,
+          "price": null,
+          "currency": "USD",
+          "checkedAt": null,
+          "inStock": null
+        },
+        {
+          "store": "Home Depot",
+          "url": null,
+          "price": null,
+          "currency": "USD",
+          "checkedAt": null,
+          "inStock": null
+        }
+      ],
+      "ca": [
+        {
+          "store": "Amazon.ca",
+          "url": "https://www.amazon.ca/dp/B01NBKTPTS?tag=checkedlab-20",
+          "price": null,
+          "currency": "CAD",
+          "checkedAt": null,
+          "inStock": null
+        },
+        {
+          "store": "Best Buy CA",
+          "url": null,
+          "price": null,
+          "currency": "CAD",
+          "checkedAt": null,
+          "inStock": null
+        },
+        {
+          "store": "Canadian Tire",
+          "url": null,
+          "price": null,
+          "currency": "CAD",
+          "checkedAt": null,
+          "inStock": null
+        },
+        {
+          "store": "Walmart.ca",
+          "url": null,
+          "price": null,
+          "currency": "CAD",
+          "checkedAt": null,
+          "inStock": null
+        },
+        {
+          "store": "Wayfair.ca",
+          "url": null,
+          "price": null,
+          "currency": "CAD",
+          "checkedAt": null,
+          "inStock": null
+        }
+      ]
+    },
+    "priceHistory": {
+      "us": null,
+      "ca": null
+    },
+    "recall": {
+      "us": {
+        "status": "none",
+        "checkedAt": "2026-11-10",
+        "url": "https://www.saferproducts.gov/RestWebServices/Recall",
+        "detail": null,
+        "other": []
+      },
+      "ca": {
+        "status": "none",
+        "checkedAt": "2026-11-10",
+        "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
+        "detail": null,
+        "other": []
+      }
+    },
+    "evidence": [
+      {
+        "claim": "The Duo Plus is a 6-quart multi-cooker.",
+        "source": "Instant Pot",
+        "url": "https://instantpot.com/products/instant-pot-duo-plus-6qt-multi-use-pressure-cooker-v3",
+        "agrees": true
+      }
+    ],
+    "bin": []
   },
   {
     "id": "vitamix-e310",
     "title": "Vitamix E310 Explorian Blender, 48oz",
-    "badge": "NOT TESTED BY US",
+    "category": "kitchen",
+    "badge": "checked",
+    "receipt": null,
     "meta": "E310 • SPECS PER VITAMIX • NOT OUR MEASUREMENT",
-    "bullets": [
-      "Per Vitamix: a 2 HP motor, a 48 oz container, and 10 variable speeds. The machine can self-clean in 30 to 60 seconds with dish soap and warm water. <a href=\"https://www.vitamix.com/us/en_us/products/e310\" target=\"_blank\" rel=\"noopener noreferrer\">Vitamix E310 page</a>",
-      "Per Vitamix Canada: a 5-year full warranty. <a href=\"https://www.vitamix.com/ca/en_us/products/e310\" target=\"_blank\" rel=\"noopener noreferrer\">Vitamix Canada page</a>",
-      "Checked Lab did not buy this blender and did not measure noise or ice-crush time."
-    ],
+    "verdict": "Not bought or lab-tested by Checked Lab. For shoppers comparing Vitamix's listed specs with store rows. Not for anyone who wants a noise or ice-crush time we measured.",
     "image": "images/vitamix-e310.jpg",
-    "ca_link": "https://www.amazon.ca/dp/B0758JHZM3?tag=checkedlab-20",
-    "us_link": "https://www.amazon.com/dp/B0758JHZM3?tag=checkedlab01-20"
+    "recallMatch": {
+      "brand": [
+        "vitamix"
+      ],
+      "models": [
+        "e310",
+        "explorian"
+      ],
+      "family": [
+        "e310",
+        "explorian"
+      ],
+      "modelConfirmed": true
+    },
+    "offers": {
+      "us": [
+        {
+          "store": "Amazon.com",
+          "url": "https://www.amazon.com/dp/B0758JHZM3?tag=checkedlab01-20",
+          "price": null,
+          "currency": "USD",
+          "checkedAt": null,
+          "inStock": null
+        },
+        {
+          "store": "Best Buy",
+          "url": null,
+          "price": null,
+          "currency": "USD",
+          "checkedAt": null,
+          "inStock": null
+        },
+        {
+          "store": "Walmart",
+          "url": null,
+          "price": null,
+          "currency": "USD",
+          "checkedAt": null,
+          "inStock": null
+        },
+        {
+          "store": "Target",
+          "url": null,
+          "price": null,
+          "currency": "USD",
+          "checkedAt": null,
+          "inStock": null
+        },
+        {
+          "store": "Home Depot",
+          "url": null,
+          "price": null,
+          "currency": "USD",
+          "checkedAt": null,
+          "inStock": null
+        }
+      ],
+      "ca": [
+        {
+          "store": "Amazon.ca",
+          "url": "https://www.amazon.ca/dp/B0758JHZM3?tag=checkedlab-20",
+          "price": null,
+          "currency": "CAD",
+          "checkedAt": null,
+          "inStock": null
+        },
+        {
+          "store": "Best Buy CA",
+          "url": null,
+          "price": null,
+          "currency": "CAD",
+          "checkedAt": null,
+          "inStock": null
+        },
+        {
+          "store": "Canadian Tire",
+          "url": null,
+          "price": null,
+          "currency": "CAD",
+          "checkedAt": null,
+          "inStock": null
+        },
+        {
+          "store": "Walmart.ca",
+          "url": null,
+          "price": null,
+          "currency": "CAD",
+          "checkedAt": null,
+          "inStock": null
+        },
+        {
+          "store": "Wayfair.ca",
+          "url": null,
+          "price": null,
+          "currency": "CAD",
+          "checkedAt": null,
+          "inStock": null
+        }
+      ]
+    },
+    "priceHistory": {
+      "us": null,
+      "ca": null
+    },
+    "recall": {
+      "us": {
+        "status": "none",
+        "checkedAt": "2026-11-10",
+        "url": "https://www.saferproducts.gov/RestWebServices/Recall",
+        "detail": null,
+        "other": []
+      },
+      "ca": {
+        "status": "none",
+        "checkedAt": "2026-11-10",
+        "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
+        "detail": null,
+        "other": []
+      }
+    },
+    "evidence": [
+      {
+        "claim": "2 HP motor, 48 oz container, 10 variable speeds, and a self-clean in 30 to 60 seconds with dish soap and warm water.",
+        "source": "Vitamix",
+        "url": "https://www.vitamix.com/us/en_us/products/e310",
+        "agrees": true
+      },
+      {
+        "claim": "5-year full warranty on the E310.",
+        "source": "Vitamix Canada",
+        "url": "https://www.vitamix.com/ca/en_us/products/e310",
+        "agrees": true
+      }
+    ],
+    "bin": []
   },
   {
     "id": "kitchenaid-artisan",
     "title": "KitchenAid Artisan Stand Mixer 5-Qt",
-    "badge": "NOT TESTED BY US",
+    "category": "kitchen",
+    "badge": "checked",
+    "receipt": null,
     "meta": "KSM150PS • SPECS PER KITCHENAID • NOT OUR MEASUREMENT",
-    "bullets": [
-      "Per KitchenAid: Artisan Series 5-quart tilt-head stand mixer (KSM150PS) with 10 speeds. <a href=\"https://www.kitchenaid.com/countertop-appliances/stand-mixers/tilt-head-stand-mixers/p.artisan-series-5-quart-tilt-head-stand-mixer.KSM150PSER.html\" target=\"_blank\" rel=\"noopener noreferrer\">KitchenAid page</a>",
-      "Per KitchenAid, on that same page: more than 10 optional hub-powered attachments, sold separately.",
-      "Checked Lab did not buy this mixer and did not measure weight, wobble, or dough capacity."
-    ],
+    "verdict": "Not bought or lab-tested by Checked Lab. For shoppers comparing KitchenAid's listed specs with store rows. Not for anyone who wants a weight or wobble figure from us.",
     "image": "images/kitchenaid-artisan.jpg",
-    "ca_link": "https://www.amazon.ca/dp/B00005UP2K?tag=checkedlab-20",
-    "us_link": "https://www.amazon.com/dp/B00005UP2K?tag=checkedlab01-20"
+    "recallMatch": {
+      "brand": [
+        "kitchenaid"
+      ],
+      "models": [
+        "ksm150",
+        "ksm150ps"
+      ],
+      "family": [
+        "stand mixer",
+        "ksm150"
+      ],
+      "modelConfirmed": true
+    },
+    "offers": {
+      "us": [
+        {
+          "store": "Amazon.com",
+          "url": "https://www.amazon.com/dp/B00005UP2K?tag=checkedlab01-20",
+          "price": null,
+          "currency": "USD",
+          "checkedAt": null,
+          "inStock": null
+        },
+        {
+          "store": "Best Buy",
+          "url": null,
+          "price": null,
+          "currency": "USD",
+          "checkedAt": null,
+          "inStock": null
+        },
+        {
+          "store": "Walmart",
+          "url": null,
+          "price": null,
+          "currency": "USD",
+          "checkedAt": null,
+          "inStock": null
+        },
+        {
+          "store": "Target",
+          "url": null,
+          "price": null,
+          "currency": "USD",
+          "checkedAt": null,
+          "inStock": null
+        },
+        {
+          "store": "Home Depot",
+          "url": null,
+          "price": null,
+          "currency": "USD",
+          "checkedAt": null,
+          "inStock": null
+        }
+      ],
+      "ca": [
+        {
+          "store": "Amazon.ca",
+          "url": "https://www.amazon.ca/dp/B00005UP2K?tag=checkedlab-20",
+          "price": null,
+          "currency": "CAD",
+          "checkedAt": null,
+          "inStock": null
+        },
+        {
+          "store": "Best Buy CA",
+          "url": null,
+          "price": null,
+          "currency": "CAD",
+          "checkedAt": null,
+          "inStock": null
+        },
+        {
+          "store": "Canadian Tire",
+          "url": null,
+          "price": null,
+          "currency": "CAD",
+          "checkedAt": null,
+          "inStock": null
+        },
+        {
+          "store": "Walmart.ca",
+          "url": null,
+          "price": null,
+          "currency": "CAD",
+          "checkedAt": null,
+          "inStock": null
+        },
+        {
+          "store": "Wayfair.ca",
+          "url": null,
+          "price": null,
+          "currency": "CAD",
+          "checkedAt": null,
+          "inStock": null
+        }
+      ]
+    },
+    "priceHistory": {
+      "us": null,
+      "ca": null
+    },
+    "recall": {
+      "us": {
+        "status": "none",
+        "checkedAt": "2026-11-10",
+        "url": "https://www.saferproducts.gov/RestWebServices/Recall",
+        "detail": null,
+        "other": []
+      },
+      "ca": {
+        "status": "none",
+        "checkedAt": "2026-11-10",
+        "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
+        "detail": null,
+        "other": []
+      }
+    },
+    "evidence": [
+      {
+        "claim": "Artisan Series 5-quart tilt-head stand mixer (KSM150PS) with 10 speeds.",
+        "source": "KitchenAid",
+        "url": "https://www.kitchenaid.com/countertop-appliances/stand-mixers/tilt-head-stand-mixers/p.artisan-series-5-quart-tilt-head-stand-mixer.KSM150PSER.html",
+        "agrees": true
+      },
+      {
+        "claim": "More than 10 optional hub-powered attachments, sold separately.",
+        "source": "KitchenAid",
+        "url": "https://www.kitchenaid.com/countertop-appliances/stand-mixers/tilt-head-stand-mixers/p.artisan-series-5-quart-tilt-head-stand-mixer.KSM150PSER.html",
+        "agrees": true
+      }
+    ],
+    "bin": []
   },
   {
     "id": "cosori-pro-5-8",
     "title": "COSORI Pro II Air Fryer",
-    "badge": "NOT TESTED BY US",
-    "meta": "PRO II • NO SOURCED MEASUREMENTS",
-    "bullets": [
-      "COSORI Pro II air fryer. Checked Lab did not buy it and did not lab-test it.",
-      "No wattage, heat-up time, or price is shown. We could not quote a manufacturer spec page for those figures."
-    ],
+    "category": "kitchen",
+    "badge": "checked",
+    "receipt": null,
+    "meta": "PRO II • MODEL NUMBER NOT CONFIRMED • NO SOURCED MEASUREMENTS",
+    "verdict": "Not bought or lab-tested by Checked Lab. For shoppers who only need the store rows. Not for anyone who wants wattage, a heat-up time, or a confirmed model number from us.",
     "image": "images/cosori-pro.jpg",
-    "ca_link": "https://www.amazon.ca/dp/B089ZT66H9?tag=checkedlab-20",
-    "us_link": "https://www.amazon.com/dp/B089ZT66H9?tag=checkedlab01-20"
+    "recallMatch": {
+      "brand": [
+        "cosori"
+      ],
+      "models": [],
+      "family": [
+        "air fryer"
+      ],
+      "modelConfirmed": false
+    },
+    "offers": {
+      "us": [
+        {
+          "store": "Amazon.com",
+          "url": "https://www.amazon.com/dp/B089ZT66H9?tag=checkedlab01-20",
+          "price": null,
+          "currency": "USD",
+          "checkedAt": null,
+          "inStock": null
+        },
+        {
+          "store": "Best Buy",
+          "url": null,
+          "price": null,
+          "currency": "USD",
+          "checkedAt": null,
+          "inStock": null
+        },
+        {
+          "store": "Walmart",
+          "url": null,
+          "price": null,
+          "currency": "USD",
+          "checkedAt": null,
+          "inStock": null
+        },
+        {
+          "store": "Target",
+          "url": null,
+          "price": null,
+          "currency": "USD",
+          "checkedAt": null,
+          "inStock": null
+        },
+        {
+          "store": "Home Depot",
+          "url": null,
+          "price": null,
+          "currency": "USD",
+          "checkedAt": null,
+          "inStock": null
+        }
+      ],
+      "ca": [
+        {
+          "store": "Amazon.ca",
+          "url": "https://www.amazon.ca/dp/B089ZT66H9?tag=checkedlab-20",
+          "price": null,
+          "currency": "CAD",
+          "checkedAt": null,
+          "inStock": null
+        },
+        {
+          "store": "Best Buy CA",
+          "url": null,
+          "price": null,
+          "currency": "CAD",
+          "checkedAt": null,
+          "inStock": null
+        },
+        {
+          "store": "Canadian Tire",
+          "url": null,
+          "price": null,
+          "currency": "CAD",
+          "checkedAt": null,
+          "inStock": null
+        },
+        {
+          "store": "Walmart.ca",
+          "url": null,
+          "price": null,
+          "currency": "CAD",
+          "checkedAt": null,
+          "inStock": null
+        },
+        {
+          "store": "Wayfair.ca",
+          "url": null,
+          "price": null,
+          "currency": "CAD",
+          "checkedAt": null,
+          "inStock": null
+        }
+      ]
+    },
+    "priceHistory": {
+      "us": null,
+      "ca": null
+    },
+    "recall": {
+      "us": {
+        "status": "unconfirmed",
+        "checkedAt": "2026-11-10",
+        "url": "https://www.cpsc.gov/Recalls/2023/Two-Million-COSORI-Air-Fryers-Recalled-by-Atekcity-Due-to-Fire-and-Burn-Hazards",
+        "detail": "Model number for this listing is not confirmed, so this is not marked recalled or clear.",
+        "other": [
+          {
+            "title": "Two Million COSORI® Air Fryers Recalled by Atekcity Due to Fire and Burn Hazards",
+            "url": "https://www.cpsc.gov/Recalls/2023/Two-Million-COSORI-Air-Fryers-Recalled-by-Atekcity-Due-to-Fire-and-Burn-Hazards",
+            "date": "2023-02-23",
+            "source": "CPSC",
+            "archived": false
+          }
+        ]
+      },
+      "ca": {
+        "status": "unconfirmed",
+        "checkedAt": "2026-11-10",
+        "url": "https://recalls-rappels.canada.ca/en/alert-recall/certain-models-cosori-branded-air-fryers-recalled-due-potential-fire-hazard",
+        "detail": "Model number for this listing is not confirmed, so this is not marked recalled or clear.",
+        "other": [
+          {
+            "title": "Certain models of Cosori-branded Air Fryers recalled due to potential fire hazard",
+            "url": "https://recalls-rappels.canada.ca/en/alert-recall/certain-models-cosori-branded-air-fryers-recalled-due-potential-fire-hazard",
+            "date": "2023-02-23",
+            "source": "Health Canada",
+            "archived": false
+          }
+        ]
+      }
+    },
+    "evidence": [],
+    "bin": []
   }
 ]
