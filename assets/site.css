@@ -356,6 +356,15 @@ body[data-page="bin"] .hero h1 { max-width: none; width: 100%; margin-left: 0; m
 .recall-model h3, .recall-cat h3 { margin: 8px 0; font-size: 20px; letter-spacing: -0.02em; overflow-wrap: anywhere; }
 .recall-models { margin: 8px 0; overflow-wrap: anywhere; }
 body[data-page="recalls"] .prose h2 { margin-top: 36px; }
+.recall-q {
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  margin: 18px 0 8px;
+}
+.faq h3, .canada-block h2 { margin: 16px 0 6px; font-size: 18px; letter-spacing: -0.02em; }
+.canada-block { margin-top: 8px; }
 
 footer { background: var(--bg); color: var(--ink); border-top: 1px solid var(--line); }
 .foot {
@@ -412,7 +421,7 @@ footer { background: var(--bg); color: var(--ink); border-top: 1px solid var(--l
 }
 @media (max-width: 799px) {
   .header-actions nav a:not([href="/recalls/"]) { display: none; }
-  body[data-page="recalls"] .prose h1 { font-size: 32px; }
+  body[data-page="recalls"] .prose h1, .recall-q { font-size: 24px; }
   .cats { display: flex; flex-wrap: nowrap; overflow-x: auto; overflow-y: hidden; max-width: 100%; }
   .cats a { flex: 0 0 auto; min-width: 76px; }
   .product-row { flex-wrap: wrap; }
