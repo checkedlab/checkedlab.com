@@ -1,6 +1,6 @@
 {
   "/": {
-    "hash": "ea0f040b1371a857d8a2a55db29c1953b2dd8b5191fbeabde7ea5f6a61c20944",
+    "hash": "ee3ee69c4b517f0afb34bb084998fe5bf28602816087592508cd38c73c872a14",
     "lastmod": "2026-11-11"
   },
   "/air-water/": {
@@ -77,6 +77,10 @@
   },
   "/bin-list/": {
     "hash": "49e71761de62c8eb89acbb7553a718707d22edfc65374a108052bbfccc61d905",
+    "lastmod": "2026-11-11"
+  },
+  "/black-friday/": {
+    "hash": "812f82574a75a9bf06a1a0bb2a8a6b1c1bbbd1b54e6a51b39f3d1adabfbf415e",
     "lastmod": "2026-11-11"
   },
   "/car-garage/": {
@@ -404,7 +408,7 @@
     "lastmod": "2026-11-11"
   },
   "/recalls/": {
-    "hash": "b755983f0a3e1575416429642431e123bc4b3e093cc07a163bc1ce6df7820326",
+    "hash": "89ccfbd1750574babfa19b9b024cc2383a5ba8c4f40a3cfa25e7782f456b0643",
     "lastmod": "2026-11-11"
   },
   "/recalls/anker-power-banks/": {

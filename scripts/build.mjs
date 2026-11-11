@@ -51,6 +51,91 @@ const POPULAR_IDS = [
   "ninja-crispi-fn101",
   "breville-bes870xl"
 ];
+/* Gift and seasonal models already in the catalogue, including every model a recall explainer names. */
+const BF_PICKS = {
+  winter: [
+    "lasko-ct32150",
+    "lasko-ct14401",
+    "dreo-atom-316",
+    "vornado-avh2",
+    "delonghi-trd40615e",
+    "levoit-classic-300s",
+    "honeywell-hev615w",
+    "sunbeam-tsl8ws",
+    "stanley-classic-1-5",
+    "pendleton-eco-wise"
+  ],
+  "car-garage": [
+    "noco-gb40",
+    "noco-gb50",
+    "garmin-dash-mini-2",
+    "fanttik-x8-apex",
+    "dewalt-dcd771",
+    "viair-88p",
+    "ctek-mxs-5"
+  ],
+  "air-water": [
+    "coway-ap-1512hh",
+    "levoit-core-300s-p",
+    "levoit-core-600s",
+    "blueair-211i-max",
+    "honeywell-hpa300",
+    "winix-5500-2",
+    "brita-tahoe-elite"
+  ],
+  pet: [
+    "litter-robot-4",
+    "furbo-360",
+    "petlibro-plaf105",
+    "whisker-feeder-robot",
+    "petsafe-drinkwell-platinum",
+    "kong-classic",
+    "furminator-medium-short"
+  ],
+  kitchen: [
+    "cosori-pro-5-8",
+    "ninja-crispi-fn101",
+    "ninja-foodi-10in1",
+    "ninja-creami-nc301",
+    "instant-pot-duo-plus",
+    "vitamix-e310",
+    "kitchenaid-artisan",
+    "breville-bes870xl",
+    "fellow-stagg-ekg",
+    "cuisinart-dfp-14bcny"
+  ],
+  sleep: [
+    "hatch-restore-3",
+    "purple-harmony",
+    "coop-original-pillow",
+    "tempur-neck",
+    "lectrofan-classic",
+    "philips-hf3520",
+    "manta-sleep-mask",
+    "casper-original",
+    "brooklinen-luxe-core"
+  ],
+  "personal-tech": [
+    "sony-wh-1000xm5",
+    "bose-qc-ultra",
+    "airpods-pro-3",
+    "anker-a1289",
+    "anker-nano-30w",
+    "gopro-hero13",
+    "jbl-charge-5",
+    "garmin-forerunner-265",
+    "logitech-mx-master-3s",
+    "shokz-openrun-pro-2",
+    "oral-b-io-3"
+  ]
+};
+const BF_PATH = "/black-friday/";
+const BF_TITLE = "Black Friday 2026: check the model before you buy";
+const BF_DESC = "Before you buy on Black Friday, confirm the model number and read the dated CPSC or Health Canada check. Catalogue cards for gifts and seasonal buys.";
+const US_DATES = "Amazon announced that Black Friday Week and Cyber Monday deals on Amazon.com run November 19–30, 2026.";
+const CA_DATES = "Amazon.ca’s Black Friday page, titled 2026 Black Friday, describes Black Friday Week as November 19–27.";
+const US_DEALS = "https://www.amazon.com/blackfriday?tag=checkedlab01-20";
+const CA_DEALS = "https://www.amazon.ca/blackfriday?tag=checkedlab-20";
 const POP_START = "<!-- checkedlab:popular start -->";
 const POP_END = "<!-- checkedlab:popular end -->";
 const REC_START = "<!-- checkedlab:recalls start -->";
@@ -160,11 +245,12 @@ writeRecallsPage(ordered);
 writeExplainers();
 writeCompares();
 writeRecallFeed(ordered);
+writeBlackFriday();
 const lastmods = stampPages(ordered);
 writeSitemap(pages, lastmods);
 verifyOutput(pages);
 publishDist();
-console.log(`Wrote ${pages.length} product pages, ${HUBS.length} hub card lists, and /recalls/.`);
+console.log(`Wrote ${pages.length} product pages, ${HUBS.length} hub card lists, /recalls/, and /black-friday/.`);
 
 function assertProducts(list) {
   if (!Array.isArray(list) || !list.length) throw new Error("products.json is empty");
@@ -1170,7 +1256,7 @@ ${nav("recalls")}
 </nav>
 <h1>Recall checks</h1>
 <p class="lede">Checked <time datetime="${card.esc(date)}">${card.esc(date)}</time> (UTC). Every catalogue model has a United States line from the <a href="${href(usSource)}" target="_blank" rel="noopener">CPSC SaferProducts</a> source and a Canada line from the <a href="${CA_DATASET_PAGE}" target="_blank" rel="noopener">Health Canada open dataset</a>.</p>
-<p>A date is the day that check ran. Open a model for the maker specs. Read <a href="/how-we-check/">how we check</a> and the <a href="/bin-list/">BIN list</a>. <a href="/recalls/feed.xml">RSS</a> updates when a recall record changes.</p>
+<p>A date is the day that check ran. Open a model for the maker specs. Read <a href="/how-we-check/">how we check</a> and the <a href="/bin-list/">BIN list</a>. <a href="/black-friday/">Black Friday 2026: check the model before you buy</a>. <a href="/recalls/feed.xml">RSS</a> updates when a recall record changes.</p>
 <p class="recall-filters"><a href="#united-states">United States</a><a href="#canada">Canada</a></p>
 ${binSection(ordered, date)}
 <div class="recall-columns">
@@ -1202,6 +1288,308 @@ ${categorySection(date)}
   if (/\$\d/.test(html)) throw new Error("Recall page has a price");
   mkdirSync(join(root, "recalls"), { recursive: true });
   writeFileSync(join(root, "recalls", "index.html"), html);
+}
+
+function blackFridayPicks() {
+  const byId = new Map(products.map((product) => [product.id, product]));
+  const picked = [];
+  const seen = new Set();
+  for (const hub of HUBS) {
+    const ids = BF_PICKS[hub];
+    if (!ids || !ids.length) throw new Error("Black Friday section missing for " + hub);
+    for (const id of ids) {
+      const product = byId.get(id);
+      if (!product) throw new Error("Black Friday pick is not in the catalogue: " + id);
+      if (product.category !== hub) throw new Error("Black Friday pick is in the wrong hub: " + id);
+      if (seen.has(id)) throw new Error("Duplicate Black Friday pick: " + id);
+      seen.add(id);
+      picked.push(product);
+    }
+  }
+  for (const entry of explainers) {
+    for (const id of entry.products) {
+      if (!seen.has(id)) throw new Error("Explainer model missing from Black Friday: " + id);
+    }
+  }
+  return picked;
+}
+
+function blackFridayFaqs() {
+  return [
+    {
+      q: "What should I check before buying on Black Friday?",
+      a: "Confirm the exact model number on the box and on the listing. Check that model with CPSC for a US purchase and with Health Canada for a Canadian purchase. A look-alike listing or a third-party seller can use the brand name for a different model. Read the return window on the store page before you pay."
+    },
+    {
+      q: "When is Black Friday 2026 on Amazon?",
+      a: US_DATES + " " + CA_DATES
+    },
+    {
+      q: "What should an air fryer shopper match before buying?",
+      a: "Match the model number on the unit to the listing. The Cosori 2023 notices and the Ninja Foodi OP300 notices name specific models. The catalogue cards for the COSORI Pro II, the Ninja Foodi 10-in-1 oven, and the Ninja Crispi link those explainers."
+    },
+    {
+      q: "Does a Black Friday listing check the recall?",
+      a: "A sale listing is not a recall check. Each model on this page repeats the catalogue status and date from the CPSC and Health Canada match. A notice for another model in the same brand can still exist."
+    },
+    {
+      q: "Where is the price?",
+      a: "Prices stay on the store. This page links the Checked Lab card for the model."
+    }
+  ];
+}
+
+function bfStatusHtml(rec, place) {
+  let sentence = recallSentence(rec, place);
+  if (rec.checkedAt && !sentence.includes(rec.checkedAt)) {
+    sentence = sentence.replace(/\.$/, "") + ". Checked " + rec.checkedAt + ".";
+  }
+  const notice = rec.status === "bin" && rec.url && /^https:\/\//.test(rec.url)
+    ? ' <a href="' + href(rec.url) + '" target="_blank" rel="noopener">Official notice</a>'
+    : "";
+  return card.badgeHtml(rec) + " " + card.esc(sentence) + notice;
+}
+
+function bfModel(product) {
+  const meta = product.meta || product.model || "";
+  return '<article class="bf-model" id="' + card.esc(product.id) + '">' +
+    '<h3><a href="' + card.productPath(product) + '">' + card.visibleTitle(product.title) + "</a></h3>" +
+    (meta ? '<p class="p-meta">' + card.esc(meta) + "</p>" : "") +
+    '<p class="only-us">' + bfStatusHtml(card.recallFor(product, "US"), "US") + "</p>" +
+    '<p class="only-ca">' + bfStatusHtml(card.recallFor(product, "CA"), "Canadian") + "</p>" +
+    "</article>";
+}
+
+function blackFridayJsonLd(picked) {
+  const url = ORIGIN + BF_PATH;
+  const faqs = blackFridayFaqs();
+  const graph = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: ORIGIN + "/" },
+          { "@type": "ListItem", position: 2, name: "Black Friday", item: url }
+        ]
+      },
+      {
+        "@type": "CollectionPage",
+        "@id": url,
+        name: BF_TITLE,
+        headline: "Before you buy on Black Friday, check the model.",
+        url: url,
+        dateModified: recalls.checkedAt,
+        inLanguage: "en",
+        description: BF_DESC,
+        mainEntity: {
+          "@type": "ItemList",
+          name: "Catalogue models to check before Black Friday",
+          numberOfItems: picked.length,
+          itemListElement: picked.map((product, index) => ({
+            "@type": "ListItem",
+            position: index + 1,
+            name: product.title,
+            url: ORIGIN + card.productPath(product)
+          }))
+        }
+      },
+      {
+        "@type": "FAQPage",
+        mainEntity: faqs.map((item) => ({
+          "@type": "Question",
+          name: item.q,
+          acceptedAnswer: { "@type": "Answer", text: item.a }
+        }))
+      }
+    ]
+  };
+  assertNoCommerce(graph);
+  const types = graph["@graph"].map((node) => node["@type"]);
+  if (types.join(",") !== "BreadcrumbList,CollectionPage,FAQPage") throw new Error("Black Friday schema types");
+  return JSON.stringify(graph, null, 2).replace(/</g, "\\u003c");
+}
+
+function writeBlackFriday() {
+  const picked = blackFridayPicks();
+  const url = ORIGIN + BF_PATH;
+  const date = recalls.checkedAt || "";
+  const faqs = blackFridayFaqs();
+  const jumps = HUBS.map((hub) => '<a href="#' + hub + '">' + card.esc(HUB_NAME[hub]) + "</a>").join("");
+  const notices = explainers.map((entry) =>
+    '<li><a href="/recalls/' + entry.slug + '/">' + card.esc(entry.title) + "</a>. " + card.esc(entry.description) + "</li>"
+  ).join("");
+  const sections = HUBS.map((hub) => {
+    const group = picked.filter((product) => product.category === hub);
+    return '<section id="' + hub + '"><h2><a href="/' + hub + '/">' + card.esc(HUB_NAME[hub]) + "</a></h2>" +
+      "<p>Gift and seasonal models from this catalogue. Open the card and match the model number on the listing.</p>" +
+      group.map(bfModel).join("\n") +
+      '<p class="lede"><a href="/' + hub + '/">All ' + card.esc(HUB_NAME[hub]) + " models</a></p></section>";
+  }).join("\n");
+  const faqHtml = faqs.map((item) =>
+    "<h3>" + card.esc(item.q) + '</h3><p class="faq-a">' + card.esc(item.a) + "</p>"
+  ).join("");
+  const html = `<!DOCTYPE html>
+<html lang="en" data-region="US">
+<head>
+<meta charset="UTF-8">
+<link rel="canonical" href="${url}">
+<script src="/assets/region-boot.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>${card.esc(BF_TITLE)} — Checked Lab</title>
+<meta name="description" content="${card.esc(BF_DESC)}">
+<meta property="og:title" content="${card.esc(BF_TITLE)} — Checked Lab">
+<meta property="og:description" content="${card.esc(BF_DESC)}">
+<meta property="og:type" content="website">
+<meta property="og:url" content="${url}">
+<meta property="og:image" content="${ORIGIN}/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Checked Lab. Checked before you buy.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="${card.esc(BF_TITLE)} — Checked Lab">
+<meta name="twitter:description" content="${card.esc(BF_DESC)}">
+<meta name="twitter:image" content="${ORIGIN}/assets/og.png">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+${FONT_PRELOAD}
+<link rel="stylesheet" href="/assets/site.css">
+<meta name="theme-color" content="#F5F5F7">
+<script type="application/ld+json">
+${blackFridayJsonLd(picked)}
+</script>
+</head>
+<body data-page="black-friday">
+${DISCLOSURE}
+<div class="topbar"><span>● CHECKED LAB • EST 2026 • NO SPONSORS</span><span>hello@checkedlab.com • press@checkedlab.com • legal@checkedlab.com</span></div>
+<div class="masthead">
+<header>
+<a class="logo" href="/">CHECKED LAB <i>CHECKED BEFORE YOU BUY</i></a>
+<div class="header-actions">
+<div class="country-switch">
+<button type="button" data-region-set="US">US</button>
+<button type="button" data-region-set="CA">CA</button>
+</div>
+<nav>
+<a href="/recalls/">RECALL CHECKS</a>
+<a href="/how-we-check/">HOW WE CHECK</a>
+<a href="/bin-list/">BIN LIST</a>
+</nav>
+</div>
+</header>
+${nav("black-friday")}
+</div>
+<main>
+<div class="wrap prose">
+<nav class="crumbs" aria-label="Breadcrumb">
+<a href="/">Home</a>
+<span aria-hidden="true">/</span>
+<span aria-current="page">Black Friday</span>
+</nav>
+<h1>Before you buy on Black Friday, check the model.</h1>
+<p class="lede">Confirm the model number, then read the recall check for that model. The status under each card is the catalogue check dated <time datetime="${card.esc(date)}">${card.esc(date)}</time> (UTC).</p>
+<p class="only-us">${card.esc(US_DATES)} <a href="${US_DEALS}" target="_blank" rel="sponsored nofollow noopener">Amazon.com Black Friday</a>.</p>
+<p class="only-ca">${card.esc(CA_DATES)} <a href="${CA_DEALS}" target="_blank" rel="sponsored nofollow noopener">Amazon.ca Black Friday</a>.</p>
+<h2>Before you pay</h2>
+<ol class="checklist">
+<li>Confirm the exact model number on the box, in the manual, and on the listing. A family name such as Foodi or Cosori can point at a different model.</li>
+<li>Check that model on <a href="https://www.cpsc.gov/Recalls" target="_blank" rel="noopener">CPSC Recalls</a> for a US purchase and on <a href="https://recalls-rappels.canada.ca/en" target="_blank" rel="noopener">Health Canada recalls and safety alerts</a> for a Canadian purchase. <a href="/recalls/">Recall checks</a> is the catalogue match. <a href="/how-we-check/">How we check</a> says what the date means.</li>
+<li>Beware look-alike listings and third-party sellers. The brand in the title is not the model number.</li>
+<li>Read the return window on the listing before you pay. The window is printed on the store page.</li>
+</ol>
+<h2>Notices to open before you buy</h2>
+<p>These pages quote the official notice and name the catalogue card.</p>
+<ul>${notices}</ul>
+<p class="recall-filters">${jumps}</p>
+${sections}
+<section class="faq" id="questions">
+<h2>Questions</h2>
+${faqHtml}
+</section>
+</div>
+</main>
+<footer>
+<div class="foot">
+<p>As an Amazon Associate I earn from qualifying purchases.</p>
+<p>© 2026 CHECKED LAB<br>Winnipeg, MB</p>
+<p class="foot-mail"><a href="/black-friday/">Black Friday</a><a href="/recalls/">Recall checks</a><a href="/how-we-check/">How we check</a><a href="/bin-list/">BIN list</a><a href="mailto:hello@checkedlab.com">hello@</a><a href="mailto:support@checkedlab.com">support@</a><a href="mailto:press@checkedlab.com">press@</a><a href="mailto:legal@checkedlab.com">legal@</a></p>
+</div>
+</footer>
+<script src="/assets/site.js" defer></script>
+</body>
+</html>
+`;
+  if (/\$\d/.test(html) || /\d+\s*%/.test(html)) throw new Error("Black Friday page has a price or a percent");
+  if (/we tested|we bought|does not test|did not test/i.test(html)) throw new Error("Black Friday page has a test claim");
+  mkdirSync(join(root, "black-friday"), { recursive: true });
+  writeFileSync(join(root, "black-friday", "index.html"), html);
+}
+
+function assertBlackFriday(html) {
+  if (!html.includes(DISCLOSURE)) throw new Error("Black Friday disclosure missing");
+  if (!html.includes('<link rel="canonical" href="' + ORIGIN + BF_PATH + '">')) throw new Error("Black Friday canonical");
+  if (!html.includes("<title>" + BF_TITLE + " — Checked Lab</title>")) throw new Error("Black Friday title");
+  if (!html.includes('name="description" content="' + BF_DESC + '"')) throw new Error("Black Friday description");
+  if (!html.includes("<h1>Before you buy on Black Friday, check the model.</h1>")) throw new Error("Black Friday H1");
+  if (!html.includes('data-region-set="US"') || !html.includes('data-region-set="CA"')) throw new Error("Black Friday region switch");
+  if (/\$\d/.test(html) || /\d+\s*%/.test(html)) throw new Error("Black Friday page has a price or a percent");
+  if (/we tested|we bought|does not test|did not test|lab-tested|lab tested/i.test(html)) {
+    throw new Error("Black Friday page has a test claim");
+  }
+  const visible = html.replace(/<script[\s\S]*?<\/script>/gi, "");
+  const dealHits = visible.match(/deal/gi) || [];
+  if (dealHits.length !== 2) throw new Error("Black Friday page uses deal " + dealHits.length + " times");
+  if (/discount|percent off|stars|out of 5/i.test(visible)) throw new Error("Black Friday page has a rating or discount claim");
+  const picked = blackFridayPicks();
+  for (const product of picked) {
+    if (!html.includes('href="' + card.productPath(product) + '"')) throw new Error("Black Friday misses " + product.id);
+    const us = recallSentence(card.recallFor(product, "US"), "US");
+    const ca = recallSentence(card.recallFor(product, "CA"), "Canadian");
+    if (!html.includes(card.esc(us)) || !html.includes(card.esc(ca))) {
+      throw new Error("Black Friday status drifted on " + product.id);
+    }
+    for (const rec of [card.recallFor(product, "US"), card.recallFor(product, "CA")]) {
+      if (rec.checkedAt && !html.includes(rec.checkedAt)) throw new Error("Black Friday date missing on " + product.id);
+    }
+  }
+  for (const entry of explainers) {
+    if (!html.includes('href="/recalls/' + entry.slug + '/"')) throw new Error("Black Friday misses explainer " + entry.slug);
+  }
+  const usBits = [...html.matchAll(/<p class="only-us">([\s\S]*?)<\/p>/g)].map((match) => match[1]).join("\n");
+  const caBits = [...html.matchAll(/<p class="only-ca">([\s\S]*?)<\/p>/g)].map((match) => match[1]).join("\n");
+  const usTags = [...usBits.matchAll(/[?&]tag=([a-z0-9-]+)/g)].map((match) => match[1]);
+  const caTags = [...caBits.matchAll(/[?&]tag=([a-z0-9-]+)/g)].map((match) => match[1]);
+  if (usTags.length !== 1 || usTags[0] !== "checkedlab01-20") throw new Error("US Amazon tag on Black Friday");
+  if (caTags.length !== 1 || caTags[0] !== "checkedlab-20") throw new Error("CA Amazon tag on Black Friday");
+  if (!usBits.includes("November 19–30, 2026")) throw new Error("Amazon.com dates missing");
+  if (!caBits.includes("November 19–27")) throw new Error("Amazon.ca dates missing");
+  const faqs = blackFridayFaqs();
+  if (faqs.length < 3 || faqs.length > 5) throw new Error("Black Friday FAQ count");
+  for (const item of faqs) {
+    if (!html.includes("<h3>" + card.esc(item.q) + "</h3>")) throw new Error("Black Friday FAQ question");
+    if (!html.includes('<p class="faq-a">' + card.esc(item.a) + "</p>")) throw new Error("Black Friday FAQ answer");
+  }
+  const blocks = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)];
+  if (blocks.length !== 1) throw new Error("Black Friday JSON-LD count");
+  const data = JSON.parse(blocks[0][1]);
+  assertNoCommerce(data);
+  const flat = JSON.stringify(data);
+  for (const type of ["CollectionPage", "ItemList", "BreadcrumbList", "FAQPage"]) {
+    if (!flat.includes(type)) throw new Error("Black Friday JSON-LD missing " + type);
+  }
+  if (/"@type":"Product"|offers|aggregateRating/i.test(flat)) throw new Error("Black Friday JSON-LD has a commerce type");
+  const faq = (data["@graph"] || []).find((node) => node["@type"] === "FAQPage");
+  if (!faq || faq.mainEntity.length !== faqs.length) throw new Error("Black Friday FAQPage");
+  faq.mainEntity.forEach((node, index) => {
+    if (node.name !== faqs[index].q || !node.acceptedAnswer || node.acceptedAnswer.text !== faqs[index].a) {
+      throw new Error("Black Friday FAQ JSON-LD mismatch");
+    }
+  });
+  const list = (data["@graph"] || []).find((node) => node["@type"] === "CollectionPage");
+  if (!list || !list.mainEntity || list.mainEntity["@type"] !== "ItemList" || list.mainEntity.numberOfItems !== picked.length) {
+    throw new Error("Black Friday ItemList count");
+  }
 }
 
 function productSignature(product) {
@@ -1301,6 +1689,7 @@ function stampPages(ordered) {
     ["/how-we-check/", join(root, "how-we-check", "index.html")],
     ["/bin-list/", join(root, "bin-list", "index.html")],
     ["/recalls/", join(root, "recalls", "index.html")],
+    [BF_PATH, join(root, "black-friday", "index.html")],
     ...explainers.map((entry) => ["/recalls/" + entry.slug + "/", join(root, "recalls", entry.slug, "index.html")]),
     ...compares.map((entry) => ["/compare/" + entry.slug + "/", join(root, "compare", entry.slug, "index.html")]),
     ...ordered.filter(indexable).map((product) => [card.productPath(product), join(root, product.category, product.id, "index.html")])
@@ -1329,6 +1718,7 @@ function writeSitemap(pages, lastmods) {
     "/how-we-check/",
     "/bin-list/",
     "/recalls/",
+    BF_PATH,
     ...explainers.map((entry) => "/recalls/" + entry.slug + "/"),
     ...compares.map((entry) => "/compare/" + entry.slug + "/")
   ];
@@ -1414,6 +1804,7 @@ function publishDist() {
     throw new Error("dist is missing a product page");
   }
   if (!statSync(join(dist, "recalls", "index.html")).isFile()) throw new Error("dist is missing /recalls/");
+  if (!statSync(join(dist, "black-friday", "index.html")).isFile()) throw new Error("dist is missing /black-friday/");
   if (!statSync(join(dist, "recalls", "feed.xml")).isFile()) throw new Error("dist is missing the recall feed");
   if (!statSync(join(dist, "404.html")).isFile()) throw new Error("dist is missing 404.html");
   if (existsSync(join(dist, "scripts")) || existsSync(join(dist, ".git")) || existsSync(join(dist, ".github"))) {
@@ -1482,7 +1873,7 @@ function verifyOutput(pages) {
   const sitemap = readFileSync(join(root, "sitemap.xml"), "utf8");
   const indexed = pages.filter(indexable);
   const locCount = (sitemap.match(/<loc>/g) || []).length;
-  if (locCount !== 11 + explainers.length + compares.length + indexed.length || locCount !== 139) {
+  if (locCount !== 12 + explainers.length + compares.length + indexed.length || locCount !== 140) {
     throw new Error("Sitemap URL count");
   }
   for (const entry of compares) {
@@ -1496,6 +1887,7 @@ function verifyOutput(pages) {
     }
   }
   if (!sitemap.includes("<loc>" + ORIGIN + "/recalls/</loc>")) throw new Error("Sitemap is missing /recalls/");
+  if (!sitemap.includes("<loc>" + ORIGIN + BF_PATH + "</loc>")) throw new Error("Sitemap is missing /black-friday/");
   for (const loc of sitemap.match(/<loc>[^<]+<\/loc>/g) || []) {
     if (!loc.includes(ORIGIN + "/") || !loc.endsWith("/</loc>")) throw new Error("Sitemap URL is not canonical: " + loc);
   }
@@ -1542,6 +1934,9 @@ function verifyOutput(pages) {
   if (!home.includes('href="/recalls/"') || !home.includes("<time datetime=\"" + (recalls.checkedAt || "") + "\">")) {
     throw new Error("Homepage is missing the recall check pointer");
   }
+  if (!home.includes('href="/black-friday/"')) throw new Error("Homepage is missing the Black Friday link");
+  if (!recallPage.includes('href="/black-friday/"')) throw new Error("Recall page is missing the Black Friday link");
+  assertBlackFriday(readFileSync(join(root, "black-friday", "index.html"), "utf8"));
   if (!home.includes('fetchpriority="low"')) throw new Error("Font preload is still high priority");
   const robots = readFileSync(join(root, "robots.txt"), "utf8");
   if (!robots.includes("Sitemap: https://www.checkedlab.com/sitemap.xml")) throw new Error("robots.txt lost the sitemap");
