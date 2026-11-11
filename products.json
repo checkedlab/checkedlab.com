@@ -4,7 +4,7 @@
     "title": "Ninja Crispi Glass Air Fryer, 4-in-1",
     "category": "kitchen",
     "receipt": null,
-    "meta": "FN101 \u2022 SPECS PER NINJA",
+    "meta": "FN101 • SPECS PER NINJA",
     "image": "images/ninja-crispi.jpg",
     "recallMatch": {
       "brand": [
@@ -24,14 +24,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -85,7 +85,7 @@
       },
       {
         "label": "Dimensions",
-        "value": "11.5 \u00d7 9.76 \u00d7 11.81 in",
+        "value": "11.5 × 9.76 × 11.81 in",
         "source": "Ninja",
         "url": "https://www.sharkninja.com/ninja-crispi-4-in-1-portable-glass-air-fryer-cooking-system/FN101GY.html"
       },
@@ -107,7 +107,7 @@
     "title": "Ninja Foodi 10-in-1 XL Pro Air Fry Oven",
     "category": "kitchen",
     "receipt": null,
-    "meta": "DT201C \u2022 CANADIAN MODEL \u2022 ASIN B08LQY2XF5 ON AMAZON.CA",
+    "meta": "DT201C • CANADIAN MODEL • ASIN B08LQY2XF5 ON AMAZON.CA",
     "image": "images/ninja-foodi-10in1.jpg",
     "recallMatch": {
       "brand": [
@@ -126,7 +126,7 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": [
@@ -141,12 +141,12 @@
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": [
           {
-            "title": "Ninja Foodi Tendercrisp multi-cookers\u2019 pressure cooking lid recalled due to potential burn hazard",
+            "title": "Ninja Foodi Tendercrisp multi-cookers’ pressure cooking lid recalled due to potential burn hazard",
             "url": "https://recalls-rappels.canada.ca/en/alert-recall/ninja-foodi-tendercrisp-multi-cookers-pressure-cooking-lid-recalled-due-potential-burn",
             "date": "2025-05-01",
             "source": "Health Canada",
@@ -163,7 +163,7 @@
         "agrees": true
       },
       {
-        "claim": "Up to 10\u00d7 the convection power of a traditional full-size convection oven, a stated 90-second preheat, and room for a 5 lb chicken. This is Ninja Canada's claim, not a Checked Lab measurement.",
+        "claim": "Up to 10× the convection power of a traditional full-size convection oven, a stated 90-second preheat, and room for a 5 lb chicken. This is Ninja Canada's claim, not a Checked Lab measurement.",
         "source": "Ninja Canada",
         "url": "https://www.ninjakitchen.ca/products/ninja-foodi-10-in-1-xl-pro-air-fry-oven-zidDT201C",
         "agrees": true
@@ -203,7 +203,7 @@
       },
       {
         "label": "Dimensions",
-        "value": "62.2 \u00d7 50.6 \u00d7 42.49 cm",
+        "value": "62.2 × 50.6 × 42.49 cm",
         "source": "Ninja",
         "url": "https://www.sharkninja.ca/ninja-foodi-10-in-1-xl-pro-air-fry-oven/DT201C.html"
       },
@@ -225,7 +225,7 @@
     "title": "Instant Pot Duo Plus, 6Qt",
     "category": "kitchen",
     "receipt": null,
-    "meta": "6 QT MULTI-COOKER \u2022 NO SOURCED SPEED FIGURE",
+    "meta": "6 QT MULTI-COOKER • NO SOURCED SPEED FIGURE",
     "image": "images/instant-pot-duo.jpg",
     "recallMatch": {
       "brand": [
@@ -243,14 +243,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -286,7 +286,7 @@
       },
       {
         "label": "Functions",
-        "value": "Pressure, slow cook, steam, and saut\u00e9",
+        "value": "Pressure, slow cook, steam, and sauté",
         "source": "Instant Pot",
         "url": "https://instantpot.com/products/instant-pot-duo-plus-6qt-multi-use-pressure-cooker-v3"
       },
@@ -308,7 +308,7 @@
     "title": "Vitamix E310 Explorian Blender, 48oz",
     "category": "kitchen",
     "receipt": null,
-    "meta": "E310 \u2022 SPECS PER VITAMIX",
+    "meta": "E310 • SPECS PER VITAMIX",
     "image": "images/vitamix-e310.jpg",
     "recallMatch": {
       "brand": [
@@ -327,14 +327,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -382,7 +382,7 @@
       },
       {
         "label": "Dimensions",
-        "value": "9 \u00d7 8 \u00d7 18 in",
+        "value": "9 × 8 × 18 in",
         "source": "Vitamix",
         "url": "https://www.vitamix.com/us/en_us/products/e310"
       },
@@ -410,7 +410,7 @@
     "title": "KitchenAid Artisan Stand Mixer 5-Qt",
     "category": "kitchen",
     "receipt": null,
-    "meta": "KSM150PS \u2022 SPECS PER KITCHENAID",
+    "meta": "KSM150PS • SPECS PER KITCHENAID",
     "image": "images/kitchenaid-artisan.jpg",
     "recallMatch": {
       "brand": [
@@ -429,14 +429,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -512,7 +512,7 @@
     "title": "COSORI Pro II Air Fryer",
     "category": "kitchen",
     "receipt": null,
-    "meta": "COSORI \u2022 CS358-AF SERIES \u2022 AMAZON.COM ASIN B089ZT66H9",
+    "meta": "COSORI • CS358-AF SERIES • AMAZON.COM ASIN B089ZT66H9",
     "image": "images/cosori-pro.jpg",
     "recallMatch": {
       "brand": [
@@ -529,14 +529,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -582,7 +582,7 @@
       },
       {
         "label": "Dimensions",
-        "value": "11.8 \u00d7 13.8 \u00d7 12.6 in",
+        "value": "11.8 × 13.8 × 12.6 in",
         "source": "COSORI",
         "url": "https://cdn.accentuate.io/4894973755480/1613980148681/01.06_M1_CS358-AF_2020-09-29_WEB_US_en.pdf?v=0"
       },
@@ -616,14 +616,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -648,7 +648,7 @@
     "category": "winter",
     "title": "Lasko 32 inch Digital Ceramic Tower Heater CT32150",
     "model": "CT32150",
-    "meta": "LASKO \u2022 CT32150 \u2022 MODEL PAGE LINKED",
+    "meta": "LASKO • CT32150 • MODEL PAGE LINKED",
     "searchQuery": "Lasko CT32150",
     "sourceUrl": "https://lasko.com/products/lasko-ct32150-32-digital-ceramic-tower-space-heater-with-remote-control-black",
     "sourceName": "Lasko",
@@ -714,14 +714,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -746,7 +746,7 @@
     "category": "winter",
     "title": "Lasko Ready Heat 14 inch Ceramic Tower Heater CT14401",
     "model": "CT14401",
-    "meta": "LASKO \u2022 CT14401 \u2022 MODEL PAGE LINKED",
+    "meta": "LASKO • CT14401 • MODEL PAGE LINKED",
     "searchQuery": "Lasko CT14401",
     "sourceUrl": "https://lasko.com/products/lasko-ready-heat-14-ceramic-tower-space-heater-oscillating-2-heat-settings-timer-thermostat",
     "sourceName": "Lasko",
@@ -811,14 +811,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -837,7 +837,7 @@
     "category": "winter",
     "title": "Levoit Classic 300S Smart Humidifier",
     "model": "Classic 300S",
-    "meta": "LEVOIT \u2022 CLASSIC 300S \u2022 MODEL PAGE LINKED",
+    "meta": "LEVOIT • CLASSIC 300S • MODEL PAGE LINKED",
     "searchQuery": "Levoit Classic 300S",
     "sourceUrl": "https://levoit.com/products/classic-300s-smart-ultrasonic-top-fill-cool-mist-humidifier",
     "sourceName": "Levoit",
@@ -869,7 +869,7 @@
       },
       {
         "label": "Coverage",
-        "value": "505 ft\u00b2",
+        "value": "505 ft²",
         "source": "Levoit",
         "url": "https://levoit.com/products/classic-300s-smart-ultrasonic-top-fill-cool-mist-humidifier"
       },
@@ -897,14 +897,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -916,7 +916,7 @@
     "category": "winter",
     "title": "Sunbeam LoftTec Heated Throw TSL8WS",
     "model": "TSL8WS",
-    "meta": "SUNBEAM \u2022 TSL8WS \u2022 LOFTTEC \u2022 CANADA MANUAL LIST",
+    "meta": "SUNBEAM • TSL8WS • LOFTTEC • CANADA MANUAL LIST",
     "searchQuery": "Sunbeam LoftTec TSL8WS",
     "sourceUrl": "https://www.sunbeam.ca/en_CA/service-&-support/instruction-manuals/heated-bedding/heated-throws/bedding-throws-manual.html",
     "sourceName": "Sunbeam Canada",
@@ -950,14 +950,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -988,7 +988,7 @@
     "category": "winter",
     "title": "Snow Joe 24V-SS10 Cordless Snow Shovel",
     "model": "24V-SS10",
-    "meta": "SNOW JOE \u2022 24V-SS10 \u2022 MODEL PAGE LINKED",
+    "meta": "SNOW JOE • 24V-SS10 • MODEL PAGE LINKED",
     "searchQuery": "Snow Joe 24V-SS10",
     "sourceUrl": "https://files.snowjoe.com/product-manuals/24V-SS10_MANUAL_MR3_05062021_FINAL.pdf",
     "sourceName": "Snow Joe",
@@ -1055,14 +1055,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -1081,7 +1081,7 @@
     "category": "car-garage",
     "title": "NOCO Boost Plus GB40 Jump Starter",
     "model": "GB40",
-    "meta": "NOCO \u2022 GB40 \u2022 MODEL PAGE LINKED",
+    "meta": "NOCO • GB40 • MODEL PAGE LINKED",
     "searchQuery": "NOCO GB40",
     "sourceUrl": "https://no.co/gb40",
     "sourceName": "NOCO",
@@ -1146,14 +1146,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -1178,7 +1178,7 @@
     "category": "car-garage",
     "title": "NOCO Boost GB50 Jump Starter",
     "model": "GB50",
-    "meta": "NOCO \u2022 GB50 \u2022 NAMED ON THE OFFICIAL GB40 HOW-TO PAGE",
+    "meta": "NOCO • GB50 • NAMED ON THE OFFICIAL GB40 HOW-TO PAGE",
     "searchQuery": "NOCO GB50",
     "sourceUrl": "https://no.co/gb50",
     "sourceName": "NOCO",
@@ -1243,14 +1243,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -1269,7 +1269,7 @@
     "category": "car-garage",
     "title": "Battery Tender Junior 12V 750mA",
     "model": "Junior 12V 750mA",
-    "meta": "BATTERY TENDER \u2022 JUNIOR 12V 750MA \u2022 MODEL PAGE LINKED",
+    "meta": "BATTERY TENDER • JUNIOR 12V 750MA • MODEL PAGE LINKED",
     "searchQuery": "Battery Tender Junior 12V 750mA",
     "sourceUrl": "https://www.batterytender.com/products/junior",
     "sourceName": "Battery Tender",
@@ -1307,7 +1307,7 @@
       },
       {
         "label": "Dimensions",
-        "value": "4.4 \u00d7 2.15 \u00d7 2.9 in",
+        "value": "4.4 × 2.15 × 2.9 in",
         "source": "Battery Tender",
         "url": "https://www.batterytender.com/products/junior"
       },
@@ -1336,14 +1336,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -1362,7 +1362,7 @@
     "category": "car-garage",
     "title": "Bosch ICON Wiper Blades",
     "model": "ICON",
-    "meta": "BOSCH \u2022 ICON LINE \u2022 MATCH THE LENGTH TO THE VEHICLE",
+    "meta": "BOSCH • ICON LINE • MATCH THE LENGTH TO THE VEHICLE",
     "searchQuery": "Bosch ICON wiper blade",
     "sourceUrl": "https://www.boschautoparts.com/p/icon-wiper-blades",
     "sourceName": "Bosch",
@@ -1421,14 +1421,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -1447,7 +1447,7 @@
     "category": "air-water",
     "title": "Coway Airmega Mighty AP-1512HH",
     "model": "AP-1512HH",
-    "meta": "COWAY \u2022 AP-1512HH \u2022 MODEL PAGE LINKED",
+    "meta": "COWAY • AP-1512HH • MODEL PAGE LINKED",
     "searchQuery": "Coway AP-1512HH",
     "sourceUrl": "https://cowaymega.com/products/mighty-ap-1512hh",
     "sourceName": "Coway",
@@ -1474,13 +1474,13 @@
       },
       {
         "label": "Room coverage",
-        "value": "361 ft\u00b2 at 4.8 air changes per hour",
+        "value": "361 ft² at 4.8 air changes per hour",
         "source": "Coway",
         "url": "https://cowaymega.com/products/mighty-ap-1512hh"
       },
       {
         "label": "Dimensions",
-        "value": "16.8 \u00d7 18.3 \u00d7 9.6 in",
+        "value": "16.8 × 18.3 × 9.6 in",
         "source": "Coway",
         "url": "https://cowaymega.com/products/mighty-ap-1512hh"
       },
@@ -1514,14 +1514,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -1540,7 +1540,7 @@
     "category": "air-water",
     "title": "Levoit Core 300S-P Smart Air Purifier",
     "model": "Core 300S-P",
-    "meta": "LEVOIT \u2022 CORE 300S-P \u2022 MODEL PAGE LINKED",
+    "meta": "LEVOIT • CORE 300S-P • MODEL PAGE LINKED",
     "searchQuery": "Levoit Core 300S-P",
     "sourceUrl": "https://levoit.com/products/core-300s-p-smart-air-purifier",
     "sourceName": "Levoit",
@@ -1572,13 +1572,13 @@
       },
       {
         "label": "Noise",
-        "value": "22\u201354.5 dB",
+        "value": "22–54.5 dB",
         "source": "Levoit",
         "url": "https://levoit.com/cdn/shop/files/HEAPAPLVSUS0073A_Core_300S-P_Smart_Air_Purifier_manual_US_A2-240918_4855d907-1d27-4231-ad1c-82899f56e370.pdf?v=12210007380621608458"
       },
       {
         "label": "Dimensions",
-        "value": "8.7 \u00d7 8.7 \u00d7 14.2 in",
+        "value": "8.7 × 8.7 × 14.2 in",
         "source": "Levoit",
         "url": "https://levoit.com/cdn/shop/files/HEAPAPLVSUS0073A_Core_300S-P_Smart_Air_Purifier_manual_US_A2-240918_4855d907-1d27-4231-ad1c-82899f56e370.pdf?v=12210007380621608458"
       },
@@ -1607,14 +1607,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -1626,7 +1626,7 @@
     "category": "air-water",
     "title": "Midea Cube MAD50S1QWT Dehumidifier",
     "model": "MAD50S1QWT",
-    "meta": "MIDEA \u2022 MAD50S1QWT \u2022 CONFIRM THE PINT RATING ON THE LISTING",
+    "meta": "MIDEA • MAD50S1QWT • CONFIRM THE PINT RATING ON THE LISTING",
     "searchQuery": "Midea MAD50S1QWT",
     "sourceUrl": "https://www.midea.com/us/store/cooling-and-heating/dehumidifiers/midea-cube-20-pt-dehumidifier-for-basement--room--or-garage---co.mad50s1qwt",
     "sourceName": "Midea",
@@ -1691,14 +1691,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -1717,7 +1717,7 @@
     "category": "air-water",
     "title": "Brita Tahoe Water Pitcher with Elite Filter",
     "model": "Tahoe Elite",
-    "meta": "BRITA \u2022 TAHOE \u2022 ELITE FILTER \u2022 MODEL PAGE LINKED",
+    "meta": "BRITA • TAHOE • ELITE FILTER • MODEL PAGE LINKED",
     "searchQuery": "Brita Tahoe Elite pitcher",
     "sourceUrl": "https://www.brita.com/products/brita-tahoe-water-pitcher-elite-filter/",
     "sourceName": "Brita",
@@ -1782,14 +1782,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -1808,7 +1808,7 @@
     "category": "pet",
     "title": "PetSafe Drinkwell Platinum Fountain",
     "model": "PWW00-13703",
-    "meta": "PETSAFE \u2022 PWW00-13703 \u2022 MODEL PAGE LINKED",
+    "meta": "PETSAFE • PWW00-13703 • MODEL PAGE LINKED",
     "searchQuery": "PetSafe Drinkwell Platinum PWW00-13703",
     "sourceUrl": "https://www.petsafe.com/p/drinkwell-platinum-fountain/PWW00-13703/",
     "sourceName": "PetSafe",
@@ -1835,7 +1835,7 @@
       },
       {
         "label": "Dimensions",
-        "value": "15.8 \u00d7 10.3 \u00d7 10.0 in",
+        "value": "15.8 × 10.3 × 10.0 in",
         "source": "PetSafe",
         "url": "https://www.petsafe.com/p/drinkwell-platinum-fountain/PWW00-13703/"
       },
@@ -1869,14 +1869,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -1888,7 +1888,7 @@
     "category": "pet",
     "title": "Whisker Litter-Robot 4",
     "model": "Litter-Robot 4",
-    "meta": "WHISKER \u2022 LITTER-ROBOT 4 \u2022 MODEL PAGE LINKED",
+    "meta": "WHISKER • LITTER-ROBOT 4 • MODEL PAGE LINKED",
     "searchQuery": "Litter-Robot 4",
     "sourceUrl": "https://www.whisker.com/litter-robot-4",
     "sourceName": "Whisker",
@@ -1922,13 +1922,13 @@
       },
       {
         "label": "Footprint",
-        "value": "22 \u00d7 27 in",
+        "value": "22 × 27 in",
         "source": "Whisker",
         "url": "https://www.whisker.com/litter-robot-4"
       },
       {
         "label": "Entryway",
-        "value": "15.75 \u00d7 15.75 in",
+        "value": "15.75 × 15.75 in",
         "source": "Whisker",
         "url": "https://www.whisker.com/litter-robot-4"
       },
@@ -1956,14 +1956,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -1971,7 +1971,7 @@
     },
     "evidence": [
       {
-        "claim": "The Granary 2 Series page names model PLAF105 and a kibble size of 2\u201315 mm.",
+        "claim": "The Granary 2 Series page names model PLAF105 and a kibble size of 2–15 mm.",
         "source": "PETLIBRO",
         "url": "https://petlibro.com/products/granary-2-series",
         "agrees": true
@@ -1982,7 +1982,7 @@
     "category": "pet",
     "title": "PETLIBRO Granary 2 Series Feeder PLAF105",
     "model": "PLAF105",
-    "meta": "PETLIBRO \u2022 PLAF105 \u2022 MODEL PAGE LINKED",
+    "meta": "PETLIBRO • PLAF105 • MODEL PAGE LINKED",
     "searchQuery": "PETLIBRO PLAF105",
     "sourceUrl": "https://petlibro.com/products/granary-2-series",
     "sourceName": "PETLIBRO",
@@ -2013,7 +2013,7 @@
       },
       {
         "label": "Dimensions",
-        "value": "14.05 \u00d7 7.09 \u00d7 14.02 in",
+        "value": "14.05 × 7.09 × 14.02 in",
         "source": "PETLIBRO",
         "url": "https://petlibro.com/products/granary-2-series"
       },
@@ -2025,7 +2025,7 @@
       },
       {
         "label": "Kibble size",
-        "value": "2\u201315 mm",
+        "value": "2–15 mm",
         "source": "PETLIBRO",
         "url": "https://petlibro.com/products/granary-2-series"
       }
@@ -2048,7 +2048,7 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": [
@@ -2063,7 +2063,7 @@
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": [
@@ -2090,7 +2090,7 @@
     "category": "pet",
     "title": "FURminator Undercoat deShedding Tool, Medium Dog, Short Hair",
     "model": "Medium dog short hair",
-    "meta": "FURMINATOR \u2022 MEDIUM DOG \u2022 SHORT HAIR \u2022 MODEL PAGE LINKED",
+    "meta": "FURMINATOR • MEDIUM DOG • SHORT HAIR • MODEL PAGE LINKED",
     "searchQuery": "FURminator deShedding medium dog short hair",
     "sourceUrl": "https://www.furminator.com/products/tools/deshedding-tools/undercoat-deshedding-tool-medium-dog-short-hair",
     "sourceName": "FURminator",
@@ -2143,14 +2143,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -2169,14 +2169,14 @@
     "category": "sleep",
     "title": "Purple Harmony Pillow",
     "model": "Harmony",
-    "meta": "PURPLE \u2022 HARMONY PILLOW \u2022 MODEL PAGE LINKED",
+    "meta": "PURPLE • HARMONY PILLOW • MODEL PAGE LINKED",
     "searchQuery": "Purple Harmony Pillow",
     "sourceUrl": "https://purple.com/pillows/harmony",
     "sourceName": "Purple",
     "recallMatch": {
       "brand": [
         "purple innovation",
-        "purple\u00ae"
+        "purple®"
       ],
       "models": [
         "harmony"
@@ -2201,13 +2201,13 @@
       },
       {
         "label": "Standard, low",
-        "value": "26 \u00d7 17 \u00d7 5.5 in, 4.2 lb",
+        "value": "26 × 17 × 5.5 in, 4.2 lb",
         "source": "Purple",
         "url": "https://purple.com/pillows/harmony"
       },
       {
         "label": "King, low",
-        "value": "34 \u00d7 17 \u00d7 5.5 in, 6 lb",
+        "value": "34 × 17 × 5.5 in, 6 lb",
         "source": "Purple",
         "url": "https://purple.com/pillows/harmony"
       }
@@ -2230,14 +2230,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -2256,7 +2256,7 @@
     "category": "sleep",
     "title": "Tempur-Pedic TEMPUR-Neck Pillow",
     "model": "TEMPUR-Neck",
-    "meta": "TEMPUR-PEDIC \u2022 TEMPUR-NECK \u2022 MODEL PAGE LINKED",
+    "meta": "TEMPUR-PEDIC • TEMPUR-NECK • MODEL PAGE LINKED",
     "searchQuery": "Tempur-Pedic TEMPUR-Neck pillow",
     "sourceUrl": "https://www.tempurpedic.com/shop-pillows/tempur-neck-pillow/",
     "sourceName": "Tempur-Pedic",
@@ -2278,7 +2278,7 @@
     "specs": [
       {
         "label": "Sizes",
-        "value": "Small 20 \u00d7 12.5 \u00d7 3.5 in, medium 20 \u00d7 12.5 \u00d7 4 in, large 20 \u00d7 12.5 \u00d7 4.75 in",
+        "value": "Small 20 × 12.5 × 3.5 in, medium 20 × 12.5 × 4 in, large 20 × 12.5 × 4.75 in",
         "source": "Tempur-Pedic",
         "url": "https://www.tempurpedic.com/shop-pillows/tempur-neck-pillow/"
       },
@@ -2319,14 +2319,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -2345,7 +2345,7 @@
     "category": "sleep",
     "title": "Brooklinen Luxe Sateen Core Sheet Set",
     "model": "Luxe Sateen Core Sheet Set",
-    "meta": "BROOKLINEN \u2022 LUXE CORE SHEET SET \u2022 MODEL PAGE LINKED",
+    "meta": "BROOKLINEN • LUXE CORE SHEET SET • MODEL PAGE LINKED",
     "searchQuery": "Brooklinen Luxe Sateen Core Sheet Set",
     "sourceUrl": "https://www.brooklinen.com/products/luxe-core-sheet-set",
     "sourceName": "Brooklinen",
@@ -2412,7 +2412,7 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": [
@@ -2427,7 +2427,7 @@
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": [
@@ -2447,7 +2447,7 @@
     "category": "sleep",
     "title": "Herman Miller Aeron Chair",
     "model": "Aeron",
-    "meta": "HERMAN MILLER \u2022 AERON \u2022 MODEL PAGE LINKED",
+    "meta": "HERMAN MILLER • AERON • MODEL PAGE LINKED",
     "searchQuery": "Herman Miller Aeron Chair",
     "sourceUrl": "https://www.hermanmiller.com/products/seating/office-chairs/aeron-chair/",
     "sourceName": "Herman Miller",
@@ -2506,14 +2506,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -2532,7 +2532,7 @@
     "category": "personal-tech",
     "title": "Philips Sonicare 4100 HX3681/26",
     "model": "HX3681/26",
-    "meta": "PHILIPS \u2022 HX3681/26 \u2022 MODEL PAGE LINKED",
+    "meta": "PHILIPS • HX3681/26 • MODEL PAGE LINKED",
     "searchQuery": "Philips Sonicare HX3681/26",
     "sourceUrl": "https://www.usa.philips.com/c-p/HX3681_26/4100-series-sonic-electric-toothbrush",
     "sourceName": "Philips",
@@ -2586,14 +2586,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -2605,7 +2605,7 @@
     "category": "personal-tech",
     "title": "Braun Series 7 70-N1000s",
     "model": "70-N1000s",
-    "meta": "BRAUN \u2022 70-N1000S \u2022 MODEL PAGE LINKED",
+    "meta": "BRAUN • 70-N1000S • MODEL PAGE LINKED",
     "searchQuery": "Braun Series 7 70-N1000s",
     "sourceUrl": "https://us.braun.com/en-us/service/products/parts/5764/20000334",
     "sourceName": "Braun US",
@@ -2647,14 +2647,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -2685,7 +2685,7 @@
     "category": "personal-tech",
     "title": "Sony WH-1000XM5 Headphones",
     "model": "WH-1000XM5",
-    "meta": "SONY \u2022 WH-1000XM5 \u2022 MODEL PAGE LINKED",
+    "meta": "SONY • WH-1000XM5 • MODEL PAGE LINKED",
     "searchQuery": "Sony WH-1000XM5",
     "sourceUrl": "https://electronics.sony.com/audio/headphones/headband/p/wh1000xm5-b",
     "sourceName": "Sony",
@@ -2745,7 +2745,7 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": [
@@ -2774,7 +2774,7 @@
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": [
@@ -2808,7 +2808,7 @@
     "category": "personal-tech",
     "title": "Anker 737 Power Bank PowerCore 24K A1289",
     "model": "A1289",
-    "meta": "ANKER \u2022 A1289 \u2022 MODEL PAGE LINKED",
+    "meta": "ANKER • A1289 • MODEL PAGE LINKED",
     "searchQuery": "Anker 737 Power Bank A1289",
     "sourceUrl": "https://www.anker.com/products/a1289",
     "sourceName": "Anker",
@@ -2840,7 +2840,7 @@
       },
       {
         "label": "Dimensions",
-        "value": "6.13 \u00d7 2.15 \u00d7 1.95 in",
+        "value": "6.13 × 2.15 × 1.95 in",
         "source": "Anker",
         "url": "https://www.anker.com/products/a1289"
       },
@@ -2858,7 +2858,7 @@
     "title": "Breville Barista Express BES870XL",
     "category": "kitchen",
     "receipt": null,
-    "meta": "BES870 \u2022 SPECS PER BREVILLE",
+    "meta": "BES870 • SPECS PER BREVILLE",
     "image": null,
     "recallMatch": {
       "brand": [
@@ -2876,14 +2876,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -2961,7 +2961,7 @@
     "title": "Breville Smart Oven Air Fryer Pro BOV900",
     "category": "kitchen",
     "receipt": null,
-    "meta": "BOV900 \u2022 SPECS PER BREVILLE",
+    "meta": "BOV900 • SPECS PER BREVILLE",
     "image": null,
     "recallMatch": {
       "brand": [
@@ -2979,14 +2979,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -3064,7 +3064,7 @@
     "title": "Technivorm Moccamaster KBGV Select",
     "category": "kitchen",
     "receipt": null,
-    "meta": "KBGV \u2022 SPECS PER TECHNIVORM",
+    "meta": "KBGV • SPECS PER TECHNIVORM",
     "image": null,
     "recallMatch": {
       "brand": [
@@ -3082,14 +3082,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -3167,7 +3167,7 @@
     "title": "AeroPress Original Coffee Maker",
     "category": "kitchen",
     "receipt": null,
-    "meta": "AEROPRESS \u2022 SPECS PER AEROPRESS",
+    "meta": "AEROPRESS • SPECS PER AEROPRESS",
     "image": null,
     "recallMatch": {
       "brand": [
@@ -3184,14 +3184,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -3269,7 +3269,7 @@
     "title": "Fellow Stagg EKG Electric Kettle",
     "category": "kitchen",
     "receipt": null,
-    "meta": "STAGG EKG \u2022 SPECS PER FELLOW",
+    "meta": "STAGG EKG • SPECS PER FELLOW",
     "image": null,
     "recallMatch": {
       "brand": [
@@ -3286,14 +3286,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -3365,7 +3365,7 @@
     "title": "Lodge 10.25 Inch Classic Cast Iron Skillet",
     "category": "kitchen",
     "receipt": null,
-    "meta": "L8SK3 \u2022 SPECS PER LODGE",
+    "meta": "L8SK3 • SPECS PER LODGE",
     "image": null,
     "recallMatch": {
       "brand": [
@@ -3382,14 +3382,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -3467,7 +3467,7 @@
     "title": "Le Creuset Signature Round Dutch Oven, 5.5 qt",
     "category": "kitchen",
     "receipt": null,
-    "meta": "5.5 QT \u2022 SPECS PER LE CREUSET",
+    "meta": "5.5 QT • SPECS PER LE CREUSET",
     "image": null,
     "recallMatch": {
       "brand": [
@@ -3484,14 +3484,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -3569,7 +3569,7 @@
     "title": "All-Clad D3 Stainless Fry Pan, 12 inch",
     "category": "kitchen",
     "receipt": null,
-    "meta": "4112 \u2022 SPECS PER ALL-CLAD",
+    "meta": "4112 • SPECS PER ALL-CLAD",
     "image": null,
     "recallMatch": {
       "brand": [
@@ -3587,14 +3587,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -3672,7 +3672,7 @@
     "title": "Cuisinart Custom 14-Cup Food Processor DFP-14BCNY",
     "category": "kitchen",
     "receipt": null,
-    "meta": "DFP-14BCNY \u2022 SPECS PER CUISINART",
+    "meta": "DFP-14BCNY • SPECS PER CUISINART",
     "image": null,
     "recallMatch": {
       "brand": [
@@ -3690,9 +3690,9 @@
     "recall": {
       "us": {
         "status": "bin",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.cpsc.gov/Recalls/2017/Cuisinart-Food-Processors-Recalled-by-Conair",
-        "detail": "CPSC recall, December 13, 2016: Cuisinart food processors recalled by Conair for a laceration hazard. Only blades with four rivets are recalled. This model number begins with DFP-14, which is in the recalled series.",
+        "detail": "CPSC recall matches this model: Cuisinart Food Processors Recalled by Conair Due to Laceration Hazard.",
         "other": [
           {
             "title": "Cuisinart Food Processors Recalled by Conair Due to Laceration Hazard",
@@ -3704,11 +3704,19 @@
         ]
       },
       "ca": {
-        "status": "bin",
-        "checkedAt": "2026-11-10",
-        "url": "https://recalls-rappels.canada.ca/en/alert-recall/conair-consumer-products-ulc-recalls-riveted-blades-cuisinart-food-processors",
-        "detail": "Health Canada RA-61428, December 13, 2016, joint with the CPSC: Conair Consumer Products ULC recalls riveted blades in Cuisinart food processors. Only blades with four rivets are recalled. This model number begins with DFP-14, which is in the recalled series.",
-        "other": []
+        "status": "none",
+        "checkedAt": "2026-11-11",
+        "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
+        "detail": null,
+        "other": [
+          {
+            "title": "Cuisinart 7-Cup (1.75 L) Food Processor",
+            "url": "https://recalls-rappels.canada.ca/en/alert-recall/cuisinart-7-cup-175-food-processor",
+            "date": "2013-08-06",
+            "source": "Health Canada",
+            "archived": true
+          }
+        ]
       }
     },
     "evidence": [
@@ -3734,16 +3742,9 @@
     "bin": [
       {
         "region": "us",
-        "reason": "CPSC recall, December 13, 2016. Only blades with four rivets are recalled.",
+        "reason": "CPSC recall matches this model: Cuisinart Food Processors Recalled by Conair Due to Laceration Hazard.",
         "source": "CPSC",
         "url": "https://www.cpsc.gov/Recalls/2017/Cuisinart-Food-Processors-Recalled-by-Conair",
-        "sourceKind": "recall"
-      },
-      {
-        "region": "ca",
-        "reason": "Health Canada RA-61428, December 13, 2016. Only blades with four rivets are recalled.",
-        "source": "Health Canada",
-        "url": "https://recalls-rappels.canada.ca/en/alert-recall/conair-consumer-products-ulc-recalls-riveted-blades-cuisinart-food-processors",
         "sourceKind": "recall"
       }
     ],
@@ -3798,7 +3799,7 @@
     "title": "Zojirushi Neuro Fuzzy Rice Cooker NS-ZCC10",
     "category": "kitchen",
     "receipt": null,
-    "meta": "NS-ZCC10 \u2022 SPECS PER ZOJIRUSHI",
+    "meta": "NS-ZCC10 • SPECS PER ZOJIRUSHI",
     "image": null,
     "recallMatch": {
       "brand": [
@@ -3816,14 +3817,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -3895,7 +3896,7 @@
     "title": "Chemex Classic 6-Cup CM-6A",
     "category": "kitchen",
     "receipt": null,
-    "meta": "CM-6A \u2022 SPECS PER CHEMEX",
+    "meta": "CM-6A • SPECS PER CHEMEX",
     "image": null,
     "recallMatch": {
       "brand": [
@@ -3912,14 +3913,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -3997,7 +3998,7 @@
     "title": "Anova Precision Cooker Nano",
     "category": "kitchen",
     "receipt": null,
-    "meta": "PRECISION COOKER NANO \u2022 SPECS PER ANOVA CULINARY",
+    "meta": "PRECISION COOKER NANO • SPECS PER ANOVA CULINARY",
     "image": null,
     "recallMatch": {
       "brand": [
@@ -4014,14 +4015,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -4099,7 +4100,7 @@
     "title": "Wusthof Classic 8-Inch Cook's Knife",
     "category": "kitchen",
     "receipt": null,
-    "meta": "1040100120 \u2022 SPECS PER WUSTHOF",
+    "meta": "1040100120 • SPECS PER WUSTHOF",
     "image": null,
     "recallMatch": {
       "brand": [
@@ -4116,14 +4117,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -4201,7 +4202,7 @@
     "title": "Nordic Ware Naturals Baker's Half Sheet",
     "category": "kitchen",
     "receipt": null,
-    "meta": "43100 \u2022 SPECS PER NORDIC WARE",
+    "meta": "43100 • SPECS PER NORDIC WARE",
     "image": null,
     "recallMatch": {
       "brand": [
@@ -4218,14 +4219,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -4303,7 +4304,7 @@
     "title": "Dreo Atom 316 Space Heater",
     "category": "winter",
     "receipt": null,
-    "meta": "ATOM 316 \u2022 SPECS PER DREO",
+    "meta": "ATOM 316 • SPECS PER DREO",
     "image": null,
     "recallMatch": {
       "brand": [
@@ -4320,14 +4321,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -4405,7 +4406,7 @@
     "title": "Honeywell Top Fill Cool Moisture Tower Humidifier HEV615W",
     "category": "winter",
     "receipt": null,
-    "meta": "HEV615W \u2022 SPECS PER HONEYWELL",
+    "meta": "HEV615W • SPECS PER HONEYWELL",
     "image": null,
     "recallMatch": {
       "brand": [
@@ -4422,14 +4423,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -4507,7 +4508,7 @@
     "title": "Toro Power Clear 721 E Snow Blower",
     "category": "winter",
     "receipt": null,
-    "meta": "38753 \u2022 SPECS PER TORO",
+    "meta": "38753 • SPECS PER TORO",
     "image": null,
     "recallMatch": {
       "brand": [
@@ -4524,7 +4525,7 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": [
@@ -4546,19 +4547,19 @@
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": [
           {
-            "title": "Toro\u00ae Power Clear\u2122 Snow Blower and Push Recycler Mower",
+            "title": "Toro® Power Clear™ Snow Blower and Push Recycler Mower",
             "url": "https://recalls-rappels.canada.ca/en/alert-recall/toror-power-cleartm-snow-blower-and-push-recycler-mower",
             "date": "2011-04-26",
             "source": "Health Canada",
             "archived": true
           },
           {
-            "title": "Toro\u00ae Power Clear 180 Snow Blower",
+            "title": "Toro® Power Clear 180 Snow Blower",
             "url": "https://recalls-rappels.canada.ca/en/alert-recall/toror-power-clear-180-snow-blower",
             "date": "2010-07-14",
             "source": "Health Canada",
@@ -4639,7 +4640,7 @@
     "title": "PEET Original Shoe and Boot Dryer",
     "category": "winter",
     "receipt": null,
-    "meta": "ORIGINAL PEET \u2022 SPECS PER PEET",
+    "meta": "ORIGINAL PEET • SPECS PER PEET",
     "image": null,
     "recallMatch": {
       "brand": [
@@ -4656,14 +4657,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -4741,7 +4742,7 @@
     "title": "Stanley Classic Legendary Bottle, 1.5 qt",
     "category": "winter",
     "receipt": null,
-    "meta": "1.5 QT \u2022 SPECS PER STANLEY",
+    "meta": "1.5 QT • SPECS PER STANLEY",
     "image": null,
     "recallMatch": {
       "brand": [
@@ -4758,14 +4759,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -4843,7 +4844,7 @@
     "title": "Mr. Heater Portable Buddy MH9BX",
     "category": "winter",
     "receipt": null,
-    "meta": "MH9BX \u2022 SPECS PER MR. HEATER",
+    "meta": "MH9BX • SPECS PER MR. HEATER",
     "image": null,
     "recallMatch": {
       "brand": [
@@ -4861,14 +4862,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -4946,7 +4947,7 @@
     "title": "Pendleton Eco-Wise Wool Blanket, Full/Queen",
     "category": "winter",
     "receipt": null,
-    "meta": "70080 \u2022 SPECS PER PENDLETON",
+    "meta": "70080 • SPECS PER PENDLETON",
     "image": null,
     "recallMatch": {
       "brand": [
@@ -4963,14 +4964,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -5048,7 +5049,7 @@
     "title": "Vornado AVH2 Whole Room Heater",
     "category": "winter",
     "receipt": null,
-    "meta": "AVH2 \u2022 SPECS PER VORNADO",
+    "meta": "AVH2 • SPECS PER VORNADO",
     "image": null,
     "recallMatch": {
       "brand": [
@@ -5065,14 +5066,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -5150,7 +5151,7 @@
     "title": "De'Longhi Dragon 4 Radiator TRD40615E",
     "category": "winter",
     "receipt": null,
-    "meta": "TRD40615E \u2022 SPECS PER DE'LONGHI",
+    "meta": "TRD40615E • SPECS PER DE'LONGHI",
     "image": null,
     "recallMatch": {
       "brand": [
@@ -5168,14 +5169,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -5253,7 +5254,7 @@
     "title": "EGO Power+ 21-inch Snow Blower with Steel Auger",
     "category": "winter",
     "receipt": null,
-    "meta": "SNT2110 \u2022 SPECS PER EGO",
+    "meta": "SNT2110 • SPECS PER EGO",
     "image": null,
     "recallMatch": {
       "brand": [
@@ -5270,14 +5271,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -5355,7 +5356,7 @@
     "title": "Sun Joe SPX3000 Electric Pressure Washer",
     "category": "car-garage",
     "receipt": null,
-    "meta": "SPX3000 \u2022 SPECS PER SUN JOE",
+    "meta": "SPX3000 • SPECS PER SUN JOE",
     "image": null,
     "recallMatch": {
       "brand": [
@@ -5372,14 +5373,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -5457,7 +5458,7 @@
     "title": "VIAIR 88P Portable Compressor",
     "category": "car-garage",
     "receipt": null,
-    "meta": "88P \u2022 SPECS PER VIAIR",
+    "meta": "88P • SPECS PER VIAIR",
     "image": null,
     "recallMatch": {
       "brand": [
@@ -5475,14 +5476,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -5554,7 +5555,7 @@
     "title": "Innova CarScan Advisor 5210",
     "category": "car-garage",
     "receipt": null,
-    "meta": "5210 \u2022 SPECS PER INNOVA",
+    "meta": "5210 • SPECS PER INNOVA",
     "image": null,
     "recallMatch": {
       "brand": [
@@ -5571,14 +5572,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -5650,7 +5651,7 @@
     "title": "Garmin Dash Cam Mini 2",
     "category": "car-garage",
     "receipt": null,
-    "meta": "DASH CAM MINI 2 \u2022 SPECS PER GARMIN",
+    "meta": "DASH CAM MINI 2 • SPECS PER GARMIN",
     "image": null,
     "recallMatch": {
       "brand": [
@@ -5667,14 +5668,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -5746,7 +5747,7 @@
     "title": "Chamberlain B6850 Belt Drive Opener",
     "category": "car-garage",
     "receipt": null,
-    "meta": "B6850 \u2022 SPECS PER CHAMBERLAIN",
+    "meta": "B6850 • SPECS PER CHAMBERLAIN",
     "image": null,
     "recallMatch": {
       "brand": [
@@ -5763,7 +5764,7 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": [
@@ -5778,7 +5779,7 @@
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -5850,7 +5851,7 @@
     "title": "TEKTON 1/2-Inch Drive Torque Wrench 24335",
     "category": "car-garage",
     "receipt": null,
-    "meta": "24335 \u2022 SPECS PER TEKTON",
+    "meta": "24335 • SPECS PER TEKTON",
     "image": null,
     "recallMatch": {
       "brand": [
@@ -5867,14 +5868,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -5946,7 +5947,7 @@
     "title": "OBDLink MX+ Scan Tool",
     "category": "car-garage",
     "receipt": null,
-    "meta": "MX+ \u2022 SPECS PER OBDLINK",
+    "meta": "MX+ • SPECS PER OBDLINK",
     "image": null,
     "recallMatch": {
       "brand": [
@@ -5964,14 +5965,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -6043,7 +6044,7 @@
     "title": "Fluke 117 Electrician's Multimeter",
     "category": "car-garage",
     "receipt": null,
-    "meta": "FLUKE 117 \u2022 SPECS PER FLUKE",
+    "meta": "FLUKE 117 • SPECS PER FLUKE",
     "image": null,
     "recallMatch": {
       "brand": [
@@ -6060,7 +6061,7 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": [
@@ -6082,7 +6083,7 @@
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -6154,7 +6155,7 @@
     "title": "DeWalt 20V MAX Compact Drill DCD771",
     "category": "car-garage",
     "receipt": null,
-    "meta": "DCD771 \u2022 SPECS PER DEWALT",
+    "meta": "DCD771 • SPECS PER DEWALT",
     "image": null,
     "recallMatch": {
       "brand": [
@@ -6171,14 +6172,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -6250,7 +6251,7 @@
     "title": "CTEK MXS 5.0 Battery Charger",
     "category": "car-garage",
     "receipt": null,
-    "meta": "MXS 5.0 \u2022 SPECS PER CTEK",
+    "meta": "MXS 5.0 • SPECS PER CTEK",
     "image": null,
     "recallMatch": {
       "brand": [
@@ -6268,14 +6269,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -6347,7 +6348,7 @@
     "title": "BlueDriver Bluetooth Pro Scan Tool",
     "category": "car-garage",
     "receipt": null,
-    "meta": "BLUEDRIVER \u2022 SPECS PER BLUEDRIVER",
+    "meta": "BLUEDRIVER • SPECS PER BLUEDRIVER",
     "image": null,
     "recallMatch": {
       "brand": [
@@ -6364,14 +6365,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -6437,7 +6438,7 @@
     "title": "Fanttik X8 Apex Tire Inflator",
     "category": "car-garage",
     "receipt": null,
-    "meta": "X8 APEX \u2022 SPECS PER FANTTIK",
+    "meta": "X8 APEX • SPECS PER FANTTIK",
     "image": null,
     "recallMatch": {
       "brand": [
@@ -6454,14 +6455,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -6533,7 +6534,7 @@
     "title": "Honeywell HPA300 True HEPA Air Purifier",
     "category": "air-water",
     "receipt": null,
-    "meta": "HPA300 \u2022 SPECS PER HONEYWELL",
+    "meta": "HPA300 • SPECS PER HONEYWELL",
     "image": null,
     "recallMatch": {
       "brand": [
@@ -6550,14 +6551,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -6629,7 +6630,7 @@
     "title": "Blueair Blue Pure 211i Max",
     "category": "air-water",
     "receipt": null,
-    "meta": "211I MAX \u2022 SPECS PER BLUEAIR",
+    "meta": "211I MAX • SPECS PER BLUEAIR",
     "image": null,
     "recallMatch": {
       "brand": [
@@ -6647,14 +6648,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -6726,7 +6727,7 @@
     "title": "Aquasana Claryum 2-Stage Under-Sink Filter",
     "category": "air-water",
     "receipt": null,
-    "meta": "CLARYUM \u2022 SPECS PER AQUASANA",
+    "meta": "CLARYUM • SPECS PER AQUASANA",
     "image": null,
     "recallMatch": {
       "brand": [
@@ -6743,14 +6744,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -6822,7 +6823,7 @@
     "title": "Waterdrop G3P600 Reverse Osmosis System",
     "category": "air-water",
     "receipt": null,
-    "meta": "G3P600 \u2022 SPECS PER WATERDROP",
+    "meta": "G3P600 • SPECS PER WATERDROP",
     "image": null,
     "recallMatch": {
       "brand": [
@@ -6839,14 +6840,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -6918,7 +6919,7 @@
     "title": "iSpring RCC7 Reverse Osmosis System",
     "category": "air-water",
     "receipt": null,
-    "meta": "RCC7 \u2022 SPECS PER ISPRING",
+    "meta": "RCC7 • SPECS PER ISPRING",
     "image": null,
     "recallMatch": {
       "brand": [
@@ -6935,14 +6936,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -7014,7 +7015,7 @@
     "title": "APEC ROES-50 Essence Reverse Osmosis",
     "category": "air-water",
     "receipt": null,
-    "meta": "ROES-50 \u2022 SPECS PER APEC",
+    "meta": "ROES-50 • SPECS PER APEC",
     "image": null,
     "recallMatch": {
       "brand": [
@@ -7031,14 +7032,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -7110,7 +7111,7 @@
     "title": "Coway Airmega 250 Air Purifier",
     "category": "air-water",
     "receipt": null,
-    "meta": "AIRMEGA 250 \u2022 SPECS PER COWAY",
+    "meta": "AIRMEGA 250 • SPECS PER COWAY",
     "image": null,
     "recallMatch": {
       "brand": [
@@ -7127,14 +7128,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -7206,7 +7207,7 @@
     "title": "Winix 5500-2 Air Purifier",
     "category": "air-water",
     "receipt": null,
-    "meta": "5500-2 \u2022 SPECS PER WINIX",
+    "meta": "5500-2 • SPECS PER WINIX",
     "image": null,
     "recallMatch": {
       "brand": [
@@ -7223,14 +7224,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -7308,7 +7309,7 @@
     "title": "Dremel 7760 Pet Nail Grooming Kit",
     "category": "pet",
     "receipt": null,
-    "meta": "7760 \u2022 SPECS PER DREMEL",
+    "meta": "7760 • SPECS PER DREMEL",
     "image": null,
     "recallMatch": {
       "brand": [
@@ -7325,14 +7326,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -7404,7 +7405,7 @@
     "title": "PetSafe ScoopFree Crystal Plus Litter Box",
     "category": "pet",
     "receipt": null,
-    "meta": "PAL00-18016 \u2022 SPECS PER PETSAFE",
+    "meta": "PAL00-18016 • SPECS PER PETSAFE",
     "image": null,
     "recallMatch": {
       "brand": [
@@ -7422,14 +7423,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -7501,7 +7502,7 @@
     "title": "Catit Flower Fountain",
     "category": "pet",
     "receipt": null,
-    "meta": "FLOWER FOUNTAIN \u2022 SPECS PER CATIT",
+    "meta": "FLOWER FOUNTAIN • SPECS PER CATIT",
     "image": null,
     "recallMatch": {
       "brand": [
@@ -7518,14 +7519,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -7597,7 +7598,7 @@
     "title": "Feliway Optimum Diffuser",
     "category": "pet",
     "receipt": null,
-    "meta": "FELIWAY OPTIMUM \u2022 SPECS PER FELIWAY",
+    "meta": "FELIWAY OPTIMUM • SPECS PER FELIWAY",
     "image": null,
     "recallMatch": {
       "brand": [
@@ -7614,14 +7615,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -7693,7 +7694,7 @@
     "title": "KONG Classic Dog Toy",
     "category": "pet",
     "receipt": null,
-    "meta": "KONG CLASSIC \u2022 SPECS PER KONG",
+    "meta": "KONG CLASSIC • SPECS PER KONG",
     "image": null,
     "recallMatch": {
       "brand": [
@@ -7710,14 +7711,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -7789,7 +7790,7 @@
     "title": "Whisker Feeder-Robot",
     "category": "pet",
     "receipt": null,
-    "meta": "FEEDER-ROBOT \u2022 SPECS PER WHISKER",
+    "meta": "FEEDER-ROBOT • SPECS PER WHISKER",
     "image": null,
     "recallMatch": {
       "brand": [
@@ -7806,14 +7807,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -7885,7 +7886,7 @@
     "title": "Sleepypod Clickit Sport Harness",
     "category": "pet",
     "receipt": null,
-    "meta": "CLICKIT SPORT \u2022 SPECS PER SLEEPYPOD",
+    "meta": "CLICKIT SPORT • SPECS PER SLEEPYPOD",
     "image": null,
     "recallMatch": {
       "brand": [
@@ -7902,14 +7903,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -7981,7 +7982,7 @@
     "title": "Furbo 360 Dog Camera",
     "category": "pet",
     "receipt": null,
-    "meta": "FURBO 360 \u2022 SPECS PER FURBO",
+    "meta": "FURBO 360 • SPECS PER FURBO",
     "image": null,
     "recallMatch": {
       "brand": [
@@ -7998,14 +7999,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -8077,7 +8078,7 @@
     "title": "Casper Original Foam Mattress",
     "category": "sleep",
     "receipt": null,
-    "meta": "ORIGINAL FOAM \u2022 SPECS PER CASPER",
+    "meta": "ORIGINAL FOAM • SPECS PER CASPER",
     "image": null,
     "recallMatch": {
       "brand": [
@@ -8094,14 +8095,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -8173,7 +8174,7 @@
     "title": "Saatva Classic Mattress",
     "category": "sleep",
     "receipt": null,
-    "meta": "SAATVA CLASSIC \u2022 SPECS PER SAATVA",
+    "meta": "SAATVA CLASSIC • SPECS PER SAATVA",
     "image": null,
     "recallMatch": {
       "brand": [
@@ -8190,14 +8191,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -8269,7 +8270,7 @@
     "title": "Coop Original Pillow",
     "category": "sleep",
     "receipt": null,
-    "meta": "ORIGINAL PILLOW \u2022 SPECS PER COOP SLEEP GOODS",
+    "meta": "ORIGINAL PILLOW • SPECS PER COOP SLEEP GOODS",
     "image": null,
     "recallMatch": {
       "brand": [
@@ -8287,14 +8288,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -8366,7 +8367,7 @@
     "title": "Hatch Restore 3",
     "category": "sleep",
     "receipt": null,
-    "meta": "RESTORE 3 \u2022 SPECS PER HATCH",
+    "meta": "RESTORE 3 • SPECS PER HATCH",
     "image": null,
     "recallMatch": {
       "brand": [
@@ -8383,14 +8384,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -8462,7 +8463,7 @@
     "title": "LectroFan Classic White Noise Machine",
     "category": "sleep",
     "receipt": null,
-    "meta": "LECTROFAN CLASSIC \u2022 SPECS PER ADAPTIVE SOUND TECHNOLOGIES",
+    "meta": "LECTROFAN CLASSIC • SPECS PER ADAPTIVE SOUND TECHNOLOGIES",
     "image": null,
     "recallMatch": {
       "brand": [
@@ -8479,7 +8480,7 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": [
@@ -8494,7 +8495,7 @@
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -8566,7 +8567,7 @@
     "title": "Steelcase Leap Chair",
     "category": "sleep",
     "receipt": null,
-    "meta": "LEAP \u2022 SPECS PER STEELCASE",
+    "meta": "LEAP • SPECS PER STEELCASE",
     "image": null,
     "recallMatch": {
       "brand": [
@@ -8583,14 +8584,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -8662,7 +8663,7 @@
     "title": "Zinus 12-Inch Green Tea Memory Foam Mattress",
     "category": "sleep",
     "receipt": null,
-    "meta": "GREEN TEA \u2022 SPECS PER ZINUS",
+    "meta": "GREEN TEA • SPECS PER ZINUS",
     "image": null,
     "recallMatch": {
       "brand": [
@@ -8679,14 +8680,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -8758,7 +8759,7 @@
     "title": "Manta Sleep Mask",
     "category": "sleep",
     "receipt": null,
-    "meta": "MANTA SLEEP MASK \u2022 SPECS PER MANTA",
+    "meta": "MANTA SLEEP MASK • SPECS PER MANTA",
     "image": null,
     "recallMatch": {
       "brand": [
@@ -8775,14 +8776,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -8854,7 +8855,7 @@
     "title": "Buffy Cloud Comforter",
     "category": "sleep",
     "receipt": null,
-    "meta": "CLOUD COMFORTER \u2022 SPECS PER BUFFY",
+    "meta": "CLOUD COMFORTER • SPECS PER BUFFY",
     "image": null,
     "recallMatch": {
       "brand": [
@@ -8871,14 +8872,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -8950,7 +8951,7 @@
     "title": "Philips SmartSleep Wake-up Light HF3520",
     "category": "sleep",
     "receipt": null,
-    "meta": "HF3520 \u2022 SPECS PER PHILIPS",
+    "meta": "HF3520 • SPECS PER PHILIPS",
     "image": null,
     "recallMatch": {
       "brand": [
@@ -8967,14 +8968,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -9046,7 +9047,7 @@
     "title": "Oral-B iO Series 3 Toothbrush",
     "category": "personal-tech",
     "receipt": null,
-    "meta": "IO SERIES 3 \u2022 SPECS PER ORAL-B",
+    "meta": "IO SERIES 3 • SPECS PER ORAL-B",
     "image": null,
     "recallMatch": {
       "brand": [
@@ -9064,14 +9065,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -9143,7 +9144,7 @@
     "title": "Garmin Forerunner 265",
     "category": "personal-tech",
     "receipt": null,
-    "meta": "FORERUNNER 265 \u2022 SPECS PER GARMIN",
+    "meta": "FORERUNNER 265 • SPECS PER GARMIN",
     "image": null,
     "recallMatch": {
       "brand": [
@@ -9160,14 +9161,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -9239,7 +9240,7 @@
     "title": "JBL Charge 5 Speaker",
     "category": "personal-tech",
     "receipt": null,
-    "meta": "CHARGE 5 \u2022 SPECS PER JBL",
+    "meta": "CHARGE 5 • SPECS PER JBL",
     "image": null,
     "recallMatch": {
       "brand": [
@@ -9256,14 +9257,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -9335,7 +9336,7 @@
     "title": "GoPro HERO13 Black",
     "category": "personal-tech",
     "receipt": null,
-    "meta": "HERO13 \u2022 SPECS PER GOPRO",
+    "meta": "HERO13 • SPECS PER GOPRO",
     "image": null,
     "recallMatch": {
       "brand": [
@@ -9353,14 +9354,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -9432,7 +9433,7 @@
     "title": "Shokz OpenRun Pro 2",
     "category": "personal-tech",
     "receipt": null,
-    "meta": "OPENRUN PRO 2 \u2022 SPECS PER SHOKZ",
+    "meta": "OPENRUN PRO 2 • SPECS PER SHOKZ",
     "image": null,
     "recallMatch": {
       "brand": [
@@ -9449,14 +9450,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -9528,7 +9529,7 @@
     "title": "Philips Norelco OneBlade 360 QP4631",
     "category": "personal-tech",
     "receipt": null,
-    "meta": "QP4631 \u2022 SPECS PER PHILIPS NORELCO",
+    "meta": "QP4631 • SPECS PER PHILIPS NORELCO",
     "image": null,
     "recallMatch": {
       "brand": [
@@ -9547,14 +9548,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -9626,7 +9627,7 @@
     "title": "Apple AirPods Pro 3",
     "category": "personal-tech",
     "receipt": null,
-    "meta": "AIRPODS PRO 3 \u2022 SPECS PER APPLE",
+    "meta": "AIRPODS PRO 3 • SPECS PER APPLE",
     "image": null,
     "recallMatch": {
       "brand": [
@@ -9643,14 +9644,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -9722,7 +9723,7 @@
     "title": "Anker Nano 30W USB-C Charger",
     "category": "personal-tech",
     "receipt": null,
-    "meta": "A2147 \u2022 SPECS PER ANKER",
+    "meta": "A2147 • SPECS PER ANKER",
     "image": null,
     "recallMatch": {
       "brand": [
@@ -9740,14 +9741,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -9813,7 +9814,7 @@
     "title": "Bose QuietComfort Ultra Headphones",
     "category": "personal-tech",
     "receipt": null,
-    "meta": "QUIETCOMFORT ULTRA \u2022 SPECS PER BOSE",
+    "meta": "QUIETCOMFORT ULTRA • SPECS PER BOSE",
     "image": null,
     "recallMatch": {
       "brand": [
@@ -9830,14 +9831,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -9909,7 +9910,7 @@
     "title": "Logitech MX Master 3S",
     "category": "personal-tech",
     "receipt": null,
-    "meta": "MX MASTER 3S \u2022 SPECS PER LOGITECH",
+    "meta": "MX MASTER 3S • SPECS PER LOGITECH",
     "image": null,
     "recallMatch": {
       "brand": [
@@ -9926,14 +9927,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -10005,7 +10006,7 @@
     "title": "Sonos Era 100",
     "category": "personal-tech",
     "receipt": null,
-    "meta": "ERA 100 \u2022 SPECS PER SONOS",
+    "meta": "ERA 100 • SPECS PER SONOS",
     "image": null,
     "recallMatch": {
       "brand": [
@@ -10022,14 +10023,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -10101,7 +10102,7 @@
     "title": "Therabody Theragun Prime",
     "category": "personal-tech",
     "receipt": null,
-    "meta": "THERAGUN PRIME \u2022 SPECS PER THERABODY",
+    "meta": "THERAGUN PRIME • SPECS PER THERABODY",
     "image": null,
     "recallMatch": {
       "brand": [
@@ -10119,14 +10120,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": [
@@ -10206,7 +10207,7 @@
     "title": "Baratza Encore ESP",
     "category": "kitchen",
     "receipt": null,
-    "meta": "ENCORE ESP \u2022 SPECS PER BARATZA",
+    "meta": "ENCORE ESP • SPECS PER BARATZA",
     "image": null,
     "recallMatch": {
       "brand": [
@@ -10224,14 +10225,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -10309,7 +10310,7 @@
     "title": "Keychron V3 Mechanical Keyboard",
     "category": "personal-tech",
     "receipt": null,
-    "meta": "V3 \u2022 SPECS PER KEYCHRON",
+    "meta": "V3 • SPECS PER KEYCHRON",
     "image": null,
     "recallMatch": {
       "brand": [
@@ -10326,14 +10327,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -10411,7 +10412,7 @@
     "title": "Ninja CREAMi 7-in-1 Ice Cream Maker NC301",
     "category": "kitchen",
     "receipt": null,
-    "meta": "NC301 \u2022 SPECS PER NINJA",
+    "meta": "NC301 • SPECS PER NINJA",
     "image": null,
     "recallMatch": {
       "brand": [
@@ -10429,14 +10430,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -10514,7 +10515,7 @@
     "title": "Helix Midnight Mattress",
     "category": "sleep",
     "receipt": null,
-    "meta": "MIDNIGHT \u2022 SPECS PER HELIX",
+    "meta": "MIDNIGHT • SPECS PER HELIX",
     "image": null,
     "recallMatch": {
       "brand": [
@@ -10531,14 +10532,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -10604,7 +10605,7 @@
     "title": "Levoit Vital 200S-P Air Purifier",
     "category": "air-water",
     "receipt": null,
-    "meta": "VITAL 200S-P \u2022 SPECS PER LEVOIT",
+    "meta": "VITAL 200S-P • SPECS PER LEVOIT",
     "image": null,
     "recallMatch": {
       "brand": [
@@ -10622,14 +10623,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -10707,7 +10708,7 @@
     "title": "Waterpik Aquarius Water Flosser WP-660",
     "category": "personal-tech",
     "receipt": null,
-    "meta": "WP-660 \u2022 SPECS PER WATERPIK",
+    "meta": "WP-660 • SPECS PER WATERPIK",
     "image": null,
     "recallMatch": {
       "brand": [
@@ -10724,14 +10725,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -10809,7 +10810,7 @@
     "title": "Levoit LV600HH Hybrid Ultrasonic Humidifier",
     "category": "air-water",
     "receipt": null,
-    "meta": "LV600HH \u2022 SPECS PER LEVOIT",
+    "meta": "LV600HH • SPECS PER LEVOIT",
     "image": null,
     "recallMatch": {
       "brand": [
@@ -10826,14 +10827,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -10911,7 +10912,7 @@
     "title": "ZeroWater 10-Cup Pitcher ZP-010",
     "category": "air-water",
     "receipt": null,
-    "meta": "ZP-010 \u2022 SPECS PER ZEROWATER",
+    "meta": "ZP-010 • SPECS PER ZEROWATER",
     "image": null,
     "recallMatch": {
       "brand": [
@@ -10929,14 +10930,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -11014,7 +11015,7 @@
     "title": "Levoit Core 600S-P Smart Air Purifier",
     "category": "air-water",
     "receipt": null,
-    "meta": "CORE 600S-P \u2022 SPECS PER LEVOIT",
+    "meta": "CORE 600S-P • SPECS PER LEVOIT",
     "image": null,
     "recallMatch": {
       "brand": [
@@ -11032,14 +11033,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -11105,7 +11106,7 @@
     "title": "hOmeLabs 50 Pint Wi-Fi Dehumidifier",
     "category": "air-water",
     "receipt": null,
-    "meta": "50 PINT \u2022 SPECS PER HOMELABS",
+    "meta": "50 PINT • SPECS PER HOMELABS",
     "image": null,
     "recallMatch": {
       "brand": [
@@ -11122,14 +11123,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -11207,7 +11208,7 @@
     "title": "Pioneer Pet Raindrop Stainless Fountain 6023",
     "category": "pet",
     "receipt": null,
-    "meta": "6023 \u2022 SPECS PER PIONEER PET",
+    "meta": "6023 • SPECS PER PIONEER PET",
     "image": null,
     "recallMatch": {
       "brand": [
@@ -11224,14 +11225,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -11309,7 +11310,7 @@
     "title": "PetSafe Easy Walk Harness",
     "category": "pet",
     "receipt": null,
-    "meta": "EASY WALK \u2022 SPECS PER PETSAFE",
+    "meta": "EASY WALK • SPECS PER PETSAFE",
     "image": null,
     "recallMatch": {
       "brand": [
@@ -11326,14 +11327,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -11405,7 +11406,7 @@
     "title": "PetSafe Healthy Pet Simply Feed",
     "category": "pet",
     "receipt": null,
-    "meta": "PFD00-14574 \u2022 SPECS PER PETSAFE",
+    "meta": "PFD00-14574 • SPECS PER PETSAFE",
     "image": null,
     "recallMatch": {
       "brand": [
@@ -11423,14 +11424,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -11508,7 +11509,7 @@
     "title": "Kurgo Tru-Fit Smart Dog Harness",
     "category": "pet",
     "receipt": null,
-    "meta": "K01174 \u2022 SPECS PER KURGO",
+    "meta": "K01174 • SPECS PER KURGO",
     "image": null,
     "recallMatch": {
       "brand": [
@@ -11526,14 +11527,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -11611,7 +11612,7 @@
     "title": "Outward Hound Fun Feeder Slo Bowl",
     "category": "pet",
     "receipt": null,
-    "meta": "SLO BOWL \u2022 SPECS PER OUTWARD HOUND",
+    "meta": "SLO BOWL • SPECS PER OUTWARD HOUND",
     "image": null,
     "recallMatch": {
       "brand": [
@@ -11628,14 +11629,14 @@
     "recall": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-10",
+        "checkedAt": "2026-11-11",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []

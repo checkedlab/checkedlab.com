@@ -6,6 +6,12 @@
   <atom:link href="https://www.checkedlab.com/recalls/feed.xml" rel="self" type="application/rss+xml"/>
   <description>Items are added when a catalogue model's United States or Canada recall record changes. A new check date alone does not add an item.</description>
   <language>en</language>
-
+  <item>
+    <title>Cuisinart Custom 14-Cup Food Processor DFP-14BCNY</title>
+    <link>https://www.checkedlab.com/kitchen/cuisinart-dfp-14bcny/</link>
+    <guid isPermaLink="false">https://www.checkedlab.com/kitchen/cuisinart-dfp-14bcny/#7fc1d1303714</guid>
+    <pubDate>Wed, 11 Nov 2026 00:00:00 GMT</pubDate>
+    <description>Cuisinart Custom 14-Cup Food Processor DFP-14BCNY. A US recall matches this model. No Canadian recall found as of 2026-11-11. An official notice for a different model is linked from the recall checks page.</description>
+  </item>
 </channel>
 </rss>
