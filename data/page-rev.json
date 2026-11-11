@@ -152,7 +152,7 @@
     "lastmod": "2026-11-11"
   },
   "/kitchen/": {
-    "hash": "fd48e9fd2b0744a69b4d9f42c0d1e2782c038b854e5bd1097af43f8ddc85c161",
+    "hash": "fb5048c2c122408f4d0f67b5238eedf8672cac4c7da7826ff0405e8325e90048",
     "lastmod": "2026-11-11"
   },
   "/kitchen/aeropress-original/": {
@@ -184,7 +184,7 @@
     "lastmod": "2026-11-11"
   },
   "/kitchen/cosori-pro-5-8/": {
-    "hash": "90bab390c7f14212f85836ebb32a6934853b7d8fed727aa4ee2b7d844691bb69",
+    "hash": "321733da6171e12075b79da812c1ab1213c3f560feb7c8118f532cbc946bfa9d",
     "lastmod": "2026-11-11"
   },
   "/kitchen/cuisinart-dfp-14bcny/": {
@@ -196,7 +196,7 @@
     "lastmod": "2026-11-11"
   },
   "/kitchen/instant-pot-duo-plus/": {
-    "hash": "9ea6a0729596de79898607b21a8febf7806a7f22b0564af559ef4920e1bc1a1a",
+    "hash": "abce62dd705f61cb0ec35ab2f5917d234be53191361d9a16abffb97de8a7ac29",
     "lastmod": "2026-11-11"
   },
   "/kitchen/kitchenaid-artisan/": {
@@ -220,11 +220,11 @@
     "lastmod": "2026-11-11"
   },
   "/kitchen/ninja-crispi-fn101/": {
-    "hash": "5297923253d27599866779adfe09e20dc5ffd67bfadaf2dee90b33791242034d",
+    "hash": "b0115aed6091e86a7cb3331250fc8aff45c9d0ba968c4c1b777ab725d68c72d9",
     "lastmod": "2026-11-11"
   },
   "/kitchen/ninja-foodi-10in1/": {
-    "hash": "1618d74a9a80fb9dde31ba70d7ffaf2d8157100b01e17cc61f39ddc62726c0bc",
+    "hash": "9ed4c0e17f9bf73648f97b02591a2a39a9e68cc097aa740ce802d59ad006f9c6",
     "lastmod": "2026-11-11"
   },
   "/kitchen/nordic-ware-43100/": {
@@ -232,7 +232,7 @@
     "lastmod": "2026-11-11"
   },
   "/kitchen/vitamix-e310/": {
-    "hash": "354ff61c36dad145e02052abcd41618af7ead4feafe8adc2241cf373a243c67f",
+    "hash": "e749e7799d93ffdf6fb0b703c4386318f4014505c584af8911eae1d10ce39d1f",
     "lastmod": "2026-11-11"
   },
   "/kitchen/wusthof-classic-8/": {
@@ -244,7 +244,7 @@
     "lastmod": "2026-11-11"
   },
   "/personal-tech/": {
-    "hash": "ff9b06be447176f1e0c6f8ac8adabfc0d3b279d979dd3c953a1274f54bb33ccf",
+    "hash": "9143c8f8fd26051b4d02ef5e6096a0b4a02366ca9a2bf42b99c279a497e487ee",
     "lastmod": "2026-11-11"
   },
   "/personal-tech/airpods-pro-3/": {
@@ -252,7 +252,7 @@
     "lastmod": "2026-11-11"
   },
   "/personal-tech/anker-a1289/": {
-    "hash": "ea0ae1b50b4874e398a7eb556de2276ee49ae52f22cb431bddd2262829d3cab0",
+    "hash": "f22fc7a215fdfb1dd16f3fde666ff1f8fbaab602f60285c45b45d5d4b8a23e68",
     "lastmod": "2026-11-11"
   },
   "/personal-tech/anker-nano-30w/": {
@@ -388,7 +388,31 @@
     "lastmod": "2026-11-11"
   },
   "/recalls/": {
-    "hash": "1c8373a18202aa61723737bd383449fd02523c7bdbc48cc46a0c0844f05c40a8",
+    "hash": "b755983f0a3e1575416429642431e123bc4b3e093cc07a163bc1ce6df7820326",
+    "lastmod": "2026-11-11"
+  },
+  "/recalls/anker-power-banks/": {
+    "hash": "95661ba9ad2526c2d72c95fa52cdff9417d5d914c18a249649dbffb76f1d0ac9",
+    "lastmod": "2026-11-11"
+  },
+  "/recalls/cosori-air-fryer-2023/": {
+    "hash": "f53aa8f20f0cc71f122f0107d26e2d0d376773fafa3f003a1788ff5ae8bf2df2",
+    "lastmod": "2026-11-11"
+  },
+  "/recalls/instant-pot-official-notices/": {
+    "hash": "ed9dfdc6e758abb8e291115fbccf936d430312f266df7497757d2bb98e481d99",
+    "lastmod": "2026-11-11"
+  },
+  "/recalls/lasko-heaters/": {
+    "hash": "846f5f920fa943346e6a524b416467694d3accf0c945cd0b9ced52b205eca32a",
+    "lastmod": "2026-11-11"
+  },
+  "/recalls/ninja-foodi-op300/": {
+    "hash": "2ba1b7ee3f7f7d4d0156e4315421903144f52794339621b67b35cec36c64d643",
+    "lastmod": "2026-11-11"
+  },
+  "/recalls/vitamix-ascent-venturist-containers/": {
+    "hash": "8fee11f2dcd6df90ccfbbad35f726ce9fa84726ec687adc323e411ba92485027",
     "lastmod": "2026-11-11"
   },
   "/sleep/": {
@@ -456,7 +480,7 @@
     "lastmod": "2026-11-11"
   },
   "/winter/": {
-    "hash": "f895f459576d6594d35b930f40ea5f152dd18ae1d374f5f08343bebb212db6e6",
+    "hash": "29edfadaa938830b8c55107a4e8dc08076ce3130fc28147508762e53fab40f22",
     "lastmod": "2026-11-11"
   },
   "/winter/delonghi-trd40615e/": {
@@ -476,11 +500,11 @@
     "lastmod": "2026-11-11"
   },
   "/winter/lasko-ct14401/": {
-    "hash": "d56862d322d7f0938d3a14d242f0213bc75710f8dde62ba9fe840bba8d50068f",
+    "hash": "9e755b2f643649b845b9fb0b7d26131ef836102a42a7d8ec01cb4089fee42768",
     "lastmod": "2026-11-11"
   },
   "/winter/lasko-ct32150/": {
-    "hash": "597b0467aad711bfe827fbfb17bc00dc3772c71da578847e36756a7fca61387a",
+    "hash": "b4db28f833d169e82090c94df48b9838d282471cbb1d1123cdb810ba18aaa94a",
     "lastmod": "2026-11-11"
   },
   "/winter/levoit-classic-300s/": {

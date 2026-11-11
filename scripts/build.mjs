@@ -70,6 +70,7 @@ const CA_DATASET_PAGE = "https://open.canada.ca/data/en/dataset/d38de914-c94c-42
 
 const products = JSON.parse(readFileSync(join(root, "products.json"), "utf8"));
 const recalls = JSON.parse(readFileSync(join(root, "recalls.json"), "utf8"));
+const explainers = JSON.parse(readFileSync(join(root, "data", "explainers.json"), "utf8"));
 assertProducts(products);
 assertRenderer();
 
@@ -83,9 +84,14 @@ for (const hub of HUBS) {
   html = ensureImagePreload(html, lead);
   html = pointItemList(html, hub);
   html = ensureChrome(ensureFontPreload(ensureCardScript(html)), hub);
-  const hubRecall = '<p class="lede"><a href="/recalls/">Recall checks</a> for ' + card.esc(HUB_NAME[hub]) + " models.</p>\n";
-  if (!html.includes("Recall checks</a> for " + HUB_NAME[hub])) {
-    html = html.replace('<div class="wrap">\n<div id="product-mount"', '<div class="wrap">\n' + hubRecall + '<div id="product-mount"');
+  const hubExtra = explainers.filter((entry) => entry.hub === hub).map((entry) =>
+    '<a href="/recalls/' + entry.slug + '/">' + card.esc(entry.linkLabel) + "</a>"
+  ).join(" ");
+  const hubBase = '<p class="lede"><a href="/recalls/">Recall checks</a> for ' + card.esc(HUB_NAME[hub]) + " models.</p>";
+  const hubNext = '<p class="lede"><a href="/recalls/">Recall checks</a> for ' + card.esc(HUB_NAME[hub]) + " models." + (hubExtra ? " " + hubExtra + "." : "") + "</p>";
+  if (html.includes(hubBase)) html = html.replace(hubBase, hubNext);
+  else if (!html.includes("Recall checks</a> for " + HUB_NAME[hub])) {
+    html = html.replace('<div class="wrap">\n<div id="product-mount"', '<div class="wrap">\n' + hubNext + '\n<div id="product-mount"');
   }
   writeFileSync(file, html);
 }
@@ -139,6 +145,7 @@ for (const rel of ["how-we-check/index.html", "404.html"]) {
 
 const ordered = catalogueOrder(products);
 writeRecallsPage(ordered);
+writeExplainers();
 writeRecallFeed(ordered);
 const lastmods = stampPages(ordered);
 writeSitemap(pages, lastmods);
@@ -376,6 +383,9 @@ function siblingLinks(product) {
     '<a href="/' + product.category + '/">' + card.esc(HUB_NAME[product.category]) + "</a>",
     '<a href="/recalls/">Recall checks</a>',
     '<a href="/how-we-check/">How we check</a>',
+    ...explainers.filter((entry) => entry.products.includes(product.id)).map((entry) =>
+      '<a href="/recalls/' + entry.slug + '/">' + card.esc(entry.linkLabel) + "</a>"
+    ),
     ...picks.map((item) => '<a href="' + card.productPath(item) + '">' + card.esc(item.title) + "</a>")
   ];
   return '<p class="lede">' + links.join(" ") + "</p>";
@@ -762,6 +772,148 @@ function recallsJsonLd(ordered, date) {
   return JSON.stringify(graph, null, 2).replace(/</g, "\\u003c");
 }
 
+function explainerIndex() {
+  return '<section id="explainers"><h2>Official notice explainers</h2><ul>' + explainers.map((entry) =>
+    '<li><a href="/recalls/' + entry.slug + '/">' + card.esc(entry.title) + "</a></li>"
+  ).join("") + "</ul></section>";
+}
+
+function explainerJsonLd(entry) {
+  const url = ORIGIN + "/recalls/" + entry.slug + "/";
+  const graph = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: ORIGIN + "/" },
+          { "@type": "ListItem", position: 2, name: "Recall checks", item: ORIGIN + "/recalls/" },
+          { "@type": "ListItem", position: 3, name: entry.title, item: url }
+        ]
+      },
+      {
+        "@type": "Article",
+        headline: entry.title,
+        description: entry.description,
+        dateModified: recalls.checkedAt,
+        inLanguage: "en",
+        mainEntityOfPage: url
+      }
+    ]
+  };
+  assertNoCommerce(graph);
+  const types = graph["@graph"].map((node) => node["@type"]);
+  if (types.join(",") !== "BreadcrumbList,Article") throw new Error("Explainer schema on " + entry.slug);
+  return JSON.stringify(graph, null, 2).replace(/</g, "\\u003c");
+}
+
+function noticeHtml(notice) {
+  if (!notice.url || !/^https:\/\//.test(notice.url)) throw new Error("Explainer notice needs an https URL");
+  if (!Array.isArray(notice.models) || !notice.models.length) throw new Error("Explainer notice needs model text");
+  const models = '<ul class="model-list">' + notice.models.map((model) => "<li>" + card.esc(model) + "</li>").join("") + "</ul>";
+  return '<section class="notice"><h2>' + card.esc(notice.agency) + " · " + card.esc(notice.date) + "</h2>" +
+    '<p><a href="' + href(notice.url) + '" target="_blank" rel="noopener">' + card.esc(notice.title) + "</a></p>" +
+    "<h3>What the notice says</h3><p>" + card.esc(notice.says) + "</p>" +
+    "<h3>" + card.esc(notice.modelsLabel) + "</h3>" + models +
+    "<h3>How to check your model</h3><p>" + card.esc(notice.howToCheck) + "</p>" +
+    "<h3>What the notice tells owners to do</h3><p>" + card.esc(notice.remedy) + "</p></section>";
+}
+
+function catalogueHtml(entry) {
+  const rows = entry.products.map((id) => {
+    const product = products.find((item) => item.id === id);
+    if (!product) throw new Error("Explainer is missing catalogue id " + id);
+    const us = recallSentence(card.recallFor(product, "US"), "US");
+    const ca = recallSentence(card.recallFor(product, "CA"), "Canadian");
+    return '<li><a href="' + card.productPath(product) + '">' + card.esc(product.title) + "</a>. " + card.esc(us) + " " + card.esc(ca) + "</li>";
+  }).join("");
+  return "<h2>Checked Lab catalogue</h2><p>" + card.esc(entry.catalogue) + "</p><ul>" + rows + "</ul>" +
+    '<p class="lede"><a href="/recalls/">All recall checks</a> <a href="/' + entry.hub + '/">' + card.esc(HUB_NAME[entry.hub]) + "</a> <a href=\"/how-we-check/\">How we check</a></p>";
+}
+
+function writeExplainers() {
+  if (explainers.length !== 6) throw new Error("Expected six explainer pages");
+  const slugs = new Set();
+  for (const entry of explainers) {
+    if (!/^[a-z0-9-]+$/.test(entry.slug) || slugs.has(entry.slug)) throw new Error("Bad explainer slug");
+    slugs.add(entry.slug);
+    const url = ORIGIN + "/recalls/" + entry.slug + "/";
+    const html = `<!DOCTYPE html>
+<html lang="en" data-region="US">
+<head>
+<meta charset="UTF-8">
+<link rel="canonical" href="${url}">
+<script src="/assets/region-boot.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>${card.esc(entry.title)} — Checked Lab</title>
+<meta name="description" content="${card.esc(entry.description)}">
+<meta property="og:title" content="${card.esc(entry.title)} — Checked Lab">
+<meta property="og:description" content="${card.esc(entry.description)}">
+<meta property="og:type" content="article">
+<meta property="og:url" content="${url}">
+<meta property="og:image" content="${ORIGIN}/assets/og.png">
+<link rel="icon" type="image/png" href="/favicon.png">
+${FONT_PRELOAD}
+<link rel="stylesheet" href="/assets/site.css">
+<meta name="theme-color" content="#F5F5F7">
+<script type="application/ld+json">
+${explainerJsonLd(entry)}
+</script>
+</head>
+<body data-page="recalls">
+${DISCLOSURE}
+<div class="topbar"><span>● CHECKED LAB • EST 2026 • NO SPONSORS</span><span>hello@checkedlab.com • press@checkedlab.com • legal@checkedlab.com</span></div>
+<div class="masthead">
+<header>
+<a class="logo" href="/">CHECKED LAB <i>CHECKED BEFORE YOU BUY</i></a>
+<div class="header-actions">
+<div class="country-switch">
+<button type="button" data-region-set="US">US</button>
+<button type="button" data-region-set="CA">CA</button>
+</div>
+<nav>
+<a href="/recalls/" aria-current="page">RECALL CHECKS</a>
+<a href="/how-we-check/">HOW WE CHECK</a>
+<a href="/bin-list/">BIN LIST</a>
+</nav>
+</div>
+</header>
+${nav("recalls")}
+</div>
+<main>
+<div class="wrap prose">
+<nav class="crumbs" aria-label="Breadcrumb">
+<a href="/">Home</a>
+<span aria-hidden="true">/</span>
+<a href="/recalls/">Recall checks</a>
+<span aria-hidden="true">/</span>
+<span aria-current="page">${card.esc(entry.title)}</span>
+</nav>
+<h1>${card.esc(entry.title)}</h1>
+<p class="lede">${card.esc(entry.description)} Catalogue lines below use the ${card.esc(recalls.checkedAt)} (UTC) check.</p>
+${entry.notices.map(noticeHtml).join("\n")}
+${catalogueHtml(entry)}
+</div>
+</main>
+<footer>
+<div class="foot">
+<p>As an Amazon Associate I earn from qualifying purchases.</p>
+<p>© 2026 CHECKED LAB<br>Winnipeg, MB</p>
+<p class="foot-mail"><a href="/recalls/">Recall checks</a><a href="/how-we-check/">How we check</a><a href="/bin-list/">BIN list</a><a href="mailto:hello@checkedlab.com">hello@</a><a href="mailto:support@checkedlab.com">support@</a><a href="mailto:press@checkedlab.com">press@</a><a href="mailto:legal@checkedlab.com">legal@</a></p>
+</div>
+</footer>
+<script src="/assets/site.js" defer></script>
+</body>
+</html>
+`;
+    if (/\$\d/.test(html) || /we tested|we bought|does not test/i.test(html)) {
+      throw new Error("Explainer has a disallowed claim: " + entry.slug);
+    }
+    mkdirSync(join(root, "recalls", entry.slug), { recursive: true });
+    writeFileSync(join(root, "recalls", entry.slug, "index.html"), html);
+  }
+}
+
 function writeRecallsPage(ordered) {
   const date = recalls.checkedAt || "";
   const usSource = (recalls.sources && recalls.sources.us && recalls.sources.us.url) || "https://www.saferproducts.gov/RestWebServices/Recall";
@@ -841,6 +993,7 @@ ${regionColumn(ordered, "us", "US")}
 ${regionColumn(ordered, "ca", "Canadian")}
 </section>
 </div>
+${explainerIndex()}
 ${categorySection(date)}
 </div>
 </main>
@@ -958,6 +1111,7 @@ function stampPages(ordered) {
     ["/how-we-check/", join(root, "how-we-check", "index.html")],
     ["/bin-list/", join(root, "bin-list", "index.html")],
     ["/recalls/", join(root, "recalls", "index.html")],
+    ...explainers.map((entry) => ["/recalls/" + entry.slug + "/", join(root, "recalls", entry.slug, "index.html")]),
     ...ordered.filter(indexable).map((product) => [card.productPath(product), join(root, product.category, product.id, "index.html")])
   ];
   const today = new Date().toISOString().slice(0, 10);
@@ -983,7 +1137,8 @@ function writeSitemap(pages, lastmods) {
     ...HUBS.map((hub) => "/" + hub + "/"),
     "/how-we-check/",
     "/bin-list/",
-    "/recalls/"
+    "/recalls/",
+    ...explainers.map((entry) => "/recalls/" + entry.slug + "/")
   ];
   const lines = [
     '<?xml version="1.0" encoding="UTF-8"?>',
@@ -1135,8 +1290,13 @@ function verifyOutput(pages) {
   const sitemap = readFileSync(join(root, "sitemap.xml"), "utf8");
   const indexed = pages.filter(indexable);
   const locCount = (sitemap.match(/<loc>/g) || []).length;
-  if (locCount !== 11 + indexed.length || locCount !== 129) {
+  if (locCount !== 11 + explainers.length + indexed.length || locCount !== 135) {
     throw new Error("Sitemap URL count");
+  }
+  for (const entry of explainers) {
+    if (!sitemap.includes("<loc>" + ORIGIN + "/recalls/" + entry.slug + "/</loc>")) {
+      throw new Error("Sitemap is missing /recalls/" + entry.slug + "/");
+    }
   }
   if (!sitemap.includes("<loc>" + ORIGIN + "/recalls/</loc>")) throw new Error("Sitemap is missing /recalls/");
   for (const loc of sitemap.match(/<loc>[^<]+<\/loc>/g) || []) {
