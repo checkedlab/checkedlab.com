@@ -1,0 +1,50 @@
+[
+  {
+    "slug": "noco-gb40-vs-gb50",
+    "title": "NOCO GB40 and GB50, from the maker pages",
+    "linkLabel": "GB40 and GB50 specs",
+    "description": "Peak current, engine limits, weight, and enclosure rating as the NOCO pages state them for GB40 and GB50, with a dated recall line for each.",
+    "hub": "car-garage",
+    "products": ["noco-gb40", "noco-gb50"],
+    "fit": [
+      "The GB40 page states 1,000 A peak current, gas engines up to 6 L, diesel engines up to 3 L, and 2.4 lb. The GB50 page states 1,500 A, gas engines up to 7 L, diesel engines up to 4.5 L, and 2.7 lb. Both pages state IP65.",
+      "If the engine size is above the limit on the GB40 line and within the limit on the GB50 line, the GB50 figures are the ones that name that size. If you are reading the lower stated weight, that figure is on the GB40 line."
+    ]
+  },
+  {
+    "slug": "coway-ap-1512hh-vs-levoit-core-300s-p",
+    "title": "Coway Airmega Mighty and Levoit Core 300S-P, from the maker pages",
+    "linkLabel": "Coway Mighty and Core 300S-P specs",
+    "description": "Size and weight as the Coway and Levoit pages state them for the AP-1512HH and the Core 300S-P, with a dated recall line for each. Specs that only one page lists stay off this table.",
+    "hub": "air-water",
+    "products": ["coway-ap-1512hh", "levoit-core-300s-p"],
+    "fit": [
+      "The shared labels are dimensions and weight. Coway states 16.8 × 18.3 × 9.6 in and 12.3 lb. Levoit states 8.7 × 8.7 × 14.2 in and 7.48 lb.",
+      "CADR, room coverage, and power are on the Coway card only. Rated power, noise, and power supply are on the Levoit card only. Those rows are left out because the other card does not use the same label."
+    ]
+  },
+  {
+    "slug": "lasko-ct32150-vs-ct14401",
+    "title": "Lasko CT32150 and CT14401, from the maker pages",
+    "linkLabel": "CT32150 and CT14401 specs",
+    "description": "Heat output, voltage, height, weight, and the safety line as the Lasko pages state them for CT32150 and CT14401, with a dated recall line for each.",
+    "hub": "winter",
+    "products": ["lasko-ct32150", "lasko-ct14401"],
+    "fit": [
+      "Both pages state 900 W to 1,500 W and 120 V. The CT32150 page states 31.6 in and 5.7 lb. The CT14401 page states 14 in and 3.3 lb.",
+      "The CT32150 safety line names ETL listing, a tip-over switch, and overheat protection. The CT14401 safety line names ETL listing and overheat protection. A taller stated height is the CT32150 line. A shorter stated height and a lower stated weight are the CT14401 lines."
+    ]
+  },
+  {
+    "slug": "ninja-crispi-fn101-vs-cosori-pro-5-8",
+    "title": "Ninja Crispi FN101 and COSORI Pro II, from the maker pages",
+    "linkLabel": "Crispi and Cosori Pro II specs",
+    "description": "Dimensions and weight as the Ninja and COSORI pages state them for the FN101 and the Pro II, with a dated recall line for each. Specs that only one page lists stay off this table.",
+    "hub": "kitchen",
+    "products": ["ninja-crispi-fn101", "cosori-pro-5-8"],
+    "fit": [
+      "The shared labels are dimensions and weight. The Crispi page states 11.5 × 9.76 × 11.81 in and 14.55 lb. The Pro II page states 11.8 × 13.8 × 12.6 in and 12.3 lb.",
+      "Power, containers, and modes are on the Crispi card only. Capacity, rated power, and power supply are on the Pro II card only. Those rows are left out because the other card does not use the same label."
+    ]
+  }
+]

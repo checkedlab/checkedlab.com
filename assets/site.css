@@ -357,6 +357,10 @@ body[data-page="bin"] .hero h1 { max-width: none; width: 100%; margin-left: 0; m
 .recall-models { margin: 8px 0; overflow-wrap: anywhere; }
 .model-list { margin: 8px 0 16px; padding-left: 18px; }
 .notice { margin-top: 28px; }
+.compare-wrap { overflow-x: auto; max-width: 100%; }
+.compare { width: 100%; border-collapse: collapse; }
+.compare th, .compare td { text-align: left; vertical-align: top; padding: 10px 8px; border-top: 1px solid var(--line); }
+.compare a { font-weight: 600; }
 body[data-page="recalls"] .prose h2 { margin-top: 36px; }
 .recall-q {
   font-size: 28px;

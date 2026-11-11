@@ -71,6 +71,7 @@ const CA_DATASET_PAGE = "https://open.canada.ca/data/en/dataset/d38de914-c94c-42
 const products = JSON.parse(readFileSync(join(root, "products.json"), "utf8"));
 const recalls = JSON.parse(readFileSync(join(root, "recalls.json"), "utf8"));
 const explainers = JSON.parse(readFileSync(join(root, "data", "explainers.json"), "utf8"));
+const compares = JSON.parse(readFileSync(join(root, "data", "compares.json"), "utf8"));
 assertProducts(products);
 assertRenderer();
 
@@ -86,12 +87,23 @@ for (const hub of HUBS) {
   html = ensureChrome(ensureFontPreload(ensureCardScript(html)), hub);
   const hubExtra = explainers.filter((entry) => entry.hub === hub).map((entry) =>
     '<a href="/recalls/' + entry.slug + '/">' + card.esc(entry.linkLabel) + "</a>"
-  ).join(" ");
+  ).concat(compares.filter((entry) => entry.hub === hub).map((entry) =>
+    '<a href="/compare/' + entry.slug + '/">' + card.esc(entry.linkLabel) + "</a>"
+  )).join(" ");
   const hubBase = '<p class="lede"><a href="/recalls/">Recall checks</a> for ' + card.esc(HUB_NAME[hub]) + " models.</p>";
   const hubNext = '<p class="lede"><a href="/recalls/">Recall checks</a> for ' + card.esc(HUB_NAME[hub]) + " models." + (hubExtra ? " " + hubExtra + "." : "") + "</p>";
   if (html.includes(hubBase)) html = html.replace(hubBase, hubNext);
   else if (!html.includes("Recall checks</a> for " + HUB_NAME[hub])) {
     html = html.replace('<div class="wrap">\n<div id="product-mount"', '<div class="wrap">\n' + hubNext + '\n<div id="product-mount"');
+  }
+  for (const entry of compares.filter((item) => item.hub === hub)) {
+    const href = "/compare/" + entry.slug + "/";
+    if (html.includes(href)) continue;
+    const needle = "Recall checks</a> for " + card.esc(HUB_NAME[hub]) + " models.";
+    const at = html.indexOf(needle);
+    if (at < 0) throw new Error("Hub lede missing for " + hub);
+    const end = html.indexOf("</p>", at);
+    html = html.slice(0, end) + ' <a href="' + href + '">' + card.esc(entry.linkLabel) + "</a>" + html.slice(end);
   }
   writeFileSync(file, html);
 }
@@ -146,6 +158,7 @@ for (const rel of ["how-we-check/index.html", "404.html"]) {
 const ordered = catalogueOrder(products);
 writeRecallsPage(ordered);
 writeExplainers();
+writeCompares();
 writeRecallFeed(ordered);
 const lastmods = stampPages(ordered);
 writeSitemap(pages, lastmods);
@@ -386,6 +399,10 @@ function siblingLinks(product) {
     ...explainers.filter((entry) => entry.products.includes(product.id)).map((entry) =>
       '<a href="/recalls/' + entry.slug + '/">' + card.esc(entry.linkLabel) + "</a>"
     ),
+    ...compares.filter((entry) => entry.products.includes(product.id)).map((entry) => {
+      const other = products.find((item) => item.id === entry.products.find((id) => id !== product.id));
+      return '<a href="/compare/' + entry.slug + '/">Compare with ' + card.esc(other.model || other.title) + "</a>";
+    }),
     ...picks.map((item) => '<a href="' + card.productPath(item) + '">' + card.esc(item.title) + "</a>")
   ];
   return '<p class="lede">' + links.join(" ") + "</p>";
@@ -831,6 +848,179 @@ function catalogueHtml(entry) {
     '<p class="lede"><a href="/recalls/">All recall checks</a> <a href="/' + entry.hub + '/">' + card.esc(HUB_NAME[entry.hub]) + "</a> <a href=\"/how-we-check/\">How we check</a></p>";
 }
 
+function sharedSpecRows(left, right) {
+  const rows = [];
+  for (const spec of left.specs || []) {
+    const other = (right.specs || []).find((item) => item && item.label === spec.label);
+    if (!other || !spec.value || !spec.url || !other.value || !other.url) continue;
+    if (!/^https:\/\//.test(spec.url) || !/^https:\/\//.test(other.url)) {
+      throw new Error("Compare spec source is not https for " + spec.label);
+    }
+    rows.push({ label: spec.label, left: spec, right: other });
+  }
+  if (!rows.length) throw new Error("Compare has no shared sourced specs: " + left.id);
+  return rows;
+}
+
+function specCell(spec) {
+  return card.esc(spec.value) + ' <a href="' + card.esc(spec.url) + '" target="_blank" rel="noopener">Source</a>';
+}
+
+function compareJsonLd(entry, pair) {
+  const url = ORIGIN + "/compare/" + entry.slug + "/";
+  const graph = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: ORIGIN + "/" },
+          { "@type": "ListItem", position: 2, name: entry.title, item: url }
+        ]
+      },
+      {
+        "@type": "Article",
+        headline: entry.title,
+        description: entry.description,
+        dateModified: recalls.checkedAt,
+        inLanguage: "en",
+        mainEntityOfPage: url
+      },
+      {
+        "@type": "ItemList",
+        name: entry.title,
+        numberOfItems: 2,
+        itemListElement: pair.map((product, index) => ({
+          "@type": "ListItem",
+          position: index + 1,
+          name: product.title,
+          url: ORIGIN + card.productPath(product)
+        }))
+      }
+    ]
+  };
+  assertNoCommerce(graph);
+  return JSON.stringify(graph, null, 2).replace(/</g, "\\u003c");
+}
+
+function writeCompares() {
+  if (compares.length !== 4) throw new Error("Expected four compare pages");
+  for (const entry of compares) {
+    if (!/^[a-z0-9-]+$/.test(entry.slug)) throw new Error("Bad compare slug");
+    const pair = entry.products.map((id) => {
+      const product = products.find((item) => item.id === id);
+      if (!product) throw new Error("Compare is missing " + id);
+      return product;
+    });
+    const rows = sharedSpecRows(pair[0], pair[1]);
+    const head = pair.map((product) => "<th>" + card.esc(product.model || product.title) + "</th>").join("");
+    const body = rows.map((row) =>
+      "<tr><th>" + card.esc(row.label) + "</th><td>" + specCell(row.left) + "</td><td>" + specCell(row.right) + "</td></tr>"
+    ).join("");
+    const recallsHtml = pair.map((product) => {
+      const us = recallSentence(card.recallFor(product, "US"), "US");
+      const ca = recallSentence(card.recallFor(product, "CA"), "Canadian");
+      return "<p><a href=\"" + card.productPath(product) + "\">" + card.esc(product.title) + "</a>. " + card.esc(us) + " " + card.esc(ca) + "</p>";
+    }).join("");
+    const stores = (region, heading) => "<h2>" + heading + "</h2>" + pair.map((product) =>
+      "<h3>" + card.esc(product.model || product.title) + "</h3>" + card.storeButtons(product, region)
+    ).join("");
+    const fit = (entry.fit || []).map((paragraph) => "<p>" + card.esc(paragraph) + "</p>").join("");
+    const url = ORIGIN + "/compare/" + entry.slug + "/";
+    const html = `<!DOCTYPE html>
+<html lang="en" data-region="US">
+<head>
+<meta charset="UTF-8">
+<link rel="canonical" href="${url}">
+<script src="/assets/region-boot.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>${card.esc(entry.title)} — Checked Lab</title>
+<meta name="description" content="${card.esc(entry.description)}">
+<meta property="og:title" content="${card.esc(entry.title)} — Checked Lab">
+<meta property="og:description" content="${card.esc(entry.description)}">
+<meta property="og:type" content="article">
+<meta property="og:url" content="${url}">
+<meta property="og:image" content="${ORIGIN}/assets/og.png">
+<link rel="icon" type="image/png" href="/favicon.png">
+${FONT_PRELOAD}
+<link rel="stylesheet" href="/assets/site.css">
+<meta name="theme-color" content="#F5F5F7">
+<script type="application/ld+json">
+${compareJsonLd(entry, pair)}
+</script>
+</head>
+<body data-page="recalls">
+${DISCLOSURE}
+<div class="topbar"><span>● CHECKED LAB • EST 2026 • NO SPONSORS</span><span>hello@checkedlab.com • press@checkedlab.com • legal@checkedlab.com</span></div>
+<div class="masthead">
+<header>
+<a class="logo" href="/">CHECKED LAB <i>CHECKED BEFORE YOU BUY</i></a>
+<div class="header-actions">
+<div class="country-switch">
+<button type="button" data-region-set="US">US</button>
+<button type="button" data-region-set="CA">CA</button>
+</div>
+<nav>
+<a href="/recalls/">RECALL CHECKS</a>
+<a href="/how-we-check/">HOW WE CHECK</a>
+<a href="/bin-list/">BIN LIST</a>
+</nav>
+</div>
+</header>
+${nav(entry.hub)}
+</div>
+<main>
+<div class="wrap prose">
+<nav class="crumbs" aria-label="Breadcrumb">
+<a href="/">Home</a>
+<span aria-hidden="true">/</span>
+<a href="/${entry.hub}/">${card.esc(HUB_NAME[entry.hub])}</a>
+<span aria-hidden="true">/</span>
+<span aria-current="page">${card.esc(entry.title)}</span>
+</nav>
+<h1>${card.esc(entry.title)}</h1>
+<p class="lede">${card.esc(entry.description)}</p>
+<p>Each line below is copied from that model’s maker page. The Source link opens that page. A spec that only one card lists is left out of the table. Recall lines use the ${card.esc(recalls.checkedAt)} (UTC) catalogue check.</p>
+<div class="compare-wrap">
+<table class="compare">
+<thead><tr><th>Spec</th>${head}</tr></thead>
+<tbody>${body}</tbody>
+</table>
+</div>
+<h2>Which specs to read</h2>
+${fit}
+<h2>Recall check</h2>
+${recallsHtml}
+<p class="lede"><a href="/recalls/">All recall checks</a> <a href="/${entry.hub}/">${card.esc(HUB_NAME[entry.hub])}</a> <a href="/how-we-check/">How we check</a> <a href="${card.productPath(pair[0])}">${card.esc(pair[0].title)}</a> <a href="${card.productPath(pair[1])}">${card.esc(pair[1].title)}</a></p>
+${stores("US", "United States stores")}
+${stores("CA", "Canadian stores")}
+</div>
+</main>
+<footer>
+<div class="foot">
+<p>As an Amazon Associate I earn from qualifying purchases.</p>
+<p>© 2026 CHECKED LAB<br>Winnipeg, MB</p>
+<p class="foot-mail"><a href="/recalls/">Recall checks</a><a href="/how-we-check/">How we check</a><a href="/bin-list/">BIN list</a><a href="mailto:hello@checkedlab.com">hello@</a><a href="mailto:support@checkedlab.com">support@</a><a href="mailto:press@checkedlab.com">press@</a><a href="mailto:legal@checkedlab.com">legal@</a></p>
+</div>
+</footer>
+<script src="/assets/site.js" defer></script>
+</body>
+</html>
+`;
+    if (/\$\d/.test(html) || /we tested|we bought|does not test|\bwinner\b|\bscore\b/i.test(html)) {
+      throw new Error("Compare page has a disallowed claim: " + entry.slug);
+    }
+    if (!html.includes("checkedlab01-20") || !html.includes("checkedlab-20")) {
+      throw new Error("Compare page is missing Amazon tags: " + entry.slug);
+    }
+    const ld = JSON.parse(html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]);
+    const types = ld["@graph"].map((node) => node["@type"]).sort().join(",");
+    if (types !== "Article,BreadcrumbList,ItemList") throw new Error("Compare schema on " + entry.slug);
+    mkdirSync(join(root, "compare", entry.slug), { recursive: true });
+    writeFileSync(join(root, "compare", entry.slug, "index.html"), html);
+  }
+}
+
 function writeExplainers() {
   if (explainers.length !== 6) throw new Error("Expected six explainer pages");
   const slugs = new Set();
@@ -1112,6 +1302,7 @@ function stampPages(ordered) {
     ["/bin-list/", join(root, "bin-list", "index.html")],
     ["/recalls/", join(root, "recalls", "index.html")],
     ...explainers.map((entry) => ["/recalls/" + entry.slug + "/", join(root, "recalls", entry.slug, "index.html")]),
+    ...compares.map((entry) => ["/compare/" + entry.slug + "/", join(root, "compare", entry.slug, "index.html")]),
     ...ordered.filter(indexable).map((product) => [card.productPath(product), join(root, product.category, product.id, "index.html")])
   ];
   const today = new Date().toISOString().slice(0, 10);
@@ -1138,7 +1329,8 @@ function writeSitemap(pages, lastmods) {
     "/how-we-check/",
     "/bin-list/",
     "/recalls/",
-    ...explainers.map((entry) => "/recalls/" + entry.slug + "/")
+    ...explainers.map((entry) => "/recalls/" + entry.slug + "/"),
+    ...compares.map((entry) => "/compare/" + entry.slug + "/")
   ];
   const lines = [
     '<?xml version="1.0" encoding="UTF-8"?>',
@@ -1290,8 +1482,13 @@ function verifyOutput(pages) {
   const sitemap = readFileSync(join(root, "sitemap.xml"), "utf8");
   const indexed = pages.filter(indexable);
   const locCount = (sitemap.match(/<loc>/g) || []).length;
-  if (locCount !== 11 + explainers.length + indexed.length || locCount !== 135) {
+  if (locCount !== 11 + explainers.length + compares.length + indexed.length || locCount !== 139) {
     throw new Error("Sitemap URL count");
+  }
+  for (const entry of compares) {
+    if (!sitemap.includes("<loc>" + ORIGIN + "/compare/" + entry.slug + "/</loc>")) {
+      throw new Error("Sitemap is missing /compare/" + entry.slug + "/");
+    }
   }
   for (const entry of explainers) {
     if (!sitemap.includes("<loc>" + ORIGIN + "/recalls/" + entry.slug + "/</loc>")) {

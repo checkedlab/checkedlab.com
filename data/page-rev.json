@@ -4,7 +4,7 @@
     "lastmod": "2026-11-11"
   },
   "/air-water/": {
-    "hash": "04a3ae195e86b8af4d37a969361ab406b9ee2131978d5cc04fb6170fb58b7a6f",
+    "hash": "84740a4d0b74e1a5f9dad7fd2307d767e91cf2f01c4b46bf0b2143d554983f5e",
     "lastmod": "2026-11-11"
   },
   "/air-water/apec-roes-50/": {
@@ -28,7 +28,7 @@
     "lastmod": "2026-11-11"
   },
   "/air-water/coway-ap-1512hh/": {
-    "hash": "05f161f93fc946f60fb54e1a1b66b6695f8e243e68c3081d16aec3b4b426b87d",
+    "hash": "a0b6e7b5cfcccebcd52ca0a0d859c3d001d8826af4d1046ababfd3984a42a6c3",
     "lastmod": "2026-11-11"
   },
   "/air-water/homelabs-50-pint/": {
@@ -44,7 +44,7 @@
     "lastmod": "2026-11-11"
   },
   "/air-water/levoit-core-300s-p/": {
-    "hash": "de65da4d5064dfe72b9cd7d655088fd8ab9819fac077d464add0602b7de14d09",
+    "hash": "6cd52a2360362f590a4a60dcca09fca515a04e8e00f23cc23c934e72830809e1",
     "lastmod": "2026-11-11"
   },
   "/air-water/levoit-core-600s/": {
@@ -80,7 +80,7 @@
     "lastmod": "2026-11-11"
   },
   "/car-garage/": {
-    "hash": "6a2055a89e45f8890b7c40623837c5a0f8448dd30bb914ea3352589426f61526",
+    "hash": "ea028fb83d57505a8b3c45d3bc333c360b9a882d2c25020beb9ff25d7a79b43d",
     "lastmod": "2026-11-11"
   },
   "/car-garage/battery-tender-junior/": {
@@ -124,11 +124,11 @@
     "lastmod": "2026-11-11"
   },
   "/car-garage/noco-gb40/": {
-    "hash": "edd393f2740250bc0364fada835c21fce76cb3720c11c1e501fa4053e9ccff02",
+    "hash": "ac67b4cb72de76f4a20627b5de6ade330c23317c12e0b2bb628b8e00ad003610",
     "lastmod": "2026-11-11"
   },
   "/car-garage/noco-gb50/": {
-    "hash": "8c2d2f4338b797618aecf607f6b51e88ec9f78720a04741ed75c516080c3fb09",
+    "hash": "2346394284c63eb7fcdccf717e3d840ac73516b7327e876afa1402000bfc5c60",
     "lastmod": "2026-11-11"
   },
   "/car-garage/obdlink-mx-plus/": {
@@ -147,12 +147,28 @@
     "hash": "c409e95aea7d0b954078fe968f972789c6ebd2877e961dce7d6f37b06ba9ad64",
     "lastmod": "2026-11-11"
   },
+  "/compare/coway-ap-1512hh-vs-levoit-core-300s-p/": {
+    "hash": "212106fe27f32eb45d8d8792fffaae9dc7f1027c99aa62643a8d0c4fc500a4ca",
+    "lastmod": "2026-11-11"
+  },
+  "/compare/lasko-ct32150-vs-ct14401/": {
+    "hash": "1a6e5e24688d31a7fe35cd18e3bdbcedb685c86ee97d19fa96b7866884a6f07a",
+    "lastmod": "2026-11-11"
+  },
+  "/compare/ninja-crispi-fn101-vs-cosori-pro-5-8/": {
+    "hash": "5c1457c4df9e64cd998086c8d07d2143b3303c77e51527680486684a083d1486",
+    "lastmod": "2026-11-11"
+  },
+  "/compare/noco-gb40-vs-gb50/": {
+    "hash": "ff6aaff8abeba44076ab09ceccf8f74b839be44e58e914d5a49f0798181b1ceb",
+    "lastmod": "2026-11-11"
+  },
   "/how-we-check/": {
     "hash": "c2b6607bc8ddba9e4fba12280929187628d97d1a7e84ec8f44dea2c60951bab1",
     "lastmod": "2026-11-11"
   },
   "/kitchen/": {
-    "hash": "fb5048c2c122408f4d0f67b5238eedf8672cac4c7da7826ff0405e8325e90048",
+    "hash": "95dba9f9c42dcb417fe8335aafd228f55324e62ed4efbab905cc99028667310c",
     "lastmod": "2026-11-11"
   },
   "/kitchen/aeropress-original/": {
@@ -184,7 +200,7 @@
     "lastmod": "2026-11-11"
   },
   "/kitchen/cosori-pro-5-8/": {
-    "hash": "321733da6171e12075b79da812c1ab1213c3f560feb7c8118f532cbc946bfa9d",
+    "hash": "f9138ad8a972db35a0ebadd6b710c15ff071b419be30d9e0ea004b62943bb8fe",
     "lastmod": "2026-11-11"
   },
   "/kitchen/cuisinart-dfp-14bcny/": {
@@ -220,7 +236,7 @@
     "lastmod": "2026-11-11"
   },
   "/kitchen/ninja-crispi-fn101/": {
-    "hash": "b0115aed6091e86a7cb3331250fc8aff45c9d0ba968c4c1b777ab725d68c72d9",
+    "hash": "b853d8e1e9c965dcb4a234e8097a7089a1e3b0a58d033e316706e7eadfeb6036",
     "lastmod": "2026-11-11"
   },
   "/kitchen/ninja-foodi-10in1/": {
@@ -392,27 +408,27 @@
     "lastmod": "2026-11-11"
   },
   "/recalls/anker-power-banks/": {
-    "hash": "95661ba9ad2526c2d72c95fa52cdff9417d5d914c18a249649dbffb76f1d0ac9",
+    "hash": "8e78bb873ae8332c6501b087b12d53ed12726ba46371abee05fad02f5ca4f75e",
     "lastmod": "2026-11-11"
   },
   "/recalls/cosori-air-fryer-2023/": {
-    "hash": "f53aa8f20f0cc71f122f0107d26e2d0d376773fafa3f003a1788ff5ae8bf2df2",
+    "hash": "979f0cdfdb30d90052069cc437fc3534229f14a0662f12a3a93cb8956f0a2502",
     "lastmod": "2026-11-11"
   },
   "/recalls/instant-pot-official-notices/": {
-    "hash": "ed9dfdc6e758abb8e291115fbccf936d430312f266df7497757d2bb98e481d99",
+    "hash": "47952fcdbb5ce8cb4b6acaf5292b97f4eb4ca031f26be74da7ca174838da8dcb",
     "lastmod": "2026-11-11"
   },
   "/recalls/lasko-heaters/": {
-    "hash": "846f5f920fa943346e6a524b416467694d3accf0c945cd0b9ced52b205eca32a",
+    "hash": "d77960e139fda5e882d0d1d5bf706a0037b6f6b21a2c0cd6b6b1135ba4ef0e70",
     "lastmod": "2026-11-11"
   },
   "/recalls/ninja-foodi-op300/": {
-    "hash": "2ba1b7ee3f7f7d4d0156e4315421903144f52794339621b67b35cec36c64d643",
+    "hash": "348a2c6cbd940001c2ff63a8dca6f21e5a72f07973a71eb13c311800ed168fab",
     "lastmod": "2026-11-11"
   },
   "/recalls/vitamix-ascent-venturist-containers/": {
-    "hash": "8fee11f2dcd6df90ccfbbad35f726ce9fa84726ec687adc323e411ba92485027",
+    "hash": "91433cec033b3e1cd8ca87d1171f1935bf225621e3b15178a88543cbca2f4a3f",
     "lastmod": "2026-11-11"
   },
   "/sleep/": {
@@ -480,7 +496,7 @@
     "lastmod": "2026-11-11"
   },
   "/winter/": {
-    "hash": "29edfadaa938830b8c55107a4e8dc08076ce3130fc28147508762e53fab40f22",
+    "hash": "be460e9d88eeb6af5c3853b4395695978a959ed19ece639bbd613a6360a73f2e",
     "lastmod": "2026-11-11"
   },
   "/winter/delonghi-trd40615e/": {
@@ -500,11 +516,11 @@
     "lastmod": "2026-11-11"
   },
   "/winter/lasko-ct14401/": {
-    "hash": "9e755b2f643649b845b9fb0b7d26131ef836102a42a7d8ec01cb4089fee42768",
+    "hash": "fe4ba96b663ed137bbbd35e668d02536eb4508092b914f7ee00cbe4c206759d4",
     "lastmod": "2026-11-11"
   },
   "/winter/lasko-ct32150/": {
-    "hash": "b4db28f833d169e82090c94df48b9838d282471cbb1d1123cdb810ba18aaa94a",
+    "hash": "cbf3aff220924f03439adf8768dac13155d774fa2f3dc3d1e4459b84949f8455",
     "lastmod": "2026-11-11"
   },
   "/winter/levoit-classic-300s/": {
