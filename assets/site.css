@@ -346,8 +346,16 @@ body[data-page="bin"] .hero h1 { max-width: none; width: 100%; margin-left: 0; m
   margin-top: 56px;
   padding: 8px 0 64px;
 }
-.recall-band h2 { color: #F5F5F7; }
+.recall-band h2, .recall-band .recall-pointer, .recall-band .recall-pointer a { color: #F5F5F7; }
 .recall-band .empty { color: #F5F5F7; }
+.recall-pointer { margin: 0 0 18px; }
+.recall-filters { display: flex; flex-wrap: wrap; gap: 8px 16px; margin: 8px 0 0; font-weight: 600; }
+.recall-columns { display: grid; gap: 28px; }
+.recall-model, .notice-list li { padding: 14px 0; border-top: 1px solid var(--line); }
+.notice-list { list-style: none; margin: 0; padding: 0; }
+.recall-model h3, .recall-cat h3 { margin: 8px 0; font-size: 20px; letter-spacing: -0.02em; overflow-wrap: anywhere; }
+.recall-models { margin: 8px 0; overflow-wrap: anywhere; }
+body[data-page="recalls"] .prose h2 { margin-top: 36px; }
 
 footer { background: var(--bg); color: var(--ink); border-top: 1px solid var(--line); }
 .foot {
@@ -361,7 +369,8 @@ footer { background: var(--bg); color: var(--ink); border-top: 1px solid var(--l
 .foot-mail { display: flex; flex-wrap: wrap; gap: 8px 16px; }
 
 @media (min-width: 800px) {
-  .cats { grid-template-columns: repeat(7, 1fr); padding-left: 22px; padding-right: 22px; }
+  .cats { grid-template-columns: repeat(8, minmax(0, 1fr)); padding-left: 22px; padding-right: 22px; }
+  .recall-columns { grid-template-columns: 1fr 1fr; align-items: start; }
   .hero { padding-top: 36px; text-align: left; }
   body[data-page="home"] .hero-inner { grid-template-columns: 1.05fr 0.95fr; align-items: center; justify-items: stretch; }
   .store-links { flex-wrap: wrap; }
@@ -402,7 +411,8 @@ footer { background: var(--bg); color: var(--ink); border-top: 1px solid var(--l
   body[data-page="bin"] .p-img { height: 156px; }
 }
 @media (max-width: 799px) {
-  .header-actions nav { display: none; }
+  .header-actions nav a:not([href="/recalls/"]) { display: none; }
+  body[data-page="recalls"] .prose h1 { font-size: 32px; }
   .cats { display: flex; flex-wrap: nowrap; overflow-x: auto; overflow-y: hidden; max-width: 100%; }
   .cats a { flex: 0 0 auto; min-width: 76px; }
   .product-row { flex-wrap: wrap; }

@@ -225,7 +225,141 @@ def apply(products: list, us_hits: list[dict], ca_hits: list[dict]) -> None:
         product["bin"] = kept
 
 
-def write_recalls(products: list) -> None:
+# Category lines are a short slice of the same public feeds, not a dump of
+# every CPSC or Health Canada record. Model text is copied from the notice.
+CATEGORY_SLICES = [
+    {"id": "air-fryers", "title": "Air fryers", "hub": "kitchen", "terms": ["air fryer"]},
+    {"id": "heaters", "title": "Heaters", "hub": "winter", "terms": ["space heater"]},
+    {"id": "power-banks", "title": "Power banks", "hub": "personal-tech", "terms": ["power bank"]},
+]
+CATEGORY_LIMIT = 8
+
+
+def model_sentence(description: str) -> str:
+    """First notice sentence that names a model. Later sentences stay out."""
+    text = " ".join(str(description or "").split())
+    if not text:
+        return ""
+    for part in re.split(r"(?<=[.])\s+", text):
+        if re.search(r"\bmodels?\b", part, re.I):
+            return part.strip()
+    return ""
+
+
+def matches_terms(text: str, terms: list[str]) -> bool:
+    hay = normalize(text)
+    return any(normalize(term) in hay for term in terms)
+
+
+def existing_categories() -> list:
+    try:
+        data = json.loads(RECALLS_PATH.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return []
+    categories = data.get("categories")
+    return categories if isinstance(categories, list) else []
+
+
+def cpsc_notice(record: dict) -> dict | None:
+    url = str(record.get("URL") or "").strip()
+    if not url.startswith("https://"):
+        return None
+    models = []
+    names = []
+    for product in record.get("Products") or []:
+        if not isinstance(product, dict):
+            continue
+        model = " ".join(str(product.get("Model") or "").split())
+        name = " ".join(str(product.get("Name") or "").split())
+        if model:
+            models.append(model)
+        if name:
+            names.append(name)
+    copied = model_sentence(record.get("Description") or "")
+    return {
+        "title": " ".join(str(record.get("Title") or "Recall").split()),
+        "url": url,
+        "date": str(record.get("RecallDate") or "")[:10],
+        "source": "CPSC",
+        "archived": False,
+        "models": copied or ("; ".join(models) if models else ""),
+        "product": names[0] if names else "",
+    }
+
+
+def hc_notice(record: dict) -> dict | None:
+    url = str(record.get("URL") or "").strip()
+    if not url.startswith("https://"):
+        return None
+    return {
+        "title": " ".join(str(record.get("Title") or "Recall").split()),
+        "url": url,
+        "date": str(record.get("Last updated") or "")[:10],
+        "source": "Health Canada",
+        "archived": bool(record.get("Archived") in (1, "1", True)),
+        "models": "",
+        "product": " ".join(str(record.get("Product") or "").split()),
+    }
+
+
+def newest_notices(items: list[dict]) -> list[dict]:
+    seen = set()
+    unique = []
+    for item in items:
+        if not item or item["url"] in seen:
+            continue
+        seen.add(item["url"])
+        unique.append(item)
+    unique.sort(key=lambda item: item["url"])
+    unique.sort(key=lambda item: item.get("date") or "", reverse=True)
+    return unique[:CATEGORY_LIMIT]
+
+
+def build_categories() -> list:
+    hc_payload = fetch_json(HC_URL)
+    if not isinstance(hc_payload, list):
+        raise RuntimeError("Health Canada open data was not a list")
+    categories = []
+    for spec in CATEGORY_SLICES:
+        us_records = []
+        seen = set()
+        for term in spec["terms"]:
+            for field in ("RecallTitle", "RecallDescription"):
+                endpoint = f"{CPSC_ENDPOINT}?format=json&{field}={urllib.parse.quote(term)}"
+                payload = fetch_json(endpoint)
+                if not isinstance(payload, list):
+                    raise RuntimeError(f"CPSC returned an unexpected payload for {term!r}")
+                for record in payload:
+                    key = record.get("RecallID") or record.get("URL")
+                    if key in seen:
+                        continue
+                    blob = record_text([
+                        record.get("Title"),
+                        record.get("Description"),
+                        *((product.get("Name") or "") for product in (record.get("Products") or []) if isinstance(product, dict)),
+                    ])
+                    if not matches_terms(blob, spec["terms"]):
+                        continue
+                    seen.add(key)
+                    us_records.append(cpsc_notice(record))
+        ca_records = []
+        for record in hc_payload:
+            blob = record_text([record.get("Title"), record.get("Product"), record.get("Category")])
+            if matches_terms(blob, spec["terms"]):
+                ca_records.append(hc_notice(record))
+        categories.append({
+            "id": spec["id"],
+            "title": spec["title"],
+            "hub": spec["hub"],
+            "us": newest_notices(us_records),
+            "ca": newest_notices(ca_records),
+        })
+    return categories
+
+
+def write_recalls(products: list, categories: list | None = None) -> None:
+    if categories is None:
+        categories = existing_categories()
     RECALLS_PATH.write_text(json.dumps({
         "checkedAt": TODAY,
         "sources": {
@@ -236,6 +370,7 @@ def write_recalls(products: list) -> None:
                 "url": HC_URL,
             },
         },
+        "categories": categories,
         "products": {
             product["id"]: product.get("recall")
             for product in products
@@ -295,12 +430,36 @@ def self_test() -> None:
     assert not token_present("CS158-AF", "cs358")
     assert not token_present("1HFTE310*54000015", "e310")
     assert not token_present("E3100", "e310")
+    copied = model_sentence(
+        "This recall involves Cosori air fryers with model numbers CP158-AF and CS158-AF. "
+        "The firm has received 10 reports."
+    )
+    assert copied == "This recall involves Cosori air fryers with model numbers CP158-AF and CS158-AF."
+    assert model_sentence("The brand name is on the front.") == ""
     print("self-test ok")
+
+
+def refresh_categories(previous: list) -> list:
+    try:
+        categories = build_categories()
+    except Exception as error:
+        print(f"warning: category slice kept from the previous check: {error}", file=sys.stderr)
+        return previous
+    counts = ", ".join(
+        f"{item['id']} US {len(item['us'])} CA {len(item['ca'])}" for item in categories
+    )
+    print(f"Category notices: {counts}")
+    return categories
 
 
 def main() -> int:
     if "--self-test" in sys.argv:
         self_test()
+        return 0
+    if "--categories-only" in sys.argv:
+        recalls = json.loads(RECALLS_PATH.read_text(encoding="utf-8"))
+        recalls["categories"] = refresh_categories(existing_categories())
+        RECALLS_PATH.write_text(json.dumps(recalls, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
         return 0
     products = json.loads(PRODUCTS_PATH.read_text(encoding="utf-8"))
     queries = []
@@ -316,7 +475,7 @@ def main() -> int:
     print(f"CPSC records {len(us_hits)}, Health Canada records {len(ca_hits)}")
     apply(products, us_hits, ca_hits)
     PRODUCTS_PATH.write_text(json.dumps(products, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-    write_recalls(products)
+    write_recalls(products, refresh_categories(existing_categories()))
     for product in products:
         us = product["recall"]["us"]["status"]
         ca = product["recall"]["ca"]["status"]

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>Checked Lab recall checks</title>
+  <link>https://www.checkedlab.com/recalls/</link>
+  <atom:link href="https://www.checkedlab.com/recalls/feed.xml" rel="self" type="application/rss+xml"/>
+  <description>Items are added when a catalogue model's United States or Canada recall record changes. A new check date alone does not add an item.</description>
+  <language>en</language>
+
+</channel>
+</rss>

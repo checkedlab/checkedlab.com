@@ -1,0 +1,30 @@
+name: IndexNow
+
+on:
+  deployment_status:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  submit:
+    if: >
+      github.event_name == 'push' ||
+      (github.event.deployment_status.state == 'success' &&
+       (github.event.deployment.environment == 'Production' ||
+        github.event.deployment.environment == 'production' ||
+        github.event.deployment_status.environment == 'Production' ||
+        github.event.deployment_status.environment == 'production'))
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.deployment.sha || github.sha }}
+          fetch-depth: 2
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Submit changed URLs after the production deploy
+        run: node scripts/indexnow.mjs --submit
