@@ -1,0 +1,299 @@
+[
+  {
+    "slug": "cosori-air-fryer-2023",
+    "title": "Cosori air fryer recall: the 2023 model list and the Pro II",
+    "linkLabel": "Cosori 2023 model list",
+    "description": "The February 23, 2023 CPSC and Health Canada notices name specific Cosori air fryer model numbers. The COSORI Pro II card uses the CS358-AF series, which is not in those lists.",
+    "hub": "kitchen",
+    "products": ["cosori-pro-5-8"],
+    "catalogue": "The COSORI Pro II card’s model line reads CS358-AF series. CS358-AF is not among the model numbers copied from the notices below.",
+    "notices": [
+      {
+        "agency": "CPSC",
+        "date": "2023-02-23",
+        "title": "Two Million COSORI Air Fryers Recalled by Atekcity Due to Fire and Burn Hazards",
+        "url": "https://www.cpsc.gov/Recalls/2023/Two-Million-COSORI-Air-Fryers-Recalled-by-Atekcity-Due-to-Fire-and-Burn-Hazards",
+        "says": "The CPSC notice says this recall involves Cosori air fryers with the model numbers listed below. It says the brand name Cosori is on the front of each unit, the model number is printed on the bottom label and in the user manual, and the units are 3.7 and 5.8 quart, sold in black, gray, white, blue, or red.",
+        "howToCheck": "The notice says to read the model number on the bottom label of the unit and in the user manual.",
+        "remedy": "The notice tells owners to stop using the recalled air fryers and contact Cosori for a free replacement air fryer or another Cosori product. It says registration asks for contact information and photos of the unit with the cord cut, and that no receipt is needed.",
+        "modelsLabel": "Model numbers in the CPSC notice",
+        "models": ["CP158-AF", "CP158-AF-R19", "CP158-AF-RXW", "CP158-AF-RXR", "CAF-P581-BUSR", "CAF-P581-AUSR", "CAF-P581-RUSR", "CP137-AF", "CP137-AF-RXB", "CP137-AF-RXR", "CP137-AF-RXW", "CS158-AF", "CS158-AF-RXB", "CS158-AF-R19", "CAF-P581S-BUSR", "CAF-P581S-RUSR", "CAF-P581S-AUSR", "CO137-AF", "CO158-AF", "CO158-AF-RXB", "CP258-AF"]
+      },
+      {
+        "agency": "Health Canada",
+        "date": "2023-02-23",
+        "title": "Certain models of Cosori-branded Air Fryers recalled due to potential fire hazard",
+        "url": "https://recalls-rappels.canada.ca/en/alert-recall/certain-models-cosori-branded-air-fryers-recalled-due-potential-fire-hazard",
+        "says": "The Health Canada notice, updated 2023-02-23, says the recall involves certain Cosori-branded air fryers and describes a fire hazard. It says the notice is a joint recall with the CPSC. Its model column also uses the shorter names CO137, CO158, CP137, CP158, CP258, and CS158.",
+        "howToCheck": "The notice says the model number is on the bottom label and in the user manual, and the batch number is on the bottom of the unit or at the back below the rear exhaust vent.",
+        "remedy": "The notice tells owners to stop using the recalled products immediately and contact Cosori for a replacement unit.",
+        "modelsLabel": "Model numbers in the Health Canada notice",
+        "models": ["CO137-AF", "CP137-AF", "CP137-AF-RXB", "CP137-AF-RXR", "CP137-AF-RXW", "CO158-AF", "CO158-AF-RXB", "CP158-AF", "CP158-AF-R19", "CP158-AF-RXR", "CP158-AF-RXW", "CP258-AF", "CS158-AF", "CS158-AF-R19", "CS158-AF-RXB", "CAF-P581-AUSR", "CAF-P581-BUSR", "CAF-P581-RUSR", "CAF-P581S-AUSR", "CAF-P581S-BUSR", "CAF-P581S-RUSR"]
+      }
+    ]
+  },
+  {
+    "slug": "ninja-foodi-op300",
+    "title": "Ninja Foodi OP300 and TenderCrisp lid notices",
+    "linkLabel": "Foodi OP300 and TenderCrisp lid",
+    "description": "The May 1, 2025 CPSC notice names Ninja Foodi OP300-series pressure cookers. The Health Canada notice names TenderCrisp pressure-cooking lids. The DT201C oven and FN101 Crispi cards are not those model numbers.",
+    "hub": "kitchen",
+    "products": ["ninja-foodi-10in1", "ninja-crispi-fn101"],
+    "catalogue": "The Foodi oven card’s model line reads DT201C. The Crispi card’s model line reads FN101. Neither string is in the model lists copied below.",
+    "notices": [
+      {
+        "agency": "CPSC",
+        "date": "2025-05-01",
+        "title": "SharkNinja Recalls Foodi Multi-Function Pressure Cookers Due to Burn Hazard",
+        "url": "https://www.cpsc.gov/Recalls/2025/SharkNinja-Recalls-1-8-Million-Foodi-Multi-Function-Pressure-Cookers-Due-to-Burn-Hazard-Serious-Burn-Injuries-Reported",
+        "says": "The CPSC notice says the recall involves all Ninja Foodi OP300 Series Multi-Function Pressure Cookers, with pressure cooking and air frying, sold in black with a 6.5-quart capacity. It says Ninja is printed on the front and on the product label. It says an extra code after the model number is not part of the model designation, and gives the example that a unit labeled OP301 I07 is a model OP301. It also includes OP300-series replacement pressure-cooker lids bought as a separate part.",
+        "howToCheck": "The notice says the model numbers are printed on a label on the side of the cooker.",
+        "remedy": "The notice tells owners to stop using the pressure-cooking function and contact SharkNinja for a free replacement lid. It says the air frying and other functions can still be used.",
+        "modelsLabel": "Model numbers in the CPSC notice",
+        "models": ["OP300", "OP301", "OP301A", "OP302", "OP302BRN", "OP302HCN", "OP302HAQ", "OP302HW", "OP302HB", "OP305", "OP305CO", "OP350CO"]
+      },
+      {
+        "agency": "Health Canada",
+        "date": "2025-05-01",
+        "title": "Ninja Foodi TenderCrisp pressure-cooking lid recalled due to potential burn hazard",
+        "url": "https://recalls-rappels.canada.ca/en/alert-recall/ninja-foodi-tendercrisp-multi-cookers-pressure-cooking-lid-recalled-due-potential-burn",
+        "says": "The Health Canada notice says the recall involves the pressure-cooking lid on Ninja Foodi TenderCrisp multi-cookers, including replacement pressure-cooking lids bought separately from SharkNinja. It says the cookers have a 6.5-quart chamber and the brand name Ninja is on the front of the hinged lid. It says other functions, such as air crisping, are not part of this recall.",
+        "howToCheck": "The notice says the model number is on the rating label on the back of the unit, near the power cord.",
+        "remedy": "The notice tells owners to stop using the pressure-cooking function, dispose of the pressure-cooking lid so it cannot be used, and contact SharkNinja to confirm that disposal and arrange a replacement lid.",
+        "modelsLabel": "Model numbers in the Health Canada notice",
+        "models": ["OP300C", "OP301", "OP301C", "OP302", "OP305", "OP305CCO", "OP305CO"]
+      }
+    ]
+  },
+  {
+    "slug": "anker-power-banks",
+    "title": "Anker power bank recalls: official model numbers",
+    "linkLabel": "Anker power bank notices",
+    "description": "CPSC and Health Canada power-bank notices name specific Anker model numbers, and some of those notices cover only certain serial numbers. A1289 is not one of those model numbers.",
+    "hub": "personal-tech",
+    "products": ["anker-a1289"],
+    "catalogue": "The catalogue power bank is model A1289, the Anker 737 PowerCore 24K. A1289 is not among the model numbers copied from the notices below.",
+    "notices": [
+      {
+        "agency": "CPSC",
+        "date": "2025-06-12",
+        "title": "Anker Power Banks Recalled Due to Fire and Burn Hazards",
+        "url": "https://www.cpsc.gov/Recalls/2025/More-than-One-Million-Anker-Power-Banks-Recalled-Due-to-Fire-and-Burn-Hazards-Manufactured-by-Anker-Innovations",
+        "says": "The CPSC notice says this recall involves Anker PowerCore 10000 power banks with model number A1263. It says Anker is engraved on the front, and the model number and serial number are printed on the bottom. It says only A1263 units sold in the U.S. with qualifying serial numbers are included.",
+        "howToCheck": "The notice says to read model A1263 and the serial number on the bottom, then check that serial number at anker.com/product-recalls.",
+        "remedy": "The notice tells owners to stop using a recalled power bank and contact Anker for a free replacement. It says the registration asks for a photo showing the model number, serial number, the owner’s name, the date, and the word recalled written on the unit. It also says not to put the lithium-ion battery in household trash or ordinary recycling.",
+        "modelsLabel": "Model number in this CPSC notice",
+        "models": ["A1263"]
+      },
+      {
+        "agency": "CPSC",
+        "date": "2024-10-17",
+        "title": "Anker Power Banks Recalled Due to Fire and Burn Hazards",
+        "url": "https://www.cpsc.gov/Recalls/2025/Anker-Power-Banks-Recalled-Due-to-Fire-and-Burn-Hazards-Manufactured-by-Anker-Innovations",
+        "says": "The CPSC notice says this recall involves Anker power banks with model numbers A1642, A1647, and A1652. It says Anker is engraved on the front and the model number is on the back.",
+        "howToCheck": "The notice says the model number is on the back of the power bank.",
+        "remedy": "The notice tells owners to stop using the recalled power banks and contact Anker for a free replacement, registering at anker.com/product-recalls. It says to dispose of the lithium-ion batteries under local rules.",
+        "modelsLabel": "Model numbers in this CPSC notice",
+        "models": ["A1642", "A1647", "A1652"]
+      },
+      {
+        "agency": "CPSC",
+        "date": "2023-03-09",
+        "title": "Fantasia Trading Recalls Anker Power Banks Due to Fire Hazard",
+        "url": "https://www.cpsc.gov/Recalls/2023/Fantasia-Trading-Recalls-Anker-Power-Banks-Due-to-Fire-Hazard",
+        "says": "The CPSC notice says this recall involves Anker 535 mobile power banks, PowerCore 20K, with model number A1366. It says Anker is engraved on the front and A1366 is on the back.",
+        "howToCheck": "The notice says the model number A1366 is on the back of the power bank.",
+        "remedy": "The notice tells owners to stop using the recalled power banks and contact Fantasia Trading for a full refund and for its instructions on disposing of the lithium-ion batteries.",
+        "modelsLabel": "Model number in this CPSC notice",
+        "models": ["A1366"]
+      },
+      {
+        "agency": "Health Canada",
+        "date": "2025-06-27",
+        "title": "Anker Power Bank A1647 and Anker Zolo Power Banks A1681 and A1689 recalled due to fire hazard",
+        "url": "https://recalls-rappels.canada.ca/en/alert-recall/anker-power-bank-a1647-and-anker-zolo-power-banks-a1681-and-a1689-sold-amazonca",
+        "says": "The Health Canada notice says certain units of Anker Power Bank A1647 and Anker Zolo power banks A1681 and A1689 are recalled for a fire hazard. It says affected units are identified by serial number, and that serial numbers of affected products do not contain the letters O or I.",
+        "howToCheck": "The notice says the serial number is printed on the side or the back, and to compare it with the list at anker.com/ca/rc2506.",
+        "remedy": "The notice tells owners to stop using the recalled units and contact Anker for a free replacement or a voucher. It says to dispose of the lithium-ion battery so it cannot be used, using the municipality’s instructions, and not to put it in household garbage.",
+        "modelsLabel": "Model numbers in this Health Canada notice",
+        "models": ["A1647", "A1681", "A1689"]
+      },
+      {
+        "agency": "Health Canada",
+        "date": "2024-09-24",
+        "title": "Anker 334 MagGo Battery (PowerCore 10K), model A1642, recalled due to potential fire hazard",
+        "url": "https://recalls-rappels.canada.ca/en/alert-recall/anker-334-maggo-battery-powercore-10k-model-a1642-recalled-due-potential-fire-hazard",
+        "says": "The Health Canada notice names the Anker 334 MagGo Battery, PowerCore 10K, model A1642, and says to use Anker’s site to see whether a serial number is included.",
+        "howToCheck": "The notice says to check the serial number on Anker’s website.",
+        "remedy": "The notice tells owners to stop using the product, check the serial number, and if the unit is included, dispose of it so it cannot be used again, following the municipality’s lithium-ion battery instructions.",
+        "modelsLabel": "Model number in this Health Canada notice",
+        "models": ["A1642"]
+      },
+      {
+        "agency": "Health Canada",
+        "date": "2024-07-05",
+        "title": "Anker 321 Power Banks (PowerCore 5K) recalled due to potential fire hazard",
+        "url": "https://recalls-rappels.canada.ca/en/alert-recall/anker-321-power-banks-powercore-5k-recalled-due-potential-fire-hazard",
+        "says": "The Health Canada notice says certain units of the Anker 321 Power Bank, PowerCore 5K, black, model A1112011, are identified by specific 16-digit serial numbers on the bottom.",
+        "howToCheck": "The notice says the serial number is on the bottom and to check it with Anker at anker.com/ca/a1112-recall-form.",
+        "remedy": "The notice tells owners to stop using a recalled unit, dispose of it so it cannot be used, follow municipal lithium-ion battery instructions, and not put it in household garbage. It says Anker sends a new power bank to users verified as part of the recall batch.",
+        "modelsLabel": "Model number in this Health Canada notice",
+        "models": ["A1112011"]
+      },
+      {
+        "agency": "Health Canada",
+        "date": "2023-02-23",
+        "title": "Anker 535 Power Bank (PowerCore 20K) A1366 recalled due to fire hazard",
+        "url": "https://recalls-rappels.canada.ca/en/alert-recall/anker-535-power-bank-powercore-20k-a1366-recalled-due-fire-hazard",
+        "says": "The Health Canada notice names the Anker 535 Power Bank, PowerCore 20K, model A1366, and describes a fire hazard.",
+        "howToCheck": "The notice names model A1366. Use the linked notice for the label details it prints.",
+        "remedy": "The notice tells owners to stop using the recalled power bank and contact Anker customer support for a refund.",
+        "modelsLabel": "Model number in this Health Canada notice",
+        "models": ["A1366"]
+      }
+    ]
+  },
+  {
+    "slug": "vitamix-ascent-venturist-containers",
+    "title": "Vitamix Ascent and Venturist container recall, and the E310",
+    "linkLabel": "Vitamix container notices",
+    "description": "The June 20, 2024 CPSC notice covers Ascent and Venturist 8-ounce and 20-ounce blending containers and blade bases. The E310 card lists an Explorian blender with a 48 oz container.",
+    "hub": "kitchen",
+    "products": ["vitamix-e310"],
+    "catalogue": "The E310 card is the Explorian blender. Its maker-sourced spec line says the container is 48 oz. The 2024 CPSC notice names 8-ounce and 20-ounce Ascent and Venturist containers, not an Explorian E310.",
+    "notices": [
+      {
+        "agency": "CPSC",
+        "date": "2024-06-20",
+        "title": "Vitamix Reannounces and Expands Recall of Ascent Series and Venturist Series 8-ounce and 20-ounce Blending Containers and Blade Bases",
+        "url": "https://www.cpsc.gov/Recalls/2024/Vitamix-Reannounces-and-Expands-Recall-of-Ascent-Series-and-Venturist-Series-8-ounce-and-20-ounce-Blending-Containers-and-Blade-Bases-Due-to-Laceration-Hazard-Offers-New-Repair-Kit-Due-to-Additional-Injuries",
+        "says": "The CPSC notice says the recall involves all Ascent and Venturist Series 8-ounce blending containers, 20-ounce blending containers, and blade bases, including containers repaired in the August 2018 recall. It says the clear containers and black blade bases came with certain Venturist and Ascent blenders and were also sold separately. It names the Venturist V1200 and the Ascent A2300, A2500, A3300, and A3500 as examples. It says the Vitamix logo is printed on the container.",
+        "howToCheck": "The notice identifies the recalled parts as Ascent and Venturist 8-ounce and 20-ounce containers and their blade bases, including units already repaired in 2018.",
+        "remedy": "The notice tells owners, including people who took part in the 2018 recall, to stop using the recalled 8-ounce and 20-ounce containers and blade bases and contact Vitamix for a repair kit with a protective plastic shroud and additional labels.",
+        "modelsLabel": "Names in the 2024 CPSC notice",
+        "models": ["Ascent Series 8-ounce blending containers", "Ascent Series 20-ounce blending containers", "Venturist Series 8-ounce blending containers", "Venturist Series 20-ounce blending containers", "Blade bases for those containers", "Venturist V1200", "Ascent A2300", "Ascent A2500", "Ascent A3300", "Ascent A3500"]
+      },
+      {
+        "agency": "CPSC",
+        "date": "2018-08-09",
+        "title": "Vitamix Recalls Ascent and Venturist Series Blending Containers Due to Laceration Hazard",
+        "url": "https://www.cpsc.gov/Recalls/2018/Vitamix-Recalls-Ascent-and-Venturist-Series-Blending-Containers-Due-to-Laceration-Hazard",
+        "says": "The 2018 CPSC notice, which the 2024 notice expands, covered Ascent and Venturist 8-ounce and 20-ounce containers with blade date codes of March 2018 (03-18) or earlier. It says a green or orange dot on the bottom of the blade base means that container was already repaired under that recall.",
+        "howToCheck": "The notice says the blade date code is laser-etched on the top of the blade in the blade base, in MM-YY form.",
+        "remedy": "That notice told owners to stop using the recalled containers and contact Vitamix for a free repair kit. The 2024 notice above is the later instruction, including for people who already received the 2018 repair.",
+        "modelsLabel": "Names in the 2018 CPSC notice",
+        "models": ["Ascent 8-ounce containers with blade date code 03-18 or earlier", "Ascent 20-ounce containers with blade date code 03-18 or earlier", "Venturist 8-ounce containers with blade date code 03-18 or earlier", "Venturist 20-ounce containers with blade date code 03-18 or earlier", "Venturist Model 1200"]
+      },
+      {
+        "agency": "CPSC",
+        "date": "2013-08-28",
+        "title": "Vitamix Recalls 64-Ounce Low Profile Blender Container Due to Laceration Hazard",
+        "url": "https://www.cpsc.gov/Recalls/2013/Vitamix-Recalls-64-Ounce-Low-Profile-Blender-Container",
+        "says": "A separate 2013 CPSC notice covers the Vitamix 64-ounce Low-Profile container with blade part number 103208 A and blade date codes 03-12 through 07-13. It names blender models 7500, Professional Series 300, and Professional Series 750. It says replacement blades with part number 104602 A are not included.",
+        "howToCheck": "The notice says the blade part number and date code are laser-etched on the top of the blade at the bottom of the container.",
+        "remedy": "The notice tells owners to stop using the recalled container and contact Vitamix for a free repair.",
+        "modelsLabel": "Names in the 2013 CPSC notice",
+        "models": ["64-ounce Low-Profile container", "Blade part number 103208 A", "Blade date codes 03-12 through 07-13", "Blender model 7500", "Professional Series 300", "Professional Series 750"]
+      },
+      {
+        "agency": "Health Canada",
+        "date": "2013-08-28",
+        "title": "Vitamix 2-Litre (64-Ounce) Low-Profile Blender Container",
+        "url": "https://recalls-rappels.canada.ca/en/alert-recall/vitamix-2-litre-64-ounce-low-profile-blender-container",
+        "says": "The Health Canada record dated 2013-08-28 names the Vitamix 2-litre (64-ounce) Low-Profile blender container. It is a different notice from the 2024 CPSC Ascent and Venturist container notice.",
+        "howToCheck": "Use the linked Health Canada notice for the container it describes.",
+        "remedy": "Follow the steps printed on the linked Health Canada notice.",
+        "modelsLabel": "Name in the Health Canada notice",
+        "models": ["Vitamix 2-litre (64-ounce) Low-Profile blender container"]
+      }
+    ]
+  },
+  {
+    "slug": "instant-pot-official-notices",
+    "title": "Instant Pot official notices: Smart, Smart-60, and Gem 65",
+    "linkLabel": "Instant Pot official notices",
+    "description": "Official CPSC and Health Canada notices name Instant Pot Smart, Smart-60, and Gem 65 multicookers. They do not name the Duo Plus. The Duo Plus card has no matching recall record as of the catalogue check date.",
+    "hub": "kitchen",
+    "products": ["instant-pot-duo-plus"],
+    "catalogue": "The catalogue card is the Instant Pot Duo Plus, 6 quart. Duo Plus is not a model name in the notices below.",
+    "notices": [
+      {
+        "agency": "CPSC",
+        "date": "2015-07-15",
+        "title": "Instant Pot Pressure Cookers Recalled by Double Insight Due to Shock Hazard",
+        "url": "https://www.cpsc.gov/Recalls/2015/Instant-Pot-Pressure-Cookers-Recalled-by-Double-Insight",
+        "says": "The CPSC notice says the recall involves Instant Pot Smart and Smart-60 electric pressure cookers. It says they are stainless steel with black plastic attachments, about 12 inches in diameter and 12 inches tall, with Instant Pot and Smart printed on the front of the control panel. It says serial numbers between 1410 and 1503 and manufacture dates between December 1, 2014 and June 1, 2015 are included.",
+        "howToCheck": "The notice says the serial number and date are printed on a label on the bottom of the base.",
+        "remedy": "The notice tells owners to stop using the recalled cooker and contact Instant Pot for a free replacement base, which is the bottom of the cooker including the control panel.",
+        "modelsLabel": "Models in this CPSC notice",
+        "models": ["Instant Pot Smart", "Instant Pot Smart-60", "Serial numbers 1410 through 1503", "Manufacture dates December 1, 2014 through June 1, 2015"]
+      },
+      {
+        "agency": "Health Canada",
+        "date": "2015-07-15",
+        "title": "Double Insight Inc. recalls Instant Pot Smart Pressure Cooker",
+        "url": "https://recalls-rappels.canada.ca/en/alert-recall/double-insight-inc-recalls-instant-pot-smart-pressure-cooker",
+        "says": "The Health Canada notice says date codes between October 2014 (1410) and March 2015 (1503) are affected. It says those date codes are the first four digits of a longer serial number on the bottom of the base, and that the model name Smart-60 is on a label on the back of the unit.",
+        "howToCheck": "The notice says to read the first four digits of the serial number on the bottom, and the Smart-60 name on the back label.",
+        "remedy": "The notice tells owners to stop using the product and contact Double Insight for a replacement or refund.",
+        "modelsLabel": "Names in this Health Canada notice",
+        "models": ["Instant Pot Smart", "Smart-60", "Date codes 1410 through 1503"]
+      },
+      {
+        "agency": "CPSC",
+        "date": "2018-03-01",
+        "title": "Double Insight Recalls Multicookers Due to Fire Hazard; Sold Exclusively at Walmart",
+        "url": "https://www.cpsc.gov/Recalls/2018/Double-Insight-Recalls-Multicookers-Due-to-Fire-Hazard-Sold-Exclusively-at-Walmart",
+        "says": "The CPSC notice says the recall involves Gem 65 8-in-1 multicookers sold exclusively at Walmart. It says Instant Pot is printed on the front, and Gem 65 8-in-1 plus a batch code of 1728, 1730, 1731, 1734, or 1746 is printed on the rating label on the underside.",
+        "howToCheck": "The notice says to read the underside rating label for Gem 65 8-in-1 and one of those batch codes.",
+        "remedy": "The notice tells owners to stop using the recalled multicooker, unplug it, and return it to Walmart for a free replacement.",
+        "modelsLabel": "Names in this CPSC notice",
+        "models": ["Gem 65 8-in-1", "Batch code 1728", "Batch code 1730", "Batch code 1731", "Batch code 1734", "Batch code 1746"]
+      }
+    ]
+  },
+  {
+    "slug": "lasko-heaters",
+    "title": "Lasko heater recalls: official model numbers",
+    "linkLabel": "Lasko heater notices",
+    "description": "CPSC heater notices name specific older Lasko and Air King model numbers. CT32150 and CT14401 are not those model numbers. The catalogue check found no matching recall for either card on the check date.",
+    "hub": "winter",
+    "products": ["lasko-ct32150", "lasko-ct14401"],
+    "catalogue": "The catalogue heaters are CT32150 and CT14401. Neither model number is in the CPSC lists copied below.",
+    "notices": [
+      {
+        "agency": "CPSC",
+        "date": "2011-02-08",
+        "title": "Lasko Recalls Portable Electric Heaters Due To Fire Hazard",
+        "url": "https://www.cpsc.gov/Recalls/2011/Lasko-Recalls-Portable-Electric-Heaters-Due-To-Fire-Hazard",
+        "says": "The CPSC notice says the recall involves Lasko model 5540 and Air King model 8540 portable electric tower heaters manufactured in 2002, with date codes that begin with 2. It says heaters with date codes beginning with 3, 4, or 5 are not in this recall. It describes the heaters as dark grey with silver front covers and black vent slats, 20.5 inches tall.",
+        "howToCheck": "The notice says the date code is a four-digit number on the label on the bottom of the unit, on the bottom left of the label, above the voltage number.",
+        "remedy": "The notice tells owners to stop using the heaters and contact Lasko for a free replacement heater.",
+        "modelsLabel": "Model numbers in this CPSC notice",
+        "models": ["Lasko 5540", "Air King 8540"]
+      },
+      {
+        "agency": "CPSC",
+        "date": "2007-06-28",
+        "title": "Ceramic Heaters Recalled By Lasko",
+        "url": "https://www.cpsc.gov/Recalls/2007/Ceramic-Heaters-Recalled-By-Lasko-Heaters-Could-Pose-A-Fire-Hazard",
+        "says": "The CPSC notice says the recall involves Lasko ceramic heaters manufactured in 2005, in the model numbers listed below.",
+        "howToCheck": "The notice says the model number is on the bottom of the unit or at the rear of the base.",
+        "remedy": "The notice tells owners to stop using the heaters and contact Lasko for a free replacement heater.",
+        "modelsLabel": "Model numbers in this CPSC notice",
+        "models": ["5132", "5345", "5362", "5364", "5420", "5532", "5534", "5566"]
+      },
+      {
+        "agency": "CPSC",
+        "date": "2004-03-04",
+        "title": "CPSC, Lasko Products Inc. Announce Recall of Space Heaters",
+        "url": "https://www.cpsc.gov/Recalls/2004/CPSC-Lasko-Products-Inc-Announce-Recall-of-Space-Heaters-",
+        "says": "The CPSC notice says two heaters are in this recall. Model 5500 is an oscillating ceramic heater with dark gray vents and a bronze trim. Model 5700 is an oil-filled radiator. It says Lasko is printed near the top of both.",
+        "howToCheck": "The notice says the 5500 model number is on a label under the round base, and the 5700 model number is on a label on the side near the right front wheel.",
+        "remedy": "The notice tells owners to stop using the heaters, unplug them, and contact Lasko for instructions on returning the heater for a free replacement or a product of similar value.",
+        "modelsLabel": "Model numbers in this CPSC notice",
+        "models": ["5500", "5700"]
+      }
+    ]
+  }
+]

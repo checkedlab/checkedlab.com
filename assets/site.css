@@ -355,6 +355,8 @@ body[data-page="bin"] .hero h1 { max-width: none; width: 100%; margin-left: 0; m
 .notice-list { list-style: none; margin: 0; padding: 0; }
 .recall-model h3, .recall-cat h3 { margin: 8px 0; font-size: 20px; letter-spacing: -0.02em; overflow-wrap: anywhere; }
 .recall-models { margin: 8px 0; overflow-wrap: anywhere; }
+.model-list { margin: 8px 0 16px; padding-left: 18px; }
+.notice { margin-top: 28px; }
 body[data-page="recalls"] .prose h2 { margin-top: 36px; }
 .recall-q {
   font-size: 28px;
