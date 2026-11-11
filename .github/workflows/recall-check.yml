@@ -17,6 +17,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
@@ -30,14 +32,22 @@ jobs:
       - name: Rebuild static cards and product pages
         run: node scripts/build.mjs
       - name: Commit recall status
+        id: commit
         run: |
           git config user.name "checkedlab-recall-check"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add products.json recalls.json sitemap.xml index.html bin-list/index.html
+          git add products.json recalls.json sitemap.xml index.html bin-list/index.html 404.html
+          git add data recalls how-we-check/index.html
           git add winter car-garage air-water pet kitchen sleep personal-tech
+          git add -- *.txt
           if git diff --cached --quiet; then
             echo "No recall changes"
+            echo "changed=false" >> "$GITHUB_OUTPUT"
           else
             git commit -m "chore: update recall check"
             git push origin HEAD
+            echo "changed=true" >> "$GITHUB_OUTPUT"
           fi
+      - name: Tell IndexNow about changed URLs
+        if: steps.commit.outputs.changed == 'true'
+        run: node scripts/indexnow.mjs --submit --soft

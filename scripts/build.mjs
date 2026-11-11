@@ -1,5 +1,6 @@
+import { createHash } from "node:crypto";
 import { createRequire } from "node:module";
-import { readFileSync, writeFileSync, mkdirSync, readdirSync, rmSync, statSync, cpSync } from "node:fs";
+import { readFileSync, writeFileSync, mkdirSync, readdirSync, rmSync, statSync, cpSync, existsSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -59,9 +60,16 @@ const SOURCE_LABELS = {
   "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3": "Health Canada open dataset"
 };
 const COMMERCE = /^(offers|price|priceCurrency|lowPrice|highPrice|aggregateRating|review|reviewRating|ratingValue|ratingCount|reviewCount)$/i;
-const FONT_PRELOAD = '<link rel="preload" href="/assets/fonts/source-sans-3-latin.woff2" as="font" type="font/woff2" crossorigin>';
+const FONT_PRELOAD = '<link rel="preload" href="/assets/fonts/source-sans-3-latin.woff2" as="font" type="font/woff2" crossorigin fetchpriority="low">';
+const HOME_START = "<!-- checkedlab:recall-home start -->";
+const HOME_END = "<!-- checkedlab:recall-home end -->";
+const RECALL_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3h8v4H8zM7 7h10v14H7z"/><path d="M9 12h6M9 16h4"/></svg>';
+const REV_PATH = join(root, "data", "page-rev.json");
+const FEED_LOG_PATH = join(root, "data", "recall-feed.json");
+const CA_DATASET_PAGE = "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3";
 
 const products = JSON.parse(readFileSync(join(root, "products.json"), "utf8"));
+const recalls = JSON.parse(readFileSync(join(root, "recalls.json"), "utf8"));
 assertProducts(products);
 assertRenderer();
 
@@ -74,7 +82,7 @@ for (const hub of HUBS) {
   const lead = byHub.get(hub).find((product) => card.schemaImage(product));
   html = ensureImagePreload(html, lead);
   html = pointItemList(html, hub);
-  html = ensureFontPreload(ensureCardScript(html));
+  html = ensureChrome(ensureFontPreload(ensureCardScript(html)), hub);
   writeFileSync(file, html);
 }
 
@@ -83,10 +91,11 @@ for (const hub of HUBS) {
   let html = readFileSync(file, "utf8");
   const byId = new Map(products.map((product) => [product.id, product]));
   const popular = POPULAR_IDS.map((id) => byId.get(id)).filter(Boolean);
-  const recalls = products.filter(isBin);
+  const recallsOnHome = products.filter(isBin);
   html = fillMount(html, popular.map((product) => card.card(product, "US")).join("\n"), POP_START, POP_END);
-  html = fillMount(html, recalls.length ? recalls.map((product) => card.card(product, "US")).join("\n") : '<p class="empty">No official model recall is on the list.</p>', REC_START, REC_END);
-  html = ensureFontPreload(ensureCardScript(html));
+  html = fillMount(html, recallsOnHome.length ? recallsOnHome.map((product) => card.card(product, "US")).join("\n") : '<p class="empty">No official model recall is on the list.</p>', REC_START, REC_END);
+  html = fillHomePointer(html, recalls.checkedAt || "");
+  html = ensureChrome(ensureFontPreload(ensureCardScript(html)), "home");
   writeFileSync(file, html);
 }
 
@@ -95,7 +104,7 @@ for (const hub of HUBS) {
   let html = readFileSync(file, "utf8");
   const shown = products.filter(isBin);
   html = fillMount(html, shown.length ? shown.map((product) => card.card(product, "US")).join("\n") : BIN_EMPTY);
-  html = ensureFontPreload(ensureCardScript(html));
+  html = ensureChrome(ensureFontPreload(ensureCardScript(html)), "bin");
   writeFileSync(file, html);
 }
 
@@ -103,7 +112,7 @@ const pages = [];
 for (const product of products) {
   const dir = join(root, product.category, product.id);
   mkdirSync(dir, { recursive: true });
-  const html = ensureFontPreload(productPage(product));
+  const html = ensureChrome(ensureFontPreload(productPage(product)), product.category);
   writeFileSync(join(dir, "index.html"), html);
   pages.push(product);
 }
@@ -120,13 +129,18 @@ for (const hub of HUBS) {
 
 for (const rel of ["how-we-check/index.html", "404.html"]) {
   const file = join(root, rel);
-  writeFileSync(file, ensureFontPreload(readFileSync(file, "utf8")));
+  const current = rel.startsWith("how-we-check") ? "how" : "missing";
+  writeFileSync(file, ensureChrome(ensureFontPreload(readFileSync(file, "utf8")), current));
 }
 
-writeSitemap(pages);
+const ordered = catalogueOrder(products);
+writeRecallsPage(ordered);
+writeRecallFeed(ordered);
+const lastmods = stampPages(ordered);
+writeSitemap(pages, lastmods);
 verifyOutput(pages);
 publishDist();
-console.log(`Wrote ${pages.length} product pages and ${HUBS.length} hub card lists.`);
+console.log(`Wrote ${pages.length} product pages, ${HUBS.length} hub card lists, and /recalls/.`);
 
 function assertProducts(list) {
   if (!Array.isArray(list) || !list.length) throw new Error("products.json is empty");
@@ -194,7 +208,10 @@ function pointItemList(html, hub) {
 }
 
 function ensureFontPreload(html) {
-  if (html.includes("/assets/fonts/source-sans-3-latin.woff2")) return html;
+  if (html.includes(FONT_PRELOAD)) return html;
+  if (html.includes("/assets/fonts/source-sans-3-latin.woff2")) {
+    return html.replace(/<link rel="preload" href="\/assets\/fonts\/source-sans-3-latin\.woff2"[^>]*>/, FONT_PRELOAD);
+  }
   return html.replace('<link rel="stylesheet"', FONT_PRELOAD + '\n<link rel="stylesheet"');
 }
 
@@ -319,7 +336,7 @@ function nav(current) {
   return '<nav class="cats" aria-label="Hubs">\n' + NAV.map(([hub, label]) => {
     const currentAttr = hub === current ? ' aria-current="page"' : "";
     return '<a href="/' + hub + '/"' + currentAttr + ">" + ICONS[hub] + "<span>" + label + "</span></a>";
-  }).join("\n") + '\n<a class="cats-util" href="/how-we-check/">How we check</a>\n<a class="cats-util" href="/bin-list/">BIN list</a>\n</nav>';
+  }).join("\n") + "\n" + recallCatsLink(current) + '\n<a class="cats-util" href="/how-we-check/">How we check</a>\n<a class="cats-util" href="/bin-list/">BIN list</a>\n</nav>';
 }
 
 function productPage(product) {
@@ -376,6 +393,7 @@ ${DISCLOSURE}
 <button type="button" data-region-set="CA">CA</button>
 </div>
 <nav>
+<a href="/recalls/">RECALL CHECKS</a>
 <a href="/how-we-check/">HOW WE CHECK</a>
 <a href="/bin-list/">BIN LIST</a>
 </nav>
@@ -430,7 +448,7 @@ ${card.imageColumn(product)}
 <div class="foot">
 <p>As an Amazon Associate I earn from qualifying purchases.</p>
 <p>© 2026 CHECKED LAB<br>Winnipeg, MB</p>
-<p class="foot-mail"><a href="/how-we-check/">How we check</a><a href="/bin-list/">BIN list</a><a href="mailto:hello@checkedlab.com">hello@</a><a href="mailto:support@checkedlab.com">support@</a><a href="mailto:press@checkedlab.com">press@</a><a href="mailto:legal@checkedlab.com">legal@</a></p>
+<p class="foot-mail"><a href="/recalls/">Recall checks</a><a href="/how-we-check/">How we check</a><a href="/bin-list/">BIN list</a><a href="mailto:hello@checkedlab.com">hello@</a><a href="mailto:support@checkedlab.com">support@</a><a href="mailto:press@checkedlab.com">press@</a><a href="mailto:legal@checkedlab.com">legal@</a></p>
 </div>
 </footer>
 <script src="/assets/site.js" defer></script>
@@ -439,50 +457,525 @@ ${card.imageColumn(product)}
 `;
 }
 
-function lastmod(product) {
-  const dates = ["us", "ca"]
-    .map((key) => (product.recall && product.recall[key] && product.recall[key].checkedAt) || "")
-    .filter((value) => /^\d{4}-\d{2}-\d{2}$/.test(value))
-    .sort();
-  return dates.length ? dates[dates.length - 1] : "2026-11-10";
+function loadJson(file, fallback) {
+  try {
+    return JSON.parse(readFileSync(file, "utf8"));
+  } catch {
+    return fallback;
+  }
 }
 
-function writeSitemap(pages) {
-  const staticUrls = [
-    ORIGIN + "/",
-    ...HUBS.map((hub) => ORIGIN + "/" + hub + "/"),
-    ORIGIN + "/how-we-check/",
-    ORIGIN + "/bin-list/"
+function recallCatsLink(current) {
+  const currentAttr = current === "recalls" ? ' aria-current="page"' : "";
+  return '<a href="/recalls/"' + currentAttr + ">" + RECALL_ICON + "<span>Recall checks</span></a>";
+}
+
+function ensureChrome(html, current) {
+  const headerAnchor = "</div>\n<nav>\n<a href=\"/how-we-check/";
+  if (html.includes(headerAnchor)) {
+    const header = current === "recalls"
+      ? '<a href="/recalls/" aria-current="page">RECALL CHECKS</a>'
+      : '<a href="/recalls/">RECALL CHECKS</a>';
+    html = html.replace(headerAnchor, "</div>\n<nav>\n" + header + "\n<a href=\"/how-we-check/");
+  }
+  const catsAnchor = '<a class="cats-util" href="/how-we-check/">';
+  if (html.includes(catsAnchor) && !html.includes("<span>Recall checks</span>")) {
+    html = html.replace(catsAnchor, recallCatsLink(current) + "\n" + catsAnchor);
+  }
+  const footAnchor = '<p class="foot-mail"><a href="/how-we-check/">How we check</a>';
+  if (html.includes(footAnchor)) {
+    html = html.replace(footAnchor, '<p class="foot-mail"><a href="/recalls/">Recall checks</a><a href="/how-we-check/">How we check</a>');
+  }
+  return html;
+}
+
+function homePointer(checkedAt) {
+  const date = checkedAt || "";
+  return '<p class="recall-pointer">Catalogue recall checks are dated <time datetime="' + card.esc(date) + '">' + card.esc(date) + '</time> (UTC). <a href="/recalls/">Recall checks</a> lists every model for the United States and Canada.</p>';
+}
+
+function fillHomePointer(html, checkedAt) {
+  if (!html.includes(HOME_START)) {
+    const anchor = '<h2 id="recall-title">Latest official recalls</h2>';
+    if (!html.includes(anchor)) throw new Error("Homepage is missing the recall band");
+    html = html.replace(anchor, anchor + "\n" + HOME_START + "\n" + HOME_END);
+  }
+  return fillMount(html, homePointer(checkedAt), HOME_START, HOME_END);
+}
+
+function catalogueOrder(list) {
+  const ordered = [];
+  for (const hub of HUBS) {
+    for (const product of list) {
+      if (product.category === hub) ordered.push(product);
+    }
+  }
+  return ordered;
+}
+
+function recallRecord(product, region) {
+  const fromProduct = product.recall && product.recall[region];
+  const fromFile = recalls.products && recalls.products[product.id] && recalls.products[product.id][region];
+  return fromProduct || fromFile || { status: "not_recorded" };
+}
+
+function href(url) {
+  const value = String(url || "");
+  if (!/^https:\/\//.test(value)) return "";
+  return card.esc(value.replace(/ /g, "%20"));
+}
+
+function binEmptyHtml(date) {
+  return '<p class="empty">No catalogue model is binned as of ' + card.esc(date) + ".</p>";
+}
+
+function otherLines(rec) {
+  if (!rec || rec.status === "bin" || !Array.isArray(rec.other)) return "";
+  return rec.other.map((item) => {
+    if (!item || !item.url) return "";
+    const bits = [item.date, item.source].filter(Boolean).map((bit) => card.esc(bit)).join(", ");
+    const when = bits ? " (" + bits + ")" : "";
+    return '<p class="recall-other">This is a different model. <a href="' + href(item.url) + '" target="_blank" rel="noopener">' + card.esc(item.title || "Recall notice") + "</a>" + when + ".</p>";
+  }).join("");
+}
+
+function regionBody(rec, place) {
+  if (rec.status === "bin") {
+    const link = rec.url ? ' <a href="' + href(rec.url) + '" target="_blank" rel="noopener">Official notice</a>' : "";
+    return '<p class="recall recall-bin"><strong>Official recall found.</strong> ' + card.esc(rec.detail || "A recall matches this model.") + link + "</p>";
+  }
+  const tone = rec.status === "none" ? "recall recall-clear" : "recall recall-wait";
+  return '<p class="' + tone + '">' + card.esc(recallSentence(rec, place)) + "</p>" + otherLines(rec);
+}
+
+function modelArticle(product, region, place) {
+  const rec = recallRecord(product, region);
+  const model = product.model ? '<p class="p-meta">' + card.esc(product.model) + "</p>" : "";
+  return '<article class="recall-model" id="' + card.esc(product.id) + "-" + region + '">' +
+    card.badgeHtml(rec) +
+    '<h3><a href="' + card.productPath(product) + '">' + card.visibleTitle(product.title) + "</a></h3>" +
+    model + regionBody(rec, place) + "</article>";
+}
+
+function regionColumn(ordered, region, place) {
+  return HUBS.map((hub) => {
+    const group = ordered.filter((product) => product.category === hub);
+    if (!group.length) return "";
+    const articles = group.map((product) => modelArticle(product, region, place)).join("\n");
+    return '<section class="recall-hub"><h3><a href="/' + hub + '/">' + card.esc(HUB_NAME[hub]) + "</a></h3>" + articles + "</section>";
+  }).join("\n");
+}
+
+function binSection(ordered, date) {
+  const binned = ordered.filter((product) => recallRecord(product, "us").status === "bin" || recallRecord(product, "ca").status === "bin");
+  if (!binned.length) return "<h2>BIN</h2>\n" + binEmptyHtml(date);
+  const items = binned.map((product) => {
+    const where = [
+      recallRecord(product, "us").status === "bin" ? "United States" : "",
+      recallRecord(product, "ca").status === "bin" ? "Canada" : ""
+    ].filter(Boolean).join(" and ");
+    return "<li><a href=\"" + card.productPath(product) + "\">" + card.visibleTitle(product.title) + '</a> <span class="p-meta">' + card.esc(where) + "</span></li>";
+  }).join("");
+  return "<h2>BIN</h2>\n<p>These catalogue models match an official notice.</p>\n<ul>" + items + "</ul>";
+}
+
+function noticeList(items) {
+  if (!items || !items.length) return '<p class="empty">No notice is stored for this side.</p>';
+  return '<ul class="notice-list">' + items.map((item) => {
+    const model = item.models ? '<p class="recall-models">' + card.esc(item.models) + "</p>" : "";
+    const product = item.product ? '<p class="p-meta">Product: ' + card.esc(item.product) + "</p>" : "";
+    const archived = item.archived ? ' <span class="p-meta">Archived record.</span>' : "";
+    const when = [item.date, item.source].filter(Boolean).map((bit) => card.esc(bit)).join(" · ");
+    return "<li><a href=\"" + href(item.url) + '" target="_blank" rel="noopener">' + card.esc(item.title || "Recall notice") + "</a>" + archived +
+      '<p class="p-meta">' + when + "</p>" + product + model + "</li>";
+  }).join("") + "</ul>";
+}
+
+function categorySection(date) {
+  const list = Array.isArray(recalls.categories) ? recalls.categories : [];
+  const any = list.some((cat) => (cat.us && cat.us.length) || (cat.ca && cat.ca.length));
+  if (!any) {
+    return '<section id="category-notices"><h2>Official notices in these categories</h2><p class="empty">No air fryer, heater, or power bank notices are stored with the ' + card.esc(date) + " check.</p></section>";
+  }
+  const blocks = list.map((cat) => {
+    const hubName = HUB_NAME[cat.hub] || cat.title;
+    const hubHref = HUBS.includes(cat.hub) ? "/" + cat.hub + "/" : "/recalls/";
+    return '<section class="recall-cat" id="category-' + card.esc(cat.id || "notices") + '"><h3>' + card.esc(cat.title || "Notices") + '</h3><p class="lede"><a href="' + hubHref + '">' + card.esc(hubName) + " models</a></p><div class=\"recall-columns\"><div><h4>United States</h4>" + noticeList(cat.us) + "</div><div><h4>Canada</h4>" + noticeList(cat.ca) + "</div></div></section>";
+  }).join("\n");
+  return '<section id="category-notices"><h2>Official notices in these categories</h2><p>These lines are titles, dates, and model text copied from CPSC and Health Canada notices for air fryers, space heaters, and power banks. A notice can name models that are outside this catalogue. The link opens the official page.</p>' + blocks + "</section>";
+}
+
+function recallsDescription(date) {
+  return "US and Canada recall status for every catalogue model, checked " + date + " (UTC). Official CPSC and Health Canada notices are linked.";
+}
+
+function recallsJsonLd(ordered, date) {
+  const url = ORIGIN + "/recalls/";
+  const graph = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: ORIGIN + "/" },
+          { "@type": "ListItem", position: 2, name: "Recall checks", item: url }
+        ]
+      },
+      {
+        "@type": "CollectionPage",
+        "@id": url,
+        name: "Recall checks",
+        url: url,
+        dateModified: date,
+        inLanguage: "en",
+        description: recallsDescription(date),
+        mainEntity: {
+          "@type": "ItemList",
+          name: "Catalogue recall checks",
+          numberOfItems: ordered.length,
+          itemListElement: ordered.map((product, index) => ({
+            "@type": "ListItem",
+            position: index + 1,
+            name: product.title,
+            url: ORIGIN + card.productPath(product)
+          }))
+        }
+      }
+    ]
+  };
+  assertNoCommerce(graph);
+  return JSON.stringify(graph, null, 2).replace(/</g, "\\u003c");
+}
+
+function writeRecallsPage(ordered) {
+  const date = recalls.checkedAt || "";
+  const usSource = (recalls.sources && recalls.sources.us && recalls.sources.us.url) || "https://www.saferproducts.gov/RestWebServices/Recall";
+  const url = ORIGIN + "/recalls/";
+  const desc = recallsDescription(date);
+  const html = `<!DOCTYPE html>
+<html lang="en" data-region="US">
+<head>
+<meta charset="UTF-8">
+<link rel="canonical" href="${url}">
+<script src="/assets/region-boot.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recall checks — Checked Lab</title>
+<meta name="description" content="${card.esc(desc)}">
+<meta property="og:title" content="Recall checks — Checked Lab">
+<meta property="og:description" content="${card.esc(desc)}">
+<meta property="og:type" content="website">
+<meta property="og:url" content="${url}">
+<meta property="og:image" content="${ORIGIN}/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Checked Lab. Checked before you buy.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Recall checks — Checked Lab">
+<meta name="twitter:description" content="${card.esc(desc)}">
+<meta name="twitter:image" content="${ORIGIN}/assets/og.png">
+<link rel="alternate" type="application/rss+xml" title="Checked Lab recall checks" href="/recalls/feed.xml">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+${FONT_PRELOAD}
+<link rel="stylesheet" href="/assets/site.css">
+<meta name="theme-color" content="#F5F5F7">
+<script type="application/ld+json">
+${recallsJsonLd(ordered, date)}
+</script>
+</head>
+<body data-page="recalls">
+${DISCLOSURE}
+<div class="topbar"><span>● CHECKED LAB • EST 2026 • NO SPONSORS</span><span>hello@checkedlab.com • press@checkedlab.com • legal@checkedlab.com</span></div>
+<div class="masthead">
+<header>
+<a class="logo" href="/">CHECKED LAB <i>CHECKED BEFORE YOU BUY</i></a>
+<div class="header-actions">
+<div class="country-switch">
+<button type="button" data-region-set="US">US</button>
+<button type="button" data-region-set="CA">CA</button>
+</div>
+<nav>
+<a href="/recalls/" aria-current="page">RECALL CHECKS</a>
+<a href="/how-we-check/">HOW WE CHECK</a>
+<a href="/bin-list/">BIN LIST</a>
+</nav>
+</div>
+</header>
+${nav("recalls")}
+</div>
+<main>
+<div class="wrap prose">
+<nav class="crumbs" aria-label="Breadcrumb">
+<a href="/">Home</a>
+<span aria-hidden="true">/</span>
+<span aria-current="page">Recall checks</span>
+</nav>
+<h1>Recall checks</h1>
+<p class="lede">Checked <time datetime="${card.esc(date)}">${card.esc(date)}</time> (UTC). Every catalogue model has a United States line from the <a href="${href(usSource)}" target="_blank" rel="noopener">CPSC SaferProducts</a> source and a Canada line from the <a href="${CA_DATASET_PAGE}" target="_blank" rel="noopener">Health Canada open dataset</a>.</p>
+<p>A date is the day that check ran. Open a model for the maker specs. Read <a href="/how-we-check/">how we check</a> and the <a href="/bin-list/">BIN list</a>. <a href="/recalls/feed.xml">RSS</a> updates when a recall record changes.</p>
+<p class="recall-filters"><a href="#united-states">United States</a><a href="#canada">Canada</a></p>
+${binSection(ordered, date)}
+<div class="recall-columns">
+<section id="united-states">
+<h2>United States</h2>
+${regionColumn(ordered, "us", "US")}
+</section>
+<section id="canada">
+<h2>Canada</h2>
+${regionColumn(ordered, "ca", "Canadian")}
+</section>
+</div>
+${categorySection(date)}
+</div>
+</main>
+<footer>
+<div class="foot">
+<p>As an Amazon Associate I earn from qualifying purchases.</p>
+<p>© 2026 CHECKED LAB<br>Winnipeg, MB</p>
+<p class="foot-mail"><a href="/recalls/">Recall checks</a><a href="/how-we-check/">How we check</a><a href="/bin-list/">BIN list</a><a href="mailto:hello@checkedlab.com">hello@</a><a href="mailto:support@checkedlab.com">support@</a><a href="mailto:press@checkedlab.com">press@</a><a href="mailto:legal@checkedlab.com">legal@</a></p>
+</div>
+</footer>
+<script src="/assets/site.js" defer></script>
+</body>
+</html>
+`;
+  if (/not tested/i.test(html) || /does not test/i.test(html)) throw new Error("Recall page uses a test negation");
+  if (/\$\d/.test(html)) throw new Error("Recall page has a price");
+  mkdirSync(join(root, "recalls"), { recursive: true });
+  writeFileSync(join(root, "recalls", "index.html"), html);
+}
+
+function productSignature(product) {
+  const side = (region) => {
+    const rec = recallRecord(product, region);
+    const other = (rec.other || []).map((item) => [item.title, item.url, item.date, item.source, item.archived ? "1" : "0"].join("\u001f")).join("\u001e");
+    return [rec.status || "", rec.url || "", rec.detail || "", other].join("\u001f");
+  };
+  return side("us") + "\u001d" + side("ca");
+}
+
+function rfc822(isoDate) {
+  const date = /^\d{4}-\d{2}-\d{2}$/.test(isoDate || "") ? new Date(isoDate + "T00:00:00Z") : new Date();
+  return date.toUTCString();
+}
+
+function feedItem(product, signature) {
+  const us = recallRecord(product, "us");
+  const ca = recallRecord(product, "ca");
+  const parts = [product.title + ".", recallSentence(us, "US"), recallSentence(ca, "Canadian")];
+  if ([us, ca].some((rec) => rec.status !== "bin" && rec.other && rec.other.length)) {
+    parts.push("An official notice for a different model is linked from the recall checks page.");
+  }
+  const dates = [us.checkedAt, ca.checkedAt, recalls.checkedAt].filter((value) => /^\d{4}-\d{2}-\d{2}$/.test(value || "")).sort();
+  return {
+    guid: ORIGIN + card.productPath(product) + "#" + createHash("sha256").update(signature).digest("hex").slice(0, 12),
+    title: product.title,
+    link: ORIGIN + card.productPath(product),
+    date: dates.length ? dates[dates.length - 1] : recalls.checkedAt,
+    description: parts.join(" ")
+  };
+}
+
+function writeRecallFeed(ordered) {
+  const log = loadJson(FEED_LOG_PATH, { signatures: {}, categories: "", items: [] });
+  if (!log.signatures || typeof log.signatures !== "object" || Array.isArray(log.signatures)) log.signatures = {};
+  if (!Array.isArray(log.items)) log.items = [];
+  const fresh = Object.keys(log.signatures).length === 0;
+  const additions = [];
+  for (const product of ordered) {
+    const signature = productSignature(product);
+    const prev = log.signatures[product.id];
+    log.signatures[product.id] = signature;
+    if (fresh || prev === signature) continue;
+    additions.push(feedItem(product, signature));
+  }
+  const ids = new Set(ordered.map((product) => product.id));
+  for (const id of Object.keys(log.signatures)) {
+    if (!ids.has(id)) delete log.signatures[id];
+  }
+  const catSig = JSON.stringify(recalls.categories || []);
+  if (!fresh && log.categories && log.categories !== catSig) {
+    additions.push({
+      guid: ORIGIN + "/recalls/#category-" + createHash("sha256").update(catSig).digest("hex").slice(0, 12),
+      title: "Category notices on the recall checks page changed",
+      link: ORIGIN + "/recalls/#category-notices",
+      date: recalls.checkedAt,
+      description: "The air fryer, heater, and power bank notice lists changed. Titles and model text on the recall checks page are copied from the official notices."
+    });
+  }
+  log.categories = catSig;
+  log.items = additions.concat(log.items).slice(0, 80);
+  mkdirSync(dirname(FEED_LOG_PATH), { recursive: true });
+  writeFileSync(FEED_LOG_PATH, JSON.stringify(log, null, 2) + "\n");
+  const items = log.items.map((item) => [
+    "  <item>",
+    "    <title>" + card.esc(item.title) + "</title>",
+    "    <link>" + card.esc(item.link) + "</link>",
+    "    <guid isPermaLink=\"false\">" + card.esc(item.guid) + "</guid>",
+    "    <pubDate>" + card.esc(rfc822(item.date)) + "</pubDate>",
+    "    <description>" + card.esc(item.description) + "</description>",
+    "  </item>"
+  ].join("\n")).join("\n");
+  const xml = [
+    '<?xml version="1.0" encoding="UTF-8"?>',
+    '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">',
+    "<channel>",
+    "  <title>Checked Lab recall checks</title>",
+    "  <link>" + ORIGIN + "/recalls/</link>",
+    '  <atom:link href="' + ORIGIN + '/recalls/feed.xml" rel="self" type="application/rss+xml"/>',
+    "  <description>Items are added when a catalogue model's United States or Canada recall record changes. A new check date alone does not add an item.</description>",
+    "  <language>en</language>",
+    items,
+    "</channel>",
+    "</rss>",
+    ""
+  ].join("\n");
+  if (/google\.com\/ping/i.test(xml)) throw new Error("Feed contains a sitemap ping");
+  writeFileSync(join(root, "recalls", "feed.xml"), xml);
+}
+
+function stampPages(ordered) {
+  const rev = loadJson(REV_PATH, {});
+  const paths = [
+    ["/", join(root, "index.html")],
+    ...HUBS.map((hub) => ["/" + hub + "/", join(root, hub, "index.html")]),
+    ["/how-we-check/", join(root, "how-we-check", "index.html")],
+    ["/bin-list/", join(root, "bin-list", "index.html")],
+    ["/recalls/", join(root, "recalls", "index.html")],
+    ...ordered.filter(indexable).map((product) => [card.productPath(product), join(root, product.category, product.id, "index.html")])
+  ];
+  const today = new Date().toISOString().slice(0, 10);
+  const next = {};
+  const lastmods = {};
+  for (const [path, file] of paths) {
+    const hash = createHash("sha256").update(readFileSync(file)).digest("hex");
+    const prev = rev[path];
+    const lastmod = prev && prev.hash === hash && /^\d{4}-\d{2}-\d{2}$/.test(prev.lastmod || "") ? prev.lastmod : today;
+    next[path] = { hash, lastmod };
+    lastmods[path] = lastmod;
+  }
+  const stable = {};
+  for (const key of Object.keys(next).sort()) stable[key] = next[key];
+  mkdirSync(dirname(REV_PATH), { recursive: true });
+  writeFileSync(REV_PATH, JSON.stringify(stable, null, 2) + "\n");
+  return lastmods;
+}
+
+function writeSitemap(pages, lastmods) {
+  const staticPaths = [
+    "/",
+    ...HUBS.map((hub) => "/" + hub + "/"),
+    "/how-we-check/",
+    "/bin-list/",
+    "/recalls/"
   ];
   const lines = [
     '<?xml version="1.0" encoding="UTF-8"?>',
     '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
   ];
-  for (const loc of staticUrls) {
-    lines.push("  <url><loc>" + loc + "</loc><lastmod>2026-11-10</lastmod></url>");
+  for (const path of staticPaths) {
+    lines.push("  <url><loc>" + ORIGIN + path + "</loc><lastmod>" + lastmods[path] + "</lastmod></url>");
   }
   for (const product of pages.filter(indexable)) {
-    lines.push("  <url><loc>" + ORIGIN + card.productPath(product) + "</loc><lastmod>" + lastmod(product) + "</lastmod></url>");
+    const path = card.productPath(product);
+    lines.push("  <url><loc>" + ORIGIN + path + "</loc><lastmod>" + lastmods[path] + "</lastmod></url>");
   }
   lines.push("</urlset>", "");
-  writeFileSync(join(root, "sitemap.xml"), lines.join("\n"));
+  const xml = lines.join("\n");
+  if (xml.includes("http://checkedlab.com") || xml.includes("https://checkedlab.com/")) {
+    throw new Error("Sitemap left the www host");
+  }
+  writeFileSync(join(root, "sitemap.xml"), xml);
+}
+
+function walkFiles(dir, out = []) {
+  for (const entry of readdirSync(dir)) {
+    const full = join(dir, entry);
+    if (statSync(full).isDirectory()) walkFiles(full, out);
+    else out.push(full);
+  }
+  return out;
+}
+
+function webPath(file, assetsRoot) {
+  return "/assets/" + file.slice(assetsRoot.length + 1).split("\\").join("/");
+}
+
+function hashedWebPath(web, hash) {
+  const dot = web.lastIndexOf(".");
+  return web.slice(0, dot) + "." + hash + web.slice(dot);
+}
+
+function fingerprintAssets(dist) {
+  const assetsRoot = join(dist, "assets");
+  const files = walkFiles(assetsRoot);
+  const hashOf = (file) => createHash("sha256").update(readFileSync(file)).digest("hex").slice(0, 8);
+  const map = new Map();
+  const pairs = () => [...map.entries()].sort((a, b) => b[0].length - a[0].length);
+  for (const file of files.filter((item) => !item.endsWith(".css"))) {
+    const web = webPath(file, assetsRoot);
+    map.set(web, hashedWebPath(web, hashOf(file)));
+  }
+  for (const file of files.filter((item) => item.endsWith(".css"))) {
+    let css = readFileSync(file, "utf8");
+    for (const [from, to] of pairs()) css = css.split(from).join(to);
+    writeFileSync(file, css);
+    const web = webPath(file, assetsRoot);
+    map.set(web, hashedWebPath(web, hashOf(file)));
+  }
+  for (const [from, to] of map) {
+    const dest = join(dist, to.slice(1));
+    mkdirSync(dirname(dest), { recursive: true });
+    cpSync(join(dist, from.slice(1)), dest);
+  }
+  for (const [from] of map) rmSync(join(dist, from.slice(1)));
+  for (const file of walkFiles(dist).filter((item) => item.endsWith(".html"))) {
+    let html = readFileSync(file, "utf8");
+    for (const [from, to] of pairs()) html = html.split(from).join(to);
+    writeFileSync(file, html);
+  }
 }
 
 function publishDist() {
   const dist = join(root, "dist");
   rmSync(dist, { recursive: true, force: true });
   mkdirSync(dist);
-  const skip = new Set([".git", ".github", "dist", "node_modules", "scripts", "vercel.json"]);
+  const skip = new Set([".git", ".github", "dist", "node_modules", "scripts", "vercel.json", "data"]);
   for (const entry of readdirSync(root)) {
     if (entry.startsWith(".") || skip.has(entry) || entry.endsWith(".md")) continue;
     cpSync(join(root, entry), join(dist, entry), { recursive: true });
   }
+  fingerprintAssets(dist);
   if (!statSync(join(dist, "index.html")).isFile()) throw new Error("dist is missing index.html");
   if (!statSync(join(dist, "kitchen", "ninja-crispi-fn101", "index.html")).isFile()) {
     throw new Error("dist is missing a product page");
   }
+  if (!statSync(join(dist, "recalls", "index.html")).isFile()) throw new Error("dist is missing /recalls/");
+  if (!statSync(join(dist, "recalls", "feed.xml")).isFile()) throw new Error("dist is missing the recall feed");
   if (!statSync(join(dist, "404.html")).isFile()) throw new Error("dist is missing 404.html");
+  if (existsSync(join(dist, "scripts")) || existsSync(join(dist, ".git")) || existsSync(join(dist, ".github"))) {
+    throw new Error("dist copied scripts or git metadata");
+  }
   if (readdirSync(dist).some((entry) => entry.endsWith(".md"))) throw new Error("dist copied a markdown file");
+  const css = readdirSync(join(dist, "assets")).filter((name) => /^site\.[0-9a-f]{8}\.css$/.test(name));
+  if (css.length !== 1 || existsSync(join(dist, "assets", "site.css"))) {
+    throw new Error("Versioned CSS was not published");
+  }
+  const home = readFileSync(join(dist, "index.html"), "utf8");
+  if (!home.includes("/assets/" + css[0])) throw new Error("Homepage still points at unversioned CSS");
+  if (!home.includes('content="kXQhYQ7uln9_absjhx8CyleHSYT49KM0dyop2xJy_nQ"')) {
+    throw new Error("Homepage verification meta changed");
+  }
+  if (!home.includes("d378016a-660d-4175-9161-3f0a87a655a4")) {
+    throw new Error("Impact verification meta changed");
+  }
+  const key = readFileSync(join(root, "data", "indexnow-key"), "utf8").trim();
+  const keyBody = readFileSync(join(dist, key + ".txt"), "utf8").trim();
+  if (!/^[a-zA-Z0-9-]{8,128}$/.test(key) || keyBody !== key) throw new Error("IndexNow key file mismatch");
+  const styled = readFileSync(join(dist, "assets", css[0]), "utf8");
+  const font = styled.match(/\/assets\/fonts\/source-sans-3-latin\.[0-9a-f]{8}\.woff2/);
+  if (!font || !home.includes(font[0])) throw new Error("Font is not versioned with the stylesheet");
 }
 
 function verifyOutput(pages) {
@@ -525,13 +1018,74 @@ function verifyOutput(pages) {
   }
   const sitemap = readFileSync(join(root, "sitemap.xml"), "utf8");
   const indexed = pages.filter(indexable);
-  if ((sitemap.match(/<loc>/g) || []).length !== 10 + indexed.length) {
+  if ((sitemap.match(/<loc>/g) || []).length !== 11 + indexed.length) {
     throw new Error("Sitemap URL count");
+  }
+  if (!sitemap.includes("<loc>" + ORIGIN + "/recalls/</loc>")) throw new Error("Sitemap is missing /recalls/");
+  for (const loc of sitemap.match(/<loc>[^<]+<\/loc>/g) || []) {
+    if (!loc.includes(ORIGIN + "/") || !loc.endsWith("/</loc>")) throw new Error("Sitemap URL is not canonical: " + loc);
   }
   for (const product of pages) {
     const loc = ORIGIN + card.productPath(product);
     if (indexable(product) !== sitemap.includes("<loc>" + loc + "</loc>")) {
       throw new Error("Sitemap listing mismatch on " + product.id);
+    }
+    const page = readFileSync(join(root, product.category, product.id, "index.html"), "utf8");
+    if (!page.includes(">RECALL CHECKS<") || !page.includes('<a href="/recalls/">Recall checks</a>')) {
+      throw new Error("Recall checks link missing on " + product.id);
+    }
+  }
+  const recallPage = readFileSync(join(root, "recalls", "index.html"), "utf8");
+  if (!recallPage.includes('id="united-states"') || !recallPage.includes('id="canada"')) {
+    throw new Error("Recall page is missing a country section");
+  }
+  if (!recallPage.includes("This is a different model.")) throw new Error("Different-model line missing");
+  if (!binEmptyHtml("2026-11-10").includes("No catalogue model is binned as of 2026-11-10.")) {
+    throw new Error("Empty BIN state is not readable");
+  }
+  if (!recallPage.includes("No catalogue model is binned as of") && !recallPage.includes("These catalogue models match an official notice.")) {
+    throw new Error("BIN section is blank");
+  }
+  for (const product of pages) {
+    if (!recallPage.includes('href="' + card.productPath(product) + '"')) {
+      throw new Error("Recall page misses " + product.id);
+    }
+  }
+  const ldMatch = recallPage.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/);
+  if (!ldMatch) throw new Error("Recall page is missing JSON-LD");
+  const ld = JSON.parse(ldMatch[1]);
+  assertNoCommerce(ld);
+  const flat = JSON.stringify(ld);
+  if (!flat.includes("ItemList") || !flat.includes("CollectionPage") || !flat.includes("BreadcrumbList")) {
+    throw new Error("Recall JSON-LD is missing a required type");
+  }
+  if (/"@type":"Product"|offers|aggregateRating|price/i.test(flat)) throw new Error("Recall JSON-LD has a commerce type");
+  const home = readFileSync(join(root, "index.html"), "utf8");
+  if (!home.includes('content="kXQhYQ7uln9_absjhx8CyleHSYT49KM0dyop2xJy_nQ"')) {
+    throw new Error("Homepage verification meta changed");
+  }
+  if (!home.includes("d378016a-660d-4175-9161-3f0a87a655a4")) throw new Error("Impact verification meta changed");
+  if (!home.includes('href="/recalls/"') || !home.includes("<time datetime=\"" + (recalls.checkedAt || "") + "\">")) {
+    throw new Error("Homepage is missing the recall check pointer");
+  }
+  if (!home.includes('fetchpriority="low"')) throw new Error("Font preload is still high priority");
+  const robots = readFileSync(join(root, "robots.txt"), "utf8");
+  if (!robots.includes("Sitemap: https://www.checkedlab.com/sitemap.xml")) throw new Error("robots.txt lost the sitemap");
+  if (/disallow:\s*\/assets/i.test(robots)) throw new Error("robots.txt blocks assets");
+  const vercel = JSON.parse(readFileSync(join(root, "vercel.json"), "utf8"));
+  const pets = (vercel.redirects || []).find((rule) => rule.source === "/pets" && rule.destination === "/pet/" && rule.permanent === true);
+  if (!pets) throw new Error("The /pets redirect changed");
+  const feed = readFileSync(join(root, "recalls", "feed.xml"), "utf8");
+  const log = JSON.parse(readFileSync(FEED_LOG_PATH, "utf8"));
+  if ((feed.match(/<item>/g) || []).length !== log.items.length) throw new Error("Feed item count drifted");
+  if (Object.keys(log.signatures).length !== pages.length) throw new Error("Feed is not tracking every catalogue model");
+  if (/google\.com\/ping/i.test(readFileSync(join(root, "scripts", "indexnow.mjs"), "utf8"))) {
+    throw new Error("IndexNow script calls the Google sitemap ping");
+  }
+  for (const hub of HUBS) {
+    const html = readFileSync(join(root, hub, "index.html"), "utf8");
+    if (!html.includes(">RECALL CHECKS<") || !html.includes('<a href="/recalls/">Recall checks</a>')) {
+      throw new Error("Recall checks link missing on " + hub);
     }
   }
 }
