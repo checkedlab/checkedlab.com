@@ -83,6 +83,10 @@ for (const hub of HUBS) {
   html = ensureImagePreload(html, lead);
   html = pointItemList(html, hub);
   html = ensureChrome(ensureFontPreload(ensureCardScript(html)), hub);
+  const hubRecall = '<p class="lede"><a href="/recalls/">Recall checks</a> for ' + card.esc(HUB_NAME[hub]) + " models.</p>\n";
+  if (!html.includes("Recall checks</a> for " + HUB_NAME[hub])) {
+    html = html.replace('<div class="wrap">\n<div id="product-mount"', '<div class="wrap">\n' + hubRecall + '<div id="product-mount"');
+  }
   writeFileSync(file, html);
 }
 
@@ -250,13 +254,7 @@ function specList(product) {
     const link = ' <a href="' + card.esc(spec.url) + '" target="_blank" rel="noopener">Source</a>';
     return '<div class="spec"><dt>' + card.esc(spec.label) + "</dt><dd>" + card.esc(spec.value) + link + "</dd></div>";
   }).join("");
-  return '<h2 class="check-title">Key specs</h2><dl class="specs">' + rows + "</dl>";
-}
-
-function sourceLine(rec) {
-  if (!rec || !rec.url || rec.status === "bin") return "";
-  const label = SOURCE_LABELS[rec.url] || rec.url;
-  return '<p class="recall-other">Recall check source: <a href="' + card.esc(rec.url) + '" target="_blank" rel="noopener">' + card.esc(label) + "</a>.</p>";
+  return '<h2 class="check-title">Key specs</h2><p>' + card.esc(specsSentence(product)) + '</p><dl class="specs">' + rows + "</dl>";
 }
 
 function recallSentence(rec, place) {
@@ -274,6 +272,113 @@ function descriptionFor(product) {
     recallSentence(us, "US"),
     recallSentence(ca, "Canadian")
   ].join(" ");
+}
+
+function specsSentence(product) {
+  return Array.isArray(product.specs) && product.specs.length ? "Specs from the maker, with a source link." : "";
+}
+
+function pageTitle(product) {
+  return product.title + " — CPSC and Health Canada recall check | Checked Lab";
+}
+
+function metaDescription(product) {
+  const extra = specsSentence(product);
+  return extra ? descriptionFor(product) + " " + extra : descriptionFor(product);
+}
+
+function modelLabel(product) {
+  return product.model || product.title;
+}
+
+function modelFindAnswer(product) {
+  const named = modelLabel(product);
+  if (product.sourceName && product.sourceUrl && /^https:\/\//.test(product.sourceUrl)) {
+    return "The model name on this page is " + named + ". The maker page for that name is the " + product.sourceName + " page.";
+  }
+  return "The model name on this page is " + named + ".";
+}
+
+function canadaAsin(product) {
+  const asin = product.asin && product.asin.ca;
+  return typeof asin === "string" && /^[A-Z0-9]{10}$/.test(asin) ? asin : "";
+}
+
+function faqItems(product) {
+  const us = card.recallFor(product, "US");
+  const ca = card.recallFor(product, "CA");
+  const items = [
+    { q: "Is the " + product.title + " recalled in the US?", a: recallSentence(us, "US") },
+    { q: "Is the " + product.title + " recalled in Canada?", a: recallSentence(ca, "Canadian") }
+  ];
+  const specs = specsSentence(product);
+  if (specs) items.push({ q: "Where do the specs come from?", a: specs });
+  items.push({ q: "How to find the model number?", a: modelFindAnswer(product) });
+  return items;
+}
+
+function otherNotices(rec) {
+  if (!rec || rec.status === "bin" || !Array.isArray(rec.other)) return [];
+  return rec.other.filter((item) => item && item.url);
+}
+
+function otherLine(item) {
+  const bits = [item.date, item.source].filter(Boolean).map((bit) => card.esc(bit)).join(", ");
+  const when = bits ? " (" + bits + ")" : "";
+  return '<p class="recall-other">This is a different model. <a href="' + href(item.url) + '" target="_blank" rel="noopener">' + card.esc(item.title || "Recall notice") + "</a>" + when + ".</p>";
+}
+
+function otherSection(product) {
+  const lines = otherNotices(card.recallFor(product, "US")).concat(otherNotices(card.recallFor(product, "CA"))).map(otherLine);
+  if (!lines.length) return "";
+  return "<h3>Official recalls for other models in this brand</h3>" + lines.join("");
+}
+
+function datedParagraph(rec, place) {
+  let source = "";
+  if (rec.status === "bin" && rec.url) {
+    source = ' and the <a href="' + href(rec.url) + '" target="_blank" rel="noopener">official notice</a>';
+  } else if (rec.url) {
+    const label = SOURCE_LABELS[rec.url] || "official source";
+    source = ' and the <a href="' + href(rec.url) + '" target="_blank" rel="noopener">' + card.esc(label) + "</a> source";
+  }
+  const detail = rec.status === "bin" && rec.detail ? '<p class="recall recall-bin">' + card.esc(rec.detail) + "</p>" : "";
+  return "<p><span>" + card.esc(recallSentence(rec, place)) + '</span> <a href="/recalls/">All recall checks</a>' + source + ".</p>" + detail;
+}
+
+function canadaBlock(product) {
+  const sentence = recallSentence(card.recallFor(product, "CA"), "Canadian");
+  const asin = canadaAsin(product);
+  const asinLine = asin ? "<p>Amazon.ca ASIN " + card.esc(asin) + ".</p>" : "";
+  return '<section class="canada-block"><h2>In Canada</h2><p>' + card.esc(sentence) + "</p>" + card.storeButtons(product, "CA") + asinLine + "</section>";
+}
+
+function faqHtml(product) {
+  return '<section class="faq"><h2>Questions</h2>' + faqItems(product).map((item) =>
+    "<h3>" + card.esc(item.q) + '</h3><p class="faq-a">' + card.esc(item.a) + "</p>"
+  ).join("") + "</section>";
+}
+
+function modelFindHtml(product) {
+  const link = product.sourceUrl && product.sourceName && /^https:\/\//.test(product.sourceUrl)
+    ? '<p><a href="' + card.esc(product.sourceUrl) + '" target="_blank" rel="noopener">' + card.esc(product.sourceName) + "</a></p>"
+    : "";
+  return "<h3>How to find the model number</h3><p>" + card.esc(modelFindAnswer(product)) + "</p>" + link;
+}
+
+function siblingLinks(product) {
+  const group = products.filter((item) => item.category === product.category);
+  const index = group.findIndex((item) => item.id === product.id);
+  const picks = [];
+  if (group.length > 1) picks.push(group[(index + 1) % group.length]);
+  if (group.length > 2) picks.push(group[(index + 2) % group.length]);
+  const links = [
+    '<a href="/' + product.category + '/">' + card.esc(HUB_NAME[product.category]) + "</a>",
+    '<a href="/recalls/">Recall checks</a>',
+    '<a href="/how-we-check/">How we check</a>',
+    ...picks.map((item) => '<a href="' + card.productPath(item) + '">' + card.esc(item.title) + "</a>")
+  ];
+  return '<p class="lede">' + links.join(" ") + "</p>";
 }
 
 function jsonLd(product) {
@@ -316,6 +421,15 @@ function jsonLd(product) {
       productNode
     ]
   };
+  const faqs = faqItems(product);
+  graph["@graph"].push({
+    "@type": "FAQPage",
+    mainEntity: faqs.map((item) => ({
+      "@type": "Question",
+      name: item.q,
+      acceptedAnswer: { "@type": "Answer", text: item.a }
+    }))
+  });
   assertNoCommerce(graph);
   return JSON.stringify(graph, null, 2).replace(/</g, "\\u003c");
 }
@@ -343,7 +457,8 @@ function productPage(product) {
   const hub = product.category;
   const name = HUB_NAME[hub];
   const url = ORIGIN + card.productPath(product);
-  const desc = descriptionFor(product);
+  const title = pageTitle(product);
+  const desc = metaDescription(product);
   const us = card.recallFor(product, "US");
   const ca = card.recallFor(product, "CA");
   const why = (product.evidence || []).length
@@ -356,10 +471,10 @@ function productPage(product) {
 <link rel="canonical" href="${card.esc(url)}">
 <script src="/assets/region-boot.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>${card.esc(product.title)} — Checked Lab</title>
+<title>${card.esc(title)}</title>
 <meta name="description" content="${card.esc(desc)}">
 ${indexable(product) ? "" : '<meta name="robots" content="noindex">\n'}
-<meta property="og:title" content="${card.esc(product.title)} — Checked Lab">
+<meta property="og:title" content="${card.esc(title)}">
 <meta property="og:description" content="${card.esc(desc)}">
 <meta property="og:type" content="website">
 <meta property="og:url" content="${card.esc(url)}">
@@ -368,7 +483,7 @@ ${indexable(product) ? "" : '<meta name="robots" content="noindex">\n'}
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Checked Lab. Checked before you buy.">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="${card.esc(product.title)} — Checked Lab">
+<meta name="twitter:title" content="${card.esc(title)}">
 <meta name="twitter:description" content="${card.esc(desc)}">
 <meta name="twitter:image" content="${ORIGIN}/assets/og.png">
 <link rel="icon" type="image/png" href="/favicon.png">
@@ -417,6 +532,13 @@ ${nav(hub)}
 <span class="only-ca">${card.badgeHtml(ca)}</span>
 <h1 class="p-title">${card.visibleTitle(product.title)}</h1>
 <p class="p-meta">${card.esc(product.meta || "")}</p>
+<h2 class="recall-q" id="is-it-recalled">Is the ${card.esc(product.title)} recalled?</h2>
+${datedParagraph(us, "US")}
+${datedParagraph(ca, "Canadian")}
+${otherSection(product)}
+${modelFindHtml(product)}
+${canadaBlock(product)}
+${faqHtml(product)}
 <p class="p-note only-us">${card.esc(card.honestLine(product, us))}</p>
 <p class="p-note only-ca">${card.esc(card.honestLine(product, ca))}</p>
 <div class="only-us">${card.storeButtons(product, "US")}</div>
@@ -425,13 +547,6 @@ ${nav(hub)}
 <p class="why-note">${card.esc(why)}</p>
 ${specList(product)}
 ${card.evidenceList(product)}
-<h2 class="check-title">Recall check</h2>
-<p class="p-meta">United States</p>
-${card.recallBlock(us)}
-${sourceLine(us)}
-<p class="p-meta">Canada</p>
-${card.recallBlock(ca)}
-${sourceLine(ca)}
 ${card.checkList(product)}
 <p class="price-note">Prices change often, check the current price at the store.</p>
 <p class="affiliate-note">Amazon link is an affiliate link</p>
@@ -440,7 +555,7 @@ ${card.checkList(product)}
 </div>
 ${card.imageColumn(product)}
 </article>
-<p class="lede"><a href="/${hub}/">All ${card.esc(name)} models</a></p>
+${siblingLinks(product)}
 </div>
 </main>
 
@@ -1015,10 +1130,12 @@ function verifyOutput(pages) {
     }
     const noindex = html.includes('<meta name="robots" content="noindex">');
     if (indexable(product) === noindex) throw new Error("Index flag mismatch on " + product.id);
+    assertProductSeo(html, product);
   }
   const sitemap = readFileSync(join(root, "sitemap.xml"), "utf8");
   const indexed = pages.filter(indexable);
-  if ((sitemap.match(/<loc>/g) || []).length !== 11 + indexed.length) {
+  const locCount = (sitemap.match(/<loc>/g) || []).length;
+  if (locCount !== 11 + indexed.length || locCount !== 129) {
     throw new Error("Sitemap URL count");
   }
   if (!sitemap.includes("<loc>" + ORIGIN + "/recalls/</loc>")) throw new Error("Sitemap is missing /recalls/");
@@ -1088,6 +1205,45 @@ function verifyOutput(pages) {
       throw new Error("Recall checks link missing on " + hub);
     }
   }
+}
+
+function assertProductSeo(html, product) {
+  const title = pageTitle(product);
+  if (!html.includes("<title>" + card.esc(title) + "</title>")) throw new Error("Title template on " + product.id);
+  if (!html.includes(DISCLOSURE)) throw new Error("Disclosure missing on " + product.id);
+  if (!html.includes('<h2 class="recall-q" id="is-it-recalled">Is the ' + card.esc(product.title) + " recalled?</h2>")) {
+    throw new Error("Recall H2 missing on " + product.id);
+  }
+  if (!html.includes("<h2>In Canada</h2>")) throw new Error("Canada block missing on " + product.id);
+  if (!html.includes('href="/recalls/"') || !html.includes('href="/how-we-check/"')) {
+    throw new Error("Internal links missing on " + product.id);
+  }
+  const asin = canadaAsin(product);
+  if (asin && !html.includes("Amazon.ca ASIN " + asin)) throw new Error("Verified CA ASIN missing on " + product.id);
+  if (!asin && html.includes("Amazon.ca ASIN")) throw new Error("Unverified CA ASIN on " + product.id);
+  const faqs = faqItems(product);
+  for (const item of faqs) {
+    if (!html.includes("<h3>" + card.esc(item.q) + "</h3>")) throw new Error("FAQ question missing on " + product.id);
+    if (!html.includes('<p class="faq-a">' + card.esc(item.a) + "</p>")) throw new Error("FAQ answer mismatch on " + product.id);
+  }
+  const blocks = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)];
+  if (blocks.length !== 1) throw new Error("JSON-LD count on " + product.id);
+  const data = JSON.parse(blocks[0][1]);
+  assertNoCommerce(data);
+  const faq = (data["@graph"] || []).find((node) => node["@type"] === "FAQPage");
+  if (!faq || !Array.isArray(faq.mainEntity) || faq.mainEntity.length !== faqs.length) {
+    throw new Error("FAQPage missing on " + product.id);
+  }
+  faq.mainEntity.forEach((node, index) => {
+    if (node.name !== faqs[index].q || !node.acceptedAnswer || node.acceptedAnswer.text !== faqs[index].a) {
+      throw new Error("FAQ JSON-LD text mismatch on " + product.id);
+    }
+  });
+  const others = otherNotices(card.recallFor(product, "US")).length + otherNotices(card.recallFor(product, "CA")).length;
+  const heading = "Official recalls for other models in this brand";
+  if (others && !html.includes("<h3>" + heading + "</h3>")) throw new Error("Other-model heading missing on " + product.id);
+  if (!others && html.includes(heading)) throw new Error("Other-model heading without notices on " + product.id);
+  if (/we tested|we bought|does not test/i.test(html)) throw new Error("Disallowed claim on " + product.id);
 }
 
 function indexable(product) {
