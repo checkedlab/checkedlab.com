@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /social/
 
 Sitemap: https://www.checkedlab.com/sitemap.xml
