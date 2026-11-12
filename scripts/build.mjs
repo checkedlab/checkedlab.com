@@ -16,7 +16,7 @@ const FOOTER = `<footer>
 <div class="foot">
 <p><strong>Affiliate disclosure.</strong> As an Amazon Associate I earn from qualifying purchases. Other store links earn us nothing.</p>
 <p>© 2026 Checked Lab<br>Winnipeg, MB</p>
-<p class="foot-mail"><a href="/thanksgiving/">Thanksgiving</a><a href="/toy-safety/">Toy safety</a><a href="/winter-safety/">Winter safety</a><a href="/gifts/">Gift guides</a><a href="/black-friday/">Black Friday</a><a href="/recalls/">Recall checks</a><a href="/how-we-check/">How we check</a><a href="/bin-list/">BIN list</a><a href="/photo-credits/">Photo credits</a><a href="mailto:hello@checkedlab.com">hello@</a><a href="mailto:support@checkedlab.com">support@</a><a href="mailto:press@checkedlab.com">press@</a><a href="mailto:legal@checkedlab.com">legal@</a></p>
+<p class="foot-mail"><a href="/thanksgiving/">Thanksgiving</a><a href="/toy-safety/">Toy safety</a><a href="/winter-safety/">Winter safety</a><a href="/gifts/">Gift guides</a><a href="/black-friday/">Black Friday</a><a href="/compare/">Spec comparisons</a><a href="/recalls/">Recall checks</a><a href="/how-we-check/">How we check</a><a href="/bin-list/">BIN list</a><a href="/photo-credits/">Photo credits</a><a href="mailto:hello@checkedlab.com">hello@</a><a href="mailto:support@checkedlab.com">support@</a><a href="mailto:press@checkedlab.com">press@</a><a href="mailto:legal@checkedlab.com">legal@</a></p>
 </div>
 </footer>`;
 const BIN_EMPTY = '<p class="empty">Nothing is on the BIN list. A product lands here only when a recall record matches its brand and model. An unconfirmed model is not a BIN.</p>';
@@ -156,7 +156,7 @@ const GIFT_PATH = "/gifts/";
 const WINTER_PATH = "/winter-safety/";
 const TOY_PATH = "/toy-safety/";
 const THANKS_PATH = "/thanksgiving/";
-const SEASON_FOOT = '<p class="foot-mail"><a href="/thanksgiving/">Thanksgiving</a><a href="/toy-safety/">Toy safety</a><a href="/winter-safety/">Winter safety</a><a href="/gifts/">Gift guides</a><a href="/black-friday/">Black Friday</a><a href="/recalls/">Recall checks</a><a href="/how-we-check/">How we check</a><a href="/bin-list/">BIN list</a><a href="mailto:hello@checkedlab.com">hello@</a><a href="mailto:support@checkedlab.com">support@</a><a href="mailto:press@checkedlab.com">press@</a><a href="mailto:legal@checkedlab.com">legal@</a></p>';
+const SEASON_FOOT = '<p class="foot-mail"><a href="/thanksgiving/">Thanksgiving</a><a href="/toy-safety/">Toy safety</a><a href="/winter-safety/">Winter safety</a><a href="/gifts/">Gift guides</a><a href="/black-friday/">Black Friday</a><a href="/compare/">Spec comparisons</a><a href="/recalls/">Recall checks</a><a href="/how-we-check/">How we check</a><a href="/bin-list/">BIN list</a><a href="mailto:hello@checkedlab.com">hello@</a><a href="mailto:support@checkedlab.com">support@</a><a href="mailto:press@checkedlab.com">press@</a><a href="mailto:legal@checkedlab.com">legal@</a></p>';
 const TOY_HOSTS = new Set(["cpsc.gov", "saferproducts.gov", "recalls-rappels.canada.ca", "canada.ca", "shopulstandards.com"]);
 const THANKS_HOSTS = new Set(["fsis.usda.gov", "usda.gov", "nfpa.org", "usfa.fema.gov"]);
 const CPSC_SEARCH = "https://www.cpsc.gov/Recalls";
@@ -194,10 +194,17 @@ const giftsDoc = JSON.parse(readFileSync(join(root, "data", "gifts.json"), "utf8
 const winterDoc = JSON.parse(readFileSync(join(root, "data", "winter-safety.json"), "utf8"));
 const toyDoc = JSON.parse(readFileSync(join(root, "data", "toy-safety.json"), "utf8"));
 const thanksDoc = JSON.parse(readFileSync(join(root, "data", "thanksgiving.json"), "utf8"));
+const hubGuides = JSON.parse(readFileSync(join(root, "data", "hub-guides.json"), "utf8"));
+const hubWordCounts = {};
+const GUIDE_START = "<!-- checkedlab:guide start -->";
+const GUIDE_END = "<!-- checkedlab:guide end -->";
+const GUIDE_KEYS = ["home", "black-friday", "gifts", "compare", ...HUBS];
+const COPY_BAN = /\$\d|\bwe tested\b|\btested by us\b|\bwe bought\b|\bdoes not test\b|\bdid not test\b|\bnot tested\b|hands-on|lab-tested|lab tested|out of 5|star rating|best overall|\bwinner\b|\bscore\b/i;
 assertProducts(products);
 assertRenderer();
 
 const byHub = new Map(HUBS.map((hub) => [hub, products.filter((product) => product.category === hub)]));
+assertHubGuides();
 
 for (const hub of HUBS) {
   const file = join(root, hub, "index.html");
@@ -242,6 +249,7 @@ for (const hub of HUBS) {
     const end = html.indexOf("</p>", at);
     html = html.slice(0, end) + ' <a href="/thanksgiving/">Thanksgiving and holiday hosting</a>' + html.slice(end);
   }
+  html = applyCategoryHub(html, hub);
   writeFileSync(file, html);
 }
 
@@ -260,6 +268,7 @@ for (const hub of HUBS) {
     html = html.replace('<section class="recall-band"', recallWidget() + "\n" + giftQuiz() + '\n<section class="recall-band"');
   }
   html = ensureChrome(ensureFontPreload(ensureCardScript(html)), "home");
+  html = applyHomeGuide(html);
   writeFileSync(file, html);
 }
 
@@ -314,6 +323,7 @@ writeSitemap(pages, lastmods);
 verifyOutput(pages);
 publishDist();
 console.log(`Wrote ${pages.length} product pages, ${HUBS.length} hub card lists, /recalls/, /black-friday/, ${giftPaths().length} gift pages, ${winterPaths().length} winter safety pages, ${toyPaths().length} toy safety pages, and ${thanksPaths().length} Thanksgiving pages.`);
+console.log("Hub intro words: " + Object.entries(hubWordCounts).map(([key, count]) => key + "=" + count).join(", "));
 
 function assertProducts(list) {
   if (!Array.isArray(list) || !list.length) throw new Error("products.json is empty");
@@ -553,8 +563,8 @@ function siblingLinks(product) {
   const group = products.filter((item) => item.category === product.category);
   const index = group.findIndex((item) => item.id === product.id);
   const picks = [];
-  if (group.length > 1) picks.push(group[(index + 1) % group.length]);
-  if (group.length > 2) picks.push(group[(index + 2) % group.length]);
+  const siblingCount = Math.min(4, Math.max(0, group.length - 1));
+  for (let step = 1; step <= siblingCount; step++) picks.push(group[(index + step) % group.length]);
   const links = [
     '<a href="/' + product.category + '/">' + card.esc(HUB_NAME[product.category]) + "</a>",
     '<a href="/recalls/">Recall checks</a>',
@@ -1189,7 +1199,8 @@ function compareJsonLd(entry, pair) {
         "@type": "BreadcrumbList",
         itemListElement: [
           { "@type": "ListItem", position: 1, name: "Home", item: ORIGIN + "/" },
-          { "@type": "ListItem", position: 2, name: entry.title, item: url }
+          { "@type": "ListItem", position: 2, name: "Spec comparisons", item: ORIGIN + "/compare/" },
+          { "@type": "ListItem", position: 3, name: entry.title, item: url }
         ]
       },
       {
@@ -1290,7 +1301,7 @@ ${sceneBlock("compare")}
 <nav class="crumbs" aria-label="Breadcrumb">
 <a href="/">Home</a>
 <span aria-hidden="true">/</span>
-<a href="/${entry.hub}/">${card.esc(HUB_NAME[entry.hub])}</a>
+<a href="/compare/">Spec comparisons</a>
 <span aria-hidden="true">/</span>
 <span aria-current="page">${card.esc(entry.title)}</span>
 </nav>
@@ -1374,6 +1385,15 @@ function compareIndexJsonLd() {
       }
     ]
   };
+  const faqs = hubGuides.compare.faqs;
+  graph["@graph"].push({
+    "@type": "FAQPage",
+    mainEntity: faqs.map((item) => ({
+      "@type": "Question",
+      name: item.q,
+      acceptedAnswer: { "@type": "Answer", text: plainInline(item.a) }
+    }))
+  });
   assertNoCommerce(graph);
   return JSON.stringify(graph, null, 2).replace(/</g, "\\u003c");
 }
@@ -1440,6 +1460,7 @@ ${sceneBlock("compare")}
 </nav>
 <h1>${card.esc(title)}</h1>
 <p class="lede">${card.esc(description)}</p>
+${renderHubGuide("compare")}
 <p>Each line on a comparison is copied from that model’s maker page. A spec that only one card lists is left out of the table. Recall lines use the ${card.esc(recalls.checkedAt)} (UTC) catalogue check. Search the model on <a href="${CPSC_SEARCH}" target="_blank" rel="noopener">CPSC Recalls</a> and on <a href="${HC_SEARCH}" target="_blank" rel="noopener">Health Canada recalls and safety alerts</a>.</p>
 ${sections}
 <p class="lede"><a href="/recalls/">All recall checks</a> <a href="/how-we-check/">How we check</a> <a href="/black-friday/">Black Friday</a> <a href="/gifts/">Gift guides</a></p>
@@ -1461,7 +1482,7 @@ ${sections}
   }
   const ld = JSON.parse(html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]);
   const types = ld["@graph"].map((node) => node["@type"]).sort().join(",");
-  if (types !== "BreadcrumbList,CollectionPage") throw new Error("Compare index schema " + types);
+  if (types !== "BreadcrumbList,CollectionPage,FAQPage") throw new Error("Compare index schema " + types);
   mkdirSync(join(root, "compare"), { recursive: true });
   writeFileSync(join(root, "compare", "index.html"), polish(html));
 }
@@ -1853,6 +1874,7 @@ ${sceneBlock("black-friday")}
 </nav>
 <h1>Before you buy on Black Friday, check the model.</h1>
 <p class="lede">Confirm the model number, then read the recall check for that model. The status under each card is the catalogue check dated <time datetime="${card.esc(date)}">${card.esc(date)}</time> (UTC).</p>
+${renderHubGuide("black-friday", { faq: false })}
 <p><a href="/gifts/">Holiday 2026 gift guides</a> group the same catalogue by recipient. Each pick quotes the maker specs and repeats this dated check. <a href="/gifts/for-kids/">Gifts for kids</a> names mainstream kids products and the official check to do. <a href="/winter-safety/">Winter home safety, recall-checked</a> covers heaters, heated bedding, alarms, and outage power. <a href="/toy-safety/">Holiday toy safety, recall-checked</a> covers button batteries, magnets, water beads, and ride-ons.</p>
 <p class="only-us">${card.esc(US_DATES)} <a href="${US_DEALS}" target="_blank" rel="sponsored nofollow noopener">Amazon.com Black Friday</a>.</p>
 <p class="only-ca">${card.esc(CA_DATES)} <a href="${CA_DEALS}" target="_blank" rel="sponsored nofollow noopener">Amazon.ca Black Friday</a>.</p>
@@ -2361,6 +2383,7 @@ function giftHubHtml(grouped) {
   const main = sceneBlock("gifts") + giftCrumbs() +
     "<h1>" + card.esc(giftsDoc.h1) + "</h1>" +
     '<p class="lede">' + card.esc(giftsDoc.description) + "</p>" +
+    renderHubGuide("gifts", { faq: false }) +
     giftQuiz() +
     '<p>A recipient list is published when the catalogue can fill it with at least five models and the recorded US and Canadian checks found no matching recall. The spec line on each model is copied from the maker fields. <a href="/how-we-check/">How we check</a> says what the date means. <a href="' + giftPath(kidsGuide()) + '">Gifts for kids</a> is a recall-check list, not a catalogue list. <a href="/toy-safety/">Toy safety</a> covers button batteries, magnets, water beads, and ride-ons. <a href="' + giftPath(hostGuide()) + '">Gifts for the host</a> is a recall-check list for holiday hosting. <a href="/thanksgiving/">Thanksgiving and holiday hosting</a> covers turkey fryers, pressure cookers, turkey temperatures, and kitchen fires.</p>' +
     list +
@@ -3994,6 +4017,343 @@ ${rows}
   writeFileSync(join(dir, "index.html"), polish(html));
 }
 
+function plainInline(text) {
+  return String(text).replace(/\[([^\]]+)\]\([^)]+\)/g, "$1");
+}
+
+function guideWords(text) {
+  return plainInline(text).trim().split(/\s+/).filter(Boolean).length;
+}
+
+function renderInline(text) {
+  const parts = [];
+  const re = /\[([^\]]+)\]\(([^)\s]+)\)/g;
+  let last = 0;
+  let match;
+  while ((match = re.exec(text))) {
+    parts.push(card.esc(text.slice(last, match.index)));
+    const url = match[2];
+    const label = card.esc(match[1]);
+    parts.push(url.startsWith("/")
+      ? '<a href="' + card.esc(url) + '">' + label + "</a>"
+      : '<a href="' + card.esc(url) + '" target="_blank" rel="noopener">' + label + "</a>");
+    last = re.lastIndex;
+  }
+  parts.push(card.esc(text.slice(last)));
+  return parts.join("");
+}
+
+function eachGuideUrl(guide, visit) {
+  const texts = guide.intro.concat(guide.picks.map((pick) => pick.body), (guide.faqs || []).map((item) => item.a));
+  for (const text of texts) {
+    const re = /\[([^\]]+)\]\(([^)\s]+)\)/g;
+    let match;
+    while ((match = re.exec(text))) visit(match[2]);
+  }
+  for (const pick of guide.picks) {
+    for (const link of pick.links || []) visit(link.href);
+  }
+}
+
+function knownInternalPaths() {
+  const paths = new Set([
+    "/",
+    "/how-we-check/",
+    "/bin-list/",
+    "/photo-credits/",
+    "/recalls/",
+    "/compare/",
+    "/black-friday/",
+    "/gifts/",
+    "/winter-safety/",
+    "/toy-safety/",
+    "/thanksgiving/"
+  ]);
+  for (const hub of HUBS) paths.add("/" + hub + "/");
+  for (const product of products) paths.add(card.productPath(product));
+  for (const entry of compares) paths.add("/compare/" + entry.slug + "/");
+  for (const entry of explainers) paths.add("/recalls/" + entry.slug + "/");
+  for (const path of giftPaths()) paths.add(path);
+  for (const path of winterPaths()) paths.add(path);
+  for (const path of toyPaths()) paths.add(path);
+  for (const path of thanksPaths()) paths.add(path);
+  return paths;
+}
+
+function allowedExternalHosts() {
+  const hosts = new Set([
+    "www.cpsc.gov",
+    "cpsc.gov",
+    "www.saferproducts.gov",
+    "saferproducts.gov",
+    "recalls-rappels.canada.ca",
+    "open.canada.ca",
+    "www.canada.ca",
+    "canada.ca"
+  ]);
+  const add = (url) => {
+    try { hosts.add(new URL(url).host); } catch { /* ignore incomplete rows */ }
+  };
+  for (const product of products) {
+    if (product.sourceUrl) add(product.sourceUrl);
+    for (const spec of product.specs || []) add(spec.url);
+  }
+  return hosts;
+}
+
+function assertHubGuides() {
+  const keys = Object.keys(hubGuides);
+  for (const key of GUIDE_KEYS) {
+    if (!keys.includes(key)) throw new Error("Missing hub guide " + key);
+  }
+  const paths = knownInternalPaths();
+  const hosts = allowedExternalHosts();
+  const titles = new Set();
+  for (const key of GUIDE_KEYS) {
+    const guide = hubGuides[key];
+    if (!guide.heading || !Array.isArray(guide.intro) || !Array.isArray(guide.picks)) {
+      throw new Error("Hub guide is incomplete: " + key);
+    }
+    const words = guide.intro.reduce((sum, paragraph) => sum + guideWords(paragraph), 0);
+    hubWordCounts[key] = words;
+    if (words < 300 || words > 600) throw new Error(key + " intro is " + words + " words");
+    const prose = JSON.stringify(guide);
+    if (COPY_BAN.test(prose)) throw new Error("Hub guide failed the honesty check: " + key);
+    if (key === "black-friday" && /deal/i.test(plainInline(guide.intro.join(" ") + guide.picks.map((pick) => pick.need + pick.body).join(" ")))) {
+      throw new Error("Black Friday guide contains deal");
+    }
+    const faqs = guide.faqs || [];
+    if (key === "black-friday" || key === "gifts") {
+      if (faqs.length) throw new Error(key + " already has its own FAQ block");
+    } else if (faqs.length < 4 || faqs.length > 6) {
+      throw new Error(key + " needs 4 to 6 FAQs");
+    }
+    if (guide.picks.length < 3) throw new Error(key + " needs quick picks");
+    for (const pick of guide.picks) {
+      if (!pick.need || !pick.body || !Array.isArray(pick.links) || !pick.links.length) {
+        throw new Error("Incomplete quick pick on " + key);
+      }
+      for (const link of pick.links) {
+        if (!paths.has(link.href)) throw new Error("Quick pick link is not a page: " + link.href);
+      }
+    }
+    if (guide.title) {
+      if (titles.has(guide.title)) throw new Error("Duplicate hub title " + guide.title);
+      titles.add(guide.title);
+    }
+    eachGuideUrl(guide, (url) => {
+      if (url.startsWith("/")) {
+        if (!paths.has(url)) throw new Error("Hub guide links a missing page: " + url + " on " + key);
+        return;
+      }
+      let host = "";
+      try { host = new URL(url).host; } catch { throw new Error("Bad guide URL " + url); }
+      if (!url.startsWith("https://") || !hosts.has(host)) throw new Error("Guide source is not allowed: " + url);
+    });
+  }
+}
+
+function renderHubGuide(key, opts = {}) {
+  const guide = hubGuides[key];
+  const paras = guide.intro.map((paragraph) => "<p>" + renderInline(paragraph) + "</p>").join("\n");
+  const picks = '<h2>Quick picks by need</h2>\n<div class="need-grid">' + guide.picks.map((pick) =>
+    '<article class="need"><h3>' + card.esc(pick.need) + "</h3><p>" + renderInline(pick.body) + '</p><p class="lede">' +
+    pick.links.map((link) => '<a href="' + card.esc(link.href) + '">' + card.esc(link.label) + "</a>").join(" ") +
+    "</p></article>"
+  ).join("\n") + "</div>";
+  let models = "";
+  if (opts.models && opts.models.length) {
+    models = '<h2>Models on this page</h2>\n<ul class="model-index">' + opts.models.map((product) =>
+      '<li><a href="' + card.productPath(product) + '">' + card.esc(product.title) + "</a></li>"
+    ).join("") + "</ul>";
+  }
+  const faqs = opts.faq === false ? "" : guideFaqBlock(guide.faqs || []);
+  const headingId = opts.headingId ? ' id="' + opts.headingId + '"' : "";
+  return '<section class="guide">\n<h2' + headingId + ">" + card.esc(guide.heading) + "</h2>\n" +
+    paras + "\n" + picks + (models ? "\n" + models : "") + (faqs ? "\n" + faqs : "") + "\n</section>";
+}
+
+function guideFaqBlock(faqs) {
+  if (!faqs.length) return "";
+  return '<section class="faq" id="questions"><h2>Questions</h2>' + faqs.map((item) =>
+    "<h3>" + card.esc(item.q) + '</h3><p class="faq-a">' + renderInline(item.a) + "</p>"
+  ).join("") + "</section>";
+}
+
+function setMeta(html, title, description) {
+  if (title) {
+    const safe = card.esc(title);
+    html = html.replace(/<title>[^<]*<\/title>/, "<title>" + safe + "</title>");
+    html = html.replace(/property="og:title" content="[^"]*"/, 'property="og:title" content="' + safe + '"');
+    html = html.replace(/name="twitter:title" content="[^"]*"/, 'name="twitter:title" content="' + safe + '"');
+  }
+  if (description) {
+    const safe = card.esc(description);
+    html = html.replace(/name="description" content="[^"]*"/, 'name="description" content="' + safe + '"');
+    html = html.replace(/property="og:description" content="[^"]*"/, 'property="og:description" content="' + safe + '"');
+    html = html.replace(/name="twitter:description" content="[^"]*"/, 'name="twitter:description" content="' + safe + '"');
+  }
+  return html;
+}
+
+function categoryCrumbs(hub) {
+  return '<nav class="crumbs" aria-label="Breadcrumb">\n<a href="/">Home</a>\n<span aria-hidden="true">/</span>\n<span aria-current="page">' +
+    card.esc(HUB_NAME[hub]) + "</span>\n</nav>\n";
+}
+
+function mountGuideBlock(html, block, anchor) {
+  if (html.includes(GUIDE_START)) return fillMount(html, block, GUIDE_START, GUIDE_END);
+  if (!html.includes(anchor)) throw new Error("Guide anchor missing");
+  return html.replace(anchor, GUIDE_START + "\n" + block + "\n" + GUIDE_END + "\n" + anchor);
+}
+
+function upsertPageSchema(html, opts) {
+  const re = /<script type="application\/ld\+json">\s*([\s\S]*?)\s*<\/script>/;
+  const match = html.match(re);
+  if (!match) throw new Error("Missing JSON-LD for a hub guide");
+  const data = JSON.parse(match[1]);
+  if (!Array.isArray(data["@graph"])) throw new Error("JSON-LD has no @graph");
+  if (opts.crumbs && !data["@graph"].some((node) => node["@type"] === "BreadcrumbList")) {
+    data["@graph"].unshift({ "@type": "BreadcrumbList", itemListElement: opts.crumbs });
+  }
+  if (!data["@graph"].some((node) => node["@type"] === "BreadcrumbList")) {
+    throw new Error("BreadcrumbList missing after the guide update");
+  }
+  if (opts.description) {
+    for (const node of data["@graph"]) {
+      if (["ItemList", "WebSite", "Organization", "CollectionPage"].includes(node["@type"]) && typeof node.description === "string") {
+        node.description = opts.description;
+      }
+    }
+  }
+  if (opts.faqs && opts.faqs.length) {
+    const faqNode = {
+      "@type": "FAQPage",
+      mainEntity: opts.faqs.map((item) => ({
+        "@type": "Question",
+        name: item.q,
+        acceptedAnswer: { "@type": "Answer", text: plainInline(item.a) }
+      }))
+    };
+    const index = data["@graph"].findIndex((node) => node["@type"] === "FAQPage");
+    if (index >= 0) data["@graph"][index] = faqNode;
+    else data["@graph"].push(faqNode);
+  }
+  assertNoCommerce(data);
+  const json = JSON.stringify(data, null, 2).replace(/</g, "\\u003c");
+  return html.replace(re, "<script type=\"application/ld+json\">\n" + json + "\n</script>");
+}
+
+function applyCategoryHub(html, hub) {
+  const guide = hubGuides[hub];
+  if (!html.includes('class="crumbs"')) {
+    if (!html.includes('<div class="wrap">')) throw new Error("No wrap for breadcrumbs on " + hub);
+    html = html.replace('<div class="wrap">', '<div class="wrap">\n' + categoryCrumbs(hub));
+  }
+  html = setMeta(html, guide.title, guide.description);
+  html = mountGuideBlock(html, renderHubGuide(hub, { models: byHub.get(hub) }), '<div id="product-mount"');
+  return upsertPageSchema(html, { faqs: guide.faqs, description: guide.description });
+}
+
+function applyHomeGuide(html) {
+  const guide = hubGuides.home;
+  html = setMeta(html, guide.title, guide.description);
+  const block = renderHubGuide("home", { headingId: "home-guide-title" });
+  if (html.includes(GUIDE_START)) html = fillMount(html, block, GUIDE_START, GUIDE_END);
+  else {
+    const anchor = '<section class="seasons"';
+    if (!html.includes(anchor)) throw new Error("Homepage seasons section missing");
+    const wrapped = '<section class="guide-band">\n<div class="wrap">\n' + GUIDE_START + "\n" + block + "\n" + GUIDE_END + "\n</div>\n</section>\n";
+    html = html.replace(anchor, wrapped + anchor);
+  }
+  return upsertPageSchema(html, {
+    faqs: guide.faqs,
+    description: guide.description,
+    crumbs: [{ "@type": "ListItem", position: 1, name: "Home", item: ORIGIN + "/" }]
+  });
+}
+
+function pageFile(urlPath) {
+  return join(root, urlPath === "/" ? "index.html" : urlPath.slice(1) + "index.html");
+}
+
+function assertModelLinks(html, product) {
+  const hubHref = "/" + product.category + "/";
+  if (!html.includes('href="' + hubHref + '"')) throw new Error("Hub link missing on " + product.id);
+  const others = products.filter((item) => item.category === product.category && item.id !== product.id);
+  const want = Math.min(4, others.length);
+  const found = others.filter((item) => html.includes('href="' + card.productPath(item) + '"')).length;
+  if (found < want) throw new Error(product.id + " links " + found + " siblings, expected at least " + want);
+  for (const entry of compares.filter((item) => item.products.includes(product.id))) {
+    if (!html.includes('href="/compare/' + entry.slug + '/"')) {
+      throw new Error(product.id + " is missing compare " + entry.slug);
+    }
+  }
+  if (!html.includes('"@type": "BreadcrumbList"')) throw new Error("BreadcrumbList missing on " + product.id);
+}
+
+function assertUniqueMeta() {
+  const sitemap = readFileSync(join(root, "sitemap.xml"), "utf8");
+  const paths = [...sitemap.matchAll(/<loc>https:\/\/www\.checkedlab\.com([^<]*)<\/loc>/g)].map((match) => match[1]);
+  const titles = new Map();
+  const descriptions = new Map();
+  for (const path of paths) {
+    const html = readFileSync(pageFile(path), "utf8");
+    const title = (html.match(/<title>([^<]*)<\/title>/) || [])[1];
+    const description = (html.match(/<meta name="description" content="([^"]*)"/) || [])[1];
+    const canonical = (html.match(/<link rel="canonical" href="([^"]*)"/) || [])[1];
+    if (!title) throw new Error("Missing title on " + path);
+    if (!description) throw new Error("Missing description on " + path);
+    if (titles.has(title)) throw new Error("Duplicate title on " + path + " and " + titles.get(title) + ": " + title);
+    if (descriptions.has(description)) {
+      throw new Error("Duplicate description on " + path + " and " + descriptions.get(description));
+    }
+    titles.set(title, path);
+    descriptions.set(description, path);
+    const expected = ORIGIN + path;
+    if (canonical !== expected || !expected.endsWith("/")) {
+      throw new Error("Canonical on " + path + " is " + canonical);
+    }
+  }
+}
+
+function normInternal(href) {
+  if (!href || !href.startsWith("/")) return "";
+  const path = href.split("#")[0].split("?")[0];
+  if (!path || /\.[a-z0-9]+$/i.test(path)) return "";
+  return path.endsWith("/") ? path : path + "/";
+}
+
+function assertNoOrphans() {
+  const sitemap = readFileSync(join(root, "sitemap.xml"), "utf8");
+  const paths = [...sitemap.matchAll(/<loc>https:\/\/www\.checkedlab\.com([^<]*)<\/loc>/g)].map((match) => match[1]);
+  const inbound = new Map(paths.map((path) => [path, 0]));
+  const files = [];
+  const walk = (dir) => {
+    for (const entry of readdirSync(dir)) {
+      if (entry.startsWith(".") || entry === "dist" || entry === "node_modules" || entry === "scripts" || entry === "data") continue;
+      const full = join(dir, entry);
+      if (statSync(full).isDirectory()) walk(full);
+      else if (entry.endsWith(".html")) files.push(full);
+    }
+  };
+  walk(root);
+  for (const file of files) {
+    const html = readFileSync(file, "utf8");
+    const self = ((html.match(/rel="canonical" href="https:\/\/www\.checkedlab\.com([^"]*)"/) || [])[1]) || "";
+    const seen = new Set();
+    for (const match of html.matchAll(/href="([^"]*)"/g)) {
+      const path = normInternal(match[1]);
+      if (!path || path === self || seen.has(path) || !inbound.has(path)) continue;
+      seen.add(path);
+      inbound.set(path, inbound.get(path) + 1);
+    }
+  }
+  const orphans = [...inbound.entries()].filter(([, count]) => count === 0).map(([path]) => path);
+  if (orphans.length) throw new Error("Orphan pages with no inbound internal link: " + orphans.join(", "));
+  console.log("Orphan check: 0 orphans across " + paths.length + " sitemap URLs.");
+}
+
 function stampPages(ordered) {
   const rev = loadJson(REV_PATH, {});
   const paths = [
@@ -4334,7 +4694,30 @@ function verifyOutput(pages) {
     if (!html.includes('<a href="/recalls/">Recall checks</a>')) {
       throw new Error("Recall checks link missing on " + hub);
     }
+    if (!html.includes('class="guide"') || !html.includes('class="crumbs"')) {
+      throw new Error("Hub guide or breadcrumbs missing on " + hub);
+    }
+    if (!html.includes('"@type": "FAQPage"')) throw new Error("Hub FAQPage missing on " + hub);
+    for (const product of byHub.get(hub)) {
+      if (!html.includes('href="' + card.productPath(product) + '"')) {
+        throw new Error(hub + " does not link to " + product.id);
+      }
+    }
   }
+  for (const product of pages) {
+    assertModelLinks(readFileSync(join(root, product.category, product.id, "index.html"), "utf8"), product);
+  }
+  const homeGuide = readFileSync(join(root, "index.html"), "utf8");
+  if (!homeGuide.includes('id="home-guide-title"') || !homeGuide.includes('"@type": "FAQPage"')) {
+    throw new Error("Homepage guide or FAQPage missing");
+  }
+  if (!homeGuide.includes('"@type": "BreadcrumbList"')) throw new Error("Homepage BreadcrumbList missing");
+  const compareHub = readFileSync(join(root, "compare", "index.html"), "utf8");
+  if (!compareHub.includes('"@type": "FAQPage"') || !compareHub.includes("Quick picks by need")) {
+    throw new Error("Compare hub guide missing");
+  }
+  assertUniqueMeta();
+  assertNoOrphans();
 }
 
 function assertProductSeo(html, product) {

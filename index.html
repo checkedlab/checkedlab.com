@@ -8,9 +8,9 @@
 <script src="/assets/region-boot.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Checked Lab — Checked before you buy</title>
-<meta name="description" content="CHECKED BEFORE YOU BUY. Recall-checked models, maker pages, and store links for the US and Canada.">
+<meta name="description" content="How to match a model number, read maker specs, and use the dated CPSC or Health Canada line before you buy in the US or Canada.">
 <meta property="og:title" content="Checked Lab — Checked before you buy">
-<meta property="og:description" content="CHECKED BEFORE YOU BUY. Recall-checked models, maker pages, and store links for the US and Canada.">
+<meta property="og:description" content="How to match a model number, read maker specs, and use the dated CPSC or Health Canada line before you buy in the US or Canada.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.checkedlab.com/">
 <meta property="og:image" content="https://www.checkedlab.com/assets/og.png">
@@ -19,7 +19,7 @@
 <meta property="og:image:alt" content="Checked Lab. Checked before you buy.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Checked Lab — Checked before you buy">
-<meta name="twitter:description" content="CHECKED BEFORE YOU BUY. Recall-checked models, maker pages, and store links for the US and Canada.">
+<meta name="twitter:description" content="How to match a model number, read maker specs, and use the dated CPSC or Health Canada line before you buy in the US or Canada.">
 <meta name="twitter:image" content="https://www.checkedlab.com/assets/og.png">
 <link rel="icon" type="image/png" href="/favicon.png">
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -33,13 +33,24 @@
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.checkedlab.com/"
+        }
+      ]
+    },
+    {
       "@type": "Organization",
       "@id": "https://www.checkedlab.com/#organization",
       "name": "Checked Lab",
       "url": "https://www.checkedlab.com/",
       "email": "hello@checkedlab.com",
       "slogan": "Checked before you buy",
-      "description": "CHECKED BEFORE YOU BUY. Recall-checked models, maker pages, and store links for the US and Canada.",
+      "description": "How to match a model number, read maker specs, and use the dated CPSC or Health Canada line before you buy in the US or Canada.",
       "foundingDate": "2026",
       "address": {
         "@type": "PostalAddress",
@@ -59,11 +70,56 @@
       "@id": "https://www.checkedlab.com/#website",
       "name": "Checked Lab",
       "url": "https://www.checkedlab.com/",
-      "description": "CHECKED BEFORE YOU BUY. Recall-checked models, maker pages, and store links for the US and Canada.",
+      "description": "How to match a model number, read maker specs, and use the dated CPSC or Health Canada line before you buy in the US or Canada.",
       "inLanguage": "en",
       "publisher": {
         "@id": "https://www.checkedlab.com/#organization"
       }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What does a card on Checked Lab actually show?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "One model, spec lines copied from that model's maker page, and a dated recall match. The US match uses the CPSC SaferProducts feed. The Canadian match uses Health Canada's open recall dataset. How we check is the longer note on what the date means."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What should I match before I trust a recall line?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The model number on the unit, the box, and the listing. A family name such as Foodi, Cosori, Shark, or Dyson covers more than one card. A clear line on one model number does not cover the next number in the same brand."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why do two room-size numbers on one card disagree?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "They are often different air-change rates. The Levoit Core 600S page states 2,909 sq ft at 1 air change per hour and 606 sq ft at 4.8. Read both sentences. Do not keep only the larger one."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where is the price?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "On the store. Buttons open that store's page or a search for the brand and model. This catalogue does not print a price."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I check a model that is not on a card?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Search the model on CPSC Recalls for a US purchase and on Health Canada recalls and safety alerts for a Canadian purchase. Read the model numbers printed on any notice. The recall checks page covers only the models in this catalogue."
+          }
+        }
+      ]
     }
   ]
 }
@@ -116,6 +172,27 @@
 <img src="/images/photos/hero-kitchen.webp" alt="A bright kitchen before a meal" width="1600" height="1066" fetchpriority="high" decoding="async">
 <figcaption>Photo by Mark McCammon on Pexels</figcaption>
 </figure>
+</div>
+</section>
+<section class="guide-band">
+<div class="wrap">
+<!-- checkedlab:guide start -->
+<section class="guide">
+<h2 id="home-guide-title">How to use this catalogue</h2>
+<p>Checked Lab is a catalogue of named models for shoppers in the United States and Canada. A card names one model, copies spec lines from that model&#39;s maker page, and records a dated recall match. The US match uses the <a href="https://www.saferproducts.gov/RestWebServices/Recall" target="_blank" rel="noopener">CPSC SaferProducts feed</a>. The Canadian match uses <a href="https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3" target="_blank" rel="noopener">Health Canada&#39;s open recall dataset</a>. This page is the way in to eight category hubs, the <a href="/compare/">spec comparisons</a>, the <a href="/gifts/">gift guides</a>, and the <a href="/black-friday/">Black Friday</a> page. <a href="/how-we-check/">How we check</a> says what the date on a card means.</p>
+<p>Start with the model number, not the family name. Foodi, Cosori, Shark, Dyson, Levoit, and NOCO each have more than one card here. The string on the rating plate, the box, and the listing should match the card. If the listing uses the brand and a different number, the recall line on this card is about a different product. The explainers for the <a href="/recalls/cosori-air-fryer-2023/">Cosori 2023 air fryer notices</a>, the <a href="/recalls/ninja-foodi-op300/">Ninja Foodi OP300 notices</a>, and the <a href="/recalls/lasko-heaters/">Lasko heater notices</a> quote the official model lists and point at the catalogue card that is actually named. A familiar photo is not a model number.</p>
+<p>Read the spec in the unit the maker printed. The <a href="/air-water/coway-ap-1512hh/">Coway Airmega Mighty</a> card states a smoke CADR and a room size at 4.8 air changes per hour, from the <a href="https://cowaymega.com/products/mighty-ap-1512hh" target="_blank" rel="noopener">Coway page</a>. The <a href="/air-water/levoit-core-600s/">Levoit Core 600S</a> card states its room size twice, once at one air change per hour and once at 4.8, from the <a href="https://levoit.com/products/core-600s-p-smart-air-purifier" target="_blank" rel="noopener">Levoit page</a>. Those are different sentences. Robot vacuums on the <a href="/cleaning/">cleaning hub</a> state suction in pascals. The Dyson cordless cards state suction in air watts. Pascals and air watts are different units, so a <a href="/compare/">comparison</a> keeps only labels both maker pages share. Weight, run time, tank size, and an engine-size limit are useful because the maker page attaches a number and a unit.</p>
+<p>Ignore a marketing line that the maker page for that model number does not print. A room-size claim that uses one air change per hour will look much larger than the same machine&#39;s figure at about five air changes. A peak current on a jump starter is the peak the maker printed, not a second number this catalogue invents. A filter certification matters when the maker names the standard, as the <a href="/air-water/aquasana-claryum/">Aquasana Claryum</a> card does with NSF/ANSI 42, 53 including P473, and 401. If the card does not name a standard, do not borrow one from a different model.</p>
+<p>The recall line is the part to read before you pay. Search the same model on <a href="https://www.cpsc.gov/Recalls" target="_blank" rel="noopener">CPSC Recalls</a> for a US purchase and on <a href="https://recalls-rappels.canada.ca/en" target="_blank" rel="noopener">Health Canada recalls and safety alerts</a> for a Canadian purchase. Recall checked means the brand and model were matched and no record matched that model on the printed date. Official recall found means the brand and the model token both appear in one recall record, and the notice link is on the card. A clear line for one model number does not cover the next number in the same brand. Prices stay on the store. The buttons open that store&#39;s page or its search for the brand and model.</p>
+<p>From here, <a href="/kitchen/">kitchen</a> covers cookware and appliances, <a href="/cleaning/">cleaning</a> covers robots and sticks, and <a href="/air-water/">air and water</a> covers purifiers, filters, humidifiers, and dehumidifiers. <a href="/winter/">Winter</a> covers heat, humidity, and snow tools, and the <a href="/winter-safety/">winter safety guides</a> add the label lines for heaters, heated bedding, alarms, and outage power. <a href="/car-garage/">Car and garage</a>, <a href="/pet/">pet</a>, <a href="/sleep/">sleep</a>, and <a href="/personal-tech/">personal tech</a> are the other hubs. <a href="/gifts/">Gift guides</a> regroup the same cards by recipient. <a href="/black-friday/">Black Friday</a> repeats the model check for that shopping window.</p>
+<h2>Quick picks by need</h2>
+<div class="need-grid"><article class="need"><h3>One room, and the purifier has to fit</h3><p>The Coway Mighty page states 16.8 × 18.3 × 9.6 in and 12.3 lb. The Levoit Core 300S-P page states 8.7 × 8.7 × 14.2 in and 7.48 lb. The comparison keeps those shared labels and leaves CADR on the Coway card only.</p><p class="lede"><a href="/air-water/coway-ap-1512hh/">Coway Airmega Mighty</a> <a href="/air-water/levoit-core-300s-p/">Levoit Core 300S-P</a> <a href="/compare/coway-ap-1512hh-vs-levoit-core-300s-p/">Mighty and Core 300S-P specs</a></p></article>
+<article class="need"><h3>A cordless vacuum you carry</h3><p>The Dyson V8 page states 5.58 lb and a 40 minute maximum run time. The V15 Detect Absolute page states 6.83 lb and up to 60 minutes. The comparison is the pair of shared labels.</p><p class="lede"><a href="/cleaning/dyson-v8/">Dyson V8</a> <a href="/cleaning/dyson-v15-detect/">Dyson V15 Detect Absolute</a> <a href="/compare/dyson-v15-detect-vs-dyson-v8/">V15 and V8 specs</a></p></article>
+<article class="need"><h3>A jump starter matched to an engine size</h3><p>The NOCO GB40 page states 1,000 A peak, gas engines up to 6 L, and diesel engines up to 3 L. The GB50 page states 1,500 A peak, gas up to 7 L, and diesel up to 4.5 L. Both pages state IP65.</p><p class="lede"><a href="/car-garage/noco-gb40/">NOCO GB40</a> <a href="/car-garage/noco-gb50/">NOCO GB50</a> <a href="/compare/noco-gb40-vs-gb50/">GB40 and GB50 specs</a></p></article>
+<article class="need"><h3>A gift for someone who cooks</h3><p>The home-cook guide groups kitchen cards whose titles name a blender, stand mixer, multi-cooker, air fryer, Dutch oven, skillet, or rice cooker. The Vitamix E310 card states a 2 HP motor and a 48 oz container.</p><p class="lede"><a href="/gifts/for-the-home-cook/">Gifts for the home cook</a> <a href="/kitchen/vitamix-e310/">Vitamix E310</a> <a href="/kitchen/">Kitchen hub</a></p></article></div>
+<section class="faq" id="questions"><h2>Questions</h2><h3>What does a card on Checked Lab actually show?</h3><p class="faq-a">One model, spec lines copied from that model&#39;s maker page, and a dated recall match. The US match uses the CPSC SaferProducts feed. The Canadian match uses Health Canada&#39;s open recall dataset. How we check is the longer note on what the date means.</p><h3>What should I match before I trust a recall line?</h3><p class="faq-a">The model number on the unit, the box, and the listing. A family name such as Foodi, Cosori, Shark, or Dyson covers more than one card. A clear line on one model number does not cover the next number in the same brand.</p><h3>Why do two room-size numbers on one card disagree?</h3><p class="faq-a">They are often different air-change rates. The Levoit Core 600S page states 2,909 sq ft at 1 air change per hour and 606 sq ft at 4.8. Read both sentences. Do not keep only the larger one.</p><h3>Where is the price?</h3><p class="faq-a">On the store. Buttons open that store&#39;s page or a search for the brand and model. This catalogue does not print a price.</p><h3>How do I check a model that is not on a card?</h3><p class="faq-a">Search the model on CPSC Recalls for a US purchase and on Health Canada recalls and safety alerts for a Canadian purchase. Read the model numbers printed on any notice. The recall checks page covers only the models in this catalogue.</p></section>
+</section>
+<!-- checkedlab:guide end -->
 </div>
 </section>
 <section class="seasons" aria-labelledby="seasons-title">
@@ -221,7 +298,7 @@
 <div class="foot">
 <p><strong>Affiliate disclosure.</strong> As an Amazon Associate I earn from qualifying purchases. Other store links earn us nothing.</p>
 <p>© 2026 Checked Lab<br>Winnipeg, MB</p>
-<p class="foot-mail"><a href="/thanksgiving/">Thanksgiving</a><a href="/toy-safety/">Toy safety</a><a href="/winter-safety/">Winter safety</a><a href="/gifts/">Gift guides</a><a href="/black-friday/">Black Friday</a><a href="/recalls/">Recall checks</a><a href="/how-we-check/">How we check</a><a href="/bin-list/">BIN list</a><a href="/photo-credits/">Photo credits</a><a href="mailto:hello@checkedlab.com">hello@</a><a href="mailto:support@checkedlab.com">support@</a><a href="mailto:press@checkedlab.com">press@</a><a href="mailto:legal@checkedlab.com">legal@</a></p>
+<p class="foot-mail"><a href="/thanksgiving/">Thanksgiving</a><a href="/toy-safety/">Toy safety</a><a href="/winter-safety/">Winter safety</a><a href="/gifts/">Gift guides</a><a href="/black-friday/">Black Friday</a><a href="/compare/">Spec comparisons</a><a href="/recalls/">Recall checks</a><a href="/how-we-check/">How we check</a><a href="/bin-list/">BIN list</a><a href="/photo-credits/">Photo credits</a><a href="mailto:hello@checkedlab.com">hello@</a><a href="mailto:support@checkedlab.com">support@</a><a href="mailto:press@checkedlab.com">press@</a><a href="mailto:legal@checkedlab.com">legal@</a></p>
 </div>
 </footer>
 <script src="/assets/card.js" defer></script>

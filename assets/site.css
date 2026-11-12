@@ -511,6 +511,26 @@ body[data-page="product"] .p-side { order: -1; }
 .check-box { width: 20px; height: 20px; margin-top: 4px; flex: 0 0 auto; accent-color: var(--accent); }
 .check-row.is-done { background: var(--accent-soft); border-radius: 8px; }
 .faq { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 8px 16px 16px; margin-top: 20px; }
+.guide { margin: 8px 0 28px; }
+.guide p, .guide li { max-width: 42rem; line-height: 1.65; }
+.guide h2 { font-size: 1.55rem; margin: 1.6rem 0 0.45rem; }
+.guide-band { padding: 4px 0 0; }
+.need-grid { display: grid; gap: 12px; margin: 8px 0 0; }
+.need {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 14px 16px;
+}
+.need h3 { margin: 0 0 6px; font-size: 1.15rem; }
+.need p { margin: 0 0 8px; }
+.need .lede { margin: 0; }
+.model-index { margin: 8px 0 0; padding-left: 1.2em; }
+.model-index li { margin: 4px 0; }
+@media (min-width: 800px) {
+  .need-grid { grid-template-columns: 1fr 1fr; }
+  .model-index { columns: 2; }
+}
 .canada-block { margin-top: 12px; background: #F4F7F5; border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; }
 
 .recall-widget, .quiz {
