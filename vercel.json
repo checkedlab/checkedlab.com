@@ -16,6 +16,12 @@
       ]
     },
     {
+      "source": "/social/(.*)",
+      "headers": [
+        { "key": "X-Robots-Tag", "value": "noindex" }
+      ]
+    },
+    {
       "source": "/social/(.*).png",
       "headers": [
         { "key": "Content-Type", "value": "image/png" }

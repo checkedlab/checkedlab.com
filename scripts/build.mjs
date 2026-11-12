@@ -4486,26 +4486,6 @@ function headerValue(vercel, source, key) {
   return header && header.value;
 }
 
-function robotsAllows(robots, path) {
-  let best = -1;
-  let allow = true;
-  for (const raw of robots.split("\n")) {
-    const match = raw.trim().match(/^(allow|disallow)\s*:\s*(\S*)\s*$/i);
-    if (!match) continue;
-    const kind = match[1].toLowerCase();
-    const rule = match[2];
-    if (!rule) continue;
-    const end = rule.endsWith("$");
-    const prefix = end ? rule.slice(0, -1) : rule;
-    const hit = end ? path === prefix : path.startsWith(prefix);
-    if (!hit || prefix.length < best) continue;
-    if (prefix.length === best && kind !== "allow") continue;
-    best = prefix.length;
-    allow = kind === "allow";
-  }
-  return allow;
-}
-
 function assertSocialAssets(dist) {
   const expected = [
     "2026-11/ig/01-sony-bose-cover.png",
@@ -4749,21 +4729,13 @@ function verifyOutput(pages) {
   const robots = readFileSync(join(root, "robots.txt"), "utf8");
   if (!robots.includes("Sitemap: https://www.checkedlab.com/sitemap.xml")) throw new Error("robots.txt lost the sitemap");
   if (/disallow:\s*\/assets/i.test(robots)) throw new Error("robots.txt blocks assets");
-  if (!/^Allow:\s*\/\s*$/m.test(robots)) throw new Error("robots.txt lost Allow: /");
-  const disallows = robots.split("\n").map((line) => line.trim()).filter((line) => /^disallow:/i.test(line));
-  if (disallows.length !== 1 || disallows[0] !== "Disallow: /social/") {
-    throw new Error("robots.txt Disallow is not limited to /social/");
-  }
-  for (const loc of sitemap.match(/<loc>https:\/\/www\.checkedlab\.com([^<]*)<\/loc>/g) || []) {
-    const path = loc.replace("<loc>https://www.checkedlab.com", "").replace("</loc>", "");
-    if (!robotsAllows(robots, path)) throw new Error("robots.txt blocks " + path);
-  }
-  if (robotsAllows(robots, "/social/2026-11/ig/01-sony-bose-cover.png")) {
-    throw new Error("robots.txt does not disallow /social/");
-  }
+  if (/disallow:\s*\/social/i.test(robots)) throw new Error("robots.txt blocks /social/");
   const vercel = JSON.parse(readFileSync(join(root, "vercel.json"), "utf8"));
   const pets = (vercel.redirects || []).find((rule) => rule.source === "/pets" && rule.destination === "/pet/" && rule.permanent === true);
   if (!pets) throw new Error("The /pets redirect changed");
+  if (headerValue(vercel, "/social/(.*)", "X-Robots-Tag") !== "noindex") {
+    throw new Error("Social assets are missing X-Robots-Tag: noindex");
+  }
   if (headerValue(vercel, "/social/(.*).png", "Content-Type") !== "image/png") {
     throw new Error("PNG social assets are not served as image/png");
   }
