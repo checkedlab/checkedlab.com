@@ -5,7 +5,10 @@
     "linkLabel": "GB40 and GB50 specs",
     "description": "Peak current, engine limits, weight, and enclosure rating as the NOCO pages state them for GB40 and GB50, with a dated recall line for each.",
     "hub": "car-garage",
-    "products": ["noco-gb40", "noco-gb50"],
+    "products": [
+      "noco-gb40",
+      "noco-gb50"
+    ],
     "fit": [
       "The GB40 page states 1,000 A peak current, gas engines up to 6 L, diesel engines up to 3 L, and 2.4 lb. The GB50 page states 1,500 A, gas engines up to 7 L, diesel engines up to 4.5 L, and 2.7 lb. Both pages state IP65.",
       "If the engine size is above the limit on the GB40 line and within the limit on the GB50 line, the GB50 figures are the ones that name that size. If you are reading the lower stated weight, that figure is on the GB40 line."
@@ -17,7 +20,10 @@
     "linkLabel": "Coway Mighty and Core 300S-P specs",
     "description": "Size and weight as the Coway and Levoit pages state them for the AP-1512HH and the Core 300S-P, with a dated recall line for each. Specs that only one page lists stay off this table.",
     "hub": "air-water",
-    "products": ["coway-ap-1512hh", "levoit-core-300s-p"],
+    "products": [
+      "coway-ap-1512hh",
+      "levoit-core-300s-p"
+    ],
     "fit": [
       "The shared labels are dimensions and weight. Coway states 16.8 × 18.3 × 9.6 in and 12.3 lb. Levoit states 8.7 × 8.7 × 14.2 in and 7.48 lb.",
       "CADR, room coverage, and power are on the Coway card only. Rated power, noise, and power supply are on the Levoit card only. Those rows are left out because the other card does not use the same label."
@@ -29,7 +35,10 @@
     "linkLabel": "CT32150 and CT14401 specs",
     "description": "Heat output, voltage, height, weight, and the safety line as the Lasko pages state them for CT32150 and CT14401, with a dated recall line for each.",
     "hub": "winter",
-    "products": ["lasko-ct32150", "lasko-ct14401"],
+    "products": [
+      "lasko-ct32150",
+      "lasko-ct14401"
+    ],
     "fit": [
       "Both pages state 900 W to 1,500 W and 120 V. The CT32150 page states 31.6 in and 5.7 lb. The CT14401 page states 14 in and 3.3 lb.",
       "The CT32150 safety line names ETL listing, a tip-over switch, and overheat protection. The CT14401 safety line names ETL listing and overheat protection. A taller stated height is the CT32150 line. A shorter stated height and a lower stated weight are the CT14401 lines."
@@ -41,7 +50,10 @@
     "linkLabel": "Crispi and Cosori Pro II specs",
     "description": "Dimensions and weight as the Ninja and COSORI pages state them for the FN101 and the Pro II, with a dated recall line for each. Specs that only one page lists stay off this table.",
     "hub": "kitchen",
-    "products": ["ninja-crispi-fn101", "cosori-pro-5-8"],
+    "products": [
+      "ninja-crispi-fn101",
+      "cosori-pro-5-8"
+    ],
     "fit": [
       "The shared labels are dimensions and weight. The Crispi page states 11.5 × 9.76 × 11.81 in and 14.55 lb. The Pro II page states 11.8 × 13.8 × 12.6 in and 12.3 lb.",
       "Power, containers, and modes are on the Crispi card only. Capacity, rated power, and power supply are on the Pro II card only. Those rows are left out because the other card does not use the same label."
@@ -53,7 +65,10 @@
     "linkLabel": "AI Ultra and PowerDetect robot specs",
     "description": "Weight, cleaning path, dimensions, voltage, and wattage as the Shark pages state them for the AV2501S and the AV2820AE, with a dated recall line for each.",
     "hub": "cleaning",
-    "products": ["shark-av2501s", "shark-av2820ae"],
+    "products": [
+      "shark-av2501s",
+      "shark-av2820ae"
+    ],
     "fit": [
       "The AV2501S page states 14.77 lbs, a 5.7 in cleaning path, 15.35 in L x 12.01 in W x 17.72 in H, 120 volts, and 650 watts. The AV2820AE page states 14.55 lbs, a 5.7 in cleaning path, 15.39 in L x 10.87 in W x 16.93 in H, 14.4 volts, and 35 watts.",
       "A lower stated weight is the AV2820AE line. The voltage and wattage rows are the figures each Shark page prints for that model. Dust cup capacity is on the AV2501S card only."
@@ -65,10 +80,193 @@
     "linkLabel": "V15 Detect and PowerDetect cordless specs",
     "description": "Weight, run time, and charge time as the Dyson and Shark pages state them for the V15 Detect Absolute and the IP3251, with a dated recall line for each.",
     "hub": "cleaning",
-    "products": ["dyson-v15-detect", "shark-ip3251"],
+    "products": [
+      "dyson-v15-detect",
+      "shark-ip3251"
+    ],
     "fit": [
       "The V15 Detect Absolute page states 6.83 lb, up to 60 min of run time, and a 4.5 hr charge time. The IP3251 page states 18.47 lbs, up to 70 minutes measured at the hand vacuum in ECO mode, and a 6 hour charge time.",
       "A lower stated weight is the V15 line. A longer stated run time is the IP3251 line. Bin volume is on the V15 card only. Dust cup capacity is on the IP3251 card only."
+    ]
+  },
+  {
+    "slug": "sony-wh-1000xm5-vs-bose-qc-ultra",
+    "title": "Sony WH-1000XM5 and Bose QuietComfort Ultra, from the maker pages",
+    "linkLabel": "WH-1000XM5 and QuietComfort Ultra specs",
+    "description": "Weight, charge time, and battery life as the Sony and Bose pages state them for the WH-1000XM5 and the QuietComfort Ultra, with a dated recall line for each.",
+    "hub": "personal-tech",
+    "products": [
+      "sony-wh-1000xm5",
+      "bose-qc-ultra"
+    ],
+    "guides": [
+      "tech-and-gadgets"
+    ],
+    "fit": [
+      "The Sony specifications page states approx. 8.82 oz, a charge time of approx. 3.5 hours, and max. 30 hours with noise cancelling on or max. 40 hours with it off. The Bose specifications table states 0.56 lb, a 3 hour charge time, and up to 24 hours.",
+      "The weight lines use the units each page prints, ounces on the Sony page and pounds on the Bose page. A longer stated playback line with noise cancelling on is the Sony line. A shorter stated playback line is the Bose line. A shorter stated charge time is on the Bose specifications table."
+    ]
+  },
+  {
+    "slug": "roborock-qrevo-s-vs-eufy-x10-pro-omni",
+    "title": "Roborock Qrevo S and eufy X10 Pro Omni, from the maker pages",
+    "linkLabel": "Qrevo S and X10 Pro Omni specs",
+    "description": "Suction and robot dimensions as the Roborock and eufy pages state them for the Qrevo S and the X10 Pro Omni, with a dated recall line for each.",
+    "hub": "cleaning",
+    "products": [
+      "roborock-qrevo-s",
+      "eufy-x10-pro-omni"
+    ],
+    "guides": [
+      "for-the-home"
+    ],
+    "fit": [
+      "The Qrevo S page states 7,000 Pa and robot dimensions of 13.78 x 13.9 x 3.80 in. The X10 Pro Omni page states 8,000 Pa and robot dimensions of 327 mm x 353 mm x 113.5 mm.",
+      "A higher stated suction figure is the X10 Pro Omni line. The dimension rows use the units each maker page prints, inches on the Roborock page and millimetres on the eufy page. Run time, robot weight, and dustbin volume are on the eufy card only. Dock dimensions, mop speed, battery, and charge time are on the Roborock card only."
+    ]
+  },
+  {
+    "slug": "dyson-v15-detect-vs-dyson-v8",
+    "title": "Dyson V15 Detect Absolute and Dyson V8, from the maker pages",
+    "linkLabel": "V15 Detect Absolute and V8 specs",
+    "description": "Weight, run time, charge time, bin volume, and suction as the Dyson pages state them for the V15 Detect Absolute and the V8, with a dated recall line for each.",
+    "hub": "cleaning",
+    "products": [
+      "dyson-v15-detect",
+      "dyson-v8"
+    ],
+    "guides": [
+      "for-the-home"
+    ],
+    "fit": [
+      "The V15 Detect Absolute page states 6.83 lb, up to 60 min of run time, a 4.5 hr charge time, a 0.2 gallon bin, and 230 AW in Boost mode. The V8 page states 5.58 lb, 40 min maximum run time, a 5 hr charge time, a 0.14 gallon bin, and 115 AW in MAX mode.",
+      "A lower stated weight and a shorter stated charge time are the V15 lines. A shorter stated run time, a smaller stated bin, and a lower stated suction figure are the V8 lines. Whole-machine HEPA filtration is on the V15 card only."
+    ]
+  },
+  {
+    "slug": "levoit-core-600s-vs-winix-5500-2",
+    "title": "Levoit Core 600S-P and Winix 5500-2, from the maker pages",
+    "linkLabel": "Core 600S-P and 5500-2 specs",
+    "description": "CADR, weight, size, and power as the Levoit and Winix pages state them for the Core 600S-P and the 5500-2, with a dated recall line for each.",
+    "hub": "air-water",
+    "products": [
+      "levoit-core-600s",
+      "winix-5500-2"
+    ],
+    "guides": [
+      "for-the-home"
+    ],
+    "fit": [
+      "The Core 600S-P specifications list states 391 CFM, 13.7 lb, 12.3 x 12.3 x 23.6 in, and 49 W at AC 120 V, 60 Hz. The 5500-2 manual states 243 dust, 246 pollen, and 232 smoke, about 15 lb, 15 x 8.2 x 23.6 in, and 70 W at 120 V / 60 Hz.",
+      "A lower stated weight and a lower stated wattage are the Core 600S-P lines. The CADR row is one CFM figure on the Levoit page and three CADR figures on the Winix page. Room coverage uses a different label on each card, so it stays off this table. Noise and filtration are on the Levoit card only."
+    ]
+  },
+  {
+    "slug": "honeywell-hpa300-vs-coway-airmega-250",
+    "title": "Honeywell HPA300 and Coway Airmega 250, from the maker pages",
+    "linkLabel": "HPA300 and Airmega 250 specs",
+    "description": "Size, weight, CADR, and filter life as the Honeywell and Coway pages state them for the HPA300 and the Airmega 250, with a dated recall line for each.",
+    "hub": "air-water",
+    "products": [
+      "honeywell-hpa300",
+      "coway-airmega-250"
+    ],
+    "guides": [
+      "for-the-home"
+    ],
+    "fit": [
+      "The HPA300 product details state 20.8 x 10.83 x 22.38 in, 17 lb, smoke CADR 300, dust CADR 320, pollen CADR 300, a True HEPA filter replaced once per year, and a pre-filter replaced every 3 months. The Airmega 250 specifications state 18.5 x 19.7 x 8.3 in, 20.5 lb, smoke CADR 249, dust CADR 261, pollen CADR 230, and a Max2 filter life of 1 year.",
+      "Higher stated smoke, dust, and pollen CADR figures are the HPA300 lines. A lower stated weight is the HPA300 line. Noise and the square-foot coverage lines use labels that only one card uses, so they stay off this table."
+    ]
+  },
+  {
+    "slug": "litter-robot-4-vs-petsafe-scoopfree-plus",
+    "title": "Litter-Robot 4 and PetSafe ScoopFree Crystal Plus, from the maker pages",
+    "linkLabel": "Litter-Robot 4 and ScoopFree Crystal Plus specs",
+    "description": "Power, cleaning interval, and household line as the Whisker and PetSafe pages state them for Litter-Robot 4 and the ScoopFree Crystal Plus, with a dated recall line for each.",
+    "hub": "pet",
+    "products": [
+      "litter-robot-4",
+      "petsafe-scoopfree-plus"
+    ],
+    "guides": [
+      "for-pet-owners"
+    ],
+    "fit": [
+      "The Litter-Robot 4 page states 15 V DC, up to 8 days before emptying the waste drawer in a 1-cat household, and suitability for up to 4 cats. The ScoopFree Crystal Plus page states plug-in power, up to 30 days of cleaning, and single or multi-cat households.",
+      "A longer stated cleaning interval is the ScoopFree line. The Litter-Robot line names a waste-drawer interval for one cat. Height, footprint, entryway, and empty weight are on the Litter-Robot card only. Tray dimensions are on the ScoopFree card only."
+    ]
+  },
+  {
+    "slug": "instant-pot-duo-plus-vs-ninja-foodi-10in1",
+    "title": "Instant Pot Duo Plus and Ninja Foodi 10-in-1, from the maker pages",
+    "linkLabel": "Duo Plus and Foodi 10-in-1 specs",
+    "description": "Functions, capacity, power, and dimensions as the Instant Pot and Ninja pages state them for the Duo Plus and the 10-in-1 XL Pro, with a dated recall line for each.",
+    "hub": "kitchen",
+    "products": [
+      "instant-pot-duo-plus",
+      "ninja-foodi-10in1"
+    ],
+    "guides": [
+      "for-the-home-cook"
+    ],
+    "fit": [
+      "The Duo Plus page states pressure cook, slow cook, sauté, sous vide, steam, sterilize, keep warm, rice, and yogurt, a 6 quart volume, 1,000 W at 120 V and 60 Hz, and 12.2 L x 13.4 W x 12.9 H in. The Foodi page states Air Fry, Whole Roast, Air Roast, Bake, Dehydrate, Pizza, Broil, Toast, Bagel, and Reheat, a capacity line for a 5 lb chicken and a sheet pan of vegetables, two 12 in pizzas, or a 12 lb turkey, 1,800 W, and 62.2 × 50.6 × 42.49 cm.",
+      "The capacity lines name different things: quarts on the Duo Plus page, and food that fits on the Foodi page. A lower stated wattage is the Duo Plus line. The dimension rows use the units each page prints, inches on the Instant Pot page and centimetres on the Ninja page. Warranty is on the Foodi card only."
+    ]
+  },
+  {
+    "slug": "brita-tahoe-elite-vs-zerowater-zp010",
+    "title": "Brita Tahoe Elite and ZeroWater ZP-010, from the maker pages",
+    "linkLabel": "Tahoe Elite and ZP-010 specs",
+    "description": "Capacity and weight as the Brita and ZeroWater pages state them for the Tahoe Elite and the ZP-010, with a dated recall line for each.",
+    "hub": "air-water",
+    "products": [
+      "brita-tahoe-elite",
+      "zerowater-zp010"
+    ],
+    "guides": [
+      "for-the-home"
+    ],
+    "fit": [
+      "The Tahoe Elite page states a 10 cup capacity and 1.5 lb. The ZP-010 page titles a 10 cup pitcher, and the specifications table states 4 lb.",
+      "Both capacity lines say 10 cup. A lower stated weight is the Tahoe Elite line. Height, width, and filter life are on the Brita card only. Dimensions, certifications, and the included TDS meter are on the ZeroWater card only."
+    ]
+  },
+  {
+    "slug": "irobot-roomba-combo-j9-plus-vs-roborock-qrevo-s",
+    "title": "Roomba Combo j9+ and Roborock Qrevo S, from the maker pages",
+    "linkLabel": "Combo j9+ and Qrevo S specs",
+    "description": "Robot size, dock size, and battery as the iRobot and Roborock pages state them for the Combo j9+ and the Qrevo S, with a dated recall line for each.",
+    "hub": "cleaning",
+    "products": [
+      "irobot-roomba-combo-j9-plus",
+      "roborock-qrevo-s"
+    ],
+    "guides": [
+      "for-the-home"
+    ],
+    "fit": [
+      "The Combo j9+ page states robot dimensions of 3.4 x 13.7 x 13.7 in, dock dimensions of 15.8 in W x 16.4 in D x 16.3 in H, and a lithium-ion battery. The Qrevo S page states robot dimensions of 13.78 x 13.9 x 3.80 in, dock dimensions of 13.38 x 19.17 x 20.51 in, and a 14.4 V/5200 mAh lithium-ion battery.",
+      "The battery line on the Roomba page names the chemistry. The battery line on the Roborock support sheet names voltage and capacity. Robot weight and dock weight are on the Roomba card only. Suction, mop speed, and charge time are on the Qrevo S card only."
+    ]
+  },
+  {
+    "slug": "airpods-pro-3-vs-shokz-openrun-pro-2",
+    "title": "AirPods Pro 3 and Shokz OpenRun Pro 2, from the maker pages",
+    "linkLabel": "AirPods Pro 3 and OpenRun Pro 2 specs",
+    "description": "Play time and ingress rating as the Apple and Shokz pages state them for AirPods Pro 3 and the OpenRun Pro 2, with a dated recall line for each.",
+    "hub": "personal-tech",
+    "products": [
+      "airpods-pro-3",
+      "shokz-openrun-pro-2"
+    ],
+    "guides": [
+      "tech-and-gadgets"
+    ],
+    "fit": [
+      "The AirPods Pro page states up to 8 hours of listening with Active Noise Cancellation and an IP57 rating. The OpenRun Pro 2 page states up to 12 hours of play time and an IP55 rating.",
+      "A longer stated play line is the OpenRun Pro 2 line. The rating row is IP57 on the Apple page and IP55 on the Shokz page. Hearing Aid listening time and a heart-rate sensor are on the AirPods card only. Quick charge and drivers are on the Shokz card only."
     ]
   }
 ]

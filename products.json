@@ -286,13 +286,25 @@
       },
       {
         "label": "Functions",
-        "value": "Pressure, slow cook, steam, and sauté",
+        "value": "Pressure cook, slow cook, sauté, sous vide, steam, sterilize, keep warm, rice, and yogurt",
         "source": "Instant Pot",
         "url": "https://instantpot.com/products/instant-pot-duo-plus-6qt-multi-use-pressure-cooker-v3"
       },
       {
         "label": "Cleanup",
         "value": "Dishwasher-safe",
+        "source": "Instant Pot",
+        "url": "https://instantpot.com/products/instant-pot-duo-plus-6qt-multi-use-pressure-cooker-v3"
+      },
+      {
+        "label": "Power",
+        "value": "1,000 W, 120 V, 60 Hz",
+        "source": "Instant Pot",
+        "url": "https://instantpot.com/products/instant-pot-duo-plus-6qt-multi-use-pressure-cooker-v3"
+      },
+      {
+        "label": "Dimensions",
+        "value": "12.2 L x 13.4 W x 12.9 H in",
         "source": "Instant Pot",
         "url": "https://instantpot.com/products/instant-pot-duo-plus-6qt-multi-use-pressure-cooker-v3"
       }
@@ -1993,6 +2005,18 @@
         "value": "24 lb empty",
         "source": "Whisker",
         "url": "https://www.whisker.com/litter-robot-4"
+      },
+      {
+        "label": "Cleaning",
+        "value": "Up to 8 days before emptying the waste drawer in a 1-cat household",
+        "source": "Whisker",
+        "url": "https://www.whisker.com/litter-robot-4"
+      },
+      {
+        "label": "Household",
+        "value": "Up to 4 cats",
+        "source": "Whisker",
+        "url": "https://www.whisker.com/litter-robot-4"
       }
     ],
     "image_source": null,
@@ -2803,9 +2827,9 @@
       },
       {
         "label": "Battery",
-        "value": "Up to 30 hours",
+        "value": "Max. 30 hours with noise cancelling on, max. 40 hours with it off",
         "source": "Sony",
-        "url": "https://electronics.sony.com/audio/headphones/headband/p/wh1000xm5-b"
+        "url": "https://www.sony.com/electronics/support/wireless-headphones-bluetooth-headphones/wh-1000xm5/specifications"
       },
       {
         "label": "Noise cancelling",
@@ -2818,6 +2842,18 @@
         "value": "Multipoint",
         "source": "Sony",
         "url": "https://electronics.sony.com/audio/headphones/headband/p/wh1000xm5-b"
+      },
+      {
+        "label": "Weight",
+        "value": "Approx. 8.82 oz",
+        "source": "Sony",
+        "url": "https://www.sony.com/electronics/support/wireless-headphones-bluetooth-headphones/wh-1000xm5/specifications"
+      },
+      {
+        "label": "Charge time",
+        "value": "Approx. 3.5 hours",
+        "source": "Sony",
+        "url": "https://www.sony.com/electronics/support/wireless-headphones-bluetooth-headphones/wh-1000xm5/specifications"
       }
     ],
     "image_source": null,
@@ -6865,6 +6901,30 @@
         "value": "320",
         "source": "Honeywell",
         "url": "https://www.honeywellstore.com/store/products/hpa300-true-hepa-whole-room-air-purifier-with-allergen-remover.htm"
+      },
+      {
+        "label": "Dimensions",
+        "value": "20.8 x 10.83 x 22.38 in",
+        "source": "Honeywell",
+        "url": "https://www.honeywellstore.com/store/products/hpa300-true-hepa-whole-room-air-purifier-with-allergen-remover.htm"
+      },
+      {
+        "label": "Weight",
+        "value": "17 lb",
+        "source": "Honeywell",
+        "url": "https://www.honeywellstore.com/store/products/hpa300-true-hepa-whole-room-air-purifier-with-allergen-remover.htm"
+      },
+      {
+        "label": "Pollen CADR",
+        "value": "300",
+        "source": "Honeywell",
+        "url": "https://www.honeywellstore.com/store/products/hpa300-true-hepa-whole-room-air-purifier-with-allergen-remover.htm"
+      },
+      {
+        "label": "Filter life",
+        "value": "True HEPA filter, once per year; pre-filter, every 3 months",
+        "source": "Honeywell",
+        "url": "https://www.honeywellstore.com/store/products/hpa300-true-hepa-whole-room-air-purifier-with-allergen-remover.htm"
       }
     ],
     "image_source": null,
@@ -7466,6 +7526,36 @@
         "value": "18.5 x 19.7 x 8.3 in",
         "source": "Coway",
         "url": "https://cowaymega.com/products/airmega-250"
+      },
+      {
+        "label": "Weight",
+        "value": "20.5 lb",
+        "source": "Coway",
+        "url": "https://cowaymega.com/products/airmega-250"
+      },
+      {
+        "label": "Smoke CADR",
+        "value": "249",
+        "source": "Coway",
+        "url": "https://cowaymega.com/products/airmega-250"
+      },
+      {
+        "label": "Dust CADR",
+        "value": "261",
+        "source": "Coway",
+        "url": "https://cowaymega.com/products/airmega-250"
+      },
+      {
+        "label": "Pollen CADR",
+        "value": "230",
+        "source": "Coway",
+        "url": "https://cowaymega.com/products/airmega-250"
+      },
+      {
+        "label": "Filter life",
+        "value": "Max2 filter, 1 year",
+        "source": "Coway",
+        "url": "https://cowaymega.com/products/airmega-250"
       }
     ],
     "image_source": null,
@@ -7771,6 +7861,18 @@
       {
         "label": "Odor",
         "value": "Maker states 5x the odor control of clay litter",
+        "source": "PetSafe",
+        "url": "https://www.petsafe.com/p/self-cleaning-litter-box-scoopfree-crystal-plus/PAL00-18016/"
+      },
+      {
+        "label": "Power",
+        "value": "Plug-in",
+        "source": "PetSafe",
+        "url": "https://www.petsafe.com/p/self-cleaning-litter-box-scoopfree-crystal-plus/PAL00-18016/"
+      },
+      {
+        "label": "Household",
+        "value": "Single or multi-cat households",
         "source": "PetSafe",
         "url": "https://www.petsafe.com/p/self-cleaning-litter-box-scoopfree-crystal-plus/PAL00-18016/"
       }
@@ -10086,6 +10188,18 @@
         "value": "Hearing Aid feature",
         "source": "Apple",
         "url": "https://www.apple.com/airpods-pro/"
+      },
+      {
+        "label": "Play time",
+        "value": "Up to 8 hours with Active Noise Cancellation",
+        "source": "Apple",
+        "url": "https://www.apple.com/airpods-pro/"
+      },
+      {
+        "label": "Rating",
+        "value": "IP57",
+        "source": "Apple",
+        "url": "https://www.apple.com/airpods-pro/"
       }
     ],
     "image_source": null,
@@ -10279,6 +10393,18 @@
       {
         "label": "Audio",
         "value": "Bose Immersive Audio",
+        "source": "Bose",
+        "url": "https://www.bose.com/p/headphones/bose-quietcomfort-ultra-headphones/QCUH-HEADPHONEARN.html"
+      },
+      {
+        "label": "Weight",
+        "value": "0.56 lb",
+        "source": "Bose",
+        "url": "https://www.bose.com/p/headphones/bose-quietcomfort-ultra-headphones/QCUH-HEADPHONEARN.html"
+      },
+      {
+        "label": "Charge time",
+        "value": "3 hours",
         "source": "Bose",
         "url": "https://www.bose.com/p/headphones/bose-quietcomfort-ultra-headphones/QCUH-HEADPHONEARN.html"
       }
@@ -11430,6 +11556,12 @@
         "value": "Pitcher and a TDS meter",
         "source": "ZeroWater",
         "url": "https://zerowater.com/products/10-cup-water-filter-pitcher"
+      },
+      {
+        "label": "Capacity",
+        "value": "10 cup",
+        "source": "ZeroWater",
+        "url": "https://zerowater.com/products/10-cup-water-filter-pitcher"
       }
     ],
     "image_source": null,
@@ -11523,6 +11655,30 @@
       {
         "label": "Filtration",
         "value": "3-stage",
+        "source": "Levoit",
+        "url": "https://levoit.com/products/core-600s-p-smart-air-purifier"
+      },
+      {
+        "label": "CADR",
+        "value": "391 CFM",
+        "source": "Levoit",
+        "url": "https://levoit.com/products/core-600s-p-smart-air-purifier"
+      },
+      {
+        "label": "Weight",
+        "value": "13.7 lb / 6.2 kg",
+        "source": "Levoit",
+        "url": "https://levoit.com/products/core-600s-p-smart-air-purifier"
+      },
+      {
+        "label": "Size",
+        "value": "12.3 x 12.3 x 23.6 in / 31.3 x 31.3 x 60 cm",
+        "source": "Levoit",
+        "url": "https://levoit.com/products/core-600s-p-smart-air-purifier"
+      },
+      {
+        "label": "Power",
+        "value": "49 W, AC 120 V, 60 Hz",
         "source": "Levoit",
         "url": "https://levoit.com/products/core-600s-p-smart-air-purifier"
       }
