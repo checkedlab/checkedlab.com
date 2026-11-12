@@ -131,6 +131,10 @@ const BF_PICKS = {
 };
 const BF_PATH = "/black-friday/";
 const GIFT_PATH = "/gifts/";
+const WINTER_PATH = "/winter-safety/";
+const CPSC_SEARCH = "https://www.cpsc.gov/Recalls";
+const HC_SEARCH = "https://recalls-rappels.canada.ca/en";
+const WINTER_CHECK = "How we check describes the dated CPSC and Health Canada match on a catalogue card. The date is the day that match was recorded. These guides add the label lines to read and the official search to open, including for a model that is not on a card. A clear line on one card does not cover a different model number.";
 const GIFT_BAN = /\$\d|\bwe tested\b|\btested by us\b|\bwe bought\b|\bdoes not test\b|\bdid not test\b|\bnot tested\b|hands-on|lab-tested|lab tested|out of 5|star rating|review count|\bdiscount\b|\bstars?\b|\d+\s*%\s*off\b/i;
 const BF_TITLE = "Black Friday 2026: check the model before you buy";
 const BF_DESC = "Before you buy on Black Friday, confirm the model number and read the dated CPSC or Health Canada check. Catalogue cards for gifts and seasonal buys.";
@@ -160,6 +164,7 @@ const recalls = JSON.parse(readFileSync(join(root, "recalls.json"), "utf8"));
 const explainers = JSON.parse(readFileSync(join(root, "data", "explainers.json"), "utf8"));
 const compares = JSON.parse(readFileSync(join(root, "data", "compares.json"), "utf8"));
 const giftsDoc = JSON.parse(readFileSync(join(root, "data", "gifts.json"), "utf8"));
+const winterDoc = JSON.parse(readFileSync(join(root, "data", "winter-safety.json"), "utf8"));
 assertProducts(products);
 assertRenderer();
 
@@ -192,6 +197,13 @@ for (const hub of HUBS) {
     if (at < 0) throw new Error("Hub lede missing for " + hub);
     const end = html.indexOf("</p>", at);
     html = html.slice(0, end) + ' <a href="' + href + '">' + card.esc(entry.linkLabel) + "</a>" + html.slice(end);
+  }
+  if (hub === "winter" && !html.includes('href="/winter-safety/"')) {
+    const needle = "Recall checks</a> for Winter models.";
+    const at = html.indexOf(needle);
+    if (at < 0) throw new Error("Winter hub lede missing");
+    const end = html.indexOf("</p>", at);
+    html = html.slice(0, end) + '. <a href="/winter-safety/">Winter home safety</a>' + html.slice(end);
   }
   writeFileSync(file, html);
 }
@@ -250,11 +262,12 @@ writeCompares();
 writeRecallFeed(ordered);
 writeBlackFriday();
 writeGifts();
+writeWinterSafety();
 const lastmods = stampPages(ordered);
 writeSitemap(pages, lastmods);
 verifyOutput(pages);
 publishDist();
-console.log(`Wrote ${pages.length} product pages, ${HUBS.length} hub card lists, /recalls/, /black-friday/, and ${giftPaths().length} gift pages.`);
+console.log(`Wrote ${pages.length} product pages, ${HUBS.length} hub card lists, /recalls/, /black-friday/, ${giftPaths().length} gift pages, and ${winterPaths().length} winter safety pages.`);
 
 function assertProducts(list) {
   if (!Array.isArray(list) || !list.length) throw new Error("products.json is empty");
@@ -501,6 +514,7 @@ function siblingLinks(product) {
       const other = products.find((item) => item.id === entry.products.find((id) => id !== product.id));
       return '<a href="/compare/' + entry.slug + '/">Compare with ' + card.esc(other.model || other.title) + "</a>";
     }),
+    ...winterGuideLinks(product),
     ...picks.map((item) => '<a href="' + card.productPath(item) + '">' + card.esc(item.title) + "</a>")
   ];
   return '<p class="lede">' + links.join(" ") + "</p>";
@@ -1268,7 +1282,7 @@ ${nav("recalls")}
 </nav>
 <h1>Recall checks</h1>
 <p class="lede">Checked <time datetime="${card.esc(date)}">${card.esc(date)}</time> (UTC). Every catalogue model has a United States line from the <a href="${href(usSource)}" target="_blank" rel="noopener">CPSC SaferProducts</a> source and a Canada line from the <a href="${CA_DATASET_PAGE}" target="_blank" rel="noopener">Health Canada open dataset</a>.</p>
-<p>A date is the day that check ran. Open a model for the maker specs. Read <a href="/how-we-check/">how we check</a> and the <a href="/bin-list/">BIN list</a>. <a href="/black-friday/">Black Friday 2026: check the model before you buy</a>. <a href="/recalls/feed.xml">RSS</a> updates when a recall record changes.</p>
+<p>A date is the day that check ran. Open a model for the maker specs. Read <a href="/how-we-check/">how we check</a> and the <a href="/bin-list/">BIN list</a>. <a href="/black-friday/">Black Friday 2026: check the model before you buy</a>. <a href="/winter-safety/">Winter home safety, recall-checked</a>. <a href="/recalls/feed.xml">RSS</a> updates when a recall record changes.</p>
 <p class="recall-filters"><a href="#united-states">United States</a><a href="#canada">Canada</a></p>
 ${binSection(ordered, date)}
 <div class="recall-columns">
@@ -1501,7 +1515,7 @@ ${nav("black-friday")}
 </nav>
 <h1>Before you buy on Black Friday, check the model.</h1>
 <p class="lede">Confirm the model number, then read the recall check for that model. The status under each card is the catalogue check dated <time datetime="${card.esc(date)}">${card.esc(date)}</time> (UTC).</p>
-<p><a href="/gifts/">Holiday 2026 gift guides</a> group the same catalogue by recipient. Each pick quotes the maker specs and repeats this dated check.</p>
+<p><a href="/gifts/">Holiday 2026 gift guides</a> group the same catalogue by recipient. Each pick quotes the maker specs and repeats this dated check. <a href="/winter-safety/">Winter home safety, recall-checked</a> covers heaters, heated bedding, alarms, and outage power.</p>
 <p class="only-us">${card.esc(US_DATES)} <a href="${US_DEALS}" target="_blank" rel="sponsored nofollow noopener">Amazon.com Black Friday</a>.</p>
 <p class="only-ca">${card.esc(CA_DATES)} <a href="${CA_DEALS}" target="_blank" rel="sponsored nofollow noopener">Amazon.ca Black Friday</a>.</p>
 <h2>Before you pay</h2>
@@ -1526,7 +1540,7 @@ ${faqHtml}
 <div class="foot">
 <p>As an Amazon Associate I earn from qualifying purchases.</p>
 <p>© 2026 CHECKED LAB<br>Winnipeg, MB</p>
-<p class="foot-mail"><a href="/gifts/">Gift guides</a><a href="/black-friday/">Black Friday</a><a href="/recalls/">Recall checks</a><a href="/how-we-check/">How we check</a><a href="/bin-list/">BIN list</a><a href="mailto:hello@checkedlab.com">hello@</a><a href="mailto:support@checkedlab.com">support@</a><a href="mailto:press@checkedlab.com">press@</a><a href="mailto:legal@checkedlab.com">legal@</a></p>
+<p class="foot-mail"><a href="/winter-safety/">Winter safety</a><a href="/gifts/">Gift guides</a><a href="/black-friday/">Black Friday</a><a href="/recalls/">Recall checks</a><a href="/how-we-check/">How we check</a><a href="/bin-list/">BIN list</a><a href="mailto:hello@checkedlab.com">hello@</a><a href="mailto:support@checkedlab.com">support@</a><a href="mailto:press@checkedlab.com">press@</a><a href="mailto:legal@checkedlab.com">legal@</a></p>
 </div>
 </footer>
 <script src="/assets/site.js" defer></script>
@@ -1944,7 +1958,7 @@ ${mainHtml}
 <div class="foot">
 <p>As an Amazon Associate I earn from qualifying purchases.</p>
 <p>© 2026 CHECKED LAB<br>Winnipeg, MB</p>
-<p class="foot-mail"><a href="/gifts/">Gift guides</a><a href="/black-friday/">Black Friday</a><a href="/recalls/">Recall checks</a><a href="/how-we-check/">How we check</a><a href="/bin-list/">BIN list</a><a href="mailto:hello@checkedlab.com">hello@</a><a href="mailto:support@checkedlab.com">support@</a><a href="mailto:press@checkedlab.com">press@</a><a href="mailto:legal@checkedlab.com">legal@</a></p>
+<p class="foot-mail"><a href="/winter-safety/">Winter safety</a><a href="/gifts/">Gift guides</a><a href="/black-friday/">Black Friday</a><a href="/recalls/">Recall checks</a><a href="/how-we-check/">How we check</a><a href="/bin-list/">BIN list</a><a href="mailto:hello@checkedlab.com">hello@</a><a href="mailto:support@checkedlab.com">support@</a><a href="mailto:press@checkedlab.com">press@</a><a href="mailto:legal@checkedlab.com">legal@</a></p>
 </div>
 </footer>
 <script src="/assets/site.js" defer></script>
@@ -2028,6 +2042,386 @@ function writeGiftFile(dir, html) {
   if (/we tested|we bought|does not test|did not test|not tested/i.test(html)) throw new Error("Gift page has a test claim: " + dir);
   mkdirSync(dir, { recursive: true });
   writeFileSync(join(dir, "index.html"), html);
+}
+
+function winterGuides() {
+  const guides = winterDoc && Array.isArray(winterDoc.guides) ? winterDoc.guides : null;
+  if (!guides || guides.length !== 4) throw new Error("Winter safety needs four guides");
+  return guides;
+}
+
+function winterPath(guide) {
+  return guide ? WINTER_PATH + guide.slug + "/" : WINTER_PATH;
+}
+
+function winterPaths() {
+  return [WINTER_PATH, ...winterGuides().map((guide) => winterPath(guide))];
+}
+
+function winterGuideLinks(product) {
+  return winterGuides().filter((guide) =>
+    (guide.catalogue || []).some((item) => item.id === product.id)
+  ).map((guide) => '<a href="' + winterPath(guide) + '">' + card.esc(guide.label) + "</a>");
+}
+
+function winterSpans(spans, where) {
+  if (!Array.isArray(spans) || !spans.length) throw new Error("Winter copy missing: " + where);
+  return spans.map((span) => {
+    if (!span || typeof span.text !== "string" || !span.text) throw new Error("Winter span missing text: " + where);
+    if (GIFT_BAN.test(span.text)) throw new Error("Winter copy failed the honesty check: " + where);
+    if (!span.href) return card.esc(span.text);
+    if (typeof span.href !== "string" || (!span.href.startsWith("/") && !/^https:\/\//.test(span.href))) {
+      throw new Error("Winter span href: " + where);
+    }
+    const extra = span.href.startsWith("/") ? "" : ' target="_blank" rel="noopener"';
+    return '<a href="' + card.esc(span.href) + '"' + extra + ">" + card.esc(span.text) + "</a>";
+  }).join("");
+}
+
+function assertWinterPatternUrl(url) {
+  let host = "";
+  try {
+    host = new URL(url).hostname.replace(/^www\./, "");
+  } catch {
+    throw new Error("Pattern URL is not https: " + url);
+  }
+  if (host !== "cpsc.gov" && host !== "recalls-rappels.canada.ca") {
+    throw new Error("Pattern URL is not CPSC or Health Canada: " + url);
+  }
+  if (!/\/Recalls\/|\/alert-recall\//.test(url)) throw new Error("Pattern URL is not a recall page: " + url);
+}
+
+function winterCrumbs(pageLabel) {
+  const tail = pageLabel
+    ? '<a href="/winter-safety/">Winter safety</a>\n<span aria-hidden="true">/</span>\n<span aria-current="page">' + card.esc(pageLabel) + "</span>"
+    : '<span aria-current="page">Winter safety</span>';
+  return '<nav class="crumbs" aria-label="Breadcrumb">\n<a href="/">Home</a>\n<span aria-hidden="true">/</span>\n' + tail + "\n</nav>\n";
+}
+
+function winterJumps(currentSlug) {
+  return '<p class="recall-filters">' + winterGuides().map((guide) => {
+    const current = guide.slug === currentSlug ? ' aria-current="page"' : "";
+    return '<a href="' + winterPath(guide) + '"' + current + ">" + card.esc(guide.label) + "</a>";
+  }).join("") + "</p>";
+}
+
+function winterLook(guide) {
+  return '<ul class="evidence">' + guide.look.map((spans, index) =>
+    "<li>" + winterSpans(spans, guide.slug + " look " + index) + "</li>"
+  ).join("") + "</ul>";
+}
+
+function winterMethod(guide) {
+  const lead = '<p>For a purchase in the United States, search the brand and the model on <a href="' + CPSC_SEARCH +
+    '" target="_blank" rel="noopener">CPSC Recalls</a>. For a purchase in Canada, search the same words on <a href="' + HC_SEARCH +
+    '" target="_blank" rel="noopener">Health Canada recalls and safety alerts</a>. Open the notice and match the model number on the unit. A family name on the box can point at a different model.</p>';
+  const extra = (guide.methodExtra || []).map((spans, index) =>
+    "<p>" + winterSpans(spans, guide.slug + " method " + index) + "</p>"
+  ).join("");
+  return lead + extra;
+}
+
+function winterPatternsHtml(guide) {
+  return "<ul>" + guide.patterns.map((pattern) => {
+    assertWinterPatternUrl(pattern.url);
+    if (!pattern.agency || !pattern.title || !pattern.says) throw new Error("Winter pattern is incomplete: " + guide.slug);
+    if (GIFT_BAN.test(pattern.agency + " " + pattern.title + " " + pattern.says)) {
+      throw new Error("Winter pattern failed the honesty check: " + guide.slug);
+    }
+    return '<li><a href="' + card.esc(pattern.url) + '" target="_blank" rel="noopener">' +
+      card.esc(pattern.agency) + ": " + card.esc(pattern.title) + "</a>. " + card.esc(pattern.says) + "</li>";
+  }).join("") + "</ul>";
+}
+
+function winterCatalogueHtml(guide) {
+  if (!Array.isArray(guide.catalogue) || !guide.catalogue.length) {
+    return "<p>No catalogue card is listed in this guide. Search the model number on the unit using the official pages above.</p>";
+  }
+  return "<ul>" + guide.catalogue.map((item) => {
+    const product = products.find((entry) => entry.id === item.id);
+    if (!product) throw new Error("Winter guide names a missing card: " + item.id);
+    const us = recallSentence(card.recallFor(product, "US"), "US");
+    const ca = recallSentence(card.recallFor(product, "CA"), "Canadian");
+    return '<li><a href="' + card.productPath(product) + '">' + card.esc(product.title) + "</a>. " +
+      card.esc(us) + " " + card.esc(ca) + " " + winterSpans(item.note, item.id) + "</li>";
+  }).join("") + "</ul>";
+}
+
+function winterSearchButtons(guide) {
+  if (!Array.isArray(guide.searches) || !guide.searches.length) throw new Error("Winter guide needs a search: " + guide.slug);
+  return guide.searches.map((query) => {
+    if (typeof query !== "string" || !query.trim()) throw new Error("Winter search is empty: " + guide.slug);
+    const stub = { title: query, searchQuery: query };
+    const us = card.amazonButton(stub, "US");
+    const ca = card.amazonButton(stub, "CA");
+    if (!us.includes("/s?k=") || !ca.includes("/s?k=") || us.includes("/dp/") || ca.includes("/dp/")) {
+      throw new Error("Winter Amazon link is not a search: " + guide.slug);
+    }
+    if (!us.includes("tag=checkedlab01-20") || !ca.includes("tag=checkedlab-20")) {
+      throw new Error("Winter Amazon tag missing: " + guide.slug);
+    }
+    return '<div class="only-us"><p>Amazon.com search for ' + card.esc(query) + ".</p>" + us + "</div>\n" +
+      '<div class="only-ca"><p>Amazon.ca search for ' + card.esc(query) + ".</p>" + ca + "</div>";
+  }).join("\n");
+}
+
+function winterMoreLinks(guide) {
+  const base = [
+    '<a href="/winter-safety/">All winter safety guides</a>',
+    '<a href="/how-we-check/">How we check</a>',
+    '<a href="/recalls/">Recall checks</a>'
+  ];
+  const more = (guide.links || []).map((link) => {
+    if (!link || typeof link.href !== "string" || !link.href.startsWith("/") || !link.label) {
+      throw new Error("Winter link must be an internal page: " + guide.slug);
+    }
+    return '<a href="' + card.esc(link.href) + '">' + card.esc(link.label) + "</a>";
+  });
+  return '<p class="lede">' + base.concat(more).join(" ") + "</p>";
+}
+
+function winterFaqsHtml(faqs) {
+  return '<section class="faq" id="questions"><h2>Questions</h2>' +
+    faqs.map((item) => "<h3>" + card.esc(item.q) + '</h3><p class="faq-a">' + card.esc(item.a) + "</p>").join("") +
+    "</section>";
+}
+
+function winterJsonLd(url, name, description, crumbs, faqs, list) {
+  const graph = [{ "@type": "BreadcrumbList", itemListElement: crumbs }];
+  if (list) {
+    graph.push({
+      "@type": "CollectionPage",
+      "@id": url,
+      name,
+      headline: name,
+      url,
+      dateModified: recalls.checkedAt,
+      inLanguage: "en",
+      description,
+      mainEntity: {
+        "@type": "ItemList",
+        name,
+        numberOfItems: list.length,
+        itemListElement: list
+      }
+    });
+  } else {
+    graph.push({
+      "@type": "Article",
+      headline: name,
+      description,
+      dateModified: recalls.checkedAt,
+      inLanguage: "en",
+      mainEntityOfPage: url
+    });
+  }
+  graph.push({
+    "@type": "FAQPage",
+    mainEntity: faqs.map((item) => ({
+      "@type": "Question",
+      name: item.q,
+      acceptedAnswer: { "@type": "Answer", text: item.a }
+    }))
+  });
+  const data = { "@context": "https://schema.org", "@graph": graph };
+  assertNoCommerce(data);
+  return JSON.stringify(data, null, 2).replace(/</g, "\\u003c");
+}
+
+function winterShell(url, title, description, mainHtml, jsonLd) {
+  const titled = title + " — Checked Lab";
+  return `<!DOCTYPE html>
+<html lang="en" data-region="US">
+<head>
+<meta charset="UTF-8">
+<link rel="canonical" href="${url}">
+<script src="/assets/region-boot.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>${card.esc(titled)}</title>
+<meta name="description" content="${card.esc(description)}">
+<meta property="og:title" content="${card.esc(titled)}">
+<meta property="og:description" content="${card.esc(description)}">
+<meta property="og:type" content="website">
+<meta property="og:url" content="${url}">
+<meta property="og:image" content="${ORIGIN}/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Checked Lab. Checked before you buy.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="${card.esc(titled)}">
+<meta name="twitter:description" content="${card.esc(description)}">
+<meta name="twitter:image" content="${ORIGIN}/assets/og.png">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+${FONT_PRELOAD}
+<link rel="stylesheet" href="/assets/site.css">
+<meta name="theme-color" content="#F5F5F7">
+<script type="application/ld+json">
+${jsonLd}
+</script>
+</head>
+<body data-page="winter-safety">
+${DISCLOSURE}
+<div class="topbar"><span>● CHECKED LAB • EST 2026 • NO SPONSORS</span><span>hello@checkedlab.com • press@checkedlab.com • legal@checkedlab.com</span></div>
+<div class="masthead">
+<header>
+<a class="logo" href="/">CHECKED LAB <i>CHECKED BEFORE YOU BUY</i></a>
+<div class="header-actions">
+<div class="country-switch">
+<button type="button" data-region-set="US">US</button>
+<button type="button" data-region-set="CA">CA</button>
+</div>
+<nav>
+<a href="/winter-safety/" aria-current="page">WINTER SAFETY</a>
+<a href="/recalls/">RECALL CHECKS</a>
+<a href="/how-we-check/">HOW WE CHECK</a>
+<a href="/bin-list/">BIN LIST</a>
+</nav>
+</div>
+</header>
+${nav("winter-safety")}
+</div>
+<main>
+<div class="wrap prose">
+${mainHtml}
+</div>
+</main>
+<footer>
+<div class="foot">
+<p>As an Amazon Associate I earn from qualifying purchases.</p>
+<p>© 2026 CHECKED LAB<br>Winnipeg, MB</p>
+<p class="foot-mail"><a href="/winter-safety/">Winter safety</a><a href="/gifts/">Gift guides</a><a href="/black-friday/">Black Friday</a><a href="/recalls/">Recall checks</a><a href="/how-we-check/">How we check</a><a href="/bin-list/">BIN list</a><a href="mailto:hello@checkedlab.com">hello@</a><a href="mailto:support@checkedlab.com">support@</a><a href="mailto:press@checkedlab.com">press@</a><a href="mailto:legal@checkedlab.com">legal@</a></p>
+</div>
+</footer>
+<script src="/assets/site.js" defer></script>
+</body>
+</html>
+`;
+}
+
+function assertWinterCopy(text, where) {
+  if (!text || typeof text !== "string") throw new Error("Winter copy missing: " + where);
+  if (GIFT_BAN.test(text) || /we tested|we bought|does not test|did not test|not tested/i.test(text)) {
+    throw new Error("Winter copy failed the honesty check: " + where);
+  }
+}
+
+function winterHubHtml() {
+  const guides = winterGuides();
+  const faqs = winterDoc.faqs;
+  const url = ORIGIN + WINTER_PATH;
+  const list = '<ul class="guide-list">' + guides.map((guide) =>
+    '<li><h2><a href="' + winterPath(guide) + '">' + card.esc(guide.h1) + "</a></h2><p>" + card.esc(guide.description) + "</p></li>"
+  ).join("") + "</ul>";
+  const main = winterCrumbs() +
+    "<h1>" + card.esc(winterDoc.h1) + "</h1>" +
+    '<p class="lede">' + card.esc(winterDoc.description) + "</p>" +
+    '<p>Read the label, then search the model on <a href="' + CPSC_SEARCH + '" target="_blank" rel="noopener">CPSC Recalls</a> or <a href="' + HC_SEARCH + '" target="_blank" rel="noopener">Health Canada recalls and safety alerts</a>. <a href="/how-we-check/">How we check</a> says what a dated catalogue line means. <a href="/winter/">Winter</a> is the catalogue. <a href="/recalls/">Recall checks</a> lists every catalogue model.</p>' +
+    list +
+    winterFaqsHtml(faqs);
+  const jsonLd = winterJsonLd(
+    url,
+    winterDoc.title,
+    winterDoc.description,
+    [
+      { "@type": "ListItem", position: 1, name: "Home", item: ORIGIN + "/" },
+      { "@type": "ListItem", position: 2, name: "Winter safety", item: url }
+    ],
+    faqs,
+    guides.map((guide, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: guide.title,
+      url: ORIGIN + winterPath(guide)
+    }))
+  );
+  return winterShell(url, winterDoc.title, winterDoc.description, main, jsonLd);
+}
+
+function winterGuideHtml(guide) {
+  const url = ORIGIN + winterPath(guide);
+  const main = winterCrumbs(guide.h1) +
+    "<h1>" + card.esc(guide.h1) + "</h1>" +
+    '<p class="lede">' + card.esc(guide.description) + "</p>" +
+    winterJumps(guide.slug) +
+    "<h2>What to read on the label</h2>" + winterLook(guide) +
+    "<h2>How to search a recall</h2>" + winterMethod(guide) +
+    "<h2>Patterns in official notices</h2>" +
+    "<p>Each pattern below is one official notice. The sentence is what that notice says.</p>" +
+    winterPatternsHtml(guide) +
+    "<h2>How we check</h2><p>" + card.esc(WINTER_CHECK) + ' <a href="/how-we-check/">How we check</a>.</p>' +
+    "<h2>Catalogue cards</h2>" + winterCatalogueHtml(guide) +
+    winterMoreLinks(guide) +
+    "<h2>Amazon search</h2>" +
+    "<p>The button opens the Amazon search for the words under it. It is not a product page.</p>" +
+    winterSearchButtons(guide) +
+    winterFaqsHtml(guide.faqs);
+  const jsonLd = winterJsonLd(
+    url,
+    guide.title,
+    guide.description,
+    [
+      { "@type": "ListItem", position: 1, name: "Home", item: ORIGIN + "/" },
+      { "@type": "ListItem", position: 2, name: "Winter safety", item: ORIGIN + WINTER_PATH },
+      { "@type": "ListItem", position: 3, name: guide.h1, item: url }
+    ],
+    guide.faqs,
+    null
+  );
+  return winterShell(url, guide.title, guide.description, main, jsonLd);
+}
+
+function writeWinterFile(dir, html) {
+  const visible = html.replace(/<script[\s\S]*?<\/script>/gi, " ");
+  if (GIFT_BAN.test(visible) || /we tested|we bought|does not test|did not test|not tested/i.test(visible)) {
+    throw new Error("Winter page failed the honesty check: " + dir);
+  }
+  if (/<img\b/i.test(html)) throw new Error("Winter page includes an image: " + dir);
+  if (/\/dp\//.test(html)) throw new Error("Winter page uses an Amazon product page: " + dir);
+  mkdirSync(dir, { recursive: true });
+  writeFileSync(join(dir, "index.html"), html);
+}
+
+function writeWinterSafety() {
+  assertWinterCopy(winterDoc.title, "hub title");
+  assertWinterCopy(winterDoc.h1, "hub h1");
+  assertWinterCopy(winterDoc.description, "hub description");
+  assertWinterCopy(WINTER_CHECK, "how we check");
+  if (!Array.isArray(winterDoc.faqs) || winterDoc.faqs.length < 3) throw new Error("Winter hub FAQs");
+  for (const item of winterDoc.faqs) {
+    assertWinterCopy(item.q, "hub faq");
+    assertWinterCopy(item.a, "hub faq");
+  }
+  const slugs = new Set();
+  for (const guide of winterGuides()) {
+    if (!/^[a-z0-9-]+$/.test(guide.slug || "")) throw new Error("Unsafe winter slug: " + guide.slug);
+    if (slugs.has(guide.slug)) throw new Error("Duplicate winter slug: " + guide.slug);
+    slugs.add(guide.slug);
+    for (const key of ["title", "h1", "label", "description"]) assertWinterCopy(guide[key], guide.slug + " " + key);
+    if (!Array.isArray(guide.look) || guide.look.length < 2) throw new Error("Winter look list: " + guide.slug);
+    if (!Array.isArray(guide.patterns) || guide.patterns.length < 2) throw new Error("Winter patterns: " + guide.slug);
+    if (!Array.isArray(guide.faqs) || guide.faqs.length < 3) throw new Error("Winter FAQs: " + guide.slug);
+    for (const item of guide.faqs) {
+      assertWinterCopy(item.q, guide.slug);
+      assertWinterCopy(item.a, guide.slug);
+    }
+    winterLook(guide);
+    winterMethod(guide);
+    winterPatternsHtml(guide);
+    winterCatalogueHtml(guide);
+    winterSearchButtons(guide);
+  }
+  const dir = join(root, "winter-safety");
+  mkdirSync(dir, { recursive: true });
+  writeWinterFile(dir, winterHubHtml());
+  for (const guide of winterGuides()) writeWinterFile(join(dir, guide.slug), winterGuideHtml(guide));
+  for (const entry of readdirSync(dir)) {
+    if (entry === "index.html") continue;
+    const full = join(dir, entry);
+    if (!statSync(full).isDirectory()) continue;
+    if (!winterGuides().some((guide) => guide.slug === entry)) rmSync(full, { recursive: true, force: true });
+  }
 }
 
 function writeGifts() {
@@ -2161,6 +2555,84 @@ function assertGiftPages() {
   }
 }
 
+function assertWinterPages() {
+  const hub = readFileSync(join(root, "winter-safety", "index.html"), "utf8");
+  if (!hub.includes('<link rel="canonical" href="' + ORIGIN + WINTER_PATH + '">')) throw new Error("Winter hub canonical");
+  if (!hub.includes('property="og:url" content="' + ORIGIN + WINTER_PATH + '"')) throw new Error("Winter hub OG url");
+  if (!hub.includes('property="og:image" content="' + ORIGIN + '/assets/og.png"')) throw new Error("Winter hub OG image");
+  if (!hub.includes("<h1>" + card.esc(winterDoc.h1) + "</h1>")) throw new Error("Winter hub H1");
+  if (!hub.includes(CPSC_SEARCH) || !hub.includes(HC_SEARCH)) throw new Error("Winter hub search links");
+  for (const item of winterDoc.faqs) {
+    if (!hub.includes("<h3>" + card.esc(item.q) + "</h3>")) throw new Error("Winter hub FAQ question");
+    if (!hub.includes('<p class="faq-a">' + card.esc(item.a) + "</p>")) throw new Error("Winter hub FAQ answer");
+  }
+  const hubLd = JSON.parse(hub.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]);
+  assertNoCommerce(hubLd);
+  const hubFaq = hubLd["@graph"].find((node) => node["@type"] === "FAQPage");
+  if (!hubFaq || hubFaq.mainEntity.length !== winterDoc.faqs.length) throw new Error("Winter hub FAQPage");
+  hubFaq.mainEntity.forEach((node, index) => {
+    if (node.name !== winterDoc.faqs[index].q || node.acceptedAnswer.text !== winterDoc.faqs[index].a) {
+      throw new Error("Winter hub FAQ JSON-LD mismatch");
+    }
+  });
+  if (!hubLd["@graph"].some((node) => node["@type"] === "CollectionPage")) throw new Error("Winter hub CollectionPage");
+  for (const guide of winterGuides()) {
+    const path = winterPath(guide);
+    if (!hub.includes('href="' + path + '"')) throw new Error("Winter hub misses " + guide.slug);
+    const html = readFileSync(join(root, path.slice(1), "index.html"), "utf8");
+    const url = ORIGIN + path;
+    if (!html.includes('<link rel="canonical" href="' + url + '">')) throw new Error("Winter canonical " + guide.slug);
+    if (!html.includes('property="og:title" content="' + card.esc(guide.title + " — Checked Lab") + '"')) {
+      throw new Error("Winter OG title " + guide.slug);
+    }
+    if (!html.includes('name="description" content="' + card.esc(guide.description) + '"')) {
+      throw new Error("Winter description " + guide.slug);
+    }
+    if (!html.includes("<h2>What to read on the label</h2>")) throw new Error("Winter look heading " + guide.slug);
+    if (!html.includes("<h2>How to search a recall</h2>") || !html.includes(CPSC_SEARCH) || !html.includes(HC_SEARCH)) {
+      throw new Error("Winter search method " + guide.slug);
+    }
+    if (!html.includes("<h2>Patterns in official notices</h2>")) throw new Error("Winter pattern heading " + guide.slug);
+    if (!html.includes(card.esc(WINTER_CHECK))) throw new Error("Winter how-we-check note " + guide.slug);
+    if (!html.includes('href="/how-we-check/"') || !html.includes('href="/recalls/"') || !html.includes('href="/winter-safety/"')) {
+      throw new Error("Winter internal links " + guide.slug);
+    }
+    for (const pattern of guide.patterns) {
+      if (!html.includes('href="' + card.esc(pattern.url) + '"')) throw new Error("Winter pattern link " + pattern.url);
+      if (!html.includes(card.esc(pattern.says))) throw new Error("Winter pattern text " + pattern.url);
+    }
+    for (const item of guide.catalogue) {
+      const product = products.find((entry) => entry.id === item.id);
+      if (!html.includes('href="' + card.productPath(product) + '"')) throw new Error("Winter card link " + item.id);
+      const page = readFileSync(join(root, product.category, product.id, "index.html"), "utf8");
+      if (!page.includes('href="' + path + '"')) throw new Error("Catalogue card misses " + path + " on " + item.id);
+    }
+    assertAmazonSide(html, "only-us", "https://www.amazon.com/", "checkedlab01-20", guide.searches.length);
+    assertAmazonSide(html, "only-ca", "https://www.amazon.ca/", "checkedlab-20", guide.searches.length);
+    if (html.includes("/dp/")) throw new Error("Winter guide uses an ASIN link: " + guide.slug);
+    if (/<img\b/i.test(html)) throw new Error("Winter guide includes an image: " + guide.slug);
+    const visible = html.replace(/<script[\s\S]*?<\/script>/gi, " ");
+    if (GIFT_BAN.test(visible) || /we tested|we bought|does not test|did not test|not tested/i.test(visible)) {
+      throw new Error("Winter guide failed the honesty check: " + guide.slug);
+    }
+    for (const item of guide.faqs) {
+      if (!html.includes("<h3>" + card.esc(item.q) + "</h3>")) throw new Error("Winter FAQ question " + guide.slug);
+      if (!html.includes('<p class="faq-a">' + card.esc(item.a) + "</p>")) throw new Error("Winter FAQ answer " + guide.slug);
+    }
+    const data = JSON.parse(html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]);
+    assertNoCommerce(data);
+    const types = data["@graph"].map((node) => node["@type"]).sort().join(",");
+    if (types !== "Article,BreadcrumbList,FAQPage") throw new Error("Winter schema " + guide.slug + " " + types);
+    const faq = data["@graph"].find((node) => node["@type"] === "FAQPage");
+    if (!faq || faq.mainEntity.length !== guide.faqs.length) throw new Error("Winter FAQPage " + guide.slug);
+    faq.mainEntity.forEach((node, index) => {
+      if (node.name !== guide.faqs[index].q || node.acceptedAnswer.text !== guide.faqs[index].a) {
+        throw new Error("Winter FAQ JSON-LD mismatch " + guide.slug);
+      }
+    });
+  }
+}
+
 function stampPages(ordered) {
   const rev = loadJson(REV_PATH, {});
   const paths = [
@@ -2171,6 +2643,7 @@ function stampPages(ordered) {
     ["/recalls/", join(root, "recalls", "index.html")],
     [BF_PATH, join(root, "black-friday", "index.html")],
     ...giftPaths().map((path) => [path, join(root, path.slice(1), "index.html")]),
+    ...winterPaths().map((path) => [path, join(root, path.slice(1), "index.html")]),
     ...explainers.map((entry) => ["/recalls/" + entry.slug + "/", join(root, "recalls", entry.slug, "index.html")]),
     ...compares.map((entry) => ["/compare/" + entry.slug + "/", join(root, "compare", entry.slug, "index.html")]),
     ...ordered.filter(indexable).map((product) => [card.productPath(product), join(root, product.category, product.id, "index.html")])
@@ -2201,6 +2674,7 @@ function writeSitemap(pages, lastmods) {
     "/recalls/",
     BF_PATH,
     ...giftPaths(),
+    ...winterPaths(),
     ...explainers.map((entry) => "/recalls/" + entry.slug + "/"),
     ...compares.map((entry) => "/compare/" + entry.slug + "/")
   ];
@@ -2289,6 +2763,10 @@ function publishDist() {
   if (!statSync(join(dist, "black-friday", "index.html")).isFile()) throw new Error("dist is missing /black-friday/");
   if (!statSync(join(dist, "gifts", "index.html")).isFile()) throw new Error("dist is missing /gifts/");
   if (!statSync(join(dist, "gifts", giftGuides()[0].slug, "index.html")).isFile()) throw new Error("dist is missing a gift guide");
+  if (!statSync(join(dist, "winter-safety", "index.html")).isFile()) throw new Error("dist is missing /winter-safety/");
+  if (!statSync(join(dist, "winter-safety", winterGuides()[0].slug, "index.html")).isFile()) {
+    throw new Error("dist is missing a winter safety guide");
+  }
   if (!statSync(join(dist, "recalls", "feed.xml")).isFile()) throw new Error("dist is missing the recall feed");
   if (!statSync(join(dist, "404.html")).isFile()) throw new Error("dist is missing 404.html");
   if (existsSync(join(dist, "scripts")) || existsSync(join(dist, ".git")) || existsSync(join(dist, ".github"))) {
@@ -2358,8 +2836,9 @@ function verifyOutput(pages) {
   const indexed = pages.filter(indexable);
   const locCount = (sitemap.match(/<loc>/g) || []).length;
   const giftCount = giftPaths().length;
-  const expectedLocs = 12 + giftCount + explainers.length + compares.length + indexed.length;
-  if (locCount !== expectedLocs || locCount !== 140 + giftCount) {
+  const winterCount = winterPaths().length;
+  const expectedLocs = 12 + giftCount + winterCount + explainers.length + compares.length + indexed.length;
+  if (locCount !== expectedLocs || locCount !== 140 + giftCount + winterCount) {
     throw new Error("Sitemap URL count " + locCount + " expected " + expectedLocs);
   }
   for (const entry of compares) {
@@ -2375,6 +2854,9 @@ function verifyOutput(pages) {
   if (!sitemap.includes("<loc>" + ORIGIN + "/recalls/</loc>")) throw new Error("Sitemap is missing /recalls/");
   if (!sitemap.includes("<loc>" + ORIGIN + BF_PATH + "</loc>")) throw new Error("Sitemap is missing /black-friday/");
   for (const path of giftPaths()) {
+    if (!sitemap.includes("<loc>" + ORIGIN + path + "</loc>")) throw new Error("Sitemap is missing " + path);
+  }
+  for (const path of winterPaths()) {
     if (!sitemap.includes("<loc>" + ORIGIN + path + "</loc>")) throw new Error("Sitemap is missing " + path);
   }
   for (const loc of sitemap.match(/<loc>[^<]+<\/loc>/g) || []) {
@@ -2425,8 +2907,14 @@ function verifyOutput(pages) {
   }
   if (!home.includes('href="/black-friday/"')) throw new Error("Homepage is missing the Black Friday link");
   if (!home.includes('href="/gifts/"')) throw new Error("Homepage is missing the gift guides link");
+  if (!home.includes('href="/winter-safety/"')) throw new Error("Homepage is missing the winter safety link");
   assertGiftPages();
+  assertWinterPages();
   if (!recallPage.includes('href="/black-friday/"')) throw new Error("Recall page is missing the Black Friday link");
+  if (!recallPage.includes('href="/winter-safety/"')) throw new Error("Recall page is missing the winter safety link");
+  if (!readFileSync(join(root, "winter", "index.html"), "utf8").includes('href="/winter-safety/"')) {
+    throw new Error("Winter hub is missing the winter safety link");
+  }
   assertBlackFriday(readFileSync(join(root, "black-friday", "index.html"), "utf8"));
   if (!home.includes('fetchpriority="low"')) throw new Error("Font preload is still high priority");
   const robots = readFileSync(join(root, "robots.txt"), "utf8");
