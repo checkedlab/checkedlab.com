@@ -133,8 +133,10 @@ const BF_PATH = "/black-friday/";
 const GIFT_PATH = "/gifts/";
 const WINTER_PATH = "/winter-safety/";
 const TOY_PATH = "/toy-safety/";
-const SEASON_FOOT = '<p class="foot-mail"><a href="/toy-safety/">Toy safety</a><a href="/winter-safety/">Winter safety</a><a href="/gifts/">Gift guides</a><a href="/black-friday/">Black Friday</a><a href="/recalls/">Recall checks</a><a href="/how-we-check/">How we check</a><a href="/bin-list/">BIN list</a><a href="mailto:hello@checkedlab.com">hello@</a><a href="mailto:support@checkedlab.com">support@</a><a href="mailto:press@checkedlab.com">press@</a><a href="mailto:legal@checkedlab.com">legal@</a></p>';
+const THANKS_PATH = "/thanksgiving/";
+const SEASON_FOOT = '<p class="foot-mail"><a href="/thanksgiving/">Thanksgiving</a><a href="/toy-safety/">Toy safety</a><a href="/winter-safety/">Winter safety</a><a href="/gifts/">Gift guides</a><a href="/black-friday/">Black Friday</a><a href="/recalls/">Recall checks</a><a href="/how-we-check/">How we check</a><a href="/bin-list/">BIN list</a><a href="mailto:hello@checkedlab.com">hello@</a><a href="mailto:support@checkedlab.com">support@</a><a href="mailto:press@checkedlab.com">press@</a><a href="mailto:legal@checkedlab.com">legal@</a></p>';
 const TOY_HOSTS = new Set(["cpsc.gov", "saferproducts.gov", "recalls-rappels.canada.ca", "canada.ca", "shopulstandards.com"]);
+const THANKS_HOSTS = new Set(["fsis.usda.gov", "usda.gov", "nfpa.org", "usfa.fema.gov"]);
 const CPSC_SEARCH = "https://www.cpsc.gov/Recalls";
 const HC_SEARCH = "https://recalls-rappels.canada.ca/en";
 const WINTER_CHECK = "How we check describes the dated CPSC and Health Canada match on a catalogue card. The date is the day that match was recorded. These guides add the label lines to read and the official search to open, including for a model that is not on a card. A clear line on one card does not cover a different model number.";
@@ -169,6 +171,7 @@ const compares = JSON.parse(readFileSync(join(root, "data", "compares.json"), "u
 const giftsDoc = JSON.parse(readFileSync(join(root, "data", "gifts.json"), "utf8"));
 const winterDoc = JSON.parse(readFileSync(join(root, "data", "winter-safety.json"), "utf8"));
 const toyDoc = JSON.parse(readFileSync(join(root, "data", "toy-safety.json"), "utf8"));
+const thanksDoc = JSON.parse(readFileSync(join(root, "data", "thanksgiving.json"), "utf8"));
 assertProducts(products);
 assertRenderer();
 
@@ -209,6 +212,13 @@ for (const hub of HUBS) {
     if (at < 0) throw new Error("Winter hub lede missing");
     const end = html.indexOf("</p>", at);
     html = html.slice(0, end) + '. <a href="/winter-safety/">Winter home safety</a>' + html.slice(end);
+  }
+  if (hub === "kitchen" && !html.includes('href="/thanksgiving/"')) {
+    const needle = "Recall checks</a> for Kitchen models.";
+    const at = html.indexOf(needle);
+    if (at < 0) throw new Error("Kitchen hub lede missing");
+    const end = html.indexOf("</p>", at);
+    html = html.slice(0, end) + ' <a href="/thanksgiving/">Thanksgiving and holiday hosting</a>' + html.slice(end);
   }
   writeFileSync(file, html);
 }
@@ -279,11 +289,12 @@ writeBlackFriday();
 writeGifts();
 writeWinterSafety();
 writeToySafety();
+writeThanksgiving();
 const lastmods = stampPages(ordered);
 writeSitemap(pages, lastmods);
 verifyOutput(pages);
 publishDist();
-console.log(`Wrote ${pages.length} product pages, ${HUBS.length} hub card lists, /recalls/, /black-friday/, ${giftPaths().length} gift pages, ${winterPaths().length} winter safety pages, and ${toyPaths().length} toy safety pages.`);
+console.log(`Wrote ${pages.length} product pages, ${HUBS.length} hub card lists, /recalls/, /black-friday/, ${giftPaths().length} gift pages, ${winterPaths().length} winter safety pages, ${toyPaths().length} toy safety pages, and ${thanksPaths().length} Thanksgiving pages.`);
 
 function assertProducts(list) {
   if (!Array.isArray(list) || !list.length) throw new Error("products.json is empty");
@@ -534,6 +545,7 @@ function siblingLinks(product) {
       return '<a href="/compare/' + entry.slug + '/">Compare with ' + card.esc(other.model || other.title) + "</a>";
     }),
     ...winterGuideLinks(product),
+    ...thanksGuideLinks(product),
     ...picks.map((item) => '<a href="' + card.productPath(item) + '">' + card.esc(item.title) + "</a>")
   ];
   return '<p class="lede">' + links.join(" ") + "</p>";
@@ -807,7 +819,8 @@ function giftQuiz() {
     ["pet", "Pet"],
     ["sleep", "Sleep"],
     ["tech", "Tech"],
-    ["kids", "Kids"]
+    ["kids", "Kids"],
+    ["host", "Host"]
   ];
   const buttons = (step) => options.map(([value, label]) =>
     '<button type="button" data-quiz-value="' + value + '" data-quiz-step-value="' + step + '">' + label + "</button>"
@@ -1400,7 +1413,7 @@ ${sceneBlock("recalls")}
 <h1>Recall checks</h1>
 ${recallWidget()}
 <p class="lede">Checked <time datetime="${card.esc(date)}">${card.esc(date)}</time> (UTC). Every catalogue model has a United States line from the <a href="${href(usSource)}" target="_blank" rel="noopener">CPSC SaferProducts</a> source and a Canada line from the <a href="${CA_DATASET_PAGE}" target="_blank" rel="noopener">Health Canada open dataset</a>.</p>
-<p>A date is the day that check ran. Open a model for the maker specs. Read <a href="/how-we-check/">how we check</a> and the <a href="/bin-list/">BIN list</a>. <a href="/black-friday/">Black Friday 2026: check the model before you buy</a>. <a href="/winter-safety/">Winter home safety, recall-checked</a>. <a href="/toy-safety/">Holiday toy safety, recall-checked</a>. <a href="/recalls/feed.xml">RSS</a> updates when a recall record changes.</p>
+<p>A date is the day that check ran. Open a model for the maker specs. Read <a href="/how-we-check/">how we check</a> and the <a href="/bin-list/">BIN list</a>. <a href="/black-friday/">Black Friday 2026: check the model before you buy</a>. <a href="/thanksgiving/">Thanksgiving and holiday hosting, recall-checked</a>. <a href="/winter-safety/">Winter home safety, recall-checked</a>. <a href="/toy-safety/">Holiday toy safety, recall-checked</a>. <a href="/recalls/feed.xml">RSS</a> updates when a recall record changes.</p>
 <p class="recall-filters"><a href="#united-states">United States</a><a href="#canada">Canada</a></p>
 ${binSection(ordered, date)}
 <div class="recall-columns">
@@ -1837,11 +1850,24 @@ function giftGuides() {
   return lists;
 }
 
-function kidsGuide() {
+function checksGuides() {
   const guides = giftsDoc && Array.isArray(giftsDoc.guides) ? giftsDoc.guides : [];
-  const kids = guides.filter((guide) => guide.kind === "checks");
-  if (kids.length !== 1 || kids[0].slug !== "for-kids") throw new Error("Kids gift guide missing");
-  return kids[0];
+  const checks = guides.filter((guide) => guide.kind === "checks");
+  const slugs = checks.map((guide) => guide.slug).sort().join(",");
+  if (slugs !== "for-kids,for-the-host") throw new Error("Check gift guides changed: " + slugs);
+  return checks;
+}
+
+function kidsGuide() {
+  const kids = checksGuides().find((guide) => guide.slug === "for-kids");
+  if (!kids) throw new Error("Kids gift guide missing");
+  return kids;
+}
+
+function hostGuide() {
+  const host = checksGuides().find((guide) => guide.slug === "for-the-host");
+  if (!host) throw new Error("Host gift guide missing");
+  return host;
 }
 
 function giftPath(guide) {
@@ -1849,7 +1875,7 @@ function giftPath(guide) {
 }
 
 function giftPaths() {
-  return [GIFT_PATH, ...giftGuides().map((guide) => giftPath(guide)), giftPath(kidsGuide())];
+  return [GIFT_PATH, ...giftGuides().map((guide) => giftPath(guide)), ...checksGuides().map((guide) => giftPath(guide))];
 }
 
 function humanList(items) {
@@ -1954,6 +1980,10 @@ function giftHubFaqs(guides) {
     {
       q: "Where is the kids list?",
       a: "Gifts for kids names " + kidsGuide().picks.length + " mainstream kids product lines and the official check to do before you buy. It does not use a catalogue card. Toy safety covers button and coin batteries, magnets, water beads, and ride-ons and scooters."
+    },
+    {
+      q: "Where is the host list?",
+      a: "Gifts for the host names " + hostGuide().picks.length + " widely sold hosting tools and the official check to do before you buy. It does not use a catalogue card. Thanksgiving covers turkey fryers, pressure cookers, turkey temperatures, and kitchen fires."
     }
   ];
 }
@@ -1966,7 +1996,7 @@ function giftCrumbs(pageLabel) {
 }
 
 function giftJumps(guides, currentSlug) {
-  return '<p class="recall-filters">' + guides.concat([kidsGuide()]).map((guide) => {
+  return '<p class="recall-filters">' + guides.concat(checksGuides()).map((guide) => {
     const current = guide.slug === currentSlug ? ' aria-current="page"' : "";
     return '<a href="' + giftPath(guide) + '"' + current + ">" + card.esc(guide.label) + "</a>";
   }).join("") + "</p>";
@@ -2075,6 +2105,7 @@ ${DISCLOSURE}
 </div>
 <nav>
 <a href="/gifts/" aria-current="page">GIFT GUIDES</a>
+<a href="/thanksgiving/">THANKSGIVING</a>
 <a href="/toy-safety/">TOY SAFETY</a>
 <a href="/recalls/">RECALL CHECKS</a>
 <a href="/how-we-check/">HOW WE CHECK</a>
@@ -2106,18 +2137,20 @@ function giftHubHtml(grouped) {
   const guides = grouped.map((item) => item.guide);
   const faqs = giftHubFaqs(guides);
   const url = ORIGIN + GIFT_PATH;
-  const kids = kidsGuide();
+  const checks = checksGuides();
   const list = "<ul class=\"guide-list\">" + grouped.map((item) =>
     "<li><h2><a href=\"" + giftPath(item.guide) + "\">" + card.esc(item.guide.h1) + "</a></h2><p>" +
     item.picks.length + " catalogue models. " + card.esc(item.guide.description) + "</p></li>"
   ).join("") +
-    "<li><h2><a href=\"" + giftPath(kids) + "\">" + card.esc(kids.h1) + "</a></h2><p>" +
-    kids.picks.length + " product lines. " + card.esc(kids.description) + "</p></li></ul>";
+    checks.map((guide) =>
+      "<li><h2><a href=\"" + giftPath(guide) + "\">" + card.esc(guide.h1) + "</a></h2><p>" +
+      guide.picks.length + " product lines. " + card.esc(guide.description) + "</p></li>"
+    ).join("") + "</ul>";
   const main = sceneBlock("gifts") + giftCrumbs() +
     "<h1>" + card.esc(giftsDoc.h1) + "</h1>" +
     '<p class="lede">' + card.esc(giftsDoc.description) + "</p>" +
     giftQuiz() +
-    '<p>A recipient list is published when the catalogue can fill it with at least five models and the recorded US and Canadian checks found no matching recall. The spec line on each model is copied from the maker fields. <a href="/how-we-check/">How we check</a> says what the date means. <a href="' + giftPath(kids) + '">Gifts for kids</a> is a recall-check list, not a catalogue list. <a href="/toy-safety/">Toy safety</a> covers button batteries, magnets, water beads, and ride-ons.</p>' +
+    '<p>A recipient list is published when the catalogue can fill it with at least five models and the recorded US and Canadian checks found no matching recall. The spec line on each model is copied from the maker fields. <a href="/how-we-check/">How we check</a> says what the date means. <a href="' + giftPath(kidsGuide()) + '">Gifts for kids</a> is a recall-check list, not a catalogue list. <a href="/toy-safety/">Toy safety</a> covers button batteries, magnets, water beads, and ride-ons. <a href="' + giftPath(hostGuide()) + '">Gifts for the host</a> is a recall-check list for holiday hosting. <a href="/thanksgiving/">Thanksgiving and holiday hosting</a> covers turkey fryers, pressure cookers, turkey temperatures, and kitchen fires.</p>' +
     list +
     '<section class="faq" id="questions"><h2>Questions</h2>' +
     faqs.map((item) => "<h3>" + card.esc(item.q) + '</h3><p class="faq-a">' + card.esc(item.a) + "</p>").join("") +
@@ -2137,12 +2170,12 @@ function giftHubHtml(grouped) {
       position: index + 1,
       name: guide.title,
       url: ORIGIN + giftPath(guide)
-    })).concat([{
+    })).concat(checks.map((guide, index) => ({
       "@type": "ListItem",
-      position: guides.length + 1,
-      name: kids.title,
-      url: ORIGIN + giftPath(kids)
-    }]),
+      position: guides.length + index + 1,
+      name: guide.title,
+      url: ORIGIN + giftPath(guide)
+    }))),
     faqs
   );
   return giftShell(url, giftsDoc.title, giftsDoc.description, main, jsonLd);
@@ -2418,6 +2451,7 @@ ${DISCLOSURE}
 <button type="button" data-region-set="CA">CA</button>
 </div>
 <nav>
+<a href="/thanksgiving/">THANKSGIVING</a>
 <a href="/toy-safety/">TOY SAFETY</a>
 <a href="/winter-safety/" aria-current="page">WINTER SAFETY</a>
 <a href="/recalls/">RECALL CHECKS</a>
@@ -2463,7 +2497,7 @@ function winterHubHtml() {
   const main = sceneBlock("winter-safety") + winterCrumbs() +
     "<h1>" + card.esc(winterDoc.h1) + "</h1>" +
     '<p class="lede">' + card.esc(winterDoc.description) + "</p>" +
-    '<p>Read the label, then search the model on <a href="' + CPSC_SEARCH + '" target="_blank" rel="noopener">CPSC Recalls</a> or <a href="' + HC_SEARCH + '" target="_blank" rel="noopener">Health Canada recalls and safety alerts</a>. <a href="/how-we-check/">How we check</a> says what a dated catalogue line means. <a href="/winter/">Winter</a> is the catalogue. <a href="/recalls/">Recall checks</a> lists every catalogue model.</p>' +
+    '<p>Read the label, then search the model on <a href="' + CPSC_SEARCH + '" target="_blank" rel="noopener">CPSC Recalls</a> or <a href="' + HC_SEARCH + '" target="_blank" rel="noopener">Health Canada recalls and safety alerts</a>. <a href="/how-we-check/">How we check</a> says what a dated catalogue line means. <a href="/winter/">Winter</a> is the catalogue. <a href="/recalls/">Recall checks</a> lists every catalogue model. <a href="/thanksgiving/">Thanksgiving and holiday hosting</a> covers turkey fryers, pressure cookers, turkey temperatures, and kitchen fires.</p>' +
     list +
     winterFaqsHtml(faqs);
   const jsonLd = winterJsonLd(
@@ -2582,7 +2616,7 @@ function assertOfficialHref(href, where) {
   } catch {
     throw new Error("Official href: " + where);
   }
-  if (!TOY_HOSTS.has(host)) throw new Error("Href is not an official source: " + href);
+  if (!TOY_HOSTS.has(host) && !THANKS_HOSTS.has(host)) throw new Error("Href is not an official source: " + href);
 }
 
 function officialSpans(spans, where) {
@@ -2660,6 +2694,73 @@ function kidsGuideHtml(guide, grouped) {
     guide.faqs
   );
   return giftShell(url, guide.title, guide.description, main, jsonLd);
+}
+
+function hostGuideHtml(guide, grouped) {
+  const url = ORIGIN + giftPath(guide);
+  const guides = grouped.map((item) => item.guide);
+  const picks = guide.picks.map((pick) => {
+    const buttons = winterSearchButtons({ slug: guide.slug + "-" + pick.id, searches: [pick.search] });
+    return '<article class="guide-pick" id="' + card.esc(pick.id) + '">' +
+      card.visual({ id: pick.id, title: pick.name, category: "" }) +
+      "<h2>" + card.esc(pick.name) + "</h2>" +
+      '<p class="why">' + card.esc(pick.why) + "</p>" +
+      "<p>" + officialSpans(pick.check, pick.id) + "</p>" +
+      buttons +
+      "</article>";
+  }).join("\n");
+  const main = sceneBlock("gifts") + giftCrumbs(guide.h1) +
+    "<h1>" + card.esc(guide.h1) + "</h1>" +
+    '<p class="lede">' + card.esc(guide.description) + "</p>" +
+    '<p>Each line names a widely sold hosting tool and the official check to do. The button opens the Amazon search for the words under it. It is not a product page. <a href="/thanksgiving/">Thanksgiving and holiday hosting</a> covers <a href="/thanksgiving/turkey-fryers/">turkey fryers</a>, <a href="/thanksgiving/pressure-cookers/">pressure cookers</a>, <a href="/thanksgiving/turkey-temperatures/">turkey temperatures</a>, and <a href="/thanksgiving/kitchen-fires/">kitchen fires</a>. <a href="/how-we-check/">How we check</a> says what a dated catalogue line means.</p>' +
+    giftJumps(guides, guide.slug) +
+    '<section class="pick-grid">\n' + picks + "\n</section>" +
+    '<p class="lede"><a href="/gifts/">All gift guides</a></p>' +
+    winterFaqsHtml(guide.faqs);
+  const jsonLd = giftJson(
+    url,
+    guide.title,
+    guide.h1,
+    guide.description,
+    [
+      { "@type": "ListItem", position: 1, name: "Home", item: ORIGIN + "/" },
+      { "@type": "ListItem", position: 2, name: "Gift guides", item: ORIGIN + GIFT_PATH },
+      { "@type": "ListItem", position: 3, name: guide.h1, item: url }
+    ],
+    guide.h1,
+    guide.picks.map((pick, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: pick.name,
+      url: url + "#" + pick.id
+    })),
+    guide.faqs
+  );
+  return giftShell(url, guide.title, guide.description, main, jsonLd);
+}
+
+function assertHostPage(html) {
+  const guide = hostGuide();
+  const url = ORIGIN + giftPath(guide);
+  assertGiftShell(html, url, guide.title, guide.description);
+  if (!html.includes("<h1>" + card.esc(guide.h1) + "</h1>")) throw new Error("Host H1");
+  if (html.includes("/dp/")) throw new Error("Host page uses an Amazon product page");
+  assertSafeImages(html, "host");
+  assertAmazonSide(html, "only-us", "https://www.amazon.com/", "checkedlab01-20", guide.picks.length);
+  assertAmazonSide(html, "only-ca", "https://www.amazon.ca/", "checkedlab-20", guide.picks.length);
+  for (const pick of guide.picks) {
+    if (!html.includes('id="' + pick.id + '"')) throw new Error("Host anchor " + pick.id);
+    if (!html.includes(card.esc(pick.why))) throw new Error("Host why missing " + pick.id);
+  }
+  if (!html.includes("/s?k=")) throw new Error("Host search missing");
+  for (const path of thanksPaths()) {
+    if (!html.includes('href="' + path + '"')) throw new Error("Host page misses " + path);
+  }
+  assertGiftLd(html, guide.picks.length, guide.faqs);
+  const visible = html.replace(/<script[\s\S]*?<\/script>/gi, " ");
+  if (GIFT_BAN.test(visible) || /we tested|we bought|does not test|did not test|not tested/i.test(visible)) {
+    throw new Error("Host page failed the honesty check");
+  }
 }
 
 function assertKidsPage(html) {
@@ -2808,6 +2909,7 @@ ${DISCLOSURE}
 <button type="button" data-region-set="CA">CA</button>
 </div>
 <nav>
+<a href="/thanksgiving/">THANKSGIVING</a>
 <a href="/toy-safety/" aria-current="page">TOY SAFETY</a>
 <a href="/winter-safety/">WINTER SAFETY</a>
 <a href="/gifts/">GIFT GUIDES</a>
@@ -2955,6 +3057,290 @@ function writeToySafety() {
   }
 }
 
+function thanksGuides() {
+  const guides = thanksDoc && Array.isArray(thanksDoc.guides) ? thanksDoc.guides : null;
+  if (!guides || guides.length !== 4) throw new Error("Thanksgiving needs four guides");
+  return guides;
+}
+
+function thanksPath(guide) {
+  return guide ? THANKS_PATH + guide.slug + "/" : THANKS_PATH;
+}
+
+function thanksPaths() {
+  return [THANKS_PATH, ...thanksGuides().map((guide) => thanksPath(guide))];
+}
+
+function thanksGuideLinks(product) {
+  return thanksGuides().filter((guide) =>
+    (guide.catalogue || []).some((item) => item.id === product.id)
+  ).map((guide) => '<a href="' + thanksPath(guide) + '">' + card.esc(guide.label) + "</a>");
+}
+
+function assertThanksPatternUrl(url) {
+  let host = "";
+  try {
+    host = new URL(url).hostname.replace(/^www\./, "");
+  } catch {
+    throw new Error("Pattern URL is not https: " + url);
+  }
+  if (!TOY_HOSTS.has(host) && !THANKS_HOSTS.has(host)) throw new Error("Pattern URL is not an official source: " + url);
+}
+
+function thanksCrumbs(pageLabel) {
+  const tail = pageLabel
+    ? '<a href="/thanksgiving/">Thanksgiving</a>\n<span aria-hidden="true">/</span>\n<span aria-current="page">' + card.esc(pageLabel) + "</span>"
+    : '<span aria-current="page">Thanksgiving</span>';
+  return '<nav class="crumbs" aria-label="Breadcrumb">\n<a href="/">Home</a>\n<span aria-hidden="true">/</span>\n' + tail + "\n</nav>\n";
+}
+
+function thanksJumps(currentSlug) {
+  return '<p class="recall-filters">' + thanksGuides().map((guide) => {
+    const current = guide.slug === currentSlug ? ' aria-current="page"' : "";
+    return '<a href="' + thanksPath(guide) + '"' + current + ">" + card.esc(guide.label) + "</a>";
+  }).join("") + "</p>";
+}
+
+function thanksLook(guide) {
+  return '<ul class="evidence checklist">' + guide.look.map((spans, index) =>
+    "<li>" + officialSpans(spans, guide.slug + " look " + index) + "</li>"
+  ).join("") + "</ul>";
+}
+
+function thanksPatternsHtml(guide) {
+  const hosts = new Set();
+  const html = "<ul>" + guide.patterns.map((pattern) => {
+    assertThanksPatternUrl(pattern.url);
+    hosts.add(new URL(pattern.url).hostname.replace(/^www\./, ""));
+    if (!pattern.agency || !pattern.title || !pattern.says) throw new Error("Thanksgiving pattern is incomplete: " + guide.slug);
+    assertWinterCopy(pattern.agency + " " + pattern.title + " " + pattern.says, guide.slug);
+    return '<li><a href="' + card.esc(pattern.url) + '" target="_blank" rel="noopener">' +
+      card.esc(pattern.agency) + ": " + card.esc(pattern.title) + "</a>. " + card.esc(pattern.says) + "</li>";
+  }).join("") + "</ul>";
+  const need = {
+    "turkey-fryers": ["cpsc.gov", "recalls-rappels.canada.ca", "nfpa.org"],
+    "pressure-cookers": ["cpsc.gov", "recalls-rappels.canada.ca"],
+    "turkey-temperatures": ["fsis.usda.gov", "cpsc.gov"],
+    "kitchen-fires": ["cpsc.gov", "nfpa.org", "usfa.fema.gov"]
+  }[guide.slug];
+  if (!need) throw new Error("Thanksgiving host rule missing: " + guide.slug);
+  for (const host of need) {
+    if (!hosts.has(host)) throw new Error("Thanksgiving guide missing " + host + ": " + guide.slug);
+  }
+  return html;
+}
+
+function thanksMoreLinks(guide) {
+  const base = [
+    '<a href="/thanksgiving/">All Thanksgiving guides</a>',
+    '<a href="/gifts/for-the-host/">Gifts for the host</a>',
+    '<a href="/winter-safety/">Winter safety</a>',
+    '<a href="/how-we-check/">How we check</a>',
+    '<a href="/recalls/">Recall checks</a>'
+  ];
+  const more = (guide.links || []).map((link) => {
+    if (!link || typeof link.href !== "string" || !link.href.startsWith("/") || !link.label) {
+      throw new Error("Thanksgiving link must be an internal page: " + guide.slug);
+    }
+    return '<a href="' + card.esc(link.href) + '">' + card.esc(link.label) + "</a>";
+  });
+  return '<p class="lede">' + base.concat(more).join(" ") + "</p>";
+}
+
+function thanksShell(url, title, description, mainHtml, jsonLd) {
+  const titled = title + " — Checked Lab";
+  return `<!DOCTYPE html>
+<html lang="en" data-region="US">
+<head>
+<meta charset="UTF-8">
+<link rel="canonical" href="${url}">
+<script src="/assets/region-boot.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>${card.esc(titled)}</title>
+<meta name="description" content="${card.esc(description)}">
+<meta property="og:title" content="${card.esc(titled)}">
+<meta property="og:description" content="${card.esc(description)}">
+<meta property="og:type" content="website">
+<meta property="og:url" content="${url}">
+<meta property="og:image" content="${ORIGIN}/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Checked Lab. Checked before you buy.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="${card.esc(titled)}">
+<meta name="twitter:description" content="${card.esc(description)}">
+<meta name="twitter:image" content="${ORIGIN}/assets/og.png">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+${FONT_PRELOAD}
+<link rel="stylesheet" href="/assets/site.css">
+<meta name="theme-color" content="#F5F5F7">
+<script type="application/ld+json">
+${jsonLd}
+</script>
+</head>
+<body data-page="thanksgiving">
+${DISCLOSURE}
+<div class="topbar"><span>● CHECKED LAB • EST 2026 • NO SPONSORS</span><span>hello@checkedlab.com • press@checkedlab.com • legal@checkedlab.com</span></div>
+<div class="masthead">
+<header>
+<a class="logo" href="/">CHECKED LAB <i>CHECKED BEFORE YOU BUY</i></a>
+<div class="header-actions">
+<div class="country-switch">
+<button type="button" data-region-set="US">US</button>
+<button type="button" data-region-set="CA">CA</button>
+</div>
+<nav>
+<a href="/thanksgiving/" aria-current="page">THANKSGIVING</a>
+<a href="/winter-safety/">WINTER SAFETY</a>
+<a href="/gifts/">GIFT GUIDES</a>
+<a href="/toy-safety/">TOY SAFETY</a>
+<a href="/recalls/">RECALL CHECKS</a>
+<a href="/how-we-check/">HOW WE CHECK</a>
+<a href="/bin-list/">BIN LIST</a>
+</nav>
+</div>
+</header>
+${nav("thanksgiving")}
+</div>
+<main>
+<div class="wrap prose">
+${mainHtml}
+</div>
+</main>
+<footer>
+<div class="foot">
+<p>As an Amazon Associate I earn from qualifying purchases.</p>
+<p>© 2026 CHECKED LAB<br>Winnipeg, MB</p>
+${SEASON_FOOT}
+</div>
+</footer>
+<script src="/assets/site.js" defer></script>
+</body>
+</html>
+`;
+}
+
+function thanksHubHtml() {
+  const guides = thanksGuides();
+  const faqs = thanksDoc.faqs;
+  const url = ORIGIN + THANKS_PATH;
+  const list = '<ul class="guide-list">' + guides.map((guide) =>
+    '<li><h2><a href="' + thanksPath(guide) + '">' + card.esc(guide.h1) + "</a></h2><p>" + card.esc(guide.description) + "</p></li>"
+  ).join("") + "</ul>";
+  const main = sceneBlock("thanksgiving") + thanksCrumbs() +
+    "<h1>" + card.esc(thanksDoc.h1) + "</h1>" +
+    '<p class="lede">' + card.esc(thanksDoc.description) + "</p>" +
+    '<p>Read the label, then search the product on <a href="' + CPSC_SEARCH + '" target="_blank" rel="noopener">CPSC Recalls</a> or <a href="' + HC_SEARCH + '" target="_blank" rel="noopener">Health Canada recalls and safety alerts</a>. Turkey temperatures on this page come from <a href="https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/poultry/turkey-basics-safe-cooking" target="_blank" rel="noopener">USDA FSIS</a>. Cooking-fire guidance comes from <a href="https://www.nfpa.org/-/media/project/storefront/catalog/files/home-fire-safety/emac/educationalmessagesdeskreference.pdf" target="_blank" rel="noopener">NFPA</a> and <a href="https://www.usfa.fema.gov/prevention/home-fires/prepare-for-fire/fire-extinguishers/" target="_blank" rel="noopener">USFA</a>. <a href="/how-we-check/">How we check</a> says what a dated catalogue line means. These guides are not catalogue cards. <a href="/recalls/">Recall checks</a> lists every catalogue model. <a href="/gifts/for-the-host/">Gifts for the host</a> names widely sold hosting tools and the check to do. <a href="/winter-safety/">Winter home safety</a> covers heaters, heated bedding, alarms, and outage power.</p>' +
+    list +
+    winterFaqsHtml(faqs);
+  const jsonLd = winterJsonLd(
+    url,
+    thanksDoc.title,
+    thanksDoc.description,
+    [
+      { "@type": "ListItem", position: 1, name: "Home", item: ORIGIN + "/" },
+      { "@type": "ListItem", position: 2, name: "Thanksgiving", item: url }
+    ],
+    faqs,
+    guides.map((guide, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: guide.title,
+      url: ORIGIN + thanksPath(guide)
+    }))
+  );
+  return thanksShell(url, thanksDoc.title, thanksDoc.description, main, jsonLd);
+}
+
+function thanksGuideHtml(guide) {
+  const url = ORIGIN + thanksPath(guide);
+  const main = sceneBlock("thanksgiving") + thanksCrumbs(guide.h1) +
+    "<h1>" + card.esc(guide.h1) + "</h1>" +
+    '<p class="lede">' + card.esc(guide.description) + "</p>" +
+    thanksJumps(guide.slug) +
+    "<h2>What to read on the label</h2>" + thanksLook(guide) +
+    "<h2>How to search a recall</h2>" + winterMethod(guide) +
+    "<h2>Patterns in official notices</h2>" +
+    "<p>Each pattern below is one official page. The sentence is what that page says.</p>" +
+    thanksPatternsHtml(guide) +
+    "<h2>How we check</h2><p>" + card.esc(WINTER_CHECK) + ' <a href="/how-we-check/">How we check</a>.</p>' +
+    "<h2>Catalogue cards</h2>" + winterCatalogueHtml(guide) +
+    thanksMoreLinks(guide) +
+    "<h2>Amazon search</h2>" +
+    "<p>The button opens the Amazon search for the words under it. It is not a product page.</p>" +
+    winterSearchButtons(guide) +
+    winterFaqsHtml(guide.faqs);
+  const jsonLd = winterJsonLd(
+    url,
+    guide.title,
+    guide.description,
+    [
+      { "@type": "ListItem", position: 1, name: "Home", item: ORIGIN + "/" },
+      { "@type": "ListItem", position: 2, name: "Thanksgiving", item: ORIGIN + THANKS_PATH },
+      { "@type": "ListItem", position: 3, name: guide.h1, item: url }
+    ],
+    guide.faqs,
+    null
+  );
+  return thanksShell(url, guide.title, guide.description, main, jsonLd);
+}
+
+function writeThanksFile(dir, html) {
+  html = polish(html);
+  const visible = html.replace(/<script[\s\S]*?<\/script>/gi, " ");
+  if (GIFT_BAN.test(visible) || /we tested|we bought|does not test|did not test|not tested/i.test(visible)) {
+    throw new Error("Thanksgiving page failed the honesty check: " + dir);
+  }
+  assertSafeImages(html, dir);
+  if (/\/dp\//.test(html)) throw new Error("Thanksgiving page uses an Amazon product page: " + dir);
+  mkdirSync(dir, { recursive: true });
+  writeFileSync(join(dir, "index.html"), html);
+}
+
+function writeThanksgiving() {
+  assertWinterCopy(thanksDoc.title, "thanksgiving hub title");
+  assertWinterCopy(thanksDoc.h1, "thanksgiving hub h1");
+  assertWinterCopy(thanksDoc.description, "thanksgiving hub description");
+  if (!Array.isArray(thanksDoc.faqs) || thanksDoc.faqs.length < 3) throw new Error("Thanksgiving hub FAQs");
+  for (const item of thanksDoc.faqs) {
+    assertWinterCopy(item.q, "thanksgiving hub faq");
+    assertWinterCopy(item.a, "thanksgiving hub faq");
+  }
+  const slugs = new Set();
+  for (const guide of thanksGuides()) {
+    if (!/^[a-z0-9-]+$/.test(guide.slug || "")) throw new Error("Unsafe thanksgiving slug: " + guide.slug);
+    if (slugs.has(guide.slug)) throw new Error("Duplicate thanksgiving slug: " + guide.slug);
+    slugs.add(guide.slug);
+    for (const key of ["title", "h1", "label", "description"]) assertWinterCopy(guide[key], guide.slug + " " + key);
+    if (!Array.isArray(guide.look) || guide.look.length < 2) throw new Error("Thanksgiving look list: " + guide.slug);
+    if (!Array.isArray(guide.patterns) || guide.patterns.length < 2) throw new Error("Thanksgiving patterns: " + guide.slug);
+    if (!Array.isArray(guide.faqs) || guide.faqs.length < 3) throw new Error("Thanksgiving FAQs: " + guide.slug);
+    for (const item of guide.faqs) {
+      assertWinterCopy(item.q, guide.slug);
+      assertWinterCopy(item.a, guide.slug);
+    }
+    if (guide.methodExtra) {
+      guide.methodExtra.forEach((spans, index) => officialSpans(spans, guide.slug + " method " + index));
+    }
+    thanksLook(guide);
+    thanksPatternsHtml(guide);
+    winterCatalogueHtml(guide);
+    winterSearchButtons(guide);
+  }
+  const dir = join(root, "thanksgiving");
+  mkdirSync(dir, { recursive: true });
+  writeThanksFile(dir, thanksHubHtml());
+  for (const guide of thanksGuides()) writeThanksFile(join(dir, guide.slug), thanksGuideHtml(guide));
+  for (const entry of readdirSync(dir)) {
+    if (entry === "index.html") continue;
+    const full = join(dir, entry);
+    if (!statSync(full).isDirectory()) continue;
+    if (!thanksGuides().some((guide) => guide.slug === entry)) rmSync(full, { recursive: true, force: true });
+  }
+}
+
 function assertToyPages() {
   const hub = readFileSync(join(root, "toy-safety", "index.html"), "utf8");
   if (!hub.includes('<link rel="canonical" href="' + ORIGIN + TOY_PATH + '">')) throw new Error("Toy hub canonical");
@@ -3027,6 +3413,86 @@ function assertToyPages() {
   }
 }
 
+function assertThanksgivingPages() {
+  const hub = readFileSync(join(root, "thanksgiving", "index.html"), "utf8");
+  if (!hub.includes('<link rel="canonical" href="' + ORIGIN + THANKS_PATH + '">')) throw new Error("Thanksgiving hub canonical");
+  if (!hub.includes('property="og:url" content="' + ORIGIN + THANKS_PATH + '"')) throw new Error("Thanksgiving hub OG url");
+  if (!hub.includes("<h1>" + card.esc(thanksDoc.h1) + "</h1>")) throw new Error("Thanksgiving hub H1");
+  if (!hub.includes(CPSC_SEARCH) || !hub.includes(HC_SEARCH)) throw new Error("Thanksgiving hub search links");
+  if (!hub.includes('href="/gifts/for-the-host/"')) throw new Error("Thanksgiving hub misses the host list");
+  if (!hub.includes('href="/winter-safety/"')) throw new Error("Thanksgiving hub misses winter safety");
+  if (!hub.includes("November 26, 2026")) throw new Error("Thanksgiving date missing");
+  for (const item of thanksDoc.faqs) {
+    if (!hub.includes("<h3>" + card.esc(item.q) + "</h3>")) throw new Error("Thanksgiving hub FAQ question");
+    if (!hub.includes('<p class="faq-a">' + card.esc(item.a) + "</p>")) throw new Error("Thanksgiving hub FAQ answer");
+  }
+  const hubLd = JSON.parse(hub.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]);
+  assertNoCommerce(hubLd);
+  const hubFaq = hubLd["@graph"].find((node) => node["@type"] === "FAQPage");
+  if (!hubFaq || hubFaq.mainEntity.length !== thanksDoc.faqs.length) throw new Error("Thanksgiving hub FAQPage");
+  hubFaq.mainEntity.forEach((node, index) => {
+    if (node.name !== thanksDoc.faqs[index].q || node.acceptedAnswer.text !== thanksDoc.faqs[index].a) {
+      throw new Error("Thanksgiving hub FAQ JSON-LD mismatch");
+    }
+  });
+  if (!hubLd["@graph"].some((node) => node["@type"] === "CollectionPage")) throw new Error("Thanksgiving hub CollectionPage");
+  if (!hubLd["@graph"].some((node) => node["@type"] === "BreadcrumbList")) throw new Error("Thanksgiving hub BreadcrumbList");
+  for (const guide of thanksGuides()) {
+    const path = thanksPath(guide);
+    if (!hub.includes('href="' + path + '"')) throw new Error("Thanksgiving hub misses " + guide.slug);
+    const html = readFileSync(join(root, path.slice(1), "index.html"), "utf8");
+    const pageUrl = ORIGIN + path;
+    if (!html.includes('<link rel="canonical" href="' + pageUrl + '">')) throw new Error("Thanksgiving canonical " + guide.slug);
+    if (!html.includes('property="og:title" content="' + card.esc(guide.title + " — Checked Lab") + '"')) {
+      throw new Error("Thanksgiving OG title " + guide.slug);
+    }
+    if (!html.includes("<h2>What to read on the label</h2>")) throw new Error("Thanksgiving look heading " + guide.slug);
+    if (!html.includes("<h2>How to search a recall</h2>") || !html.includes(CPSC_SEARCH) || !html.includes(HC_SEARCH)) {
+      throw new Error("Thanksgiving search method " + guide.slug);
+    }
+    if (!html.includes("<h2>Patterns in official notices</h2>")) throw new Error("Thanksgiving pattern heading " + guide.slug);
+    if (!html.includes(card.esc(WINTER_CHECK))) throw new Error("Thanksgiving how-we-check note " + guide.slug);
+    if (!html.includes('href="/how-we-check/"') || !html.includes('href="/recalls/"') || !html.includes('href="/thanksgiving/"')) {
+      throw new Error("Thanksgiving internal links " + guide.slug);
+    }
+    if (!html.includes('href="/gifts/for-the-host/"')) throw new Error("Thanksgiving guide misses the host list " + guide.slug);
+    if (!html.includes('data-region-set="US"') || !html.includes('data-region-set="CA"')) throw new Error("Thanksgiving region switch " + guide.slug);
+    for (const pattern of guide.patterns) {
+      if (!html.includes('href="' + card.esc(pattern.url) + '"')) throw new Error("Thanksgiving pattern link " + pattern.url);
+      if (!html.includes(card.esc(pattern.says))) throw new Error("Thanksgiving pattern text " + pattern.url);
+    }
+    for (const item of guide.catalogue || []) {
+      const product = products.find((entry) => entry.id === item.id);
+      if (!html.includes('href="' + card.productPath(product) + '"')) throw new Error("Thanksgiving card link " + item.id);
+      const page = readFileSync(join(root, product.category, product.id, "index.html"), "utf8");
+      if (!page.includes('href="' + path + '"')) throw new Error("Catalogue card misses " + path + " on " + item.id);
+    }
+    assertAmazonSide(html, "only-us", "https://www.amazon.com/", "checkedlab01-20", guide.searches.length);
+    assertAmazonSide(html, "only-ca", "https://www.amazon.ca/", "checkedlab-20", guide.searches.length);
+    if (html.includes("/dp/")) throw new Error("Thanksgiving guide uses an ASIN link: " + guide.slug);
+    assertSafeImages(html, guide.slug);
+    const visible = html.replace(/<script[\s\S]*?<\/script>/gi, " ");
+    if (GIFT_BAN.test(visible) || /we tested|we bought|does not test|did not test|not tested/i.test(visible)) {
+      throw new Error("Thanksgiving guide failed the honesty check: " + guide.slug);
+    }
+    for (const item of guide.faqs) {
+      if (!html.includes("<h3>" + card.esc(item.q) + "</h3>")) throw new Error("Thanksgiving FAQ question " + guide.slug);
+      if (!html.includes('<p class="faq-a">' + card.esc(item.a) + "</p>")) throw new Error("Thanksgiving FAQ answer " + guide.slug);
+    }
+    const data = JSON.parse(html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]);
+    assertNoCommerce(data);
+    const types = data["@graph"].map((node) => node["@type"]).sort().join(",");
+    if (types !== "Article,BreadcrumbList,FAQPage") throw new Error("Thanksgiving schema " + guide.slug + " " + types);
+    const faq = data["@graph"].find((node) => node["@type"] === "FAQPage");
+    if (!faq || faq.mainEntity.length !== guide.faqs.length) throw new Error("Thanksgiving FAQPage " + guide.slug);
+    faq.mainEntity.forEach((node, index) => {
+      if (node.name !== guide.faqs[index].q || node.acceptedAnswer.text !== guide.faqs[index].a) {
+        throw new Error("Thanksgiving FAQ JSON-LD mismatch " + guide.slug);
+      }
+    });
+  }
+}
+
 function writeGifts() {
   if (!giftsDoc || giftsDoc.title !== "Holiday 2026 gift guides" || !giftsDoc.h1 || !giftsDoc.description) {
     throw new Error("Gift hub copy is missing");
@@ -3051,12 +3517,15 @@ function writeGifts() {
   }
   const kids = kidsGuide();
   assertKidsGuide(kids);
+  const host = hostGuide();
+  assertKidsGuide(host);
   const dir = join(root, "gifts");
   mkdirSync(dir, { recursive: true });
   writeGiftFile(dir, giftHubHtml(grouped));
   for (const item of grouped) writeGiftFile(join(dir, item.guide.slug), giftGuideHtml(item.guide, item.picks, grouped));
   writeGiftFile(join(dir, kids.slug), kidsGuideHtml(kids, grouped));
-  const keep = new Set(grouped.map((item) => item.guide.slug).concat(kids.slug));
+  writeGiftFile(join(dir, host.slug), hostGuideHtml(host, grouped));
+  const keep = new Set(grouped.map((item) => item.guide.slug).concat(kids.slug, host.slug));
   for (const entry of readdirSync(dir)) {
     if (entry === "index.html") continue;
     const full = join(dir, entry);
@@ -3131,10 +3600,13 @@ function assertGiftPages() {
     if (!hub.includes("<h3>" + card.esc(item.q) + "</h3>")) throw new Error("Gift hub FAQ question");
     if (!hub.includes('<p class="faq-a">' + card.esc(item.a) + "</p>")) throw new Error("Gift hub FAQ answer");
   }
-  assertGiftLd(hub, grouped.length + 1, faqs);
+  assertGiftLd(hub, grouped.length + checksGuides().length, faqs);
   if (!hub.includes('href="' + giftPath(kidsGuide()) + '"')) throw new Error("Gift hub misses the kids list");
+  if (!hub.includes('href="' + giftPath(hostGuide()) + '"')) throw new Error("Gift hub misses the host list");
   if (!hub.includes('href="/toy-safety/"')) throw new Error("Gift hub misses toy safety");
+  if (!hub.includes('href="/thanksgiving/"')) throw new Error("Gift hub misses Thanksgiving");
   assertKidsPage(readFileSync(join(root, "gifts", "for-kids", "index.html"), "utf8"));
+  assertHostPage(readFileSync(join(root, "gifts", "for-the-host", "index.html"), "utf8"));
   const hubVisible = hub.replace(/<script[\s\S]*?<\/script>/gi, "");
   if (GIFT_BAN.test(hubVisible)) throw new Error("Gift hub failed the honesty check");
   assertSafeImages(hub, "gift hub");
@@ -3257,6 +3729,7 @@ function stampPages(ordered) {
     ...giftPaths().map((path) => [path, join(root, path.slice(1), "index.html")]),
     ...winterPaths().map((path) => [path, join(root, path.slice(1), "index.html")]),
     ...toyPaths().map((path) => [path, join(root, path.slice(1), "index.html")]),
+    ...thanksPaths().map((path) => [path, join(root, path.slice(1), "index.html")]),
     ...explainers.map((entry) => ["/recalls/" + entry.slug + "/", join(root, "recalls", entry.slug, "index.html")]),
     ...compares.map((entry) => ["/compare/" + entry.slug + "/", join(root, "compare", entry.slug, "index.html")]),
     ...ordered.filter(indexable).map((product) => [card.productPath(product), join(root, product.category, product.id, "index.html")])
@@ -3289,6 +3762,7 @@ function writeSitemap(pages, lastmods) {
     ...giftPaths(),
     ...winterPaths(),
     ...toyPaths(),
+    ...thanksPaths(),
     ...explainers.map((entry) => "/recalls/" + entry.slug + "/"),
     ...compares.map((entry) => "/compare/" + entry.slug + "/")
   ];
@@ -3386,6 +3860,11 @@ function publishDist() {
     throw new Error("dist is missing a toy safety guide");
   }
   if (!statSync(join(dist, "gifts", "for-kids", "index.html")).isFile()) throw new Error("dist is missing /gifts/for-kids/");
+  if (!statSync(join(dist, "gifts", "for-the-host", "index.html")).isFile()) throw new Error("dist is missing /gifts/for-the-host/");
+  if (!statSync(join(dist, "thanksgiving", "index.html")).isFile()) throw new Error("dist is missing /thanksgiving/");
+  if (!statSync(join(dist, "thanksgiving", thanksGuides()[0].slug, "index.html")).isFile()) {
+    throw new Error("dist is missing a Thanksgiving guide");
+  }
   if (!statSync(join(dist, "recalls", "feed.xml")).isFile()) throw new Error("dist is missing the recall feed");
   if (!statSync(join(dist, "404.html")).isFile()) throw new Error("dist is missing 404.html");
   if (existsSync(join(dist, "scripts")) || existsSync(join(dist, ".git")) || existsSync(join(dist, ".github"))) {
@@ -3460,8 +3939,9 @@ function verifyOutput(pages) {
   const giftCount = giftPaths().length;
   const winterCount = winterPaths().length;
   const toyCount = toyPaths().length;
-  const expectedLocs = 12 + giftCount + winterCount + toyCount + explainers.length + compares.length + indexed.length;
-  if (locCount !== expectedLocs || locCount !== 140 + giftCount + winterCount + toyCount) {
+  const thanksCount = thanksPaths().length;
+  const expectedLocs = 12 + giftCount + winterCount + toyCount + thanksCount + explainers.length + compares.length + indexed.length;
+  if (locCount !== expectedLocs || locCount !== 140 + giftCount + winterCount + toyCount + thanksCount) {
     throw new Error("Sitemap URL count " + locCount + " expected " + expectedLocs);
   }
   for (const entry of compares) {
@@ -3483,6 +3963,9 @@ function verifyOutput(pages) {
     if (!sitemap.includes("<loc>" + ORIGIN + path + "</loc>")) throw new Error("Sitemap is missing " + path);
   }
   for (const path of toyPaths()) {
+    if (!sitemap.includes("<loc>" + ORIGIN + path + "</loc>")) throw new Error("Sitemap is missing " + path);
+  }
+  for (const path of thanksPaths()) {
     if (!sitemap.includes("<loc>" + ORIGIN + path + "</loc>")) throw new Error("Sitemap is missing " + path);
   }
   for (const loc of sitemap.match(/<loc>[^<]+<\/loc>/g) || []) {
@@ -3535,12 +4018,15 @@ function verifyOutput(pages) {
   if (!home.includes('href="/gifts/"')) throw new Error("Homepage is missing the gift guides link");
   if (!home.includes('href="/winter-safety/"')) throw new Error("Homepage is missing the winter safety link");
   if (!home.includes('href="/toy-safety/"')) throw new Error("Homepage is missing the toy safety link");
+  if (!home.includes('href="/thanksgiving/"')) throw new Error("Homepage is missing the Thanksgiving link");
   assertGiftPages();
   assertWinterPages();
   assertToyPages();
+  assertThanksgivingPages();
   if (!recallPage.includes('href="/black-friday/"')) throw new Error("Recall page is missing the Black Friday link");
   if (!recallPage.includes('href="/winter-safety/"')) throw new Error("Recall page is missing the winter safety link");
   if (!recallPage.includes('href="/toy-safety/"')) throw new Error("Recall page is missing the toy safety link");
+  if (!recallPage.includes('href="/thanksgiving/"')) throw new Error("Recall page is missing the Thanksgiving link");
   if (!readFileSync(join(root, "winter", "index.html"), "utf8").includes('href="/winter-safety/"')) {
     throw new Error("Winter hub is missing the winter safety link");
   }

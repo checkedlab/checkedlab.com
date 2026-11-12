@@ -389,7 +389,13 @@
       [/pillow|mattress|sheet|casper|tempur|purple|brooklinen/, "bed"],
       [/hatch|lectrofan|sound|mask|manta|wake/, "moon"],
       [/scooter|ride-on|ride on/, "scooter"],
-      [/brick|block/, "bricks"],
+      [/brick|block|duplo|lego|tile/, "bricks"],
+      [/scooter|razor|wagon/, "scooter"],
+      [/thermapen|thermometer/, "thermo"],
+      [/roast|dutch|gravy|oven|fryer/, "pot"],
+      [/carving/, "knife"],
+      [/extinguisher/, "alarm"],
+      [/wheels/, "garage"],
       [/thermo/, "thermo"],
       [/magnet/, "magnet"],
       [/alarm|smoke|carbon monoxide|\bco\b/, "alarm"],
@@ -502,7 +508,8 @@
     "black-friday": { a: "#111827", b: "#FF3D8A", c: "#FFE14A", d: "#22D3EE", g: ["box", "airfryer", "headphones"], alt: "Illustrated shopping scene with a present, an air fryer, and headphones" },
     compare: { a: "#5B21B6", b: "#22D3EE", c: "#FFE14A", d: "#FF3D8A", g: ["jumper", "heater", "airfryer"], alt: "Illustrated comparison scene with three product drawings" },
     recalls: { a: "#9F1239", b: "#FFE14A", c: "#1D4ED8", d: "#F8FAFC", g: ["alarm", "magnet", "heater"], alt: "Illustrated recall desk with an alarm, a magnet, and a heater" },
-    bin: { a: "#7F1D1D", b: "#FECACA", c: "#FFE14A", d: "#111827", g: ["box", "alarm", "battery"], alt: "Illustrated bin desk with a box, an alarm, and a battery" }
+    bin: { a: "#7F1D1D", b: "#FECACA", c: "#FFE14A", d: "#111827", g: ["box", "alarm", "battery"], alt: "Illustrated bin desk with a box, an alarm, and a battery" },
+    thanksgiving: { a: "#C2410C", b: "#FFE14A", c: "#9F1239", d: "#F8FAFC", g: ["pot", "thermo", "airfryer"], alt: "Illustrated Thanksgiving table with a pot, a thermometer, and a fryer" }
   };
 
   function mini(key, x, y, fill) {

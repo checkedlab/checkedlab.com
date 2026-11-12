@@ -151,7 +151,8 @@
     pet: ["/gifts/for-pet-owners/", "Gifts for pet owners"],
     sleep: ["/gifts/for-better-sleep/", "Gifts for better sleep"],
     tech: ["/gifts/tech-and-gadgets/", "Tech and gadgets"],
-    kids: ["/gifts/for-kids/", "Gifts for kids"]
+    kids: ["/gifts/for-kids/", "Gifts for kids"],
+    host: ["/gifts/for-the-host/", "Gifts for the host"]
   };
 
   function esc(value) {
