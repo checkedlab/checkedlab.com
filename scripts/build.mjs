@@ -181,6 +181,7 @@ for (const hub of HUBS) {
   const lead = byHub.get(hub).find((product) => card.schemaImage(product));
   html = ensureImagePreload(html, lead);
   html = pointItemList(html, hub);
+  html = ensureScene(html, hub);
   html = ensureChrome(ensureFontPreload(ensureCardScript(html)), hub);
   const hubExtra = explainers.filter((entry) => entry.hub === hub).map((entry) =>
     '<a href="/recalls/' + entry.slug + '/">' + card.esc(entry.linkLabel) + "</a>"
@@ -221,6 +222,15 @@ for (const hub of HUBS) {
   html = fillMount(html, popular.map((product) => card.card(product, "US")).join("\n"), POP_START, POP_END);
   html = fillMount(html, recallsOnHome.length ? recallsOnHome.map((product) => card.card(product, "US")).join("\n") : '<p class="empty">No official model recall is on the list.</p>', REC_START, REC_END);
   html = fillHomePointer(html, recalls.checkedAt || "");
+  html = html.replace(/<div class="hero-photo">[\s\S]*?<\/div>/, "");
+  html = html.replace(/\n?<link rel="preload" as="image"[^>]*>/, "");
+  html = ensureScene(html, "home");
+  if (!html.includes('class="hub-tiles"')) {
+    html = html.replace("<div class=\"wrap\">", hubTiles() + "\n<div class=\"wrap\">");
+  }
+  if (!html.includes('id="is-it-recalled-search"')) {
+    html = html.replace('<section class="recall-band"', recallWidget() + "\n" + giftQuiz() + '\n<section class="recall-band"');
+  }
   html = ensureChrome(ensureFontPreload(ensureCardScript(html)), "home");
   writeFileSync(file, html);
 }
@@ -230,6 +240,7 @@ for (const hub of HUBS) {
   let html = readFileSync(file, "utf8");
   const shown = products.filter(isBin);
   html = fillMount(html, shown.length ? shown.map((product) => card.card(product, "US")).join("\n") : BIN_EMPTY);
+  html = ensureScene(html, "bin");
   html = ensureChrome(ensureFontPreload(ensureCardScript(html)), "bin");
   writeFileSync(file, html);
 }
@@ -301,8 +312,11 @@ function assertRenderer() {
   for (const bit of ['data-category="kitchen"', "badge-bin", "Official recall found", "See specs and stores"]) {
     if (!bin.includes(bit)) throw new Error("BIN card missing " + bit);
   }
-  if (bin.includes("p-side") || bin.includes("store-btn") || bin.includes("check-title") || bin.includes("evidence")) {
+  if (bin.includes("store-btn") || bin.includes("check-title") || bin.includes("evidence")) {
     throw new Error("Hub card includes a product-page block");
+  }
+  if (!bin.includes("p-side") || !bin.includes('class="illu"') || !bin.includes("Illustrated")) {
+    throw new Error("Hub card is missing an illustration");
   }
   if (/\$\d/.test(bin) || bin.includes("offers")) throw new Error("Renderer emitted a price");
   const usStores = card.storeButtons(products[0], "US");
@@ -670,7 +684,7 @@ ${nav(hub)}
 <span aria-hidden="true">/</span>
 <span aria-current="page">${card.esc(product.title)}</span>
 </nav>
-<article class="product-grid${card.schemaImage(product) ? "" : " no-photo"}" id="${card.esc(product.id)}" data-category="${card.esc(hub)}">
+<article class="product-grid" id="${card.esc(product.id)}" data-category="${card.esc(hub)}">
 <div class="p-main">
 <span class="only-us">${card.badgeHtml(us)}</span>
 <span class="only-ca">${card.badgeHtml(ca)}</span>
@@ -745,7 +759,101 @@ function ensureChrome(html, current) {
   if (html.includes(footAnchor)) {
     html = html.replace(footAnchor, '<p class="foot-mail"><a href="/recalls/">Recall checks</a><a href="/how-we-check/">How we check</a>');
   }
-  return html;
+  return polish(html);
+}
+
+function sceneBlock(name) {
+  return '<div class="hero-art" data-scene="' + name + '">' + card.scene(name) + "</div>\n";
+}
+
+function ensureScene(html, name) {
+  const block = sceneBlock(name);
+  if (html.includes('class="hero-art"')) {
+    return html.replace(/<div class="hero-art" data-scene="[^"]*">[\s\S]*?<\/svg><\/div>\n?/, block);
+  }
+  if (html.includes('<div class="hero-inner">')) {
+    return html.replace('<div class="hero-inner">', '<div class="hero-inner">\n' + block);
+  }
+  const h1 = html.indexOf("<h1");
+  if (h1 < 0) return html;
+  return html.slice(0, h1) + block + html.slice(h1);
+}
+
+function hubTiles() {
+  return '<section class="hub-tiles" aria-label="Categories">\n' + NAV.map(([hub, label]) =>
+    '<a class="tile tile-' + hub + '" href="/' + hub + '/">' + ICONS[hub] + "<span>" + label + "</span></a>"
+  ).join("\n") + "\n</section>";
+}
+
+function recallWidget() {
+  return `<section class="recall-widget" id="is-it-recalled-search" aria-labelledby="recall-search-title">
+<h2 id="recall-search-title">Is it recalled?</h2>
+<p>Search the models on this site. For a model that is not listed, open the official search.</p>
+<form class="find" role="search" action="#is-it-recalled-search">
+<label for="recall-q">Model or brand</label>
+<input id="recall-q" data-recall-search type="search" placeholder="Try heater, FN101, or Coway" autocomplete="off" enterkeyhint="search">
+</form>
+<div data-recall-results aria-live="polite"></div>
+<p class="recall-official"><a href="${CPSC_SEARCH}" target="_blank" rel="noopener">Search CPSC recalls</a><a href="${HC_SEARCH}" target="_blank" rel="noopener">Search Health Canada recalls</a></p>
+</section>`;
+}
+
+function giftQuiz() {
+  const options = [
+    ["cook", "Home cook"],
+    ["coffee", "Coffee"],
+    ["home", "Home"],
+    ["garage", "Garage"],
+    ["pet", "Pet"],
+    ["sleep", "Sleep"],
+    ["tech", "Tech"],
+    ["kids", "Kids"]
+  ];
+  const buttons = (step) => options.map(([value, label]) =>
+    '<button type="button" data-quiz-value="' + value + '" data-quiz-step-value="' + step + '">' + label + "</button>"
+  ).join("");
+  return `<section class="quiz" id="gift-finder" data-gift-quiz aria-labelledby="quiz-title">
+<h2 id="quiz-title">Gift finder</h2>
+<p>Who it is for, then what they are into. No prices.</p>
+<fieldset data-quiz-step="who">
+<legend>Who is it for?</legend>
+<div class="quiz-options">${buttons("who")}</div>
+</fieldset>
+<fieldset data-quiz-step="budget" hidden>
+<legend>Budget</legend>
+<p>Any budget. These guides do not list prices.</p>
+<button type="button" data-quiz-next>Continue</button>
+</fieldset>
+<fieldset data-quiz-step="interest" hidden>
+<legend>What are they into?</legend>
+<div class="quiz-options">${buttons("interest")}</div>
+</fieldset>
+<p class="quiz-result" data-quiz-result hidden></p>
+</section>`;
+}
+
+function ensureDock(html) {
+  if (html.includes("data-dock")) return html;
+  const dock = '<div class="dock" data-dock><a class="dock-cta" data-dock-cta href="/recalls/#is-it-recalled-search">Is it recalled?</a><button type="button" class="to-top" data-to-top>Top</button></div>\n';
+  return html.replace("</body>", dock + "</body>");
+}
+
+function polish(html) {
+  html = html.replace(/name="theme-color" content="#[0-9A-Fa-f]{3,8}"/g, 'name="theme-color" content="#5B21B6"');
+  if (!html.includes('class="skip"')) {
+    html = html.replace(/<body([^>]*)>/, '<body$1>\n<a class="skip" href="#main">Skip to content</a>');
+  }
+  if (!html.includes('id="main"')) html = html.replace("<main>", '<main id="main">');
+  return ensureDock(html);
+}
+
+function assertSafeImages(html, where) {
+  const tags = html.match(/<img\b[^>]*>/gi) || [];
+  for (const tag of tags) {
+    if (/\/images\//i.test(tag)) throw new Error("Unlicensed product photo on " + where);
+    if (!/\balt="/i.test(tag)) throw new Error("Image missing alt on " + where);
+    if (!/loading="lazy"|fetchpriority="high"/i.test(tag)) throw new Error("Image missing load hint on " + where);
+  }
 }
 
 function homePointer(checkedAt) {
@@ -1088,6 +1196,7 @@ ${nav(entry.hub)}
 </div>
 <main>
 <div class="wrap prose">
+${sceneBlock("compare")}
 <nav class="crumbs" aria-label="Breadcrumb">
 <a href="/">Home</a>
 <span aria-hidden="true">/</span>
@@ -1096,6 +1205,7 @@ ${nav(entry.hub)}
 <span aria-current="page">${card.esc(entry.title)}</span>
 </nav>
 <h1>${card.esc(entry.title)}</h1>
+<div class="compare-art">${pair.map((product) => card.visual(product)).join("")}</div>
 <p class="lede">${card.esc(entry.description)}</p>
 <p>Each line below is copied from that model’s maker page. The Source link opens that page. A spec that only one card lists is left out of the table. Recall lines use the ${card.esc(recalls.checkedAt)} (UTC) catalogue check.</p>
 <div class="compare-wrap">
@@ -1134,7 +1244,7 @@ ${stores("CA", "Canadian stores")}
     const types = ld["@graph"].map((node) => node["@type"]).sort().join(",");
     if (types !== "Article,BreadcrumbList,ItemList") throw new Error("Compare schema on " + entry.slug);
     mkdirSync(join(root, "compare", entry.slug), { recursive: true });
-    writeFileSync(join(root, "compare", entry.slug, "index.html"), html);
+    writeFileSync(join(root, "compare", entry.slug, "index.html"), polish(html));
   }
 }
 
@@ -1189,6 +1299,7 @@ ${nav("recalls")}
 </div>
 <main>
 <div class="wrap prose">
+${sceneBlock("recalls")}
 <nav class="crumbs" aria-label="Breadcrumb">
 <a href="/">Home</a>
 <span aria-hidden="true">/</span>
@@ -1217,7 +1328,7 @@ ${catalogueHtml(entry)}
       throw new Error("Explainer has a disallowed claim: " + entry.slug);
     }
     mkdirSync(join(root, "recalls", entry.slug), { recursive: true });
-    writeFileSync(join(root, "recalls", entry.slug, "index.html"), html);
+    writeFileSync(join(root, "recalls", entry.slug, "index.html"), polish(html));
   }
 }
 
@@ -1280,12 +1391,14 @@ ${nav("recalls")}
 </div>
 <main>
 <div class="wrap prose">
+${sceneBlock("recalls")}
 <nav class="crumbs" aria-label="Breadcrumb">
 <a href="/">Home</a>
 <span aria-hidden="true">/</span>
 <span aria-current="page">Recall checks</span>
 </nav>
 <h1>Recall checks</h1>
+${recallWidget()}
 <p class="lede">Checked <time datetime="${card.esc(date)}">${card.esc(date)}</time> (UTC). Every catalogue model has a United States line from the <a href="${href(usSource)}" target="_blank" rel="noopener">CPSC SaferProducts</a> source and a Canada line from the <a href="${CA_DATASET_PAGE}" target="_blank" rel="noopener">Health Canada open dataset</a>.</p>
 <p>A date is the day that check ran. Open a model for the maker specs. Read <a href="/how-we-check/">how we check</a> and the <a href="/bin-list/">BIN list</a>. <a href="/black-friday/">Black Friday 2026: check the model before you buy</a>. <a href="/winter-safety/">Winter home safety, recall-checked</a>. <a href="/toy-safety/">Holiday toy safety, recall-checked</a>. <a href="/recalls/feed.xml">RSS</a> updates when a recall record changes.</p>
 <p class="recall-filters"><a href="#united-states">United States</a><a href="#canada">Canada</a></p>
@@ -1318,7 +1431,7 @@ ${categorySection(date)}
   if (/not tested/i.test(html) || /does not test/i.test(html)) throw new Error("Recall page uses a test negation");
   if (/\$\d/.test(html)) throw new Error("Recall page has a price");
   mkdirSync(join(root, "recalls"), { recursive: true });
-  writeFileSync(join(root, "recalls", "index.html"), html);
+  writeFileSync(join(root, "recalls", "index.html"), polish(html));
 }
 
 function blackFridayPicks() {
@@ -1384,6 +1497,7 @@ function bfStatusHtml(rec, place) {
 function bfModel(product) {
   const meta = product.meta || product.model || "";
   return '<article class="bf-model" id="' + card.esc(product.id) + '">' +
+    card.visual(product) +
     '<h3><a href="' + card.productPath(product) + '">' + card.visibleTitle(product.title) + "</a></h3>" +
     (meta ? '<p class="p-meta">' + card.esc(meta) + "</p>" : "") +
     '<p class="only-us">' + bfStatusHtml(card.recallFor(product, "US"), "US") + "</p>" +
@@ -1452,7 +1566,7 @@ function writeBlackFriday() {
   ).join("");
   const sections = HUBS.map((hub) => {
     const group = picked.filter((product) => product.category === hub);
-    return '<section id="' + hub + '"><h2><a href="/' + hub + '/">' + card.esc(HUB_NAME[hub]) + "</a></h2>" +
+    return '<section class="pick-grid" id="' + hub + '"><h2><a href="/' + hub + '/">' + card.esc(HUB_NAME[hub]) + "</a></h2>" +
       "<p>Gift and seasonal models from this catalogue. Open the card and match the model number on the listing.</p>" +
       group.map(bfModel).join("\n") +
       '<p class="lede"><a href="/' + hub + '/">All ' + card.esc(HUB_NAME[hub]) + " models</a></p></section>";
@@ -1513,6 +1627,7 @@ ${nav("black-friday")}
 </div>
 <main>
 <div class="wrap prose">
+${sceneBlock("black-friday")}
 <nav class="crumbs" aria-label="Breadcrumb">
 <a href="/">Home</a>
 <span aria-hidden="true">/</span>
@@ -1555,7 +1670,7 @@ ${SEASON_FOOT}
   if (/\$\d/.test(html) || /\d+\s*%/.test(html)) throw new Error("Black Friday page has a price or a percent");
   if (/we tested|we bought|does not test|did not test/i.test(html)) throw new Error("Black Friday page has a test claim");
   mkdirSync(join(root, "black-friday"), { recursive: true });
-  writeFileSync(join(root, "black-friday", "index.html"), html);
+  writeFileSync(join(root, "black-friday", "index.html"), polish(html));
 }
 
 function assertBlackFriday(html) {
@@ -1866,6 +1981,7 @@ function giftOtherNote(product) {
 function giftPickHtml(product, guide) {
   const meta = product.meta || product.model || "";
   return '<article class="guide-pick" id="' + card.esc(product.id) + '">' +
+    card.visual(product) +
     '<h2><a href="' + card.productPath(product) + '">' + card.visibleTitle(product.title) + "</a></h2>" +
     (meta ? '<p class="p-meta">' + card.esc(meta) + "</p>" : "") +
     '<p class="why">' + card.esc(guide.fit) + " " + card.esc(giftWhy(product, guide)) + "</p>" +
@@ -1997,9 +2113,10 @@ function giftHubHtml(grouped) {
   ).join("") +
     "<li><h2><a href=\"" + giftPath(kids) + "\">" + card.esc(kids.h1) + "</a></h2><p>" +
     kids.picks.length + " product lines. " + card.esc(kids.description) + "</p></li></ul>";
-  const main = giftCrumbs() +
+  const main = sceneBlock("gifts") + giftCrumbs() +
     "<h1>" + card.esc(giftsDoc.h1) + "</h1>" +
     '<p class="lede">' + card.esc(giftsDoc.description) + "</p>" +
+    giftQuiz() +
     '<p>A recipient list is published when the catalogue can fill it with at least five models and the recorded US and Canadian checks found no matching recall. The spec line on each model is copied from the maker fields. <a href="/how-we-check/">How we check</a> says what the date means. <a href="' + giftPath(kids) + '">Gifts for kids</a> is a recall-check list, not a catalogue list. <a href="/toy-safety/">Toy safety</a> covers button batteries, magnets, water beads, and ride-ons.</p>' +
     list +
     '<section class="faq" id="questions"><h2>Questions</h2>' +
@@ -2034,12 +2151,12 @@ function giftHubHtml(grouped) {
 function giftGuideHtml(guide, picks, grouped) {
   const url = ORIGIN + giftPath(guide);
   const guides = grouped.map((item) => item.guide);
-  const main = giftCrumbs(guide.h1) +
+  const main = sceneBlock("gifts") + giftCrumbs(guide.h1) +
     "<h1>" + card.esc(guide.h1) + "</h1>" +
     '<p class="lede">' + card.esc(guide.description) + "</p>" +
-    '<p>Each spec line is copied from the maker fields stored for that model. The badge is the recorded CPSC check on the US view and the recorded Health Canada check on the CA view. <a href="/how-we-check/">How we check</a> says what the date means.</p>' +
+    '<p>Each spec line is copied from the maker fields stored for that model. The badge is the recorded CPSC check on the US view and the recorded Health Canada check on the CA view. <a href="/how-we-check/">How we check</a> says what the date means. <a href="/gifts/#gift-finder">Gift finder</a>.</p>' +
     giftJumps(guides, guide.slug) +
-    "<section>\n" + picks.map((product) => giftPickHtml(product, guide)).join("\n") + "\n</section>" +
+    '<section class="pick-grid">\n' + picks.map((product) => giftPickHtml(product, guide)).join("\n") + "\n</section>" +
     '<p class="lede"><a href="/gifts/">All gift guides</a></p>';
   const jsonLd = giftJson(
     url,
@@ -2063,9 +2180,10 @@ function giftGuideHtml(guide, picks, grouped) {
 }
 
 function writeGiftFile(dir, html) {
+  html = polish(html);
   const visible = html.replace(/<script[\s\S]*?<\/script>/gi, "");
   if (GIFT_BAN.test(visible)) throw new Error("Gift page failed the honesty check: " + dir);
-  if (/<img\b/i.test(html)) throw new Error("Gift page includes an image: " + dir);
+  assertSafeImages(html, dir);
   if (/we tested|we bought|does not test|did not test|not tested/i.test(html)) throw new Error("Gift page has a test claim: " + dir);
   mkdirSync(dir, { recursive: true });
   writeFileSync(join(dir, "index.html"), html);
@@ -2133,7 +2251,7 @@ function winterJumps(currentSlug) {
 }
 
 function winterLook(guide) {
-  return '<ul class="evidence">' + guide.look.map((spans, index) =>
+  return '<ul class="evidence checklist">' + guide.look.map((spans, index) =>
     "<li>" + winterSpans(spans, guide.slug + " look " + index) + "</li>"
   ).join("") + "</ul>";
 }
@@ -2169,7 +2287,7 @@ function winterCatalogueHtml(guide) {
     if (!product) throw new Error("Winter guide names a missing card: " + item.id);
     const us = recallSentence(card.recallFor(product, "US"), "US");
     const ca = recallSentence(card.recallFor(product, "CA"), "Canadian");
-    return '<li><a href="' + card.productPath(product) + '">' + card.esc(product.title) + "</a>. " +
+    return '<li class="catalogue-pick">' + card.visual(product) + '<a href="' + card.productPath(product) + '">' + card.esc(product.title) + "</a>. " +
       card.esc(us) + " " + card.esc(ca) + " " + winterSpans(item.note, item.id) + "</li>";
   }).join("") + "</ul>";
 }
@@ -2342,7 +2460,7 @@ function winterHubHtml() {
   const list = '<ul class="guide-list">' + guides.map((guide) =>
     '<li><h2><a href="' + winterPath(guide) + '">' + card.esc(guide.h1) + "</a></h2><p>" + card.esc(guide.description) + "</p></li>"
   ).join("") + "</ul>";
-  const main = winterCrumbs() +
+  const main = sceneBlock("winter-safety") + winterCrumbs() +
     "<h1>" + card.esc(winterDoc.h1) + "</h1>" +
     '<p class="lede">' + card.esc(winterDoc.description) + "</p>" +
     '<p>Read the label, then search the model on <a href="' + CPSC_SEARCH + '" target="_blank" rel="noopener">CPSC Recalls</a> or <a href="' + HC_SEARCH + '" target="_blank" rel="noopener">Health Canada recalls and safety alerts</a>. <a href="/how-we-check/">How we check</a> says what a dated catalogue line means. <a href="/winter/">Winter</a> is the catalogue. <a href="/recalls/">Recall checks</a> lists every catalogue model.</p>' +
@@ -2369,7 +2487,7 @@ function winterHubHtml() {
 
 function winterGuideHtml(guide) {
   const url = ORIGIN + winterPath(guide);
-  const main = winterCrumbs(guide.h1) +
+  const main = sceneBlock("winter-safety") + winterCrumbs(guide.h1) +
     "<h1>" + card.esc(guide.h1) + "</h1>" +
     '<p class="lede">' + card.esc(guide.description) + "</p>" +
     winterJumps(guide.slug) +
@@ -2401,11 +2519,12 @@ function winterGuideHtml(guide) {
 }
 
 function writeWinterFile(dir, html) {
+  html = polish(html);
   const visible = html.replace(/<script[\s\S]*?<\/script>/gi, " ");
   if (GIFT_BAN.test(visible) || /we tested|we bought|does not test|did not test|not tested/i.test(visible)) {
     throw new Error("Winter page failed the honesty check: " + dir);
   }
-  if (/<img\b/i.test(html)) throw new Error("Winter page includes an image: " + dir);
+  assertSafeImages(html, dir);
   if (/\/dp\//.test(html)) throw new Error("Winter page uses an Amazon product page: " + dir);
   mkdirSync(dir, { recursive: true });
   writeFileSync(join(dir, "index.html"), html);
@@ -2506,18 +2625,19 @@ function kidsGuideHtml(guide, grouped) {
   const picks = guide.picks.map((pick) => {
     const buttons = winterSearchButtons({ slug: guide.slug + "-" + pick.id, searches: [pick.search] });
     return '<article class="guide-pick" id="' + card.esc(pick.id) + '">' +
+      card.visual({ id: pick.id, title: pick.name, category: "" }) +
       "<h2>" + card.esc(pick.name) + "</h2>" +
       '<p class="why">' + card.esc(pick.why) + "</p>" +
       "<p>" + officialSpans(pick.check, pick.id) + "</p>" +
       buttons +
       "</article>";
   }).join("\n");
-  const main = giftCrumbs(guide.h1) +
+  const main = sceneBlock("gifts") + giftCrumbs(guide.h1) +
     "<h1>" + card.esc(guide.h1) + "</h1>" +
     '<p class="lede">' + card.esc(guide.description) + "</p>" +
     '<p>Each line names a widely sold kids product and the official check to do. The button opens the Amazon search for the words under it. It is not a product page. <a href="/toy-safety/">Toy safety</a> covers <a href="/toy-safety/button-coin-batteries/">button and coin batteries</a>, <a href="/toy-safety/magnets/">magnets</a>, <a href="/toy-safety/water-beads/">water beads</a>, and <a href="/toy-safety/ride-ons-and-scooters/">ride-ons and scooters</a>. <a href="/how-we-check/">How we check</a> says what a dated catalogue line means.</p>' +
     giftJumps(guides, guide.slug) +
-    "<section>\n" + picks + "\n</section>" +
+    '<section class="pick-grid">\n' + picks + "\n</section>" +
     '<p class="lede"><a href="/gifts/">All gift guides</a></p>' +
     winterFaqsHtml(guide.faqs);
   const jsonLd = giftJson(
@@ -2548,7 +2668,7 @@ function assertKidsPage(html) {
   assertGiftShell(html, url, guide.title, guide.description);
   if (!html.includes("<h1>" + card.esc(guide.h1) + "</h1>")) throw new Error("Kids H1");
   if (html.includes("/dp/")) throw new Error("Kids page uses an Amazon product page");
-  if (/<img\b/i.test(html)) throw new Error("Kids page includes an image");
+  assertSafeImages(html, "kids");
   assertAmazonSide(html, "only-us", "https://www.amazon.com/", "checkedlab01-20", guide.picks.length);
   assertAmazonSide(html, "only-ca", "https://www.amazon.ca/", "checkedlab-20", guide.picks.length);
   for (const pick of guide.picks) {
@@ -2605,7 +2725,7 @@ function toyJumps(currentSlug) {
 }
 
 function toyLook(guide) {
-  return '<ul class="evidence">' + guide.look.map((spans, index) =>
+  return '<ul class="evidence checklist">' + guide.look.map((spans, index) =>
     "<li>" + officialSpans(spans, guide.slug + " look " + index) + "</li>"
   ).join("") + "</ul>";
 }
@@ -2724,7 +2844,7 @@ function toyHubHtml() {
   const list = '<ul class="guide-list">' + guides.map((guide) =>
     '<li><h2><a href="' + toyPath(guide) + '">' + card.esc(guide.h1) + "</a></h2><p>" + card.esc(guide.description) + "</p></li>"
   ).join("") + "</ul>";
-  const main = toyCrumbs() +
+  const main = sceneBlock("toy-safety") + toyCrumbs() +
     "<h1>" + card.esc(toyDoc.h1) + "</h1>" +
     '<p class="lede">' + card.esc(toyDoc.description) + "</p>" +
     '<p>Read the label, then search the product on <a href="' + CPSC_SEARCH + '" target="_blank" rel="noopener">CPSC Recalls</a> or <a href="' + HC_SEARCH + '" target="_blank" rel="noopener">Health Canada recalls and safety alerts</a>. <a href="/how-we-check/">How we check</a> says what a dated catalogue line means. These guides are not catalogue cards. <a href="/recalls/">Recall checks</a> lists every catalogue model. <a href="/gifts/for-kids/">Gifts for kids</a> names mainstream kids products and the check to do.</p>' +
@@ -2751,7 +2871,7 @@ function toyHubHtml() {
 
 function toyGuideHtml(guide) {
   const url = ORIGIN + toyPath(guide);
-  const main = toyCrumbs(guide.h1) +
+  const main = sceneBlock("toy-safety") + toyCrumbs(guide.h1) +
     "<h1>" + card.esc(guide.h1) + "</h1>" +
     '<p class="lede">' + card.esc(guide.description) + "</p>" +
     toyJumps(guide.slug) +
@@ -2783,11 +2903,12 @@ function toyGuideHtml(guide) {
 }
 
 function writeToyFile(dir, html) {
+  html = polish(html);
   const visible = html.replace(/<script[\s\S]*?<\/script>/gi, " ");
   if (GIFT_BAN.test(visible) || /we tested|we bought|does not test|did not test|not tested/i.test(visible)) {
     throw new Error("Toy page failed the honesty check: " + dir);
   }
-  if (/<img\b/i.test(html)) throw new Error("Toy page includes an image: " + dir);
+  assertSafeImages(html, dir);
   if (/\/dp\//.test(html)) throw new Error("Toy page uses an Amazon product page: " + dir);
   mkdirSync(dir, { recursive: true });
   writeFileSync(join(dir, "index.html"), html);
@@ -2883,7 +3004,7 @@ function assertToyPages() {
     assertAmazonSide(html, "only-us", "https://www.amazon.com/", "checkedlab01-20", guide.searches.length);
     assertAmazonSide(html, "only-ca", "https://www.amazon.ca/", "checkedlab-20", guide.searches.length);
     if (html.includes("/dp/")) throw new Error("Toy guide uses an ASIN link: " + guide.slug);
-    if (/<img\b/i.test(html)) throw new Error("Toy guide includes an image: " + guide.slug);
+    assertSafeImages(html, guide.slug);
     const visible = html.replace(/<script[\s\S]*?<\/script>/gi, " ");
     if (GIFT_BAN.test(visible) || /we tested|we bought|does not test|did not test|not tested/i.test(visible)) {
       throw new Error("Toy guide failed the honesty check: " + guide.slug);
@@ -3015,7 +3136,8 @@ function assertGiftPages() {
   if (!hub.includes('href="/toy-safety/"')) throw new Error("Gift hub misses toy safety");
   assertKidsPage(readFileSync(join(root, "gifts", "for-kids", "index.html"), "utf8"));
   const hubVisible = hub.replace(/<script[\s\S]*?<\/script>/gi, "");
-  if (GIFT_BAN.test(hubVisible) || /<img\b/i.test(hub)) throw new Error("Gift hub failed the honesty check");
+  if (GIFT_BAN.test(hubVisible)) throw new Error("Gift hub failed the honesty check");
+  assertSafeImages(hub, "gift hub");
   for (const item of grouped) {
     const path = giftPath(item.guide);
     if (!hub.includes('href="' + path + '"')) throw new Error("Gift hub misses " + item.guide.slug);
@@ -3040,7 +3162,8 @@ function assertGiftPages() {
     }
     assertGiftLd(html, item.picks.length, null);
     const visible = html.replace(/<script[\s\S]*?<\/script>/gi, "");
-    if (GIFT_BAN.test(visible) || /<img\b/i.test(html)) throw new Error("Gift guide failed the honesty check: " + item.guide.slug);
+    if (GIFT_BAN.test(visible)) throw new Error("Gift guide failed the honesty check: " + item.guide.slug);
+    assertSafeImages(html, item.guide.slug);
   }
 }
 
@@ -3099,7 +3222,7 @@ function assertWinterPages() {
     assertAmazonSide(html, "only-us", "https://www.amazon.com/", "checkedlab01-20", guide.searches.length);
     assertAmazonSide(html, "only-ca", "https://www.amazon.ca/", "checkedlab-20", guide.searches.length);
     if (html.includes("/dp/")) throw new Error("Winter guide uses an ASIN link: " + guide.slug);
-    if (/<img\b/i.test(html)) throw new Error("Winter guide includes an image: " + guide.slug);
+    assertSafeImages(html, guide.slug);
     const visible = html.replace(/<script[\s\S]*?<\/script>/gi, " ");
     if (GIFT_BAN.test(visible) || /we tested|we bought|does not test|did not test|not tested/i.test(visible)) {
       throw new Error("Winter guide failed the honesty check: " + guide.slug);
@@ -3322,7 +3445,10 @@ function verifyOutput(pages) {
       throw new Error("H1 mismatch on " + product.id);
     }
     if (/media-amazon\.com|images-amazon\.com/i.test(html)) {
-      throw new Error("Amazon image on " + product.id);
+      const allowed = String(product.image || "");
+      if (!/media-amazon\.com|images-amazon\.com/i.test(allowed) || !html.includes(allowed)) {
+        throw new Error("Amazon image on " + product.id);
+      }
     }
     const noindex = html.includes('<meta name="robots" content="noindex">');
     if (indexable(product) === noindex) throw new Error("Index flag mismatch on " + product.id);
