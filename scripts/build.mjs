@@ -4324,14 +4324,19 @@ function normInternal(href) {
   return path.endsWith("/") ? path : path + "/";
 }
 
+function excludedOrphan(path) {
+  return path === "/social/" || path.startsWith("/social/");
+}
+
 function assertNoOrphans() {
   const sitemap = readFileSync(join(root, "sitemap.xml"), "utf8");
-  const paths = [...sitemap.matchAll(/<loc>https:\/\/www\.checkedlab\.com([^<]*)<\/loc>/g)].map((match) => match[1]);
+  const paths = [...sitemap.matchAll(/<loc>https:\/\/www\.checkedlab\.com([^<]*)<\/loc>/g)].map((match) => match[1]).filter((path) => !excludedOrphan(path));
   const inbound = new Map(paths.map((path) => [path, 0]));
   const files = [];
   const walk = (dir) => {
     for (const entry of readdirSync(dir)) {
       if (entry.startsWith(".") || entry === "dist" || entry === "node_modules" || entry === "scripts" || entry === "data") continue;
+      if (entry === "social" && dir === root) continue;
       const full = join(dir, entry);
       if (statSync(full).isDirectory()) walk(full);
       else if (entry.endsWith(".html")) files.push(full);
@@ -4423,6 +4428,7 @@ function writeSitemap(pages, lastmods) {
   if (xml.includes("http://checkedlab.com") || xml.includes("https://checkedlab.com/")) {
     throw new Error("Sitemap left the www host");
   }
+  if (xml.includes("/social/")) throw new Error("Sitemap lists /social/");
   writeFileSync(join(root, "sitemap.xml"), xml);
 }
 
@@ -4471,6 +4477,48 @@ function fingerprintAssets(dist) {
     let html = readFileSync(file, "utf8");
     for (const [from, to] of pairs()) html = html.split(from).join(to);
     writeFileSync(file, html);
+  }
+}
+
+function headerValue(vercel, source, key) {
+  const rule = (vercel.headers || []).find((item) => item.source === source);
+  const header = rule && (rule.headers || []).find((item) => item.key.toLowerCase() === key.toLowerCase());
+  return header && header.value;
+}
+
+function assertSocialAssets(dist) {
+  const expected = [
+    "2026-11/ig/01-sony-bose-cover.png",
+    "2026-11/ig/01-sony-bose-cta.png",
+    "2026-11/ig/01-sony-bose-table.png",
+    "2026-11/ig/02-recall-cover.png",
+    "2026-11/ig/02-recall-cta.png",
+    "2026-11/ig/02-recall-steps.png",
+    "2026-11/ig/03-dyson-cover.png",
+    "2026-11/ig/03-dyson-cta.png",
+    "2026-11/ig/03-dyson-table.png",
+    "2026-11/ig/04-levoit-winix-cover.png",
+    "2026-11/ig/04-levoit-winix-cta.png",
+    "2026-11/ig/04-levoit-winix-table.png",
+    "2026-11/ig/05-litter-cover.png",
+    "2026-11/ig/05-litter-cta.png",
+    "2026-11/ig/05-litter-table.png",
+    "2026-11/shorts/black-friday-recall-check.mp4",
+    "2026-11/shorts/dyson-v15-vs-v8.mp4",
+    "2026-11/shorts/sony-xm5-vs-bose-qc-ultra.mp4"
+  ].sort();
+  const dir = join(root, "social");
+  const found = walkFiles(dir).map((file) => file.slice(dir.length + 1).split("\\").join("/")).sort();
+  if (found.join("\n") !== expected.join("\n")) {
+    throw new Error("Social asset set does not match the publish list");
+  }
+  const png = Buffer.from([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a]);
+  for (const rel of expected) {
+    const src = readFileSync(join(dir, rel));
+    const out = readFileSync(join(dist, "social", rel));
+    if (Buffer.compare(src, out) !== 0) throw new Error("Social asset was rewritten in dist: " + rel);
+    if (rel.endsWith(".png") && !src.subarray(0, 8).equals(png)) throw new Error("Social PNG is not a PNG: " + rel);
+    if (rel.endsWith(".mp4") && src.subarray(4, 8).toString("ascii") !== "ftyp") throw new Error("Social MP4 is not an MP4: " + rel);
   }
 }
 
@@ -4531,6 +4579,7 @@ function publishDist() {
   const styled = readFileSync(join(dist, "assets", css[0]), "utf8");
   const font = styled.match(/\/assets\/fonts\/source-sans-3-latin\.[0-9a-f]{8}\.woff2/);
   if (!font || !home.includes(font[0])) throw new Error("Font is not versioned with the stylesheet");
+  assertSocialAssets(dist);
 }
 
 function verifyOutput(pages) {
@@ -4576,6 +4625,7 @@ function verifyOutput(pages) {
     assertProductSeo(html, product);
   }
   const sitemap = readFileSync(join(root, "sitemap.xml"), "utf8");
+  if (sitemap.includes("/social/")) throw new Error("Sitemap lists /social/");
   const indexed = pages.filter(indexable);
   const locCount = (sitemap.match(/<loc>/g) || []).length;
   const giftCount = giftPaths().length;
@@ -4679,9 +4729,19 @@ function verifyOutput(pages) {
   const robots = readFileSync(join(root, "robots.txt"), "utf8");
   if (!robots.includes("Sitemap: https://www.checkedlab.com/sitemap.xml")) throw new Error("robots.txt lost the sitemap");
   if (/disallow:\s*\/assets/i.test(robots)) throw new Error("robots.txt blocks assets");
+  if (/disallow:\s*\/social/i.test(robots)) throw new Error("robots.txt blocks /social/");
   const vercel = JSON.parse(readFileSync(join(root, "vercel.json"), "utf8"));
   const pets = (vercel.redirects || []).find((rule) => rule.source === "/pets" && rule.destination === "/pet/" && rule.permanent === true);
   if (!pets) throw new Error("The /pets redirect changed");
+  if (headerValue(vercel, "/social/(.*)", "X-Robots-Tag") !== "noindex") {
+    throw new Error("Social assets are missing X-Robots-Tag: noindex");
+  }
+  if (headerValue(vercel, "/social/(.*).png", "Content-Type") !== "image/png") {
+    throw new Error("PNG social assets are not served as image/png");
+  }
+  if (headerValue(vercel, "/social/(.*).mp4", "Content-Type") !== "video/mp4") {
+    throw new Error("MP4 social assets are not served as video/mp4");
+  }
   const feed = readFileSync(join(root, "recalls", "feed.xml"), "utf8");
   const log = JSON.parse(readFileSync(FEED_LOG_PATH, "utf8"));
   if ((feed.match(/<item>/g) || []).length !== log.items.length) throw new Error("Feed item count drifted");
