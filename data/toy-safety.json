@@ -1,0 +1,337 @@
+{
+  "title": "Holiday toy safety, recall-checked",
+  "h1": "Holiday toy safety, recall-checked",
+  "description": "Official CPSC and Health Canada pages for button and coin batteries, magnets, water beads, and ride-ons and scooters.",
+  "faqs": [
+    {
+      "q": "What do these guides cover?",
+      "a": "Four holiday checks: button and coin batteries, high-powered magnet sets, water beads, and ride-ons and scooters. Each guide says what to read on the product, where to search a recall, and which official page states the rule."
+    },
+    {
+      "q": "Where is the official recall search?",
+      "a": "CPSC Recalls is the United States search. Health Canada recalls and safety alerts is the Canada search. Search the brand and the model number printed on the toy or the box."
+    },
+    {
+      "q": "Does a guide assign a pass to a toy?",
+      "a": "No. A guide quotes an official page and links it. Gifts for kids names mainstream product lines and the check to do. A catalogue card is a separate dated match for a model that is in the catalogue."
+    }
+  ],
+  "guides": [
+    {
+      "slug": "button-coin-batteries",
+      "title": "Button and coin batteries: what to read, then check the recall",
+      "h1": "Button and coin batteries",
+      "label": "Button batteries",
+      "description": "What Reese’s Law and Health Canada say to read on a button or coin battery compartment, and where to search a recall.",
+      "searches": ["button battery toy"],
+      "look": [
+        [
+          {"text": "On a product with a replaceable button cell or coin battery, read the compartment. "},
+          {"text": "CPSC button-cell guidance", "href": "https://www.cpsc.gov/Business--Manufacturing/Business-Education/Business-Guidance/Button-Cell-and-Coin-Battery"},
+          {"text": " says ANSI/UL 4200A-2023, codified at 16 CFR part 1263, requires a tool or at least two independent and simultaneous hand movements to open, and says the batteries must not come free in use and abuse testing."}
+        ],
+        [
+          {"text": "The same CPSC page says 16 CFR part 1263 does not apply to a toy for children under 14 if that toy meets the battery accessibility and labeling requirements of 16 CFR part 1250, which incorporates ASTM F963. It says section 4.25 of the toy standard covers battery-operated toys. The "},
+          {"text": "September 11, 2023 CPSC release", "href": "https://www.cpsc.gov/Newsroom/News-Releases/2023/Making-Families-Safer-from-Button-Cell-or-Coin-Battery-Dangers-Reeses-Law-Leads-to-New-Federal-Mandatory-Safety-Standard"},
+          {"text": " says toys with button cell or coin batteries are required to have a secure closure that needs a screwdriver, coin, or tool to open."}
+        ],
+        [
+          {"text": "Health Canada toy safety tips", "href": "https://www.canada.ca/en/health-canada/services/toy-safety/toy-safety-tips.html"},
+          {"text": " say to look for a secure, child-resistant battery compartment that needs a tool or multiple steps to open, and to be especially careful with button batteries."}
+        ]
+      ],
+      "methodExtra": [
+        [
+          {"text": "Read the model number on the toy and on the battery door. A book, a watch, and a remote can all use a coin cell and still be different products. Match the number on the unit to the number on the notice."}
+        ]
+      ],
+      "patterns": [
+        {
+          "agency": "CPSC",
+          "title": "Button Cell and Coin Battery Business Guidance",
+          "url": "https://www.cpsc.gov/Business--Manufacturing/Business-Education/Business-Guidance/Button-Cell-and-Coin-Battery",
+          "says": "The page says Reese’s Law (P.L. 117-171) requires the rule in 16 CFR part 1263, which incorporates ANSI/UL 4200A-2023. It says the performance and labeling requirements apply to products manufactured or imported on or after October 23, 2023, with enforcement discretion so they apply to products manufactured or imported after March 19, 2024. It says a button cell or coin battery subject to part 1263 is a single cell battery with a diameter greater than its height, and that zinc-air button cells are excluded from part 1263."
+        },
+        {
+          "agency": "CPSC",
+          "title": "Reese’s Law leads to a federal safety standard",
+          "url": "https://www.cpsc.gov/Newsroom/News-Releases/2023/Making-Families-Safer-from-Button-Cell-or-Coin-Battery-Dangers-Reeses-Law-Leads-to-New-Federal-Mandatory-Safety-Standard",
+          "says": "The September 11, 2023 release says Reese’s Law was enacted August 16, 2022. It says these batteries can burn through a child’s throat or esophagus in as little as two hours if swallowed. It says that from 2011 through 2021 CPSC was aware of 27 deaths and an estimated 54,300 emergency-room injuries associated with ingested or inserted button cell or coin batteries. It says to call the National Battery Ingestion Hotline at 800-498-8666 or Poison Help at 800-222-1222, and to take a child who may have swallowed one to the nearest emergency department."
+        },
+        {
+          "agency": "Health Canada",
+          "title": "Button batteries pose life-threatening dangers to young children",
+          "url": "https://recalls-rappels.canada.ca/en/alert-recall/button-batteries-pose-life-threatening-dangers-young-children",
+          "says": "The advisory says a swallowed button battery can lodge in the throat, where saliva starts an electrical current and a chemical burn that can burn through the esophagus, windpipe, and main artery in as little as two hours. It says depleted batteries can still cause serious injury. It says to check that compartments stay secure, to look for compartments that are not easy to open, and to keep batteries out of reach, especially for children under five. It says CHIRPP received reports of 125 button-battery injuries in 2020."
+        },
+        {
+          "agency": "Health Canada",
+          "title": "Toy safety tips: battery compartments",
+          "url": "https://www.canada.ca/en/health-canada/services/toy-safety/toy-safety-tips.html",
+          "says": "The page says to look for toys with secure, child-resistant battery compartments that require a tool or multiple steps to open, and says button batteries are very dangerous if swallowed. It also says to search the recalls and safety alerts database before you buy."
+        }
+      ],
+      "catalogue": [],
+      "links": [
+        {"href": "/gifts/for-kids/", "label": "Gifts for kids"},
+        {"href": "/toy-safety/magnets/", "label": "Magnets"},
+        {"href": "/toy-safety/water-beads/", "label": "Water beads"},
+        {"href": "/toy-safety/ride-ons-and-scooters/", "label": "Ride-ons and scooters"}
+      ],
+      "faqs": [
+        {
+          "q": "What should I see on a button-battery door?",
+          "a": "CPSC guidance for 16 CFR part 1263 says a replaceable button cell or coin battery compartment needs a tool or at least two independent and simultaneous hand movements to open. The September 11, 2023 CPSC release says toys with these batteries need a secure closure that takes a screwdriver, coin, or tool. Health Canada says to look for a compartment that needs a tool or multiple steps."
+        },
+        {
+          "q": "Does Reese’s Law skip every toy?",
+          "a": "CPSC says 16 CFR part 1263 does not apply to a toy for children under 14 only if that toy meets the battery accessibility and labeling requirements of 16 CFR part 1250. The CPSC release still says those toys need a secure closure that takes a screwdriver, coin, or tool."
+        },
+        {
+          "q": "Where do I search this product?",
+          "a": "Search the brand and the model on CPSC Recalls for a US purchase and on Health Canada recalls and safety alerts for a Canadian purchase. Match the number on the toy to the number on the notice."
+        }
+      ]
+    },
+    {
+      "slug": "magnets",
+      "title": "High-powered magnets: what to read, then check the recall",
+      "h1": "High-powered magnets",
+      "label": "Magnets",
+      "description": "What CPSC and Health Canada say about small powerful magnet sets, and how that differs from a toy covered by the toy standard.",
+      "searches": ["magnetic building tiles"],
+      "look": [
+        [
+          {"text": "Read whether the set is sold as a toy for a child under 14 or as a novelty set for entertainment, jewelry, or stress relief. "},
+          {"text": "CPSC magnet guidance", "href": "https://www.cpsc.gov/Business--Manufacturing/Business-Education/Business-Guidance/Magnets"},
+          {"text": " says 16 CFR part 1262 applies to subject magnet products manufactured after October 21, 2022. If a loose or separable magnet fits entirely in the small parts cylinder, its flux index must be less than 50 kG2 mm2."}
+        ],
+        [
+          {"text": "The same page says toys subject to 16 CFR part 1250, which incorporates ASTM F963, are exempt from the magnet rule. The "},
+          {"text": "September 7, 2022 CPSC release", "href": "https://www.cpsc.gov/Newsroom/News-Releases/2022/CPSC-Approves-New-Federal-Safety-Standard-for-Magnets-to-Prevent-Deaths-and-Serious-Injuries-from-High-Powered-Magnet-Ingestion"},
+          {"text": " says the rule does not apply to toys for children under 14 because the toy standard already covers them."}
+        ],
+        [
+          {"text": "Health Canada’s advice on magnetic toys", "href": "https://www.canada.ca/en/health-canada/services/toy-safety/safety-advice-specific-toy-types.html"},
+          {"text": " says the Toys Regulations limit the strength and size of magnets in toys, and says not to buy novelty magnet sets marketed for adults. It says those sets are illegal to sell in Canada if the powerful magnets are small enough to be swallowed."}
+        ]
+      ],
+      "methodExtra": [
+        [
+          {"text": "A magnetic building set for a child and a loose magnet set sold for adults are different products. Read the age label and the product name on the box, then search that name."}
+        ]
+      ],
+      "patterns": [
+        {
+          "agency": "CPSC",
+          "title": "Safety Standard for Magnets",
+          "url": "https://www.cpsc.gov/Business--Manufacturing/Business-Education/Business-Guidance/Magnets",
+          "says": "The page says the final rule, 87 FR 57756, is the Safety Standard for Magnets at 16 CFR part 1262. It says subject products are designed, marketed, or intended for entertainment, jewelry including children’s jewelry, mental stimulation, stress relief, or a combination of those. It says every loose or separable magnet that fits in the small parts cylinder must have a flux index less than 50 kG2 mm2. It says toys subject to 16 CFR part 1250 are exempt."
+        },
+        {
+          "agency": "CPSC",
+          "title": "CPSC approves the magnet standard",
+          "url": "https://www.cpsc.gov/Newsroom/News-Releases/2022/CPSC-Approves-New-Federal-Safety-Standard-for-Magnets-to-Prevent-Deaths-and-Serious-Injuries-from-High-Powered-Magnet-Ingestion",
+          "says": "The September 7, 2022 release says swallowed high-powered magnets can attract through internal tissue and can perforate, twist, or block the intestines. It says CPSC estimates 26,600 magnet ingestions were treated in hospital emergency rooms from 2010 through 2021, and that CPSC is aware of seven deaths involving ingestion of hazardous magnets, including two outside the United States. It urges owners of these magnets and magnet sets to discard them."
+        },
+        {
+          "agency": "Health Canada",
+          "title": "Small powerful magnets under the Canada Consumer Product Safety Act",
+          "url": "https://www.canada.ca/en/health-canada/services/consumer-product-safety/legislation-guidelines/guidelines-policies/information-regulated-parties-enforcement-approach-general-prohibitions/danger-human-health-safety-assessment-products-containing-small-powerful-magnets.html",
+          "says": "The assessment says paragraphs 7(a) and 8(a) of the Canada Consumer Product Safety Act prohibit manufacture, importation, advertisement, or sale of a consumer product that is a danger to human health or safety. It says novelty magnet sets and adult magnetic amusement products that do not meet the listed criteria likely pose that danger. The criteria it lists include a magnetic flux index of less than 0.5 T2mm2 (50 kG2mm2), or a magnet that does not fit entirely in the small parts cylinder. It excludes toys for a child under 14, which the Toys Regulations cover."
+        },
+        {
+          "agency": "Health Canada",
+          "title": "Magnetic toys",
+          "url": "https://www.canada.ca/en/health-canada/services/toy-safety/safety-advice-specific-toy-types.html",
+          "says": "The page says swallowing more than one small powerful magnet is especially dangerous because the magnets can attract through the intestines, twist them, and tear the intestinal walls. It says to buy magnetic toys whose pieces are too big to swallow, and to get medical help immediately if a child may have swallowed a magnet."
+        }
+      ],
+      "catalogue": [],
+      "links": [
+        {"href": "/gifts/for-kids/", "label": "Gifts for kids"},
+        {"href": "/toy-safety/button-coin-batteries/", "label": "Button batteries"},
+        {"href": "/toy-safety/water-beads/", "label": "Water beads"},
+        {"href": "/toy-safety/ride-ons-and-scooters/", "label": "Ride-ons and scooters"}
+      ],
+      "faqs": [
+        {
+          "q": "Is a kids’ magnetic building set the same thing as a high-powered magnet set?",
+          "a": "CPSC says the magnet rule in 16 CFR part 1262 does not apply to toys for children under 14, because 16 CFR part 1250 already covers those toys. Health Canada’s magnet assessment also excludes toys for a child under 14 and points to the Toys Regulations. A novelty set sold for adult entertainment is the product those pages tell you to avoid when the magnets are small and powerful."
+        },
+        {
+          "q": "What size and strength do the official pages name?",
+          "a": "CPSC says a loose or separable magnet that fits in the small parts cylinder must have a flux index less than 50 kG2 mm2 under 16 CFR part 1262. Health Canada’s assessment lists the same flux figure, 50 kG2mm2, or a magnet that does not fit entirely in the small parts cylinder, as criteria for the products in that assessment."
+        },
+        {
+          "q": "Where do I search a magnet recall?",
+          "a": "Search the brand and the set name on CPSC Recalls for a US purchase and on Health Canada recalls and safety alerts for a Canadian purchase. Read the age label before you treat a toy and a novelty set as the same product."
+        }
+      ]
+    },
+    {
+      "slug": "water-beads",
+      "title": "Water beads: what to read, then check the recall",
+      "h1": "Water beads",
+      "label": "Water beads",
+      "description": "What the current CPSC water-bead rule and the Health Canada advisory say, including which products the US rule covers.",
+      "searches": ["water beads"],
+      "look": [
+        [
+          {"text": "Read the date and the warnings on the package. "},
+          {"text": "CPSC water-bead guidance", "href": "https://www.cpsc.gov/Business--Manufacturing/Business-Education/Business-Guidance/Water-Bead-Toys-Business-Guidance"},
+          {"text": " says the Safety Standard for Toys: Requirements for Water Beads, 16 CFR 1250.4, applies to water bead toy products effective March 12, 2026. It defines a water bead as a liquid-absorbent polymer that expands when soaked."}
+        ],
+        [
+          {"text": "The "},
+          {"text": "March 12, 2026 CPSC release", "href": "https://www.cpsc.gov/Newsroom/News-Releases/2026/CPSC%E2%80%99s-New-Federal-Water-Beads-Safety-Standard-Takes-Effect-to-Protect-Children-from-Deadly-Hazard"},
+          {"text": " says water beads manufactured after March 12, 2026 must meet the performance, labeling, and testing requirements. It also says some water bead products are not marketed as children’s toys and fall outside the rule, and to keep those out of spaces where children live or play."}
+        ],
+        [
+          {"text": "Health Canada’s water-bead advisory", "href": "https://recalls-rappels.canada.ca/en/alert-recall/water-beads-may-pose-life-threatening-risks-young-children"},
+          {"text": " says caregivers of children under five should avoid having water beads in the household or classroom, even when they were bought for an older child or an adult."}
+        ]
+      ],
+      "methodExtra": [
+        [
+          {"text": "Search the brand and the kit name. A sensory kit, a stress ball, a vase filler, and a gardening product can all contain water beads. Read whether the listing calls the product a toy."}
+        ]
+      ],
+      "patterns": [
+        {
+          "agency": "CPSC",
+          "title": "Water Bead Toys Business Guidance",
+          "url": "https://www.cpsc.gov/Business--Manufacturing/Business-Education/Business-Guidance/Water-Bead-Toys-Business-Guidance",
+          "says": "The page says the final rule, 90 Fed. Reg. 57,820, is 16 CFR 1250.4. It says water beads that fit in the small parts cylinder when dry must pass through a 5.0 mm funnel or sieve once fully expanded. It says water beads in toys shall not have more than 325 micrograms of acrylamide extractable from 100 small beads or one large bead. It says the toy, the packaging, and the container must carry the warning label."
+        },
+        {
+          "agency": "CPSC",
+          "title": "The water-bead standard takes effect",
+          "url": "https://www.cpsc.gov/Newsroom/News-Releases/2026/CPSC%E2%80%99s-New-Federal-Water-Beads-Safety-Standard-Takes-Effect-to-Protect-Children-from-Deadly-Hazard",
+          "says": "The March 12, 2026 release says water beads manufactured after that date must meet the new requirements, and that water beads that fail the standard are illegal to sell in the United States. It says water beads can grow up to 100 times their original size when exposed to water. It says CPSC data show an estimated 6,300 water-bead ingestion injuries treated in US emergency departments from 2017 to 2022, and at least one reported death, a 10-month-old girl in 2023. It says to remove water beads from any area where young children may be present."
+        },
+        {
+          "agency": "Health Canada",
+          "title": "Water beads may pose life-threatening risks to young children",
+          "url": "https://recalls-rappels.canada.ca/en/alert-recall/water-beads-may-pose-life-threatening-risks-young-children",
+          "says": "The advisory, updated February 16, 2024, says these beads can grow up to 1,500 times their size in water and can keep growing inside the body, causing intestinal or bowel obstruction. It says beads in the nose or ear need medical care. It recommends that caregivers of children under five avoid having water beads at home or in a classroom, and that children five and up be closely supervised if beads are used."
+        },
+        {
+          "agency": "Health Canada",
+          "title": "Water beads on the toy-type page",
+          "url": "https://www.canada.ca/en/health-canada/services/toy-safety/safety-advice-specific-toy-types.html",
+          "says": "The page says not to allow children under 5 years old to play with water beads, to clean spills right away, and to get medical help if a child may have swallowed them. It says not to wait for symptoms."
+        }
+      ],
+      "catalogue": [],
+      "links": [
+        {"href": "/gifts/for-kids/", "label": "Gifts for kids"},
+        {"href": "/toy-safety/button-coin-batteries/", "label": "Button batteries"},
+        {"href": "/toy-safety/magnets/", "label": "Magnets"},
+        {"href": "/toy-safety/ride-ons-and-scooters/", "label": "Ride-ons and scooters"}
+      ],
+      "faqs": [
+        {
+          "q": "Are water beads banned?",
+          "a": "CPSC says water bead toys manufactured after March 12, 2026 must meet 16 CFR 1250.4, and that water beads that fail that standard are illegal to sell in the United States. The same release says products that are not marketed as children’s toys fall outside the rule. Health Canada’s advisory tells caregivers of children under five to avoid having water beads in the home or classroom. That advisory is not written as a ban of every bead."
+        },
+        {
+          "q": "Why do the size descriptions differ?",
+          "a": "The March 12, 2026 CPSC release says water beads can grow up to 100 times their original size. The Health Canada advisory says they can grow up to 1,500 times their size. Each sentence is quoted from that agency’s page."
+        },
+        {
+          "q": "What should I do if a child may have swallowed one?",
+          "a": "Health Canada says to call your provincial or territorial Telehealth number if you suspect ingestion, and to seek medical care for a bead in the nose or ear. The page lists symptoms that include vomiting, abdominal pain, swelling, constipation, lethargy, drooling, trouble breathing or swallowing, and loss of appetite. It says not to wait for symptoms."
+        }
+      ]
+    },
+    {
+      "slug": "ride-ons-and-scooters",
+      "title": "Ride-ons and scooters: what to read, then check the recall",
+      "h1": "Ride-ons and scooters",
+      "label": "Ride-ons and scooters",
+      "description": "Helmet marks, the Canadian advice on e-scooters, and what UL 2272 covers on a hoverboard or e-scooter.",
+      "searches": ["kids kick scooter", "kids bicycle helmet"],
+      "look": [
+        [
+          {"text": "On a hoverboard or other personal e-mobility device, look for a certification mark for the whole unit. The "},
+          {"text": "CPSC hoverboard alert", "href": "https://www.cpsc.gov/s3fs-public/CPSC-Hoverboard-Safety-Alert.pdf"},
+          {"text": " says a mark on the packaging and on the product is the indication of UL 2272 compliance, and that a certified battery or charger alone does not make the hoverboard UL 2272 compliant."}
+        ],
+        [
+          {"text": "UL 2272", "href": "https://shopulstandards.com/ProductDetail.aspx?productId=UL2272"},
+          {"text": " says the standard covers the electrical drive train, including the battery system and other circuitry, for energy and electrical shock hazards. It says the standard does not evaluate performance, reliability, or the physical hazards of use."}
+        ],
+        [
+          {"text": "For a scooter, read the helmet type. "},
+          {"text": "Health Canada’s back-to-school page", "href": "https://www.canada.ca/en/health-canada/topics/consumer-product-safety-education/online-shopping/back-to-school.html"},
+          {"text": " lists a bicycle helmet for electric and non-electric scooters, and says to look for a certification label such as CSA, ASTM, EN, or SNELL. "},
+          {"text": "CPSC bicycle-helmet guidance", "href": "https://www.cpsc.gov/Business--Manufacturing/Business-Education/Business-Guidance/Bicycle-Helmets"},
+          {"text": " says the US requirements are in 16 CFR part 1203."}
+        ],
+        [
+          {"text": "Health Canada’s ride-on advice", "href": "https://www.canada.ca/en/health-canada/services/toy-safety/safety-advice-specific-toy-types.html"},
+          {"text": " says falls are the most common injuries with ride-on toys, tricycles, scooters, and wagons, and says to use helmets and protective gear when recommended, especially for scooters. It also says the Canadian Paediatric Society advises that e-scooters and e-bikes are not safe for kids under 16 to drive or to ride as passengers."}
+        ]
+      ],
+      "methodExtra": [
+        [
+          {"text": "A kick scooter and an e-scooter are different products. Read the listing for a battery. If it has one, search that model and read the battery mark before you treat it as a push scooter."}
+        ]
+      ],
+      "patterns": [
+        {
+          "agency": "CPSC",
+          "title": "Hoverboard Safety Alert",
+          "url": "https://www.cpsc.gov/s3fs-public/CPSC-Hoverboard-Safety-Alert.pdf",
+          "says": "The alert says CPSC is aware of more than 300 self-balancing scooter incidents related to fires or overheating, and it describes a March 2017 house fire in Harrisburg, Pennsylvania, in which two children died. It says to use only the charger supplied with the hoverboard, to charge it while someone is watching, and to keep it away from flammable items. It says hoverboards should comply with UL 2272, and that compliance cannot guarantee a hoverboard will not overheat or catch fire. It says a hoverboard bought before January 29, 2016 is not UL 2272 compliant."
+        },
+        {
+          "agency": "UL",
+          "title": "UL 2272, Electrical Systems for Personal E-Mobility Devices",
+          "url": "https://shopulstandards.com/ProductDetail.aspx?productId=UL2272",
+          "says": "The UL page lists ANSI/CAN/UL 2272 with a published date of April 19, 2024, and a revision dated March 23, 2026. The scope on that page says the requirements cover the electrical drive train system, including the battery system, for electric scooters and other personal e-mobility devices. It says the standard evaluates the drive train and the battery and charger combination for energy and electrical shock hazards, and does not evaluate physical hazards of use."
+        },
+        {
+          "agency": "Health Canada",
+          "title": "Lithium-ion batteries in e-mobility devices",
+          "url": "https://recalls-rappels.canada.ca/en/alert-recall/misuse-or-modification-lithium-ion-batteries-e-mobility-devices-can-be-extremely",
+          "says": "The advisory says Health Canada and Transport Canada recommend that the e-mobility device and its battery comply with ANSI/CAN/UL 2272 and ANSI/CAN/UL 2849. It says to use the lithium-ion battery that came with the e-bike or e-scooter, to replace it only with original parts, and not to build, modify, or add an external battery to raise voltage or capacity."
+        },
+        {
+          "agency": "CPSC",
+          "title": "Bicycle helmets, 16 CFR part 1203",
+          "url": "https://www.cpsc.gov/Business--Manufacturing/Business-Education/Business-Guidance/Bicycle-Helmets",
+          "says": "The page says 16 CFR part 1203 sets performance requirements for bicycle helmets. It says helmets are tested so they do not block vision, do not come off in a fall, keep their straps from stretching enough to release, and reduce the force to the head. It says a helmet marketed only for skateboarding, in-line skating, baseball, or roller hockey is not covered by the bicycle-helmet requirements."
+        },
+        {
+          "agency": "Health Canada",
+          "title": "Helmets for scooters",
+          "url": "https://www.canada.ca/en/health-canada/topics/consumer-product-safety-education/online-shopping/back-to-school.html",
+          "says": "The page’s helmet table lists a bicycle helmet, described as single-impact, for scooters, electric scooters, and non-electric scooters. It says to look on the helmet for a certification label such as CSA, ASTM, EN, or SNELL, and to avoid a used helmet when the history is unknown or the helmet looks damaged."
+        }
+      ],
+      "catalogue": [],
+      "links": [
+        {"href": "/gifts/for-kids/", "label": "Gifts for kids"},
+        {"href": "/toy-safety/button-coin-batteries/", "label": "Button batteries"},
+        {"href": "/toy-safety/magnets/", "label": "Magnets"},
+        {"href": "/toy-safety/water-beads/", "label": "Water beads"}
+      ],
+      "faqs": [
+        {
+          "q": "What does a UL 2272 mark cover?",
+          "a": "The CPSC hoverboard alert says the certification mark should be for the whole self-balancing scooter or personal e-mobility device, not only a battery pack or charger. The UL 2272 page says the standard evaluates the electrical drive train and the battery and charger combination for energy and electrical shock hazards, and does not evaluate the physical hazards of riding."
+        },
+        {
+          "q": "Which helmet page applies to a scooter?",
+          "a": "Health Canada’s back-to-school table lists a bicycle helmet for electric and non-electric scooters. CPSC says bicycle helmets sold in the United States are covered by 16 CFR part 1203. Health Canada says to look for a certification label such as CSA, ASTM, EN, or SNELL."
+        },
+        {
+          "q": "What does Health Canada say about children on e-scooters?",
+          "a": "Health Canada’s ride-on page says the Canadian Paediatric Society advises that e-scooters and e-bikes are not safe for kids under 16 to drive or to ride as passengers. The lithium-ion advisory says to keep the original battery and not to modify it, and recommends ANSI/CAN/UL 2272 for the device and its battery."
+        }
+      ]
+    }
+  ]
+}
