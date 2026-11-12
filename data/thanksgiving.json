@@ -1,0 +1,384 @@
+{
+  "title": "Thanksgiving and holiday hosting, recall-checked",
+  "h1": "Thanksgiving and holiday hosting, recall-checked",
+  "description": "Official CPSC, Health Canada, USDA FSIS, NFPA, and USFA pages for turkey fryers, pressure-cooker lids, turkey temperatures, and kitchen fires. US Thanksgiving is Thursday, November 26, 2026.",
+  "faqs": [
+    {
+      "q": "What do these guides cover?",
+      "a": "Four holiday checks: turkey fryers, including outdoor oil fryers, indoor oil fryers, and air fryers; pressure cookers and multicookers with a lid-lock notice; food thermometers and USDA turkey temperatures, thawing, and leftovers; and kitchen fires, including extinguishers. Each guide says what to read on the product and which official page states the rule."
+    },
+    {
+      "q": "Where is the official recall search?",
+      "a": "CPSC Recalls is the United States search. Health Canada recalls and safety alerts is the Canada search. Search the brand and the model, item, or date code printed on the unit."
+    },
+    {
+      "q": "Does a guide assign a pass to a fryer or a cooker?",
+      "a": "No. A guide quotes an official page and links it. A catalogue card is a separate dated match for one model. A clear line on one card does not cover a different model number. Gifts for the host names widely sold hosting tools and the check to do."
+    }
+  ],
+  "guides": [
+    {
+      "slug": "turkey-fryers",
+      "title": "Turkey fryers: what to read, then check the recall",
+      "h1": "Turkey fryers",
+      "label": "Turkey fryers",
+      "description": "What CPSC, Health Canada, and NFPA say about outdoor oil turkey fryers, indoor oil fryers, and air fryers, and which notices name a model or item number.",
+      "searches": ["turkey fryer", "air fryer"],
+      "look": [
+        [
+          {"text": "On an outdoor oil turkey fryer, read the item or model number on the leg or the rating label, and read whether the unit is propane. The "},
+          {"text": "November 26, 2003 CPSC turkey-fryer release", "href": "https://www.cpsc.gov/Newsroom/News-Releases/2004/CPSC-Issues-Safety-Tips-for-Turkey-Fryers"},
+          {"text": " says to keep the fryer in full view while the burner is on, to place it in an open area away from walls, fences, and other structures, and never to use it in, on, or under a garage, breezeway, carport, porch, or any structure that can catch fire. It says to leave at least 2 feet between the liquid-propane tank and the burner, to center the pot, and to thaw and dry the turkey. It says partially frozen or wet poultry can splatter hot oil. It says that if a fire occurs, call 911 and do not try to extinguish it with water."}
+        ],
+        [
+          {"text": "The "},
+          {"text": "NFPA Educational Messages Desk Reference", "href": "https://www.nfpa.org/-/media/project/storefront/catalog/files/home-fire-safety/emac/educationalmessagesdeskreference.pdf"},
+          {"text": " says turkey fryers that use cooking oil, as currently designed, are not suitable for safe use by even a well-informed and careful consumer, because they use a substantial quantity of oil at high temperatures and the burners can ignite spilled oil. It says NFPA urges people who want fried turkey to buy it from a grocery store, specialty food retailer, or restaurant, or to use an alternative such as an infrared fryer, an air fryer, or an electric turkey fryer that is listed by a nationally recognized testing laboratory. It also says not to leave fryers unattended."}
+        ],
+        [
+          {"text": "On an air fryer or an indoor oil fryer, read the model number on the bottom label or the back of the unit, and read it again in the manual. An air fryer is a different product from an oil turkey fryer. Match the number on the unit to the number on the notice."}
+        ]
+      ],
+      "methodExtra": [
+        [
+          {"text": "The November 19, 2025 "},
+          {"text": "CPSC holiday cooking release", "href": "https://www.cpsc.gov/Newsroom/News-Releases/2026/Put-Safety-on-the-Menu-Consumer-Product-Safety-Commission-Offers-Safe-Cooking-Tips-for-a-Joyful-Holiday-Season"},
+          {"text": " uses the word COOK for a turkey fryer: carefully follow the manufacturer’s instructions, never overheat the oil and use an oil with a high smoke point, never overfill the oil, and keep the fryer out of the garage, off the deck, and away from the house."}
+        ],
+        [
+          {"text": "A propane fish fryer is not a turkey fryer. The Health Canada notice below names one fish-fryer model. Read that model number before treating another propane fryer as the same product."}
+        ]
+      ],
+      "patterns": [
+        {
+          "agency": "CPSC",
+          "title": "Academy Sports + Outdoors recalls the Outdoor Gourmet Turkey Keg",
+          "url": "https://www.cpsc.gov/Recalls/2019/Academy-Sports-Outdoors-Recalls-Turkey-Fryer-Due-to-Fire-Hazard",
+          "says": "The notice, recall number 19-067, is dated February 19, 2019 and covers about 3,000 Outdoor Gourmet Turkey Keg turkey fryers. It says the fryer is stainless steel, powered by propane, and measures 34 inches high by 17 inches wide including the legs. It says item number 157826 is on a label on one of the four legs. It says the spout can leak oil, posing a fire hazard. It says the firm had two reports of leaking and no reported injuries or property damage. It tells owners to stop using the fryer and return it to an Academy Sports + Outdoors store."
+        },
+        {
+          "agency": "CPSC",
+          "title": "Safety tips for turkey fryers, November 26, 2003",
+          "url": "https://www.cpsc.gov/Newsroom/News-Releases/2004/CPSC-Issues-Safety-Tips-for-Turkey-Fryers",
+          "says": "The release says that since 1998 CPSC had reports of 75 turkey-fryer incidents involving fires, flames, or burns, and that 28 of those were reported for 2002. It says most reported incidents happened while the oil was heating, before the turkey was added, and that any smoke from the oil means the oil is overheated and the burner should be turned off. It says to raise and lower food slowly, to cover bare skin, and to check the oil temperature often. It says that if oil begins to smoke, turn the gas supply off immediately."
+        },
+        {
+          "agency": "NFPA",
+          "title": "Educational Messages Desk Reference: turkey fryers",
+          "url": "https://www.nfpa.org/-/media/project/storefront/catalog/files/home-fire-safety/emac/educationalmessagesdeskreference.pdf",
+          "says": "Section 8.12 says to use a turkey fryer listed by a nationally recognized testing laboratory, such as an infrared fryer, an air fryer, or an electric turkey fryer, and not to leave fryers unattended. It says oil turkey fryers use a substantial quantity of cooking oil at high temperatures, that home units pose a significant danger that hot oil will be released during cooking, and that the burners can ignite spilled oil. It says that use can lead to devastating burns, other injuries, and destruction of property."
+        },
+        {
+          "agency": "CPSC",
+          "title": "NESCO stainless steel deep fryers recalled",
+          "url": "https://www.cpsc.gov/Recalls/2003/cpsc-the-metal-ware-corp-announce-recall-of-deep-fryer-covers",
+          "says": "The notice is dated November 6, 2003 and covers about 47,000 NESCO stainless steel deep fryers with a black plastic top and handles on either side. It names model numbers DF-250T, DF-1250T, and DF-1250TL, printed on the back. It says the mesh filter in the cover can let moisture build in the oil reservoir, so the reservoir can boil over during or shortly after use, posing a burn hazard. It says there were eight reports, including one report of minor burns that needed medical attention. It tells owners to stop using the fryer and contact The Metal Ware Corp. for a replacement cover kit."
+        },
+        {
+          "agency": "CPSC",
+          "title": "Cosori air fryers recalled for a wire connection that can overheat",
+          "url": "https://www.cpsc.gov/Recalls/2023/Two-Million-COSORI-Air-Fryers-Recalled-by-Atekcity-Due-to-Fire-and-Burn-Hazards",
+          "says": "The recall alert, number 23-130, is dated February 23, 2023. It says a wire connection can overheat, posing fire and burn hazards. It says the recall involves listed Cosori model numbers, that Cosori is on the front, and that the model number is on the bottom label and in the user manual. It says the units are 3.7 and 5.8 quart. It says about 2 million were sold in the United States and about 250,000 in Canada. It says the firm had received 205 reports of the air fryers catching fire, burning, melting, overheating, or smoking, including 10 reports of minor superficial burn injuries and 23 reports of minor property damage. It tells owners to stop using a recalled unit and contact Cosori."
+        },
+        {
+          "agency": "Health Canada",
+          "title": "Certain Cosori air fryers recalled due to a potential fire hazard",
+          "url": "https://recalls-rappels.canada.ca/en/alert-recall/certain-models-cosori-branded-air-fryers-recalled-due-potential-fire-hazard",
+          "says": "The notice says the wire connectors can overheat, posing a potential burn and fire hazard. It says the model number is on the bottom label and in the user manual, and the batch number is on the bottom or at the back below the rear exhaust vent. It says that as of February 2023 the company had 205 reports globally, including 56 in Canada, of the air fryers catching fire, burning, melting, overheating, or smoking, and 10 reports of minor superficial burn injuries, including 4 in Canada. It tells owners to stop using the recalled product and contact Cosori for a replacement. The model list on this notice is the one to use for a Canadian purchase."
+        },
+        {
+          "agency": "Health Canada",
+          "title": "Valley Sportsman propane fish fryer recalled",
+          "url": "https://recalls-rappels.canada.ca/en/alert-recall/princess-auto-ltd-recalls-valley-sportsman-95-litre-propane-fish-fryer",
+          "says": "The notice, identification number RA-68596, is dated December 18, 2018. It names the Valley Sportsman 9.5 litre propane aluminum fish fryer, model 2A-CM186, UPC 8680571. It says a small hole near the handle could let hot cooking oil drip from the pan, posing a burn hazard. It says about 2,468 units were sold in Canada from December 2016 to October 2018, and that as of December 12, 2018 the company had no report of incidents or injuries in Canada. It tells owners to stop using it and return it to Princess Auto. This notice does not name a turkey fryer."
+        }
+      ],
+      "catalogue": [
+        {
+          "id": "cosori-pro-5-8",
+          "note": [
+            {"text": "The Cosori notices above name listed model numbers. The "},
+            {"text": "Cosori 2023 model list", "href": "/recalls/cosori-air-fryer-2023/"},
+            {"text": " says this card’s model line reads CS358-AF series, which is not among the numbers copied from those notices. Read the bottom label."}
+          ]
+        },
+        {
+          "id": "ninja-crispi-fn101",
+          "note": [
+            {"text": "This card is the Crispi FN101. The May 1, 2025 lid notice names Ninja Foodi OP300-series pressure cookers, which is a different model line. That notice is on the "},
+            {"text": "pressure cookers guide", "href": "/thanksgiving/pressure-cookers/"},
+            {"text": " and on the "},
+            {"text": "Foodi OP300 page", "href": "/recalls/ninja-foodi-op300/"},
+            {"text": "."}
+          ]
+        }
+      ],
+      "links": [
+        {"href": "/thanksgiving/kitchen-fires/", "label": "Kitchen fires"},
+        {"href": "/thanksgiving/pressure-cookers/", "label": "Pressure cookers"},
+        {"href": "/gifts/for-the-host/", "label": "Gifts for the host"},
+        {"href": "/recalls/cosori-air-fryer-2023/", "label": "Cosori 2023 model list"},
+        {"href": "/kitchen/", "label": "Kitchen catalogue"}
+      ],
+      "faqs": [
+        {
+          "q": "Where do I search a turkey fryer or an air fryer?",
+          "a": "Search the brand and the item or model number on CPSC Recalls for a US purchase and on Health Canada recalls and safety alerts for a Canadian purchase. The Academy notice names item 157826. The Cosori notices say the model number is on the bottom label. The Valley Sportsman notice names fish-fryer model 2A-CM186."
+        },
+        {
+          "q": "What does NFPA say about an oil turkey fryer?",
+          "a": "The NFPA Educational Messages Desk Reference says oil turkey fryers, as currently designed, are not suitable for safe use by even a well-informed and careful consumer. It names an infrared fryer, an air fryer, or an electric turkey fryer listed by a nationally recognized testing laboratory as alternatives, and it says not to leave fryers unattended. An air fryer still has its own model-number check."
+        },
+        {
+          "q": "Is the COSORI Pro II card one of the recalled Cosori models?",
+          "a": "The catalogue page says the Pro II card’s model line reads CS358-AF series and that CS358-AF is not among the model numbers copied from the February 23, 2023 notices. Read the bottom label and compare it with the Cosori 2023 model list."
+        }
+      ]
+    },
+    {
+      "slug": "pressure-cookers",
+      "title": "Pressure cookers: what to read, then check the recall",
+      "h1": "Pressure cookers and multicookers",
+      "label": "Pressure cookers",
+      "description": "Lid-lock notices for Crock-Pot and Ninja Foodi multicookers, including the model and date-code lines that differ between the CPSC and Health Canada pages.",
+      "searches": ["electric pressure cooker"],
+      "look": [
+        [
+          {"text": "Read the model number on the bottom or side label before using the pressure function. On a Crock-Pot Express Crock, also read the date code engraved on a prong of the electrical plug and on the bottom of the base. The United States and Canada notices below do not use the same date-code range."}
+        ],
+        [
+          {"text": "On a Ninja Foodi, read the model on the side or on the rating label near the power cord. The "},
+          {"text": "CPSC Foodi notice", "href": "https://www.cpsc.gov/Recalls/2025/SharkNinja-Recalls-1-8-Million-Foodi-Multi-Function-Pressure-Cookers-Due-to-Burn-Hazard-Serious-Burn-Injuries-Reported"},
+          {"text": " says an extra code after the model number is not part of the model, and gives the example that a unit labeled OP301 I07 is a model OP301. It also includes OP300-series replacement pressure-cooker lids bought separately."}
+        ]
+      ],
+      "methodExtra": [
+        [
+          {"text": "Instant Pot notices on this site name Smart, Smart-60, and Gem 65 multicookers. Those are different models and different hazards from the lid notices below. The "},
+          {"text": "Instant Pot official notices", "href": "/recalls/instant-pot-official-notices/"},
+          {"text": " page copies the model and serial lines. The Duo Plus card is not one of those names."}
+        ]
+      ],
+      "patterns": [
+        {
+          "agency": "CPSC",
+          "title": "Crock-Pot 6-Quart Express Crock Multi-Cookers recalled",
+          "url": "https://www.cpsc.gov/Recalls/2021/Crock-Pot-6-Quart-Express-Crock-Multi-Cookers-Recalled-by-Sunbeam-Products-Due-to-Burn-Hazard",
+          "says": "The notice, recall number 21-035, is dated November 24, 2020. It says the cooker can pressurize when the lid is not fully locked, so the lid can suddenly detach and eject hot food and liquids. It names model SCCPPC600-V1 on the bottom label, manufactured from July 1, 2017 through October 1, 2018, with date codes K196JN through K365JN and L001JN through L273JN. It says the date code is engraved on one prong of the plug and on the bottom of the base. It says about 914,430 units were sold in the United States and about 28,330 in Canada. It says Sunbeam had 119 reports of lid detachment and 99 burn injuries, from first-degree to third-degree burns. It tells owners to stop using pressure-cooker mode and contact Crock-Pot for a free replacement lid. It says slow cooking and sautéing can continue, and that anyone who keeps using pressure mode while waiting should align the arrow on the lid with the lock symbol."
+        },
+        {
+          "agency": "Health Canada",
+          "title": "Crock-Pot 6-Quart Express Crock Multi-Cookers recalled",
+          "url": "https://recalls-rappels.canada.ca/en/alert-recall/crock-potr-6-quart-express-crock-multi-cookers-recalled-due-burn-hazard",
+          "says": "The notice, identification number RA-74391, starts November 24, 2020. It says the cooker can pressurize when the lid is not properly locked and the lid can suddenly detach. It names models SCCPPC600-V1 and SCCPPC600-V1-033 on the bottom label, manufactured from March 20, 2018 through September 18, 2018, with date codes L079JN through L261JN. It says the date code is on a prong of the plug and on the bottom. It says 28,330 units were sold in Canada and 914,430 in the United States. It says that as of November 17 the company had 2 reports of the lid detaching and 2 burn injuries in Canada, and 119 reports and 99 burn injuries in the United States. It tells owners to contact Sunbeam for a free replacement lid. The date-code range and the second model number are the lines to use for a Canadian unit, not the longer range on the CPSC notice."
+        },
+        {
+          "agency": "CPSC",
+          "title": "SharkNinja recalls Foodi OP300-series pressure cookers",
+          "url": "https://www.cpsc.gov/Recalls/2025/SharkNinja-Recalls-1-8-Million-Foodi-Multi-Function-Pressure-Cookers-Due-to-Burn-Hazard-Serious-Burn-Injuries-Reported",
+          "says": "The notice, recall number 25-247, is dated May 1, 2025. It says the pressure-cooking lid can be opened during use, so hot contents can escape. It says the recall covers all Ninja Foodi OP300 Series Multi-Function Pressure Cookers, sold in black with a 6.5-quart capacity, and any OP300-series replacement pressure-cooker lid bought as a separate part. It lists model numbers OP300, OP301, OP301A, OP302, OP302BRN, OP302HCN, OP302HAQ, OP302HW, OP302HB, OP305, OP305CO, and OP350CO, printed on a label on the side. It says about 1,846,400 were sold in the United States and about 184,240 in Canada. It says SharkNinja had received 106 reports of burn injuries, including more than 50 reports of second- or third-degree burns to the face or body. It tells owners to stop using the pressure-cooking function and contact SharkNinja for a free replacement lid. It says the air-frying and other functions can still be used."
+        },
+        {
+          "agency": "Health Canada",
+          "title": "Ninja Foodi TenderCrisp pressure-cooking lid recalled",
+          "url": "https://recalls-rappels.canada.ca/en/alert-recall/ninja-foodi-tendercrisp-multi-cookers-pressure-cooking-lid-recalled-due-potential-burn",
+          "says": "The notice says the pressure-cooking lid can be opened during use, so hot contents can escape. It says the cookers have a 6.5-quart chamber and that Ninja is on the front of the hinged lid. It includes replacement pressure-cooking lids bought separately. It says the model number is on the rating label on the back, near the power cord. It lists OP300C, OP301, OP301C, OP302, OP305, OP305CCO, and OP305CO. It says other functions, such as air crisping, are not part of this recall. It says that as of April 10, 2025 the company had 5 reports of lids opened during use in Canada and no reports of injury in Canada, and 106 reports of burn injuries in the United States. It says about 184,240 units were sold in Canada and 1,846,400 in the United States, plus replacement lids sold as service parts. It tells owners to stop using the pressure-cooking function, dispose of the lid so it cannot be used, and contact SharkNinja for a replacement lid. That model list is the one to use for a Canadian purchase. It is not the same list as the CPSC notice."
+        }
+      ],
+      "catalogue": [
+        {
+          "id": "instant-pot-duo-plus",
+          "note": [
+            {"text": "This card is the Duo Plus, 6 quart. The "},
+            {"text": "Instant Pot official notices", "href": "/recalls/instant-pot-official-notices/"},
+            {"text": " page says the CPSC and Health Canada notices name Smart, Smart-60, and Gem 65, and that Duo Plus is not a model name on those notices."}
+          ]
+        },
+        {
+          "id": "ninja-foodi-10in1",
+          "note": [
+            {"text": "This card is the Foodi 10-in-1 XL Pro Air Fry Oven. The "},
+            {"text": "Foodi OP300 page", "href": "/recalls/ninja-foodi-op300/"},
+            {"text": " says its model line reads DT201C, which is not in the OP300 or TenderCrisp lists above. Read the rating label."}
+          ]
+        }
+      ],
+      "links": [
+        {"href": "/thanksgiving/turkey-fryers/", "label": "Turkey fryers"},
+        {"href": "/recalls/instant-pot-official-notices/", "label": "Instant Pot official notices"},
+        {"href": "/recalls/ninja-foodi-op300/", "label": "Foodi OP300 and TenderCrisp lid"},
+        {"href": "/gifts/for-the-host/", "label": "Gifts for the host"},
+        {"href": "/kitchen/", "label": "Kitchen catalogue"}
+      ],
+      "faqs": [
+        {
+          "q": "What failed in the Crock-Pot Express Crock notice?",
+          "a": "Both the CPSC and Health Canada notices say the multi-cooker can pressurize when the lid is not fully locked, and that the lid can suddenly detach. The CPSC notice names model SCCPPC600-V1 and date codes K196JN through K365JN and L001JN through L273JN. The Health Canada notice names SCCPPC600-V1 and SCCPPC600-V1-033 and date codes L079JN through L261JN. Use the notice for the country where the cooker was bought."
+        },
+        {
+          "q": "What failed in the Ninja Foodi lid notice?",
+          "a": "The May 1, 2025 CPSC notice says the OP300-series pressure-cooking lid can be opened during use. The Health Canada notice says the same about the TenderCrisp pressure-cooking lid and prints a different model list. Both say to stop using the pressure-cooking function. The CPSC notice says air frying can continue. Match the side or back label to the list for that country."
+        },
+        {
+          "q": "Is the Instant Pot Duo Plus card one of those lid recalls?",
+          "a": "No. The Duo Plus card is a different model. The Instant Pot notices copied on this site name Smart, Smart-60, and Gem 65. Read the model on the cooker and compare it with those notices and with the Crock-Pot and Foodi lists above."
+        }
+      ]
+    },
+    {
+      "slug": "turkey-temperatures",
+      "title": "Turkey temperatures: what to read, then check the recall",
+      "h1": "Turkey temperatures and thermometers",
+      "label": "Turkey temperatures",
+      "description": "USDA FSIS temperatures for turkey, stuffing, thawing, and leftovers, plus the CPSC notice for specific iDevices thermometer probes.",
+      "searches": ["food thermometer"],
+      "look": [
+        [
+          {"text": "USDA’s "},
+          {"text": "Turkey Basics: Safe Cooking", "href": "https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/poultry/turkey-basics-safe-cooking"},
+          {"text": " says to use a food thermometer and to reach a safe minimum internal temperature of 165 °F in the innermost part of the thigh and wing and the thickest part of the breast. It says the center of the stuffing must also reach 165 °F. It says that for optimum safety, cook stuffing in a casserole. It says to set the oven no lower than 325 °F, to start with a completely thawed turkey held at a refrigerator temperature of 40 °F or below, and to place the turkey breast-side up on a flat wire rack in a shallow roasting pan 2 to 2 1/2 inches deep. It says a dark roasting pan cooks faster than a shiny one. It says to let the bird stand 20 minutes before removing the stuffing and carving."}
+        ],
+        [
+          {"text": "USDA’s "},
+          {"text": "Let’s Talk Turkey", "href": "https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/poultry/lets-talk-turkey-roasting"},
+          {"text": " says the three safe thawing methods are the refrigerator, cold water, and the microwave. It says refrigerator thawing is about 24 hours for every 4 to 5 pounds at 40 °F or below, that the wrapper stays on, and that a thawed turkey can remain in the refrigerator 1 to 2 days. It says a turkey thawed in the refrigerator may be refrozen. It says cold-water thawing is about 30 minutes per pound, in a wrap that does not leak, with the water changed every 30 minutes, and that the turkey is cooked immediately and not refrozen. It says a microwave-thawed turkey is cooked immediately and is not refrozen or refrigerated after thawing. It says to remove the giblets after thawing. It says a pop-up indicator is not a substitute for checking the thigh, wing, and thickest part of the breast with a food thermometer."}
+        ],
+        [
+          {"text": "The same USDA page says to discard turkey, stuffing, and gravy left out longer than 2 hours, or 1 hour when the temperature is above 90 °F. It says to divide leftovers into smaller portions and refrigerate or freeze them in covered shallow containers. It says to use refrigerated turkey, stuffing, and gravy within 3 to 4 days. It says to reheat turkey to 165 °F, checked with a food thermometer, and to set the oven no lower than 325 °F when reheating in the oven. It says a turkey cooked from the frozen state takes at least 50 percent longer than the time for a fully thawed turkey, and that the giblet packages are removed during cooking."}
+        ]
+      ],
+      "methodExtra": [
+        [
+          {"text": "A thermometer notice names a probe, a date range, or a crimp pattern. The iDevices notice below does not name every food thermometer. Read the name on the probe and on the package, then search that name on "},
+          {"text": "CPSC Recalls", "href": "https://www.cpsc.gov/Recalls"},
+          {"text": " and on "},
+          {"text": "Health Canada recalls and safety alerts", "href": "https://recalls-rappels.canada.ca/en"},
+          {"text": "."}
+        ]
+      ],
+      "patterns": [
+        {
+          "agency": "USDA FSIS",
+          "title": "Turkey Basics: Safe Cooking",
+          "url": "https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/poultry/turkey-basics-safe-cooking",
+          "says": "The page says a food thermometer should be used to ensure a safe minimum internal temperature of 165 °F has been reached. It says to check the innermost part of the thigh and wing and the thickest part of the breast, and to check that the center of the stuffing also reaches 165 °F. It says many variables change the roasting time, including a partially frozen turkey, a stuffed turkey, an oven that heats unevenly, a dark pan, the depth of the pan, a foil tent, a lid, an oven bag, and the rack position. It says the standing time of 20 minutes is for quality, so the juices set and the turkey carves more easily."
+        },
+        {
+          "agency": "USDA FSIS",
+          "title": "Let’s Talk Turkey: thawing, leftovers, and reheating",
+          "url": "https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/poultry/lets-talk-turkey-roasting",
+          "says": "The page says to thaw only in the refrigerator, in cold water, or in the microwave, with the times and the cook-immediately rules printed there. It says not to thaw a frozen pre-stuffed turkey that bears a USDA or state inspection mark; cook it from the frozen state and follow the package. It says leftovers of turkey, stuffing, and gravy left out longer than 2 hours, or 1 hour above 90 °F, should be discarded. It says refrigerated leftovers of those foods are used within 3 to 4 days. It says reheated turkey should reach 165 °F on a food thermometer. The page was last updated November 17, 2023."
+        },
+        {
+          "agency": "CPSC",
+          "title": "iDevices recalls temperature probes",
+          "url": "https://www.cpsc.gov/Recalls/2014/iDevices-Recalls-Temperature-Probes",
+          "says": "The notice is dated September 3, 2014. It says the plastic insulator inside the stainless steel probe is not heat resistant and can melt and fall into food, posing an ingestion hazard. It covers all Pro Ambient Temperature Probes and Pro Meat Probes manufactured from May 2014 through June 2014, sold as accessories for the iGrill, iGrill2, iGrillmini, Kitchen Thermometer, and Kitchen Thermometer mini, and the meat probe also sold with the iGrill2 set. It says recalled probes have only two crimps where the probe tube meets the braided cable. It says about 48,500 were sold in the United States and 510 in Canada. It says the firm had 11 reports of the probe overheating and the insulator melting, and no reported injuries. It tells owners to stop using the recalled probes and contact iDevices for a free replacement."
+        }
+      ],
+      "catalogue": [],
+      "links": [
+        {"href": "/thanksgiving/", "label": "All Thanksgiving guides"},
+        {"href": "/gifts/for-the-host/", "label": "Gifts for the host"},
+        {"href": "/thanksgiving/turkey-fryers/", "label": "Turkey fryers"}
+      ],
+      "faqs": [
+        {
+          "q": "What temperature does USDA FSIS name for turkey?",
+          "a": "Turkey Basics: Safe Cooking says 165 °F in the innermost part of the thigh and wing and the thickest part of the breast, and 165 °F in the center of the stuffing. Let’s Talk Turkey says a pop-up indicator is still checked with a food thermometer in those same places. The oven temperature on both pages is no lower than 325 °F."
+        },
+        {
+          "q": "How does USDA say to thaw a turkey?",
+          "a": "Let’s Talk Turkey says the refrigerator, cold water, or the microwave. Refrigerator thawing is about 24 hours for every 4 to 5 pounds. Cold-water thawing is about 30 minutes per pound, with the water changed every 30 minutes, and the turkey is cooked immediately. A microwave-thawed turkey is cooked immediately and is not refrigerated after thawing."
+        },
+        {
+          "q": "Does the iDevices notice cover every meat thermometer?",
+          "a": "No. The September 3, 2014 CPSC notice names Pro Ambient Temperature Probes and Pro Meat Probes made from May 2014 through June 2014, and it describes two crimps at the cable. Search the brand and model of the thermometer you have on CPSC Recalls and on Health Canada recalls and safety alerts."
+        }
+      ]
+    },
+    {
+      "slug": "kitchen-fires",
+      "title": "Kitchen fires: what to read, then check the recall",
+      "h1": "Kitchen fires",
+      "label": "Kitchen fires",
+      "description": "CPSC, NFPA, and USFA guidance for Thanksgiving cooking fires and fire extinguishers, plus the CPSC notice for Kidde plastic-handle extinguishers.",
+      "searches": ["kitchen fire extinguisher"],
+      "look": [
+        [
+          {"text": "The November 19, 2025 "},
+          {"text": "CPSC holiday cooking release", "href": "https://www.cpsc.gov/Newsroom/News-Releases/2026/Put-Safety-on-the-Menu-Consumer-Product-Safety-Commission-Offers-Safe-Cooking-Tips-for-a-Joyful-Holiday-Season"},
+          {"text": " says 45 percent of annual residential fires are cooking-related, and that cooking fires spike on Thanksgiving with an average of 1,400 cooking fires, more than three times the daily average. It says not to leave cooking food unattended, to keep children and pets at least three feet away, to keep oven mitts, wooden utensils, and food packaging away from the stovetop, and to turn pot handles inward. It says that if a grease fire starts, smother the flames by sliding a lid over the pan and turning off the burner, and never to use water. It says to have a fire extinguisher nearby and know how to use it, and to have a working smoke alarm on each level, outside sleeping areas, and inside bedrooms."}
+        ],
+        [
+          {"text": "The "},
+          {"text": "NFPA Educational Messages Desk Reference", "href": "https://www.nfpa.org/-/media/project/storefront/catalog/files/home-fire-safety/emac/educationalmessagesdeskreference.pdf"},
+          {"text": " says to stay in the kitchen when frying, boiling, grilling, or broiling, and to turn the burner off if you leave. It says simmering, baking, or roasting is checked regularly, with a timer, while you stay in the home. It says to keep a lid nearby. For a small grease fire in a pan, it says to slide the lid on, turn off the burner, not move the pan, and leave the lid on until the pan has cooled. It says never to pour water on a cooking-pan grease fire. It says only Class K extinguishers are designed for grease and animal-fat fires, and that they should be used by trained adults. For an oven fire, it says to turn off the heat and keep the door closed. It says that when in doubt, get out, close the door, and call 911 from outside."}
+        ],
+        [
+          {"text": "On an extinguisher, read the classification label and look for a UL Listed or ULC Listed mark. "},
+          {"text": "USFA’s extinguisher page", "href": "https://www.usfa.fema.gov/prevention/home-fires/prepare-for-fire/fire-extinguishers/"},
+          {"text": " says Class B is for combustible and flammable liquids such as grease, gasoline, oil, and oil-based paints, and Class K is for vegetable oils, animal oils, and fats in cooking appliances, often in commercial kitchens. It says multipurpose extinguishers labeled B-C or A-B-C can be used on most types of home fires. Read the model number and the date code on the cylinder before comparing a unit with a recall notice. The Kidde notice below names plastic-handle and push-button Pindicator extinguishers, not every extinguisher."}
+        ]
+      ],
+      "methodExtra": [
+        [
+          {"text": "The CPSC Kidde notice below includes a count of units sold in Canada. Search the model number printed on the label on "},
+          {"text": "Health Canada recalls and safety alerts", "href": "https://recalls-rappels.canada.ca/en"},
+          {"text": " as well as on CPSC Recalls. Oil turkey fryers are a separate check on the "},
+          {"text": "turkey fryers guide", "href": "/thanksgiving/turkey-fryers/"},
+          {"text": ". Space heaters are a separate check on the "},
+          {"text": "space heaters guide", "href": "/winter-safety/space-heaters/"},
+          {"text": "."}
+        ]
+      ],
+      "patterns": [
+        {
+          "agency": "CPSC",
+          "title": "Put safety on the menu, November 19, 2025",
+          "url": "https://www.cpsc.gov/Newsroom/News-Releases/2026/Put-Safety-on-the-Menu-Consumer-Product-Safety-Commission-Offers-Safe-Cooking-Tips-for-a-Joyful-Holiday-Season",
+          "says": "The release, number 26-093, says the holiday season is the most dangerous time of year for cooking-related fires and injuries. It says 45 percent of annual residential fires are cooking-related, according to CPSC’s report on residential fire and loss estimates. It says cooking fires spike on Thanksgiving, with an average of 1,400 cooking fires, more than three times the daily average. It says never to leave cooking unattended, to keep children and pets at least three feet away, and to smother a grease fire with a lid rather than water. For a turkey fryer it says to follow the manufacturer’s instructions, never to overheat or overfill the oil, and to keep the fryer out of the garage, off the deck, and away from the house."
+        },
+        {
+          "agency": "NFPA",
+          "title": "Educational Messages Desk Reference: cooking fires and extinguishers",
+          "url": "https://www.nfpa.org/-/media/project/storefront/catalog/files/home-fire-safety/emac/educationalmessagesdeskreference.pdf",
+          "says": "Section 8.4 says to smother a small pan grease fire with a lid, turn off the burner, and not move the pan. It says never to pour water on that fire. It says only Class K extinguishers are designed for grease and animal-fat fires and that they should be used by trained adults. Section 21.4 says PASS means pull the pin, aim low at the base of the fire, squeeze the lever slowly, and sweep the nozzle from side to side. It says a portable extinguisher is for a small fire that is not spreading quickly, when everyone is evacuating, someone outside is calling 911, and there is a clear escape route. Section 21.4.4 says not to use a portable extinguisher on a grease fire unless you are at least 6 to 8 feet away, and not to move a pot of burning grease. It says to cover the pan and shut off the heat."
+        },
+        {
+          "agency": "USFA",
+          "title": "Choosing and using fire extinguishers",
+          "url": "https://www.usfa.fema.gov/prevention/home-fires/prepare-for-fire/fire-extinguishers/",
+          "says": "The page, last reviewed April 1, 2023, says to look for a UL Listed or ULC Listed label. It says Class B is for combustible and flammable liquids such as grease, gasoline, oil, and oil-based paints. It says Class K is for vegetable oils, animal oils, and fats in cooking appliances and is often found in commercial kitchens. It says multipurpose extinguishers labeled B-C or A-B-C can be used on most types of home fires. It says to use an extinguisher only when others have been alerted, someone has called the fire department, the person can operate it, the fire is small and contained, the person is safe from toxic smoke, and there is a clear escape route. It says PASS is pull, aim, squeeze, and sweep. It says to check that nothing blocks the extinguisher, that the gauge shows the recommended pressure, and that the can, hose, and nozzle are not damaged, dented, or rusted."
+        },
+        {
+          "agency": "CPSC",
+          "title": "Kidde recalls fire extinguishers with plastic handles",
+          "url": "https://www.cpsc.gov/Recalls/2018/Kidde-Recalls-Fire-Extinguishers-with-Plastic-Handles-Due-to-Failure-to-Discharge-and-Nozzle-Detachment-One-Death-Reported",
+          "says": "The notice is dated November 2, 2017. The title includes one death reported. It says the extinguishers can become clogged or require excessive force to discharge and can fail to activate, and that the nozzle can detach with enough force to pose an impact hazard. It covers two styles: plastic-handle extinguishers and push-button Pindicator extinguishers. It says the plastic-handle recall involves 134 models manufactured from January 1, 1973 through August 15, 2017, including models recalled in March 2009 and February 2015, sold in red, white, and silver, and rated ABC or BC. It says the model number is on the label. For units made in 2007 and later, it says a 10-digit date code is on the side of the cylinder near the bottom, and that digits five through nine are the day and year in DDDYY form. It says date codes for recalled models made from January 2, 2012 through August 15, 2017 are 00212 through 22717. It says about 37.8 million were sold in the United States, 2.7 million in Canada, and 6,730 in Mexico. It tells owners to contact Kidde for a replacement. Match the model and date code on the cylinder to the notice. A different model is a different check."
+        }
+      ],
+      "catalogue": [],
+      "links": [
+        {"href": "/thanksgiving/turkey-fryers/", "label": "Turkey fryers"},
+        {"href": "/winter-safety/space-heaters/", "label": "Space heaters"},
+        {"href": "/winter-safety/", "label": "Winter home safety"},
+        {"href": "/gifts/for-the-host/", "label": "Gifts for the host"}
+      ],
+      "faqs": [
+        {
+          "q": "What do CPSC and NFPA say to do with a small grease fire?",
+          "a": "The November 19, 2025 CPSC release says to slide a lid over the pan, turn off the burner, and never use water. The NFPA desk reference says the same, and it says not to move the pan and to leave the lid on until the pan has cooled. It says only Class K extinguishers are designed for grease and animal-fat fires, and that they should be used by trained adults. It also says that when in doubt, get out and call 911 from outside."
+        },
+        {
+          "q": "What does USFA say to read on a home extinguisher?",
+          "a": "USFA says to look for a UL Listed or ULC Listed label. It describes Class B for grease and other flammable liquids, Class K for vegetable oils, animal oils, and fats in cooking appliances, and multipurpose A-B-C or B-C extinguishers for most home fires. It says PASS is pull, aim, squeeze, and sweep, and it lists the questions to answer before using one."
+        },
+        {
+          "q": "Does the Kidde notice cover every kitchen extinguisher?",
+          "a": "No. The November 2, 2017 CPSC notice names plastic-handle models made from January 1, 1973 through August 15, 2017, and push-button Pindicator extinguishers. It says the model number is on the label and describes the date code for units made in 2007 and later. It counts 2.7 million units sold in Canada. Search that model on CPSC Recalls and on Health Canada recalls and safety alerts."
+        }
+      ]
+    }
+  ]
+}

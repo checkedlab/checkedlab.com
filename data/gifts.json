@@ -247,6 +247,112 @@
           ]
         }
       ]
+    },
+    {
+      "kind": "checks",
+      "slug": "for-the-host",
+      "title": "Gifts for the host, 2026",
+      "h1": "Gifts for the host",
+      "label": "The host",
+      "description": "Widely sold hosting tools, with the official check to do before you buy.",
+      "faqs": [
+        {
+          "q": "What is on this list?",
+          "a": "Six widely sold hosting tools. Each line says why it is listed and which official page to use for the check. The button opens an Amazon search for those words. It is not a product page."
+        },
+        {
+          "q": "Where do I search one of these for a recall?",
+          "a": "Search the brand and the model number on CPSC Recalls for a US purchase and on Health Canada recalls and safety alerts for a Canadian purchase. Match the number on the unit to the number on the notice."
+        },
+        {
+          "q": "Does this list replace the Thanksgiving guides?",
+          "a": "No. Thanksgiving covers turkey fryers, pressure cookers, turkey temperatures, and kitchen fires. This page links those guides. A line here is not a catalogue card. A catalogue card for one Dutch oven or one knife does not cover a different model."
+        }
+      ],
+      "picks": [
+        {
+          "id": "thermoworks-thermapen",
+          "name": "ThermoWorks Thermapen",
+          "why": "On this list because a ThermoWorks Thermapen is a widely sold instant-read food thermometer, and USDA FSIS says to check a turkey with a food thermometer.",
+          "search": "ThermoWorks Thermapen",
+          "check": [
+            {"text": "Read the model on the thermometer. "},
+            {"text": "USDA Turkey Basics: Safe Cooking", "href": "https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/poultry/turkey-basics-safe-cooking"},
+            {"text": " says to use a food thermometer and to reach 165 °F in the innermost part of the thigh and wing and the thickest part of the breast. "},
+            {"text": "Let’s Talk Turkey", "href": "https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/poultry/lets-talk-turkey-roasting"},
+            {"text": " says a pop-up indicator is still checked with a food thermometer in those places. The "},
+            {"text": "September 3, 2014 CPSC probe notice", "href": "https://www.cpsc.gov/Recalls/2014/iDevices-Recalls-Temperature-Probes"},
+            {"text": " names iDevices Pro probes made from May 2014 through June 2014, not every thermometer. More is on the "},
+            {"text": "turkey temperatures guide", "href": "/thanksgiving/turkey-temperatures/"},
+            {"text": ". Search the model on CPSC Recalls and on Health Canada recalls and safety alerts."}
+          ]
+        },
+        {
+          "id": "roasting-pan-rack",
+          "name": "Roasting pan with a wire rack",
+          "why": "On this list because USDA FSIS says to set a turkey breast-side up on a flat wire rack in a shallow roasting pan.",
+          "search": "roasting pan with rack",
+          "check": [
+            {"text": "Read the material and the depth on the pan. "},
+            {"text": "USDA Turkey Basics: Safe Cooking", "href": "https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/poultry/turkey-basics-safe-cooking"},
+            {"text": " says to use a shallow roasting pan 2 to 2 1/2 inches deep, and says a dark roasting pan cooks faster than a shiny one. It still says doneness is 165 °F on a food thermometer. Search the brand and model on CPSC Recalls and on Health Canada recalls and safety alerts."}
+          ]
+        },
+        {
+          "id": "wusthof-carving-set",
+          "name": "Wusthof carving set",
+          "why": "On this list because USDA FSIS says to let the turkey stand 20 minutes before carving, and a carving set is sold for that step.",
+          "search": "Wusthof carving set",
+          "check": [
+            {"text": "Read the model on the knife or the box. "},
+            {"text": "USDA Turkey Basics: Safe Cooking", "href": "https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/poultry/turkey-basics-safe-cooking"},
+            {"text": " says the 20-minute stand is so the juices set and the turkey carves more easily. The catalogue card for the "},
+            {"text": "Wusthof Classic 8-inch cook’s knife", "href": "/kitchen/wusthof-classic-8/"},
+            {"text": " is a different product from a carving set. Search the carving-set model on CPSC Recalls and on Health Canada recalls and safety alerts."}
+          ]
+        },
+        {
+          "id": "le-creuset-dutch-oven",
+          "name": "Le Creuset Dutch oven",
+          "why": "On this list because a Le Creuset Dutch oven is a widely sold lidded pot, and the CPSC holiday cooking release says to smother a grease fire by sliding a lid over the pan.",
+          "search": "Le Creuset Dutch oven",
+          "check": [
+            {"text": "Read the size on the pot. The November 19, 2025 "},
+            {"text": "CPSC holiday cooking release", "href": "https://www.cpsc.gov/Newsroom/News-Releases/2026/Put-Safety-on-the-Menu-Consumer-Product-Safety-Commission-Offers-Safe-Cooking-Tips-for-a-Joyful-Holiday-Season"},
+            {"text": " says to slide a lid over a grease fire and turn off the burner, and never to use water. The "},
+            {"text": "NFPA desk reference", "href": "https://www.nfpa.org/-/media/project/storefront/catalog/files/home-fire-safety/emac/educationalmessagesdeskreference.pdf"},
+            {"text": " says not to move the pan and to leave the lid on until the pan has cooled. The catalogue card for the "},
+            {"text": "Le Creuset Signature 5.5-quart Dutch oven", "href": "/kitchen/lecreuset-signature-5-5/"},
+            {"text": " is one model. A clear line on that card does not cover a different size. Search the size you are buying on CPSC Recalls and on Health Canada recalls and safety alerts."}
+          ]
+        },
+        {
+          "id": "oxo-gravy-separator",
+          "name": "OXO gravy separator",
+          "why": "On this list because an OXO gravy separator is a widely sold tool for separating fat from pan drippings, and USDA FSIS gives a storage time for gravy.",
+          "search": "OXO gravy separator",
+          "check": [
+            {"text": "Read the model on the separator. "},
+            {"text": "Let’s Talk Turkey", "href": "https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/poultry/lets-talk-turkey-roasting"},
+            {"text": " says to discard gravy left out longer than 2 hours, or 1 hour above 90 °F, and to use refrigerated gravy within 3 to 4 days. It says reheated turkey should reach 165 °F. Search the model on CPSC Recalls and on Health Canada recalls and safety alerts."}
+          ]
+        },
+        {
+          "id": "kidde-kitchen-extinguisher",
+          "name": "Kidde kitchen fire extinguisher",
+          "why": "On this list because a Kidde fire extinguisher is a widely sold home extinguisher, and the CPSC holiday cooking release says to have a fire extinguisher nearby and know how to use it.",
+          "search": "Kidde kitchen fire extinguisher",
+          "check": [
+            {"text": "Read the model number, the date code, and the classification label. "},
+            {"text": "USFA’s extinguisher page", "href": "https://www.usfa.fema.gov/prevention/home-fires/prepare-for-fire/fire-extinguishers/"},
+            {"text": " says to look for a UL Listed or ULC Listed label, describes Class B for grease and other flammable liquids, Class K for cooking oils and fats, and multipurpose A-B-C extinguishers for most home fires. The November 2, 2017 "},
+            {"text": "CPSC Kidde notice", "href": "https://www.cpsc.gov/Recalls/2018/Kidde-Recalls-Fire-Extinguishers-with-Plastic-Handles-Due-to-Failure-to-Discharge-and-Nozzle-Detachment-One-Death-Reported"},
+            {"text": " names plastic-handle models made from January 1, 1973 through August 15, 2017, and push-button Pindicator extinguishers. It counts units sold in Canada. More is on the "},
+            {"text": "kitchen fires guide", "href": "/thanksgiving/kitchen-fires/"},
+            {"text": ". Search the model on CPSC Recalls and on Health Canada recalls and safety alerts."}
+          ]
+        }
+      ]
     }
   ]
 }

@@ -38,7 +38,7 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add products.json recalls.json sitemap.xml index.html bin-list/index.html 404.html
           git add data recalls how-we-check/index.html
-          git add winter car-garage air-water pet kitchen sleep personal-tech gifts black-friday compare
+          git add winter car-garage air-water pet kitchen sleep personal-tech gifts black-friday compare thanksgiving
           git add -- *.txt
           if git diff --cached --quiet; then
             echo "No recall changes"
