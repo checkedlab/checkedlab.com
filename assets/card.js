@@ -152,6 +152,15 @@
     }).join("") + "</div>";
   }
 
+  function amazonButton(product, reg) {
+    var store = null;
+    for (var i = 0; i < STORES[reg].length; i++) {
+      if (STORES[reg][i].id === "amazon") store = STORES[reg][i];
+    }
+    var url = storeUrl(product, reg, "amazon");
+    return '<a class="store-btn store-primary" href="' + esc(safeUrl(url)) + '" target="_blank" rel="' + REL + '">' + esc(store.label) + "</a>";
+  }
+
   function recallFor(product, reg) {
     return (product.recall || {})[regionKey(reg)] || { status: "not_recorded" };
   }
@@ -286,6 +295,7 @@
   return {
     card: card,
     storeButtons: storeButtons,
+    amazonButton: amazonButton,
     recallBlock: recallBlock,
     evidenceList: evidenceList,
     checkList: checkList,

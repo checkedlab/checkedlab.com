@@ -1,7 +1,7 @@
 {
   "/": {
-    "hash": "a42c09df7327fb537f2a83e944de6830dee6b68826c33ffb2d4f93b6f207071f",
-    "lastmod": "2026-11-11"
+    "hash": "e5af199b06b8505e3c268a2deadf5136ddb7aa1926a1571ee1ba26f16dec6132",
+    "lastmod": "2026-11-12"
   },
   "/air-water/": {
     "hash": "84740a4d0b74e1a5f9dad7fd2307d767e91cf2f01c4b46bf0b2143d554983f5e",
@@ -80,8 +80,8 @@
     "lastmod": "2026-11-11"
   },
   "/black-friday/": {
-    "hash": "380b8b2041e1f94a3a1fda66c17c9add435ce5a3fbf00f77f38f230c81ff7934",
-    "lastmod": "2026-11-11"
+    "hash": "cf9243827323e6628a7c7b81d90681eea659272b7ee33f66b887d2d619d93ac2",
+    "lastmod": "2026-11-12"
   },
   "/car-garage/": {
     "hash": "ea028fb83d57505a8b3c45d3bc333c360b9a882d2c25020beb9ff25d7a79b43d",
@@ -166,6 +166,38 @@
   "/compare/noco-gb40-vs-gb50/": {
     "hash": "1cf968ef33739f4bba8b23fd9316815fe4de60b57d8a7cba124d35598b0d637c",
     "lastmod": "2026-11-11"
+  },
+  "/gifts/": {
+    "hash": "6301f3c357f7bb9a9dbbcbdf83ef285ad0531377d3f066ef28f8ed55c85de8b5",
+    "lastmod": "2026-11-12"
+  },
+  "/gifts/for-better-sleep/": {
+    "hash": "db8b46ebf0f9d02f5de1cede2a61f86672b8a81c8a5965ad89c015d26e227b6b",
+    "lastmod": "2026-11-12"
+  },
+  "/gifts/for-coffee-lovers/": {
+    "hash": "6ff2168c4870f650148fe4b1bc65b2943ce01f564387bd3b2a1177ae6042be27",
+    "lastmod": "2026-11-12"
+  },
+  "/gifts/for-pet-owners/": {
+    "hash": "608d58f2e97bfa6dffa20aae073058ebb8340832ad9e4a56bf07e7cf38fa4007",
+    "lastmod": "2026-11-12"
+  },
+  "/gifts/for-the-garage/": {
+    "hash": "4ef745da241c34ee7059c03212cfb1416f8d5bc13dcfe1f1548053b9d2325976",
+    "lastmod": "2026-11-12"
+  },
+  "/gifts/for-the-home-cook/": {
+    "hash": "138c100282129084fa19b2af7b6a211208c446121ce671abe1de63d3d45ba42a",
+    "lastmod": "2026-11-12"
+  },
+  "/gifts/for-the-home/": {
+    "hash": "57d1bde809b13ac5cea72c2cee279bcab42b6a54f030f2182507692f477de5e5",
+    "lastmod": "2026-11-12"
+  },
+  "/gifts/tech-and-gadgets/": {
+    "hash": "6d14be3cb4c422905da249ac5abfad1fa6bcff79210eac498f7253d920da5742",
+    "lastmod": "2026-11-12"
   },
   "/how-we-check/": {
     "hash": "0a5d52e8bdccd13ddfd49ee4b67cfead8e60e21f05724ab815f260108eb94d86",
