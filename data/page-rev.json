@@ -1,6 +1,6 @@
 {
   "/": {
-    "hash": "21e7450e6eaf5690cab68559f57b2a081c73b05b71dcc959325bd7a8c54e84ad",
+    "hash": "eae53a85283a0084c9702e0b52687868235df7f90f91e3082433defad702bd49",
     "lastmod": "2026-11-12"
   },
   "/air-water/": {
@@ -80,7 +80,7 @@
     "lastmod": "2026-11-11"
   },
   "/black-friday/": {
-    "hash": "9358f9794323feaa4ae40568e7fa1579dc9ba01dd4b76f1ac82ad210f1317f54",
+    "hash": "1c8301074d2035b3eeaf4328deb893a9de8e10360a0a70c89c7804cd1a8b1fd3",
     "lastmod": "2026-11-12"
   },
   "/car-garage/": {
@@ -168,39 +168,43 @@
     "lastmod": "2026-11-11"
   },
   "/gifts/": {
-    "hash": "53fd98d03c6e143c086d1892016806f9bc75e4f2da9d049a371b468cefde70ac",
+    "hash": "cf4233f6b0cd86412dee4dd1ea04a315e9cdd0133ed4793a4190fa7ff1799dd8",
     "lastmod": "2026-11-12"
   },
   "/gifts/for-better-sleep/": {
-    "hash": "fa61052d46247820ac4c8e15dc23e2b7c0ccecade5bd10183a3a29b8ad2b7e0e",
+    "hash": "4a3d1d00fe4ab9538842baba8837a5ffb9c5aae481d623f374da9b2106ccf776",
     "lastmod": "2026-11-12"
   },
   "/gifts/for-coffee-lovers/": {
-    "hash": "b71ae2d9febe218e34b408d0b7764befb85208ad10c39dc14a8889df618ca1c4",
+    "hash": "457198771b58420494e7b06e98c65f9917bc6e16455358d9f3e2cf1c6d094b24",
+    "lastmod": "2026-11-12"
+  },
+  "/gifts/for-kids/": {
+    "hash": "65e2124b0ab26513a812cdb6445c3e7f120961f37765161a2717c412ca625a40",
     "lastmod": "2026-11-12"
   },
   "/gifts/for-pet-owners/": {
-    "hash": "b2eda1a9755449ecaeab0211edfab21af179c82180a5bf8f226fe2dc217c825d",
+    "hash": "28265d08235f21c5471b58aa01d21bcc0e693aec079e2fd520586a42fe60ac0d",
     "lastmod": "2026-11-12"
   },
   "/gifts/for-the-garage/": {
-    "hash": "e4bd6432e24da1c98c6493b003c279e912f5509c3a93076c1db8e51c9c5f3318",
+    "hash": "6bef53a5f494eb3f742dc3db2b4ad7bdb8d6d89990df437eb6368f4398b7924d",
     "lastmod": "2026-11-12"
   },
   "/gifts/for-the-home-cook/": {
-    "hash": "1c9d174103c69c750348576544cb0c77d87f88e9155b923bf43fd05475c68646",
+    "hash": "9293fba25122c9ebb914cccd25fe72874a0fb36f395dfd309b0fd36f36d8fb44",
     "lastmod": "2026-11-12"
   },
   "/gifts/for-the-home/": {
-    "hash": "b570bd79633c398265f3f0770ca7ee0281bdcf4efd3c2ea8c89641ad38f21a2c",
+    "hash": "7f5cbd5ae7f148cffb77f922c8732de260648afb174225e88c7747534d0230e9",
     "lastmod": "2026-11-12"
   },
   "/gifts/tech-and-gadgets/": {
-    "hash": "4e5f049159973aec0c215ebba47b1cf6d67466a00955fcaf915c5f123011b154",
+    "hash": "a118c2dfb952bfd9002eff179d8f577e5c0984baf807fbc2e727d6fe4df8fb3c",
     "lastmod": "2026-11-12"
   },
   "/how-we-check/": {
-    "hash": "071fd5309ae53337b5e87926bbb74143ed506cd4dd614cdafae71c8338d45d21",
+    "hash": "97531ed49408a45503bc0ccd22d0f986dc0c2c635bf02a31297652d2bcfb9f91",
     "lastmod": "2026-11-12"
   },
   "/kitchen/": {
@@ -440,7 +444,7 @@
     "lastmod": "2026-11-11"
   },
   "/recalls/": {
-    "hash": "9242b7cbda688aef2f62553f92f5e2dfc5df2902be523ff4fd6e61e345993fcf",
+    "hash": "2cac9bb7f2eb8abe519c0f3bd2a951ec78bebe610d415bea05e11a159a46706d",
     "lastmod": "2026-11-12"
   },
   "/recalls/anker-power-banks/": {
@@ -531,24 +535,44 @@
     "hash": "d67de5555813e0fa8886ed8a43dfb14a6da984fd8e63a1983a94cd3a3fda8453",
     "lastmod": "2026-11-11"
   },
+  "/toy-safety/": {
+    "hash": "54ce95681b202848e31ad6c8b7d768d31f32c3de365b9e1893507e179599dfd7",
+    "lastmod": "2026-11-12"
+  },
+  "/toy-safety/button-coin-batteries/": {
+    "hash": "4e6d39c6a1842abac02abb3792f89c664bd2f68c1279897aac6292bda6f12413",
+    "lastmod": "2026-11-12"
+  },
+  "/toy-safety/magnets/": {
+    "hash": "368d567b9859ec57f8bbb42a225a2279cd8dad2dd68b223e342a89fb1a631697",
+    "lastmod": "2026-11-12"
+  },
+  "/toy-safety/ride-ons-and-scooters/": {
+    "hash": "752a3225b887822adebc9d679e5e20afca0b71c5af37f7c6e78693bb482cd66b",
+    "lastmod": "2026-11-12"
+  },
+  "/toy-safety/water-beads/": {
+    "hash": "b54dd40b8951b8eb21a57b1e462669c468cca041b3cf1b15396c58693dbd64e4",
+    "lastmod": "2026-11-12"
+  },
   "/winter-safety/": {
-    "hash": "4e8ab92f15109354e27dc3719ba3763e2e9e2d1bc50fd6d803c7a3a39e5da8cf",
+    "hash": "e189b5ec11dd660fca7bd2153e4c8922bc68f66dfb6b34842c8ff36e1d06605b",
     "lastmod": "2026-11-12"
   },
   "/winter-safety/carbon-monoxide-smoke-alarms/": {
-    "hash": "39d80bcda92a9f1975c479fe398cd6e80f6c01ecb14a351c9ec28439e1a79bfd",
+    "hash": "490ae7dfa52e865a0cb857f6bd5fa5603a98b6917c43e156c28e5d7d62631f2c",
     "lastmod": "2026-11-12"
   },
   "/winter-safety/electric-blankets/": {
-    "hash": "19bdd696ae2e020c60bf7fd16068ef2c7621a951b65d976980eb1d56586f3889",
+    "hash": "9d52cbe04e071b8826ef3709fcdcaed59c2734176cc4b8c874f2943c8afc839d",
     "lastmod": "2026-11-12"
   },
   "/winter-safety/portable-power/": {
-    "hash": "a1bb83d2bae2fa23b64d78bb74f3d4e6a1ff8b8a13d62c3424d44e92f149fd79",
+    "hash": "39abf47467506abddc09643f5803784f7f4ee12c332bbf4c4325ed41dd90dbad",
     "lastmod": "2026-11-12"
   },
   "/winter-safety/space-heaters/": {
-    "hash": "6d0ced7690ca4c37713a76f986db6100528428787dba3c6386e2b8c8c602858c",
+    "hash": "5bf204ce3bec20b764aa7e5ac34ad2be7671de943eb9dd02bce35067ad2b9353",
     "lastmod": "2026-11-12"
   },
   "/winter/": {

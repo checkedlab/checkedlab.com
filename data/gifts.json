@@ -141,6 +141,112 @@
         "philips-hf3520",
         "manta-sleep-mask"
       ]
+    },
+    {
+      "kind": "checks",
+      "slug": "for-kids",
+      "title": "Gifts for kids, recall-aware, 2026",
+      "h1": "Gifts for kids",
+      "label": "Kids",
+      "description": "Mainstream kids product lines, with the official CPSC or Health Canada check to do before you buy.",
+      "faqs": [
+        {
+          "q": "What is on this list?",
+          "a": "Six mainstream kids product lines sold in US and Canada stores. Each line says why it is listed and which official page to use for the check. The button opens an Amazon search for those words. It is not a product page."
+        },
+        {
+          "q": "Where do I search a toy recall?",
+          "a": "Search the brand and the set or model number on CPSC Recalls for a US purchase and on Health Canada recalls and safety alerts for a Canadian purchase. Match the number on the box to the number on the notice."
+        },
+        {
+          "q": "Does this list replace the toy safety guides?",
+          "a": "No. Toy safety covers button and coin batteries, magnets, water beads, and ride-ons and scooters. This page links those guides. A line here is not a catalogue card."
+        }
+      ],
+      "picks": [
+        {
+          "id": "lego-duplo",
+          "name": "LEGO Duplo brick set",
+          "why": "On this list because LEGO Duplo is a mainstream brick set for younger children.",
+          "search": "LEGO Duplo brick set",
+          "check": [
+            {"text": "Read the age range on the box. "},
+            {"text": "Health Canada toy safety tips", "href": "https://www.canada.ca/en/health-canada/services/toy-safety/toy-safety-tips.html"},
+            {"text": " say a toy that is safe for an older child may be dangerous for a younger one, and say not to give building sets for older children to children under 3. The same page says a toy or a removable part that fits inside a toilet paper roll is too small for safe play for children under 3. "},
+            {"text": "CPSC small-parts guidance", "href": "https://www.cpsc.gov/Business--Manufacturing/Business-Education/Business-Guidance/Small-Parts-for-Toys-and-Childrens-Products"},
+            {"text": " says products intended for children under 3 that present a choking, aspiration, or ingestion hazard because of small parts are banned under 16 CFR part 1501. Search the set number on CPSC Recalls and on Health Canada recalls and safety alerts."}
+          ]
+        },
+        {
+          "id": "crayola-crayons",
+          "name": "Crayola crayons",
+          "why": "On this list because Crayola crayons are a mainstream kids art supply.",
+          "search": "Crayola crayons",
+          "check": [
+            {"text": "Read the age label and any warning. "},
+            {"text": "Health Canada’s back-to-school page", "href": "https://www.canada.ca/en/health-canada/topics/consumer-product-safety-education/online-shopping/back-to-school.html"},
+            {"text": " says to buy art supplies labeled for children’s use and to avoid products with hazard symbols. It says a label that cites ASTM D 4236 means a medical professional reviewed the product and the label lists hazards and safe-use instructions. It says that citation does not mean the product is non-toxic. "},
+            {"text": "CPSC small-parts guidance", "href": "https://www.cpsc.gov/Business--Manufacturing/Business-Education/Business-Guidance/Small-Parts-for-Toys-and-Childrens-Products"},
+            {"text": " lists writing materials such as crayons among the products excluded from the small-parts ban. Search the brand on CPSC Recalls and on Health Canada recalls and safety alerts."}
+          ]
+        },
+        {
+          "id": "hot-wheels",
+          "name": "Hot Wheels toy cars",
+          "why": "On this list because Hot Wheels is a mainstream toy-car line.",
+          "search": "Hot Wheels toy cars",
+          "check": [
+            {"text": "Read the age label. "},
+            {"text": "Health Canada’s toy-type page", "href": "https://www.canada.ca/en/health-canada/services/toy-safety/safety-advice-specific-toy-types.html"},
+            {"text": " lists wheels and tires from small toy cars among the small parts not to give to young children. "},
+            {"text": "CPSC small-parts guidance", "href": "https://www.cpsc.gov/Business--Manufacturing/Business-Education/Business-Guidance/Small-Parts-for-Toys-and-Childrens-Products"},
+            {"text": " says a product intended for children under 3 is banned if the toy, a separate part, or a piece that breaks off during CPSC use-and-abuse testing fits entirely in the small parts cylinder. Search the assortment number on CPSC Recalls and on Health Canada recalls and safety alerts."}
+          ]
+        },
+        {
+          "id": "radio-flyer-wagon",
+          "name": "Radio Flyer wagon",
+          "why": "On this list because a Radio Flyer wagon is a mainstream ride-on toy.",
+          "search": "Radio Flyer wagon",
+          "check": [
+            {"text": "Read the age, size, and weight lines on the box. "},
+            {"text": "Health Canada’s ride-on advice", "href": "https://www.canada.ca/en/health-canada/services/toy-safety/safety-advice-specific-toy-types.html"},
+            {"text": " says falls are the most common injuries with ride-on toys, tricycles, scooters, and wagons. It says to match the toy to the child’s age, size, and abilities, to keep riding on flat traffic-free paths, and not to allow standing or kneeling in a wagon. It says roads, driveways, stairs, and pools are not places to ride. More ride-on checks are on the "},
+            {"text": "ride-ons and scooters guide", "href": "/toy-safety/ride-ons-and-scooters/"},
+            {"text": ". Search the model number on CPSC Recalls and on Health Canada recalls and safety alerts."}
+          ]
+        },
+        {
+          "id": "razor-kick-scooter",
+          "name": "Razor kick scooter",
+          "why": "On this list because a Razor kick scooter is a mainstream kids scooter. The search words are for a kick scooter.",
+          "search": "Razor kick scooter",
+          "check": [
+            {"text": "Read whether the listing has a battery. If it does, use the "},
+            {"text": "ride-ons and scooters guide", "href": "/toy-safety/ride-ons-and-scooters/"},
+            {"text": " for the UL 2272 check. "},
+            {"text": "Health Canada’s ride-on advice", "href": "https://www.canada.ca/en/health-canada/services/toy-safety/safety-advice-specific-toy-types.html"},
+            {"text": " says to use helmets especially for scooters. "},
+            {"text": "Health Canada’s back-to-school page", "href": "https://www.canada.ca/en/health-canada/topics/consumer-product-safety-education/online-shopping/back-to-school.html"},
+            {"text": " lists a bicycle helmet for electric and non-electric scooters and says to look for a certification label such as CSA, ASTM, EN, or SNELL. "},
+            {"text": "CPSC bicycle-helmet guidance", "href": "https://www.cpsc.gov/Business--Manufacturing/Business-Education/Business-Guidance/Bicycle-Helmets"},
+            {"text": " says US bicycle helmets are covered by 16 CFR part 1203. Search the model on CPSC Recalls and on Health Canada recalls and safety alerts."}
+          ]
+        },
+        {
+          "id": "magna-tiles",
+          "name": "Magna-Tiles building set",
+          "why": "On this list because Magna-Tiles is a mainstream magnetic building set.",
+          "search": "Magna-Tiles building set",
+          "check": [
+            {"text": "Read the age label and look at the size of the pieces. "},
+            {"text": "Health Canada’s magnetic-toy advice", "href": "https://www.canada.ca/en/health-canada/services/toy-safety/safety-advice-specific-toy-types.html"},
+            {"text": " says construction sets can contain magnets, and says to buy magnetic toys whose pieces are too big to swallow. The "},
+            {"text": "magnets guide", "href": "/toy-safety/magnets/"},
+            {"text": " quotes the CPSC rule for novelty magnet sets and the Health Canada assessment under the Canada Consumer Product Safety Act. CPSC says that rule does not apply to toys for children under 14, because 16 CFR part 1250 already covers those toys. Search the set number on CPSC Recalls and on Health Canada recalls and safety alerts."}
+          ]
+        }
+      ]
     }
   ]
 }
