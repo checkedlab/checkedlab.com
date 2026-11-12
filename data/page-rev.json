@@ -1,6 +1,6 @@
 {
   "/": {
-    "hash": "e5af199b06b8505e3c268a2deadf5136ddb7aa1926a1571ee1ba26f16dec6132",
+    "hash": "21e7450e6eaf5690cab68559f57b2a081c73b05b71dcc959325bd7a8c54e84ad",
     "lastmod": "2026-11-12"
   },
   "/air-water/": {
@@ -80,7 +80,7 @@
     "lastmod": "2026-11-11"
   },
   "/black-friday/": {
-    "hash": "cf9243827323e6628a7c7b81d90681eea659272b7ee33f66b887d2d619d93ac2",
+    "hash": "9358f9794323feaa4ae40568e7fa1579dc9ba01dd4b76f1ac82ad210f1317f54",
     "lastmod": "2026-11-12"
   },
   "/car-garage/": {
@@ -168,40 +168,40 @@
     "lastmod": "2026-11-11"
   },
   "/gifts/": {
-    "hash": "6301f3c357f7bb9a9dbbcbdf83ef285ad0531377d3f066ef28f8ed55c85de8b5",
+    "hash": "53fd98d03c6e143c086d1892016806f9bc75e4f2da9d049a371b468cefde70ac",
     "lastmod": "2026-11-12"
   },
   "/gifts/for-better-sleep/": {
-    "hash": "db8b46ebf0f9d02f5de1cede2a61f86672b8a81c8a5965ad89c015d26e227b6b",
+    "hash": "fa61052d46247820ac4c8e15dc23e2b7c0ccecade5bd10183a3a29b8ad2b7e0e",
     "lastmod": "2026-11-12"
   },
   "/gifts/for-coffee-lovers/": {
-    "hash": "6ff2168c4870f650148fe4b1bc65b2943ce01f564387bd3b2a1177ae6042be27",
+    "hash": "b71ae2d9febe218e34b408d0b7764befb85208ad10c39dc14a8889df618ca1c4",
     "lastmod": "2026-11-12"
   },
   "/gifts/for-pet-owners/": {
-    "hash": "608d58f2e97bfa6dffa20aae073058ebb8340832ad9e4a56bf07e7cf38fa4007",
+    "hash": "b2eda1a9755449ecaeab0211edfab21af179c82180a5bf8f226fe2dc217c825d",
     "lastmod": "2026-11-12"
   },
   "/gifts/for-the-garage/": {
-    "hash": "4ef745da241c34ee7059c03212cfb1416f8d5bc13dcfe1f1548053b9d2325976",
+    "hash": "e4bd6432e24da1c98c6493b003c279e912f5509c3a93076c1db8e51c9c5f3318",
     "lastmod": "2026-11-12"
   },
   "/gifts/for-the-home-cook/": {
-    "hash": "138c100282129084fa19b2af7b6a211208c446121ce671abe1de63d3d45ba42a",
+    "hash": "1c9d174103c69c750348576544cb0c77d87f88e9155b923bf43fd05475c68646",
     "lastmod": "2026-11-12"
   },
   "/gifts/for-the-home/": {
-    "hash": "57d1bde809b13ac5cea72c2cee279bcab42b6a54f030f2182507692f477de5e5",
+    "hash": "b570bd79633c398265f3f0770ca7ee0281bdcf4efd3c2ea8c89641ad38f21a2c",
     "lastmod": "2026-11-12"
   },
   "/gifts/tech-and-gadgets/": {
-    "hash": "6d14be3cb4c422905da249ac5abfad1fa6bcff79210eac498f7253d920da5742",
+    "hash": "4e5f049159973aec0c215ebba47b1cf6d67466a00955fcaf915c5f123011b154",
     "lastmod": "2026-11-12"
   },
   "/how-we-check/": {
-    "hash": "0a5d52e8bdccd13ddfd49ee4b67cfead8e60e21f05724ab815f260108eb94d86",
-    "lastmod": "2026-11-11"
+    "hash": "071fd5309ae53337b5e87926bbb74143ed506cd4dd614cdafae71c8338d45d21",
+    "lastmod": "2026-11-12"
   },
   "/kitchen/": {
     "hash": "95dba9f9c42dcb417fe8335aafd228f55324e62ed4efbab905cc99028667310c",
@@ -440,8 +440,8 @@
     "lastmod": "2026-11-11"
   },
   "/recalls/": {
-    "hash": "4eb8edd843195661478c7139287614e4f3f73a83e75138806b49ba6920a8e8c9",
-    "lastmod": "2026-11-11"
+    "hash": "9242b7cbda688aef2f62553f92f5e2dfc5df2902be523ff4fd6e61e345993fcf",
+    "lastmod": "2026-11-12"
   },
   "/recalls/anker-power-banks/": {
     "hash": "58118274742c19ba4eb496a0408a050c7c68ad055622e80f6ed305cd567c4496",
@@ -531,17 +531,37 @@
     "hash": "d67de5555813e0fa8886ed8a43dfb14a6da984fd8e63a1983a94cd3a3fda8453",
     "lastmod": "2026-11-11"
   },
+  "/winter-safety/": {
+    "hash": "4e8ab92f15109354e27dc3719ba3763e2e9e2d1bc50fd6d803c7a3a39e5da8cf",
+    "lastmod": "2026-11-12"
+  },
+  "/winter-safety/carbon-monoxide-smoke-alarms/": {
+    "hash": "39d80bcda92a9f1975c479fe398cd6e80f6c01ecb14a351c9ec28439e1a79bfd",
+    "lastmod": "2026-11-12"
+  },
+  "/winter-safety/electric-blankets/": {
+    "hash": "19bdd696ae2e020c60bf7fd16068ef2c7621a951b65d976980eb1d56586f3889",
+    "lastmod": "2026-11-12"
+  },
+  "/winter-safety/portable-power/": {
+    "hash": "a1bb83d2bae2fa23b64d78bb74f3d4e6a1ff8b8a13d62c3424d44e92f149fd79",
+    "lastmod": "2026-11-12"
+  },
+  "/winter-safety/space-heaters/": {
+    "hash": "6d0ced7690ca4c37713a76f986db6100528428787dba3c6386e2b8c8c602858c",
+    "lastmod": "2026-11-12"
+  },
   "/winter/": {
-    "hash": "be460e9d88eeb6af5c3853b4395695978a959ed19ece639bbd613a6360a73f2e",
-    "lastmod": "2026-11-11"
+    "hash": "96a2e4e66e8016c2eaf75d9e66268ddbd4afef00037ce4e42489ab19c70a4619",
+    "lastmod": "2026-11-12"
   },
   "/winter/delonghi-trd40615e/": {
-    "hash": "86e45a3305faed8e61333d78f02904698bf0135b3814e2414be510c1c1be6ae0",
-    "lastmod": "2026-11-11"
+    "hash": "cb42153fb801aa9f6ecd015774395f06ecc2da146e81f25d9d8d038fd111de2e",
+    "lastmod": "2026-11-12"
   },
   "/winter/dreo-atom-316/": {
-    "hash": "e4404752bc9b0f290c878fcc6a55536fbf5a56068b674684d063486df00c4c30",
-    "lastmod": "2026-11-11"
+    "hash": "420cbe4b47ebf0addd18fbb771570f0bd38f5b5e2973ca832dbf45bbf172cd1c",
+    "lastmod": "2026-11-12"
   },
   "/winter/ego-snt2110/": {
     "hash": "23298515c9ccf6831e8ae9ad01dc63f6d78a28df16aa7f1e93b9904424f8db97",
@@ -552,20 +572,20 @@
     "lastmod": "2026-11-11"
   },
   "/winter/lasko-ct14401/": {
-    "hash": "d28c43e6e2f839c98d801981f2cfbb10f899d7a374521afdfd691e0c4ab07b6b",
-    "lastmod": "2026-11-11"
+    "hash": "d14f3ed6e8414293a817227f5cf6d5bd4fed391d5db08f6cc887b8c4240243a8",
+    "lastmod": "2026-11-12"
   },
   "/winter/lasko-ct32150/": {
-    "hash": "9d5f2368f8ec42b2bbee1dbf0bc1c9e142081da5d75f4690f58a86f96d23317d",
-    "lastmod": "2026-11-11"
+    "hash": "669ccb663720e3e1bc9edfd6d1a2c0ff2817a7056afd4668a1a71fd21e526e07",
+    "lastmod": "2026-11-12"
   },
   "/winter/levoit-classic-300s/": {
     "hash": "ac71fb18114826300c8be063d6effd7973eb819ff42905308d713072e78773dc",
     "lastmod": "2026-11-11"
   },
   "/winter/mr-heater-mh9bx/": {
-    "hash": "8b0279fd122627cd890787c28542eb3a46029e97c6643257f64570808f827721",
-    "lastmod": "2026-11-11"
+    "hash": "b0bdba6aa84cfc051181f3e50d1c4816eb7911e58f8adeaa7a697a7313163d02",
+    "lastmod": "2026-11-12"
   },
   "/winter/peet-original/": {
     "hash": "f6d54cdcd3da37f70f2905bb7121c68069215b28478fcb098d6b7ba4c75078d9",
@@ -588,7 +608,7 @@
     "lastmod": "2026-11-11"
   },
   "/winter/vornado-avh2/": {
-    "hash": "a0393008b3187a910e7e827867e792d1bd87644f47b16d440d7f2c308b32f9d9",
-    "lastmod": "2026-11-11"
+    "hash": "3e64af46add5dda400aeff2037b5eedec4f6bd1ee17c2b24b72a95a01e2d302f",
+    "lastmod": "2026-11-12"
   }
 }

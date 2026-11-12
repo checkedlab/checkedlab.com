@@ -1,0 +1,323 @@
+{
+  "title": "Winter home safety, recall-checked",
+  "h1": "Winter home safety, recall-checked",
+  "description": "Label lines and official CPSC and Health Canada searches for space heaters, heated blankets, CO and smoke alarms, and outage power.",
+  "faqs": [
+    {
+      "q": "What do these guides cover?",
+      "a": "Four winter checks: space heaters, electric blankets and heated throws, carbon monoxide and smoke alarms, and portable power stations and generators. Each guide says what to read on the label, where to search a recall, and which official notices show a pattern."
+    },
+    {
+      "q": "Where is the official recall search?",
+      "a": "CPSC Recalls is the United States search. Health Canada recalls and safety alerts is the Canada search. Search the brand and the model number printed on the unit."
+    },
+    {
+      "q": "Does a guide replace a catalogue card?",
+      "a": "No. A catalogue card is the dated CPSC and Health Canada match for that model. A guide links the card when the model is in the catalogue, and it links a notice when that notice names a different model."
+    }
+  ],
+  "guides": [
+    {
+      "slug": "space-heaters",
+      "title": "Space heaters: what to read, then check the recall",
+      "h1": "Space heaters",
+      "label": "Space heaters",
+      "description": "What to read on a space heater label, where to search CPSC and Health Canada, and official notices for overheating and a failed tip switch.",
+      "searches": ["space heater"],
+      "look": [
+        [
+          {"text": "Read the rating label for a certification mark. UL, ETL, and CSA are the marks to compare with what is printed on the unit."}
+        ],
+        [
+          {"text": "Read the label and the manual for a tip-over shutoff and an overheat shutoff. Then read the model number on the unit. If a notice uses a serial number or a manufacture date, read that on the same label."}
+        ]
+      ],
+      "methodExtra": [
+        [
+          {"text": "Heater notices in this guide put the model number on the underside, on the bottom decal, or on the item number for a tank-top propane heater. Match that string, not the brand alone."}
+        ]
+      ],
+      "patterns": [
+        {
+          "agency": "CPSC",
+          "title": "Vornado Air Recalls Electric Space Heaters",
+          "url": "https://www.cpsc.gov/Recalls/2014/Vornado-Air-Recalls-Electric-Space-Heaters",
+          "says": "The notice says the VH110 can overheat and cause the units to melt, catch fire, and ignite nearby items. It says recalled heaters have 1 and 3 as the fourth and fifth digits of the serial number, on a silver decal on the bottom."
+        },
+        {
+          "agency": "CPSC",
+          "title": "Harbor Freight Tools Recalls One Stop Gardens Tank Top Propane Heaters Due to Burn Hazard",
+          "url": "https://www.cpsc.gov/Recalls/2021/Harbor-Freight-Tools-Recalls-One-Stop-Gardens-15-000-and-30-000-BTU-Tank-Top-Propane-Heaters-Due-to-Burn-Hazard",
+          "says": "The notice says the flame can be directed to the rear in windy weather and can melt the tip switch safety shut off. It says the heater may not turn off if it tips over. It names item numbers 63073 and 63072."
+        },
+        {
+          "agency": "Health Canada",
+          "title": "DREO Space Heaters recalled due to fire and burn hazards",
+          "url": "https://recalls-rappels.canada.ca/en/alert-recall/dreo-space-heaters-recalled-due-fire-and-burn-hazards",
+          "says": "The notice says model DR-HSH015 can overheat and ignite. It says affected units were manufactured from April 2025 (2025/04) to January 2026 (2026/01). The model number and manufacture date are on labels on the underside."
+        },
+        {
+          "agency": "Health Canada",
+          "title": "GoveeLife and Govee Smart Electric Space Heaters recalled due to fire hazard",
+          "url": "https://recalls-rappels.canada.ca/en/alert-recall/goveelife-and-govee-smart-electric-space-heaters-recalled-due-fire-hazard",
+          "says": "The notice says the products can overheat, posing fire and burn hazards. It lists model numbers H7130, including H7130101, plus H7131, H7132, H7133, H7134, and H7135. The model number is on the label on the underside."
+        }
+      ],
+      "catalogue": [
+        {
+          "id": "lasko-ct32150",
+          "note": [
+            {"text": "Older Lasko and Air King model numbers are quoted on the "},
+            {"text": "Lasko heater notices", "href": "/recalls/lasko-heaters/"},
+            {"text": " page. This card is CT32150."}
+          ]
+        },
+        {
+          "id": "lasko-ct14401",
+          "note": [
+            {"text": "This card is CT14401. It is not one of the model numbers copied on the "},
+            {"text": "Lasko heater notices", "href": "/recalls/lasko-heaters/"},
+            {"text": " page."}
+          ]
+        },
+        {
+          "id": "dreo-atom-316",
+          "note": [
+            {"text": "The Health Canada notice above names DR-HSH015. This card is the Atom 316. Read the underside label before treating them as the same unit."}
+          ]
+        },
+        {
+          "id": "vornado-avh2",
+          "note": [
+            {"text": "The 2014 CPSC notice names the VH110 and a serial-number pattern. This card is the AVH2."}
+          ]
+        },
+        {
+          "id": "delonghi-trd40615e",
+          "note": [
+            {"text": "This oil-filled radiator is in the winter catalogue. Open the card for the maker specs and the dated recall check."}
+          ]
+        },
+        {
+          "id": "mr-heater-mh9bx",
+          "note": [
+            {"text": "This card is a portable propane heater. The Harbor Freight notice names One Stop Gardens item numbers 63072 and 63073, which are a different brand."}
+          ]
+        }
+      ],
+      "links": [
+        {"href": "/winter/", "label": "Winter catalogue"},
+        {"href": "/recalls/lasko-heaters/", "label": "Lasko heater notices"},
+        {"href": "/compare/lasko-ct32150-vs-ct14401/", "label": "CT32150 and CT14401 specs"}
+      ],
+      "faqs": [
+        {
+          "q": "Where do I search a space heater recall?",
+          "a": "Search the brand and the model number on CPSC Recalls for a US purchase and on Health Canada recalls and safety alerts for a Canadian purchase. Match the model on the unit to the model on the notice."
+        },
+        {
+          "q": "What should I read on the heater before I buy?",
+          "a": "Read the certification mark on the rating label, whether the label or manual names a tip-over shutoff and an overheat shutoff, and the model number. Read the serial number or manufacture date when a notice uses those."
+        },
+        {
+          "q": "Is the Dreo Atom 316 card the same unit as DREO model DR-HSH015?",
+          "a": "No. The catalogue card is the Atom 316. The Health Canada notice names DR-HSH015 and a manufacture range printed on the underside. Read that label."
+        }
+      ]
+    },
+    {
+      "slug": "electric-blankets",
+      "title": "Electric blankets and heated throws: what to read, then check the recall",
+      "h1": "Electric blankets and heated throws",
+      "label": "Electric blankets",
+      "description": "What to read on a heated blanket label and controller, where to search CPSC and Health Canada, and official notices for overheating and a controller fault.",
+      "searches": ["electric blanket", "heated throw"],
+      "look": [
+        [
+          {"text": "Read the controller for an auto-off timer, and read the label for a certification mark such as UL, ETL, or CSA."}
+        ],
+        [
+          {"text": "Read the model number on the wash label and on the controller. The notices below tell owners to match that number, not the size or the color alone."}
+        ]
+      ],
+      "methodExtra": [
+        [
+          {"text": "A heated throw and a queen blanket from the same brand can be different model numbers. Search the number on the wash label."}
+        ]
+      ],
+      "patterns": [
+        {
+          "agency": "CPSC",
+          "title": "Berkshire Blanket and Home Company Recalls Heated Throws and Blankets Due to Fire and Thermal Burn Hazards",
+          "url": "https://www.cpsc.gov/Recalls/2024/Berkshire-Blanket-Home-Company-Recalls-Heated-Throws-and-Blankets-Due-to-Fire-and-Thermal-Burn-Hazards",
+          "says": "The notice says the electric throws and blankets may overheat, posing fire and burn hazards. It says the model numbers are on a white label on the back of the throws and blankets and on the back of the controller."
+        },
+        {
+          "agency": "CPSC",
+          "title": "Bedshe International Recalls Bedsure Electric Heating Blankets and Pads Due to Fire and Thermal Burn Hazards",
+          "url": "https://www.cpsc.gov/Recalls/2023/Bedshe-International-Recalls-Bedsure-Electric-Heating-Blankets-and-Pads-Due-to-Fire-and-Thermal-Burn-Hazards-Recall-Alert",
+          "says": "The notice says the controller can malfunction, posing fire and thermal burn hazards. It lists model numbers BS-HB5060, BS-HB6284, BS-HB7284, BS-LV0A, BS-HP2422, BS-HP1224, and BS-HP2433, on a white label on the back and on the controller."
+        },
+        {
+          "agency": "Health Canada",
+          "title": "Sunbeam Queen Size Heated Blankets recalled due to potential fire hazard",
+          "url": "https://recalls-rappels.canada.ca/en/alert-recall/sunbeamr-queen-size-heated-blankets-recalled-due-potential-fire-hazard",
+          "says": "The notice says model 32810027 can potentially overheat, posing possible burn or fire hazards. It says that model number is printed on the wash label."
+        }
+      ],
+      "catalogue": [
+        {
+          "id": "sunbeam-tsl8ws",
+          "note": [
+            {"text": "The Health Canada notice above names queen-size model 32810027. This card is the LoftTec heated throw TSL8WS. Read the wash label before treating them as the same unit."}
+          ]
+        }
+      ],
+      "links": [
+        {"href": "/winter/", "label": "Winter catalogue"},
+        {"href": "/winter/sunbeam-tsl8ws/", "label": "Sunbeam LoftTec throw TSL8WS"}
+      ],
+      "faqs": [
+        {
+          "q": "Where do I search a heated blanket recall?",
+          "a": "Search the brand and the model number from the wash label on CPSC Recalls for a US purchase and on Health Canada recalls and safety alerts for a Canadian purchase."
+        },
+        {
+          "q": "What does the Bedsure notice say failed?",
+          "a": "The CPSC recall alert says the controller for the electric heating blankets and pads can malfunction, posing fire and thermal burn hazards. The model number is on a white label on the back and on the controller."
+        },
+        {
+          "q": "Is the Sunbeam TSL8WS the queen blanket in the Health Canada notice?",
+          "a": "No. The catalogue card is the LoftTec heated throw TSL8WS. The Health Canada notice names queen-size model 32810027, printed on the wash label."
+        }
+      ]
+    },
+    {
+      "slug": "carbon-monoxide-smoke-alarms",
+      "title": "Carbon monoxide and smoke alarms: what to read, then check the recall",
+      "h1": "Carbon monoxide and smoke alarms",
+      "label": "CO and smoke alarms",
+      "description": "Certification marks to read on a CO or smoke alarm, including UL 2034 and CSA 6.19, plus the official recall search and two notice patterns.",
+      "searches": ["carbon monoxide alarm", "smoke alarm"],
+      "look": [
+        [
+          {"text": "The CPSC voluntary-standards page names "},
+          {"text": "UL 2034, 4th Edition, Single and Multiple Station Carbon Monoxide Alarms", "href": "https://www.cpsc.gov/Regulations-Laws--Standards/Voluntary-Standards/Carbon-Monoxide-CO-Alarms"},
+          {"text": " as the standard for carbon monoxide alarms. Read the alarm label for UL 2034."}
+        ],
+        [
+          {"text": "Natural Resources Canada", "href": "https://natural-resources.canada.ca/energy-efficiency/home-energy-efficiency/combustion-gases-your-home-things-you-should-know-about-combustion-spillage"},
+          {"text": " says to buy a CO alarm certified to the current CSA 6.19 Residential Carbon Monoxide Alarming Devices standard. "},
+          {"text": "Health Canada", "href": "https://www.canada.ca/en/health-canada/services/air-quality/pollutants/carbon-monoxide/preventing-exposure.html"},
+          {"text": " says the certification mark has to be to Canadian safety standards, on the alarm and on the packaging, and the mark description on that page includes CSA 6.19 with a year."}
+        ],
+        [
+          {"text": "For a smoke alarm in Canada, read the label for a Canadian certification mark. The Health Canada notice below says the Residential Detectors Regulations require smoke alarms to meet the applicable Canadian standards."}
+        ]
+      ],
+      "methodExtra": [
+        [
+          {"text": "The catalogue has no smoke alarm card and no carbon monoxide alarm card. Search the model number on the back of the unit."}
+        ]
+      ],
+      "patterns": [
+        {
+          "agency": "CPSC",
+          "title": "Kidde Recalls Combination Smoke/CO Alarms Due to Alarm Failure",
+          "url": "https://www.cpsc.gov/Recalls/2017/Kidde-Recalls-Combination-Smoke-CO-Alarms",
+          "says": "The notice says model KN-COSM-IB, with manufacture dates from June 1, 2004 through December 31, 2010, can fail to keep chirping at its 7-year end of life if the batteries are replaced. It says people can then believe the alarm is still working."
+        },
+        {
+          "agency": "Health Canada",
+          "title": "Dual-Function Smoke and Carbon Monoxide Alarm recalled due to potential failure to operate",
+          "url": "https://recalls-rappels.canada.ca/en/alert-recall/dual-function-smoke-and-carbon-monoxide-alarm-recalled-due-potential-failure-operate",
+          "says": "The notice says model WJ-SC05 does not have a Canadian certification mark, and that it is unknown whether the alarm operates in the presence of smoke. It says to stop using it and replace it with one that bears a Canadian certification mark. The model number is on the label on the back."
+        }
+      ],
+      "catalogue": [],
+      "links": [
+        {"href": "/how-we-check/", "label": "How we check"},
+        {"href": "/recalls/", "label": "Recall checks"}
+      ],
+      "faqs": [
+        {
+          "q": "Which CO alarm standard does the CPSC page name?",
+          "a": "The CPSC voluntary-standards page names UL 2034, 4th Edition, Single and Multiple Station Carbon Monoxide Alarms. Read the alarm label for that standard."
+        },
+        {
+          "q": "What does Health Canada say to look for on a CO alarm?",
+          "a": "Health Canada says to look for a certification mark to Canadian safety standards on the alarm and on the packaging. Natural Resources Canada names CSA 6.19, Residential Carbon Monoxide Alarming Devices, as the standard to buy to."
+        },
+        {
+          "q": "Where do I search an alarm recall?",
+          "a": "Search the brand and the model number from the back label on CPSC Recalls for a US purchase and on Health Canada recalls and safety alerts for a Canadian purchase."
+        }
+      ]
+    },
+    {
+      "slug": "portable-power",
+      "title": "Portable power stations and generators: what to read, then check the recall",
+      "h1": "Portable power stations and generators",
+      "label": "Outage power",
+      "description": "What to read on a portable power station or generator, including CO shutoff, and official notices for battery overheating and a fuel leak.",
+      "searches": ["portable power station", "portable generator"],
+      "look": [
+        [
+          {"text": "A "},
+          {"text": "2022 CPSC news release", "href": "https://www.cpsc.gov/Newsroom/News-Releases/2022/New-CPSC-Report-Finds-Industry-Voluntary-Standards-Can-Reduce-Risk-of-Carbon-Monoxide-Death-and-Injury-from-Portable-Generators-Yet-Compliance-with-Standards-Is-Minimal-Supports-Mandatory-Rulemaking-Process"},
+          {"text": " says UL 2201 and PGMA G300 both require a generator to shut off when certain concentrations of carbon monoxide are present around the generator. Read the generator label for a CO shutoff that names one of those standards."}
+        ],
+        [
+          {"text": "Read the model and serial number on the generator frame or nameplate, and on the bottom of a portable power station. A power bank is a different product from a portable power station."}
+        ]
+      ],
+      "methodExtra": [
+        [
+          {"text": "The catalogue has no portable power station card and no portable generator card. "},
+          {"text": "Anker power bank notices", "href": "/recalls/anker-power-banks/"},
+          {"text": " name power bank model numbers. Use those pages for a power bank, and use the notices below for a power station or a generator."}
+        ]
+      ],
+      "patterns": [
+        {
+          "agency": "CPSC",
+          "title": "HALO 1000 Portable Power Stations Recalled Due to Serious Fire and Burn Hazards",
+          "url": "https://www.cpsc.gov/Recalls/2024/HALO-1000-Portable-Power-Stations-Recalled-Due-to-Serious-Fire-and-Burn-Hazards-One-Death-Reported-Imported-by-ZAGG-Sold-by-ACG-QVC-and-ZAGG",
+          "says": "The notice says the lithium-ion batteries in the HALO 1000 portable power station can overheat, posing fire and burn hazards. It names model PS-1000. The model number is on the bottom of the unit."
+        },
+        {
+          "agency": "Health Canada",
+          "title": "EcoFlow Delta Max 2000 Power Stations recalled due to risk of serious burn injury and fire hazard",
+          "url": "https://recalls-rappels.canada.ca/en/alert-recall/ecoflow-delta-max-2000-power-stations-recalled-due-risk-serious-burn-injury-and-fire",
+          "says": "The notice says the power stations may overheat and ignite. It says EFD310 and EcoFlow DELTA Max (2000) are printed on the nameplate on the underside. The remedy on the notice is a firmware update, not a physical return."
+        },
+        {
+          "agency": "Health Canada",
+          "title": "Generac portable generators recalled due to fire hazard",
+          "url": "https://recalls-rappels.canada.ca/en/alert-recall/generac-portable-generators-recalled-due-fire-hazard",
+          "says": "The notice says that when some liquid-propane and natural-gas generators are first filled, fuel can leak from the carburetor, posing a fire hazard. It lists model numbers G0077130, G0077150, and G0077210. The model and serial number are on a label on the alternator or the frame."
+        }
+      ],
+      "catalogue": [],
+      "links": [
+        {"href": "/recalls/anker-power-banks/", "label": "Anker power bank notices"},
+        {"href": "/personal-tech/anker-a1289/", "label": "Anker 737 PowerCore 24K card"},
+        {"href": "/car-garage/", "label": "Car and garage catalogue"}
+      ],
+      "faqs": [
+        {
+          "q": "What does the CPSC release say about generator CO shutoff?",
+          "a": "The 2022 CPSC news release says UL 2201 and PGMA G300 both require a generator to shut off when certain concentrations of carbon monoxide are present around the generator. Read the label for that shutoff."
+        },
+        {
+          "q": "What does the HALO 1000 notice say?",
+          "a": "The CPSC notice says the lithium-ion batteries in the HALO 1000 portable power station can overheat, posing fire and burn hazards. It names model PS-1000, printed on the bottom."
+        },
+        {
+          "q": "Are the Anker power bank notices the same as a portable power station?",
+          "a": "No. Those notices name power bank model numbers. A portable power station is a different product. Use the Anker power bank notices page for a power bank, and search the power station model on CPSC Recalls or Health Canada recalls and safety alerts."
+        }
+      ]
+    }
+  ]
+}
