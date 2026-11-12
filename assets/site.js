@@ -28,7 +28,7 @@
   function reveal(root) {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     var scope = root && root.querySelectorAll ? root : document;
-    var nodes = scope.querySelectorAll ? scope.querySelectorAll(".product-grid, .hero, .recall-band, .guide-pick, .bf-model, .hub-tiles, .quiz, .recall-widget, .hero-art, .catalogue-pick") : [];
+    var nodes = scope.querySelectorAll ? scope.querySelectorAll(".product-grid, .hero, .recall-band, .guide-pick, .bf-model, .season-card, .quiz, .recall-widget, .hero-art, .catalogue-pick") : [];
     if (!nodes.length && root && root.classList && root.classList.contains("product-grid")) nodes = [root];
     if (!window.CheckedLabReveal) {
       window.CheckedLabReveal = new IntersectionObserver(function (entries) {
@@ -66,7 +66,7 @@
       var recalls = list.filter(isBin).filter(function (product) {
         return !q || blob(product).indexOf(q) !== -1;
       });
-      if (title) title.textContent = q ? "Matches" : "Start here";
+      if (title) title.textContent = q ? "Matches" : "Recently recall-checked";
       if (empty) empty.hidden = popular.length !== 0;
       paint(document.getElementById("popular-mount"), popular.map(function (product) {
         return window.CheckedLabCard.card(product, reg);
@@ -282,38 +282,27 @@
     });
   });
 
-  var dock = document.querySelector("[data-dock]");
-  if (!dock) {
-    dock = document.createElement("div");
-    dock.className = "dock";
-    dock.setAttribute("data-dock", "");
-    dock.innerHTML = '<a class="dock-cta" data-dock-cta href="/recalls/#is-it-recalled-search">Is it recalled?</a><button type="button" class="to-top" data-to-top>Top</button>';
-    document.body.appendChild(dock);
+  var toggle = document.querySelector("[data-nav-toggle]");
+  var panel = document.querySelector("[data-nav-panel]");
+  if (toggle && panel) {
+    toggle.addEventListener("click", function () {
+      var open = toggle.getAttribute("aria-expanded") !== "true";
+      toggle.setAttribute("aria-expanded", open ? "true" : "false");
+      panel.classList.toggle("is-open", open);
+    });
   }
-  var cta = dock.querySelector("[data-dock-cta]");
-  var top = dock.querySelector("[data-to-top]");
-  function syncCta() {
-    if (!cta) return;
-    var reg = region();
-    var link = document.querySelector(reg === "CA" ? ".only-ca a.store-primary" : ".only-us a.store-primary");
-    if (link) {
-      cta.href = link.getAttribute("href");
-      cta.textContent = link.textContent.trim() || "Check price on Amazon";
-      cta.target = "_blank";
-      cta.rel = "sponsored nofollow noopener";
-      return;
-    }
-    cta.href = "/recalls/#is-it-recalled-search";
-    cta.textContent = "Is it recalled?";
-    cta.removeAttribute("target");
-    cta.removeAttribute("rel");
-  }
-  syncCta();
-  document.addEventListener("click", function (event) {
-    if (event.target.closest && event.target.closest("[data-region-set]")) {
-      setTimeout(syncCta, 0);
-    }
+  document.addEventListener("submit", function (event) {
+    var form = event.target;
+    if (!form || !form.querySelector || !form.querySelector("[data-model-search]")) return;
+    event.preventDefault();
+    var dest = document.getElementById("popular");
+    if (!dest) return;
+    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    dest.scrollIntoView({ behavior: reduce ? "auto" : "smooth" });
   });
+
+  var dock = document.querySelector("[data-dock]");
+  var top = dock && dock.querySelector("[data-to-top]");
   if (top) {
     top.setAttribute("aria-label", "Back to top");
     function paintTop() { top.hidden = window.scrollY < 480; }

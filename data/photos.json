@@ -1,0 +1,362 @@
+[
+  {
+    "file": "/images/photos/hero-kitchen.webp",
+    "credit": "Photo by Mark McCammon on Pexels",
+    "license": "Pexels License",
+    "source": "https://www.pexels.com/photo/1080721/",
+    "use": "Homepage hero",
+    "width": 1600,
+    "height": 1066,
+    "kind": "pexels"
+  },
+  {
+    "file": "/images/photos/hub-winter.webp",
+    "credit": "Photo by Huy Phan on Pexels",
+    "license": "Pexels License",
+    "source": "https://www.pexels.com/photo/30386991/",
+    "use": "Winter and home scenes",
+    "width": 1600,
+    "height": 2400,
+    "kind": "pexels"
+  },
+  {
+    "file": "/images/photos/season-thanksgiving.webp",
+    "credit": "Photo by Zion Smith on Pexels",
+    "license": "Pexels License",
+    "source": "https://www.pexels.com/photo/38933418/",
+    "use": "Thanksgiving guide",
+    "width": 1600,
+    "height": 1066,
+    "kind": "pexels"
+  },
+  {
+    "file": "/images/photos/season-toys.webp",
+    "credit": "Photo by Antonius Ferret on Pexels",
+    "license": "Pexels License",
+    "source": "https://www.pexels.com/photo/5275834/",
+    "use": "Toy safety and kids",
+    "width": 1600,
+    "height": 1066,
+    "kind": "pexels"
+  },
+  {
+    "file": "/images/photos/season-black-friday.webp",
+    "credit": "Photo by Mikhail Nilov on Pexels",
+    "license": "Pexels License",
+    "source": "https://www.pexels.com/photo/6969892/",
+    "use": "Black Friday guide",
+    "width": 1600,
+    "height": 2400,
+    "kind": "pexels"
+  },
+  {
+    "file": "/images/photos/season-gifts.webp",
+    "credit": "Photo by Nicolas Postiglioni on Pexels",
+    "license": "Pexels License",
+    "source": "https://www.pexels.com/photo/824309/",
+    "use": "Gift guides",
+    "width": 1600,
+    "height": 1060,
+    "kind": "pexels"
+  },
+  {
+    "file": "/images/photos/hub-sleep.webp",
+    "credit": "Photo by Ron Lach on Pexels",
+    "license": "Pexels License",
+    "source": "https://www.pexels.com/photo/10554461/",
+    "use": "Sleep scenes",
+    "width": 1600,
+    "height": 1066,
+    "kind": "pexels"
+  },
+  {
+    "file": "/images/photos/hub-pet.webp",
+    "credit": "Photo by Amar Preciado on Pexels",
+    "license": "Pexels License",
+    "source": "https://www.pexels.com/photo/30070537/",
+    "use": "Pet scenes",
+    "width": 1600,
+    "height": 2400,
+    "kind": "pexels"
+  },
+  {
+    "file": "/images/photos/hub-garage.webp",
+    "credit": "Photo by Tima Miroshnichenko on Pexels",
+    "license": "Pexels License",
+    "source": "https://www.pexels.com/photo/6263062/",
+    "use": "Garage and tools",
+    "width": 1600,
+    "height": 2400,
+    "kind": "pexels"
+  },
+  {
+    "file": "/images/photos/hub-cook.webp",
+    "credit": "Photo by cottonbro studio on Pexels",
+    "license": "Pexels License",
+    "source": "https://www.pexels.com/photo/4253133/",
+    "use": "Cookware scenes",
+    "width": 1600,
+    "height": 2400,
+    "kind": "pexels"
+  },
+  {
+    "file": "/images/photos/cat-blender.webp",
+    "credit": "Photo by Nicola Barts on Pexels",
+    "license": "Pexels License",
+    "source": "https://www.pexels.com/photo/7936983/",
+    "use": "Blender category",
+    "width": 1600,
+    "height": 2400,
+    "kind": "pexels"
+  },
+  {
+    "file": "/images/photos/cat-airfryer.webp",
+    "credit": "Photo by FOX on Pexels",
+    "license": "Pexels License",
+    "source": "https://www.pexels.com/photo/35285814/",
+    "use": "Air fryer category",
+    "width": 1600,
+    "height": 1066,
+    "kind": "pexels"
+  },
+  {
+    "file": "/images/photos/cat-coffee.webp",
+    "credit": "Photo by Valeriya Kobzar on Pexels",
+    "license": "Pexels License",
+    "source": "https://www.pexels.com/photo/8987828/",
+    "use": "Coffee category",
+    "width": 1600,
+    "height": 2000,
+    "kind": "pexels"
+  },
+  {
+    "file": "/images/photos/cat-kettle.webp",
+    "credit": "Photo by H. H\u00fcm\u00e2 Yardim on Pexels",
+    "license": "Pexels License",
+    "source": "https://www.pexels.com/photo/12974474/",
+    "use": "Kettle category",
+    "width": 1600,
+    "height": 2400,
+    "kind": "pexels"
+  },
+  {
+    "file": "/images/photos/cat-headphones.webp",
+    "credit": "Photo by Aleksandar Spasojevic on Pexels",
+    "license": "Pexels License",
+    "source": "https://www.pexels.com/photo/210927/",
+    "use": "Headphones category",
+    "width": 1600,
+    "height": 1066,
+    "kind": "pexels"
+  },
+  {
+    "file": "/images/photos/cat-speaker.webp",
+    "credit": "Photo by Kaye RD on Pexels",
+    "license": "Pexels License",
+    "source": "https://www.pexels.com/photo/9842750/",
+    "use": "Speaker category",
+    "width": 1600,
+    "height": 2000,
+    "kind": "pexels"
+  },
+  {
+    "file": "/images/photos/cat-bottle.webp",
+    "credit": "Photo by cottonbro studio on Pexels",
+    "license": "Pexels License",
+    "source": "https://www.pexels.com/photo/3737800/",
+    "use": "Bottle category",
+    "width": 1600,
+    "height": 2400,
+    "kind": "pexels"
+  },
+  {
+    "file": "/images/photos/cat-drill.webp",
+    "credit": "Photo by \u0421\u0430\u0448\u0430 \u0410\u043b\u0430\u043b\u044b\u043a\u0438\u043d on Pexels",
+    "license": "Pexels License",
+    "source": "https://www.pexels.com/photo/17419782/",
+    "use": "Drill and tool category",
+    "width": 1600,
+    "height": 1600,
+    "kind": "pexels"
+  },
+  {
+    "file": "/images/photos/cat-alarm.webp",
+    "credit": "Photo by Caleb Oquendo on Pexels",
+    "license": "Pexels License",
+    "source": "https://www.pexels.com/photo/39183052/",
+    "use": "Alarm category",
+    "width": 1600,
+    "height": 1068,
+    "kind": "pexels"
+  },
+  {
+    "file": "/images/photos/cat-bed.webp",
+    "credit": "Photo by Darya Grey_Owl on Pexels",
+    "license": "Pexels License",
+    "source": "https://www.pexels.com/photo/18492337/",
+    "use": "Bedding category",
+    "width": 1600,
+    "height": 2400,
+    "kind": "pexels"
+  },
+  {
+    "file": "/images/photos/cat-brush.webp",
+    "credit": "Photo by Towfiqu barbhuiya on Pexels",
+    "license": "Pexels License",
+    "source": "https://www.pexels.com/photo/13466251/",
+    "use": "Toothbrush category",
+    "width": 1600,
+    "height": 1066,
+    "kind": "pexels"
+  },
+  {
+    "file": "/images/photos/cat-purifier.webp",
+    "credit": "Photo by Cats Coming on Pexels",
+    "license": "Pexels License",
+    "source": "https://www.pexels.com/photo/2123430/",
+    "use": "Air purifier category",
+    "width": 1600,
+    "height": 2444,
+    "kind": "pexels"
+  },
+  {
+    "file": "/images/photos/cat-snow.webp",
+    "credit": "Photo by Erik Mclean on Pexels",
+    "license": "Pexels License",
+    "source": "https://www.pexels.com/photo/16195410/",
+    "use": "Snow tool category",
+    "width": 1600,
+    "height": 2400,
+    "kind": "pexels"
+  },
+  {
+    "file": "/images/photos/cat-rice.webp",
+    "credit": "Photo by Pew Nguyen on Pexels",
+    "license": "Pexels License",
+    "source": "https://www.pexels.com/photo/31479830/",
+    "use": "Rice cooker category",
+    "width": 1600,
+    "height": 1066,
+    "kind": "pexels"
+  },
+  {
+    "file": "/images/photos/cat-desk.webp",
+    "credit": "Photo by Helena Lopes on Pexels",
+    "license": "Pexels License",
+    "source": "https://www.pexels.com/photo/7151696/",
+    "use": "Desk tech category",
+    "width": 1600,
+    "height": 1066,
+    "kind": "pexels"
+  },
+  {
+    "file": "/images/photos/cat-humid.webp",
+    "credit": "Photo by Ph\u1ea1m Tu\u1ea5n H\u1ea3i on Pexels",
+    "license": "Pexels License",
+    "source": "https://www.pexels.com/photo/18507871/",
+    "use": "Humidifier category",
+    "width": 1600,
+    "height": 2400,
+    "kind": "pexels"
+  },
+  {
+    "file": "/images/photos/cat-blanket.webp",
+    "credit": "Photo by Kate L on Pexels",
+    "license": "Pexels License",
+    "source": "https://www.pexels.com/photo/30569741/",
+    "use": "Blanket category",
+    "width": 1600,
+    "height": 2400,
+    "kind": "pexels"
+  },
+  {
+    "file": "/images/photos/cat-battery.webp",
+    "credit": "Photo by Ayyeee Ayyeee on Pexels",
+    "license": "Pexels License",
+    "source": "https://www.pexels.com/photo/37177070/",
+    "use": "Battery category",
+    "width": 1600,
+    "height": 1066,
+    "kind": "pexels"
+  },
+  {
+    "file": "/images/photos/cat-watch.webp",
+    "credit": "Photo by Mister Mister on Pexels",
+    "license": "Pexels License",
+    "source": "https://www.pexels.com/photo/380782/",
+    "use": "Watch category",
+    "width": 1600,
+    "height": 2400,
+    "kind": "pexels"
+  },
+  {
+    "file": "/images/photos/model-kitchenaid-artisan.webp",
+    "credit": "Photo by BenFrantzDale, CC BY-SA 2.0, via Wikimedia Commons",
+    "license": "CC BY-SA 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Red_KitchenAid_Artisan.jpg",
+    "use": "Exact model photo",
+    "width": 1400,
+    "height": 1382,
+    "kind": "commons"
+  },
+  {
+    "file": "/images/photos/model-aeropress.webp",
+    "credit": "Photo by Bean Poet, CC BY-SA 2.0, via Wikimedia Commons",
+    "license": "CC BY-SA 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Aeropress_coffee_maker_parts.jpg",
+    "use": "Exact model photo",
+    "width": 1400,
+    "height": 1050,
+    "kind": "commons"
+  },
+  {
+    "file": "/images/photos/model-chemex.webp",
+    "credit": "Photo by Coffee Circle, CC BY 2.0, via Wikimedia Commons",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Die_Chemex_6_Cup.jpg",
+    "use": "Exact model photo",
+    "width": 1400,
+    "height": 934,
+    "kind": "commons"
+  },
+  {
+    "file": "/images/photos/model-aeron.webp",
+    "credit": "Photo by Cubicle Sherpa, CC BY 2.0, via Wikimedia Commons",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Aeron_Chair_by_Herman_Miller_(9446986497).jpg",
+    "use": "Exact model photo",
+    "width": 1400,
+    "height": 1866,
+    "kind": "commons"
+  },
+  {
+    "file": "/images/photos/model-mx-master-3s.webp",
+    "credit": "Photo by Hayden Schiff, CC BY 4.0, via Wikimedia Commons",
+    "license": "CC BY 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Logitech_MX_Master_3S_HS05.jpg",
+    "use": "Exact model photo",
+    "width": 1400,
+    "height": 934,
+    "kind": "commons"
+  },
+  {
+    "file": "/images/photos/model-noco-gb40.webp",
+    "credit": "Photo by Tony Webster, CC BY 2.0, via Wikimedia Commons",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:NOCO_Genius_Boost_GB40_-_Car_Battery_Booster_Jump_Starter_(27189494027).jpg",
+    "use": "Exact model photo",
+    "width": 1400,
+    "height": 934,
+    "kind": "commons"
+  },
+  {
+    "file": "/images/photos/model-creami.webp",
+    "credit": "Photo by TaurusEmerald, CC BY-SA 4.0, via Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Ninja_Creami_Ice_Cream_Maker.jpg",
+    "use": "Exact model photo",
+    "width": 1400,
+    "height": 2606,
+    "kind": "commons"
+  }
+]
