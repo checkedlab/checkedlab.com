@@ -46,5 +46,29 @@
       "The shared labels are dimensions and weight. The Crispi page states 11.5 × 9.76 × 11.81 in and 14.55 lb. The Pro II page states 11.8 × 13.8 × 12.6 in and 12.3 lb.",
       "Power, containers, and modes are on the Crispi card only. Capacity, rated power, and power supply are on the Pro II card only. Those rows are left out because the other card does not use the same label."
     ]
+  },
+  {
+    "slug": "shark-av2501s-vs-av2820ae",
+    "title": "Shark AV2501S and AV2820AE, from the maker pages",
+    "linkLabel": "AI Ultra and PowerDetect robot specs",
+    "description": "Weight, cleaning path, dimensions, voltage, and wattage as the Shark pages state them for the AV2501S and the AV2820AE, with a dated recall line for each.",
+    "hub": "cleaning",
+    "products": ["shark-av2501s", "shark-av2820ae"],
+    "fit": [
+      "The AV2501S page states 14.77 lbs, a 5.7 in cleaning path, 15.35 in L x 12.01 in W x 17.72 in H, 120 volts, and 650 watts. The AV2820AE page states 14.55 lbs, a 5.7 in cleaning path, 15.39 in L x 10.87 in W x 16.93 in H, 14.4 volts, and 35 watts.",
+      "A lower stated weight is the AV2820AE line. The voltage and wattage rows are the figures each Shark page prints for that model. Dust cup capacity is on the AV2501S card only."
+    ]
+  },
+  {
+    "slug": "dyson-v15-detect-vs-shark-ip3251",
+    "title": "Dyson V15 Detect Absolute and Shark IP3251, from the maker pages",
+    "linkLabel": "V15 Detect and PowerDetect cordless specs",
+    "description": "Weight, run time, and charge time as the Dyson and Shark pages state them for the V15 Detect Absolute and the IP3251, with a dated recall line for each.",
+    "hub": "cleaning",
+    "products": ["dyson-v15-detect", "shark-ip3251"],
+    "fit": [
+      "The V15 Detect Absolute page states 6.83 lb, up to 60 min of run time, and a 4.5 hr charge time. The IP3251 page states 18.47 lbs, up to 70 minutes measured at the hand vacuum in ECO mode, and a 6 hour charge time.",
+      "A lower stated weight is the V15 line. A longer stated run time is the IP3251 line. Bin volume is on the V15 card only. Dust cup capacity is on the IP3251 card only."
+    ]
   }
 ]

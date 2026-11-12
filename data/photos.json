@@ -358,5 +358,45 @@
     "width": 1400,
     "height": 2606,
     "kind": "commons"
+  },
+  {
+    "file": "/images/photos/hub-cleaning.webp",
+    "credit": "Photo by Ron Lach on Pexels",
+    "license": "Pexels License",
+    "source": "https://www.pexels.com/photo/10567498/",
+    "use": "Cleaning hub",
+    "width": 1600,
+    "height": 2400,
+    "kind": "pexels"
+  },
+  {
+    "file": "/images/photos/cat-robot.webp",
+    "credit": "Photo by Kindel Media on Pexels",
+    "license": "Pexels License",
+    "source": "https://www.pexels.com/photo/8566421/",
+    "use": "Robot vacuum category",
+    "width": 1600,
+    "height": 1200,
+    "kind": "pexels"
+  },
+  {
+    "file": "/images/photos/cat-stick.webp",
+    "credit": "Photo by Vedat \u00d6ncelik on Pexels",
+    "license": "Pexels License",
+    "source": "https://www.pexels.com/photo/12167650/",
+    "use": "Cordless stick vacuum category",
+    "width": 1600,
+    "height": 2399,
+    "kind": "pexels"
+  },
+  {
+    "file": "/images/photos/model-dyson-v8.webp",
+    "credit": "Photo by Your Best Digs, CC BY 2.0, via Wikimedia Commons",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Dyson_V8_handstick_vacuum.jpg",
+    "use": "Exact model photo",
+    "width": 1400,
+    "height": 933,
+    "kind": "commons"
   }
 ]

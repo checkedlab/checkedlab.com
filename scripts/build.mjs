@@ -20,13 +20,14 @@ const FOOTER = `<footer>
 </div>
 </footer>`;
 const BIN_EMPTY = '<p class="empty">Nothing is on the BIN list. A product lands here only when a recall record matches its brand and model. An unconfirmed model is not a BIN.</p>';
-const HUBS = ["winter", "car-garage", "air-water", "pet", "kitchen", "sleep", "personal-tech"];
+const HUBS = ["winter", "car-garage", "air-water", "pet", "kitchen", "cleaning", "sleep", "personal-tech"];
 const HUB_NAME = {
   winter: "Winter",
   "car-garage": "Car & garage",
   "air-water": "Air & water",
   pet: "Pet",
   kitchen: "Kitchen",
+  cleaning: "Cleaning",
   sleep: "Sleep",
   "personal-tech": "Personal tech"
 };
@@ -36,6 +37,7 @@ const ICONS = {
   "air-water": '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4c3 3 5 5.5 5 8.5a5 5 0 1 1-10 0C7 9.5 9 7 12 4z"/></svg>',
   pet: '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="8" cy="8" r="2"/><circle cx="16" cy="8" r="2"/><circle cx="6.5" cy="13" r="1.6"/><circle cx="17.5" cy="13" r="1.6"/><path d="M9 16c.8 2 5.2 2 6 0"/></svg>',
   kitchen: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 10h12v7a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2zM9 10V7M15 10V7"/></svg>',
+  cleaning: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 16h9a3 3 0 0 0 3-3V8"/><circle cx="17" cy="7" r="2"/><path d="M19 7h2M7 16v3h6"/></svg>',
   sleep: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 5a7 7 0 1 0 4 12 8 8 0 1 1-4-12z"/></svg>',
   "personal-tech": '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 0 1 16 0"/><path d="M4 12v3a2 2 0 0 0 2 2h1v-5H4zM20 12v3a2 2 0 0 1-2 2h-1v-5h3z"/></svg>'
 };
@@ -45,6 +47,7 @@ const NAV = [
   ["air-water", "Air & water"],
   ["pet", "Pet"],
   ["kitchen", "Kitchen"],
+  ["cleaning", "Cleaning"],
   ["sleep", "Sleep"],
   ["personal-tech", "Personal tech"]
 ];
@@ -110,6 +113,18 @@ const BF_PICKS = {
     "breville-bes870xl",
     "fellow-stagg-ekg",
     "cuisinart-dfp-14bcny"
+  ],
+  cleaning: [
+    "irobot-roomba-combo-j9-plus",
+    "shark-av2501s",
+    "shark-av2820ae",
+    "roborock-qrevo-s",
+    "eufy-x10-pro-omni",
+    "dyson-v15-detect",
+    "dyson-v8",
+    "shark-ip3251",
+    "tineco-pure-one-s15",
+    "bissell-iconpet-2288"
   ],
   sleep: [
     "hatch-restore-3",
@@ -1203,7 +1218,7 @@ function compareJsonLd(entry, pair) {
 }
 
 function writeCompares() {
-  if (compares.length !== 4) throw new Error("Expected four compare pages");
+  if (compares.length !== 6) throw new Error("Expected six compare pages");
   for (const entry of compares) {
     if (!/^[a-z0-9-]+$/.test(entry.slug)) throw new Error("Bad compare slug");
     const pair = entry.products.map((id) => {
@@ -4050,8 +4065,9 @@ function verifyOutput(pages) {
   const winterCount = winterPaths().length;
   const toyCount = toyPaths().length;
   const thanksCount = thanksPaths().length;
-  const expectedLocs = 13 + giftCount + winterCount + toyCount + thanksCount + explainers.length + compares.length + indexed.length;
-  if (locCount !== expectedLocs || locCount !== 141 + giftCount + winterCount + toyCount + thanksCount) {
+  const staticCore = 6 + HUBS.length;
+  const expectedLocs = staticCore + giftCount + winterCount + toyCount + thanksCount + explainers.length + compares.length + indexed.length;
+  if (locCount !== expectedLocs) {
     throw new Error("Sitemap URL count " + locCount + " expected " + expectedLocs);
   }
   for (const entry of compares) {

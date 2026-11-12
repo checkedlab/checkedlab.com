@@ -2517,6 +2517,238 @@
         "detail": null,
         "other": []
       }
+    },
+    "irobot-roomba-combo-j9-plus": {
+      "us": {
+        "status": "none",
+        "checkedAt": "2026-11-12",
+        "url": "https://www.saferproducts.gov/RestWebServices/Recall",
+        "detail": null,
+        "other": []
+      },
+      "ca": {
+        "status": "none",
+        "checkedAt": "2026-11-12",
+        "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
+        "detail": null,
+        "other": [
+          {
+            "title": "iRobot Clean Base for Roomba® i7+ Robot Vacuum recalled due to electrical hazard",
+            "url": "https://recalls-rappels.canada.ca/en/alert-recall/irobot-clean-base-roombar-i7-robot-vacuum-recalled-due-electrical-hazard",
+            "date": "2020-12-21",
+            "source": "Health Canada",
+            "archived": false
+          }
+        ]
+      }
+    },
+    "shark-av2501s": {
+      "us": {
+        "status": "none",
+        "checkedAt": "2026-11-12",
+        "url": "https://www.saferproducts.gov/RestWebServices/Recall",
+        "detail": null,
+        "other": [
+          {
+            "title": "Shark Vacuum Cleaners Recalled by Euro-Pro Due to Shock Hazard",
+            "url": "https://www.cpsc.gov/Recalls/2015/Shark-Vacuum-Cleaners-Recalled-by-Euro-Pro",
+            "date": "2015-04-22",
+            "source": "CPSC",
+            "archived": false
+          }
+        ]
+      },
+      "ca": {
+        "status": "none",
+        "checkedAt": "2026-11-12",
+        "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
+        "detail": null,
+        "other": [
+          {
+            "title": "Euro-Pro Operating LLC recalls Shark® Brand Vacuum Cleaners",
+            "url": "https://recalls-rappels.canada.ca/en/alert-recall/euro-pro-operating-llc-recalls-sharkr-brand-vacuum-cleaners",
+            "date": "2015-04-22",
+            "source": "Health Canada",
+            "archived": true
+          }
+        ]
+      }
+    },
+    "shark-av2820ae": {
+      "us": {
+        "status": "none",
+        "checkedAt": "2026-11-12",
+        "url": "https://www.saferproducts.gov/RestWebServices/Recall",
+        "detail": null,
+        "other": [
+          {
+            "title": "Shark Vacuum Cleaners Recalled by Euro-Pro Due to Shock Hazard",
+            "url": "https://www.cpsc.gov/Recalls/2015/Shark-Vacuum-Cleaners-Recalled-by-Euro-Pro",
+            "date": "2015-04-22",
+            "source": "CPSC",
+            "archived": false
+          }
+        ]
+      },
+      "ca": {
+        "status": "none",
+        "checkedAt": "2026-11-12",
+        "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
+        "detail": null,
+        "other": [
+          {
+            "title": "Euro-Pro Operating LLC recalls Shark® Brand Vacuum Cleaners",
+            "url": "https://recalls-rappels.canada.ca/en/alert-recall/euro-pro-operating-llc-recalls-sharkr-brand-vacuum-cleaners",
+            "date": "2015-04-22",
+            "source": "Health Canada",
+            "archived": true
+          }
+        ]
+      }
+    },
+    "roborock-qrevo-s": {
+      "us": {
+        "status": "none",
+        "checkedAt": "2026-11-12",
+        "url": "https://www.saferproducts.gov/RestWebServices/Recall",
+        "detail": null,
+        "other": []
+      },
+      "ca": {
+        "status": "none",
+        "checkedAt": "2026-11-12",
+        "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
+        "detail": null,
+        "other": []
+      }
+    },
+    "eufy-x10-pro-omni": {
+      "us": {
+        "status": "none",
+        "checkedAt": "2026-11-12",
+        "url": "https://www.saferproducts.gov/RestWebServices/Recall",
+        "detail": null,
+        "other": []
+      },
+      "ca": {
+        "status": "none",
+        "checkedAt": "2026-11-12",
+        "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
+        "detail": null,
+        "other": []
+      }
+    },
+    "dyson-v15-detect": {
+      "us": {
+        "status": "none",
+        "checkedAt": "2026-11-12",
+        "url": "https://www.saferproducts.gov/RestWebServices/Recall",
+        "detail": null,
+        "other": []
+      },
+      "ca": {
+        "status": "none",
+        "checkedAt": "2026-11-12",
+        "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
+        "detail": null,
+        "other": [
+          {
+            "title": "FirstPower 4000mAh V6 Battery Replacement for Dyson V6 Series Vacuums recalled due to fire and burn hazard",
+            "url": "https://recalls-rappels.canada.ca/en/alert-recall/firstpower-4000mah-v6-battery-replacement-dyson-v6-series-vacuums-recalled-due-fire",
+            "date": "2024-02-21",
+            "source": "Health Canada",
+            "archived": false
+          }
+        ]
+      }
+    },
+    "dyson-v8": {
+      "us": {
+        "status": "none",
+        "checkedAt": "2026-11-12",
+        "url": "https://www.saferproducts.gov/RestWebServices/Recall",
+        "detail": null,
+        "other": []
+      },
+      "ca": {
+        "status": "none",
+        "checkedAt": "2026-11-12",
+        "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
+        "detail": null,
+        "other": [
+          {
+            "title": "FirstPower 4000mAh V6 Battery Replacement for Dyson V6 Series Vacuums recalled due to fire and burn hazard",
+            "url": "https://recalls-rappels.canada.ca/en/alert-recall/firstpower-4000mah-v6-battery-replacement-dyson-v6-series-vacuums-recalled-due-fire",
+            "date": "2024-02-21",
+            "source": "Health Canada",
+            "archived": false
+          }
+        ]
+      }
+    },
+    "shark-ip3251": {
+      "us": {
+        "status": "none",
+        "checkedAt": "2026-11-12",
+        "url": "https://www.saferproducts.gov/RestWebServices/Recall",
+        "detail": null,
+        "other": [
+          {
+            "title": "Shark Vacuum Cleaners Recalled by Euro-Pro Due to Shock Hazard",
+            "url": "https://www.cpsc.gov/Recalls/2015/Shark-Vacuum-Cleaners-Recalled-by-Euro-Pro",
+            "date": "2015-04-22",
+            "source": "CPSC",
+            "archived": false
+          }
+        ]
+      },
+      "ca": {
+        "status": "none",
+        "checkedAt": "2026-11-12",
+        "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
+        "detail": null,
+        "other": [
+          {
+            "title": "Euro-Pro Operating LLC recalls Shark® Brand Vacuum Cleaners",
+            "url": "https://recalls-rappels.canada.ca/en/alert-recall/euro-pro-operating-llc-recalls-sharkr-brand-vacuum-cleaners",
+            "date": "2015-04-22",
+            "source": "Health Canada",
+            "archived": true
+          }
+        ]
+      }
+    },
+    "tineco-pure-one-s15": {
+      "us": {
+        "status": "none",
+        "checkedAt": "2026-11-12",
+        "url": "https://www.saferproducts.gov/RestWebServices/Recall",
+        "detail": null,
+        "other": []
+      },
+      "ca": {
+        "status": "none",
+        "checkedAt": "2026-11-12",
+        "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
+        "detail": null,
+        "other": []
+      }
+    },
+    "bissell-iconpet-2288": {
+      "us": {
+        "status": "none",
+        "checkedAt": "2026-11-12",
+        "url": "https://www.saferproducts.gov/RestWebServices/Recall",
+        "detail": null,
+        "other": []
+      },
+      "ca": {
+        "status": "none",
+        "checkedAt": "2026-11-12",
+        "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
+        "detail": null,
+        "other": []
+      }
     }
   }
 }
