@@ -1,0 +1,818 @@
+{
+  "home": {
+    "description": "How to match a model number, read maker specs, and use the dated CPSC or Health Canada line before you buy in the US or Canada.",
+    "heading": "How to use this catalogue",
+    "intro": [
+      "Checked Lab is a catalogue of named models for shoppers in the United States and Canada. A card names one model, copies spec lines from that model's maker page, and records a dated recall match. The US match uses the [CPSC SaferProducts feed](https://www.saferproducts.gov/RestWebServices/Recall). The Canadian match uses [Health Canada's open recall dataset](https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3). This page is the way in to eight category hubs, the [spec comparisons](/compare/), the [gift guides](/gifts/), and the [Black Friday](/black-friday/) page. [How we check](/how-we-check/) says what the date on a card means.",
+      "Start with the model number, not the family name. Foodi, Cosori, Shark, Dyson, Levoit, and NOCO each have more than one card here. The string on the rating plate, the box, and the listing should match the card. If the listing uses the brand and a different number, the recall line on this card is about a different product. The explainers for the [Cosori 2023 air fryer notices](/recalls/cosori-air-fryer-2023/), the [Ninja Foodi OP300 notices](/recalls/ninja-foodi-op300/), and the [Lasko heater notices](/recalls/lasko-heaters/) quote the official model lists and point at the catalogue card that is actually named. A familiar photo is not a model number.",
+      "Read the spec in the unit the maker printed. The [Coway Airmega Mighty](/air-water/coway-ap-1512hh/) card states a smoke CADR and a room size at 4.8 air changes per hour, from the [Coway page](https://cowaymega.com/products/mighty-ap-1512hh). The [Levoit Core 600S](/air-water/levoit-core-600s/) card states its room size twice, once at one air change per hour and once at 4.8, from the [Levoit page](https://levoit.com/products/core-600s-p-smart-air-purifier). Those are different sentences. Robot vacuums on the [cleaning hub](/cleaning/) state suction in pascals. The Dyson cordless cards state suction in air watts. Pascals and air watts are different units, so a [comparison](/compare/) keeps only labels both maker pages share. Weight, run time, tank size, and an engine-size limit are useful because the maker page attaches a number and a unit.",
+      "Ignore a marketing line that the maker page for that model number does not print. A room-size claim that uses one air change per hour will look much larger than the same machine's figure at about five air changes. A peak current on a jump starter is the peak the maker printed, not a second number this catalogue invents. A filter certification matters when the maker names the standard, as the [Aquasana Claryum](/air-water/aquasana-claryum/) card does with NSF/ANSI 42, 53 including P473, and 401. If the card does not name a standard, do not borrow one from a different model.",
+      "The recall line is the part to read before you pay. Search the same model on [CPSC Recalls](https://www.cpsc.gov/Recalls) for a US purchase and on [Health Canada recalls and safety alerts](https://recalls-rappels.canada.ca/en) for a Canadian purchase. Recall checked means the brand and model were matched and no record matched that model on the printed date. Official recall found means the brand and the model token both appear in one recall record, and the notice link is on the card. A clear line for one model number does not cover the next number in the same brand. Prices stay on the store. The buttons open that store's page or its search for the brand and model.",
+      "From here, [kitchen](/kitchen/) covers cookware and appliances, [cleaning](/cleaning/) covers robots and sticks, and [air and water](/air-water/) covers purifiers, filters, humidifiers, and dehumidifiers. [Winter](/winter/) covers heat, humidity, and snow tools, and the [winter safety guides](/winter-safety/) add the label lines for heaters, heated bedding, alarms, and outage power. [Car and garage](/car-garage/), [pet](/pet/), [sleep](/sleep/), and [personal tech](/personal-tech/) are the other hubs. [Gift guides](/gifts/) regroup the same cards by recipient. [Black Friday](/black-friday/) repeats the model check for that shopping window."
+    ],
+    "picks": [
+      {
+        "need": "One room, and the purifier has to fit",
+        "body": "The Coway Mighty page states 16.8 × 18.3 × 9.6 in and 12.3 lb. The Levoit Core 300S-P page states 8.7 × 8.7 × 14.2 in and 7.48 lb. The comparison keeps those shared labels and leaves CADR on the Coway card only.",
+        "links": [
+          {"href": "/air-water/coway-ap-1512hh/", "label": "Coway Airmega Mighty"},
+          {"href": "/air-water/levoit-core-300s-p/", "label": "Levoit Core 300S-P"},
+          {"href": "/compare/coway-ap-1512hh-vs-levoit-core-300s-p/", "label": "Mighty and Core 300S-P specs"}
+        ]
+      },
+      {
+        "need": "A cordless vacuum you carry",
+        "body": "The Dyson V8 page states 5.58 lb and a 40 minute maximum run time. The V15 Detect Absolute page states 6.83 lb and up to 60 minutes. The comparison is the pair of shared labels.",
+        "links": [
+          {"href": "/cleaning/dyson-v8/", "label": "Dyson V8"},
+          {"href": "/cleaning/dyson-v15-detect/", "label": "Dyson V15 Detect Absolute"},
+          {"href": "/compare/dyson-v15-detect-vs-dyson-v8/", "label": "V15 and V8 specs"}
+        ]
+      },
+      {
+        "need": "A jump starter matched to an engine size",
+        "body": "The NOCO GB40 page states 1,000 A peak, gas engines up to 6 L, and diesel engines up to 3 L. The GB50 page states 1,500 A peak, gas up to 7 L, and diesel up to 4.5 L. Both pages state IP65.",
+        "links": [
+          {"href": "/car-garage/noco-gb40/", "label": "NOCO GB40"},
+          {"href": "/car-garage/noco-gb50/", "label": "NOCO GB50"},
+          {"href": "/compare/noco-gb40-vs-gb50/", "label": "GB40 and GB50 specs"}
+        ]
+      },
+      {
+        "need": "A gift for someone who cooks",
+        "body": "The home-cook guide groups kitchen cards whose titles name a blender, stand mixer, multi-cooker, air fryer, Dutch oven, skillet, or rice cooker. The Vitamix E310 card states a 2 HP motor and a 48 oz container.",
+        "links": [
+          {"href": "/gifts/for-the-home-cook/", "label": "Gifts for the home cook"},
+          {"href": "/kitchen/vitamix-e310/", "label": "Vitamix E310"},
+          {"href": "/kitchen/", "label": "Kitchen hub"}
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "q": "What does a card on Checked Lab actually show?",
+        "a": "One model, spec lines copied from that model's maker page, and a dated recall match. The US match uses the CPSC SaferProducts feed. The Canadian match uses Health Canada's open recall dataset. How we check is the longer note on what the date means."
+      },
+      {
+        "q": "What should I match before I trust a recall line?",
+        "a": "The model number on the unit, the box, and the listing. A family name such as Foodi, Cosori, Shark, or Dyson covers more than one card. A clear line on one model number does not cover the next number in the same brand."
+      },
+      {
+        "q": "Why do two room-size numbers on one card disagree?",
+        "a": "They are often different air-change rates. The Levoit Core 600S page states 2,909 sq ft at 1 air change per hour and 606 sq ft at 4.8. Read both sentences. Do not keep only the larger one."
+      },
+      {
+        "q": "Where is the price?",
+        "a": "On the store. Buttons open that store's page or a search for the brand and model. This catalogue does not print a price."
+      },
+      {
+        "q": "How do I check a model that is not on a card?",
+        "a": "Search the model on CPSC Recalls for a US purchase and on Health Canada recalls and safety alerts for a Canadian purchase. Read the model numbers printed on any notice. The recall checks page covers only the models in this catalogue."
+      }
+    ]
+  },
+  "black-friday": {
+    "heading": "What to confirm before you pay",
+    "intro": [
+      "Black Friday week is when a listing and a model number drift apart. The brand in the title can be right while the model in the cart is a different card. Read the model number on the unit, on the box, and in the listing until those three strings match. Then open that model's card. The status under the card is the catalogue check. A store listing is not a recall check. [How we check](/how-we-check/) says what the printed date means, and [recall checks](/recalls/) lists every catalogue model for the United States and for Canada.",
+      "Amazon has published the 2026 Black Friday Week dates for Amazon.com and for Amazon.ca. The dated lines higher on this page quote those store pages, one on the US view and one on the Canada view. The shopping window is not the same string in both countries. Use the line that matches the region switch. The buttons under those lines open the store's own Black Friday page with the Checked Lab associate tag for that country.",
+      "Family names hide model numbers. Foodi covers more than one Ninja oven. Cosori covers more than one air fryer. The [Cosori 2023 model list](/recalls/cosori-air-fryer-2023/) and the [Ninja Foodi OP300 notices](/recalls/ninja-foodi-op300/) quote the official notices and name the catalogue cards inside those lists. The [Crispi and Cosori Pro II comparison](/compare/ninja-crispi-fn101-vs-cosori-pro-5-8/) repeats only the dimensions and weight both maker pages share. Power, containers, and modes stay on the [Crispi card](/kitchen/ninja-crispi-fn101/). Capacity and rated power stay on the [Pro II card](/kitchen/cosori-pro-5-8/). A spec that only one page prints is left out of the table on purpose.",
+      "Look-alike listings and third-party sellers can put a familiar brand in the title and ship a different model. Match the model number before you pay. Then read the return window on that store page. The window is printed there, and it can change by seller, so this catalogue does not restate it. [Gift guides](/gifts/) regroup the same cards by recipient if you are buying for a person rather than filling a category. [Gifts for kids](/gifts/for-kids/) and [toy safety](/toy-safety/) are the pages for children's products. [Winter safety](/winter-safety/) is the page for heaters, heated bedding, alarms, and outage power.",
+      "The recall step is the same one used on every hub. For a US purchase, search the model on [CPSC Recalls](https://www.cpsc.gov/Recalls). The catalogue match for that search is the [CPSC SaferProducts feed](https://www.saferproducts.gov/RestWebServices/Recall). For a Canadian purchase, search [Health Canada recalls and safety alerts](https://recalls-rappels.canada.ca/en). The Canadian catalogue match uses [Health Canada's open dataset](https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3). A clear line on one model does not cover the next model in the brand. Official recall found means the brand and the model token both appear in one notice, and that notice is linked from the card.",
+      "The hubs below are the gift and seasonal models already in the catalogue. If you want shared spec lines for a pair, use the [comparison index](/compare/). [Lasko CT32150 and CT14401](/compare/lasko-ct32150-vs-ct14401/) both state 900 W to 1,500 W and 120 V, from the Lasko pages, and they state different heights. [NOCO GB40 and GB50](/compare/noco-gb40-vs-gb50/) state different peak current and different engine-size limits. [Sony WH-1000XM5 and Bose QuietComfort Ultra](/compare/sony-wh-1000xm5-vs-bose-qc-ultra/) are the headphone pair, with battery figures that come from each maker page. Read the pair, then open the card, then match the number on the box."
+    ],
+    "picks": [
+      {
+        "need": "An air fryer, matched to the notice",
+        "body": "The Crispi page states 1,500 W and 4-qt and 6-cup glass containers. The Cosori Pro II page states 5.8 qt and 1,700 W rated power. The Foodi 10-in-1 page states 1,800 W. Open the explainer if the notice names a model list.",
+        "links": [
+          {"href": "/kitchen/ninja-crispi-fn101/", "label": "Ninja Crispi FN101"},
+          {"href": "/kitchen/cosori-pro-5-8/", "label": "COSORI Pro II"},
+          {"href": "/recalls/cosori-air-fryer-2023/", "label": "Cosori 2023 model list"},
+          {"href": "/compare/ninja-crispi-fn101-vs-cosori-pro-5-8/", "label": "Crispi and Pro II specs"}
+        ]
+      },
+      {
+        "need": "A tower heater with a stated height",
+        "body": "Both Lasko pages state 900 W to 1,500 W and 120 V. The CT32150 page states 31.6 in and 5.7 lb. The CT14401 page states 14 in and 3.3 lb. The taller card also names a tip-over switch.",
+        "links": [
+          {"href": "/winter/lasko-ct32150/", "label": "Lasko CT32150"},
+          {"href": "/winter/lasko-ct14401/", "label": "Lasko CT14401"},
+          {"href": "/compare/lasko-ct32150-vs-ct14401/", "label": "CT32150 and CT14401 specs"},
+          {"href": "/winter-safety/space-heaters/", "label": "Space heater label lines"}
+        ]
+      },
+      {
+        "need": "Headphones, from the stated battery lines",
+        "body": "Sony states a maximum of 30 hours with noise cancelling on and 40 hours with it off, and about 8.82 oz. Bose states up to 24 hours and 0.56 lb. The comparison keeps the labels both pages use.",
+        "links": [
+          {"href": "/personal-tech/sony-wh-1000xm5/", "label": "Sony WH-1000XM5"},
+          {"href": "/personal-tech/bose-qc-ultra/", "label": "Bose QuietComfort Ultra"},
+          {"href": "/compare/sony-wh-1000xm5-vs-bose-qc-ultra/", "label": "WH-1000XM5 and QC Ultra specs"}
+        ]
+      },
+      {
+        "need": "A jump starter for a stated engine size",
+        "body": "GB40 states 1,000 A peak, gas engines up to 6 L, and diesel up to 3 L, at 2.4 lb. GB50 states 1,500 A peak, gas up to 7 L, and diesel up to 4.5 L, at 2.7 lb. Both state IP65. Peak current is the figure the page prints.",
+        "links": [
+          {"href": "/car-garage/noco-gb40/", "label": "NOCO GB40"},
+          {"href": "/car-garage/noco-gb50/", "label": "NOCO GB50"},
+          {"href": "/compare/noco-gb40-vs-gb50/", "label": "GB40 and GB50 specs"}
+        ]
+      }
+    ]
+  },
+  "gifts": {
+    "heading": "How to choose a gift from this catalogue",
+    "intro": [
+      "A gift page is only useful if the person can use the object and you can still name the model. These guides regroup catalogue cards by recipient. They do not invent a second set of products. A guide is published when the catalogue can fill it with at least five models and the recorded US and Canadian checks found no matching recall for those models. The spec line on each pick is copied from the maker fields on that card. [How we check](/how-we-check/) says what the date means. The badge on the US view is the CPSC match. The badge on the CA view is the Health Canada match.",
+      "Choose the recipient before you choose the object. A home cook and a coffee drinker can both live in the kitchen and still want different cards. The home-cook guide keeps blenders, stand mixers, multi-cookers, air fryers, Dutch ovens, skillets, and rice cookers. The coffee guide keeps cards whose text names coffee, espresso, a grinder, a kettle, or pour-over. The [Vitamix E310](/kitchen/vitamix-e310/) page states a 2 HP motor and a 48 oz container. The [Breville Barista Express](/kitchen/breville-bes870xl/) page states an integrated conical burr grinder with 16 settings and a 54 mm portafilter. Those are different gifts even though both sit on a counter.",
+      "Read the constraint that actually limits the gift. Weight and footprint matter in a small place. The [Levoit Core 300S-P](/air-water/levoit-core-300s-p/) page states 8.7 × 8.7 × 14.2 in and 7.48 lb. The [Dyson V8](/cleaning/dyson-v8/) page states 5.58 lb. A pet gift should match the animal the maker sized. The [FURminator medium short-hair tool](/pet/furminator-medium-short/) page states a medium dog, 25 to 50 lb, short hair. The [Litter-Robot 4](/pet/litter-robot-4/) page states a 22 × 27 in footprint and a household of up to 4 cats. Do not treat a pet-named vacuum as a substitute for a tool whose page states a coat type.",
+      "Ignore three things that show up on gift roundups and do not show up here. Ignore a ranked list. Ignore a rating line. Ignore a price printed next to the model, because prices stay on the store and the store button is on the card. Also ignore a family name used as if it were one product. If the gift is an air fryer, open the [Crispi](/kitchen/ninja-crispi-fn101/) card, the [Cosori Pro II](/kitchen/cosori-pro-5-8/) card, and the [Cosori 2023 explainer](/recalls/cosori-air-fryer-2023/) before you buy. The explainer quotes the notice. The cards quote the maker pages. [Black Friday](/black-friday/) is the same check aimed at that shopping window.",
+      "Two lists on this hub are not catalogue grids. [Gifts for kids](/gifts/for-kids/) names mainstream kids products and the official check to do. [Gifts for the host](/gifts/for-the-host/) does the same for holiday hosting. [Toy safety](/toy-safety/) covers button and coin batteries, magnets, water beads, and ride-ons. [Thanksgiving](/thanksgiving/) covers turkey fryers, pressure cookers, turkey temperatures, and kitchen fires. Use those pages when the gift is for a child or for a holiday table. Use the catalogue guides when the model is already a card.",
+      "The recall step does not change because the occasion is a gift. Search the model on [CPSC Recalls](https://www.cpsc.gov/Recalls) for a US purchase and on [Health Canada recalls and safety alerts](https://recalls-rappels.canada.ca/en) for a Canadian purchase. The catalogue match uses the [CPSC SaferProducts feed](https://www.saferproducts.gov/RestWebServices/Recall) and [Health Canada's open dataset](https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3). A clear line on the model you wrap does not cover a different model number in the same brand. [Recall checks](/recalls/) is the full list."
+    ],
+    "picks": [
+      {
+        "need": "Someone who cooks",
+        "body": "The home-cook guide is the kitchen cards for blenders, mixers, multi-cookers, air fryers, Dutch ovens, skillets, and rice cookers. The Vitamix page states 2 HP and 48 oz. The Instant Pot Duo Plus page states a 6 quart capacity.",
+        "links": [
+          {"href": "/gifts/for-the-home-cook/", "label": "Gifts for the home cook"},
+          {"href": "/kitchen/vitamix-e310/", "label": "Vitamix E310"},
+          {"href": "/kitchen/instant-pot-duo-plus/", "label": "Instant Pot Duo Plus"}
+        ]
+      },
+      {
+        "need": "Someone who makes coffee",
+        "body": "The coffee guide keeps cards whose text names coffee, espresso, a grinder, a kettle, or pour-over. The Barista Express page states 16 grind settings and a 54 mm portafilter. The Fellow Stagg EKG page states 1200 W.",
+        "links": [
+          {"href": "/gifts/for-coffee-lovers/", "label": "Gifts for coffee lovers"},
+          {"href": "/kitchen/breville-bes870xl/", "label": "Breville Barista Express"},
+          {"href": "/kitchen/fellow-stagg-ekg/", "label": "Fellow Stagg EKG"}
+        ]
+      },
+      {
+        "need": "A pet owner",
+        "body": "The pet guide is the pet catalogue. The Litter-Robot 4 page states a 22 × 27 in footprint. The FURminator page states a medium dog, 25 to 50 lb, with short hair.",
+        "links": [
+          {"href": "/gifts/for-pet-owners/", "label": "Gifts for pet owners"},
+          {"href": "/pet/litter-robot-4/", "label": "Litter-Robot 4"},
+          {"href": "/pet/", "label": "Pet hub"}
+        ]
+      },
+      {
+        "need": "Sleep, or a desk",
+        "body": "The sleep guide groups catalogue cards for that room. The Coop Original page states a medium-firm feel and a fill of cross-cut memory foam and microfiber. The Hatch Restore 3 page states 7.5 x 2.75 x 5.75 in.",
+        "links": [
+          {"href": "/gifts/for-better-sleep/", "label": "Gifts for better sleep"},
+          {"href": "/sleep/coop-original-pillow/", "label": "Coop Original Pillow"},
+          {"href": "/sleep/", "label": "Sleep hub"}
+        ]
+      }
+    ]
+  },
+  "compare": {
+    "heading": "How to read a spec comparison",
+    "intro": [
+      "A comparison on this site is a narrow table, not a verdict. It repeats spec lines that both maker pages share, and it links the maker page from the cell. A label that appears on only one card stays on that card. That rule is the whole method. It keeps a pascal figure from sitting in the same row as an air-watt figure, and it keeps a CADR from sitting beside a card that never prints CADR. [How we check](/how-we-check/) describes the dated recall line that sits under the table. The date is the day the catalogue match was recorded.",
+      "Read the table for the decision you actually have. If you are choosing between two jump starters, the useful rows are peak current, the gas and diesel engine limits, weight, and the enclosure rating, because both [NOCO pages](/compare/noco-gb40-vs-gb50/) print those labels. The GB40 page states 1,000 A peak, gas engines up to 6 L, diesel engines up to 3 L, and 2.4 lb. The GB50 page states 1,500 A, gas up to 7 L, diesel up to 4.5 L, and 2.7 lb. Both state IP65. Peak current is the figure those pages print.",
+      "The same rule explains the air purifier pairs. [Coway Mighty and Levoit Core 300S-P](/compare/coway-ap-1512hh-vs-levoit-core-300s-p/) share dimensions and weight. Coway states 16.8 × 18.3 × 9.6 in and 12.3 lb. Levoit states 8.7 × 8.7 × 14.2 in and 7.48 lb. CADR, room coverage, and power stay on the Coway card. Noise and rated power stay on the Levoit card. [Honeywell HPA300 and Coway Airmega 250](/compare/honeywell-hpa300-vs-coway-airmega-250/) are a different pair, and [Levoit Core 600S and Winix 5500-2](/compare/levoit-core-600s-vs-winix-5500-2/) are another. Do not drag a CADR from one pair onto a model that is not in that pair.",
+      "Room size is the easiest number to misuse, including across two honest cards. The Core 600S page states 2,909 sq ft at 1 air change per hour and 606 sq ft at 4.8. The Coway Airmega 250 page states 465 sq ft at 4 air changes per hour and 1,860 sq ft at 1 air change per hour. The Winix 5500-2 manual states an AHAM verified 360 sq ft. Those sentences are not one scale. When a comparison leaves room size out, it is because the two pages did not print the same label. Open both cards and read the rate attached to the square footage.",
+      "Vacuum pairs need the same care with units. [Dyson V15 Detect Absolute and Dyson V8](/compare/dyson-v15-detect-vs-dyson-v8/) can share weight and run time because both Dyson pages print them. The V8 page states 5.58 lb and a 40 minute maximum. The V15 page states 6.83 lb and up to 60 minutes. [V15 and Shark IP3251](/compare/dyson-v15-detect-vs-shark-ip3251/) put a 6.83 lb cordless next to an 18.47 lb cordless whose run time is stated up to 70 minutes at the hand vacuum in ECO mode. [Shark AV2501S and AV2820AE](/compare/shark-av2501s-vs-av2820ae/) share a 5.7 in cleaning path and state different weights, voltages, and wattages. Do not convert pascals on a robot card into air watts on a Dyson card. The table will not do that conversion either.",
+      "Every comparison also repeats the recall line for each model, dated with the catalogue check. Search the model on [CPSC Recalls](https://www.cpsc.gov/Recalls) for a US purchase and on [Health Canada recalls and safety alerts](https://recalls-rappels.canada.ca/en) for a Canadian purchase. The feeds behind the catalogue match are [CPSC SaferProducts](https://www.saferproducts.gov/RestWebServices/Recall) and the [Health Canada open dataset](https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3). A clear line on the left-hand model does not cover the right-hand model. The category hubs linked under each pair hold the rest of the cards."
+    ],
+    "picks": [
+      {
+        "need": "Two purifiers, and only the shared labels",
+        "body": "Mighty and Core 300S-P share dimensions and weight. HPA300 and Airmega 250 are a separate pair. Core 600S and Winix 5500-2 are a third. Read the pair that contains your two model numbers.",
+        "links": [
+          {"href": "/compare/coway-ap-1512hh-vs-levoit-core-300s-p/", "label": "Mighty and Core 300S-P"},
+          {"href": "/compare/honeywell-hpa300-vs-coway-airmega-250/", "label": "HPA300 and Airmega 250"},
+          {"href": "/compare/levoit-core-600s-vs-winix-5500-2/", "label": "Core 600S and Winix 5500-2"}
+        ]
+      },
+      {
+        "need": "Two cordless vacuums",
+        "body": "V15 and V8 share Dyson labels for weight and run time. V15 and Shark IP3251 put 6.83 lb next to 18.47 lb. The robot pair Qrevo S and X10 Pro Omni is a different table.",
+        "links": [
+          {"href": "/compare/dyson-v15-detect-vs-dyson-v8/", "label": "V15 and V8"},
+          {"href": "/compare/dyson-v15-detect-vs-shark-ip3251/", "label": "V15 and IP3251"},
+          {"href": "/compare/roborock-qrevo-s-vs-eufy-x10-pro-omni/", "label": "Qrevo S and X10 Pro Omni"}
+        ]
+      },
+      {
+        "need": "Two heaters or two jump starters",
+        "body": "The Lasko pair shares 900 W to 1,500 W and splits on height and weight. The NOCO pair shares IP65 and splits on peak current and engine limits.",
+        "links": [
+          {"href": "/compare/lasko-ct32150-vs-ct14401/", "label": "CT32150 and CT14401"},
+          {"href": "/compare/noco-gb40-vs-gb50/", "label": "GB40 and GB50"}
+        ]
+      },
+      {
+        "need": "A pitcher, a litter box, or headphones",
+        "body": "Brita Tahoe and ZeroWater ZP-010 share a 10 cup line and differ on the other stated fields. Litter-Robot 4 and ScoopFree Plus are the litter pair. Sony and Bose are the headphone pair.",
+        "links": [
+          {"href": "/compare/brita-tahoe-elite-vs-zerowater-zp010/", "label": "Tahoe and ZP-010"},
+          {"href": "/compare/litter-robot-4-vs-petsafe-scoopfree-plus/", "label": "Litter-Robot 4 and ScoopFree Plus"},
+          {"href": "/compare/sony-wh-1000xm5-vs-bose-qc-ultra/", "label": "WH-1000XM5 and QC Ultra"}
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Why is a spec missing from the table?",
+        "a": "Because only one of the two maker pages prints that label. CADR on the Coway Mighty card stays off the Mighty and Core 300S-P table because the Levoit card does not use that label. The missing row is still on the model page, with its source link."
+      },
+      {
+        "q": "Can I compare pascals on a robot with air watts on a Dyson?",
+        "a": "No. They are different units, and the tables do not convert one into the other. Read the pascal line on the robot card and the air-watt line on the Dyson card as separate sentences."
+      },
+      {
+        "q": "Which room-size number should I keep?",
+        "a": "Keep the number and the air-change rate that the maker attached to it. The Core 600S page states both 2,909 sq ft at 1 air change per hour and 606 sq ft at 4.8. The larger figure and the smaller figure answer different questions."
+      },
+      {
+        "q": "Does the comparison include a recall check?",
+        "a": "Yes. Each model repeats the catalogue sentence for the US match and the Canadian match, dated with the day that match was recorded. Search the same model on CPSC Recalls or Health Canada recalls and safety alerts if you want the official search page open beside it."
+      },
+      {
+        "q": "Where do the cell values come from?",
+        "a": "From the maker page linked in that cell. The sentence above the table on each comparison says so. A value is not an average of the two models and not a measurement added by this catalogue."
+      }
+    ]
+  },
+  "cleaning": {
+    "title": "How to choose a vacuum — Checked Lab",
+    "description": "How to read vacuum weight, run time, and suction units on robot and cordless cards, then match the model to a CPSC or Health Canada line.",
+    "heading": "How to choose a vacuum",
+    "intro": [
+      "This hub is two kinds of machine: robot vacuums, some of which also mop, and cordless stick vacuums. The model number is the decision. Shark uses AV2501S for the AI Ultra robot and AV2820AE for the PowerDetect robot. Dyson uses V15 Detect Absolute and V8 for two cordless machines. A listing that says Shark or Dyson without that number is not yet a card. Match the number on the unit to the card, then read the maker page linked from the specs. The comparison pages keep only the labels both of those maker pages share.",
+      "Weight, run time, and the unit of suction are the lines that change the job. The [Dyson V8 page](https://www.dyson.com/vacuum-cleaners/cordless/v8/silver-nickel) states 5.58 lb and a 40 minute maximum. The [V15 Detect Absolute page](https://www.dyson.com/vacuum-cleaners/cordless/v15/detect/absolute-gold) states 6.83 lb, up to 60 minutes, 230 AW in Boost mode, and whole-machine HEPA filtration. The [Shark IP3251 page](https://www.sharkninja.com/shark-cordless-powerdetect-clean-empty-system/IP3251.html) states 18.47 lbs and up to 70 minutes measured at the hand vacuum in ECO mode. A lighter stated weight and a longer stated run time are different facts. ECO and Boost are different modes. The [Tineco PURE ONE S15 PRO page](https://us.tineco.com/products/pure-one-s15.html) states 6.8 lbs and 40 minutes. Read the mode the maker attached to the minutes.",
+      "Robot cards print pascals, not air watts. The [Roborock Qrevo S page](https://ca.roborock.com/pages/roborock-qrevo-s) states 7,000 Pa and a robot height of 3.80 in. The [eufy X10 Pro Omni page](https://www.eufy.com/products/t2351v11-96) states 8,000 Pa, and 173 minutes vacuuming or 136 minutes vacuuming and mopping, on standard. The [Roomba Combo j9+ page](https://www.irobot.com/en_US/roomba-combo-j9plus-auto-fill-robot-vacuum-and-mop/C975020.html/) states a robot weight of 8.9 lb and a separate dock of 15.8 in W x 16.4 in D x 16.3 in H. The dock is not the robot. Pascals are not air watts, and the comparison tables do not convert one into the other. [Qrevo S and X10 Pro Omni](/compare/roborock-qrevo-s-vs-eufy-x10-pro-omni/) and [Combo j9+ and Qrevo S](/compare/irobot-roomba-combo-j9-plus-vs-roborock-qrevo-s/) are the robot pairs.",
+      "Ignore a coverage slogan the maker page does not print. Ignore a pet-hair line the card does not state. The [BISSELL ICONpet 2288 page](https://www.bissell.com/en-us/product/bissell-iconpet-cordless-vacuum-2288.html) states 22 V, a 0.4 L dirty tank, a 10.5 in cleaning path, and 7 lbs. That is what the page states. For loose undercoat, the [FURminator medium short-hair tool](/pet/furminator-medium-short/) is on the pet hub, sized for a dog of 25 to 50 lb with short hair. A self-empty dock counts when that model's page states the dock. [AV2501S and AV2820AE](/compare/shark-av2501s-vs-av2820ae/) share a 5.7 in cleaning path and state different weights, voltages, and wattages. The AI Ultra page states 120 volts and 650 watts. The PowerDetect robot page states 14.4 volts and 35 watts.",
+      "The recall line is a dated match, not a review of how the vacuum cleans. US cards use the [CPSC SaferProducts feed](https://www.saferproducts.gov/RestWebServices/Recall). Canadian cards use [Health Canada's open dataset](https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3). Search the model on [CPSC Recalls](https://www.cpsc.gov/Recalls) and on [Health Canada recalls and safety alerts](https://recalls-rappels.canada.ca/en). A clear line for the V8 does not cover the V15. A clear line for AV2501S does not cover AV2820AE. [How we check](/how-we-check/) says the date is the day the match was recorded. [Recall checks](/recalls/) lists every catalogue model."
+    ],
+    "picks": [
+      {
+        "need": "A lighter cordless",
+        "body": "The V8 page states 5.58 lb and a 40 minute maximum. The V15 page states 6.83 lb and up to 60 minutes. Tineco states 6.8 lbs and 40 minutes. The comparison is the Dyson pair.",
+        "links": [
+          {"href": "/cleaning/dyson-v8/", "label": "Dyson V8"},
+          {"href": "/cleaning/dyson-v15-detect/", "label": "Dyson V15 Detect Absolute"},
+          {"href": "/compare/dyson-v15-detect-vs-dyson-v8/", "label": "V15 and V8 specs"}
+        ]
+      },
+      {
+        "need": "A longer stated cordless run time",
+        "body": "Shark states up to 70 minutes for the IP3251, measured at the hand vacuum in ECO mode, at 18.47 lbs. The V15 page states up to 60 minutes at 6.83 lb. Those modes are not the same test.",
+        "links": [
+          {"href": "/cleaning/shark-ip3251/", "label": "Shark IP3251"},
+          {"href": "/cleaning/dyson-v15-detect/", "label": "Dyson V15 Detect Absolute"},
+          {"href": "/compare/dyson-v15-detect-vs-shark-ip3251/", "label": "V15 and IP3251 specs"}
+        ]
+      },
+      {
+        "need": "A robot that also mops",
+        "body": "The Combo j9+, Qrevo S, and X10 Pro Omni titles are vacuum-and-mop machines. Qrevo S states 7,000 Pa. X10 Pro Omni states 8,000 Pa and a shorter run time when mopping. The Roomba card states 8.9 lb for the robot.",
+        "links": [
+          {"href": "/cleaning/irobot-roomba-combo-j9-plus/", "label": "Roomba Combo j9+"},
+          {"href": "/cleaning/roborock-qrevo-s/", "label": "Roborock Qrevo S"},
+          {"href": "/compare/roborock-qrevo-s-vs-eufy-x10-pro-omni/", "label": "Qrevo S and X10 Pro Omni"}
+        ]
+      },
+      {
+        "need": "Pet hair on the floor",
+        "body": "The ICONpet 2288 page states 22 V, a 0.4 L dirty tank, a 10.5 in path, and 7 lbs. It does not state a pet-hair measurement. The FURminator page states a medium short-haired dog, 25 to 50 lb.",
+        "links": [
+          {"href": "/cleaning/bissell-iconpet-2288/", "label": "BISSELL ICONpet 2288"},
+          {"href": "/pet/furminator-medium-short/", "label": "FURminator medium short hair"},
+          {"href": "/pet/", "label": "Pet hub"}
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "q": "What should I compare on two cordless vacuums?",
+        "a": "Weight and run time, in the mode the maker names. The V8 page states 5.58 lb and 40 minutes maximum. The V15 page states 6.83 lb and up to 60 minutes. The IP3251 page states 18.47 lbs and up to 70 minutes at the hand vacuum in ECO mode."
+      },
+      {
+        "q": "Can I rank a robot's pascals against a Dyson's air watts?",
+        "a": "No. Pascals and air watts are different units. Qrevo S states 7,000 Pa and the X10 Pro Omni states 8,000 Pa. The V15 page states 230 AW in Boost mode. The comparison tables leave a label out when only one page prints it."
+      },
+      {
+        "q": "Why do the two Shark robots show different voltages?",
+        "a": "Because each Shark page prints its own electrical line. AV2501S states 120 volts and 650 watts. AV2820AE states 14.4 volts and 35 watts. Both state a 5.7 in cleaning path. Read the row as the maker printed it."
+      },
+      {
+        "q": "How does the recall check work for a vacuum?",
+        "a": "The US line is a match against the CPSC SaferProducts feed. The Canadian line is a match against Health Canada's open dataset. Search the same model on CPSC Recalls or Health Canada recalls and safety alerts. A clear line for one model number does not cover the next number in the brand."
+      },
+      {
+        "q": "Where do the spec lines come from?",
+        "a": "From the maker page linked on the model card. The V15 HEPA line, for example, is the whole-machine HEPA sentence on Dyson's page for that model. A HEPA word in a listing is a different sentence unless that model's page says it."
+      }
+    ]
+  },
+  "air-water": {
+    "title": "How to choose air and water gear — Checked Lab",
+    "description": "CADR, air changes, filter certifications, and pitcher size as the maker pages state them, plus the dated CPSC or Health Canada check.",
+    "heading": "How to choose air and water gear",
+    "intro": [
+      "This hub mixes four jobs: cleaning a room's air, adding humidity, pulling water out of the air, and filtering drinking water. They do not share one spec. An air purifier card is about airflow and particle removal. A humidifier card is about tank size and run time. A dehumidifier card is about pints removed in stated conditions. A water filter card is about certifications, capacity, and flow. Read the card that matches the job, then match the model number on the unit to the listing before you trust the recall line.",
+      "On a purifier, keep the room size and the air-change rate together. The [Coway Airmega Mighty page](https://cowaymega.com/products/mighty-ap-1512hh) states a smoke CADR of 233 and 361 ft² at 4.8 air changes per hour. The [Levoit Core 600S page](https://levoit.com/products/core-600s-p-smart-air-purifier) states 2,909 sq ft at 1 air change per hour and 606 sq ft at 4.8, with a CADR of 391 CFM. The [Coway Airmega 250 page](https://cowaymega.com/products/airmega-250) states 465 sq ft at 4 air changes per hour and 1,860 sq ft at 1. The [Winix 5500-2 manual](https://www.winixamerica.com/wp-content/uploads/2025/03/5500-2_User-Manual_V5-V3.pdf) states an AHAM verified 360 sq ft. The larger square footage is often the one-air-change sentence. [Mighty and Core 300S-P](/compare/coway-ap-1512hh-vs-levoit-core-300s-p/) share only size and weight, because the Levoit card does not print CADR.",
+      "Filter words need the standard the maker named. The [Honeywell HPA300 page](https://www.honeywellstore.com/store/products/hpa300-true-hepa-whole-room-air-purifier-with-allergen-remover.htm) states filtration of up to 99.97 percent of particles that pass through the filter, and 4.8 air changes an hour in a 465 sq ft room. The [Aquasana Claryum page](https://www.aquasana.com/under-sink-water-filters/claryum-2-stage/brushed-nickel-100391677.html) names NSF/ANSI 42, 53 including P473, and 401, with 500 gallons or up to 6 months. The [Waterdrop G3P600 page](https://www.waterdropfilter.com/products/waterdrop-reverse-osmosis-water-filtration-system) names NSF/ANSI 42, 58, and 372, 8 stages, and 600 gallons per day. The [iSpring RCC7 page](https://www.ispringfilter.com/products/5-stage-essence-ro-water-filtration-system-ispring-rcc7-5-stage-residential-under-sink-reverse-osmosis-water-filter-system-wqa-certified-75-gpd) states 5 stages, 75 gallons per day, and NSF/ANSI 58. Gallons per day are not gallons of pitcher capacity.",
+      "Pitchers and machines that move water have their own traps. The [Brita Tahoe page](https://www.brita.com/products/brita-tahoe-water-pitcher-elite-filter/) states 10 cups and a 6 month filter life. The [ZeroWater ZP-010 page](https://zerowater.com/products/10-cup-water-filter-pitcher) also states 10 cups, and it states an included TDS meter. [Tahoe and ZP-010](/compare/brita-tahoe-elite-vs-zerowater-zp010/) are the pair. Humidifier tanks are not interchangeable claims either. The [Levoit Classic 300S page](https://levoit.com/products/classic-300s-smart-ultrasonic-top-fill-cool-mist-humidifier) states a 6 L tank, up to 60 hours, and 505 ft². The [Levoit LV600HH page](https://levoit.com/products/lv600hh-hybrid-ultrasonic-humidifier) states 6 liters, up to 50 hours, and warm and cool mist. Dehumidifier pints depend on the test condition. hOmeLabs states up to 50 pints a day at 80 F and 60 percent relative humidity, and a higher maximum at 95 F and 90 percent.",
+      "Ignore a CADR borrowed from a sibling model. Ignore a room size that drops the air-change rate. Ignore an NSF line that belongs to a different filter. The recall check is separate from all of that. US cards match the [CPSC SaferProducts feed](https://www.saferproducts.gov/RestWebServices/Recall). Canadian cards match [Health Canada's open dataset](https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3). Search the model on [CPSC Recalls](https://www.cpsc.gov/Recalls) and on [Health Canada recalls and safety alerts](https://recalls-rappels.canada.ca/en). A clear line on the Mighty does not cover the Airmega 250. [How we check](/how-we-check/) defines the date. [Core 600S and Winix 5500-2](/compare/levoit-core-600s-vs-winix-5500-2/) and [HPA300 and Airmega 250](/compare/honeywell-hpa300-vs-coway-airmega-250/) are the other purifier pairs."
+    ],
+    "picks": [
+      {
+        "need": "A smaller purifier footprint",
+        "body": "The Core 300S-P page states 8.7 × 8.7 × 14.2 in and 7.48 lb. The Mighty page states 16.8 × 18.3 × 9.6 in and 12.3 lb. CADR stays on the Coway card only.",
+        "links": [
+          {"href": "/air-water/levoit-core-300s-p/", "label": "Levoit Core 300S-P"},
+          {"href": "/air-water/coway-ap-1512hh/", "label": "Coway Airmega Mighty"},
+          {"href": "/compare/coway-ap-1512hh-vs-levoit-core-300s-p/", "label": "Mighty and Core 300S-P specs"}
+        ]
+      },
+      {
+        "need": "A room size with the rate attached",
+        "body": "Core 600S states 606 sq ft at 4.8 air changes and 2,909 sq ft at one. Airmega 250 states 465 sq ft at 4 air changes and 1,860 at one. Winix states an AHAM verified 360 sq ft.",
+        "links": [
+          {"href": "/air-water/levoit-core-600s/", "label": "Levoit Core 600S"},
+          {"href": "/air-water/coway-airmega-250/", "label": "Coway Airmega 250"},
+          {"href": "/compare/levoit-core-600s-vs-winix-5500-2/", "label": "Core 600S and Winix 5500-2"}
+        ]
+      },
+      {
+        "need": "Drinking water under the sink or in a pitcher",
+        "body": "Claryum states 500 gallons or up to 6 months and names NSF/ANSI 42, 53, and 401. G3P600 states 600 gallons per day. Tahoe and ZP-010 both state 10 cups.",
+        "links": [
+          {"href": "/air-water/aquasana-claryum/", "label": "Aquasana Claryum"},
+          {"href": "/air-water/waterdrop-g3p600/", "label": "Waterdrop G3P600"},
+          {"href": "/compare/brita-tahoe-elite-vs-zerowater-zp010/", "label": "Tahoe and ZP-010 specs"}
+        ]
+      },
+      {
+        "need": "A humidifier tank, or pints from the air",
+        "body": "Classic 300S states a 6 L tank and up to 60 hours. LV600HH states 6 liters, up to 50 hours, and warm and cool mist. hOmeLabs states the 50 pint rate at 80 F and 60 percent relative humidity.",
+        "links": [
+          {"href": "/air-water/levoit-lv600hh/", "label": "Levoit LV600HH"},
+          {"href": "/winter/levoit-classic-300s/", "label": "Levoit Classic 300S"},
+          {"href": "/air-water/homelabs-50-pint/", "label": "hOmeLabs 50 pint"}
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Why does one purifier list two room sizes?",
+        "a": "The maker attached different air-change rates. Core 600S states 2,909 sq ft at 1 air change per hour and 606 sq ft at 4.8. Airmega 250 states 1,860 sq ft at 1 air change and 465 sq ft at 4. Keep the rate with the number."
+      },
+      {
+        "q": "What is CADR on these cards?",
+        "a": "A clean-air delivery figure the maker printed, often split by smoke, dust, and pollen. The Mighty page states 233 smoke, 246 dust, and 240 pollen. If the other card does not print CADR, the comparison leaves that row out."
+      },
+      {
+        "q": "How should I read a water-filter certification?",
+        "a": "Read the standard the maker named for that model. Claryum names NSF/ANSI 42, 53 including P473, and 401. Waterdrop G3P600 names NSF/ANSI 42, 58, and 372. A certification on one filter is not a certification for the next model."
+      },
+      {
+        "q": "How does the recall check work here?",
+        "a": "The US line matches the model to the CPSC SaferProducts feed. The Canadian line matches it to Health Canada's open dataset. Search CPSC Recalls or Health Canada recalls and safety alerts for the same model number. A clear Mighty line does not cover the Airmega 250."
+      },
+      {
+        "q": "Are humidifier hours and dehumidifier pints the same kind of number?",
+        "a": "No. A humidifier hour is how long the maker says the tank lasts at a stated setting. A dehumidifier pint figure is water removed per day at a stated temperature and humidity. hOmeLabs prints both an 80 F figure and a 95 F figure."
+      }
+    ]
+  },
+  "kitchen": {
+    "title": "How to choose kitchen gear — Checked Lab",
+    "description": "Capacity, wattage, and materials on the kitchen cards, which family names to split apart, and the CPSC or Health Canada model check.",
+    "heading": "How to choose kitchen gear",
+    "intro": [
+      "Kitchen gear on this hub runs from a cast-iron skillet to a 1,800 watt oven. The useful spec is the one that limits the job: capacity, wattage, material, or a dimension that has to fit a cabinet. A family name is not that spec. Foodi, Ninja, Cosori, and Breville each cover more than one card. Match the model number on the unit to the card. The [Cosori 2023 explainer](/recalls/cosori-air-fryer-2023/), the [Ninja Foodi OP300 explainer](/recalls/ninja-foodi-op300/), and the [Instant Pot notices](/recalls/instant-pot-official-notices/) quote official lists and name which catalogue card is actually in them.",
+      "Air fryers and multi-cookers are where listings drift. The [Ninja Crispi page](https://www.sharkninja.com/ninja-crispi-4-in-1-portable-glass-air-fryer-cooking-system/FN101GY.html) states 1,500 W and 4-qt and 6-cup glass containers. The [COSORI Pro II page](https://cdn.accentuate.io/4894973755480/1613980148681/01.06_M1_CS358-AF_2020-09-29_WEB_US_en.pdf?v=0) states 5.8 qt and 1,700 W rated power. [Crispi and Pro II](/compare/ninja-crispi-fn101-vs-cosori-pro-5-8/) share dimensions and weight only. The [Ninja Foodi 10-in-1 page](https://www.ninjakitchen.ca/products/ninja-foodi-10-in-1-xl-pro-air-fry-oven-zidDT201C) states 1,800 W and room for a 12 lb turkey. The [Instant Pot Duo Plus page](https://instantpot.com/products/instant-pot-duo-plus-6qt-multi-use-pressure-cooker-v3) states 6 quarts and 1,000 W. [Duo Plus and Foodi](/compare/instant-pot-duo-plus-vs-ninja-foodi-10in1/) is that pair. An oven wattage and a pressure-cooker wattage answer different questions.",
+      "Counter tools are limited by the motor, the bowl, or the dose the maker states. The [Vitamix E310 page](https://www.vitamix.com/us/en_us/products/e310) states a 2 HP motor, a 48 oz container, and 10.5 lb. The [KitchenAid Artisan page](https://www.kitchenaid.com/countertop-appliances/stand-mixers/tilt-head-stand-mixers/p.artisan-series-5-quart-tilt-head-stand-mixer.KSM150PSER.html) states a 5 quart bowl and 10 speeds. The [Breville Barista Express page](https://www.breville.com/en-us/product/bes870) states a 54 mm portafilter, an 18 g dose, and 16 grind settings. The [Baratza Encore ESP page](https://www.baratza.com/en-us/product/zcg495) states 40 mm conical steel burrs and settings split between espresso and filter. The [Fellow Stagg EKG page](https://fellowproducts.com/products/stagg-ekg-electric-pour-over-kettle) states 1200 W. Read the setting count the page prints. A 'cafe' word in a title is not a grind setting.",
+      "Pans and ovens are limited by material and by the temperature the maker allows. The [Lodge 10.25 inch skillet page](https://www.lodgecastiron.com/products/round-cast-iron-classic-skillet?variant=51685752439156) states 5.66 lb and seasoning with vegetable oil. The [Le Creuset 5.5 qt page](https://www.lecreuset.com/signature-round-dutch-oven-with-crucible-knob-5-1-2-qt-flamme-doree/21177026183471.html) states enameled cast iron, 5 to 6 servings, and oven use up to 500 F. The [All-Clad D3 12 inch page](https://www.all-clad.com/d3-stainless-3-ply-bonded-cookware-fry-pan-12-inch.html) states oven use up to 600 F. The [Breville Smart Oven Air Fryer Pro page](https://www.breville.com/en-us/product/bov900) states a 1 cubic foot interior. Capacity in quarts, servings, and cubic feet are three different units. [Thanksgiving](/thanksgiving/) is the separate note for fryers, pressure cookers, turkey temperatures, and kitchen fires.",
+      "Ignore a wattage taken from a different model in the same family. Ignore a capacity that mixes a glass container with a sheet-pan oven. The recall check is the model match. US cards use the [CPSC SaferProducts feed](https://www.saferproducts.gov/RestWebServices/Recall). Canadian cards use [Health Canada's open dataset](https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3). Search [CPSC Recalls](https://www.cpsc.gov/Recalls) and [Health Canada recalls and safety alerts](https://recalls-rappels.canada.ca/en). A clear line on the Crispi does not cover the Foodi, and a clear line on one Instant Pot model does not cover another. [How we check](/how-we-check/) defines the date on the card. The [Vitamix container explainer](/recalls/vitamix-ascent-venturist-containers/) is the place to read when a notice is about a container rather than the motor."
+    ],
+    "picks": [
+      {
+        "need": "A blender or a stand mixer",
+        "body": "The E310 page states a 2 HP motor and a 48 oz container. The Artisan page states a 5 quart stainless bowl and 10 speeds. Those are the limits the maker printed.",
+        "links": [
+          {"href": "/kitchen/vitamix-e310/", "label": "Vitamix E310"},
+          {"href": "/kitchen/kitchenaid-artisan/", "label": "KitchenAid Artisan"},
+          {"href": "/gifts/for-the-home-cook/", "label": "Gifts for the home cook"}
+        ]
+      },
+      {
+        "need": "An air fryer, matched to the model list",
+        "body": "Crispi states 1,500 W and glass containers. Pro II states 5.8 qt and 1,700 W. The shared table is dimensions and weight. The Cosori explainer quotes the 2023 notice.",
+        "links": [
+          {"href": "/kitchen/ninja-crispi-fn101/", "label": "Ninja Crispi FN101"},
+          {"href": "/kitchen/cosori-pro-5-8/", "label": "COSORI Pro II"},
+          {"href": "/compare/ninja-crispi-fn101-vs-cosori-pro-5-8/", "label": "Crispi and Pro II specs"},
+          {"href": "/recalls/cosori-air-fryer-2023/", "label": "Cosori 2023 model list"}
+        ]
+      },
+      {
+        "need": "Pressure cooking or a counter oven",
+        "body": "Duo Plus states 6 quarts and 1,000 W. The Foodi 10-in-1 states 1,800 W and room for a 12 lb turkey. The comparison keeps the labels both pages share.",
+        "links": [
+          {"href": "/kitchen/instant-pot-duo-plus/", "label": "Instant Pot Duo Plus"},
+          {"href": "/kitchen/ninja-foodi-10in1/", "label": "Ninja Foodi 10-in-1"},
+          {"href": "/compare/instant-pot-duo-plus-vs-ninja-foodi-10in1/", "label": "Duo Plus and Foodi specs"}
+        ]
+      },
+      {
+        "need": "Coffee, from the stated dose or kettle",
+        "body": "The Barista Express page states a 54 mm portafilter and an 18 g dose. Encore ESP states 40 mm burrs. Stagg EKG states 1200 W and to-the-degree control.",
+        "links": [
+          {"href": "/kitchen/breville-bes870xl/", "label": "Breville Barista Express"},
+          {"href": "/kitchen/baratza-encore-esp/", "label": "Baratza Encore ESP"},
+          {"href": "/gifts/for-coffee-lovers/", "label": "Gifts for coffee lovers"}
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Why are there several Ninja and Cosori cards?",
+        "a": "Because they are different model numbers. Crispi is FN101, at 1,500 W, with 4-qt and 6-cup glass containers. The Foodi 10-in-1 states 1,800 W. The Cosori Pro II states 5.8 qt and 1,700 W. A family name on a listing can point at any of them."
+      },
+      {
+        "q": "What does the comparison leave out, and why?",
+        "a": "Any label that only one maker page prints. Crispi and Pro II share dimensions and weight in the table. Power and capacity stay on the cards. Duo Plus and the Foodi are a separate pair."
+      },
+      {
+        "q": "How do I read an oven-safe temperature?",
+        "a": "As the maximum the maker printed for that piece. Le Creuset states oven use up to 500 F for the 5.5 qt Signature round Dutch oven. All-Clad states oven use up to 600 F for the 12 inch D3 fry pan. Those limits belong to those model pages."
+      },
+      {
+        "q": "How does the recall check work for a kitchen model?",
+        "a": "The US line matches the brand and model to the CPSC SaferProducts feed. The Canadian line uses Health Canada's open dataset. Open the Cosori, Foodi, Instant Pot, or Vitamix explainer when a notice names a list of models. A clear line on one model does not cover the next."
+      },
+      {
+        "q": "Where should I look for holiday cooking hazards?",
+        "a": "Thanksgiving and holiday hosting covers turkey fryers, pressure cookers, turkey temperatures, and kitchen fires, with the agency pages those guides cite. This hub is the catalogue of named models."
+      }
+    ]
+  },
+  "winter": {
+    "title": "How to choose winter gear — Checked Lab",
+    "description": "Heater wattage, humidifier tanks, and snow-tool width from the maker pages, with the CPSC or Health Canada check and the winter safety guides.",
+    "heading": "How to choose winter gear",
+    "intro": [
+      "Winter cards on this hub cover heat, humidity, snow, and a few cold-weather objects that are not heaters at all. A ceramic tower, an oil-filled radiator, a propane heater, a humidifier, a snow blower, and a wool blanket do not share a spec. Start by naming the job, then read the label line that limits that job. [Winter home safety](/winter-safety/) is the companion set of guides for space heaters, heated bedding, carbon monoxide and smoke alarms, and portable power. Those guides say what to read on a label. This page is the catalogue of named models.",
+      "Electric heaters are limited by wattage, voltage, size, and the safety line the maker prints. The [Lasko CT32150 page](https://lasko.com/products/lasko-ct32150-32-digital-ceramic-tower-space-heater-with-remote-control-black) states 900 W to 1,500 W, 120 V, 31.6 in, 5.7 lb, ETL listing, a tip-over switch, and overheat protection. The [CT14401 page](https://lasko.com/products/lasko-ready-heat-14-ceramic-tower-space-heater-oscillating-2-heat-settings-timer-thermostat) states the same wattage and voltage, 14 in, 3.3 lb, ETL listing, and overheat protection. [CT32150 and CT14401](/compare/lasko-ct32150-vs-ct14401/) is that pair. The [Dreo Atom 316 page](https://www.dreo.com/products/dreo-space-heater-atom-316) states 1500 watts and 200 sq ft. The [De'Longhi Dragon 4 page](https://www.delonghi.com/en-us/p/radiator-space-heater-trd40615e-dragon-4-oil-filled-radiator/TRD40615E-6A.html) states 1500 W maximum, 700 W minimum, 6 fins, and 25.61 lb. A taller tower and a heavier radiator are different objects. The [Lasko heater explainer](/recalls/lasko-heaters/) quotes notices that name specific heater models.",
+      "Fuel-burning heat is a different label. The [Mr. Heater Portable Buddy page](https://mrheater.com/products/portable-buddy-heater) states 4,000 or 9,000 BTU per hour, up to 225 sq ft, and 3 hours at the maximum setting. Read the [space heater guide](/winter-safety/space-heaters/) and the [alarm guide](/winter-safety/carbon-monoxide-smoke-alarms/) beside that card. Heated bedding has its own guide too. The [Pendleton Eco-Wise page](https://www.pendleton-usa.com/product/eco-wise-wool-solid-blanket/70080.html) states a full/queen wool blanket, 90 in by 96 in, at 5.5 lb. That is a blanket, not a heater. The [electric blanket guide](/winter-safety/electric-blankets/) is where the heated-bedding label lines live.",
+      "Snow tools are limited by clearing width, depth or intake height, and the power source the page names. The [Snow Joe 24V-SS10 manual](https://files.snowjoe.com/product-manuals/24V-SS10_MANUAL_MR3_05062021_FINAL.pdf) states a 10 in clearing width, snow depth up to 6 in, and 9.9 lb. The [Toro Power Clear 721 E page](https://www.toro.com/en/product/38753) states a 212 cc engine, a 21 in clearing width, a 12.5 in intake height, and 84 lb. The [EGO SNT2110 page](https://egopowerplus.com/snow-blower-steel-auger-snt2110/) states a 21 in clearing width, throw up to 40 ft, and a steel auger, and it states that peak power uses two 56V batteries. A 10 in shovel width and a 21 in blower width are not the same job. Humidifiers on the winter list are tanks: the [Classic 300S page](https://levoit.com/products/classic-300s-smart-ultrasonic-top-fill-cool-mist-humidifier) states 6 L and up to 60 hours.",
+      "Ignore a square-footage line that is not on that model's page. Ignore a tip-over claim that the safety line does not include. The CT32150 safety line names a tip-over switch. The CT14401 safety line names ETL listing and overheat protection. The recall check is still the model match. US cards use the [CPSC SaferProducts feed](https://www.saferproducts.gov/RestWebServices/Recall). Canadian cards use [Health Canada's open dataset](https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3). Search [CPSC Recalls](https://www.cpsc.gov/Recalls) and [Health Canada recalls and safety alerts](https://recalls-rappels.canada.ca/en). A clear line on one Lasko model does not cover the other. [How we check](/how-we-check/) says what the date means."
+    ],
+    "picks": [
+      {
+        "need": "A tower heater, tall or short",
+        "body": "Both Lasko pages state 900 W to 1,500 W and 120 V. CT32150 states 31.6 in, 5.7 lb, and a tip-over switch. CT14401 states 14 in and 3.3 lb.",
+        "links": [
+          {"href": "/winter/lasko-ct32150/", "label": "Lasko CT32150"},
+          {"href": "/winter/lasko-ct14401/", "label": "Lasko CT14401"},
+          {"href": "/compare/lasko-ct32150-vs-ct14401/", "label": "CT32150 and CT14401 specs"},
+          {"href": "/winter-safety/space-heaters/", "label": "Space heater labels"}
+        ]
+      },
+      {
+        "need": "A heavy radiator or a stated room",
+        "body": "The Dragon 4 page states 1500 W maximum, 6 fins, and 25.61 lb. The Atom 316 page states 1500 watts and 200 sq ft. The Vornado AVH2 page states low and high heat settings and 4.48 lb.",
+        "links": [
+          {"href": "/winter/delonghi-trd40615e/", "label": "De'Longhi Dragon 4"},
+          {"href": "/winter/dreo-atom-316/", "label": "Dreo Atom 316"},
+          {"href": "/winter/vornado-avh2/", "label": "Vornado AVH2"}
+        ]
+      },
+      {
+        "need": "Dry air, or a wool blanket",
+        "body": "Classic 300S states a 6 L tank and up to 60 hours. The Pendleton page states 90 in by 96 in and 5.5 lb of wool. Heated bedding is the separate safety guide.",
+        "links": [
+          {"href": "/winter/levoit-classic-300s/", "label": "Levoit Classic 300S"},
+          {"href": "/winter/pendleton-eco-wise/", "label": "Pendleton Eco-Wise blanket"},
+          {"href": "/winter-safety/electric-blankets/", "label": "Electric blanket labels"}
+        ]
+      },
+      {
+        "need": "A stated clearing width",
+        "body": "The 24V shovel states a 10 in width and snow depth up to 6 in. Toro states 21 in and a 12.5 in intake. EGO states 21 in and a steel auger.",
+        "links": [
+          {"href": "/winter/snowjoe-24v-ss10/", "label": "Snow Joe 24V-SS10"},
+          {"href": "/winter/toro-power-clear-38753/", "label": "Toro Power Clear 721 E"},
+          {"href": "/winter/ego-snt2110/", "label": "EGO SNT2110"}
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "q": "What should I read on a ceramic tower heater?",
+        "a": "Wattage, voltage, height, weight, and the safety line. Both Lasko cards state 900 W to 1,500 W and 120 V. CT32150 adds a tip-over switch to its safety line. CT14401 states ETL listing and overheat protection. The space heater guide says which label marks to compare on the unit."
+      },
+      {
+        "q": "Are all 1,500 watt heaters the same card?",
+        "a": "No. Dreo states 1500 watts and 200 sq ft for the Atom 316. De'Longhi states 1500 W maximum and 25.61 lb for the Dragon 4. Lasko states a range from 900 W to 1,500 W. Match the model number, not the wattage alone."
+      },
+      {
+        "q": "Where do snow-tool widths come from?",
+        "a": "From the maker page or manual on the card. Snow Joe states a 10 in clearing width. Toro and EGO each state 21 in. Toro also states an 84 lb weight and a 212 cc engine. A shovel width and a blower width are different jobs."
+      },
+      {
+        "q": "How does the recall check work for a heater?",
+        "a": "The US line matches the model to the CPSC SaferProducts feed. The Canadian line uses Health Canada's open dataset. The Lasko explainer quotes notices that name specific heater models. A clear line on CT32150 does not cover CT14401."
+      },
+      {
+        "q": "What is the difference between this hub and winter safety?",
+        "a": "This hub is the catalogue of named models and the maker specs on those cards. Winter home safety is the set of label guides for space heaters, heated bedding, alarms, and outage power, including models that are not a card."
+      }
+    ]
+  },
+  "car-garage": {
+    "title": "How to choose car and garage gear — Checked Lab",
+    "description": "Jump-starter peak current, charger output, and tool ratings from the maker pages, then the dated CPSC or Health Canada model check.",
+    "heading": "How to choose car and garage gear",
+    "intro": [
+      "Car and garage cards cover jump starters, battery chargers, compressors, scan tools, and a handful of shop tools. They do not share one rating. A jump starter is limited by the peak current and the engine sizes the maker prints. A charger is limited by voltage, amps, and the battery types the page names. A compressor is limited by flow, maximum pressure, and duty. A meter is limited by the category rating printed on it. Match the model number first. GB40 and GB50 are both NOCO, and they are not the same card.",
+      "Read peak current as peak current. The [NOCO GB40 page](https://no.co/gb40) states 1,000 A at 12 V, gas engines up to 6 L, diesel engines up to 3 L, 2.4 lb, and IP65. The [GB50 page](https://no.co/gb50) states 1,500 A, gas up to 7 L, diesel up to 4.5 L, 2.7 lb, and IP65. [GB40 and GB50](/compare/noco-gb40-vs-gb50/) keeps those shared labels. If the engine size is inside the smaller limit, both pages name it. If it sits between the two limits, only the GB50 line names that size. This catalogue does not print a continuous amp figure the NOCO page left out. IP65 is the enclosure line both pages state. It is not a claim about cranking time.",
+      "Chargers and inflators need the same honesty about two numbers. The [Battery Tender Junior page](https://www.batterytender.com/products/junior) states 12 V at 750 mA and batteries from 3 Ah to 30 Ah. The [CTEK MXS 5.0 page](https://ctek.com/en-us/products/mxs-5-0-na) states 12 V, 1.2 to 110 Ah, and maintenance charging to 160 Ah. Those ranges are not the same charger. The [Sun Joe SPX3000 manual](https://files.snowjoe.com/product-manuals/SPX3000_MANUAL_ENG_02042020_MR12_FINAL.pdf) states 2030 PSI maximum and 1450 PSI rated, with 1.76 GPM maximum flow. Keep both pressure lines. The [VIAIR 88P page](https://viaircorp.com/products/88p-portable-compressor) states 1.97 CFM at 0 PSI, 120 PSI maximum, and a 25 minute duty at 30 PSI. The [Fanttik X8 Apex page](https://fanttik.com/products/x8-apex-tire-inflator) states up to 150 PSI. A maximum and a rated figure are both real, and they are not synonyms.",
+      "Shop tools are limited by the range and the safety category the maker prints. The [Fluke 117 page](https://www.fluke.com/en-us/product/electrical-testing/digital-multimeters/fluke-117) states CAT III 600 V. The [TEKTON 24335 page](https://www.tekton.com/1-2-inch-drive-micrometer-torque-wrench-24335) states a 1/2 inch drive, 10 to 150 ft-lb, and accuracy of plus or minus 4 percent. The [DeWalt DCD771 page](https://www.dewalt.com/en-us/product/dcd771c2/20v-max-compact-drilldriver-kit-2-batteries) states two speed ranges, 0-450 and 1,500 rpm, and a 1/2 in chuck. Scan tools differ by which modules they name. The [Innova 5210 page](https://www.innova.com/products/carscan-advisor-5210) states engine and ABS. The [OBDLink MX+ page](https://www.obdlink.com/products/obdlink-mxp/) states the protocols it adds. Read the module list on the page you are buying. A 'reads your car' line is not a module list.",
+      "Ignore a peak-amp slogan that is higher than the model page. Ignore a single PSI number when the manual prints both a maximum and a rated pressure. The recall check is the model match, including when a notice names a different product in the same brand. US cards use the [CPSC SaferProducts feed](https://www.saferproducts.gov/RestWebServices/Recall). Canadian cards use [Health Canada's open dataset](https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3). Search [CPSC Recalls](https://www.cpsc.gov/Recalls) and [Health Canada recalls and safety alerts](https://recalls-rappels.canada.ca/en). A clear line on the GB40 does not cover the GB50. [How we check](/how-we-check/) says what the date means. [Gift guides for the garage](/gifts/for-the-garage/) regroup some of these cards by recipient."
+    ],
+    "picks": [
+      {
+        "need": "A jump starter for a stated engine",
+        "body": "GB40 states gas engines up to 6 L and diesel up to 3 L, at 1,000 A peak. GB50 states gas up to 7 L and diesel up to 4.5 L, at 1,500 A peak. Both state IP65.",
+        "links": [
+          {"href": "/car-garage/noco-gb40/", "label": "NOCO GB40"},
+          {"href": "/car-garage/noco-gb50/", "label": "NOCO GB50"},
+          {"href": "/compare/noco-gb40-vs-gb50/", "label": "GB40 and GB50 specs"}
+        ]
+      },
+      {
+        "need": "A maintainer for a stated battery size",
+        "body": "Battery Tender Junior states 750 mA and 3 Ah to 30 Ah. CTEK MXS 5.0 states 1.2 to 110 Ah, and maintenance to 160 Ah. Both state 12 V.",
+        "links": [
+          {"href": "/car-garage/battery-tender-junior/", "label": "Battery Tender Junior"},
+          {"href": "/car-garage/ctek-mxs-5/", "label": "CTEK MXS 5.0"}
+        ]
+      },
+      {
+        "need": "Pressure, with both numbers",
+        "body": "The SPX3000 manual states 2030 PSI maximum and 1450 PSI rated. VIAIR 88P states 120 PSI maximum and 25 minutes of duty at 30 PSI. Fanttik states up to 150 PSI.",
+        "links": [
+          {"href": "/car-garage/sunjoe-spx3000/", "label": "Sun Joe SPX3000"},
+          {"href": "/car-garage/viair-88p/", "label": "VIAIR 88P"},
+          {"href": "/car-garage/fanttik-x8-apex/", "label": "Fanttik X8 Apex"}
+        ]
+      },
+      {
+        "need": "A meter category, or a torque range",
+        "body": "The Fluke 117 page states CAT III 600 V. The TEKTON page states 10 to 150 ft-lb on a 1/2 inch drive, plus or minus 4 percent. Read the range the page prints.",
+        "links": [
+          {"href": "/car-garage/fluke-117/", "label": "Fluke 117"},
+          {"href": "/car-garage/tekton-24335/", "label": "TEKTON 24335"}
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "q": "What does peak current mean on the NOCO cards?",
+        "a": "It is the peak the maker page prints. GB40 states 1,000 A at 12 V. GB50 states 1,500 A. The pages also state gas and diesel engine limits. This catalogue does not add a continuous figure the page left out."
+      },
+      {
+        "q": "Why does the pressure washer list two PSI numbers?",
+        "a": "Because the Sun Joe manual states both. Maximum pressure is 2030 PSI. Rated pressure is 1450 PSI. Keep both. VIAIR states a maximum of 120 PSI and a duty of 25 minutes at 30 PSI, which is a third kind of limit."
+      },
+      {
+        "q": "How do I tell the two 12 V chargers apart?",
+        "a": "By the battery range on the page. Battery Tender Junior states 3 Ah to 30 Ah at 750 mA. CTEK MXS 5.0 states 1.2 to 110 Ah, with maintenance charging to 160 Ah. The amp line and the amp-hour line are doing different work."
+      },
+      {
+        "q": "How does the recall check work for a garage tool?",
+        "a": "The US line matches the brand and model to the CPSC SaferProducts feed. The Canadian line uses Health Canada's open dataset. A notice for another product in the same brand can still exist, and the model page links it when the catalogue has that record. A clear GB40 line does not cover the GB50."
+      },
+      {
+        "q": "What should I read on a multimeter card?",
+        "a": "The safety category the maker prints. The Fluke 117 page states CAT III 600 V, a 6,000 count display, and a 9 V battery. That category line is the one to match to the work, not a slogan about electricians."
+      }
+    ]
+  },
+  "pet": {
+    "title": "How to choose pet gear — Checked Lab",
+    "description": "Litter capacity, fountain size, and harness fit as the maker pages state them, plus the dated CPSC or Health Canada recall line.",
+    "heading": "How to choose pet gear",
+    "intro": [
+      "Pet cards split into litter, feeding and water, grooming, and gear the animal wears. The limit is almost always a size the maker stated: a footprint, a cup capacity, a dog weight, a chest measurement, or a kibble size. A product with 'pet' in the name is not automatically the right size. Match the model, then read the line that names the animal. The [gift guide for pet owners](/gifts/for-pet-owners/) uses this same catalogue. It does not add a second list of products.",
+      "Litter boxes are limited by footprint and by the household the maker describes. The [Litter-Robot 4 page](https://www.whisker.com/litter-robot-4) states 29.5 in tall, a 22 × 27 in footprint, an entry of 15.75 × 15.75 in, 24 lb empty, up to 8 days before emptying the drawer in a 1-cat household, and a household of up to 4 cats. The [PetSafe ScoopFree Plus page](https://www.petsafe.com/p/self-cleaning-litter-box-scoopfree-crystal-plus/PAL00-18016/) states up to 30 days, crystal litter, and dimensions of 28.2 x 20.4 x 6.6 in. [Litter-Robot 4 and ScoopFree Plus](/compare/litter-robot-4-vs-petsafe-scoopfree-plus/) is the pair. Eight days and 30 days are the makers' own sentences about different machines. They are not a shared test. A low pan and a tall globe also ask for different floor space. Measure the spot before you treat either number as a schedule.",
+      "Water and food are limited by volume and by the portion the page allows. The [Drinkwell Platinum page](https://www.petsafe.com/p/drinkwell-platinum-fountain/PWW00-13703/) states 168 oz. The [Catit Flower Fountain page](https://www.catit.com/products/drinking-fountains/flower-fountain/) states 3 L, about 100 fl oz, and 3 flow settings. The [Pioneer Pet Raindrop page](https://pioneerpet.com/product/stainless-steel-raindrop-60oz/) states 60 oz and 18/8 stainless steel. Ounces and liters are both on these cards. Convert only if you need to, and do not drop the unit. The [PETLIBRO Granary page](https://petlibro.com/products/granary-2-series) states a 5 L tank and kibble of 2–15 mm. The [PetSafe Simply Feed page](https://www.petsafe.com/p/healthy-pet-simply-feed/PFD00-14574/) states 24 cups and portions from 1/8 to 4 cups. A 5 L tank and a 24 cup hopper are different containers.",
+      "Wearable gear is a fit, not a vibe. The [FURminator page](https://www.furminator.com/products/tools/deshedding-tools/undercoat-deshedding-tool-medium-dog-short-hair) states a medium dog, 25 to 50 lb, with short hair. The [PetSafe Easy Walk page](https://www.petsafe.com/p/easy-walk-harness/EWH-HC-P-BLK/) states a front-chest leash point, and it states petite and small ranges with chest and girth inches. The [Kurgo Tru-Fit page](https://www.kurgo.com/p/tru-fit-smart-dog-walking-harness/K01174) states five adjustment points and front and back leash attachments. The [Sleepypod Clickit Sport page](https://sleepypod.com/products/sport-bundle) states a rating up to 25 lb by the Center for Pet Safety and a crash test validated at 30 mph. That sentence is the maker's. The [KONG Classic page](https://www.kongcompany.com/kong-classic/) states red rubber for average chewers and sizes from X-Small, up to 5 lb, to XX-Large, 85 lb and over. Pick the size line that names the dog.",
+      "Ignore a 'works for any pet' line that skips the size. Ignore a days-of-litter claim that drops the household the maker attached. The Litter-Robot sentence is up to 8 days in a 1-cat household. The recall check is still the model match. US cards use the [CPSC SaferProducts feed](https://www.saferproducts.gov/RestWebServices/Recall). Canadian cards use [Health Canada's open dataset](https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3). Search [CPSC Recalls](https://www.cpsc.gov/Recalls) and [Health Canada recalls and safety alerts](https://recalls-rappels.canada.ca/en). A clear line on one fountain does not cover the next fountain. [How we check](/how-we-check/) says what the date means. [Recall checks](/recalls/) lists the whole catalogue."
+    ],
+    "picks": [
+      {
+        "need": "A litter box with a stated footprint",
+        "body": "Litter-Robot 4 states 22 × 27 in and 29.5 in tall, and up to 8 days in a 1-cat household. ScoopFree Plus states 28.2 x 20.4 x 6.6 in and up to 30 days. The comparison is the pair.",
+        "links": [
+          {"href": "/pet/litter-robot-4/", "label": "Litter-Robot 4"},
+          {"href": "/pet/petsafe-scoopfree-plus/", "label": "ScoopFree Crystal Plus"},
+          {"href": "/compare/litter-robot-4-vs-petsafe-scoopfree-plus/", "label": "Litter-Robot 4 and ScoopFree specs"}
+        ]
+      },
+      {
+        "need": "A fountain by stated capacity",
+        "body": "Drinkwell Platinum states 168 oz. Catit states 3 L. Pioneer Pet states 60 oz in 18/8 stainless steel. Read the unit on the card you open.",
+        "links": [
+          {"href": "/pet/petsafe-drinkwell-platinum/", "label": "Drinkwell Platinum"},
+          {"href": "/pet/catit-flower-fountain/", "label": "Catit Flower Fountain"},
+          {"href": "/pet/pioneer-raindrop-6023/", "label": "Pioneer Pet Raindrop"}
+        ]
+      },
+      {
+        "need": "A coat tool or a harness size",
+        "body": "FURminator states a medium dog, 25 to 50 lb, short hair. Easy Walk states chest and girth ranges, including a small size around 15 to 25 lb. Sleepypod states up to 25 lb in the Center for Pet Safety line on its page.",
+        "links": [
+          {"href": "/pet/furminator-medium-short/", "label": "FURminator medium short hair"},
+          {"href": "/pet/petsafe-easy-walk/", "label": "PetSafe Easy Walk"},
+          {"href": "/pet/sleepypod-clickit/", "label": "Sleepypod Clickit Sport"}
+        ]
+      },
+      {
+        "need": "A feeder with a stated portion",
+        "body": "Simply Feed states 24 cups and portions from 1/8 to 4 cups, up to 12 meals a day. PETLIBRO states a 5 L tank and kibble of 2–15 mm. Whisker Feeder-Robot states portions from 1/8 cup to 1 cup.",
+        "links": [
+          {"href": "/pet/petsafe-simply-feed/", "label": "PetSafe Simply Feed"},
+          {"href": "/pet/petlibro-plaf105/", "label": "PETLIBRO Granary PLAF105"},
+          {"href": "/pet/whisker-feeder-robot/", "label": "Whisker Feeder-Robot"}
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "q": "How do I compare the two litter boxes?",
+        "a": "Read footprint, height, and the household sentence the maker used. Litter-Robot 4 states 22 × 27 in, 29.5 in tall, and up to 8 days in a 1-cat household. ScoopFree Plus states 28.2 x 20.4 x 6.6 in and up to 30 days. The comparison page keeps the shared labels."
+      },
+      {
+        "q": "What should I match on a dog harness?",
+        "a": "The chest and girth range, or the weight, that the page prints. Easy Walk states those ranges for petite and small. Kurgo states five adjustment points and two leash points. Sleepypod's page states a Center for Pet Safety rating up to 25 lb and a 30 mph validation. Use the sentence on the card you are buying."
+      },
+      {
+        "q": "Are fountain capacities in the same unit?",
+        "a": "Not always. Drinkwell states 168 oz. Pioneer Pet states 60 oz. Catit states 3 L, which that page also writes as 100 fl oz. Keep the unit that is printed."
+      },
+      {
+        "q": "How does the recall check work for pet gear?",
+        "a": "The US line matches the brand and model to the CPSC SaferProducts feed. The Canadian line uses Health Canada's open dataset. Search CPSC Recalls or Health Canada recalls and safety alerts with the model number. A clear line on one fountain does not cover another fountain."
+      },
+      {
+        "q": "Where do the day counts on litter boxes come from?",
+        "a": "From the maker page, with the household that page names. Litter-Robot 4 states up to 8 days before emptying the drawer in a 1-cat household. ScoopFree Plus states up to 30 days. Those are not one shared measurement."
+      }
+    ]
+  },
+  "sleep": {
+    "title": "How to choose sleep gear — Checked Lab",
+    "description": "Mattress height, pillow fill, and chair adjustments from the maker pages, and how the CPSC or Health Canada check is recorded.",
+    "heading": "How to choose sleep gear",
+    "intro": [
+      "Sleep cards cover mattresses, pillows, bedding, sound, light, and the chairs people sit in for hours. Comfort language is easy to inflate and hard to compare. The lines that stay useful are the ones a maker page can print: height, materials, coil counts, a stated feel name, a fill, and a weight limit. This hub does not turn those lines into a softness ranking. [Gifts for better sleep](/gifts/for-better-sleep/) regroups some of the same cards. The recall check on each card is separate from the materials list.",
+      "Mattresses differ by construction, and the page says which construction. The [Casper Original page](https://casper.com/products/original-foam-v1) states a queen size of 60 in by 80 in by 11 in and a queen weight of 79 lb, with a foam top and a zoned memory-foam core. The [Saatva Classic page](https://saatvahelp.saatva.com/hc/en-us/articles/11914686059543-What-are-the-Saatva-Classic-specs) states heights of 11.5 in or 14.5 in, 1,300 coils in a queen, and feel names of Plush Soft, Luxury Firm, or Firm. The [Helix Midnight page](https://helixsleep.com/products/midnight) states a queen of 60 in by 80 in by 11.5 in. The [Zinus 12 inch page](https://www.zinus.com/pages/true-med) states 12 inches, with 2.5 in of gel memory foam, and CertiPUR-US foams. An 11 in foam mattress and a coil mattress with two stated heights are different builds. Read the height that will meet the sheets. The [Brooklinen Luxe Core page](https://www.brooklinen.com/products/luxe-core-sheet-set) states a fitted sheet for mattresses up to 16 in deep.",
+      "Pillows are a fill and a size, not a slogan. The [Purple Harmony page](https://purple.com/pillows/harmony) states a cover of 92 percent nylon and 8 percent spandex, a ventilated Talalay latex core, and a standard low size of 26 × 17 × 5.5 in at 4.2 lb. The [Tempur-Neck page](https://www.tempurpedic.com/shop-pillows/tempur-neck-pillow/) states three heights: small 3.5 in, medium 4 in, and large 4.75 in, all 20 × 12.5 in. The [Coop Original page](https://coopsleepgoods.com/products/the-original-pillow) states a fill of cross-cut memory foam and microfiber and a medium-firm feel. The [Buffy Cloud page](https://buffy.co/products/cloud-tencel-lyocell-comforter) states a 300 thread count lyocell shell and a recycled PET fill. Thread count on a comforter is not loft. Height on a pillow is not thread count.",
+      "Chairs and bedside machines have hard limits too. The [Herman Miller Aeron page](https://www.hermanmiller.com/products/seating/office-chairs/aeron-chair/) states sizes A, B, and C, an 8Z Pellicle suspension, and PostureFit SL lumbar. The [Steelcase Leap page](https://store.steelcase.com/seating/ergonomic-chairs/leap) states a seat height of 15.5 to 20.5 in, a chair weight of 46.7 lb, and a 400 lb limit. Pick the size or the range the page names. The [Hatch Restore 3 page](https://www.hatch.co/quickstart/restore-3/controls-guide) states 7.5 x 2.75 x 5.75 in and 2.4 GHz Wi-Fi. The [LectroFan page](https://www.soundofsleep.com/wp-content/uploads/2019/02/LectroFan-Classic-Owners-Manual.pdf) states 10 fan sounds and 10 white noises. The [Philips HF3520 page](https://www.usa.philips.com/c-p/HF3520_60/smartsleep) states 5 wake-up sounds and an FM radio. A light, a noise machine, and a mattress are three purchases.",
+      "Ignore a cooling word that the materials list does not back. Ignore a 'fits any mattress' line when the sheet page states a maximum depth, as Brooklinen does at 16 in. The recall check does not grade comfort. US cards use the [CPSC SaferProducts feed](https://www.saferproducts.gov/RestWebServices/Recall). Canadian cards use [Health Canada's open dataset](https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3). Search [CPSC Recalls](https://www.cpsc.gov/Recalls) and [Health Canada recalls and safety alerts](https://recalls-rappels.canada.ca/en). A clear line on one mattress does not cover another mattress. [How we check](/how-we-check/) says what the date means. [Recall checks](/recalls/) is the full list."
+    ],
+    "picks": [
+      {
+        "need": "A mattress height and a build",
+        "body": "Casper states an 11 in queen. Saatva states 11.5 or 14.5 in and 1,300 queen coils. Zinus states 12 in with 2.5 in of gel memory foam. Helix Midnight states an 11.5 in queen.",
+        "links": [
+          {"href": "/sleep/casper-original/", "label": "Casper Original"},
+          {"href": "/sleep/saatva-classic/", "label": "Saatva Classic"},
+          {"href": "/sleep/zinus-green-tea-12/", "label": "Zinus 12 inch"}
+        ]
+      },
+      {
+        "need": "A pillow with a stated fill or height",
+        "body": "Coop states memory foam and microfiber, and a medium-firm feel. Tempur-Neck states three heights from 3.5 to 4.75 in. Purple Harmony states a Talalay latex core and a 5.5 in standard low.",
+        "links": [
+          {"href": "/sleep/coop-original-pillow/", "label": "Coop Original"},
+          {"href": "/sleep/tempur-neck/", "label": "TEMPUR-Neck"},
+          {"href": "/sleep/purple-harmony/", "label": "Purple Harmony"}
+        ]
+      },
+      {
+        "need": "A chair with a size or a weight limit",
+        "body": "Aeron states sizes A, B, and C. Leap states a seat height of 15.5 to 20.5 in and a 400 lb limit. Those are the lines the maker pages print.",
+        "links": [
+          {"href": "/sleep/herman-miller-aeron/", "label": "Herman Miller Aeron"},
+          {"href": "/sleep/steelcase-leap/", "label": "Steelcase Leap"}
+        ]
+      },
+      {
+        "need": "Sound or a wake-up light",
+        "body": "LectroFan states 10 fan sounds and 10 white noises. Philips HF3520 states 5 wake-up sounds and FM. Hatch Restore 3 states a body of 7.5 x 2.75 x 5.75 in.",
+        "links": [
+          {"href": "/sleep/lectrofan-classic/", "label": "LectroFan Classic"},
+          {"href": "/sleep/philips-hf3520/", "label": "Philips HF3520"},
+          {"href": "/sleep/hatch-restore-3/", "label": "Hatch Restore 3"}
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "q": "What should I read on a mattress card?",
+        "a": "Height, construction, and any feel name the maker actually lists. Casper states 11 in for the queen and a foam build. Saatva states 11.5 or 14.5 in, 1,300 queen coils, and the names Plush Soft, Luxury Firm, or Firm. Zinus states 12 in. Match the height to the sheets. Brooklinen states a fitted sheet for mattresses up to 16 in deep."
+      },
+      {
+        "q": "How do the pillow cards differ?",
+        "a": "By fill and by the size the page prints. Coop states cross-cut memory foam and microfiber. Tempur-Neck states three heights. Purple Harmony states a latex core and a standard low of 5.5 in at 4.2 lb. A feel word matters when the page names it, as Coop does with medium-firm."
+      },
+      {
+        "q": "What limits a desk chair on this hub?",
+        "a": "The size system or the range the maker prints. Aeron states sizes A, B, and C. Leap states seat height from 15.5 to 20.5 in, a chair weight of 46.7 lb, and a 400 lb limit. Read the limit on the card, not a general word about ergonomics."
+      },
+      {
+        "q": "How does the recall check work for a mattress or a pillow?",
+        "a": "The US line matches the brand and model to the CPSC SaferProducts feed. The Canadian line uses Health Canada's open dataset. A clear line on one mattress does not cover a different mattress. Search CPSC Recalls or Health Canada recalls and safety alerts with the model name on the card."
+      },
+      {
+        "q": "Do these pages rank how soft a bed feels?",
+        "a": "They repeat the maker's own words. Saatva lists Plush Soft, Luxury Firm, and Firm as the feels on that page. Casper states the foam layers. There is no softness number added on top of those sentences."
+      }
+    ]
+  },
+  "personal-tech": {
+    "title": "How to choose personal tech — Checked Lab",
+    "description": "Battery life, water-resistance ratings, and charge rates from the maker pages, with a dated CPSC or Health Canada check on each model.",
+    "heading": "How to choose personal tech",
+    "intro": [
+      "Personal tech on this hub covers headphones, speakers, cameras, chargers, and a few body-care tools. The specs that survive a listing are the ones with a unit: hours, watts, a water-resistance code, a weight. A listening-time claim is only as good as the condition the maker attached. Noise cancelling on, noise cancelling off, and a quick-charge minute are different sentences. Match the model number. WH-1000XM5, QuietComfort Ultra, AirPods Pro 3, and OpenRun Pro 2 are four cards, not one category of 'good headphones'.",
+      "Headphone hours have to keep their conditions. The [Sony WH-1000XM5 page](https://electronics.sony.com/audio/headphones/headband/p/wh1000xm5-b) states a maximum of 30 hours with noise cancelling on, 40 hours with it off, about 8.82 oz, and a charge time of about 3.5 hours. The [Bose QuietComfort Ultra page](https://www.bose.com/p/headphones/bose-quietcomfort-ultra-headphones/QCUH-HEADPHONEARN.html) states up to 24 hours and 0.56 lb. [WH-1000XM5 and QuietComfort Ultra](/compare/sony-wh-1000xm5-vs-bose-qc-ultra/) is that pair. The [AirPods Pro 3 page](https://www.apple.com/airpods-pro/) states up to 8 hours with Active Noise Cancellation and an IP57 rating. The [Shokz OpenRun Pro 2 page](https://shokz.com/pages/openrunpro2) states up to 12 hours, a 5 minute charge for about 150 minutes at 75 percent volume, and IP55. [AirPods Pro 3 and OpenRun Pro 2](/compare/airpods-pro-3-vs-shokz-openrun-pro-2/) is the open-ear pair. IP55 and IP57 are the codes the pages print. They are not a single 'waterproof' word.",
+      "Power banks and chargers are limited by the wattage and the capacity the page states. The [Anker 737 page](https://www.anker.com/products/a1289) states 24,000 mAh and 140 W maximum on USB-C, at 22.22 oz. The [Anker Nano page](https://www.anker.com/products/a2147) states 30 W maximum and the profiles 5 V at 3 A, 9 V at 3 A, 15 V at 2 A, and 20 V at 1.5 A. A 140 W bank and a 30 W wall charger solve different problems. The [Anker power-bank explainer](/recalls/anker-power-banks/) is the page that quotes notices naming specific banks. Read it before you treat every Anker model as the same object. Milliamp hours and watts are both useful and they are not substitutes.",
+      "Everything else on the hub has one hard spec worth finding. The [GoPro HERO13 page](https://gopro.com/en/us/shop/cameras/buy/hero13black/CHDHX-131-master.html) states 5.3K60 video and waterproofing to 33 ft. The [JBL Charge 5 sheet](https://www.jbl.com/on/demandware.static/-/Sites-masterCatalog_Harman/default/dw317bf698/pdfs/JBL_Charge5_SpecSheet_English.pdf) states up to 20 hours and IP67. The [Logitech MX Master 3S page](https://www.logitech.com/en-us/shop/p/mx-master-3s.910-007500) states an 8,000 DPI sensor. The [Keychron V3 page](https://www.keychron.com/products/keychron-v3-qmk-custom-mechanical-keyboard-iso-layout-collection) states an 80 percent layout and 1000 Hz polling. The [Oral-B iO Series 3 page](https://oralb.com/en-us/products/oral-b-io-series-3-clean-protect-rechargeable-electric-toothbrush-matte-white/) states three modes. The [Waterpik WP-660 page](https://www.waterpik.com/products/dental-water-flosser/WP-660/) states 10 pressure settings and a 22 ounce reservoir. Pick the unit that matches the job. A speaker hour and a headphone hour are both hours, and they still belong to different pages.",
+      "Ignore a battery hour that drops the condition. Thirty hours with noise cancelling on is the Sony sentence. Forty hours is the sentence with it off. Ignore a waterproof word when the page printed a code or a depth instead. The recall check is the model match. US cards use the [CPSC SaferProducts feed](https://www.saferproducts.gov/RestWebServices/Recall). Canadian cards use [Health Canada's open dataset](https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3). Search [CPSC Recalls](https://www.cpsc.gov/Recalls) and [Health Canada recalls and safety alerts](https://recalls-rappels.canada.ca/en). A clear line on one Anker model does not cover another. [How we check](/how-we-check/) defines the date. [Gift guides for tech](/gifts/tech-and-gadgets/) regroup some of these cards."
+    ],
+    "picks": [
+      {
+        "need": "Over-ear hours, with the condition",
+        "body": "Sony states 30 hours with noise cancelling on and 40 with it off, at about 8.82 oz. Bose states up to 24 hours and 0.56 lb. The comparison keeps the shared labels.",
+        "links": [
+          {"href": "/personal-tech/sony-wh-1000xm5/", "label": "Sony WH-1000XM5"},
+          {"href": "/personal-tech/bose-qc-ultra/", "label": "Bose QuietComfort Ultra"},
+          {"href": "/compare/sony-wh-1000xm5-vs-bose-qc-ultra/", "label": "WH-1000XM5 and QC Ultra specs"}
+        ]
+      },
+      {
+        "need": "Earbuds or an open-ear headset",
+        "body": "AirPods Pro 3 states up to 8 hours with Active Noise Cancellation and IP57. OpenRun Pro 2 states up to 12 hours and IP55. The comparison is that pair.",
+        "links": [
+          {"href": "/personal-tech/airpods-pro-3/", "label": "AirPods Pro 3"},
+          {"href": "/personal-tech/shokz-openrun-pro-2/", "label": "Shokz OpenRun Pro 2"},
+          {"href": "/compare/airpods-pro-3-vs-shokz-openrun-pro-2/", "label": "AirPods Pro 3 and OpenRun Pro 2"}
+        ]
+      },
+      {
+        "need": "Charge rate or a battery capacity",
+        "body": "The 737 page states 24,000 mAh and 140 W maximum on USB-C. The Nano page states 30 W maximum. The power-bank explainer quotes notices that name specific banks.",
+        "links": [
+          {"href": "/personal-tech/anker-a1289/", "label": "Anker 737 A1289"},
+          {"href": "/personal-tech/anker-nano-30w/", "label": "Anker Nano 30W"},
+          {"href": "/recalls/anker-power-banks/", "label": "Anker power-bank notices"}
+        ]
+      },
+      {
+        "need": "A stated water rating on a speaker or camera",
+        "body": "JBL Charge 5 states IP67 and up to 20 hours. GoPro HERO13 states waterproofing to 33 ft and 5.3K60 video. Read the code or the depth the page prints.",
+        "links": [
+          {"href": "/personal-tech/jbl-charge-5/", "label": "JBL Charge 5"},
+          {"href": "/personal-tech/gopro-hero13/", "label": "GoPro HERO13 Black"}
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Why do headphone battery lines disagree with the box slogan?",
+        "a": "Because the maker often prints more than one condition. Sony states a maximum of 30 hours with noise cancelling on and 40 hours with it off. Bose states up to 24 hours. AirPods Pro 3 states up to 8 hours with Active Noise Cancellation. Keep the condition with the hour."
+      },
+      {
+        "q": "What is the difference between IP55 and IP57 on these cards?",
+        "a": "They are the codes the pages print, not a shared word. Shokz states IP55 for the OpenRun Pro 2. Apple states IP57 for AirPods Pro 3. JBL states IP67 for the Charge 5. GoPro states a depth, 33 ft, instead of an IP code. Read the code on the card."
+      },
+      {
+        "q": "How do I choose between the two Anker chargers?",
+        "a": "By the job the number describes. The 737 page states a 24,000 mAh pack and 140 W maximum USB-C output. The Nano page states a 30 W wall charger and four voltage profiles. The power-bank explainer is the notice list for specific banks, not a spec sheet for every Anker model."
+      },
+      {
+        "q": "How does the recall check work for headphones or a charger?",
+        "a": "The US line matches the brand and model to the CPSC SaferProducts feed. The Canadian line uses Health Canada's open dataset. A clear line on one Anker model does not cover another. Search CPSC Recalls or Health Canada recalls and safety alerts with the model number on the card."
+      },
+      {
+        "q": "Where do the weights on the headphone cards come from?",
+        "a": "From the maker pages. Sony states about 8.82 oz for the WH-1000XM5. Bose states 0.56 lb for the QuietComfort Ultra. The comparison repeats only labels both pages share, and each cell links the maker page."
+      }
+    ]
+  }
+}
