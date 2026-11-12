@@ -48,9 +48,9 @@
       "h1": "Gifts for the home",
       "label": "The home",
       "description": "Home models from the catalogue. Each pick quotes the maker specs and the dated CPSC or Health Canada check.",
-      "fit": "Listed for the home because the title or maker specs name an air purifier, CADR, Blue Pure, a humidifier, a heater, a filter, or a blanket.",
-      "match": "air purifier|\\bCADR\\b|blue pure|humidifier|heater|\\bfilter\\b|blanket",
-      "specPattern": "CADR|room|filtration|tank|heat|capacity|material|measurements|coverage|runtime",
+      "fit": "Listed for the home because the title or maker specs name an air purifier, CADR, Blue Pure, a humidifier, a heater, a filter, a blanket, a robot vacuum, or a cordless vacuum.",
+      "match": "air purifier|\\bCADR\\b|blue pure|humidifier|heater|\\bfilter\\b|blanket|robot vacuum|cordless vacuum",
+      "specPattern": "CADR|room|filtration|tank|heat|capacity|material|measurements|coverage|runtime|weight|suction|bin|dust",
       "products": [
         "coway-ap-1512hh",
         "levoit-core-300s-p",
@@ -59,7 +59,11 @@
         "brita-tahoe-elite",
         "levoit-classic-300s",
         "lasko-ct32150",
-        "pendleton-eco-wise"
+        "pendleton-eco-wise",
+        "irobot-roomba-combo-j9-plus",
+        "eufy-x10-pro-omni",
+        "dyson-v15-detect",
+        "shark-ip3251"
       ]
     },
     {

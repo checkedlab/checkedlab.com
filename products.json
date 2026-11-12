@@ -12158,5 +12158,1124 @@
     "imageLicense": "Pexels License",
     "imageSource": "https://www.pexels.com/photo/30070537/",
     "imageKind": "category"
+  },
+  {
+    "receipt": null,
+    "recall": {
+      "us": {
+        "status": "none",
+        "checkedAt": "2026-11-12",
+        "url": "https://www.saferproducts.gov/RestWebServices/Recall",
+        "detail": null,
+        "other": []
+      },
+      "ca": {
+        "status": "none",
+        "checkedAt": "2026-11-12",
+        "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
+        "detail": null,
+        "other": [
+          {
+            "title": "iRobot Clean Base for Roomba® i7+ Robot Vacuum recalled due to electrical hazard",
+            "url": "https://recalls-rappels.canada.ca/en/alert-recall/irobot-clean-base-roombar-i7-robot-vacuum-recalled-due-electrical-hazard",
+            "date": "2020-12-21",
+            "source": "Health Canada",
+            "archived": false
+          }
+        ]
+      }
+    },
+    "bin": [],
+    "asin": {
+      "us": null,
+      "ca": null
+    },
+    "checks": [
+      "Confirm the model on the box matches the model named here.",
+      "Confirm the store listing is this model, not a similar one.",
+      "Read the recall line on this card before you buy."
+    ],
+    "id": "irobot-roomba-combo-j9-plus",
+    "title": "iRobot Roomba Combo j9+ Auto-Fill Robot Vacuum and Mop",
+    "category": "cleaning",
+    "model": "C975020",
+    "meta": "C975020 • SPECS PER IROBOT",
+    "searchQuery": "iRobot Roomba Combo j9+ Auto-Fill C975020",
+    "sourceUrl": "https://www.irobot.com/en_US/roomba-combo-j9plus-auto-fill-robot-vacuum-and-mop/C975020.html/",
+    "sourceName": "iRobot",
+    "recallMatch": {
+      "brand": [
+        "irobot",
+        "roomba"
+      ],
+      "models": [
+        "c975020"
+      ],
+      "family": [
+        "roomba"
+      ],
+      "modelConfirmed": true
+    },
+    "evidence": [
+      {
+        "claim": "The robot weighs 8.9 lb and measures 3.4 x 13.7 x 13.7 in.",
+        "source": "iRobot",
+        "url": "https://www.irobot.com/en_US/roomba-combo-j9plus-auto-fill-robot-vacuum-and-mop/C975020.html/",
+        "agrees": true
+      },
+      {
+        "claim": "The battery type is lithium-ion. The Clean Base Auto-Fill Dock measures 15.8 in W x 16.4 in D x 16.3 in H and weighs 21.9 lb.",
+        "source": "iRobot",
+        "url": "https://www.irobot.com/en_US/roomba-combo-j9plus-auto-fill-robot-vacuum-and-mop/C975020.html/",
+        "agrees": true
+      }
+    ],
+    "specs": [
+      {
+        "label": "Robot weight",
+        "value": "8.9 lb",
+        "source": "iRobot",
+        "url": "https://www.irobot.com/en_US/roomba-combo-j9plus-auto-fill-robot-vacuum-and-mop/C975020.html/"
+      },
+      {
+        "label": "Robot dimensions",
+        "value": "3.4 x 13.7 x 13.7 in",
+        "source": "iRobot",
+        "url": "https://www.irobot.com/en_US/roomba-combo-j9plus-auto-fill-robot-vacuum-and-mop/C975020.html/"
+      },
+      {
+        "label": "Battery",
+        "value": "Lithium-ion",
+        "source": "iRobot",
+        "url": "https://www.irobot.com/en_US/roomba-combo-j9plus-auto-fill-robot-vacuum-and-mop/C975020.html/"
+      },
+      {
+        "label": "Dock dimensions",
+        "value": "15.8 in W x 16.4 in D x 16.3 in H",
+        "source": "iRobot",
+        "url": "https://www.irobot.com/en_US/roomba-combo-j9plus-auto-fill-robot-vacuum-and-mop/C975020.html/"
+      },
+      {
+        "label": "Dock weight",
+        "value": "21.9 lb",
+        "source": "iRobot",
+        "url": "https://www.irobot.com/en_US/roomba-combo-j9plus-auto-fill-robot-vacuum-and-mop/C975020.html/"
+      }
+    ],
+    "image": "/images/photos/cat-robot.webp",
+    "image_source": null,
+    "imageCredit": "Photo by Kindel Media on Pexels",
+    "imageLicense": "Pexels License",
+    "imageSource": "https://www.pexels.com/photo/8566421/",
+    "imageKind": "category"
+  },
+  {
+    "receipt": null,
+    "recall": {
+      "us": {
+        "status": "none",
+        "checkedAt": "2026-11-12",
+        "url": "https://www.saferproducts.gov/RestWebServices/Recall",
+        "detail": null,
+        "other": [
+          {
+            "title": "Shark Vacuum Cleaners Recalled by Euro-Pro Due to Shock Hazard",
+            "url": "https://www.cpsc.gov/Recalls/2015/Shark-Vacuum-Cleaners-Recalled-by-Euro-Pro",
+            "date": "2015-04-22",
+            "source": "CPSC",
+            "archived": false
+          }
+        ]
+      },
+      "ca": {
+        "status": "none",
+        "checkedAt": "2026-11-12",
+        "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
+        "detail": null,
+        "other": [
+          {
+            "title": "Euro-Pro Operating LLC recalls Shark® Brand Vacuum Cleaners",
+            "url": "https://recalls-rappels.canada.ca/en/alert-recall/euro-pro-operating-llc-recalls-sharkr-brand-vacuum-cleaners",
+            "date": "2015-04-22",
+            "source": "Health Canada",
+            "archived": true
+          }
+        ]
+      }
+    },
+    "bin": [],
+    "asin": {
+      "us": null,
+      "ca": null
+    },
+    "checks": [
+      "Confirm the model on the box matches the model named here.",
+      "Confirm the store listing is this model, not a similar one.",
+      "Read the recall line on this card before you buy."
+    ],
+    "id": "shark-av2501s",
+    "title": "Shark AI Ultra Robot Vacuum AV2501S",
+    "category": "cleaning",
+    "model": "AV2501S",
+    "meta": "AV2501S • SPECS PER SHARK",
+    "searchQuery": "Shark AI Ultra Robot Vacuum AV2501S",
+    "sourceUrl": "https://www.sharkninja.com/shark-ai-ultra-robot-self-empty/AV2501S.html",
+    "sourceName": "Shark",
+    "recallMatch": {
+      "brand": [
+        "shark",
+        "sharkninja"
+      ],
+      "models": [
+        "av2501s"
+      ],
+      "family": [
+        "vacuum"
+      ],
+      "modelConfirmed": true
+    },
+    "evidence": [
+      {
+        "claim": "Model AV2501S weighs 14.77 lbs, with a 5.7 in cleaning path and a 0.1 qt dust cup.",
+        "source": "Shark",
+        "url": "https://www.sharkninja.com/shark-ai-ultra-robot-self-empty/AV2501S.html",
+        "agrees": true
+      },
+      {
+        "claim": "The page lists 120 volts, 650 watts, and product dimensions of 15.35 in L x 12.01 in W x 17.72 in H.",
+        "source": "Shark",
+        "url": "https://www.sharkninja.com/shark-ai-ultra-robot-self-empty/AV2501S.html",
+        "agrees": true
+      }
+    ],
+    "specs": [
+      {
+        "label": "Weight",
+        "value": "14.77 lbs",
+        "source": "Shark",
+        "url": "https://www.sharkninja.com/shark-ai-ultra-robot-self-empty/AV2501S.html"
+      },
+      {
+        "label": "Cleaning path",
+        "value": "5.7 in",
+        "source": "Shark",
+        "url": "https://www.sharkninja.com/shark-ai-ultra-robot-self-empty/AV2501S.html"
+      },
+      {
+        "label": "Dimensions",
+        "value": "15.35 in L x 12.01 in W x 17.72 in H",
+        "source": "Shark",
+        "url": "https://www.sharkninja.com/shark-ai-ultra-robot-self-empty/AV2501S.html"
+      },
+      {
+        "label": "Dust cup",
+        "value": "0.1 qt",
+        "source": "Shark",
+        "url": "https://www.sharkninja.com/shark-ai-ultra-robot-self-empty/AV2501S.html"
+      },
+      {
+        "label": "Voltage",
+        "value": "120 volts",
+        "source": "Shark",
+        "url": "https://www.sharkninja.com/shark-ai-ultra-robot-self-empty/AV2501S.html"
+      },
+      {
+        "label": "Wattage",
+        "value": "650 watts",
+        "source": "Shark",
+        "url": "https://www.sharkninja.com/shark-ai-ultra-robot-self-empty/AV2501S.html"
+      }
+    ],
+    "image": "/images/photos/cat-robot.webp",
+    "image_source": null,
+    "imageCredit": "Photo by Kindel Media on Pexels",
+    "imageLicense": "Pexels License",
+    "imageSource": "https://www.pexels.com/photo/8566421/",
+    "imageKind": "category"
+  },
+  {
+    "receipt": null,
+    "recall": {
+      "us": {
+        "status": "none",
+        "checkedAt": "2026-11-12",
+        "url": "https://www.saferproducts.gov/RestWebServices/Recall",
+        "detail": null,
+        "other": [
+          {
+            "title": "Shark Vacuum Cleaners Recalled by Euro-Pro Due to Shock Hazard",
+            "url": "https://www.cpsc.gov/Recalls/2015/Shark-Vacuum-Cleaners-Recalled-by-Euro-Pro",
+            "date": "2015-04-22",
+            "source": "CPSC",
+            "archived": false
+          }
+        ]
+      },
+      "ca": {
+        "status": "none",
+        "checkedAt": "2026-11-12",
+        "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
+        "detail": null,
+        "other": [
+          {
+            "title": "Euro-Pro Operating LLC recalls Shark® Brand Vacuum Cleaners",
+            "url": "https://recalls-rappels.canada.ca/en/alert-recall/euro-pro-operating-llc-recalls-sharkr-brand-vacuum-cleaners",
+            "date": "2015-04-22",
+            "source": "Health Canada",
+            "archived": true
+          }
+        ]
+      }
+    },
+    "bin": [],
+    "asin": {
+      "us": null,
+      "ca": null
+    },
+    "checks": [
+      "Confirm the model on the box matches the model named here.",
+      "Confirm the store listing is this model, not a similar one.",
+      "Read the recall line on this card before you buy."
+    ],
+    "id": "shark-av2820ae",
+    "title": "Shark PowerDetect Robot Vacuum AV2820AE",
+    "category": "cleaning",
+    "model": "AV2820AE",
+    "meta": "AV2820AE • SPECS PER SHARK",
+    "searchQuery": "Shark PowerDetect Robot Vacuum AV2820AE",
+    "sourceUrl": "https://www.sharkninja.com/shark-powerdetect-robot/AV2820AE.html",
+    "sourceName": "Shark",
+    "recallMatch": {
+      "brand": [
+        "shark",
+        "sharkninja"
+      ],
+      "models": [
+        "av2820ae"
+      ],
+      "family": [
+        "vacuum"
+      ],
+      "modelConfirmed": true
+    },
+    "evidence": [
+      {
+        "claim": "Model AV2820AE weighs 14.55 lbs, with a 5.7 in cleaning path and dimensions of 15.39 in L x 10.87 in W x 16.93 in H.",
+        "source": "Shark",
+        "url": "https://www.sharkninja.com/shark-powerdetect-robot/AV2820AE.html",
+        "agrees": true
+      },
+      {
+        "claim": "The page lists 14.4 volts, 35 watts, and a 5.5 ft cord.",
+        "source": "Shark",
+        "url": "https://www.sharkninja.com/shark-powerdetect-robot/AV2820AE.html",
+        "agrees": true
+      }
+    ],
+    "specs": [
+      {
+        "label": "Weight",
+        "value": "14.55 lbs",
+        "source": "Shark",
+        "url": "https://www.sharkninja.com/shark-powerdetect-robot/AV2820AE.html"
+      },
+      {
+        "label": "Cleaning path",
+        "value": "5.7 in",
+        "source": "Shark",
+        "url": "https://www.sharkninja.com/shark-powerdetect-robot/AV2820AE.html"
+      },
+      {
+        "label": "Dimensions",
+        "value": "15.39 in L x 10.87 in W x 16.93 in H",
+        "source": "Shark",
+        "url": "https://www.sharkninja.com/shark-powerdetect-robot/AV2820AE.html"
+      },
+      {
+        "label": "Voltage",
+        "value": "14.4 volts",
+        "source": "Shark",
+        "url": "https://www.sharkninja.com/shark-powerdetect-robot/AV2820AE.html"
+      },
+      {
+        "label": "Wattage",
+        "value": "35 watts",
+        "source": "Shark",
+        "url": "https://www.sharkninja.com/shark-powerdetect-robot/AV2820AE.html"
+      },
+      {
+        "label": "Cord length",
+        "value": "5.5 ft",
+        "source": "Shark",
+        "url": "https://www.sharkninja.com/shark-powerdetect-robot/AV2820AE.html"
+      }
+    ],
+    "image": "/images/photos/cat-robot.webp",
+    "image_source": null,
+    "imageCredit": "Photo by Kindel Media on Pexels",
+    "imageLicense": "Pexels License",
+    "imageSource": "https://www.pexels.com/photo/8566421/",
+    "imageKind": "category"
+  },
+  {
+    "receipt": null,
+    "recall": {
+      "us": {
+        "status": "none",
+        "checkedAt": "2026-11-12",
+        "url": "https://www.saferproducts.gov/RestWebServices/Recall",
+        "detail": null,
+        "other": []
+      },
+      "ca": {
+        "status": "none",
+        "checkedAt": "2026-11-12",
+        "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
+        "detail": null,
+        "other": []
+      }
+    },
+    "bin": [],
+    "asin": {
+      "us": null,
+      "ca": null
+    },
+    "checks": [
+      "Confirm the model on the box matches the model named here.",
+      "Confirm the store listing is this model, not a similar one.",
+      "Read the recall line on this card before you buy."
+    ],
+    "id": "roborock-qrevo-s",
+    "title": "Roborock Qrevo S Robot Vacuum and Mop",
+    "category": "cleaning",
+    "model": "Qrevo S",
+    "meta": "QREVO S • QX1PEC ON THE US MANUAL • SPECS PER ROBOROCK",
+    "searchQuery": "Roborock Qrevo S robot vacuum",
+    "sourceUrl": "https://ca.roborock.com/pages/roborock-qrevo-s",
+    "sourceName": "Roborock",
+    "recallMatch": {
+      "brand": [
+        "roborock"
+      ],
+      "models": [
+        "qrevo s",
+        "qx1pec"
+      ],
+      "family": [
+        "qrevo"
+      ],
+      "modelConfirmed": true
+    },
+    "evidence": [
+      {
+        "claim": "The Qrevo S page states 7,000 Pa suction, a robot size of 13.78 x 13.9 x 3.80 in, and a dock size of 13.38 x 19.17 x 20.51 in.",
+        "source": "Roborock",
+        "url": "https://ca.roborock.com/pages/roborock-qrevo-s",
+        "agrees": true
+      },
+      {
+        "claim": "The US user manual lists robot model QX1PEC, a 14.4 V/5200 mAh lithium-ion battery, and a charge time of about 4 hours.",
+        "source": "Roborock",
+        "url": "https://support.roborock.com/hc/en-us/article_attachments/38762941504409",
+        "agrees": true
+      }
+    ],
+    "specs": [
+      {
+        "label": "Suction",
+        "value": "7,000 Pa",
+        "source": "Roborock",
+        "url": "https://ca.roborock.com/pages/roborock-qrevo-s"
+      },
+      {
+        "label": "Robot dimensions",
+        "value": "13.78 x 13.9 x 3.80 in",
+        "source": "Roborock",
+        "url": "https://ca.roborock.com/pages/roborock-qrevo-s"
+      },
+      {
+        "label": "Dock dimensions",
+        "value": "13.38 x 19.17 x 20.51 in",
+        "source": "Roborock",
+        "url": "https://ca.roborock.com/pages/roborock-qrevo-s"
+      },
+      {
+        "label": "Mop speed",
+        "value": "200 RPM",
+        "source": "Roborock",
+        "url": "https://ca.roborock.com/pages/roborock-qrevo-s"
+      },
+      {
+        "label": "Battery",
+        "value": "14.4 V/5200 mAh lithium-ion",
+        "source": "Roborock",
+        "url": "https://support.roborock.com/hc/en-us/article_attachments/38762941504409"
+      },
+      {
+        "label": "Charge time",
+        "value": "Approx. 4 hours",
+        "source": "Roborock",
+        "url": "https://support.roborock.com/hc/en-us/article_attachments/38762941504409"
+      }
+    ],
+    "image": "/images/photos/cat-robot.webp",
+    "image_source": null,
+    "imageCredit": "Photo by Kindel Media on Pexels",
+    "imageLicense": "Pexels License",
+    "imageSource": "https://www.pexels.com/photo/8566421/",
+    "imageKind": "category"
+  },
+  {
+    "receipt": null,
+    "recall": {
+      "us": {
+        "status": "none",
+        "checkedAt": "2026-11-12",
+        "url": "https://www.saferproducts.gov/RestWebServices/Recall",
+        "detail": null,
+        "other": []
+      },
+      "ca": {
+        "status": "none",
+        "checkedAt": "2026-11-12",
+        "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
+        "detail": null,
+        "other": []
+      }
+    },
+    "bin": [],
+    "asin": {
+      "us": null,
+      "ca": null
+    },
+    "checks": [
+      "Confirm the model on the box matches the model named here.",
+      "Confirm the store listing is this model, not a similar one.",
+      "Read the recall line on this card before you buy."
+    ],
+    "id": "eufy-x10-pro-omni",
+    "title": "eufy X10 Pro Omni Robot Vacuum and Mop",
+    "category": "cleaning",
+    "model": "X10 Pro Omni",
+    "meta": "X10 PRO OMNI • SPECS PER EUFY",
+    "searchQuery": "eufy X10 Pro Omni robot vacuum",
+    "sourceUrl": "https://www.eufy.com/products/t2351v11-96",
+    "sourceName": "eufy",
+    "recallMatch": {
+      "brand": [
+        "eufy"
+      ],
+      "models": [
+        "x10 pro omni",
+        "t2351"
+      ],
+      "family": [
+        "robot vacuum"
+      ],
+      "modelConfirmed": true
+    },
+    "evidence": [
+      {
+        "claim": "The X10 Pro Omni comparison row states 8,000 Pa suction, 173 min vacuum runtime on standard, and 136 min vacuum-and-mop runtime on standard.",
+        "source": "eufy",
+        "url": "https://www.eufy.com/products/t2351v11-96",
+        "agrees": true
+      },
+      {
+        "claim": "eufy support states a robot size of 327 mm x 353 mm x 113.5 mm, a robot weight of 4,560 g, and a 330 ml dustbin.",
+        "source": "eufy",
+        "url": "https://service.eufy.com/article-description/Dimensions-of-the-X10-Pro-Omni-and-the-All-in-One-Omni-Station",
+        "agrees": true
+      }
+    ],
+    "specs": [
+      {
+        "label": "Suction",
+        "value": "8,000 Pa",
+        "source": "eufy",
+        "url": "https://www.eufy.com/products/t2351v11-96"
+      },
+      {
+        "label": "Run time",
+        "value": "173 min vacuum, or 136 min vacuum and mop, on standard",
+        "source": "eufy",
+        "url": "https://www.eufy.com/products/t2351v11-96"
+      },
+      {
+        "label": "Robot dimensions",
+        "value": "327 mm x 353 mm x 113.5 mm",
+        "source": "eufy",
+        "url": "https://service.eufy.com/article-description/Dimensions-of-the-X10-Pro-Omni-and-the-All-in-One-Omni-Station"
+      },
+      {
+        "label": "Robot weight",
+        "value": "4,560 g",
+        "source": "eufy",
+        "url": "https://service.eufy.com/article-description/Dimensions-of-the-X10-Pro-Omni-and-the-All-in-One-Omni-Station"
+      },
+      {
+        "label": "Dustbin",
+        "value": "330 ml",
+        "source": "eufy",
+        "url": "https://service.eufy.com/article-description/Dimensions-of-the-X10-Pro-Omni-and-the-All-in-One-Omni-Station"
+      }
+    ],
+    "image": "/images/photos/cat-robot.webp",
+    "image_source": null,
+    "imageCredit": "Photo by Kindel Media on Pexels",
+    "imageLicense": "Pexels License",
+    "imageSource": "https://www.pexels.com/photo/8566421/",
+    "imageKind": "category"
+  },
+  {
+    "receipt": null,
+    "recall": {
+      "us": {
+        "status": "none",
+        "checkedAt": "2026-11-12",
+        "url": "https://www.saferproducts.gov/RestWebServices/Recall",
+        "detail": null,
+        "other": []
+      },
+      "ca": {
+        "status": "none",
+        "checkedAt": "2026-11-12",
+        "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
+        "detail": null,
+        "other": [
+          {
+            "title": "FirstPower 4000mAh V6 Battery Replacement for Dyson V6 Series Vacuums recalled due to fire and burn hazard",
+            "url": "https://recalls-rappels.canada.ca/en/alert-recall/firstpower-4000mah-v6-battery-replacement-dyson-v6-series-vacuums-recalled-due-fire",
+            "date": "2024-02-21",
+            "source": "Health Canada",
+            "archived": false
+          }
+        ]
+      }
+    },
+    "bin": [],
+    "asin": {
+      "us": null,
+      "ca": null
+    },
+    "checks": [
+      "Confirm the model on the box matches the model named here.",
+      "Confirm the store listing is this model, not a similar one.",
+      "Read the recall line on this card before you buy."
+    ],
+    "id": "dyson-v15-detect",
+    "title": "Dyson V15 Detect Absolute Cordless Vacuum",
+    "category": "cleaning",
+    "model": "V15 Detect Absolute",
+    "meta": "V15 DETECT ABSOLUTE • SPECS PER DYSON",
+    "searchQuery": "Dyson V15 Detect Absolute cordless vacuum",
+    "sourceUrl": "https://www.dyson.com/vacuum-cleaners/cordless/v15/detect/absolute-gold",
+    "sourceName": "Dyson",
+    "recallMatch": {
+      "brand": [
+        "dyson"
+      ],
+      "models": [
+        "v15"
+      ],
+      "family": [
+        "vacuum"
+      ],
+      "modelConfirmed": true
+    },
+    "evidence": [
+      {
+        "claim": "The specification list states a weight of 6.83 lb, a charge time of 4.5 hrs, and a run time of up to 60 min.",
+        "source": "Dyson",
+        "url": "https://www.dyson.com/vacuum-cleaners/cordless/v15/detect/absolute-gold",
+        "agrees": true
+      },
+      {
+        "claim": "The same list states a 0.2 gallon bin, whole-machine HEPA filtration, and 230 AW suction power in Boost mode.",
+        "source": "Dyson",
+        "url": "https://www.dyson.com/vacuum-cleaners/cordless/v15/detect/absolute-gold",
+        "agrees": true
+      }
+    ],
+    "specs": [
+      {
+        "label": "Weight",
+        "value": "6.83 lb",
+        "source": "Dyson",
+        "url": "https://www.dyson.com/vacuum-cleaners/cordless/v15/detect/absolute-gold"
+      },
+      {
+        "label": "Run time",
+        "value": "Up to 60 min",
+        "source": "Dyson",
+        "url": "https://www.dyson.com/vacuum-cleaners/cordless/v15/detect/absolute-gold"
+      },
+      {
+        "label": "Charge time",
+        "value": "4.5 hrs",
+        "source": "Dyson",
+        "url": "https://www.dyson.com/vacuum-cleaners/cordless/v15/detect/absolute-gold"
+      },
+      {
+        "label": "Bin volume",
+        "value": "0.2 gallon",
+        "source": "Dyson",
+        "url": "https://www.dyson.com/vacuum-cleaners/cordless/v15/detect/absolute-gold"
+      },
+      {
+        "label": "Filtration",
+        "value": "Whole-machine HEPA filtration",
+        "source": "Dyson",
+        "url": "https://www.dyson.com/vacuum-cleaners/cordless/v15/detect/absolute-gold"
+      },
+      {
+        "label": "Suction",
+        "value": "230 AW in Boost mode",
+        "source": "Dyson",
+        "url": "https://www.dyson.com/vacuum-cleaners/cordless/v15/detect/absolute-gold"
+      }
+    ],
+    "image": "/images/photos/cat-stick.webp",
+    "image_source": null,
+    "imageCredit": "Photo by Vedat Öncelik on Pexels",
+    "imageLicense": "Pexels License",
+    "imageSource": "https://www.pexels.com/photo/12167650/",
+    "imageKind": "category"
+  },
+  {
+    "receipt": null,
+    "recall": {
+      "us": {
+        "status": "none",
+        "checkedAt": "2026-11-12",
+        "url": "https://www.saferproducts.gov/RestWebServices/Recall",
+        "detail": null,
+        "other": []
+      },
+      "ca": {
+        "status": "none",
+        "checkedAt": "2026-11-12",
+        "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
+        "detail": null,
+        "other": [
+          {
+            "title": "FirstPower 4000mAh V6 Battery Replacement for Dyson V6 Series Vacuums recalled due to fire and burn hazard",
+            "url": "https://recalls-rappels.canada.ca/en/alert-recall/firstpower-4000mah-v6-battery-replacement-dyson-v6-series-vacuums-recalled-due-fire",
+            "date": "2024-02-21",
+            "source": "Health Canada",
+            "archived": false
+          }
+        ]
+      }
+    },
+    "bin": [],
+    "asin": {
+      "us": null,
+      "ca": null
+    },
+    "checks": [
+      "Confirm the model on the box matches the model named here.",
+      "Confirm the store listing is this model, not a similar one.",
+      "Read the recall line on this card before you buy."
+    ],
+    "id": "dyson-v8",
+    "title": "Dyson V8 Cordless Vacuum",
+    "category": "cleaning",
+    "model": "V8",
+    "meta": "V8 • SPECS PER DYSON",
+    "searchQuery": "Dyson V8 cordless vacuum",
+    "sourceUrl": "https://www.dyson.com/vacuum-cleaners/cordless/v8/silver-nickel",
+    "sourceName": "Dyson",
+    "recallMatch": {
+      "brand": [
+        "dyson"
+      ],
+      "models": [
+        "v8"
+      ],
+      "family": [
+        "vacuum"
+      ],
+      "modelConfirmed": true
+    },
+    "evidence": [
+      {
+        "claim": "The specification list states a weight of 5.58 lb, a maximum run time of 40 min, and a charge time of 5 hrs.",
+        "source": "Dyson",
+        "url": "https://www.dyson.com/vacuum-cleaners/cordless/v8/silver-nickel",
+        "agrees": true
+      },
+      {
+        "claim": "The same list states a 0.14 gallon bin and 115 AW suction power in MAX mode.",
+        "source": "Dyson",
+        "url": "https://www.dyson.com/vacuum-cleaners/cordless/v8/silver-nickel",
+        "agrees": true
+      }
+    ],
+    "specs": [
+      {
+        "label": "Weight",
+        "value": "5.58 lb",
+        "source": "Dyson",
+        "url": "https://www.dyson.com/vacuum-cleaners/cordless/v8/silver-nickel"
+      },
+      {
+        "label": "Run time",
+        "value": "40 min maximum",
+        "source": "Dyson",
+        "url": "https://www.dyson.com/vacuum-cleaners/cordless/v8/silver-nickel"
+      },
+      {
+        "label": "Charge time",
+        "value": "5 hrs",
+        "source": "Dyson",
+        "url": "https://www.dyson.com/vacuum-cleaners/cordless/v8/silver-nickel"
+      },
+      {
+        "label": "Bin volume",
+        "value": "0.14 gallon",
+        "source": "Dyson",
+        "url": "https://www.dyson.com/vacuum-cleaners/cordless/v8/silver-nickel"
+      },
+      {
+        "label": "Suction",
+        "value": "115 AW in MAX mode",
+        "source": "Dyson",
+        "url": "https://www.dyson.com/vacuum-cleaners/cordless/v8/silver-nickel"
+      }
+    ],
+    "image": "/images/photos/model-dyson-v8.webp",
+    "image_source": null,
+    "imageCredit": "Photo by Your Best Digs, CC BY 2.0, via Wikimedia Commons",
+    "imageLicense": "CC BY 2.0",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Dyson_V8_handstick_vacuum.jpg",
+    "imageKind": "model"
+  },
+  {
+    "receipt": null,
+    "recall": {
+      "us": {
+        "status": "none",
+        "checkedAt": "2026-11-12",
+        "url": "https://www.saferproducts.gov/RestWebServices/Recall",
+        "detail": null,
+        "other": [
+          {
+            "title": "Shark Vacuum Cleaners Recalled by Euro-Pro Due to Shock Hazard",
+            "url": "https://www.cpsc.gov/Recalls/2015/Shark-Vacuum-Cleaners-Recalled-by-Euro-Pro",
+            "date": "2015-04-22",
+            "source": "CPSC",
+            "archived": false
+          }
+        ]
+      },
+      "ca": {
+        "status": "none",
+        "checkedAt": "2026-11-12",
+        "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
+        "detail": null,
+        "other": [
+          {
+            "title": "Euro-Pro Operating LLC recalls Shark® Brand Vacuum Cleaners",
+            "url": "https://recalls-rappels.canada.ca/en/alert-recall/euro-pro-operating-llc-recalls-sharkr-brand-vacuum-cleaners",
+            "date": "2015-04-22",
+            "source": "Health Canada",
+            "archived": true
+          }
+        ]
+      }
+    },
+    "bin": [],
+    "asin": {
+      "us": null,
+      "ca": null
+    },
+    "checks": [
+      "Confirm the model on the box matches the model named here.",
+      "Confirm the store listing is this model, not a similar one.",
+      "Read the recall line on this card before you buy."
+    ],
+    "id": "shark-ip3251",
+    "title": "Shark PowerDetect Clean and Empty Cordless Vacuum IP3251",
+    "category": "cleaning",
+    "model": "IP3251",
+    "meta": "IP3251 • SPECS PER SHARK",
+    "searchQuery": "Shark PowerDetect Clean and Empty IP3251",
+    "sourceUrl": "https://www.sharkninja.com/shark-cordless-powerdetect-clean-empty-system/IP3251.html",
+    "sourceName": "Shark",
+    "recallMatch": {
+      "brand": [
+        "shark",
+        "sharkninja"
+      ],
+      "models": [
+        "ip3251"
+      ],
+      "family": [
+        "vacuum"
+      ],
+      "modelConfirmed": true
+    },
+    "evidence": [
+      {
+        "claim": "Model IP3251 weighs 18.47 lbs, with a 0.7 qt dust cup and dimensions of 10.24 in L x 18.5 in W x 46.46 in H.",
+        "source": "Shark",
+        "url": "https://www.sharkninja.com/shark-cordless-powerdetect-clean-empty-system/IP3251.html",
+        "agrees": true
+      },
+      {
+        "claim": "The page states up to 70 minutes of runtime measured at the hand vacuum in ECO mode, and a battery charge time of 6 hours.",
+        "source": "Shark",
+        "url": "https://www.sharkninja.com/shark-cordless-powerdetect-clean-empty-system/IP3251.html",
+        "agrees": true
+      }
+    ],
+    "specs": [
+      {
+        "label": "Weight",
+        "value": "18.47 lbs",
+        "source": "Shark",
+        "url": "https://www.sharkninja.com/shark-cordless-powerdetect-clean-empty-system/IP3251.html"
+      },
+      {
+        "label": "Run time",
+        "value": "Up to 70 minutes, measured at the hand vacuum in ECO mode",
+        "source": "Shark",
+        "url": "https://www.sharkninja.com/shark-cordless-powerdetect-clean-empty-system/IP3251.html"
+      },
+      {
+        "label": "Charge time",
+        "value": "6 hours",
+        "source": "Shark",
+        "url": "https://www.sharkninja.com/shark-cordless-powerdetect-clean-empty-system/IP3251.html"
+      },
+      {
+        "label": "Dust cup",
+        "value": "0.7 qt",
+        "source": "Shark",
+        "url": "https://www.sharkninja.com/shark-cordless-powerdetect-clean-empty-system/IP3251.html"
+      },
+      {
+        "label": "Dimensions",
+        "value": "10.24 in L x 18.5 in W x 46.46 in H",
+        "source": "Shark",
+        "url": "https://www.sharkninja.com/shark-cordless-powerdetect-clean-empty-system/IP3251.html"
+      },
+      {
+        "label": "Voltage",
+        "value": "21.6 volts",
+        "source": "Shark",
+        "url": "https://www.sharkninja.com/shark-cordless-powerdetect-clean-empty-system/IP3251.html"
+      }
+    ],
+    "image": "/images/photos/cat-stick.webp",
+    "image_source": null,
+    "imageCredit": "Photo by Vedat Öncelik on Pexels",
+    "imageLicense": "Pexels License",
+    "imageSource": "https://www.pexels.com/photo/12167650/",
+    "imageKind": "category"
+  },
+  {
+    "receipt": null,
+    "recall": {
+      "us": {
+        "status": "none",
+        "checkedAt": "2026-11-12",
+        "url": "https://www.saferproducts.gov/RestWebServices/Recall",
+        "detail": null,
+        "other": []
+      },
+      "ca": {
+        "status": "none",
+        "checkedAt": "2026-11-12",
+        "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
+        "detail": null,
+        "other": []
+      }
+    },
+    "bin": [],
+    "asin": {
+      "us": null,
+      "ca": null
+    },
+    "checks": [
+      "Confirm the model on the box matches the model named here.",
+      "Confirm the store listing is this model, not a similar one.",
+      "Read the recall line on this card before you buy."
+    ],
+    "id": "tineco-pure-one-s15",
+    "title": "Tineco PURE ONE S15 PRO Cordless Vacuum",
+    "category": "cleaning",
+    "model": "PURE ONE S15 PRO",
+    "meta": "PURE ONE S15 PRO • SPECS PER TINECO",
+    "searchQuery": "Tineco PURE ONE S15 PRO cordless vacuum",
+    "sourceUrl": "https://us.tineco.com/products/pure-one-s15.html",
+    "sourceName": "Tineco",
+    "recallMatch": {
+      "brand": [
+        "tineco"
+      ],
+      "models": [
+        "pure one s15",
+        "s15 pro"
+      ],
+      "family": [
+        "pure one"
+      ],
+      "modelConfirmed": true
+    },
+    "evidence": [
+      {
+        "claim": "The specification list states a 2500 mAh battery, a 40 min running time, and a 4 hour charging time.",
+        "source": "Tineco",
+        "url": "https://us.tineco.com/products/pure-one-s15.html",
+        "agrees": true
+      },
+      {
+        "claim": "The same list states a 0.47 L dust capacity and a weight of 6.8 lbs.",
+        "source": "Tineco",
+        "url": "https://us.tineco.com/products/pure-one-s15.html",
+        "agrees": true
+      }
+    ],
+    "specs": [
+      {
+        "label": "Battery",
+        "value": "2500 mAh",
+        "source": "Tineco",
+        "url": "https://us.tineco.com/products/pure-one-s15.html"
+      },
+      {
+        "label": "Run time",
+        "value": "40 min",
+        "source": "Tineco",
+        "url": "https://us.tineco.com/products/pure-one-s15.html"
+      },
+      {
+        "label": "Charge time",
+        "value": "4 hours",
+        "source": "Tineco",
+        "url": "https://us.tineco.com/products/pure-one-s15.html"
+      },
+      {
+        "label": "Dust capacity",
+        "value": "0.47 L",
+        "source": "Tineco",
+        "url": "https://us.tineco.com/products/pure-one-s15.html"
+      },
+      {
+        "label": "Weight",
+        "value": "6.8 lbs",
+        "source": "Tineco",
+        "url": "https://us.tineco.com/products/pure-one-s15.html"
+      }
+    ],
+    "image": "/images/photos/cat-stick.webp",
+    "image_source": null,
+    "imageCredit": "Photo by Vedat Öncelik on Pexels",
+    "imageLicense": "Pexels License",
+    "imageSource": "https://www.pexels.com/photo/12167650/",
+    "imageKind": "category"
+  },
+  {
+    "receipt": null,
+    "recall": {
+      "us": {
+        "status": "none",
+        "checkedAt": "2026-11-12",
+        "url": "https://www.saferproducts.gov/RestWebServices/Recall",
+        "detail": null,
+        "other": []
+      },
+      "ca": {
+        "status": "none",
+        "checkedAt": "2026-11-12",
+        "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
+        "detail": null,
+        "other": []
+      }
+    },
+    "bin": [],
+    "asin": {
+      "us": null,
+      "ca": null
+    },
+    "checks": [
+      "Confirm the model on the box matches the model named here.",
+      "Confirm the store listing is this model, not a similar one.",
+      "Read the recall line on this card before you buy."
+    ],
+    "id": "bissell-iconpet-2288",
+    "title": "BISSELL ICONpet Cordless Vacuum 2288",
+    "category": "cleaning",
+    "model": "2288",
+    "meta": "2288 • SPECS PER BISSELL",
+    "searchQuery": "BISSELL ICONpet Cordless Vacuum 2288",
+    "sourceUrl": "https://www.bissell.com/en-us/product/bissell-iconpet-cordless-vacuum-2288.html",
+    "sourceName": "BISSELL",
+    "recallMatch": {
+      "brand": [
+        "bissell"
+      ],
+      "models": [
+        "2288"
+      ],
+      "family": [
+        "iconpet"
+      ],
+      "modelConfirmed": true
+    },
+    "evidence": [
+      {
+        "claim": "The 2288 specification list states a 22 V power rating, a 0.4 L dirty tank, and a 10.5 in cleaning path.",
+        "source": "BISSELL",
+        "url": "https://www.bissell.com/en-us/product/bissell-iconpet-cordless-vacuum-2288.html",
+        "agrees": true
+      },
+      {
+        "claim": "The same list states a bagless dirt cup and a weight of 7 lbs.",
+        "source": "BISSELL",
+        "url": "https://www.bissell.com/en-us/product/bissell-iconpet-cordless-vacuum-2288.html",
+        "agrees": true
+      }
+    ],
+    "specs": [
+      {
+        "label": "Power",
+        "value": "22 V",
+        "source": "BISSELL",
+        "url": "https://www.bissell.com/en-us/product/bissell-iconpet-cordless-vacuum-2288.html"
+      },
+      {
+        "label": "Dirty tank",
+        "value": "0.4 L",
+        "source": "BISSELL",
+        "url": "https://www.bissell.com/en-us/product/bissell-iconpet-cordless-vacuum-2288.html"
+      },
+      {
+        "label": "Cleaning path",
+        "value": "10.5 in",
+        "source": "BISSELL",
+        "url": "https://www.bissell.com/en-us/product/bissell-iconpet-cordless-vacuum-2288.html"
+      },
+      {
+        "label": "Bag",
+        "value": "Bagless",
+        "source": "BISSELL",
+        "url": "https://www.bissell.com/en-us/product/bissell-iconpet-cordless-vacuum-2288.html"
+      },
+      {
+        "label": "Weight",
+        "value": "7 lbs",
+        "source": "BISSELL",
+        "url": "https://www.bissell.com/en-us/product/bissell-iconpet-cordless-vacuum-2288.html"
+      }
+    ],
+    "image": "/images/photos/cat-stick.webp",
+    "image_source": null,
+    "imageCredit": "Photo by Vedat Öncelik on Pexels",
+    "imageLicense": "Pexels License",
+    "imageSource": "https://www.pexels.com/photo/12167650/",
+    "imageKind": "category"
   }
 ]

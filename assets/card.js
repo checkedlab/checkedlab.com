@@ -355,6 +355,8 @@
   function motifKey(product) {
     var b = [(product && product.id) || "", (product && product.title) || "", (product && product.category) || ""].join(" ").toLowerCase();
     var rules = [
+      [/roomba|robot vacuum|roborock|eufy x10|av2501|av2820/, "robotvac"],
+      [/cordless vacuum|stick vacuum|dyson v|tineco|iconpet|ip3251/, "stickvac"],
       [/blender|vitamix/, "blender"],
       [/stand mixer|kitchenaid|artisan/, "mixer"],
       [/air fry|crispi|cosori|foodi/, "airfryer"],
@@ -413,7 +415,8 @@
       pet: "pet",
       "car-garage": "garage",
       sleep: "bed",
-      "personal-tech": "headphones"
+      "personal-tech": "headphones",
+      cleaning: "robotvac"
     };
     return cat[product && product.category] || "box";
   }
@@ -462,7 +465,9 @@
       magnet: '<path d="M30 28h18v36a12 12 0 0 0 24 0V28h18v40a30 30 0 0 1-60 0z"/>',
       alarm: '<path d="M60 24a28 28 0 0 1 16 50H44A28 28 0 0 1 60 24z"/><path d="M44 78h32M36 30L24 20M84 30l12-10"/><circle cx="60" cy="50" r="4"/>',
       beads: '<circle cx="36" cy="60" r="14"/><circle cx="64" cy="44" r="14"/><circle cx="84" cy="72" r="12"/>',
-      box: '<path d="M20 46L60 28l40 18-40 18z"/><path d="M20 46v32l40 18 40-18V46M60 64v32"/>'
+      box: '<path d="M20 46L60 28l40 18-40 18z"/><path d="M20 46v32l40 18 40-18V46M60 64v32"/>',
+      robotvac: '<circle cx="60" cy="62" r="28"/><circle cx="60" cy="62" r="10"/><path d="M60 34V22"/>',
+      stickvac: '<path d="M46 18h16v34H46z"/><path d="M54 52v28"/><path d="M36 86h36"/>'
     };
     return g[key] || g.box;
   }
@@ -516,7 +521,9 @@
     magnet: ["cat-alarm.webp", "Photo by Caleb Oquendo on Pexels", 1600, 1068],
     alarm: ["cat-alarm.webp", "Photo by Caleb Oquendo on Pexels", 1600, 1068],
     beads: ["season-toys.webp", "Photo by Antonius Ferret on Pexels", 1600, 1066],
-    box: ["season-gifts.webp", "Photo by Nicolas Postiglioni on Pexels", 1600, 1060]
+    box: ["season-gifts.webp", "Photo by Nicolas Postiglioni on Pexels", 1600, 1060],
+    robotvac: ["cat-robot.webp", "Photo by Kindel Media on Pexels", 1600, 1200],
+    stickvac: ["cat-stick.webp", "Photo by Vedat \u00d6ncelik on Pexels", 1600, 2399]
   };
 
   function photoRecord(product) {
@@ -570,7 +577,8 @@
     compare: ["hub-cook.webp", "A cook at a kitchen counter", "Photo by cottonbro studio on Pexels", 1600, 2400],
     recalls: ["cat-alarm.webp", "A ceiling smoke alarm", "Photo by Caleb Oquendo on Pexels", 1600, 1068],
     bin: ["cat-alarm.webp", "A ceiling smoke alarm", "Photo by Caleb Oquendo on Pexels", 1600, 1068],
-    thanksgiving: ["season-thanksgiving.webp", "A Thanksgiving table set for a meal", "Photo by Zion Smith on Pexels", 1600, 1066]
+    thanksgiving: ["season-thanksgiving.webp", "A Thanksgiving table set for a meal", "Photo by Zion Smith on Pexels", 1600, 1066],
+    cleaning: ["hub-cleaning.webp", "A robot vacuum on a wood floor", "Photo by Ron Lach on Pexels", 1600, 2400]
   };
 
   function scene(name) {
