@@ -27,6 +27,7 @@
 
   function reveal(root) {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (!("IntersectionObserver" in window)) return;
     var scope = root && root.querySelectorAll ? root : document;
     var nodes = scope.querySelectorAll ? scope.querySelectorAll(".product-grid, .hero, .recall-band, .guide-pick, .bf-model, .season-card, .quiz, .recall-widget, .hero-art, .catalogue-pick") : [];
     if (!nodes.length && root && root.classList && root.classList.contains("product-grid")) nodes = [root];

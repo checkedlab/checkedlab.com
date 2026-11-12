@@ -337,8 +337,10 @@ body[data-page="product"] .p-side { order: -1; }
 .p-img { background: var(--slot); }
 .p-photo, .guide-pick .p-photo, .bf-model .p-photo, .catalogue-pick .p-photo, .compare-art .p-photo {
   width: 100%;
-  aspect-ratio: 1;
-  object-fit: contain;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: center;
   background: var(--slot);
 }
 .guide-pick .p-photo, .bf-model .p-photo, .compare-art .p-photo { border-radius: 8px; margin-bottom: 8px; }
@@ -568,7 +570,7 @@ footer { background: #1A1916; color: #F4F1EA; }
   .season-copy { padding: 0 12px; }
   .browse-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .steps { grid-template-columns: 1fr 1fr 1fr; }
-  #popular-mount, body[data-page="category"] #product-mount, .pick-grid { grid-template-columns: 1fr 1fr; }
+  #popular-mount, #recall-mount, body[data-page="category"] #product-mount, .pick-grid { grid-template-columns: 1fr 1fr; }
   .recall-columns { grid-template-columns: 1fr 1fr; }
   .foot { grid-template-columns: 1.4fr 0.8fr 1.4fr; align-items: start; }
   body[data-page="product"] .product-grid {
@@ -592,7 +594,7 @@ footer { background: #1A1916; color: #F4F1EA; }
   body[data-page="product"] .p-side { position: sticky; top: 76px; align-self: start; }
 }
 @media (min-width: 1100px) {
-  #popular-mount, body[data-page="category"] #product-mount, .pick-grid { grid-template-columns: 1fr 1fr 1fr; }
+  #popular-mount, #recall-mount, body[data-page="category"] #product-mount, .pick-grid { grid-template-columns: 1fr 1fr 1fr; }
 }
 @media (max-width: 860px) {
   .bar { height: 56px; }
@@ -632,8 +634,12 @@ footer { background: #1A1916; color: #F4F1EA; }
   }
 }
 @media (prefers-reduced-motion: no-preference) {
-  .reveal { opacity: 0; transform: translateY(8px); }
-  .reveal.in { opacity: 1; transform: none; transition: opacity .4s ease, transform .4s ease; }
+  .reveal { transform: translateY(8px); }
+  .reveal.in { transform: none; transition: transform .4s ease; }
+  .reveal,
+  .reveal.in,
+  .reveal img,
+  img { opacity: 1; }
   .product-grid, .guide-pick, .bf-model, .season-card, .browse-grid a, .store-btn.store-primary {
     transition: transform .18s ease, box-shadow .18s ease;
   }
