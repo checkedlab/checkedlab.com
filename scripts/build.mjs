@@ -12,6 +12,13 @@ const ORIGIN = "https://www.checkedlab.com";
 const START = "<!-- checkedlab:cards start -->";
 const END = "<!-- checkedlab:cards end -->";
 const DISCLOSURE = '<div class="disclosure"><strong>Affiliate disclosure.</strong> As an Amazon Associate I earn from qualifying purchases. Other store links earn us nothing.</div>';
+const FOOTER = `<footer>
+<div class="foot">
+<p><strong>Affiliate disclosure.</strong> As an Amazon Associate I earn from qualifying purchases. Other store links earn us nothing.</p>
+<p>© 2026 Checked Lab<br>Winnipeg, MB</p>
+<p class="foot-mail"><a href="/thanksgiving/">Thanksgiving</a><a href="/toy-safety/">Toy safety</a><a href="/winter-safety/">Winter safety</a><a href="/gifts/">Gift guides</a><a href="/black-friday/">Black Friday</a><a href="/recalls/">Recall checks</a><a href="/how-we-check/">How we check</a><a href="/bin-list/">BIN list</a><a href="/photo-credits/">Photo credits</a><a href="mailto:hello@checkedlab.com">hello@</a><a href="mailto:support@checkedlab.com">support@</a><a href="mailto:press@checkedlab.com">press@</a><a href="mailto:legal@checkedlab.com">legal@</a></p>
+</div>
+</footer>`;
 const BIN_EMPTY = '<p class="empty">Nothing is on the BIN list. A product lands here only when a recall record matches its brand and model. An unconfirmed model is not a BIN.</p>';
 const HUBS = ["winter", "car-garage", "air-water", "pet", "kitchen", "sleep", "personal-tech"];
 const HUB_NAME = {
@@ -232,12 +239,8 @@ for (const hub of HUBS) {
   html = fillMount(html, popular.map((product) => card.card(product, "US")).join("\n"), POP_START, POP_END);
   html = fillMount(html, recallsOnHome.length ? recallsOnHome.map((product) => card.card(product, "US")).join("\n") : '<p class="empty">No official model recall is on the list.</p>', REC_START, REC_END);
   html = fillHomePointer(html, recalls.checkedAt || "");
-  html = html.replace(/<div class="hero-photo">[\s\S]*?<\/div>/, "");
-  html = html.replace(/\n?<link rel="preload" as="image"[^>]*>/, "");
-  html = ensureScene(html, "home");
-  if (!html.includes('class="hub-tiles"')) {
-    html = html.replace("<div class=\"wrap\">", hubTiles() + "\n<div class=\"wrap\">");
-  }
+  html = html.replace(/<section class="hub-tiles"[\s\S]*?<\/section>\n?/g, "");
+  if (!html.includes('class="hero-photo"')) html = ensureScene(html, "home");
   if (!html.includes('id="is-it-recalled-search"')) {
     html = html.replace('<section class="recall-band"', recallWidget() + "\n" + giftQuiz() + '\n<section class="recall-band"');
   }
@@ -290,6 +293,7 @@ writeGifts();
 writeWinterSafety();
 writeToySafety();
 writeThanksgiving();
+writePhotoCredits();
 const lastmods = stampPages(ordered);
 writeSitemap(pages, lastmods);
 verifyOutput(pages);
@@ -326,8 +330,11 @@ function assertRenderer() {
   if (bin.includes("store-btn") || bin.includes("check-title") || bin.includes("evidence")) {
     throw new Error("Hub card includes a product-page block");
   }
-  if (!bin.includes("p-side") || !bin.includes('class="illu"') || !bin.includes("Illustrated")) {
-    throw new Error("Hub card is missing an illustration");
+  if (!bin.includes("p-side") || !bin.includes('class="p-photo"') || !bin.includes('alt="Category photo"')) {
+    throw new Error("Hub card is missing a photo slot");
+  }
+  if (bin.includes('class="illu"') || /amazon\.com/i.test(bin)) {
+    throw new Error("Hub card used an illustration or an Amazon image");
   }
   if (/\$\d/.test(bin) || bin.includes("offers")) throw new Error("Renderer emitted a price");
   const usStores = card.storeButtons(products[0], "US");
@@ -755,23 +762,71 @@ function recallCatsLink(current) {
   return '<a href="/recalls/"' + currentAttr + ">" + RECALL_ICON + "<span>Recall checks</span></a>";
 }
 
-function ensureChrome(html, current) {
-  const headerAnchor = "</div>\n<nav>\n<a href=\"/how-we-check/";
-  if (html.includes(headerAnchor)) {
-    const header = current === "recalls"
-      ? '<a href="/recalls/" aria-current="page">RECALL CHECKS</a>'
-      : '<a href="/recalls/">RECALL CHECKS</a>';
-    html = html.replace(headerAnchor, "</div>\n<nav>\n" + header + "\n<a href=\"/how-we-check/");
+function mastheadHtml(current) {
+  const mark = (key) => current === key ? ' aria-current="page"' : "";
+  const cats = NAV.map(([hub, label]) =>
+    '<a href="/' + hub + '/"' + mark(hub) + ">" + ICONS[hub] + "<span>" + label + "</span></a>"
+  ).join("") +
+    '<a href="/thanksgiving/"' + mark("thanksgiving") + "><span>Thanksgiving</span></a>" +
+    '<a href="/toy-safety/"' + mark("toy-safety") + "><span>Toy safety</span></a>" +
+    '<a href="/winter-safety/"' + mark("winter-safety") + "><span>Winter safety</span></a>";
+  return '<div class="masthead">\n<header class="bar">\n' +
+    '<a class="logo" href="/"><span class="logo-mark" aria-hidden="true"></span>Checked Lab</a>\n' +
+    '<div class="nav-panel" id="site-nav" data-nav-panel>\n<nav class="primary-nav" aria-label="Primary">\n' +
+    '<a href="/recalls/"' + mark("recalls") + ">Recall checks</a>\n" +
+    '<a href="/gifts/"' + mark("gifts") + ">Gift guides</a>\n" +
+    '<a href="/black-friday/"' + mark("black-friday") + ">Black Friday</a>\n" +
+    '<details class="cat-menu">\n<summary>Categories</summary>\n<div class="cat-panel">' + cats + "</div>\n</details>\n" +
+    '<a href="/how-we-check/"' + mark("how") + ">How we check</a>\n" +
+    '<a href="/bin-list/"' + mark("bin") + ">BIN list</a>\n" +
+    "</nav>\n</div>\n" +
+    '<div class="country-switch" role="group" aria-label="Country">\n' +
+    '<button type="button" data-region-set="US">US</button>\n' +
+    '<button type="button" data-region-set="CA">CA</button>\n</div>\n' +
+    '<button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav">Menu</button>\n' +
+    "</header>\n</div>";
+}
+
+function inferCurrent(html) {
+  const match = html.match(/rel="canonical" href="https:\/\/www\.checkedlab\.com([^"]*)"/);
+  const path = match ? match[1] : "/";
+  if (path.startsWith("/how-we-check")) return "how";
+  if (path.startsWith("/bin-list")) return "bin";
+  if (path.startsWith("/recalls")) return "recalls";
+  if (path.startsWith("/gifts")) return "gifts";
+  if (path.startsWith("/black-friday")) return "black-friday";
+  if (path.startsWith("/thanksgiving")) return "thanksgiving";
+  if (path.startsWith("/toy-safety")) return "toy-safety";
+  if (path.startsWith("/winter-safety")) return "winter-safety";
+  const hub = path.split("/").filter(Boolean)[0];
+  if (HUBS.includes(hub)) return hub;
+  return "";
+}
+
+function blockEnd(html, start) {
+  const re = /<div\b|<\/div>/g;
+  re.lastIndex = start;
+  let depth = 0;
+  let match;
+  while ((match = re.exec(html))) {
+    depth += match[0] === "</div>" ? -1 : 1;
+    if (depth === 0) return re.lastIndex;
   }
-  const catsAnchor = '<a class="cats-util" href="/how-we-check/">';
-  if (html.includes(catsAnchor) && !html.includes("<span>Recall checks</span>")) {
-    html = html.replace(catsAnchor, recallCatsLink(current) + "\n" + catsAnchor);
-  }
-  const footAnchor = '<p class="foot-mail"><a href="/how-we-check/">How we check</a>';
-  if (html.includes(footAnchor)) {
-    html = html.replace(footAnchor, '<p class="foot-mail"><a href="/recalls/">Recall checks</a><a href="/how-we-check/">How we check</a>');
-  }
-  return polish(html);
+  return -1;
+}
+
+function installChrome(html) {
+  const mast = html.indexOf('<div class="masthead"');
+  if (mast < 0) return html;
+  const end = blockEnd(html, mast);
+  if (end < 0) throw new Error("Masthead did not close");
+  const top = html.lastIndexOf('<div class="topbar"', mast);
+  const from = top >= 0 && mast - top < 400 ? top : mast;
+  return html.slice(0, from) + mastheadHtml(inferCurrent(html)) + html.slice(end);
+}
+
+function ensureChrome(html) {
+  return polish(installChrome(html));
 }
 
 function sceneBlock(name) {
@@ -781,7 +836,7 @@ function sceneBlock(name) {
 function ensureScene(html, name) {
   const block = sceneBlock(name);
   if (html.includes('class="hero-art"')) {
-    return html.replace(/<div class="hero-art" data-scene="[^"]*">[\s\S]*?<\/svg><\/div>\n?/, block);
+    return html.replace(/<div class="hero-art" data-scene="[^"]*">[\s\S]*?<\/div>\n?/, block);
   }
   if (html.includes('<div class="hero-inner">')) {
     return html.replace('<div class="hero-inner">', '<div class="hero-inner">\n' + block);
@@ -846,13 +901,16 @@ function giftQuiz() {
 }
 
 function ensureDock(html) {
-  if (html.includes("data-dock")) return html;
-  const dock = '<div class="dock" data-dock><a class="dock-cta" data-dock-cta href="/recalls/#is-it-recalled-search">Is it recalled?</a><button type="button" class="to-top" data-to-top>Top</button></div>\n';
+  html = html.replace(/\n?<div class="dock" data-dock>[\s\S]*?<\/div>\n?/g, "\n");
+  if (!html.includes('data-page="product"')) return html;
+  const dock = '<div class="dock" data-dock><a class="dock-cta" href="#is-it-recalled">Is it recalled?</a></div>\n';
   return html.replace("</body>", dock + "</body>");
 }
 
 function polish(html) {
-  html = html.replace(/name="theme-color" content="#[0-9A-Fa-f]{3,8}"/g, 'name="theme-color" content="#5B21B6"');
+  html = installChrome(html);
+  if (html.includes("<footer>")) html = html.replace(/<footer>[\s\S]*?<\/footer>/, FOOTER);
+  html = html.replace(/name="theme-color" content="#[0-9A-Fa-f]{3,8}"/g, 'name="theme-color" content="#1F4D3A"');
   if (!html.includes('class="skip"')) {
     html = html.replace(/<body([^>]*)>/, '<body$1>\n<a class="skip" href="#main">Skip to content</a>');
   }
@@ -863,7 +921,10 @@ function polish(html) {
 function assertSafeImages(html, where) {
   const tags = html.match(/<img\b[^>]*>/gi) || [];
   for (const tag of tags) {
-    if (/\/images\//i.test(tag)) throw new Error("Unlicensed product photo on " + where);
+    const src = (tag.match(/\bsrc="([^"]+)"/i) || [])[1] || "";
+    if (/amazon\.com|media-amazon|images-amazon/i.test(src)) throw new Error("Amazon image on " + where);
+    if (/^https?:\/\//i.test(src)) throw new Error("Hotlinked image on " + where);
+    if (src.includes("/images/") && !src.startsWith("/images/photos/")) throw new Error("Unlicensed product photo on " + where);
     if (!/\balt="/i.test(tag)) throw new Error("Image missing alt on " + where);
     if (!/loading="lazy"|fetchpriority="high"/i.test(tag)) throw new Error("Image missing load hint on " + where);
   }
@@ -3717,6 +3778,53 @@ function assertWinterPages() {
   }
 }
 
+function writePhotoCredits() {
+  const photos = JSON.parse(readFileSync(join(root, "data", "photos.json"), "utf8"));
+  const rows = photos.map((photo) =>
+    "<li><a href=\"" + card.esc(photo.source) + "\">" + card.esc(photo.credit) + "</a>" +
+    "<small>" + card.esc(photo.license) + " · " + card.esc(photo.use) + " · " + card.esc(photo.file) + "</small></li>"
+  ).join("\n");
+  const html = `<!DOCTYPE html>
+<html lang="en" data-region="US">
+<head>
+<meta charset="UTF-8">
+<link rel="canonical" href="${ORIGIN}/photo-credits/">
+<script src="/assets/region-boot.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Photo credits — Checked Lab</title>
+<meta name="description" content="Photographers and licenses for the photos on Checked Lab. Files are stored on this site.">
+<meta property="og:title" content="Photo credits — Checked Lab">
+<meta property="og:description" content="Photographers and licenses for the photos on Checked Lab.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="${ORIGIN}/photo-credits/">
+<meta property="og:image" content="${ORIGIN}/assets/og.png">
+<link rel="icon" type="image/png" href="/favicon.png">
+${FONT_PRELOAD}
+<link rel="stylesheet" href="/assets/site.css">
+<meta name="theme-color" content="#1F4D3A">
+</head>
+<body data-page="credits">
+${DISCLOSURE}
+<div class="masthead"></div>
+<main id="main">
+<div class="wrap prose">
+<h1>Photo credits</h1>
+<p class="lede">Lifestyle and category photos are from Pexels. A photo of an exact catalogue model is from Wikimedia Commons under the license named here. Nothing is hotlinked, and none of these files are manufacturer or Amazon photos.</p>
+<ul class="credits">
+${rows}
+</ul>
+</div>
+</main>
+<footer></footer>
+<script src="/assets/site.js" defer></script>
+</body>
+</html>
+`;
+  const dir = join(root, "photo-credits");
+  mkdirSync(dir, { recursive: true });
+  writeFileSync(join(dir, "index.html"), polish(html));
+}
+
 function stampPages(ordered) {
   const rev = loadJson(REV_PATH, {});
   const paths = [
@@ -3724,6 +3832,7 @@ function stampPages(ordered) {
     ...HUBS.map((hub) => ["/" + hub + "/", join(root, hub, "index.html")]),
     ["/how-we-check/", join(root, "how-we-check", "index.html")],
     ["/bin-list/", join(root, "bin-list", "index.html")],
+    ["/photo-credits/", join(root, "photo-credits", "index.html")],
     ["/recalls/", join(root, "recalls", "index.html")],
     [BF_PATH, join(root, "black-friday", "index.html")],
     ...giftPaths().map((path) => [path, join(root, path.slice(1), "index.html")]),
@@ -3757,6 +3866,7 @@ function writeSitemap(pages, lastmods) {
     ...HUBS.map((hub) => "/" + hub + "/"),
     "/how-we-check/",
     "/bin-list/",
+    "/photo-credits/",
     "/recalls/",
     BF_PATH,
     ...giftPaths(),
@@ -3940,8 +4050,8 @@ function verifyOutput(pages) {
   const winterCount = winterPaths().length;
   const toyCount = toyPaths().length;
   const thanksCount = thanksPaths().length;
-  const expectedLocs = 12 + giftCount + winterCount + toyCount + thanksCount + explainers.length + compares.length + indexed.length;
-  if (locCount !== expectedLocs || locCount !== 140 + giftCount + winterCount + toyCount + thanksCount) {
+  const expectedLocs = 13 + giftCount + winterCount + toyCount + thanksCount + explainers.length + compares.length + indexed.length;
+  if (locCount !== expectedLocs || locCount !== 141 + giftCount + winterCount + toyCount + thanksCount) {
     throw new Error("Sitemap URL count " + locCount + " expected " + expectedLocs);
   }
   for (const entry of compares) {
@@ -3977,7 +4087,7 @@ function verifyOutput(pages) {
       throw new Error("Sitemap listing mismatch on " + product.id);
     }
     const page = readFileSync(join(root, product.category, product.id, "index.html"), "utf8");
-    if (!page.includes(">RECALL CHECKS<") || !page.includes('<a href="/recalls/">Recall checks</a>')) {
+    if (!page.includes('<a href="/recalls/">Recall checks</a>')) {
       throw new Error("Recall checks link missing on " + product.id);
     }
   }
@@ -4047,7 +4157,7 @@ function verifyOutput(pages) {
   }
   for (const hub of HUBS) {
     const html = readFileSync(join(root, hub, "index.html"), "utf8");
-    if (!html.includes(">RECALL CHECKS<") || !html.includes('<a href="/recalls/">Recall checks</a>')) {
+    if (!html.includes('<a href="/recalls/">Recall checks</a>')) {
       throw new Error("Recall checks link missing on " + hub);
     }
   }

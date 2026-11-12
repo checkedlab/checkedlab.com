@@ -186,12 +186,14 @@
     return meta.kind === "amazon" || /media-amazon\.com|ssl-images-amazon\.com|images-amazon\.com/i.test(src);
   }
 
-  /* A real photo renders only from product.image when that value is an
-     http(s) URL (a later PA-API or SiteStripe URL drops into the same slot).
-     Files under /images/ are not licensed product photos, so they stay unused. */
+  /* A real photo renders from a local /images/photos/ file with a recorded
+     license, or from an http(s) product.image that is not an Amazon hotlink.
+     The same slot is used either way. Category photos never claim the model. */
   function licensedSrc(product) {
     var src = String(product && product.image || "").trim();
-    if (!/^https?:\/\//i.test(src)) return "";
+    if (/^images\/photos\/[a-z0-9.-]+\.webp$/i.test(src)) src = "/" + src;
+    if (/^\/images\/photos\/[a-z0-9.-]+\.webp$/i.test(src) && product && product.imageLicense) return src;
+    if (!/^https?:\/\//i.test(src) || amazonImage(product)) return "";
     try {
       var u = new URL(src);
       if (u.protocol !== "https:" && u.protocol !== "http:") return "";
@@ -471,72 +473,109 @@
     return '<a class="badge badge-note" href="' + esc(href) + '">Safety note</a>';
   }
 
-  function illustrated(product) {
-    var key = motifKey(product);
-    var bg = MOTIF_BG[key] || MOTIF_BG.box;
-    var label = "Illustrated " + (product && product.title ? product.title : "product");
-    return '<svg class="illu" viewBox="0 0 160 160" role="img" aria-label="' + esc(label) + '" data-motif="' + esc(key) + '">' +
-      '<rect width="160" height="160" rx="28" fill="' + bg[0] + '"/>' +
-      '<circle cx="128" cy="30" r="16" fill="' + bg[1] + '"/>' +
-      '<circle cx="28" cy="132" r="10" fill="' + bg[1] + '" opacity=".9"/>' +
-      '<g transform="translate(18 22)" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">' +
-      glyph(key) + "</g></svg>";
+  var CATEGORY_PHOTOS = {
+    blender: ["cat-blender.webp", "Photo by Nicola Barts on Pexels", 1600, 2400],
+    mixer: ["cat-blender.webp", "Photo by Nicola Barts on Pexels", 1600, 2400],
+    airfryer: ["cat-airfryer.webp", "Photo by FOX on Pexels", 1600, 1066],
+    pot: ["hub-cook.webp", "Photo by cottonbro studio on Pexels", 1600, 2400],
+    processor: ["hub-cook.webp", "Photo by cottonbro studio on Pexels", 1600, 2400],
+    coffee: ["cat-coffee.webp", "Photo by Valeriya Kobzar on Pexels", 1600, 2000],
+    kettle: ["cat-kettle.webp", "Photo by H. Hümâ Yardim on Pexels", 1600, 2400],
+    knife: ["hub-cook.webp", "Photo by cottonbro studio on Pexels", 1600, 2400],
+    skillet: ["hub-cook.webp", "Photo by cottonbro studio on Pexels", 1600, 2400],
+    ricecooker: ["cat-rice.webp", "Photo by Pew Nguyen on Pexels", 1600, 1066],
+    headphones: ["cat-headphones.webp", "Photo by Aleksandar Spasojevic on Pexels", 1600, 1066],
+    speaker: ["cat-speaker.webp", "Photo by Kaye RD on Pexels", 1600, 2000],
+    camera: ["cat-desk.webp", "Photo by Helena Lopes on Pexels", 1600, 1066],
+    keyboard: ["cat-desk.webp", "Photo by Helena Lopes on Pexels", 1600, 1066],
+    mouse: ["cat-desk.webp", "Photo by Helena Lopes on Pexels", 1600, 1066],
+    brush: ["cat-brush.webp", "Photo by Towfiqu barbhuiya on Pexels", 1600, 1066],
+    shaver: ["cat-brush.webp", "Photo by Towfiqu barbhuiya on Pexels", 1600, 1066],
+    watch: ["cat-watch.webp", "Photo by Mister Mister on Pexels", 1600, 2400],
+    battery: ["cat-battery.webp", "Photo by Ayyeee Ayyeee on Pexels", 1600, 1066],
+    plug: ["cat-battery.webp", "Photo by Ayyeee Ayyeee on Pexels", 1600, 1066],
+    heater: ["hub-winter.webp", "Photo by Huy Phan on Pexels", 1600, 2400],
+    humidifier: ["cat-humid.webp", "Photo by Phạm Tuấn Hải on Pexels", 1600, 2400],
+    blanket: ["cat-blanket.webp", "Photo by Kate L on Pexels", 1600, 2400],
+    snow: ["cat-snow.webp", "Photo by Erik Mclean on Pexels", 1600, 2400],
+    bottle: ["cat-bottle.webp", "Photo by cottonbro studio on Pexels", 1600, 2400],
+    purifier: ["cat-purifier.webp", "Photo by Cats Coming on Pexels", 1600, 2444],
+    drop: ["cat-purifier.webp", "Photo by Cats Coming on Pexels", 1600, 2444],
+    filter: ["cat-bottle.webp", "Photo by cottonbro studio on Pexels", 1600, 2400],
+    pet: ["hub-pet.webp", "Photo by Amar Preciado on Pexels", 1600, 2400],
+    feeder: ["hub-pet.webp", "Photo by Amar Preciado on Pexels", 1600, 2400],
+    jumper: ["cat-battery.webp", "Photo by Ayyeee Ayyeee on Pexels", 1600, 1066],
+    drill: ["cat-drill.webp", "Photo by Саша Алалыкин on Pexels", 1600, 1600],
+    pump: ["cat-drill.webp", "Photo by Саша Алалыкин on Pexels", 1600, 1600],
+    garage: ["hub-garage.webp", "Photo by Tima Miroshnichenko on Pexels", 1600, 2400],
+    bed: ["cat-bed.webp", "Photo by Darya Grey_Owl on Pexels", 1600, 2400],
+    moon: ["hub-sleep.webp", "Photo by Ron Lach on Pexels", 1600, 1066],
+    scooter: ["season-toys.webp", "Photo by Antonius Ferret on Pexels", 1600, 1066],
+    bricks: ["season-toys.webp", "Photo by Antonius Ferret on Pexels", 1600, 1066],
+    thermo: ["season-thanksgiving.webp", "Photo by Zion Smith on Pexels", 1600, 1066],
+    magnet: ["cat-alarm.webp", "Photo by Caleb Oquendo on Pexels", 1600, 1068],
+    alarm: ["cat-alarm.webp", "Photo by Caleb Oquendo on Pexels", 1600, 1068],
+    beads: ["season-toys.webp", "Photo by Antonius Ferret on Pexels", 1600, 1066],
+    box: ["season-gifts.webp", "Photo by Nicolas Postiglioni on Pexels", 1600, 1060]
+  };
+
+  function photoRecord(product) {
+    var src = licensedSrc(product);
+    if (src) {
+      var model = product && product.imageKind === "model";
+      return {
+        src: src,
+        kind: model ? "model" : "category",
+        credit: (product && product.imageCredit) || "",
+        alt: model ? ((product && product.title) || "Product") : "Category photo",
+        width: 1200,
+        height: 900
+      };
+    }
+    var row = CATEGORY_PHOTOS[motifKey(product || {})] || CATEGORY_PHOTOS.box;
+    return {
+      src: "/images/photos/" + row[0],
+      kind: "category",
+      credit: row[1],
+      alt: "Category photo",
+      width: row[2],
+      height: row[3]
+    };
   }
 
   function visual(product, opts) {
     opts = opts || {};
-    var src = licensedSrc(product);
-    if (!src) return illustrated(product);
-    var alt = (product && product.title) || "Product";
+    var photo = photoRecord(product);
     var load = opts.eager ? ' fetchpriority="high" decoding="async"' : ' loading="lazy" decoding="async"';
-    var sizes = opts.sizes ? ' sizes="' + esc(opts.sizes) + '"' : "";
-    return '<img class="p-photo" src="' + esc(src) + '" alt="' + esc(alt) + '" width="800" height="800"' + sizes + load + ">";
+    var caption = photo.kind === "model"
+      ? (photo.credit || "")
+      : ("Category photo" + (photo.credit ? " · " + photo.credit : ""));
+    return '<img class="p-photo" src="' + esc(photo.src) + '" alt="' + esc(photo.alt) + '" width="' + photo.width + '" height="' + photo.height + '"' + load + ">" +
+      (caption ? '<p class="img-credit">' + esc(caption) + "</p>" : "");
   }
 
   var SCENES = {
-    home: { a: "#5B21B6", b: "#FF3D8A", c: "#FFE14A", d: "#22D3EE", g: ["blender", "headphones", "heater"], alt: "Illustrated lab bench with a blender, headphones, and a heater" },
-    kitchen: { a: "#EA580C", b: "#FFE14A", c: "#FF3D8A", d: "#5B21B6", g: ["blender", "pot", "coffee"], alt: "Illustrated kitchen counter with a blender, a pot, and a mug" },
-    winter: { a: "#1D4ED8", b: "#F8FAFC", c: "#22D3EE", d: "#FFE14A", g: ["heater", "snow", "bottle"], alt: "Illustrated winter scene with a heater, a snow shovel, and a bottle" },
-    "car-garage": { a: "#C2410C", b: "#FFE14A", c: "#1D4ED8", d: "#111827", g: ["jumper", "drill", "camera"], alt: "Illustrated garage bench with a jump pack, a drill, and a camera" },
-    "air-water": { a: "#0F766E", b: "#22D3EE", c: "#FFE14A", d: "#1D4ED8", g: ["purifier", "drop", "filter"], alt: "Illustrated air and water scene with a purifier, a drop, and a pitcher" },
-    pet: { a: "#DB2777", b: "#FFE14A", c: "#5B21B6", d: "#22D3EE", g: ["pet", "feeder", "bottle"], alt: "Illustrated pet scene with a paw, a bowl, and a bottle" },
-    sleep: { a: "#4C1D95", b: "#C4B5FD", c: "#FFE14A", d: "#F8FAFC", g: ["bed", "moon", "blanket"], alt: "Illustrated bedtime scene with a bed, a moon, and a blanket" },
-    "personal-tech": { a: "#0369A1", b: "#22D3EE", c: "#FFE14A", d: "#5B21B6", g: ["headphones", "speaker", "watch"], alt: "Illustrated tech scene with headphones, a speaker, and a watch" },
-    gifts: { a: "#FF3D8A", b: "#FFE14A", c: "#5B21B6", d: "#22D3EE", g: ["box", "coffee", "pet"], alt: "Illustrated gift scene with a present, a mug, and a paw" },
-    "winter-safety": { a: "#B45309", b: "#FFE14A", c: "#DC2626", d: "#1D4ED8", g: ["heater", "alarm", "blanket"], alt: "Illustrated winter safety scene with a heater, an alarm, and a blanket" },
-    "toy-safety": { a: "#16A34A", b: "#FFE14A", c: "#DC2626", d: "#2563EB", g: ["scooter", "bricks", "beads"], alt: "Illustrated toy scene with a scooter, bricks, and beads" },
-    "black-friday": { a: "#111827", b: "#FF3D8A", c: "#FFE14A", d: "#22D3EE", g: ["box", "airfryer", "headphones"], alt: "Illustrated shopping scene with a present, an air fryer, and headphones" },
-    compare: { a: "#5B21B6", b: "#22D3EE", c: "#FFE14A", d: "#FF3D8A", g: ["jumper", "heater", "airfryer"], alt: "Illustrated comparison scene with three product drawings" },
-    recalls: { a: "#9F1239", b: "#FFE14A", c: "#1D4ED8", d: "#F8FAFC", g: ["alarm", "magnet", "heater"], alt: "Illustrated recall desk with an alarm, a magnet, and a heater" },
-    bin: { a: "#7F1D1D", b: "#FECACA", c: "#FFE14A", d: "#111827", g: ["box", "alarm", "battery"], alt: "Illustrated bin desk with a box, an alarm, and a battery" },
-    thanksgiving: { a: "#C2410C", b: "#FFE14A", c: "#9F1239", d: "#F8FAFC", g: ["pot", "thermo", "airfryer"], alt: "Illustrated Thanksgiving table with a pot, a thermometer, and a fryer" }
+    home: ["hero-kitchen.webp", "A bright kitchen before a meal", "Photo by Mark McCammon on Pexels", 1600, 1066],
+    kitchen: ["hub-cook.webp", "A cook at a kitchen counter", "Photo by cottonbro studio on Pexels", 1600, 2400],
+    winter: ["hub-winter.webp", "A calm living room", "Photo by Huy Phan on Pexels", 1600, 2400],
+    "car-garage": ["hub-garage.webp", "Hand tools on a rack", "Photo by Tima Miroshnichenko on Pexels", 1600, 2400],
+    "air-water": ["cat-purifier.webp", "A white air purifier in a bright room", "Photo by Cats Coming on Pexels", 1600, 2444],
+    pet: ["hub-pet.webp", "A dog waiting beside a food bowl", "Photo by Amar Preciado on Pexels", 1600, 2400],
+    sleep: ["hub-sleep.webp", "A made bed in a bright bedroom", "Photo by Ron Lach on Pexels", 1600, 1066],
+    "personal-tech": ["cat-headphones.webp", "Headphones on a white surface", "Photo by Aleksandar Spasojevic on Pexels", 1600, 1066],
+    gifts: ["season-gifts.webp", "A holiday table", "Photo by Nicolas Postiglioni on Pexels", 1600, 1060],
+    "winter-safety": ["cat-alarm.webp", "A ceiling smoke alarm", "Photo by Caleb Oquendo on Pexels", 1600, 1068],
+    "toy-safety": ["season-toys.webp", "Children playing outdoors", "Photo by Antonius Ferret on Pexels", 1600, 1066],
+    "black-friday": ["season-black-friday.webp", "A plain paper shopping bag", "Photo by Mikhail Nilov on Pexels", 1600, 2400],
+    compare: ["hub-cook.webp", "A cook at a kitchen counter", "Photo by cottonbro studio on Pexels", 1600, 2400],
+    recalls: ["cat-alarm.webp", "A ceiling smoke alarm", "Photo by Caleb Oquendo on Pexels", 1600, 1068],
+    bin: ["cat-alarm.webp", "A ceiling smoke alarm", "Photo by Caleb Oquendo on Pexels", 1600, 1068],
+    thanksgiving: ["season-thanksgiving.webp", "A Thanksgiving table set for a meal", "Photo by Zion Smith on Pexels", 1600, 1066]
   };
 
-  function mini(key, x, y, fill) {
-    return '<g transform="translate(' + x + " " + y + ')">' +
-      '<g class="float">' +
-      '<rect width="150" height="150" rx="28" fill="' + fill + '"/>' +
-      '<g fill="none" stroke="#1A1240" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" transform="translate(14 16)">' +
-      glyph(key) + "</g></g></g>";
-  }
-
   function scene(name) {
-    var s = SCENES[name] || SCENES.home;
-    var icons = s.g || ["box", "blender", "headphones"];
-    return '<svg class="scene" viewBox="0 0 640 420" role="img" aria-label="' + esc(s.alt) + '">' +
-      '<rect width="640" height="420" rx="36" fill="' + s.a + '"/>' +
-      '<circle class="float" cx="78" cy="70" r="36" fill="' + s.c + '"/>' +
-      '<circle class="float delay" cx="590" cy="340" r="64" fill="' + s.b + '" opacity=".9"/>' +
-      '<circle cx="40" cy="360" r="18" fill="' + s.d + '"/>' +
-      mini(icons[0], 36, 150, "#F8FAFC") +
-      mini(icons[1], 210, 78, s.c) +
-      mini(icons[2], 250, 240, s.d) +
-      '<g class="stamp">' +
-      '<circle cx="540" cy="118" r="62" fill="' + s.c + '" stroke="#1A1240" stroke-width="5"/>' +
-      '<circle cx="540" cy="118" r="48" fill="none" stroke="#1A1240" stroke-width="3" stroke-dasharray="4 6"/>' +
-      '<path d="M516 118 l14 16 32-36" fill="none" stroke="#1A1240" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>' +
-      '<text x="540" y="158" text-anchor="middle" font-size="15" font-weight="700" fill="#1A1240" font-family="Source Sans 3, Arial, sans-serif">CHECKED</text>' +
-      "</g></svg>";
+    var row = SCENES[name] || SCENES.home;
+    return '<figure class="scene-photo"><img src="/images/photos/' + row[0] + '" alt="' + esc(row[1]) + '" width="' + row[3] + '" height="' + row[4] + '" loading="lazy" decoding="async"><figcaption>' + esc(row[2]) + "</figcaption></figure>";
   }
 
   return {
