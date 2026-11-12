@@ -1218,7 +1218,7 @@ function compareJsonLd(entry, pair) {
 }
 
 function writeCompares() {
-  if (compares.length !== 6) throw new Error("Expected six compare pages");
+  if (compares.length !== 16) throw new Error("Expected sixteen compare pages");
   for (const entry of compares) {
     if (!/^[a-z0-9-]+$/.test(entry.slug)) throw new Error("Bad compare slug");
     const pair = entry.products.map((id) => {
@@ -1235,7 +1235,8 @@ function writeCompares() {
       const us = recallSentence(card.recallFor(product, "US"), "US");
       const ca = recallSentence(card.recallFor(product, "CA"), "Canadian");
       return "<p><a href=\"" + card.productPath(product) + "\">" + card.esc(product.title) + "</a>. " + card.esc(us) + " " + card.esc(ca) + "</p>";
-    }).join("");
+    }).join("") +
+      '<p>Those sentences are the catalogue match dated ' + card.esc(recalls.checkedAt) + ' (UTC), from the <a href="' + CPSC_SEARCH + '" target="_blank" rel="noopener">CPSC Recalls</a> search and the <a href="' + HC_SEARCH + '" target="_blank" rel="noopener">Health Canada recalls and safety alerts</a> search. Open the model page for the feed link.</p>';
     const stores = (region, heading) => "<h2>" + heading + "</h2>" + pair.map((product) =>
       "<h3>" + card.esc(product.model || product.title) + "</h3>" + card.storeButtons(product, region)
     ).join("");
@@ -1307,7 +1308,7 @@ ${sceneBlock("compare")}
 ${fit}
 <h2>Recall check</h2>
 ${recallsHtml}
-<p class="lede"><a href="/recalls/">All recall checks</a> <a href="/${entry.hub}/">${card.esc(HUB_NAME[entry.hub])}</a> <a href="/how-we-check/">How we check</a> <a href="${card.productPath(pair[0])}">${card.esc(pair[0].title)}</a> <a href="${card.productPath(pair[1])}">${card.esc(pair[1].title)}</a></p>
+<p class="lede"><a href="/compare/">All comparisons</a> <a href="/recalls/">All recall checks</a> <a href="/${entry.hub}/">${card.esc(HUB_NAME[entry.hub])}</a> <a href="/how-we-check/">How we check</a> <a href="${card.productPath(pair[0])}">${card.esc(pair[0].title)}</a> <a href="${card.productPath(pair[1])}">${card.esc(pair[1].title)}</a></p>
 ${stores("US", "United States stores")}
 ${stores("CA", "Canadian stores")}
 </div>
@@ -1335,6 +1336,134 @@ ${stores("CA", "Canadian stores")}
     mkdirSync(join(root, "compare", entry.slug), { recursive: true });
     writeFileSync(join(root, "compare", entry.slug, "index.html"), polish(html));
   }
+  writeCompareIndex();
+}
+
+function compareIndexJsonLd() {
+  const url = ORIGIN + "/compare/";
+  const graph = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: ORIGIN + "/" },
+          { "@type": "ListItem", position: 2, name: "Spec comparisons", item: url }
+        ]
+      },
+      {
+        "@type": "CollectionPage",
+        "@id": url,
+        name: "Spec comparisons, from the maker pages",
+        headline: "Spec comparisons, from the maker pages",
+        url: url,
+        dateModified: recalls.checkedAt,
+        inLanguage: "en",
+        description: "Pairs of catalogue models. Each page repeats spec lines that both maker pages share, with a source link and a dated recall line.",
+        mainEntity: {
+          "@type": "ItemList",
+          name: "Spec comparisons",
+          numberOfItems: compares.length,
+          itemListElement: compares.map((entry, index) => ({
+            "@type": "ListItem",
+            position: index + 1,
+            name: entry.title,
+            url: ORIGIN + "/compare/" + entry.slug + "/"
+          }))
+        }
+      }
+    ]
+  };
+  assertNoCommerce(graph);
+  return JSON.stringify(graph, null, 2).replace(/</g, "\\u003c");
+}
+
+function writeCompareIndex() {
+  const url = ORIGIN + "/compare/";
+  const title = "Spec comparisons, from the maker pages";
+  const description = "Pairs of catalogue models. Each page repeats spec lines that both maker pages share, with a source link and a dated recall line.";
+  const sections = HUBS.filter((hub) => compares.some((entry) => entry.hub === hub)).map((hub) => {
+    const items = compares.filter((entry) => entry.hub === hub).map((entry) =>
+      "<li><a href=\"/compare/" + entry.slug + "/\">" + card.esc(entry.title) + "</a>. " + card.esc(entry.description) + "</li>"
+    ).join("");
+    return "<h2><a href=\"/" + hub + "/\">" + card.esc(HUB_NAME[hub]) + "</a></h2><ul>" + items + "</ul>";
+  }).join("");
+  const html = `<!DOCTYPE html>
+<html lang="en" data-region="US">
+<head>
+<meta charset="UTF-8">
+<link rel="canonical" href="${url}">
+<script src="/assets/region-boot.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>${card.esc(title)} — Checked Lab</title>
+<meta name="description" content="${card.esc(description)}">
+<meta property="og:title" content="${card.esc(title)} — Checked Lab">
+<meta property="og:description" content="${card.esc(description)}">
+<meta property="og:type" content="website">
+<meta property="og:url" content="${url}">
+<meta property="og:image" content="${ORIGIN}/assets/og.png">
+<link rel="icon" type="image/png" href="/favicon.png">
+${FONT_PRELOAD}
+<link rel="stylesheet" href="/assets/site.css">
+<meta name="theme-color" content="#F5F5F7">
+<script type="application/ld+json">
+${compareIndexJsonLd()}
+</script>
+</head>
+<body data-page="recalls">
+${DISCLOSURE}
+<div class="topbar"><span>● CHECKED LAB • EST 2026 • NO SPONSORS</span><span>hello@checkedlab.com • press@checkedlab.com • legal@checkedlab.com</span></div>
+<div class="masthead">
+<header>
+<a class="logo" href="/">CHECKED LAB <i>CHECKED BEFORE YOU BUY</i></a>
+<div class="header-actions">
+<div class="country-switch">
+<button type="button" data-region-set="US">US</button>
+<button type="button" data-region-set="CA">CA</button>
+</div>
+<nav>
+<a href="/recalls/">RECALL CHECKS</a>
+<a href="/how-we-check/">HOW WE CHECK</a>
+<a href="/bin-list/">BIN LIST</a>
+</nav>
+</div>
+</header>
+${nav("compare")}
+</div>
+<main>
+<div class="wrap prose">
+${sceneBlock("compare")}
+<nav class="crumbs" aria-label="Breadcrumb">
+<a href="/">Home</a>
+<span aria-hidden="true">/</span>
+<span aria-current="page">Spec comparisons</span>
+</nav>
+<h1>${card.esc(title)}</h1>
+<p class="lede">${card.esc(description)}</p>
+<p>Each line on a comparison is copied from that model’s maker page. A spec that only one card lists is left out of the table. Recall lines use the ${card.esc(recalls.checkedAt)} (UTC) catalogue check. Search the model on <a href="${CPSC_SEARCH}" target="_blank" rel="noopener">CPSC Recalls</a> and on <a href="${HC_SEARCH}" target="_blank" rel="noopener">Health Canada recalls and safety alerts</a>.</p>
+${sections}
+<p class="lede"><a href="/recalls/">All recall checks</a> <a href="/how-we-check/">How we check</a> <a href="/black-friday/">Black Friday</a> <a href="/gifts/">Gift guides</a></p>
+</div>
+</main>
+<footer>
+<div class="foot">
+<p>As an Amazon Associate I earn from qualifying purchases.</p>
+<p>© 2026 CHECKED LAB<br>Winnipeg, MB</p>
+<p class="foot-mail"><a href="/recalls/">Recall checks</a><a href="/how-we-check/">How we check</a><a href="/bin-list/">BIN list</a><a href="mailto:hello@checkedlab.com">hello@</a><a href="mailto:support@checkedlab.com">support@</a><a href="mailto:press@checkedlab.com">press@</a><a href="mailto:legal@checkedlab.com">legal@</a></p>
+</div>
+</footer>
+<script src="/assets/site.js" defer></script>
+</body>
+</html>
+`;
+  if (/\$\d/.test(html) || /we tested|we bought|does not test|\bwinner\b|\bscore\b/i.test(html)) {
+    throw new Error("Compare index has a disallowed claim");
+  }
+  const ld = JSON.parse(html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]);
+  const types = ld["@graph"].map((node) => node["@type"]).sort().join(",");
+  if (types !== "BreadcrumbList,CollectionPage") throw new Error("Compare index schema " + types);
+  mkdirSync(join(root, "compare"), { recursive: true });
+  writeFileSync(join(root, "compare", "index.html"), polish(html));
 }
 
 function writeExplainers() {
@@ -1734,6 +1863,9 @@ ${sceneBlock("black-friday")}
 <li>Beware look-alike listings and third-party sellers. The brand in the title is not the model number.</li>
 <li>Read the return window on the listing before you pay. The window is printed on the store page.</li>
 </ol>
+<h2>Maker spec comparisons</h2>
+<p>Each page repeats spec lines that both maker pages share. The cell links the maker page. The recall line is the catalogue match. <a href="/compare/">All comparisons</a>.</p>
+<p class="lede">${compares.map((entry) => '<a href="/compare/' + entry.slug + '/">' + card.esc(entry.linkLabel) + "</a>").join(" ")}</p>
 <h2>Notices to open before you buy</h2>
 <p>These pages quote the official notice and name the catalogue card.</p>
 <ul>${notices}</ul>
@@ -1791,6 +1923,10 @@ function assertBlackFriday(html) {
   }
   for (const entry of explainers) {
     if (!html.includes('href="/recalls/' + entry.slug + '/"')) throw new Error("Black Friday misses explainer " + entry.slug);
+  }
+  if (!html.includes('href="/compare/"')) throw new Error("Black Friday misses the comparison index");
+  for (const entry of compares) {
+    if (!html.includes('href="/compare/' + entry.slug + '/"')) throw new Error("Black Friday misses " + entry.slug);
   }
   const usBits = [...html.matchAll(/<p class="only-us">([\s\S]*?)<\/p>/g)].map((match) => match[1]).join("\n");
   const caBits = [...html.matchAll(/<p class="only-ca">([\s\S]*?)<\/p>/g)].map((match) => match[1]).join("\n");
@@ -2257,6 +2393,17 @@ function giftHubHtml(grouped) {
   return giftShell(url, giftsDoc.title, giftsDoc.description, main, jsonLd);
 }
 
+function compareLinksForGuide(guide) {
+  const ids = new Set(guide.products || []);
+  const links = compares.filter((entry) =>
+    (entry.guides || []).includes(guide.slug) || entry.products.some((id) => ids.has(id))
+  );
+  if (!links.length) return "";
+  return '<p class="lede">Maker spec comparisons: ' + links.map((entry) =>
+    '<a href="/compare/' + entry.slug + '/">' + card.esc(entry.linkLabel) + "</a>"
+  ).join(" ") + ".</p>";
+}
+
 function giftGuideHtml(guide, picks, grouped) {
   const url = ORIGIN + giftPath(guide);
   const guides = grouped.map((item) => item.guide);
@@ -2265,6 +2412,7 @@ function giftGuideHtml(guide, picks, grouped) {
     '<p class="lede">' + card.esc(guide.description) + "</p>" +
     '<p>Each spec line is copied from the maker fields stored for that model. The badge is the recorded CPSC check on the US view and the recorded Health Canada check on the CA view. <a href="/how-we-check/">How we check</a> says what the date means. <a href="/gifts/#gift-finder">Gift finder</a>.</p>' +
     giftJumps(guides, guide.slug) +
+    compareLinksForGuide(guide) +
     '<section class="pick-grid">\n' + picks.map((product) => giftPickHtml(product, guide)).join("\n") + "\n</section>" +
     '<p class="lede"><a href="/gifts/">All gift guides</a></p>';
   const jsonLd = giftJson(
@@ -3694,6 +3842,12 @@ function assertGiftPages() {
     if (!html.includes("<h1>" + card.esc(item.guide.h1) + "</h1>")) throw new Error("Gift H1 " + item.guide.slug);
     if (!html.includes(card.esc(item.guide.fit))) throw new Error("Gift fit missing " + item.guide.slug);
     if (!html.includes('href="/gifts/"')) throw new Error("Gift guide misses the hub");
+    for (const entry of compares) {
+      const linked = (entry.guides || []).includes(item.guide.slug) || entry.products.some((id) => item.picks.some((product) => product.id === id));
+      if (linked && !html.includes('href="/compare/' + entry.slug + '/"')) {
+        throw new Error("Gift guide misses " + entry.slug + " on " + item.guide.slug);
+      }
+    }
     assertAmazonSide(html, "only-us", "https://www.amazon.com/", "checkedlab01-20", item.picks.length);
     assertAmazonSide(html, "only-ca", "https://www.amazon.ca/", "checkedlab-20", item.picks.length);
     for (const product of item.picks) {
@@ -3855,6 +4009,7 @@ function stampPages(ordered) {
     ...toyPaths().map((path) => [path, join(root, path.slice(1), "index.html")]),
     ...thanksPaths().map((path) => [path, join(root, path.slice(1), "index.html")]),
     ...explainers.map((entry) => ["/recalls/" + entry.slug + "/", join(root, "recalls", entry.slug, "index.html")]),
+    ["/compare/", join(root, "compare", "index.html")],
     ...compares.map((entry) => ["/compare/" + entry.slug + "/", join(root, "compare", entry.slug, "index.html")]),
     ...ordered.filter(indexable).map((product) => [card.productPath(product), join(root, product.category, product.id, "index.html")])
   ];
@@ -3889,6 +4044,7 @@ function writeSitemap(pages, lastmods) {
     ...toyPaths(),
     ...thanksPaths(),
     ...explainers.map((entry) => "/recalls/" + entry.slug + "/"),
+    "/compare/",
     ...compares.map((entry) => "/compare/" + entry.slug + "/")
   ];
   const lines = [
@@ -3974,6 +4130,7 @@ function publishDist() {
   }
   if (!statSync(join(dist, "recalls", "index.html")).isFile()) throw new Error("dist is missing /recalls/");
   if (!statSync(join(dist, "black-friday", "index.html")).isFile()) throw new Error("dist is missing /black-friday/");
+  if (!statSync(join(dist, "compare", "index.html")).isFile()) throw new Error("dist is missing /compare/");
   if (!statSync(join(dist, "gifts", "index.html")).isFile()) throw new Error("dist is missing /gifts/");
   if (!statSync(join(dist, "gifts", giftGuides()[0].slug, "index.html")).isFile()) throw new Error("dist is missing a gift guide");
   if (!statSync(join(dist, "winter-safety", "index.html")).isFile()) throw new Error("dist is missing /winter-safety/");
@@ -4065,11 +4222,12 @@ function verifyOutput(pages) {
   const winterCount = winterPaths().length;
   const toyCount = toyPaths().length;
   const thanksCount = thanksPaths().length;
-  const staticCore = 6 + HUBS.length;
+  const staticCore = 7 + HUBS.length;
   const expectedLocs = staticCore + giftCount + winterCount + toyCount + thanksCount + explainers.length + compares.length + indexed.length;
   if (locCount !== expectedLocs) {
     throw new Error("Sitemap URL count " + locCount + " expected " + expectedLocs);
   }
+  if (!sitemap.includes("<loc>" + ORIGIN + "/compare/</loc>")) throw new Error("Sitemap is missing /compare/");
   for (const entry of compares) {
     if (!sitemap.includes("<loc>" + ORIGIN + "/compare/" + entry.slug + "/</loc>")) {
       throw new Error("Sitemap is missing /compare/" + entry.slug + "/");
