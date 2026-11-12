@@ -376,7 +376,17 @@ body[data-page="recalls"] .prose h2 { margin-top: 36px; }
 .bf-model h3 { margin: 6px 0; font-size: 20px; letter-spacing: -0.02em; overflow-wrap: anywhere; }
 .bf-model .p-meta, .bf-model p { overflow-wrap: anywhere; }
 .bf-model .badge { margin-right: 6px; }
+.guide-pick { padding: 16px 0 20px; border-top: 1px solid var(--line); min-width: 0; max-width: 100%; }
+.guide-pick h2 { margin: 6px 0; font-size: 20px; letter-spacing: -0.02em; overflow-wrap: anywhere; }
+.guide-pick .p-meta, .guide-pick p { overflow-wrap: anywhere; }
+.guide-pick .badge { margin-right: 6px; }
+.guide-pick .why { margin: 8px 0; }
+.guide-pick .store-btn { margin-top: 8px; }
+.guide-list { list-style: none; margin: 8px 0 0; padding: 0; }
+.guide-list li { padding: 16px 0; border-top: 1px solid var(--line); }
+.guide-list h2 { margin: 0 0 6px; font-size: 22px; }
 body[data-page="black-friday"] .prose h1 { max-width: 18ch; }
+body[data-page="gifts"] .prose h1 { max-width: 18ch; }
 .canada-block { margin-top: 8px; }
 
 footer { background: var(--bg); color: var(--ink); border-top: 1px solid var(--line); }
@@ -435,7 +445,8 @@ footer { background: var(--bg); color: var(--ink); border-top: 1px solid var(--l
 @media (max-width: 799px) {
   .header-actions nav a:not([href="/recalls/"]) { display: none; }
   body[data-page="recalls"] .prose h1, .recall-q { font-size: 24px; }
-  body[data-page="black-friday"] .prose h1 { font-size: 32px; }
+  body[data-page="black-friday"] .prose h1,
+  body[data-page="gifts"] .prose h1 { font-size: 32px; }
   .cats { display: flex; flex-wrap: nowrap; overflow-x: auto; overflow-y: hidden; max-width: 100%; }
   .cats a { flex: 0 0 auto; min-width: 76px; }
   .product-row { flex-wrap: wrap; }

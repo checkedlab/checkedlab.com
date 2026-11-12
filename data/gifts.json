@@ -1,0 +1,146 @@
+{
+  "title": "Holiday 2026 gift guides",
+  "h1": "Holiday 2026 gift guides",
+  "description": "Catalogue models grouped as gifts for 2026. Each pick quotes the maker specs and shows the dated CPSC or Health Canada check.",
+  "guides": [
+    {
+      "slug": "for-the-home-cook",
+      "title": "Gifts for the home cook, 2026",
+      "h1": "Gifts for the home cook",
+      "label": "Home cook",
+      "description": "Kitchen models from the catalogue. Each pick quotes the maker specs and the dated CPSC or Health Canada check.",
+      "fit": "Listed for a home cook because this model is in the kitchen catalogue and the title or maker text names a blender, stand mixer, multi-cooker, air fryer, Dutch oven, skillet, or rice cooker.",
+      "category": "kitchen",
+      "match": "blender|stand mixer|multi-cooker|air fry|dutch oven|skillet|rice cooker",
+      "specPattern": "capacity|power|motor|functions|modes|material|containers",
+      "products": [
+        "vitamix-e310",
+        "kitchenaid-artisan",
+        "instant-pot-duo-plus",
+        "ninja-crispi-fn101",
+        "cosori-pro-5-8",
+        "lecreuset-signature-5-5",
+        "lodge-classic-skillet",
+        "zojirushi-ns-zcc10"
+      ]
+    },
+    {
+      "slug": "for-coffee-lovers",
+      "title": "Gifts for coffee lovers, 2026",
+      "h1": "Gifts for coffee lovers",
+      "label": "Coffee lovers",
+      "description": "Catalogue models whose text names coffee, espresso, a grinder, a kettle, or pour-over. Each pick quotes the maker specs and the dated recall check.",
+      "fit": "Listed for a coffee lover because the title, the maker specs, or the maker page URL names coffee, espresso, grinder, kettle, pour-over, barista, or portafilter.",
+      "category": "kitchen",
+      "match": "coffee|espresso|grinder|kettle|pour-over|barista|portafilter",
+      "specPattern": "grinder|portafilter|espresso|burr|capacity|temperature|hold|extraction",
+      "products": [
+        "breville-bes870xl",
+        "baratza-encore-esp",
+        "aeropress-original",
+        "chemex-cm-6a",
+        "fellow-stagg-ekg"
+      ]
+    },
+    {
+      "slug": "for-the-home",
+      "title": "Gifts for the home, 2026",
+      "h1": "Gifts for the home",
+      "label": "The home",
+      "description": "Home models from the catalogue. Each pick quotes the maker specs and the dated CPSC or Health Canada check.",
+      "fit": "Listed for the home because the title or maker specs name an air purifier, CADR, Blue Pure, a humidifier, a heater, a filter, or a blanket.",
+      "match": "air purifier|\\bCADR\\b|blue pure|humidifier|heater|\\bfilter\\b|blanket",
+      "specPattern": "CADR|room|filtration|tank|heat|capacity|material|measurements|coverage|runtime",
+      "products": [
+        "coway-ap-1512hh",
+        "levoit-core-300s-p",
+        "blueair-211i-max",
+        "honeywell-hpa300",
+        "brita-tahoe-elite",
+        "levoit-classic-300s",
+        "lasko-ct32150",
+        "pendleton-eco-wise"
+      ]
+    },
+    {
+      "slug": "for-pet-owners",
+      "title": "Gifts for pet owners, 2026",
+      "h1": "Gifts for pet owners",
+      "label": "Pet owners",
+      "description": "Pet models from the catalogue. Each pick quotes the maker specs and the dated CPSC or Health Canada check.",
+      "fit": "Listed for a pet owner because the catalogue category is Pet.",
+      "category": "pet",
+      "specPattern": "capacity|meal|food|litter|video|material|cleaning|power|footprint|tank",
+      "products": [
+        "litter-robot-4",
+        "petsafe-drinkwell-platinum",
+        "petlibro-plaf105",
+        "kong-classic",
+        "furbo-360",
+        "whisker-feeder-robot",
+        "petsafe-scoopfree-plus",
+        "outward-hound-fun-feeder"
+      ]
+    },
+    {
+      "slug": "tech-and-gadgets",
+      "title": "Tech and gadget gifts, 2026",
+      "h1": "Tech and gadget gifts",
+      "label": "Tech and gadgets",
+      "description": "Personal tech models from the catalogue. Each pick quotes the maker specs and the dated CPSC or Health Canada check.",
+      "fit": "Listed for tech and gadgets because the catalogue category is Personal tech and the title or maker specs name headphones, AirPods, video, a speaker, a power bank, a smartwatch, or DPI.",
+      "category": "personal-tech",
+      "match": "headphones|airpods|\\bvideo\\b|speaker|power bank|smartwatch|\\bDPI\\b",
+      "specPattern": "battery|noise|video|output|sensor|capacity|listening|case|play|display",
+      "products": [
+        "sony-wh-1000xm5",
+        "bose-qc-ultra",
+        "airpods-pro-3",
+        "gopro-hero13",
+        "anker-a1289",
+        "jbl-charge-5",
+        "garmin-forerunner-265",
+        "logitech-mx-master-3s"
+      ]
+    },
+    {
+      "slug": "for-the-garage",
+      "title": "Gifts for the garage, 2026",
+      "h1": "Gifts for the garage",
+      "label": "The garage",
+      "description": "Car and garage models from the catalogue. Each pick quotes the maker specs and the dated CPSC or Health Canada check.",
+      "fit": "Listed for the garage because the catalogue category is Car & garage.",
+      "category": "car-garage",
+      "specPattern": "current|peak|engine|battery|PSI|motor|duty|gas|diesel",
+      "products": [
+        "noco-gb40",
+        "noco-gb50",
+        "garmin-dash-mini-2",
+        "fanttik-x8-apex",
+        "dewalt-dcd771",
+        "viair-88p",
+        "ctek-mxs-5",
+        "battery-tender-junior"
+      ]
+    },
+    {
+      "slug": "for-better-sleep",
+      "title": "Gifts for sleep, 2026",
+      "h1": "Gifts for sleep",
+      "label": "Sleep",
+      "description": "Sleep models from the catalogue. Each pick quotes the maker specs and the dated CPSC or Health Canada check.",
+      "fit": "Listed for sleep because the catalogue category is Sleep.",
+      "category": "sleep",
+      "specPattern": "cover|fill|core|size|sound|power|blackout|material|fan",
+      "products": [
+        "purple-harmony",
+        "coop-original-pillow",
+        "tempur-neck",
+        "hatch-restore-3",
+        "lectrofan-classic",
+        "philips-hf3520",
+        "manta-sleep-mask"
+      ]
+    }
+  ]
+}
