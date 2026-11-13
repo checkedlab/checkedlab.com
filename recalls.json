@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-12",
+  "checkedAt": "2026-11-13",
   "sources": {
     "us": {
       "name": "CPSC SaferProducts Recall API",
@@ -431,14 +431,14 @@
     "ninja-crispi-fn101": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -447,7 +447,7 @@
     "ninja-foodi-10in1": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": [
@@ -462,7 +462,7 @@
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": [
@@ -479,14 +479,14 @@
     "instant-pot-duo-plus": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -495,14 +495,14 @@
     "vitamix-e310": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -511,14 +511,14 @@
     "kitchenaid-artisan": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -527,14 +527,14 @@
     "cosori-pro-5-8": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -543,14 +543,14 @@
     "lasko-ct32150": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -559,14 +559,14 @@
     "lasko-ct14401": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -575,14 +575,14 @@
     "levoit-classic-300s": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -591,14 +591,14 @@
     "sunbeam-tsl8ws": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -607,14 +607,14 @@
     "snowjoe-24v-ss10": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -623,14 +623,14 @@
     "noco-gb40": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -639,14 +639,14 @@
     "noco-gb50": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -655,14 +655,14 @@
     "battery-tender-junior": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -671,14 +671,14 @@
     "bosch-icon": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -687,14 +687,14 @@
     "coway-ap-1512hh": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -703,14 +703,14 @@
     "levoit-core-300s-p": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -719,14 +719,14 @@
     "midea-mad50s1qwt": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -735,14 +735,14 @@
     "brita-tahoe-elite": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -751,14 +751,14 @@
     "petsafe-drinkwell-platinum": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -767,14 +767,14 @@
     "litter-robot-4": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -783,14 +783,14 @@
     "petlibro-plaf105": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -799,7 +799,7 @@
     "furminator-medium-short": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": [
@@ -814,7 +814,7 @@
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": [
@@ -831,14 +831,14 @@
     "purple-harmony": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -847,14 +847,14 @@
     "tempur-neck": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -863,14 +863,14 @@
     "brooklinen-luxe-core": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -879,7 +879,7 @@
     "herman-miller-aeron": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": [
@@ -894,7 +894,7 @@
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": [
@@ -911,14 +911,14 @@
     "philips-hx3681": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -927,14 +927,14 @@
     "braun-70-n1000s": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -943,14 +943,14 @@
     "sony-wh-1000xm5": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -959,7 +959,7 @@
     "anker-a1289": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": [
@@ -988,7 +988,7 @@
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": [
@@ -1012,14 +1012,14 @@
     "breville-bes870xl": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -1028,14 +1028,14 @@
     "breville-bov900": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -1044,14 +1044,14 @@
     "moccamaster-kbgv": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -1060,14 +1060,14 @@
     "aeropress-original": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -1076,14 +1076,14 @@
     "fellow-stagg-ekg": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -1092,14 +1092,14 @@
     "lodge-classic-skillet": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -1108,14 +1108,14 @@
     "lecreuset-signature-5-5": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -1124,14 +1124,14 @@
     "allclad-d3-4112": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -1140,7 +1140,7 @@
     "cuisinart-dfp-14bcny": {
       "us": {
         "status": "bin",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.cpsc.gov/Recalls/2017/Cuisinart-Food-Processors-Recalled-by-Conair",
         "detail": "CPSC recall matches this model: Cuisinart Food Processors Recalled by Conair Due to Laceration Hazard.",
         "other": [
@@ -1155,7 +1155,7 @@
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": [
@@ -1172,14 +1172,14 @@
     "zojirushi-ns-zcc10": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -1188,14 +1188,14 @@
     "chemex-cm-6a": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -1204,14 +1204,14 @@
     "anova-precision-nano": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -1220,14 +1220,14 @@
     "wusthof-classic-8": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -1236,14 +1236,14 @@
     "nordic-ware-43100": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -1252,14 +1252,14 @@
     "dreo-atom-316": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -1268,14 +1268,14 @@
     "honeywell-hev615w": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -1284,7 +1284,7 @@
     "toro-power-clear-38753": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": [
@@ -1306,7 +1306,7 @@
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": [
@@ -1330,14 +1330,14 @@
     "peet-original": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -1346,14 +1346,14 @@
     "stanley-classic-1-5": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -1362,14 +1362,14 @@
     "mr-heater-mh9bx": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -1378,14 +1378,14 @@
     "pendleton-eco-wise": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -1394,14 +1394,14 @@
     "vornado-avh2": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -1410,14 +1410,14 @@
     "delonghi-trd40615e": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -1426,14 +1426,14 @@
     "ego-snt2110": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -1442,14 +1442,14 @@
     "sunjoe-spx3000": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -1458,14 +1458,14 @@
     "viair-88p": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -1474,14 +1474,14 @@
     "innova-5210": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -1490,14 +1490,14 @@
     "garmin-dash-mini-2": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -1506,7 +1506,7 @@
     "chamberlain-b6850": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": [
@@ -1521,7 +1521,7 @@
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -1530,14 +1530,14 @@
     "tekton-24335": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -1546,14 +1546,14 @@
     "obdlink-mx-plus": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -1562,7 +1562,7 @@
     "fluke-117": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": [
@@ -1584,7 +1584,7 @@
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -1593,14 +1593,14 @@
     "dewalt-dcd771": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -1609,14 +1609,14 @@
     "ctek-mxs-5": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -1625,14 +1625,14 @@
     "bluedriver": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -1641,14 +1641,14 @@
     "fanttik-x8-apex": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -1657,14 +1657,14 @@
     "honeywell-hpa300": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -1673,14 +1673,14 @@
     "blueair-211i-max": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -1689,14 +1689,14 @@
     "aquasana-claryum": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -1705,14 +1705,14 @@
     "waterdrop-g3p600": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -1721,14 +1721,14 @@
     "ispring-rcc7": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -1737,14 +1737,14 @@
     "apec-roes-50": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -1753,14 +1753,14 @@
     "coway-airmega-250": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -1769,14 +1769,14 @@
     "winix-5500-2": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -1785,14 +1785,14 @@
     "dremel-7760": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -1801,14 +1801,14 @@
     "petsafe-scoopfree-plus": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -1817,14 +1817,14 @@
     "catit-flower-fountain": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -1833,14 +1833,14 @@
     "feliway-optimum": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -1849,14 +1849,14 @@
     "kong-classic": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -1865,14 +1865,14 @@
     "whisker-feeder-robot": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -1881,14 +1881,14 @@
     "sleepypod-clickit": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -1897,14 +1897,14 @@
     "furbo-360": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -1913,14 +1913,14 @@
     "casper-original": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -1929,14 +1929,14 @@
     "saatva-classic": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -1945,14 +1945,14 @@
     "coop-original-pillow": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -1961,14 +1961,14 @@
     "hatch-restore-3": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -1977,7 +1977,7 @@
     "lectrofan-classic": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": [
@@ -1992,7 +1992,7 @@
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -2001,14 +2001,14 @@
     "steelcase-leap": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -2017,14 +2017,14 @@
     "zinus-green-tea-12": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -2033,14 +2033,14 @@
     "manta-sleep-mask": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -2049,14 +2049,14 @@
     "buffy-cloud-comforter": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -2065,14 +2065,14 @@
     "philips-hf3520": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -2081,14 +2081,14 @@
     "oral-b-io-3": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -2097,14 +2097,14 @@
     "garmin-forerunner-265": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -2113,14 +2113,14 @@
     "jbl-charge-5": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -2129,14 +2129,14 @@
     "gopro-hero13": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -2145,14 +2145,14 @@
     "shokz-openrun-pro-2": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -2161,14 +2161,14 @@
     "philips-oneblade-360": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -2177,14 +2177,14 @@
     "airpods-pro-3": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -2193,14 +2193,14 @@
     "anker-nano-30w": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -2209,14 +2209,14 @@
     "bose-qc-ultra": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -2225,14 +2225,14 @@
     "logitech-mx-master-3s": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -2241,14 +2241,14 @@
     "sonos-era-100": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -2257,14 +2257,14 @@
     "theragun-prime": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": [
@@ -2281,14 +2281,14 @@
     "baratza-encore-esp": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -2297,14 +2297,14 @@
     "keychron-v3": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -2313,14 +2313,14 @@
     "ninja-creami-nc301": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -2329,14 +2329,14 @@
     "helix-midnight": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -2345,14 +2345,14 @@
     "levoit-vital-200s": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -2361,14 +2361,14 @@
     "waterpik-wp-660": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -2377,14 +2377,14 @@
     "levoit-lv600hh": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -2393,14 +2393,14 @@
     "zerowater-zp010": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -2409,14 +2409,14 @@
     "levoit-core-600s": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -2425,14 +2425,14 @@
     "homelabs-50-pint": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -2441,14 +2441,14 @@
     "pioneer-raindrop-6023": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -2457,14 +2457,14 @@
     "petsafe-easy-walk": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -2473,14 +2473,14 @@
     "petsafe-simply-feed": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -2489,14 +2489,14 @@
     "kurgo-tru-fit-smart": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -2505,14 +2505,14 @@
     "outward-hound-fun-feeder": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -2521,14 +2521,14 @@
     "irobot-roomba-combo-j9-plus": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": [
@@ -2545,7 +2545,7 @@
     "shark-av2501s": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": [
@@ -2560,7 +2560,7 @@
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": [
@@ -2577,7 +2577,7 @@
     "shark-av2820ae": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": [
@@ -2592,7 +2592,7 @@
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": [
@@ -2609,14 +2609,14 @@
     "roborock-qrevo-s": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -2625,14 +2625,14 @@
     "eufy-x10-pro-omni": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -2641,14 +2641,14 @@
     "dyson-v15-detect": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": [
@@ -2665,14 +2665,14 @@
     "dyson-v8": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": [
@@ -2689,7 +2689,7 @@
     "shark-ip3251": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": [
@@ -2704,7 +2704,7 @@
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": [
@@ -2721,14 +2721,14 @@
     "tineco-pure-one-s15": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
@@ -2737,14 +2737,14 @@
     "bissell-iconpet-2288": {
       "us": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://www.saferproducts.gov/RestWebServices/Recall",
         "detail": null,
         "other": []
       },
       "ca": {
         "status": "none",
-        "checkedAt": "2026-11-12",
+        "checkedAt": "2026-11-13",
         "url": "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3",
         "detail": null,
         "other": []
