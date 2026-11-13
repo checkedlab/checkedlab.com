@@ -1228,8 +1228,14 @@ function compareJsonLd(entry, pair) {
   return JSON.stringify(graph, null, 2).replace(/</g, "\\u003c");
 }
 
+function compareBodyWords(entry) {
+  const chunks = [...(entry.fit || [])];
+  for (const section of entry.sections || []) chunks.push(section.heading, ...(section.paragraphs || []));
+  return chunks.join(" ").split(/\s+/).filter(Boolean).length;
+}
+
 function writeCompares() {
-  if (compares.length !== 16) throw new Error("Expected sixteen compare pages");
+  if (compares.length !== 26) throw new Error("Expected twenty-six compare pages");
   for (const entry of compares) {
     if (!/^[a-z0-9-]+$/.test(entry.slug)) throw new Error("Bad compare slug");
     const pair = entry.products.map((id) => {
@@ -1252,6 +1258,27 @@ function writeCompares() {
       "<h3>" + card.esc(product.model || product.title) + "</h3>" + card.storeButtons(product, region)
     ).join("");
     const fit = (entry.fit || []).map((paragraph) => "<p>" + card.esc(paragraph) + "</p>").join("");
+    const sections = (entry.sections || []).map((section) => {
+      if (!section.heading || !Array.isArray(section.paragraphs) || !section.paragraphs.length) {
+        throw new Error("Compare section is incomplete: " + entry.slug);
+      }
+      return "<h2>" + card.esc(section.heading) + "</h2>" +
+        section.paragraphs.map((paragraph) => "<p>" + card.esc(paragraph) + "</p>").join("");
+    }).join("");
+    if (entry.sections && entry.sections.length) {
+      const words = compareBodyWords(entry);
+      if (words < 320) throw new Error("Compare page is thin (" + words + " words): " + entry.slug);
+      const pickText = entry.sections.map((section) => section.paragraphs.join(" ")).join(" ");
+      if (!/Pick the /.test(pickText)) throw new Error("Compare page has no pick-by-spec line: " + entry.slug);
+    }
+    const related = compares.filter((other) =>
+      other.slug !== entry.slug && other.products.some((id) => entry.products.includes(id))
+    );
+    const relatedHtml = related.length
+      ? '<p class="lede">Related spec pages: ' + related.map((other) =>
+        '<a href="/compare/' + other.slug + '/">' + card.esc(other.linkLabel) + "</a>"
+      ).join(" ") + ".</p>"
+      : "";
     const url = ORIGIN + "/compare/" + entry.slug + "/";
     const html = `<!DOCTYPE html>
 <html lang="en" data-region="US">
@@ -1316,7 +1343,7 @@ ${sceneBlock("compare")}
 </table>
 </div>
 <h2>Which specs to read</h2>
-${fit}
+${fit}${sections ? "\n" + sections : ""}${relatedHtml ? "\n" + relatedHtml : ""}
 <h2>Recall check</h2>
 ${recallsHtml}
 <p class="lede"><a href="/compare/">All comparisons</a> <a href="/recalls/">All recall checks</a> <a href="/${entry.hub}/">${card.esc(HUB_NAME[entry.hub])}</a> <a href="/how-we-check/">How we check</a> <a href="${card.productPath(pair[0])}">${card.esc(pair[0].title)}</a> <a href="${card.productPath(pair[1])}">${card.esc(pair[1].title)}</a></p>
@@ -1335,7 +1362,7 @@ ${stores("CA", "Canadian stores")}
 </body>
 </html>
 `;
-    if (/\$\d/.test(html) || /we tested|we bought|does not test|\bwinner\b|\bscore\b/i.test(html)) {
+    if (COPY_BAN.test(html) || /\$\d|\bdeal\b|\bdiscount\b|\d+\s*%\s*off\b/i.test(html)) {
       throw new Error("Compare page has a disallowed claim: " + entry.slug);
     }
     if (!html.includes("checkedlab01-20") || !html.includes("checkedlab-20")) {
