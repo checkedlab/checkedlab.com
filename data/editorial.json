@@ -3,7 +3,7 @@
     {
       "slug": "dyson-v15-detect",
       "linkLabel": "V15 Detect Absolute alternatives",
-      "title": "Dyson V15 Detect Absolute alternatives in this catalogue",
+      "title": "Dyson V15 Detect Absolute alternatives",
       "description": "Cordless vacuums in the catalogue whose maker pages can be read next to the V15 Detect Absolute: weight, run time, charge time, and the lines that only one page states.",
       "hub": "cleaning",
       "subject": "dyson-v15-detect",
@@ -41,7 +41,7 @@
     {
       "slug": "levoit-core-300s-p",
       "linkLabel": "Core 300S-P alternatives",
-      "title": "Levoit Core 300S-P alternatives in this catalogue",
+      "title": "Levoit Core 300S-P alternatives",
       "description": "Air purifiers in the catalogue whose maker pages can be read next to the Core 300S-P: weight and cabinet on the small Levoit, CADR and room lines on the other cards.",
       "hub": "air-water",
       "subject": "levoit-core-300s-p",
@@ -72,7 +72,7 @@
     {
       "slug": "litter-robot-4",
       "linkLabel": "Litter-Robot 4 alternatives",
-      "title": "Litter-Robot 4 alternatives in this catalogue",
+      "title": "Litter-Robot 4 alternatives",
       "description": "The catalogue’s other self-cleaning litter box is the PetSafe ScoopFree Crystal Plus. This page puts the Whisker lines next to the PetSafe lines.",
       "hub": "pet",
       "subject": "litter-robot-4",
@@ -101,8 +101,8 @@
     {
       "slug": "irobot-roomba-combo-j9-plus",
       "linkLabel": "Combo j9+ alternatives",
-      "title": "Roomba alternatives in this catalogue",
-      "description": "Combo j9+ robot and dock lines, next to Qrevo S, X10 Pro Omni, and Shark AV2501S. Each figure stays in the units on that maker page.",
+      "title": "Best Roomba Combo j9+ alternatives",
+      "description": "Robots to consider beside the Roomba Combo j9+. Qrevo S, X10 Pro Omni, and Shark AV2501S are the other choices.",
       "hub": "cleaning",
       "subject": "irobot-roomba-combo-j9-plus",
       "others": [
@@ -149,8 +149,8 @@
     {
       "slug": "sony-wh-1000xm5",
       "linkLabel": "WH-1000XM5 alternatives",
-      "title": "Sony XM5 alternatives in this catalogue",
-      "description": "WH-1000XM5 battery, weight, and charge lines, next to QuietComfort Ultra, AirPods Pro 3, and OpenRun Pro 2. Units stay as each maker printed them.",
+      "title": "Best Sony WH-1000XM5 alternatives",
+      "description": "Headphones to consider beside the WH-1000XM5. QuietComfort Ultra, AirPods Pro 3, and OpenRun Pro 2 have different battery lives.",
       "hub": "personal-tech",
       "subject": "sony-wh-1000xm5",
       "others": [
@@ -199,7 +199,7 @@
     {
       "slug": "litter-robot-4",
       "linkLabel": "Litter-Robot 4 spec match",
-      "title": "Litter-Robot 4: worth matching when these spec lines fit",
+      "title": "Is the Litter-Robot 4 worth it?",
       "description": "How to read the Litter-Robot 4 maker lines, height, footprint, drawer interval, and cat cap, and when the ScoopFree Crystal Plus lines are the ones that fit instead.",
       "hub": "pet",
       "subject": "litter-robot-4",
@@ -227,7 +227,7 @@
     {
       "slug": "vitamix-e310",
       "linkLabel": "Vitamix E310 spec match",
-      "title": "Vitamix E310: worth matching when the motor and jar lines fit",
+      "title": "Is the Vitamix E310 worth it?",
       "description": "The E310 page states a 2 HP motor, a 48 oz container, cabinet size, weight, and a 5-year warranty. The catalogue food processor is a different tool and a US recall match.",
       "hub": "kitchen",
       "subject": "vitamix-e310",
@@ -255,7 +255,7 @@
     {
       "slug": "sony-wh-1000xm5",
       "linkLabel": "WH-1000XM5 spec match",
-      "title": "Sony WH-1000XM5: worth matching when the battery and weight lines fit",
+      "title": "Is the Sony WH-1000XM5 worth it?",
       "description": "The Sony specifications page states weight, charge time, and battery life for the WH-1000XM5. The Bose QuietComfort Ultra page states a shorter battery line and a shorter charge line.",
       "hub": "personal-tech",
       "subject": "sony-wh-1000xm5",
@@ -283,8 +283,8 @@
     {
       "slug": "zojirushi-ns-zcc10",
       "linkLabel": "NS-ZCC10 spec match",
-      "title": "Is the Zojirushi rice cooker worth matching",
-      "description": "NS-ZCC10 capacity, cabinet, and wattage, next to the Duo Plus list that includes rice. Worth matching is a spec fit, not a price.",
+      "title": "Is the Zojirushi rice cooker worth it?",
+      "description": "The NS-ZCC10 holds up to 5.5 cups and is 8-1/8 inches tall. An Instant Pot Duo Plus can cook rice too, but it is a different kind of pot.",
       "hub": "kitchen",
       "subject": "zojirushi-ns-zcc10",
       "others": [
@@ -328,8 +328,8 @@
     {
       "slug": "breville-bes870xl",
       "linkLabel": "BES870XL spec match",
-      "title": "Is the Breville Barista Express worth matching",
-      "description": "BES870XL grinder, portafilter, dose, and extraction lines, next to the Encore ESP and the Stagg EKG. Worth matching is those lines, not a price.",
+      "title": "Is the Breville Barista Express worth it?",
+      "description": "The Barista Express grinds the beans and pulls the espresso in one machine. A separate grinder and a kettle with temperature control are different tools.",
       "hub": "kitchen",
       "subject": "breville-bes870xl",
       "others": [
@@ -376,7 +376,7 @@
     {
       "slug": "dyson-v15-detect",
       "linkLabel": "V15 Detect Absolute, model check",
-      "title": "Dyson V15 Detect Absolute: check the model before you buy",
+      "title": "Dyson V15 Detect: what to know before you buy",
       "description": "The V15 Detect Absolute maker lines for weight, run time, charge time, bin, filtration, and suction, next to the V8, S15 PRO, and IP3251 cards, with the dated recall check.",
       "hub": "cleaning",
       "subject": "dyson-v15-detect",
@@ -548,8 +548,8 @@
     {
       "slug": "ninja-creami",
       "linkLabel": "Ninja Creami model check",
-      "title": "Ninja Creami Black Friday: check the model",
-      "description": "NC301 programs, pints, and warranty to match on a listing, next to the Foodi 10-in-1 function list. A season name is not the model string.",
+      "title": "Ninja Creami Black Friday: what to know before you buy",
+      "description": "The NC301 is an ice cream maker with seven programs and two 16 oz pints in the box. Confirm that model, and do not treat a Ninja oven as the same machine.",
       "hub": "kitchen",
       "subject": "ninja-creami-nc301",
       "others": [
@@ -593,8 +593,8 @@
     {
       "slug": "airpods-pro-3",
       "linkLabel": "AirPods Pro 3 model check",
-      "title": "AirPods Pro 3 Black Friday: check the model",
-      "description": "AirPods Pro 3 listening, hearing, and IP57 lines to match on a listing, next to the WH-1000XM5 and OpenRun Pro 2 play-time lines.",
+      "title": "AirPods Pro 3 Black Friday: what to know before you buy",
+      "description": "AirPods Pro 3 offer up to 8 hours with noise cancelling, an IP57 rating, and a Hearing Aid feature. The WH-1000XM5 and OpenRun Pro 2 are different headphones, with different play times.",
       "hub": "personal-tech",
       "subject": "airpods-pro-3",
       "others": [
@@ -639,8 +639,8 @@
     {
       "slug": "levoit-air-purifiers",
       "linkLabel": "Levoit purifier model check",
-      "title": "Levoit air purifier Black Friday check",
-      "description": "Core 300S-P, Core 600S-P, and Vital 200S-P lines to match on a listing: cabinet, room or CADR, and noise. The Classic 300S card is a humidifier.",
+      "title": "Levoit air purifiers: what to know before you buy",
+      "description": "Core 300S-P, Core 600S-P, and Vital 200S-P are three different purifiers. Noise, cabinet size, and room figures are not the same, and the Classic 300S is a humidifier.",
       "hub": "air-water",
       "subject": "levoit-core-300s-p",
       "others": [

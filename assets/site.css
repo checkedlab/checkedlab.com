@@ -935,6 +935,22 @@ body[data-page="product"] .p-photo {
     max-width: 100%;
   }
 }
+.recall-stack { display: none; }
+.recall-block {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 14px 16px 16px;
+}
+.recall-block h3 { margin: 0 0 8px; font-size: 1.05rem; line-height: 1.35; }
+.recall-block p { margin: 0 0 10px; }
+.recall-block summary { cursor: pointer; font-weight: 650; }
+.recall-block ul { margin: 8px 0 0; padding-left: 1.2rem; }
+.recall-block li { margin: 0 0 4px; }
+@media (max-width: 640px) {
+  .recall-roundup .recall-table { display: none; }
+  .recall-roundup .recall-stack { display: grid; gap: 12px; margin: 8px 0 16px; }
+}
 .fold-top { display: grid; gap: 0; }
 .guide-list, .scan-list { list-style: none; padding: 0; margin: 8px 0 20px; display: grid; gap: 12px; }
 .guide-list li, .scan-list li { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; }

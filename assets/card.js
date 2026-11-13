@@ -568,9 +568,11 @@
     var title = '<h2 class="p-title' + hidden + '"><a href="' + href + '">' + visibleTitle(product.title) + "</a></h2>";
     var more = '<a class="hub-more" href="' + href + '">See specs and stores</a>';
     var id = ' id="' + esc(product.id) + '" data-category="' + esc(product.category || "") + '"';
+    var pickText = opts.pick === undefined ? pickLine(product) : opts.pick;
+    var pick = pickText ? '<p class="pick-if">' + esc(pickText) + "</p>" : "";
     return '<article class="product-grid hub-card"' + id + '><div class="pick-media">' + media + "</div>" +
       '<div class="p-main">' + badgeHtml(recall) + noteBadge(product) + title +
-      '<p class="pick-if">' + esc(pickLine(product)) + "</p>" + more + "</div></article>";
+      pick + more + "</div></article>";
   }
 
   var artSeq = 0;
