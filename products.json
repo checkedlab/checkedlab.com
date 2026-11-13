@@ -312,16 +312,16 @@
     "image_source": {
       "kind": "commons",
       "width": 800,
-      "height": 536,
+      "height": 600,
       "src400": "/images/products/instant-pot-duo-plus-400.webp",
       "width400": 400
     },
-    "imageCredit": "Photo: Your Best Digs, CC BY 2.0, via Wikimedia Commons",
+    "imageCredit": "Photo: Ajay Suresh, CC BY 2.0, via Wikimedia Commons",
     "imageLicense": "CC BY 2.0",
-    "imageSource": "https://commons.wikimedia.org/wiki/File:Instant_Pot_DUO60_pressure_cooker.jpg",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Instant_Pot_(49907000991).jpg",
     "imageKind": "model",
     "imageMatch": "same_line",
-    "imageAuthor": "Your Best Digs",
+    "imageAuthor": "Ajay Suresh",
     "imageLicenseUrl": "https://creativecommons.org/licenses/by/2.0",
     "imageShows": "Instant Pot Duo pressure cooker"
   },
@@ -1029,7 +1029,7 @@
   },
   {
     "receipt": null,
-    "image": "/images/products/snowjoe-24v-ss10.webp",
+    "image": "/images/photos/cat-snow.webp",
     "asin": {
       "us": "B07HQNXVZQ",
       "ca": null
@@ -1130,21 +1130,11 @@
         "url": "https://files.snowjoe.com/product-manuals/24V-SS10_MANUAL_MR3_05062021_FINAL.pdf"
       }
     ],
-    "image_source": {
-      "kind": "commons",
-      "width": 800,
-      "height": 600,
-      "src400": "/images/products/snowjoe-24v-ss10-400.webp",
-      "width400": 400
-    },
-    "imageCredit": "Photo: Ragesoss, CC BY-SA 3.0, via Wikimedia Commons",
-    "imageLicense": "CC BY-SA 3.0",
-    "imageSource": "https://commons.wikimedia.org/wiki/File:Resin_snow_shovel_with_shattered_blade.jpg",
-    "imageKind": "model",
-    "imageMatch": "generic",
-    "imageAuthor": "Ragesoss",
-    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-    "imageShows": "Resin snow shovel with shattered blade"
+    "image_source": null,
+    "imageCredit": "Photo by Erik Mclean on Pexels",
+    "imageLicense": "Pexels License",
+    "imageSource": "https://www.pexels.com/photo/16195410/",
+    "imageKind": "category"
   },
   {
     "receipt": null,
@@ -1247,7 +1237,7 @@
   },
   {
     "receipt": null,
-    "image": "/images/products/noco-gb50.webp",
+    "image": "/images/photos/cat-battery.webp",
     "asin": {
       "us": "B07MVY7K43",
       "ca": "B07MVY7K43"
@@ -1340,25 +1330,15 @@
         "url": "https://no.co/gb50"
       }
     ],
-    "image_source": {
-      "kind": "commons",
-      "width": 533,
-      "height": 800,
-      "src400": "/images/products/noco-gb50-400.webp",
-      "width400": 267
-    },
-    "imageCredit": "Photo: Laineema, CC BY 2.0, via Wikimedia Commons",
-    "imageLicense": "CC BY 2.0",
-    "imageSource": "https://commons.wikimedia.org/wiki/File:Jump_starter_ジャンプスターター_(13793153255).jpg",
-    "imageKind": "model",
-    "imageMatch": "generic",
-    "imageAuthor": "Laineema",
-    "imageLicenseUrl": "https://creativecommons.org/licenses/by/2.0",
-    "imageShows": "Jump starter ジャンプスターター (13793153255)"
+    "image_source": null,
+    "imageCredit": "Photo by Ayyeee Ayyeee on Pexels",
+    "imageLicense": "Pexels License",
+    "imageSource": "https://www.pexels.com/photo/37177070/",
+    "imageKind": "category"
   },
   {
     "receipt": null,
-    "image": "/images/products/battery-tender-junior.webp",
+    "image": "/images/photos/cat-battery.webp",
     "asin": {
       "us": "B000CITK8S",
       "ca": null
@@ -1446,21 +1426,11 @@
         "url": "https://www.batterytender.com/products/junior"
       }
     ],
-    "image_source": {
-      "kind": "commons",
-      "width": 660,
-      "height": 800,
-      "src400": "/images/products/battery-tender-junior-400.webp",
-      "width400": 330
-    },
-    "imageCredit": "Photo: Hannes Grobe ( talk ), CC BY 3.0, via Wikimedia Commons",
-    "imageLicense": "CC BY 3.0",
-    "imageSource": "https://commons.wikimedia.org/wiki/File:Car-battery-recharger.jpg",
-    "imageKind": "model",
-    "imageMatch": "generic",
-    "imageAuthor": "Hannes Grobe ( talk )",
-    "imageLicenseUrl": "https://creativecommons.org/licenses/by/3.0",
-    "imageShows": "12V battery charger"
+    "image_source": null,
+    "imageCredit": "Photo by Ayyeee Ayyeee on Pexels",
+    "imageLicense": "Pexels License",
+    "imageSource": "https://www.pexels.com/photo/37177070/",
+    "imageKind": "category"
   },
   {
     "receipt": null,
@@ -1840,19 +1810,19 @@
     ],
     "image_source": {
       "kind": "commons",
-      "width": 800,
-      "height": 676,
+      "width": 436,
+      "height": 800,
       "src400": "/images/products/midea-mad50s1qwt-400.webp",
       "width400": 400
     },
-    "imageCredit": "Photo: Shtyrmovik, CC BY-SA 4.0, via Wikimedia Commons",
+    "imageCredit": "Photo: V.B.Speranza, CC BY-SA 4.0, via Wikimedia Commons",
     "imageLicense": "CC BY-SA 4.0",
-    "imageSource": "https://commons.wikimedia.org/wiki/File:Peltier_dehumidifier_Maxton.jpg",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:A_Dehumidifier.jpg",
     "imageKind": "model",
     "imageMatch": "generic",
-    "imageAuthor": "Shtyrmovik",
+    "imageAuthor": "V.B.Speranza",
     "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "imageShows": "peltier dehumidifier maxton"
+    "imageShows": "portable dehumidifier"
   },
   {
     "receipt": null,
@@ -2046,19 +2016,19 @@
     ],
     "image_source": {
       "kind": "commons",
-      "width": 533,
-      "height": 800,
+      "width": 720,
+      "height": 480,
       "src400": "/images/products/petsafe-drinkwell-platinum-400.webp",
-      "width400": 267
+      "width400": 400
     },
-    "imageCredit": "Photo: Dennis G. Jarvis, CC BY-SA 2.0, via Wikimedia Commons",
-    "imageLicense": "CC BY-SA 2.0",
-    "imageSource": "https://commons.wikimedia.org/wiki/File:Poland-00627_-_Small_Pet_Fountain_(30365890445).jpg",
+    "imageCredit": "Photo: April Killingsworth, CC BY 2.0, via Wikimedia Commons",
+    "imageLicense": "CC BY 2.0",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Cat_fountain.jpg",
     "imageKind": "model",
-    "imageMatch": "generic",
-    "imageAuthor": "Dennis G. Jarvis",
-    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
-    "imageShows": "Poland-00627 - Small Pet Fountain (30365890445)"
+    "imageMatch": "related",
+    "imageAuthor": "April Killingsworth",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "imageShows": "Drinkwell pet fountain"
   },
   {
     "receipt": null,
@@ -2572,7 +2542,7 @@
   },
   {
     "receipt": null,
-    "image": "/images/products/brooklinen-luxe-core.webp",
+    "image": "/images/photos/cat-bed.webp",
     "asin": {
       "us": null,
       "ca": null
@@ -2661,21 +2631,11 @@
         "url": "https://www.brooklinen.com/products/luxe-core-sheet-set"
       }
     ],
-    "image_source": {
-      "kind": "commons",
-      "width": 800,
-      "height": 450,
-      "src400": "/images/products/brooklinen-luxe-core-400.webp",
-      "width400": 400
-    },
-    "imageCredit": "Photo: The Sleep Judge, CC BY 2.0, via Wikimedia Commons",
-    "imageLicense": "CC BY 2.0",
-    "imageSource": "https://commons.wikimedia.org/wiki/File:Fitted_sheet.jpg",
-    "imageKind": "model",
-    "imageMatch": "generic",
-    "imageAuthor": "The Sleep Judge",
-    "imageLicenseUrl": "https://creativecommons.org/licenses/by/2.0",
-    "imageShows": "Fitted sheet"
+    "image_source": null,
+    "imageCredit": "Photo by Darya Grey_Owl on Pexels",
+    "imageLicense": "Pexels License",
+    "imageSource": "https://www.pexels.com/photo/18492337/",
+    "imageKind": "category"
   },
   {
     "receipt": null,
@@ -3058,19 +3018,19 @@
     ],
     "image_source": {
       "kind": "commons",
-      "width": 646,
-      "height": 800,
+      "width": 800,
+      "height": 533,
       "src400": "/images/products/sony-wh-1000xm5-400.webp",
-      "width400": 323
+      "width400": 400
     },
-    "imageCredit": "Photo: Asimzb, Public domain, via Wikimedia Commons",
-    "imageLicense": "Public domain",
-    "imageSource": "https://commons.wikimedia.org/wiki/File:Sony_MDR-V6_Headphones_boxed.jpg",
+    "imageCredit": "Photo: PJ, CC BY-SA 3.0, via Wikimedia Commons",
+    "imageLicense": "CC BY-SA 3.0",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Headphones_1.jpg",
     "imageKind": "model",
-    "imageMatch": "related",
-    "imageAuthor": "Asimzb",
-    "imageLicenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
-    "imageShows": "Sony MDR-V6 Headphones boxed"
+    "imageMatch": "generic",
+    "imageAuthor": "PJ",
+    "imageLicenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "imageShows": "over-ear headphones"
   },
   {
     "receipt": null,
@@ -3312,19 +3272,17 @@
     ],
     "image_source": {
       "kind": "commons",
-      "width": 800,
-      "height": 600,
-      "src400": "/images/products/breville-bes870xl-400.webp",
-      "width400": 400
+      "width": 375,
+      "height": 500
     },
-    "imageCredit": "Photo: No machine-readable author provided. Herr Andrax~commonswiki assumed (based on c, CC BY-SA 3.0, via Wikimedia Commons",
-    "imageLicense": "CC BY-SA 3.0",
-    "imageSource": "https://commons.wikimedia.org/wiki/File:Espresso_machine_1.jpg",
+    "imageCredit": "Photo: Weirdwiki64, CC BY-SA 4.0, via Wikimedia Commons",
+    "imageLicense": "CC BY-SA 4.0",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Breville_Bambino_with_bottomless_portafilter_and_scale..webp",
     "imageKind": "model",
-    "imageMatch": "generic",
-    "imageAuthor": "No machine-readable author provided. Herr Andrax~commonswiki assumed (based on c",
-    "imageLicenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
-    "imageShows": "espresso machine 1"
+    "imageMatch": "related",
+    "imageAuthor": "Weirdwiki64",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "imageShows": "Breville espresso machine"
   },
   {
     "id": "breville-bov900",
@@ -3430,18 +3388,18 @@
     "image_source": {
       "kind": "commons",
       "width": 800,
-      "height": 529,
+      "height": 502,
       "src400": "/images/products/breville-bov900-400.webp",
       "width400": 400
     },
-    "imageCredit": "Photo: DestinationFearFan, CC BY-SA 4.0, via Wikimedia Commons",
-    "imageLicense": "CC BY-SA 4.0",
-    "imageSource": "https://commons.wikimedia.org/wiki/File:Toaster_Oven.jpg",
+    "imageCredit": "Photo: 1Day Review, CC BY 2.0, via Wikimedia Commons",
+    "imageLicense": "CC BY 2.0",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Black_Toaster_oven.png",
     "imageKind": "model",
     "imageMatch": "generic",
-    "imageAuthor": "DestinationFearFan",
-    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "imageShows": "Toaster Oven"
+    "imageAuthor": "1Day Review",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "imageShows": "toaster oven"
   },
   {
     "id": "moccamaster-kbgv",
@@ -3449,7 +3407,7 @@
     "category": "kitchen",
     "receipt": null,
     "meta": "KBGV • SPECS PER TECHNIVORM",
-    "image": "/images/products/moccamaster-kbgv.webp",
+    "image": "/images/photos/cat-coffee.webp",
     "recallMatch": {
       "brand": [
         "technivorm",
@@ -3544,21 +3502,11 @@
         "url": "https://us.moccamaster.com/products/kbgv"
       }
     ],
-    "image_source": {
-      "kind": "commons",
-      "width": 533,
-      "height": 800,
-      "src400": "/images/products/moccamaster-kbgv-400.webp",
-      "width400": 267
-    },
-    "imageCredit": "Photo: Frettie, CC BY 3.0, via Wikimedia Commons",
-    "imageLicense": "CC BY 3.0",
-    "imageSource": "https://commons.wikimedia.org/wiki/File:Vacuum_coffee_maker_with_coffee_in_Brno,_Brno-City_District.jpg",
-    "imageKind": "model",
-    "imageMatch": "generic",
-    "imageAuthor": "Frettie",
-    "imageLicenseUrl": "https://creativecommons.org/licenses/by/3.0",
-    "imageShows": "vacuum coffee maker with coffee in brno, brno city district"
+    "image_source": null,
+    "imageCredit": "Photo by Valeriya Kobzar on Pexels",
+    "imageLicense": "Pexels License",
+    "imageSource": "https://www.pexels.com/photo/8987828/",
+    "imageKind": "category"
   },
   {
     "id": "aeropress-original",
@@ -4135,7 +4083,7 @@
     "category": "kitchen",
     "receipt": null,
     "meta": "DFP-14BCNY • SPECS PER CUISINART",
-    "image": "/images/products/cuisinart-dfp-14bcny.webp",
+    "image": "/images/photos/hub-cook.webp",
     "recallMatch": {
       "brand": [
         "cuisinart"
@@ -4254,21 +4202,11 @@
         "url": "https://www.cuisinart.com/custom-14-cup-food-processor/DFP-14BCNY.html"
       }
     ],
-    "image_source": {
-      "kind": "commons",
-      "width": 800,
-      "height": 605,
-      "src400": "/images/products/cuisinart-dfp-14bcny-400.webp",
-      "width400": 400
-    },
-    "imageCredit": "Photo: Donovan Govan, CC BY-SA 3.0, via Wikimedia Commons",
-    "imageLicense": "CC BY-SA 3.0",
-    "imageSource": "https://commons.wikimedia.org/wiki/File:Food_Processor.jpg",
-    "imageKind": "model",
-    "imageMatch": "generic",
-    "imageAuthor": "Donovan Govan",
-    "imageLicenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
-    "imageShows": "Food Processor"
+    "image_source": null,
+    "imageCredit": "Photo by cottonbro studio on Pexels",
+    "imageLicense": "Pexels License",
+    "imageSource": "https://www.pexels.com/photo/4253133/",
+    "imageKind": "category"
   },
   {
     "id": "zojirushi-ns-zcc10",
@@ -4497,7 +4435,7 @@
     "category": "kitchen",
     "receipt": null,
     "meta": "PRECISION COOKER NANO • SPECS PER ANOVA CULINARY",
-    "image": "/images/products/anova-precision-nano.webp",
+    "image": "/images/photos/hub-cook.webp",
     "recallMatch": {
       "brand": [
         "anova"
@@ -4591,21 +4529,11 @@
         "url": "https://anovaculinary.com/products/anova-precision-cooker-nano"
       }
     ],
-    "image_source": {
-      "kind": "commons",
-      "width": 800,
-      "height": 600,
-      "src400": "/images/products/anova-precision-nano-400.webp",
-      "width400": 400
-    },
-    "imageCredit": "Photo: Pedro.serna, CC BY-SA 4.0, via Wikimedia Commons",
-    "imageLicense": "CC BY-SA 4.0",
-    "imageSource": "https://commons.wikimedia.org/wiki/File:Sous_Vide_Cooking.jpg",
-    "imageKind": "model",
-    "imageMatch": "generic",
-    "imageAuthor": "Pedro.serna",
-    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "imageShows": "Sous Vide Cooking"
+    "image_source": null,
+    "imageCredit": "Photo by cottonbro studio on Pexels",
+    "imageLicense": "Pexels License",
+    "imageSource": "https://www.pexels.com/photo/4253133/",
+    "imageKind": "category"
   },
   {
     "id": "wusthof-classic-8",
@@ -4961,7 +4889,7 @@
     "category": "winter",
     "receipt": null,
     "meta": "HEV615W • SPECS PER HONEYWELL",
-    "image": "/images/products/honeywell-hev615w.webp",
+    "image": "/images/photos/cat-humid.webp",
     "recallMatch": {
       "brand": [
         "honeywell"
@@ -5055,21 +4983,11 @@
         "url": "https://www.honeywellstore.com/store/products/honeywell-top-fill-cool-moisture-tower-humidifier-hev615w.htm"
       }
     ],
-    "image_source": {
-      "kind": "commons",
-      "width": 493,
-      "height": 800,
-      "src400": "/images/products/honeywell-hev615w-400.webp",
-      "width400": 247
-    },
-    "imageCredit": "Photo: Max S em, Public domain, via Wikimedia Commons",
-    "imageLicense": "Public domain",
-    "imageSource": "https://commons.wikimedia.org/wiki/File:Ultrasonic_humidifier.jpg",
-    "imageKind": "model",
-    "imageMatch": "generic",
-    "imageAuthor": "Max S em",
-    "imageLicenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
-    "imageShows": "Ultrasonic humidifier"
+    "image_source": null,
+    "imageCredit": "Photo by Phạm Tuấn Hải on Pexels",
+    "imageLicense": "Pexels License",
+    "imageSource": "https://www.pexels.com/photo/18507871/",
+    "imageKind": "category"
   },
   {
     "id": "toro-power-clear-38753",
@@ -5426,18 +5344,18 @@
     "image_source": {
       "kind": "commons",
       "width": 800,
-      "height": 533,
+      "height": 600,
       "src400": "/images/products/stanley-classic-1-5-400.webp",
       "width400": 400
     },
-    "imageCredit": "Photo: Daderot, CC0, via Wikimedia Commons",
-    "imageLicense": "CC0",
-    "imageSource": "https://commons.wikimedia.org/wiki/File:Universal_Stanley_vacuum_bottles_-_New_Britain_Industrial_Museum_-_DSC09891.JPG",
+    "imageCredit": "Photo: Schekinov Alexey Victorovich, CC BY-SA 4.0, via Wikimedia Commons",
+    "imageLicense": "CC BY-SA 4.0",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:%D0%A2%D0%B5%D1%80%D0%BC%D0%BE%D1%81_(1).jpg",
     "imageKind": "model",
-    "imageMatch": "related",
-    "imageAuthor": "Daderot",
-    "imageLicenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
-    "imageShows": "Universal Stanley vacuum bottles - New Britain Industrial Museum - DSC09891"
+    "imageMatch": "generic",
+    "imageAuthor": "Schekinov Alexey Victorovich",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "imageShows": "stainless vacuum flask"
   },
   {
     "id": "mr-heater-mh9bx",
@@ -5445,7 +5363,7 @@
     "category": "winter",
     "receipt": null,
     "meta": "MH9BX • SPECS PER MR. HEATER",
-    "image": "/images/products/mr-heater-mh9bx.webp",
+    "image": "/images/photos/hub-winter.webp",
     "recallMatch": {
       "brand": [
         "mr. heater",
@@ -5540,21 +5458,11 @@
         "url": "https://mrheater.com/products/portable-buddy-heater"
       }
     ],
-    "image_source": {
-      "kind": "commons",
-      "width": 460,
-      "height": 800,
-      "src400": "/images/products/mr-heater-mh9bx-400.webp",
-      "width400": 230
-    },
-    "imageCredit": "Photo: Hardyplants, CC0, via Wikimedia Commons",
-    "imageLicense": "CC0",
-    "imageSource": "https://commons.wikimedia.org/wiki/File:Space_heater.jpg",
-    "imageKind": "model",
-    "imageMatch": "generic",
-    "imageAuthor": "Hardyplants",
-    "imageLicenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
-    "imageShows": "space heater"
+    "image_source": null,
+    "imageCredit": "Photo by Huy Phan on Pexels",
+    "imageLicense": "Pexels License",
+    "imageSource": "https://www.pexels.com/photo/30386991/",
+    "imageKind": "category"
   },
   {
     "id": "pendleton-eco-wise",
@@ -5678,7 +5586,7 @@
     "category": "winter",
     "receipt": null,
     "meta": "AVH2 • SPECS PER VORNADO",
-    "image": "/images/products/vornado-avh2.webp",
+    "image": "/images/photos/hub-winter.webp",
     "recallMatch": {
       "brand": [
         "vornado"
@@ -5772,21 +5680,11 @@
         "url": "https://vornado.com/products/avh2-advanced-whole-room-heater-with-auto-climate"
       }
     ],
-    "image_source": {
-      "kind": "commons",
-      "width": 800,
-      "height": 800,
-      "src400": "/images/products/vornado-avh2-400.webp",
-      "width400": 400
-    },
-    "imageCredit": "Photo: Alf van Beem, CC0, via Wikimedia Commons",
-    "imageLicense": "CC0",
-    "imageSource": "https://commons.wikimedia.org/wiki/File:Electric_heater_Pyra,_Musée_EDF_Electropolis.JPG",
-    "imageKind": "model",
-    "imageMatch": "generic",
-    "imageAuthor": "Alf van Beem",
-    "imageLicenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
-    "imageShows": "electric heater pyra, musée edf electropolis"
+    "image_source": null,
+    "imageCredit": "Photo by Huy Phan on Pexels",
+    "imageLicense": "Pexels License",
+    "imageSource": "https://www.pexels.com/photo/30386991/",
+    "imageKind": "category"
   },
   {
     "id": "delonghi-trd40615e",
@@ -5891,19 +5789,19 @@
     ],
     "image_source": {
       "kind": "commons",
-      "width": 800,
-      "height": 600,
+      "width": 534,
+      "height": 800,
       "src400": "/images/products/delonghi-trd40615e-400.webp",
       "width400": 400
     },
-    "imageCredit": "Photo: Antonio Mette, CC BY-SA 4.0, via Wikimedia Commons",
-    "imageLicense": "CC BY-SA 4.0",
-    "imageSource": "https://commons.wikimedia.org/wiki/File:Termoventilatore_DeLonghi.JPG",
+    "imageCredit": "Photo: Ashley Pomeroy, CC BY 3.0, via Wikimedia Commons",
+    "imageLicense": "CC BY 3.0",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Oil_Heater_5293.jpg",
     "imageKind": "model",
-    "imageMatch": "related",
-    "imageAuthor": "Antonio Mette",
-    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "imageShows": "Termoventilatore DeLonghi"
+    "imageMatch": "generic",
+    "imageAuthor": "Ashley Pomeroy",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by/3.0",
+    "imageShows": "oil-filled radiator"
   },
   {
     "id": "ego-snt2110",
@@ -6007,19 +5905,19 @@
     ],
     "image_source": {
       "kind": "commons",
-      "width": 693,
-      "height": 800,
+      "width": 800,
+      "height": 600,
       "src400": "/images/products/ego-snt2110-400.webp",
-      "width400": 347
+      "width400": 400
     },
-    "imageCredit": "Photo: Asurnipal, CC BY-SA 4.0, via Wikimedia Commons",
-    "imageLicense": "CC BY-SA 4.0",
-    "imageSource": "https://commons.wikimedia.org/wiki/File:Dornbirn-Snow_blower-Forachstrasse-02ASD.jpg",
+    "imageCredit": "Photo: William F. Yurasko, CC BY 2.0, via Wikimedia Commons",
+    "imageLicense": "CC BY 2.0",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Snowblower_(4335647258).jpg",
     "imageKind": "model",
     "imageMatch": "generic",
-    "imageAuthor": "Asurnipal",
-    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "imageShows": "Dornbirn-Snow blower-Forachstrasse-02ASD"
+    "imageAuthor": "William F. Yurasko",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "imageShows": "walk-behind snow blower"
   },
   {
     "id": "sunjoe-spx3000",
@@ -6143,7 +6041,7 @@
     "category": "car-garage",
     "receipt": null,
     "meta": "88P • SPECS PER VIAIR",
-    "image": "/images/products/viair-88p.webp",
+    "image": "/images/photos/hub-garage.webp",
     "recallMatch": {
       "brand": [
         "viair"
@@ -6232,21 +6130,11 @@
         "url": "https://viaircorp.com/products/88p-portable-compressor"
       }
     ],
-    "image_source": {
-      "kind": "commons",
-      "width": 450,
-      "height": 800,
-      "src400": "/images/products/viair-88p-400.webp",
-      "width400": 225
-    },
-    "imageCredit": "Photo: Rikki Mitterer, CC BY-SA 4.0, via Wikimedia Commons",
-    "imageLicense": "CC BY-SA 4.0",
-    "imageSource": "https://commons.wikimedia.org/wiki/File:Hochgurgl-Top_Mountain_Motorcycle_Museum-tire_inflator-01ESD.jpg",
-    "imageKind": "model",
-    "imageMatch": "generic",
-    "imageAuthor": "Rikki Mitterer",
-    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "imageShows": "Hochgurgl-Top Mountain Motorcycle Museum-tire inflator-01ESD"
+    "image_source": null,
+    "imageCredit": "Photo by Tima Miroshnichenko on Pexels",
+    "imageLicense": "Pexels License",
+    "imageSource": "https://www.pexels.com/photo/6263062/",
+    "imageKind": "category"
   },
   {
     "id": "innova-5210",
@@ -6254,7 +6142,7 @@
     "category": "car-garage",
     "receipt": null,
     "meta": "5210 • SPECS PER INNOVA",
-    "image": "/images/products/innova-5210.webp",
+    "image": "/images/photos/hub-garage.webp",
     "recallMatch": {
       "brand": [
         "innova"
@@ -6342,21 +6230,11 @@
         "url": "https://www.innova.com/products/carscan-advisor-5210"
       }
     ],
-    "image_source": {
-      "kind": "commons",
-      "width": 800,
-      "height": 533,
-      "src400": "/images/products/innova-5210-400.webp",
-      "width400": 400
-    },
-    "imageCredit": "Photo: Losch, CC BY 3.0, via Wikimedia Commons",
-    "imageLicense": "CC BY 3.0",
-    "imageSource": "https://commons.wikimedia.org/wiki/File:Bluetooth_ELM327_OBD2-Scanner_IMG_6320.jpg",
-    "imageKind": "model",
-    "imageMatch": "generic",
-    "imageAuthor": "Losch",
-    "imageLicenseUrl": "https://creativecommons.org/licenses/by/3.0",
-    "imageShows": "Bluetooth ELM327 OBD2-Scanner IMG 6320"
+    "image_source": null,
+    "imageCredit": "Photo by Tima Miroshnichenko on Pexels",
+    "imageLicense": "Pexels License",
+    "imageSource": "https://www.pexels.com/photo/6263062/",
+    "imageKind": "category"
   },
   {
     "id": "garmin-dash-mini-2",
@@ -6474,7 +6352,7 @@
     "category": "car-garage",
     "receipt": null,
     "meta": "B6850 • SPECS PER CHAMBERLAIN",
-    "image": "/images/products/chamberlain-b6850.webp",
+    "image": "/images/photos/hub-garage.webp",
     "recallMatch": {
       "brand": [
         "chamberlain"
@@ -6570,21 +6448,11 @@
         "url": "https://www.chamberlain.com/1-1-4-hps-belt-drive-opener-with-battery-backup-built-in-camera-and-myq-connectivity/p/B6850"
       }
     ],
-    "image_source": {
-      "kind": "commons",
-      "width": 800,
-      "height": 495,
-      "src400": "/images/products/chamberlain-b6850-400.webp",
-      "width400": 400
-    },
-    "imageCredit": "Photo: Oleg Alexandrov 21:31, 9 February 2008 (UTC), Public domain, via Wikimedia Commons",
-    "imageLicense": "Public domain",
-    "imageSource": "https://commons.wikimedia.org/wiki/File:Garage_door_opener.jpg",
-    "imageKind": "model",
-    "imageMatch": "generic",
-    "imageAuthor": "Oleg Alexandrov 21:31, 9 February 2008 (UTC)",
-    "imageLicenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
-    "imageShows": "Garage door opener"
+    "image_source": null,
+    "imageCredit": "Photo by Tima Miroshnichenko on Pexels",
+    "imageLicense": "Pexels License",
+    "imageSource": "https://www.pexels.com/photo/6263062/",
+    "imageKind": "category"
   },
   {
     "id": "tekton-24335",
@@ -6803,7 +6671,7 @@
     "category": "car-garage",
     "receipt": null,
     "meta": "FLUKE 117 • SPECS PER FLUKE",
-    "image": "/images/products/fluke-117.webp",
+    "image": "/images/photos/hub-garage.webp",
     "recallMatch": {
       "brand": [
         "fluke"
@@ -6906,21 +6774,11 @@
         "url": "https://www.fluke.com/en-us/product/electrical-testing/digital-multimeters/fluke-117"
       }
     ],
-    "image_source": {
-      "kind": "commons",
-      "width": 800,
-      "height": 600,
-      "src400": "/images/products/fluke-117-400.webp",
-      "width400": 400
-    },
-    "imageCredit": "Photo: J.C. Fields ( Talk ) ( Uploads ), CC BY-SA 3.0, via Wikimedia Commons",
-    "imageLicense": "CC BY-SA 3.0",
-    "imageSource": "https://commons.wikimedia.org/wiki/File:Fluke_115_multimeter_with_case_and_leads.jpg",
-    "imageKind": "model",
-    "imageMatch": "same_line",
-    "imageAuthor": "J.C. Fields ( Talk ) ( Uploads )",
-    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-    "imageShows": "Fluke 115 multimeter with case and leads"
+    "image_source": null,
+    "imageCredit": "Photo by Tima Miroshnichenko on Pexels",
+    "imageLicense": "Pexels License",
+    "imageSource": "https://www.pexels.com/photo/6263062/",
+    "imageKind": "category"
   },
   {
     "id": "dewalt-dcd771",
@@ -7037,7 +6895,7 @@
     "category": "car-garage",
     "receipt": null,
     "meta": "MXS 5.0 • SPECS PER CTEK",
-    "image": "/images/products/ctek-mxs-5.webp",
+    "image": "/images/photos/cat-battery.webp",
     "recallMatch": {
       "brand": [
         "ctek"
@@ -7126,21 +6984,11 @@
         "url": "https://ctek.com/en-us/products/mxs-5-0-na"
       }
     ],
-    "image_source": {
-      "kind": "commons",
-      "width": 800,
-      "height": 800,
-      "src400": "/images/products/ctek-mxs-5-400.webp",
-      "width400": 400
-    },
-    "imageCredit": "Photo: Tatu Kosonen, CC BY-SA 4.0, via Wikimedia Commons",
-    "imageLicense": "CC BY-SA 4.0",
-    "imageSource": "https://commons.wikimedia.org/wiki/File:Car_Battery_Charger.jpg",
-    "imageKind": "model",
-    "imageMatch": "generic",
-    "imageAuthor": "Tatu Kosonen",
-    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "imageShows": "Car Battery Charger"
+    "image_source": null,
+    "imageCredit": "Photo by Ayyeee Ayyeee on Pexels",
+    "imageLicense": "Pexels License",
+    "imageSource": "https://www.pexels.com/photo/37177070/",
+    "imageKind": "category"
   },
   {
     "id": "bluedriver",
@@ -7148,7 +6996,7 @@
     "category": "car-garage",
     "receipt": null,
     "meta": "BLUEDRIVER • SPECS PER BLUEDRIVER",
-    "image": "/images/products/bluedriver.webp",
+    "image": "/images/photos/hub-garage.webp",
     "recallMatch": {
       "brand": [
         "bluedriver"
@@ -7230,21 +7078,11 @@
         "url": "https://us.bluedriver.com/"
       }
     ],
-    "image_source": {
-      "kind": "commons",
-      "width": 800,
-      "height": 533,
-      "src400": "/images/products/bluedriver-400.webp",
-      "width400": 400
-    },
-    "imageCredit": "Photo: Losch, CC BY 3.0, via Wikimedia Commons",
-    "imageLicense": "CC BY 3.0",
-    "imageSource": "https://commons.wikimedia.org/wiki/File:Bluetooth_ELM327_OBD2-Scanner_IMG_6321.jpg",
-    "imageKind": "model",
-    "imageMatch": "generic",
-    "imageAuthor": "Losch",
-    "imageLicenseUrl": "https://creativecommons.org/licenses/by/3.0",
-    "imageShows": "OBD2 scanner"
+    "image_source": null,
+    "imageCredit": "Photo by Tima Miroshnichenko on Pexels",
+    "imageLicense": "Pexels License",
+    "imageSource": "https://www.pexels.com/photo/6263062/",
+    "imageKind": "category"
   },
   {
     "id": "fanttik-x8-apex",
@@ -7697,7 +7535,7 @@
     "category": "air-water",
     "receipt": null,
     "meta": "G3P600 • SPECS PER WATERDROP",
-    "image": "/images/products/waterdrop-g3p600.webp",
+    "image": "/images/photos/cat-bottle.webp",
     "recallMatch": {
       "brand": [
         "waterdrop"
@@ -7785,21 +7623,11 @@
         "url": "https://www.waterdropfilter.com/products/waterdrop-reverse-osmosis-water-filtration-system"
       }
     ],
-    "image_source": {
-      "kind": "commons",
-      "width": 800,
-      "height": 600,
-      "src400": "/images/products/waterdrop-g3p600-400.webp",
-      "width400": 400
-    },
-    "imageCredit": "Photo: Mas mufti, CC BY-SA 3.0, via Wikimedia Commons",
-    "imageLicense": "CC BY-SA 3.0",
-    "imageSource": "https://commons.wikimedia.org/wiki/File:Reverse_Osmosis_System.jpg",
-    "imageKind": "model",
-    "imageMatch": "generic",
-    "imageAuthor": "Mas mufti",
-    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-    "imageShows": "Reverse osmosis system"
+    "image_source": null,
+    "imageCredit": "Photo by cottonbro studio on Pexels",
+    "imageLicense": "Pexels License",
+    "imageSource": "https://www.pexels.com/photo/3737800/",
+    "imageKind": "category"
   },
   {
     "id": "ispring-rcc7",
@@ -7907,7 +7735,7 @@
     "category": "air-water",
     "receipt": null,
     "meta": "ROES-50 • SPECS PER APEC",
-    "image": "/images/products/apec-roes-50.webp",
+    "image": "/images/photos/cat-bottle.webp",
     "recallMatch": {
       "brand": [
         "apec"
@@ -7995,21 +7823,11 @@
         "url": "https://www.apecwater.com/products/roes-50"
       }
     ],
-    "image_source": {
-      "kind": "commons",
-      "width": 800,
-      "height": 600,
-      "src400": "/images/products/apec-roes-50-400.webp",
-      "width400": 400
-    },
-    "imageCredit": "Photo: Vishalsh521, CC BY-SA 3.0, via Wikimedia Commons",
-    "imageLicense": "CC BY-SA 3.0",
-    "imageSource": "https://commons.wikimedia.org/wiki/File:A_1000_liter_reverse_osmosis_plant_for_commercial_use.jpg",
-    "imageKind": "model",
-    "imageMatch": "generic",
-    "imageAuthor": "Vishalsh521",
-    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-    "imageShows": "a 1000 liter reverse osmosis plant for commercial use"
+    "image_source": null,
+    "imageCredit": "Photo by cottonbro studio on Pexels",
+    "imageLicense": "Pexels License",
+    "imageSource": "https://www.pexels.com/photo/3737800/",
+    "imageKind": "category"
   },
   {
     "id": "coway-airmega-250",
@@ -8465,18 +8283,18 @@
     ],
     "image_source": {
       "kind": "commons",
-      "width": 771,
-      "height": 526,
+      "width": 800,
+      "height": 600,
       "src400": "/images/products/petsafe-scoopfree-plus-400.webp",
       "width400": 400
     },
-    "imageCredit": "Photo: Phrood~commonswiki, CC BY-SA 3.0, via Wikimedia Commons",
+    "imageCredit": "Photo: CambridgeBayWeather, CC BY-SA 3.0, via Wikimedia Commons",
     "imageLicense": "CC BY-SA 3.0",
-    "imageSource": "https://commons.wikimedia.org/wiki/File:Litter_box.jpg",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Fresh_cat_litter.JPG",
     "imageKind": "model",
     "imageMatch": "generic",
-    "imageAuthor": "Phrood~commonswiki",
-    "imageLicenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "imageAuthor": "CambridgeBayWeather",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
     "imageShows": "litter box"
   },
   {
@@ -8794,7 +8612,7 @@
     "category": "pet",
     "receipt": null,
     "meta": "FEEDER-ROBOT • SPECS PER WHISKER",
-    "image": "/images/products/whisker-feeder-robot.webp",
+    "image": "/images/photos/hub-pet.webp",
     "recallMatch": {
       "brand": [
         "whisker"
@@ -8882,21 +8700,11 @@
         "url": "https://www.whisker.com/feeder-robot"
       }
     ],
-    "image_source": {
-      "kind": "commons",
-      "width": 800,
-      "height": 600,
-      "src400": "/images/products/whisker-feeder-robot-400.webp",
-      "width400": 400
-    },
-    "imageCredit": "Photo: Furkan Akkurt, CC BY-SA 4.0, via Wikimedia Commons",
-    "imageLicense": "CC BY-SA 4.0",
-    "imageSource": "https://commons.wikimedia.org/wiki/File:Mama_Otomati_animal_food_dispenser_Fatih_Istanbul_2026.jpg",
-    "imageKind": "model",
-    "imageMatch": "generic",
-    "imageAuthor": "Furkan Akkurt",
-    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "imageShows": "Mama Otomati animal food dispenser Fatih Istanbul 2026"
+    "image_source": null,
+    "imageCredit": "Photo by Amar Preciado on Pexels",
+    "imageLicense": "Pexels License",
+    "imageSource": "https://www.pexels.com/photo/30070537/",
+    "imageKind": "category"
   },
   {
     "id": "sleepypod-clickit",
@@ -10823,18 +10631,18 @@
     "image_source": {
       "kind": "commons",
       "width": 800,
-      "height": 612,
+      "height": 490,
       "src400": "/images/products/philips-oneblade-360-400.webp",
       "width400": 400
     },
-    "imageCredit": "Photo: Atomicbre at English Wikipedia, Public domain, via Wikimedia Commons",
-    "imageLicense": "Public domain",
-    "imageSource": "https://commons.wikimedia.org/wiki/File:Oscillating_electric_razor.jpg",
+    "imageCredit": "Photo: Jacek Halicki, CC BY-SA 4.0, via Wikimedia Commons",
+    "imageLicense": "CC BY-SA 4.0",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:2023_Philips_OneBlade.jpg",
     "imageKind": "model",
-    "imageMatch": "generic",
-    "imageAuthor": "Atomicbre at English Wikipedia",
-    "imageLicenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
-    "imageShows": "Oscillating electric razor"
+    "imageMatch": "same_line",
+    "imageAuthor": "Jacek Halicki",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "imageShows": "Philips OneBlade"
   },
   {
     "id": "airpods-pro-3",
@@ -12854,19 +12662,19 @@
     ],
     "image_source": {
       "kind": "commons",
-      "width": 727,
-      "height": 800,
+      "width": 800,
+      "height": 799,
       "src400": "/images/products/petsafe-easy-walk-400.webp",
-      "width400": 363
+      "width400": 400
     },
-    "imageCredit": "Photo: not specified (except those with signature on image), Public domain, via Wikimedia Commons",
-    "imageLicense": "Public domain",
-    "imageSource": "https://commons.wikimedia.org/wiki/File:Dog_harness_from_1915.JPG",
+    "imageCredit": "Photo: Sobaki2016, CC0, via Wikimedia Commons",
+    "imageLicense": "CC0",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Dog_in_a_harness.jpg",
     "imageKind": "model",
     "imageMatch": "generic",
-    "imageAuthor": "not specified (except those with signature on image)",
-    "imageLicenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
-    "imageShows": "dog harness from 1915"
+    "imageAuthor": "Sobaki2016",
+    "imageLicenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "imageShows": "dog wearing a harness"
   },
   {
     "id": "petsafe-simply-feed",
@@ -12874,7 +12682,7 @@
     "category": "pet",
     "receipt": null,
     "meta": "PFD00-14574 • SPECS PER PETSAFE",
-    "image": "/images/products/petsafe-simply-feed.webp",
+    "image": "/images/photos/hub-pet.webp",
     "recallMatch": {
       "brand": [
         "petsafe"
@@ -12969,21 +12777,11 @@
         "url": "https://www.petsafe.com/p/healthy-pet-simply-feed/PFD00-14574/"
       }
     ],
-    "image_source": {
-      "kind": "commons",
-      "width": 600,
-      "height": 800,
-      "src400": "/images/products/petsafe-simply-feed-400.webp",
-      "width400": 300
-    },
-    "imageCredit": "Photo: Sen777, CC BY-SA 3.0, via Wikimedia Commons",
-    "imageLicense": "CC BY-SA 3.0",
-    "imageSource": "https://commons.wikimedia.org/wiki/File:Pet_feeder.jpg",
-    "imageKind": "model",
-    "imageMatch": "generic",
-    "imageAuthor": "Sen777",
-    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-    "imageShows": "pet feeder"
+    "image_source": null,
+    "imageCredit": "Photo by Amar Preciado on Pexels",
+    "imageLicense": "Pexels License",
+    "imageSource": "https://www.pexels.com/photo/30070537/",
+    "imageKind": "category"
   },
   {
     "id": "kurgo-tru-fit-smart",
@@ -13089,18 +12887,18 @@
     "image_source": {
       "kind": "commons",
       "width": 800,
-      "height": 600,
+      "height": 654,
       "src400": "/images/products/kurgo-tru-fit-smart-400.webp",
       "width400": 400
     },
-    "imageCredit": "Photo: Grossman1Daniel, CC BY-SA 4.0, via Wikimedia Commons",
+    "imageCredit": "Photo: Alcazar, CC BY-SA 4.0, via Wikimedia Commons",
     "imageLicense": "CC BY-SA 4.0",
-    "imageSource": "https://commons.wikimedia.org/wiki/File:Smart_dog_harness_2013_MissionPet_.jpg",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:FUR_HARNESS_SET_WITH_DOG.jpg",
     "imageKind": "model",
     "imageMatch": "generic",
-    "imageAuthor": "Grossman1Daniel",
+    "imageAuthor": "Alcazar",
     "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "imageShows": "smart dog harness 2013 missionpet "
+    "imageShows": "dog wearing a harness"
   },
   {
     "id": "outward-hound-fun-feeder",
@@ -13319,18 +13117,18 @@
     "image_source": {
       "kind": "commons",
       "width": 800,
-      "height": 592,
+      "height": 800,
       "src400": "/images/products/irobot-roomba-combo-j9-plus-400.webp",
       "width400": 400
     },
-    "imageCredit": "Photo: Dennis van Zuijlekom, CC BY-SA 2.0, via Wikimedia Commons",
-    "imageLicense": "CC BY-SA 2.0",
-    "imageSource": "https://commons.wikimedia.org/wiki/File:RVC3N_Robotic_Vacuum_Cleaner_\"Kreng\"_on_the_job_(8499549941).png",
+    "imageCredit": "Photo: Uwe Aranas, CC BY-SA 4.0, via Wikimedia Commons",
+    "imageLicense": "CC BY-SA 4.0",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:IRobot-Roomba-Top-view-01.jpg",
     "imageKind": "model",
-    "imageMatch": "generic",
-    "imageAuthor": "Dennis van Zuijlekom",
-    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
-    "imageShows": "rvc3n robotic vacuum cleaner \"kreng\" on the job (8499549941)"
+    "imageMatch": "related",
+    "imageAuthor": "Uwe Aranas",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "imageShows": "iRobot Roomba"
   },
   {
     "receipt": null,
@@ -13449,22 +13247,12 @@
         "url": "https://www.sharkninja.com/shark-ai-ultra-robot-self-empty/AV2501S.html"
       }
     ],
-    "image": "/images/products/shark-av2501s.webp",
-    "image_source": {
-      "kind": "commons",
-      "width": 800,
-      "height": 800,
-      "src400": "/images/products/shark-av2501s-400.webp",
-      "width400": 400
-    },
-    "imageCredit": "Photo: TaurusEmerald, CC BY-SA 4.0, via Wikimedia Commons",
-    "imageLicense": "CC BY-SA 4.0",
-    "imageSource": "https://commons.wikimedia.org/wiki/File:Shark_IQ_2_in_1_Vacuum.jpg",
-    "imageKind": "model",
-    "imageMatch": "same_line",
-    "imageAuthor": "TaurusEmerald",
-    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "imageShows": "Shark IQ 2 in 1 Vacuum"
+    "image": "/images/photos/cat-robot.webp",
+    "image_source": null,
+    "imageCredit": "Photo by Kindel Media on Pexels",
+    "imageLicense": "Pexels License",
+    "imageSource": "https://www.pexels.com/photo/8566421/",
+    "imageKind": "category"
   },
   {
     "receipt": null,
@@ -13583,22 +13371,12 @@
         "url": "https://www.sharkninja.com/shark-powerdetect-robot/AV2820AE.html"
       }
     ],
-    "image": "/images/products/shark-av2820ae.webp",
-    "image_source": {
-      "kind": "commons",
-      "width": 600,
-      "height": 800,
-      "src400": "/images/products/shark-av2820ae-400.webp",
-      "width400": 300
-    },
-    "imageCredit": "Photo: Ryan McBride, CC BY 2.0, via Wikimedia Commons",
-    "imageLicense": "CC BY 2.0",
-    "imageSource": "https://commons.wikimedia.org/wiki/File:Robot_Vacuum_2016_(31606445890).jpg",
-    "imageKind": "model",
-    "imageMatch": "generic",
-    "imageAuthor": "Ryan McBride",
-    "imageLicenseUrl": "https://creativecommons.org/licenses/by/2.0",
-    "imageShows": "robot vacuum 2016 (31606445890)"
+    "image": "/images/photos/cat-robot.webp",
+    "image_source": null,
+    "imageCredit": "Photo by Kindel Media on Pexels",
+    "imageLicense": "Pexels License",
+    "imageSource": "https://www.pexels.com/photo/8566421/",
+    "imageKind": "category"
   },
   {
     "receipt": null,
@@ -13803,22 +13581,12 @@
         "url": "https://service.eufy.com/article-description/Dimensions-of-the-X10-Pro-Omni-and-the-All-in-One-Omni-Station"
       }
     ],
-    "image": "/images/products/eufy-x10-pro-omni.webp",
-    "image_source": {
-      "kind": "commons",
-      "width": 800,
-      "height": 612,
-      "src400": "/images/products/eufy-x10-pro-omni-400.webp",
-      "width400": 400
-    },
-    "imageCredit": "Photo: TiHa, CC BY-SA 4.0, via Wikimedia Commons",
-    "imageLicense": "CC BY-SA 4.0",
-    "imageSource": "https://commons.wikimedia.org/wiki/File:Robot_vacuum_cleaner_concept_study_1994.jpg",
-    "imageKind": "model",
-    "imageMatch": "generic",
-    "imageAuthor": "TiHa",
-    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "imageShows": "robot vacuum cleaner concept study 1994"
+    "image": "/images/photos/cat-robot.webp",
+    "image_source": null,
+    "imageCredit": "Photo by Kindel Media on Pexels",
+    "imageLicense": "Pexels License",
+    "imageSource": "https://www.pexels.com/photo/8566421/",
+    "imageKind": "category"
   },
   {
     "receipt": null,
@@ -14175,22 +13943,12 @@
         "url": "https://www.sharkninja.com/shark-cordless-powerdetect-clean-empty-system/IP3251.html"
       }
     ],
-    "image": "/images/products/shark-ip3251.webp",
-    "image_source": {
-      "kind": "commons",
-      "width": 800,
-      "height": 600,
-      "src400": "/images/products/shark-ip3251-400.webp",
-      "width400": 400
-    },
-    "imageCredit": "Photo: Gophi, CC BY-SA 3.0, via Wikimedia Commons",
-    "imageLicense": "CC BY-SA 3.0",
-    "imageSource": "https://commons.wikimedia.org/wiki/File:2007-09-02_Small_vacuum_cleaner.jpg",
-    "imageKind": "model",
-    "imageMatch": "generic",
-    "imageAuthor": "Gophi",
-    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-    "imageShows": "2007 09 02 small vacuum cleaner"
+    "image": "/images/photos/cat-stick.webp",
+    "image_source": null,
+    "imageCredit": "Photo by Vedat Öncelik on Pexels",
+    "imageLicense": "Pexels License",
+    "imageSource": "https://www.pexels.com/photo/12167650/",
+    "imageKind": "category"
   },
   {
     "receipt": null,
