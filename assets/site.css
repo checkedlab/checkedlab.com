@@ -64,15 +64,13 @@ p { margin: 0 0 0.8em; }
 }
 .skip:focus { top: 12px; }
 
-.disclosure {
-  background: #EFEDE7;
-  color: #3F3C37;
-  font-size: 13px;
+.foot-disclosure {
+  margin: 0;
+  color: #8A8680;
+  font-size: 12px;
+  font-weight: 400;
   line-height: 1.45;
-  text-align: center;
-  padding: 8px 16px;
 }
-.disclosure strong { color: var(--ink); font-weight: 650; }
 .topbar { display: none; }
 
 .masthead {

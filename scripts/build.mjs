@@ -11,10 +11,10 @@ const card = require(join(root, "assets/card.js"));
 const ORIGIN = "https://www.checkedlab.com";
 const START = "<!-- checkedlab:cards start -->";
 const END = "<!-- checkedlab:cards end -->";
-const DISCLOSURE = '<div class="disclosure"><strong>Affiliate disclosure.</strong> As an Amazon Associate I earn from qualifying purchases. Other store links earn us nothing.</div>';
+const DISCLOSURE = '<p class="foot-disclosure">As an Amazon Associate, Checked Lab earns from qualifying purchases.</p>';
 const FOOTER = `<footer>
 <div class="foot">
-<p><strong>Affiliate disclosure.</strong> As an Amazon Associate I earn from qualifying purchases. Other store links earn us nothing.</p>
+${DISCLOSURE}
 <p>© 2026 Checked Lab<br>Winnipeg, MB</p>
 <p class="foot-mail"><a href="/thanksgiving/">Thanksgiving</a><a href="/toy-safety/">Toy safety</a><a href="/winter-safety/">Winter safety</a><a href="/gifts/">Gift guides</a><a href="/best/">Best of</a><a href="/black-friday/">Black Friday</a><a href="/compare/">Spec comparisons</a><a href="/recalls/">Recall checks</a><a href="/how-we-check/">How we check</a><a href="/bin-list/">BIN list</a><a href="/photo-credits/">Photo credits</a><a href="mailto:hello@checkedlab.com">hello@</a><a href="mailto:support@checkedlab.com">support@</a><a href="mailto:press@checkedlab.com">press@</a><a href="mailto:legal@checkedlab.com">legal@</a></p>
 </div>
@@ -747,7 +747,6 @@ ${jsonLd(product)}
 </script>
 </head>
 <body data-page="product" data-category="${card.esc(hub)}">
-${DISCLOSURE}
 <div class="topbar"><span>● CHECKED LAB • EST 2026 • NO SPONSORS</span><span>hello@checkedlab.com • press@checkedlab.com • legal@checkedlab.com</span></div>
 <div class="masthead">
 <header>
@@ -801,7 +800,7 @@ ${siblingLinks(product)}
 
 <footer>
 <div class="foot">
-<p>As an Amazon Associate I earn from qualifying purchases.</p>
+${DISCLOSURE}
 <p>© 2026 CHECKED LAB<br>Winnipeg, MB</p>
 <p class="foot-mail"><a href="/recalls/">Recall checks</a><a href="/how-we-check/">How we check</a><a href="/bin-list/">BIN list</a><a href="mailto:hello@checkedlab.com">hello@</a><a href="mailto:support@checkedlab.com">support@</a><a href="mailto:press@checkedlab.com">press@</a><a href="mailto:legal@checkedlab.com">legal@</a></p>
 </div>
@@ -972,6 +971,7 @@ function ensureDock(html) {
 
 function polish(html) {
   html = installChrome(html);
+  html = html.replace(/<div class="disclosure">[\s\S]*?<\/div>\s*/g, "");
   if (html.includes("<footer>")) html = html.replace(/<footer>[\s\S]*?<\/footer>/, FOOTER);
   html = html.replace(/name="theme-color" content="#[0-9A-Fa-f]{3,8}"/g, 'name="theme-color" content="#1F4D3A"');
   if (!html.includes('class="skip"')) {
@@ -1510,7 +1510,6 @@ ${compareJsonLd(entry, pair)}
 </script>
 </head>
 <body data-page="recalls">
-${DISCLOSURE}
 <div class="topbar"><span>● CHECKED LAB • EST 2026 • NO SPONSORS</span><span>hello@checkedlab.com • press@checkedlab.com • legal@checkedlab.com</span></div>
 <div class="masthead">
 <header>
@@ -1555,7 +1554,7 @@ ${productFold("stores", "Stores", stores("US", "United States stores") + stores(
 </main>
 <footer>
 <div class="foot">
-<p>As an Amazon Associate I earn from qualifying purchases.</p>
+${DISCLOSURE}
 <p>© 2026 CHECKED LAB<br>Winnipeg, MB</p>
 <p class="foot-mail"><a href="/recalls/">Recall checks</a><a href="/how-we-check/">How we check</a><a href="/bin-list/">BIN list</a><a href="mailto:hello@checkedlab.com">hello@</a><a href="mailto:support@checkedlab.com">support@</a><a href="mailto:press@checkedlab.com">press@</a><a href="mailto:legal@checkedlab.com">legal@</a></p>
 </div>
@@ -1660,7 +1659,6 @@ ${compareIndexJsonLd()}
 </script>
 </head>
 <body data-page="recalls">
-${DISCLOSURE}
 <div class="topbar"><span>● CHECKED LAB • EST 2026 • NO SPONSORS</span><span>hello@checkedlab.com • press@checkedlab.com • legal@checkedlab.com</span></div>
 <div class="masthead">
 <header>
@@ -1696,7 +1694,7 @@ ${productFold("compare-guide", "How to read a comparison", '<p class="lede">' + 
 </main>
 <footer>
 <div class="foot">
-<p>As an Amazon Associate I earn from qualifying purchases.</p>
+${DISCLOSURE}
 <p>© 2026 CHECKED LAB<br>Winnipeg, MB</p>
 <p class="foot-mail"><a href="/recalls/">Recall checks</a><a href="/how-we-check/">How we check</a><a href="/bin-list/">BIN list</a><a href="mailto:hello@checkedlab.com">hello@</a><a href="mailto:support@checkedlab.com">support@</a><a href="mailto:press@checkedlab.com">press@</a><a href="mailto:legal@checkedlab.com">legal@</a></p>
 </div>
@@ -1887,7 +1885,6 @@ ${editorialArticle(entry, section, crumb, pair)}
 </script>
 </head>
 <body data-page="recalls">
-${DISCLOSURE}
 <div class="masthead">
 <header>
 <a class="logo" href="/">CHECKED LAB</a>
@@ -1913,7 +1910,7 @@ ${productFold("recall-check", "Recall check", recallsHtml + '<p class="lede"><a 
 ${productFold("stores", "Stores", stores("US", "United States stores") + stores("CA", "Canadian stores"))}
 </div>
 </main>
-<footer><div class="foot"><p>As an Amazon Associate I earn from qualifying purchases.</p></div></footer>
+<footer><div class="foot">${DISCLOSURE}</div></footer>
 <script src="/assets/site.js" defer></script>
 </body>
 </html>
@@ -1994,7 +1991,6 @@ ${editorialIndexArticle(section, title, description, list)}
 </script>
 </head>
 <body data-page="recalls">
-${DISCLOSURE}
 <div class="masthead"><header><a class="logo" href="/">CHECKED LAB</a></header>${nav("compare")}</div>
 <main id="main">
 <div class="wrap prose">
@@ -2010,7 +2006,7 @@ ${sceneBlock("compare")}
 ${productFold("about-list", "How to use this list", intro.map((paragraph) => "<p>" + paragraph + "</p>").join("\n") + '<p class="lede"><a href="/compare/">Spec comparisons</a> <a href="/black-friday/">Black Friday</a> <a href="/recalls/">Recall checks</a> <a href="/how-we-check/">How we check</a> <a href="/alternatives/">Alternatives</a> <a href="/worth-it/">Worth matching</a></p>')}
 </div>
 </main>
-<footer><div class="foot"><p>As an Amazon Associate I earn from qualifying purchases.</p></div></footer>
+<footer><div class="foot">${DISCLOSURE}</div></footer>
 <script src="/assets/site.js" defer></script>
 </body>
 </html>
@@ -2340,7 +2336,6 @@ ${bestJsonLd(type, picks.map((item) => item.product))}
 </script>
 </head>
 <body data-page="best">
-${DISCLOSURE}
 <div class="masthead"><header><a class="logo" href="/">CHECKED LAB</a></header>${nav(hubs[0])}</div>
 <main id="main">
 <div class="wrap prose">
@@ -2364,7 +2359,7 @@ ${faqs}
 <p class="lede"><a href="/best/">All buyer guides</a> ${hubLinks} <a href="/black-friday/">Black Friday</a> <a href="/gifts/">Gift guides</a> <a href="/recalls/">Recall checks</a> <a href="/how-we-check/">How we check</a> ${picks.map((item) => '<a href="' + card.productPath(item.product) + '">' + card.esc(item.product.title) + "</a>").join(" ")}</p>
 </div>
 </main>
-<footer><div class="foot"><p>As an Amazon Associate I earn from qualifying purchases.</p></div></footer>
+<footer><div class="foot">${DISCLOSURE}</div></footer>
 <script src="/assets/site.js" defer></script>
 </body>
 </html>
@@ -2415,7 +2410,6 @@ ${bestIndexJsonLd()}
 </script>
 </head>
 <body data-page="best">
-${DISCLOSURE}
 <div class="masthead"><header><a class="logo" href="/">CHECKED LAB</a></header>${nav("")}</div>
 <main id="main">
 <div class="wrap prose">
@@ -2435,7 +2429,7 @@ ${faqs}
 <p class="lede"><a href="/black-friday/">Black Friday</a> <a href="/gifts/">Gift guides</a> <a href="/compare/">Spec comparisons</a> <a href="/recalls/">Recall checks</a> <a href="/how-we-check/">How we check</a></p>
 </div>
 </main>
-<footer><div class="foot"><p>As an Amazon Associate I earn from qualifying purchases.</p></div></footer>
+<footer><div class="foot">${DISCLOSURE}</div></footer>
 <script src="/assets/site.js" defer></script>
 </body>
 </html>
@@ -2565,7 +2559,6 @@ ${explainerJsonLd(entry)}
 </script>
 </head>
 <body data-page="recalls">
-${DISCLOSURE}
 <div class="topbar"><span>● CHECKED LAB • EST 2026 • NO SPONSORS</span><span>hello@checkedlab.com • press@checkedlab.com • legal@checkedlab.com</span></div>
 <div class="masthead">
 <header>
@@ -2602,7 +2595,7 @@ ${productFold("official-notices", "What the notices say", '<p class="lede">' + c
 </main>
 <footer>
 <div class="foot">
-<p>As an Amazon Associate I earn from qualifying purchases.</p>
+${DISCLOSURE}
 <p>© 2026 CHECKED LAB<br>Winnipeg, MB</p>
 <p class="foot-mail"><a href="/recalls/">Recall checks</a><a href="/how-we-check/">How we check</a><a href="/bin-list/">BIN list</a><a href="mailto:hello@checkedlab.com">hello@</a><a href="mailto:support@checkedlab.com">support@</a><a href="mailto:press@checkedlab.com">press@</a><a href="mailto:legal@checkedlab.com">legal@</a></p>
 </div>
@@ -2657,7 +2650,6 @@ ${recallsJsonLd(ordered, date)}
 </script>
 </head>
 <body data-page="recalls">
-${DISCLOSURE}
 <div class="topbar"><span>● CHECKED LAB • EST 2026 • NO SPONSORS</span><span>hello@checkedlab.com • press@checkedlab.com • legal@checkedlab.com</span></div>
 <div class="masthead">
 <header>
@@ -2706,7 +2698,7 @@ ${categorySection(date)}
 </main>
 <footer>
 <div class="foot">
-<p>As an Amazon Associate I earn from qualifying purchases.</p>
+${DISCLOSURE}
 <p>© 2026 CHECKED LAB<br>Winnipeg, MB</p>
 <p class="foot-mail"><a href="/recalls/">Recall checks</a><a href="/how-we-check/">How we check</a><a href="/bin-list/">BIN list</a><a href="mailto:hello@checkedlab.com">hello@</a><a href="mailto:support@checkedlab.com">support@</a><a href="mailto:press@checkedlab.com">press@</a><a href="mailto:legal@checkedlab.com">legal@</a></p>
 </div>
@@ -2896,7 +2888,6 @@ ${blackFridayJsonLd(picked)}
 </script>
 </head>
 <body data-page="black-friday">
-${DISCLOSURE}
 <div class="topbar"><span>● CHECKED LAB • EST 2026 • NO SPONSORS</span><span>hello@checkedlab.com • press@checkedlab.com • legal@checkedlab.com</span></div>
 <div class="masthead">
 <header>
@@ -2938,7 +2929,7 @@ ${faqHtml}
 </main>
 <footer>
 <div class="foot">
-<p>As an Amazon Associate I earn from qualifying purchases.</p>
+${DISCLOSURE}
 <p>© 2026 CHECKED LAB<br>Winnipeg, MB</p>
 ${SEASON_FOOT}
 </div>
@@ -2954,7 +2945,7 @@ ${SEASON_FOOT}
 }
 
 function assertBlackFriday(html) {
-  if (!html.includes(DISCLOSURE)) throw new Error("Black Friday disclosure missing");
+  assertFooterDisclosure(html, "Black Friday disclosure missing");
   if (!html.includes('<link rel="canonical" href="' + ORIGIN + BF_PATH + '">')) throw new Error("Black Friday canonical");
   if (!html.includes("<title>" + BF_TITLE + " — Checked Lab</title>")) throw new Error("Black Friday title");
   if (!html.includes('name="description" content="' + BF_DESC + '"')) throw new Error("Black Friday description");
@@ -3365,7 +3356,6 @@ ${jsonLd}
 </script>
 </head>
 <body data-page="gifts">
-${DISCLOSURE}
 <div class="topbar"><span>● CHECKED LAB • EST 2026 • NO SPONSORS</span><span>hello@checkedlab.com • press@checkedlab.com • legal@checkedlab.com</span></div>
 <div class="masthead">
 <header>
@@ -3394,7 +3384,7 @@ ${mainHtml}
 </main>
 <footer>
 <div class="foot">
-<p>As an Amazon Associate I earn from qualifying purchases.</p>
+${DISCLOSURE}
 <p>© 2026 CHECKED LAB<br>Winnipeg, MB</p>
 ${SEASON_FOOT}
 </div>
@@ -3738,7 +3728,6 @@ ${jsonLd}
 </script>
 </head>
 <body data-page="winter-safety">
-${DISCLOSURE}
 <div class="topbar"><span>● CHECKED LAB • EST 2026 • NO SPONSORS</span><span>hello@checkedlab.com • press@checkedlab.com • legal@checkedlab.com</span></div>
 <div class="masthead">
 <header>
@@ -3767,7 +3756,7 @@ ${mainHtml}
 </main>
 <footer>
 <div class="foot">
-<p>As an Amazon Associate I earn from qualifying purchases.</p>
+${DISCLOSURE}
 <p>© 2026 CHECKED LAB<br>Winnipeg, MB</p>
 ${SEASON_FOOT}
 </div>
@@ -4201,7 +4190,6 @@ ${jsonLd}
 </script>
 </head>
 <body data-page="toy-safety">
-${DISCLOSURE}
 <div class="topbar"><span>● CHECKED LAB • EST 2026 • NO SPONSORS</span><span>hello@checkedlab.com • press@checkedlab.com • legal@checkedlab.com</span></div>
 <div class="masthead">
 <header>
@@ -4231,7 +4219,7 @@ ${mainHtml}
 </main>
 <footer>
 <div class="foot">
-<p>As an Amazon Associate I earn from qualifying purchases.</p>
+${DISCLOSURE}
 <p>© 2026 CHECKED LAB<br>Winnipeg, MB</p>
 ${SEASON_FOOT}
 </div>
@@ -4484,7 +4472,6 @@ ${jsonLd}
 </script>
 </head>
 <body data-page="thanksgiving">
-${DISCLOSURE}
 <div class="topbar"><span>● CHECKED LAB • EST 2026 • NO SPONSORS</span><span>hello@checkedlab.com • press@checkedlab.com • legal@checkedlab.com</span></div>
 <div class="masthead">
 <header>
@@ -4514,7 +4501,7 @@ ${mainHtml}
 </main>
 <footer>
 <div class="foot">
-<p>As an Amazon Associate I earn from qualifying purchases.</p>
+${DISCLOSURE}
 <p>© 2026 CHECKED LAB<br>Winnipeg, MB</p>
 ${SEASON_FOOT}
 </div>
@@ -4839,7 +4826,7 @@ function writeGifts() {
 
 function assertGiftShell(html, url, title, description) {
   const titled = title + " — Checked Lab";
-  if (!html.includes(DISCLOSURE)) throw new Error("Gift disclosure missing " + url);
+  assertFooterDisclosure(html, "Gift disclosure missing " + url);
   if (!html.includes('<link rel="canonical" href="' + url + '">')) throw new Error("Gift canonical " + url);
   if (!html.includes("<title>" + card.esc(titled) + "</title>")) throw new Error("Gift title " + url);
   if (!html.includes('name="description" content="' + card.esc(description) + '"')) throw new Error("Gift description " + url);
@@ -5087,7 +5074,6 @@ ${FONT_PRELOAD}
 <meta name="theme-color" content="#1F4D3A">
 </head>
 <body data-page="credits">
-${DISCLOSURE}
 <div class="masthead"></div>
 <main id="main">
 <div class="wrap prose">
@@ -5758,6 +5744,29 @@ function assertImageUse() {
   console.log("Image check: no page repeats a file, no hero file exceeds 3 pages.");
 }
 
+function assertFooterDisclosure(html, message) {
+  const count = html.split(DISCLOSURE).length - 1;
+  const footer = html.match(/<footer>[\s\S]*?<\/footer>/);
+  if (count !== 1 || !footer || !footer[0].includes(DISCLOSURE)) throw new Error(message);
+  if (/Affiliate disclosure\.|I earn from qualifying|earn us nothing/.test(html)) throw new Error(message);
+}
+
+function assertEveryPageDisclosure() {
+  const files = [];
+  const walk = (dir) => {
+    for (const entry of readdirSync(dir)) {
+      if (entry.startsWith(".") || entry === "dist" || entry === "node_modules" || entry === "scripts" || entry === "data") continue;
+      const full = join(dir, entry);
+      if (statSync(full).isDirectory()) walk(full);
+      else if (entry.endsWith(".html")) files.push(full);
+    }
+  };
+  walk(root);
+  for (const file of files) {
+    assertFooterDisclosure(readFileSync(file, "utf8"), "Disclosure missing on " + file.slice(root.length));
+  }
+}
+
 function verifyOutput(pages) {
   assertImageUse();
   for (const hub of HUBS) {
@@ -5769,7 +5778,7 @@ function verifyOutput(pages) {
     expected.forEach((markup, index) => {
       if (found[index] !== markup) throw new Error(hub + " card " + index + " does not match card()");
     });
-    if (!html.includes(DISCLOSURE)) throw new Error(hub + " disclosure changed");
+    assertFooterDisclosure(html, hub + " disclosure changed");
     if (/not tested/i.test(html)) throw new Error(hub + " still says not tested");
     if (/older cards/i.test(html)) throw new Error(hub + " still mentions older cards");
   }
@@ -5963,12 +5972,13 @@ function verifyOutput(pages) {
   assertUniqueMeta();
   assertNoOrphans();
   assertBestPages();
+  assertEveryPageDisclosure();
 }
 
 function assertProductSeo(html, product) {
   const title = pageTitle(product);
   if (!html.includes("<title>" + card.esc(title) + "</title>")) throw new Error("Title template on " + product.id);
-  if (!html.includes(DISCLOSURE)) throw new Error("Disclosure missing on " + product.id);
+  assertFooterDisclosure(html, "Disclosure missing on " + product.id);
   if (!html.includes('<h2 class="recall-q" id="is-it-recalled">Is the ' + card.esc(product.title) + " recalled?</h2>")) {
     throw new Error("Recall H2 missing on " + product.id);
   }
