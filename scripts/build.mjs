@@ -241,6 +241,18 @@ for (const hub of HUBS) {
     const end = html.indexOf("</p>", at);
     html = html.slice(0, end) + ' <a href="' + href + '">' + card.esc(entry.linkLabel) + "</a>" + html.slice(end);
   }
+  const hubAnchors = explainers.filter((entry) => entry.hub === hub).map((entry) => ["/recalls/" + entry.slug + "/", entry.linkLabel])
+    .concat(editorial.alternatives.filter((entry) => entry.hub === hub).map((entry) => ["/alternatives/" + entry.slug + "/", entry.linkLabel]))
+    .concat(editorial.worth.filter((entry) => entry.hub === hub).map((entry) => ["/worth-it/" + entry.slug + "/", entry.linkLabel]))
+    .concat(editorial.season.filter((entry) => entry.hub === hub).map((entry) => ["/black-friday/" + entry.slug + "/", entry.linkLabel]));
+  for (const [href, label] of hubAnchors) {
+    if (html.includes('href="' + href + '"')) continue;
+    const needle = "Recall checks</a> for " + card.esc(HUB_NAME[hub]) + " models.";
+    const at = html.indexOf(needle);
+    if (at < 0) throw new Error("Hub lede missing for " + hub + " " + href);
+    const end = html.indexOf("</p>", at);
+    html = html.slice(0, end) + ' <a href="' + href + '">' + card.esc(label) + "</a>" + html.slice(end);
+  }
   html = appendBestLinks(html, "Recall checks</a> for " + card.esc(HUB_NAME[hub]) + " models.", byHub.get(hub).map((product) => product.id));
   if (hub === "winter" && !html.includes('href="/winter-safety/"')) {
     const needle = "Recall checks</a> for Winter models.";
@@ -1216,10 +1228,21 @@ function catalogueHtml(entry) {
   const compareLinks = compares.filter((item) => (item.explainers || []).includes(entry.slug)).map((item) =>
     '<a href="/compare/' + item.slug + '/">' + card.esc(item.linkLabel) + "</a>"
   ).join(" ");
+  const also = (entry.also || []).map((slug) => {
+    const other = explainers.find((item) => item.slug === slug);
+    if (!other) throw new Error("Explainer also missing " + slug + " from " + entry.slug);
+    return '<a href="/recalls/' + slug + '/">' + card.esc(other.linkLabel) + "</a>";
+  }).join(" ");
+  const more = (entry.more || []).map((link) => {
+    if (!link || typeof link.href !== "string" || !link.href.startsWith("/") || !link.label) {
+      throw new Error("Explainer more link must be internal: " + entry.slug);
+    }
+    return '<a href="' + card.esc(link.href) + '">' + card.esc(link.label) + "</a>";
+  }).join(" ");
   return '<div class="pick-grid">' + cards + "</div>" +
     productFold("catalogue-lines", "Checked Lab catalogue", "<p>" + card.esc(entry.catalogue) + "</p><ul>" + lines + "</ul>" +
-    '<p class="lede"><a href="/recalls/">All recall checks</a> <a href="/' + entry.hub + '/">' + card.esc(HUB_NAME[entry.hub]) + "</a> <a href=\"/how-we-check/\">How we check</a>" +
-    (compareLinks ? " " + compareLinks : "") + "</p>");
+    '<p class="lede"><a href="/recalls/">All recall checks</a> <a href="/black-friday/">Black Friday</a> <a href="/' + entry.hub + '/">' + card.esc(HUB_NAME[entry.hub]) + "</a> <a href=\"/how-we-check/\">How we check</a>" +
+    (compareLinks ? " " + compareLinks : "") + (also ? " " + also : "") + (more ? " " + more : "") + "</p>");
 }
 
 function sharedSpecRows(left, right) {
@@ -1498,6 +1521,7 @@ function writeCompares() {
         '<a href="/compare/' + other.slug + '/">' + card.esc(other.linkLabel) + "</a>"
       ).join(" ") + ".</p>"
       : "";
+    const crossHtml = anchorsForIds(entry.products).join(" ");
     const url = ORIGIN + "/compare/" + entry.slug + "/";
     const html = `<!DOCTYPE html>
 <html lang="en" data-region="US">
@@ -1560,7 +1584,7 @@ ${entry.verdict ? verdictBlock(entry, pair) + "\n" : ""}<div class="compare-wrap
 ${entry.verdict ? "" : pickPair(entry, pair)}
 <nav class="toc" aria-label="Jump to"><p>Jump to</p><a href="#how-to-read">How to read this</a><a href="#recall-check">Recall check</a><a href="#stores">Stores</a></nav>
 ${productFold("how-to-read", "How to read this", '<p class="lede">' + card.esc(entry.description) + "</p><p>Each line below is copied from that model’s maker page. The Source link opens that page. A spec that only one card lists is left out of the table. Recall lines use the " + card.esc(recalls.checkedAt) + " (UTC) catalogue check.</p>" + fit + (sections ? "\n" + sections : "") + (entry.verdict ? unmatchedSpecHtml(pair, rows) : "") + (relatedHtml ? "\n" + relatedHtml : ""))}
-${productFold("recall-check", "Recall check", recallsHtml + '<p class="lede"><a href="/compare/">All comparisons</a> ' + (entry.verdict ? '<a href="/black-friday/">Black Friday</a> ' : "") + '<a href="/recalls/">All recall checks</a> <a href="/' + entry.hub + '/">' + card.esc(HUB_NAME[entry.hub]) + '</a> <a href="/how-we-check/">How we check</a> ' + pair.map(sideAnchor).join(" ") + "</p>")}
+${productFold("recall-check", "Recall check", recallsHtml + '<p class="lede"><a href="/compare/">All comparisons</a> ' + (entry.verdict ? '<a href="/black-friday/">Black Friday</a> ' : "") + '<a href="/recalls/">All recall checks</a> <a href="/' + entry.hub + '/">' + card.esc(HUB_NAME[entry.hub]) + '</a> <a href="/how-we-check/">How we check</a> ' + pair.map(sideAnchor).join(" ") + (crossHtml ? " " + crossHtml : "") + "</p>")}
 ${productFold("stores", "Stores", stores("US", "United States stores") + stores("CA", "Canadian stores"))}
 </div>
 </main>
@@ -1749,9 +1773,17 @@ function editorialHubLinks(hub) {
   return links;
 }
 
+function editorialLists() {
+  return [
+    ["alternatives", editorial.alternatives],
+    ["worth-it", editorial.worth],
+    ["black-friday", editorial.season]
+  ];
+}
+
 function editorialLinksForProduct(product) {
   const links = [];
-  for (const [section, list] of [["alternatives", editorial.alternatives], ["worth-it", editorial.worth], ["black-friday", editorial.season]]) {
+  for (const [section, list] of editorialLists()) {
     for (const entry of list) {
       const ids = [entry.subject, ...(entry.others || [])];
       if (!ids.includes(product.id)) continue;
@@ -1759,6 +1791,48 @@ function editorialLinksForProduct(product) {
     }
   }
   return links;
+}
+
+function anchorsForIds(ids) {
+  const set = new Set(ids || []);
+  const links = [];
+  const seen = new Set();
+  const add = (href, label) => {
+    if (seen.has(href)) return;
+    seen.add(href);
+    links.push('<a href="' + href + '">' + card.esc(label) + "</a>");
+  };
+  for (const [section, list] of editorialLists()) {
+    for (const entry of list) {
+      const mine = [entry.subject, ...(entry.others || [])];
+      if (!mine.some((id) => set.has(id))) continue;
+      add("/" + section + "/" + entry.slug + "/", entry.linkLabel);
+    }
+  }
+  for (const entry of explainers) {
+    if (!(entry.products || []).some((id) => set.has(id))) continue;
+    add("/recalls/" + entry.slug + "/", entry.linkLabel);
+  }
+  return links;
+}
+
+function seeAlsoHtml(entry) {
+  const refs = entry.seeAlso || [];
+  if (!refs.length) return "";
+  const links = refs.map((ref) => {
+    if (!ref || !ref.section || !ref.slug) throw new Error("Bad seeAlso on " + entry.slug);
+    if (ref.section === "recalls") {
+      const other = explainers.find((item) => item.slug === ref.slug);
+      if (!other) throw new Error("seeAlso recall missing " + ref.slug + " from " + entry.slug);
+      return '<a href="/recalls/' + ref.slug + '/">' + card.esc(other.linkLabel) + "</a>";
+    }
+    const list = editorialLists().find((pair) => pair[0] === ref.section);
+    const other = list && list[1].find((item) => item.slug === ref.slug);
+    if (!other) throw new Error("seeAlso missing " + ref.section + "/" + ref.slug);
+    return '<a href="/' + ref.section + "/" + ref.slug + '/">' + card.esc(other.linkLabel) + "</a>";
+  });
+  if (links.length < 2) throw new Error("seeAlso needs two pages: " + entry.slug);
+  return '<p class="lede">Related pages: ' + links.join(" ") + ".</p>";
 }
 
 function editorialIndexBlock() {
@@ -1918,7 +1992,7 @@ ${sceneBlock("compare")}
 ${picks}
 <nav class="toc" aria-label="Jump to"><p>Jump to</p><a href="#read-lines">The maker lines</a><a href="#recall-check">Recall check</a><a href="#stores">Stores</a></nav>
 ${productFold("read-lines", "The maker lines", '<p class="lede">' + card.esc(entry.description) + "</p><p>Each spec line is copied from that model’s maker page. The Source link opens that page. Recall lines use the " + card.esc(recalls.checkedAt) + " (UTC) catalogue check.</p>" + pair.map(editorialSpecBlock).join("\n") + sections)}
-${productFold("recall-check", "Recall check", recallsHtml + '<p class="lede"><a href="/' + section + '/">' + card.esc(crumb) + '</a> <a href="/' + entry.hub + '/">' + card.esc(HUB_NAME[entry.hub]) + '</a> <a href="/compare/">Spec comparisons</a> <a href="/black-friday/">Black Friday</a> <a href="/recalls/">Recall checks</a> <a href="/how-we-check/">How we check</a> ' + bestTypesForIds(pair.map((product) => product.id)).map(bestAnchor).join(" ") + " " + pair.map((product) => '<a href="' + card.productPath(product) + '">' + card.esc(product.title) + "</a>").join(" ") + "</p>" + relatedHtml)}
+${productFold("recall-check", "Recall check", recallsHtml + '<p class="lede"><a href="/' + section + '/">' + card.esc(crumb) + '</a> <a href="/' + entry.hub + '/">' + card.esc(HUB_NAME[entry.hub]) + '</a> <a href="/compare/">Spec comparisons</a> <a href="/black-friday/">Black Friday</a> <a href="/recalls/">Recall checks</a> <a href="/how-we-check/">How we check</a> ' + bestTypesForIds(pair.map((product) => product.id)).map(bestAnchor).join(" ") + " " + pair.map((product) => '<a href="' + card.productPath(product) + '">' + card.esc(product.title) + "</a>").join(" ") + "</p>" + relatedHtml + seeAlsoHtml(entry))}
 ${productFold("stores", "Stores", stores("US", "United States stores") + stores("CA", "Canadian stores"))}
 </div>
 </main>
@@ -2525,9 +2599,9 @@ function assertBestPages() {
 }
 
 function writeEditorial() {
-  if (editorial.alternatives.length !== 3) throw new Error("Expected three alternatives pages");
-  if (editorial.worth.length !== 3) throw new Error("Expected three worth-it pages");
-  if (editorial.season.length !== 6) throw new Error("Expected six Black Friday model pages");
+  if (editorial.alternatives.length !== 5) throw new Error("Expected five alternatives pages");
+  if (editorial.worth.length !== 5) throw new Error("Expected five worth-it pages");
+  if (editorial.season.length !== 9) throw new Error("Expected nine Black Friday model pages");
   for (const entry of editorial.alternatives) writeEditorialPage(entry, "alternatives", "Alternatives");
   for (const entry of editorial.worth) writeEditorialPage(entry, "worth-it", "Worth matching");
   for (const entry of editorial.season) writeEditorialPage(entry, "black-friday", "Black Friday");
@@ -2541,12 +2615,22 @@ function writeEditorial() {
   ], editorial.worth);
 }
 
+function roundupTable(entry) {
+  if (!entry.tableHeading) throw new Error("Roundup needs a table heading: " + entry.slug);
+  const rows = entry.notices.map((notice) => {
+    if (!notice.hazard || !notice.product) throw new Error("Roundup notice needs product and hazard: " + entry.slug);
+    return "<tr><td>" + card.esc(notice.date) + "</td><td>" + card.esc(notice.product) + "</td><td>" + card.esc(notice.models.join(", ")) + "</td><td>" + card.esc(notice.hazard) + "</td><td>" + card.esc(notice.remedy) + "</td><td><a href=\"" + href(notice.url) + "\" target=\"_blank\" rel=\"noopener\">" + card.esc(notice.agency) + " notice</a></td></tr>";
+  }).join("");
+  return "<h2>" + card.esc(entry.tableHeading) + "</h2><div class=\"compare-wrap\"><table class=\"compare\"><thead><tr><th>Date</th><th>Product</th><th>Model numbers</th><th>Hazard</th><th>What the notice tells owners</th><th>Notice</th></tr></thead><tbody>" + rows + "</tbody></table></div>";
+}
+
 function writeExplainers() {
-  if (explainers.length !== 8) throw new Error("Expected eight explainer pages");
+  if (explainers.length !== 10) throw new Error("Expected ten explainer pages");
   const slugs = new Set();
   for (const entry of explainers) {
     if (!/^[a-z0-9-]+$/.test(entry.slug) || slugs.has(entry.slug)) throw new Error("Bad explainer slug");
     slugs.add(entry.slug);
+    if (entry.roundup && entry.notices.length < 2) throw new Error("Roundup has fewer than two notices: " + entry.slug);
     const url = ORIGIN + "/recalls/" + entry.slug + "/";
     const html = `<!DOCTYPE html>
 <html lang="en" data-region="US">
@@ -2601,6 +2685,7 @@ ${sceneBlock("recalls")}
 </nav>
 <h1>${card.esc(entry.title)}</h1>
 <p class="sub">${card.esc(entry.description.split(/(?<=\.)\s/)[0])}</p>
+${entry.roundup ? roundupTable(entry) : ""}
 ${catalogueHtml(entry)}
 ${productFold("official-notices", "What the notices say", '<p class="lede">' + card.esc(entry.description) + " Catalogue lines below use the " + card.esc(recalls.checkedAt) + " (UTC) check.</p>" + entry.notices.map(noticeHtml).join("\n"))}
 </div>
@@ -3489,6 +3574,7 @@ function giftGuideHtml(guide, picks, grouped) {
       giftJumps(guides, guide.slug) +
       compareLinksForGuide(guide) +
       bestLede(picks.map((product) => product.id)) +
+      (anchorsForIds(guide.products).length ? '<p class="lede">' + anchorsForIds(guide.products).join(" ") + "</p>" : "") +
       '<p class="lede"><a href="/gifts/">All gift guides</a></p>');
   const jsonLd = giftJson(
     url,
@@ -3970,7 +4056,7 @@ function kidsGuideHtml(guide, grouped) {
   const main = sceneBlock("gifts") + giftCrumbs(guide.h1) +
     "<h1>" + card.esc(guide.h1) + "</h1>" +
     '<p class="lede">' + card.esc(guide.description) + "</p>" +
-    '<p>Each line names a widely sold kids product and the official check to do. The button opens the Amazon search for the words under it. It is not a product page. <a href="/toy-safety/">Toy safety</a> covers <a href="/toy-safety/button-coin-batteries/">button and coin batteries</a>, <a href="/toy-safety/magnets/">magnets</a>, <a href="/toy-safety/water-beads/">water beads</a>, and <a href="/toy-safety/ride-ons-and-scooters/">ride-ons and scooters</a>. <a href="/how-we-check/">How we check</a> says what a dated catalogue line means.</p>' +
+    '<p>Each line names a widely sold kids product and the official check to do. The button opens the Amazon search for the words under it. It is not a product page. <a href="/toy-safety/">Toy safety</a> covers <a href="/toy-safety/button-coin-batteries/">button and coin batteries</a>, <a href="/toy-safety/magnets/">magnets</a>, <a href="/toy-safety/water-beads/">water beads</a>, and <a href="/toy-safety/ride-ons-and-scooters/">ride-ons and scooters</a>. <a href="/how-we-check/">How we check</a> says what a dated catalogue line means. The catalogue ice cream maker has its own model check: <a href="/black-friday/ninja-creami/">Ninja Creami Black Friday model check</a>.</p>' +
     compareLinksForGuide(guide) +
     giftJumps(guides, guide.slug) +
     '<section class="pick-grid">\n' + picks + "\n</section>" +
@@ -4016,7 +4102,7 @@ function hostGuideHtml(guide, grouped) {
   const main = sceneBlock("gifts") + giftCrumbs(guide.h1) +
     "<h1>" + card.esc(guide.h1) + "</h1>" +
     '<p class="lede">' + card.esc(guide.description) + "</p>" +
-    '<p>Each line names a widely sold hosting tool and the official check to do. The button opens the Amazon search for the words under it. It is not a product page. <a href="/thanksgiving/">Thanksgiving and holiday hosting</a> covers <a href="/thanksgiving/turkey-fryers/">turkey fryers</a>, <a href="/thanksgiving/pressure-cookers/">pressure cookers</a>, <a href="/thanksgiving/turkey-temperatures/">turkey temperatures</a>, and <a href="/thanksgiving/kitchen-fires/">kitchen fires</a>. <a href="/how-we-check/">How we check</a> says what a dated catalogue line means.</p>' +
+    '<p>Each line names a widely sold hosting tool and the official check to do. The button opens the Amazon search for the words under it. It is not a product page. <a href="/thanksgiving/">Thanksgiving and holiday hosting</a> covers <a href="/thanksgiving/turkey-fryers/">turkey fryers</a>, <a href="/thanksgiving/pressure-cookers/">pressure cookers</a>, <a href="/thanksgiving/turkey-temperatures/">turkey temperatures</a>, and <a href="/thanksgiving/kitchen-fires/">kitchen fires</a>. <a href="/how-we-check/">How we check</a> says what a dated catalogue line means. The rice cooker card has its own spec match: <a href="/worth-it/zojirushi-ns-zcc10/">Zojirushi rice cooker spec match</a>.</p>' +
     giftJumps(guides, guide.slug) +
     '<section class="pick-grid">\n' + picks + "\n</section>" +
     '<p class="lede"><a href="/gifts/">All gift guides</a></p>' +

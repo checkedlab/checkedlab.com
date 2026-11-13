@@ -97,6 +97,102 @@
           ]
         }
       ]
+    },
+    {
+      "slug": "irobot-roomba-combo-j9-plus",
+      "linkLabel": "Combo j9+ alternatives",
+      "title": "Roomba alternatives in this catalogue",
+      "description": "Combo j9+ robot and dock lines, next to Qrevo S, X10 Pro Omni, and Shark AV2501S. Each figure stays in the units on that maker page.",
+      "hub": "cleaning",
+      "subject": "irobot-roomba-combo-j9-plus",
+      "others": [
+        "roborock-qrevo-s",
+        "eufy-x10-pro-omni",
+        "shark-av2501s"
+      ],
+      "seeAlso": [
+        {
+          "section": "alternatives",
+          "slug": "sony-wh-1000xm5"
+        },
+        {
+          "section": "black-friday",
+          "slug": "levoit-air-purifiers"
+        }
+      ],
+      "sections": [
+        {
+          "heading": "What the Combo j9+ card states",
+          "paragraphs": [
+            "The Combo j9+ page states a robot weight of 8.9 lb, robot dimensions of 3.4 x 13.7 x 13.7 in, a battery line of Lithium-ion, dock dimensions of 15.8 in W x 16.4 in D x 16.3 in H, and a dock weight of 21.9 lb. The model string on that page is C975020. An alternative here is another robot vacuum already on the cleaning list, with its own maker lines beside those five.",
+            "The Qrevo S page states suction of 7,000 Pa, robot dimensions of 13.78 x 13.9 x 3.80 in, dock dimensions of 13.38 x 19.17 x 20.51 in, mop speed of 200 RPM, a battery of 14.4 V/5200 mAh lithium-ion, and a charge time of Approx. 4 hours. The X10 Pro Omni page states suction of 8,000 Pa, a run time of 173 min vacuum, or 136 min vacuum and mop, on standard, robot dimensions of 327 mm x 353 mm x 113.5 mm, a robot weight of 4,560 g, and a dustbin of 330 ml. The AV2501S page states a weight of 14.77 lbs, a cleaning path of 5.7 in, dimensions of 15.35 in L x 12.01 in W x 17.72 in H, a dust cup of 0.1 qt, voltage of 120 volts, and wattage of 650 watts."
+          ]
+        },
+        {
+          "heading": "Pick by the line you can place",
+          "paragraphs": [
+            "Pick the Combo j9+ if the listing is C975020 and you are matching a robot of 8.9 lb at 3.4 x 13.7 x 13.7 in, plus a dock of 15.8 in W x 16.4 in D x 16.3 in H that weighs 21.9 lb. The battery line says lithium-ion. It does not state a milliamp hour or a run time. A listing that says Roomba, or robot vacuum, still has to show C975020 if this is the card you mean.",
+            "Pick the Qrevo S if the suction line you are matching is 7,000 Pa, the mop line is 200 RPM, and the charge line is Approx. 4 hours. The dock on that page is 13.38 x 19.17 x 20.51 in. The Combo j9+ dock height line is 16.3 in H. Those are different sentences. The Qrevo battery line names 14.4 V/5200 mAh lithium-ion. This page does not convert that into the Combo j9+ battery sentence.",
+            "Pick the X10 Pro Omni if the suction line is 8,000 Pa or the run-time sentence is 173 min vacuum, or 136 min vacuum and mop, on standard. The robot weight is 4,560 g and the dimensions are 327 mm x 353 mm x 113.5 mm. The dustbin line is 330 ml. Grams, millimetres, and millilitres are the units on that card. The Combo j9+ card uses pounds and inches. Leave each figure in the units printed with it.",
+            "Pick the AV2501S if you are matching 14.77 lbs, a cleaning path of 5.7 in, and a dust cup of 0.1 qt. The dimension line is 15.35 in L x 12.01 in W x 17.72 in H. The electrical lines are 120 volts and 650 watts. That card does not print a pascal figure. A watt line is not a pascal line, and this page does not treat them as the same claim."
+          ]
+        },
+        {
+          "heading": "Robot weight and dock weight stay apart",
+          "paragraphs": [
+            "The Combo j9+ card prints the robot and the dock as separate weights, 8.9 lb and 21.9 lb. This page does not add them into one figure. The Qrevo S card prints robot dimensions and dock dimensions and does not print a robot weight. The X10 card prints a robot weight in grams and a dustbin in millilitres. The AV2501S card prints one weight, 14.77 lbs, on a dimension line that is taller than the Combo j9+ robot height of 3.4 in. Read the sentence that names the part you are placing.",
+            "Qrevo S, X10 Pro Omni, and AV2501S are different model strings from C975020. The recall block below is the catalogue match for each of the four cards. Open the model page for the feed link, and search the model on CPSC Recalls and on Health Canada recalls and safety alerts before you buy. A brand name in a listing title is not the model string on the card."
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "sony-wh-1000xm5",
+      "linkLabel": "WH-1000XM5 alternatives",
+      "title": "Sony XM5 alternatives in this catalogue",
+      "description": "WH-1000XM5 battery, weight, and charge lines, next to QuietComfort Ultra, AirPods Pro 3, and OpenRun Pro 2. Units stay as each maker printed them.",
+      "hub": "personal-tech",
+      "subject": "sony-wh-1000xm5",
+      "others": [
+        "bose-qc-ultra",
+        "airpods-pro-3",
+        "shokz-openrun-pro-2"
+      ],
+      "seeAlso": [
+        {
+          "section": "alternatives",
+          "slug": "irobot-roomba-combo-j9-plus"
+        },
+        {
+          "section": "black-friday",
+          "slug": "airpods-pro-3"
+        }
+      ],
+      "sections": [
+        {
+          "heading": "What the XM5 card states",
+          "paragraphs": [
+            "The Sony card states model WH-1000XM5, battery life of Max. 30 hours with noise cancelling on, max. 40 hours with it off, noise cancelling described as 2 processors control 8 microphones, connection of Multipoint, a weight of Approx. 8.82 oz, and a charge time of Approx. 3.5 hours. An alternative on this page is another personal-tech card with a battery or play-time line you can read next to those sentences. Two of them are not over-ear headband headphones.",
+            "The QuietComfort Ultra page states battery of Up to 24 hours, modes of Quiet, Aware, and Immersion, Bluetooth of Multipoint, two devices, audio of Bose Immersive Audio, a weight of 0.56 lb, and a charge time of 3 hours. The AirPods Pro 3 page states listening of Up to 8 hours with Active Noise Cancellation, transparency of Up to 10 hours with the Hearing Aid feature, a sensor line of Heart rate, a hearing line of Hearing Aid feature, play time of Up to 8 hours with Active Noise Cancellation, and a rating of IP57. The OpenRun Pro 2 page states play time of Up to 12 hours, a quick-charge line of 5 minutes for about 150 minutes at 75% volume, drivers of Dual, and a rating of IP55."
+          ]
+        },
+        {
+          "heading": "Pick the battery sentence, then the form",
+          "paragraphs": [
+            "Pick the WH-1000XM5 if the listing shows that model and you are matching Max. 30 hours with noise cancelling on, max. 40 hours with it off, a weight of Approx. 8.82 oz, and a charge time of Approx. 3.5 hours. The microphone sentence is 2 processors control 8 microphones. The connection line says multipoint. A listing that says Sony headphones, or 1000X, still has to show WH-1000XM5 if this is the card.",
+            "Pick the QuietComfort Ultra if you are matching Up to 24 hours, a charge time of 3 hours, and modes named Quiet, Aware, and Immersion. The weight on that page is 0.56 lb. The Sony weight is in ounces. This page does not convert ounces into pounds. A shorter stated charge time is the Bose line. A longer stated playback line with noise cancelling on is the Sony line. Multipoint is on both cards, and the Bose card adds two devices.",
+            "Pick the AirPods Pro 3 if you are matching in-ear listening of Up to 8 hours with Active Noise Cancellation, the same Up to 8 hours with Active Noise Cancellation play-time line, a rating of IP57, and the hearing line that says Hearing Aid feature. The transparency line is Up to 10 hours with the Hearing Aid feature. The sensor line says Heart rate. Those sentences are not on the WH-1000XM5 card. Eight hours and thirty hours are different playback lines.",
+            "Pick the OpenRun Pro 2 if you are matching open-ear play time of Up to 12 hours, a rating of IP55, and the quick-charge sentence 5 minutes for about 150 minutes at 75% volume. The driver line says Dual. That card is not a headband headphone and it is not an in-ear bud. A 12 hour line sits between the AirPods play-time line and the Sony noise-cancelling line, and it is still its own sentence."
+          ]
+        },
+        {
+          "heading": "Do not collapse the form factor",
+          "paragraphs": [
+            "WH-1000XM5 and QuietComfort Ultra are over-ear cards with weight and charge lines. AirPods Pro 3 is an in-ear card with a listening line, a hearing line, and IP57. OpenRun Pro 2 is an open-ear card with IP55 and a quick-charge line. A shared idea of battery life is not a shared label. Read the hours on the page for the form you are actually buying.",
+            "The recall block is the catalogue match for each of the four cards. Confirm the model printed on the box. WH-1000XM5, QuietComfort Ultra, AirPods Pro 3, and OpenRun Pro 2 are four model strings. The comparison page for Sony and Bose repeats only the labels both of those cards share."
+          ]
+        }
+      ]
     }
   ],
   "worth": [
@@ -180,6 +276,97 @@
             "Pick the WH-1000XM5 if the battery line you are matching is max. 30 hours with noise cancelling on, or max. 40 hours with it off, and the weight line you are matching is about 8.82 oz. The charge line that goes with that page is about 3.5 hours. Pick it if the microphone sentence, 2 processors and 8 microphones, is the noise-cancelling description you meant.",
             "Pick the QuietComfort Ultra if the battery line you are matching is up to 24 hours, the charge line is 3 hours, and the mode line names Quiet, Aware, and Immersion. A shorter stated charge time is the Bose line. A longer stated playback line with noise cancelling on is the Sony line. Multipoint appears on both cards, with the Bose card adding “two devices.”",
             "Neither card is a US or Canadian recall match on the catalogue date below. Confirm WH-1000XM5 on the box if that is the model you are buying. The Bose card is a different model with its own battery sentence. The comparison page for this pair repeats only the labels both cards share, which are battery, weight, and charge time, and it leaves the microphone line and the mode line on the separate cards."
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "zojirushi-ns-zcc10",
+      "linkLabel": "NS-ZCC10 spec match",
+      "title": "Is the Zojirushi rice cooker worth matching",
+      "description": "NS-ZCC10 capacity, cabinet, and wattage, next to the Duo Plus list that includes rice. Worth matching is a spec fit, not a price.",
+      "hub": "kitchen",
+      "subject": "zojirushi-ns-zcc10",
+      "others": [
+        "instant-pot-duo-plus"
+      ],
+      "seeAlso": [
+        {
+          "section": "worth-it",
+          "slug": "breville-bes870xl"
+        },
+        {
+          "section": "black-friday",
+          "slug": "ninja-creami"
+        }
+      ],
+      "sections": [
+        {
+          "heading": "The question is which lines fit the pot",
+          "paragraphs": [
+            "Worth matching, on this page, means the maker’s lines describe the rice pot you are trying to place. It is not a price verdict. The NS-ZCC10 page states a capacity of Up to 5.5 cups / 1.0 liter, dimensions of 10-1/8 x 13 x 8-1/8 inches, electrical of 120 volts / 680 watts, and origin of Made in Japan. Those four lines are the card. A listing that says Zojirushi, or rice cooker, still has to show NS-ZCC10 if these are the lines you mean.",
+            "This catalogue has no Tiger rice cooker card, so there is no Tiger capacity line to put beside the 5.5 cup line. The kitchen card that names rice is the Duo Plus. Its function list is Pressure cook, slow cook, sauté, sous vide, steam, sterilize, keep warm, rice, and yogurt. It also states a capacity of 6 quart, power of 1,000 W, 120 V, 60 Hz, cleanup of Dishwasher-safe, and dimensions of 12.2 L x 13.4 W x 12.9 H in. Rice is one name in that function list. It is not a dedicated rice-cooker capacity in cups."
+          ]
+        },
+        {
+          "heading": "Pick the cup line or the function list",
+          "paragraphs": [
+            "Pick the NS-ZCC10 if you are matching a rice cooker, the capacity line is Up to 5.5 cups / 1.0 liter, the cabinet is 10-1/8 x 13 x 8-1/8 inches, and the electrical line is 120 volts / 680 watts. The origin line says Made in Japan. The height in that dimension line is 8-1/8 inches. That is the vertical figure to hold against the space under a cabinet.",
+            "Pick the Duo Plus if you are matching a 6 quart multi-cooker whose function list includes rice among pressure cook, slow cook, sauté, and the other names on that page, at 1,000 W, 120 V, 60 Hz. The dimension line is 12.2 L x 13.4 W x 12.9 H in. A 6 quart bowl and a 5.5 cup rice line are not the same measure. This page does not convert cups into quarts or 680 watts into 1,000 watts.",
+            "The two cleanup stories differ as well. The Duo Plus card says Dishwasher-safe. The NS-ZCC10 card does not print a cleanup line. Do not borrow the dishwasher sentence for the rice cooker. Read the electrical line on the cooker you are plugging in: 120 volts / 680 watts on the Zojirushi page, and 1,000 W, 120 V, 60 Hz on the Duo Plus page."
+          ]
+        },
+        {
+          "heading": "What a listing still has to show",
+          "paragraphs": [
+            "A season name or a price on a listing is not the model string. For the rice cooker, the string to match is NS-ZCC10, with the 5.5 cup / 1.0 liter capacity and the 10-1/8 x 13 x 8-1/8 inch cabinet. For the multi-cooker, match the Duo Plus function list and the 6 quart line. The recall block below is the catalogue match for each card. Official Instant Pot notices on the recall desk name other Instant Pot models. Open that explainer and read the model list before treating a family name as this Duo Plus card.",
+            "If the cabinet under your shelf is shorter than 8-1/8 inches, the NS-ZCC10 dimension line does not fit, whatever else the page says. If you need pressure cook in the same function list as rice, that sentence is on the Duo Plus card, not on the Zojirushi card. Pick the card whose sentence you can point to on the maker page."
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "breville-bes870xl",
+      "linkLabel": "BES870XL spec match",
+      "title": "Is the Breville Barista Express worth matching",
+      "description": "BES870XL grinder, portafilter, dose, and extraction lines, next to the Encore ESP and the Stagg EKG. Worth matching is those lines, not a price.",
+      "hub": "kitchen",
+      "subject": "breville-bes870xl",
+      "others": [
+        "baratza-encore-esp",
+        "fellow-stagg-ekg"
+      ],
+      "seeAlso": [
+        {
+          "section": "worth-it",
+          "slug": "zojirushi-ns-zcc10"
+        },
+        {
+          "section": "black-friday",
+          "slug": "ninja-creami"
+        }
+      ],
+      "sections": [
+        {
+          "heading": "The Barista Express lines",
+          "paragraphs": [
+            "Worth matching means the BES870XL sentences describe the espresso setup you are placing on the counter. It is not a price verdict, and it is not a claim about when a listing changes. The Breville page states model BES870XL, a grinder of Integrated conical burr grinder with 16 grind settings, a portafilter of 54 mm stainless steel, a dose of 18 g, and extraction of Low-pressure pre-infusion, then 9 bar, from a 15 bar pump.",
+            "Two other coffee cards sit on the kitchen list, and neither is a second espresso machine. The Encore ESP page states burrs of 40 mm conical steel, a hopper of 300 g, power of 70 W, 100-120 V, settings of 1-20 espresso, 21-40 filter, and a warranty of 1 year. The Stagg EKG page states power of 1200 W, temperature of To-the-degree control, a hold line of Keeps the set temperature while you pour, and listed capacities of 0.9 L (30 oz) and 1.5 L (50 oz) sizes on the maker page. A kettle and a separate grinder are different tools from an integrated machine."
+          ]
+        },
+        {
+          "heading": "Pick the integrated machine, the grinder, or the kettle",
+          "paragraphs": [
+            "Pick the BES870XL if the listing shows that model and you are matching an integrated conical burr grinder with 16 grind settings, a 54 mm stainless steel portafilter, an 18 g dose, and extraction that the page describes as low-pressure pre-infusion, then 9 bar, from a 15 bar pump. Those five lines are the card. A listing that says Breville, or Barista, still has to show BES870XL if this is the machine.",
+            "Pick the Encore ESP if you are matching a separate grinder: 40 mm conical steel, a hopper of 300 g, and settings of 1-20 espresso, 21-40 filter. The power line is 70 W, 100-120 V. The warranty line is 1 year. The BES870XL card does not print a hopper weight or a 40 mm burr. Sixteen grind settings on the Breville page and the 1-20 espresso range on the Baratza page are different sentences.",
+            "Pick the Stagg EKG if you are matching a kettle, not an espresso machine. The power line is 1200 W. The temperature line says To-the-degree control. The hold line says it keeps the set temperature while you pour. The capacity line names 0.9 L (30 oz) and 1.5 L (50 oz) sizes on the maker page. A 1200 W kettle line is not the extraction line on the BES870XL card. This page does not turn one into the other."
+          ]
+        },
+        {
+          "heading": "What to read on the listing",
+          "paragraphs": [
+            "Match the model string first. BES870XL is the espresso machine. The Encore ESP is the grinder with 40 mm conical steel burrs. The Stagg EKG is the kettle. A listing that bundles a different model number is a different card. The recall block below is the catalogue match for each of the three. None of these three cards is a stand mixer or a rice cooker.",
+            "If you want the dose and the portafilter in one machine, the lines to read are 18 g and 54 mm stainless steel on the BES870XL page, with the extraction sentence that names 9 bar from a 15 bar pump. If you want a grinder you can use for filter as well as espresso, the settings line to read is on the Encore ESP page: 1-20 espresso, 21-40 filter. If you want water at a set temperature, that sentence is on the Stagg EKG page."
           ]
         }
       ]
@@ -354,6 +541,143 @@
             "Pick the AP-1512HH if the listing shows that model and you are matching smoke 233, dust 246, pollen 240, and 361 ft² at 4.8 air changes per hour, at 12.3 lb and 77 W. The cabinet line is 16.8 × 18.3 × 9.6 in.",
             "Pick the Core 300S-P if you are matching the smaller cabinet, 7.48 lb and 39 W, and you do not need a CADR figure from the same page. Pick the Core 600S-P if you are matching 391 CFM and the 606 sq ft line at 4.8 air changes. Pick the 211i Max if you are matching the 674 sq ft recommended line and 16.2 lb. Those room sentences are not the same kind of sentence as the AP-1512HH coverage line.",
             "The recall block is the catalogue match for each purifier. Confirm AP-1512HH on the rating label if that is the Mighty you are buying. The 300S-P noise line is 22–54.5 dB, and the 600S-P noise line is 26–55 dB (as low as 26 dB per the maker)."
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "ninja-creami",
+      "linkLabel": "Ninja Creami model check",
+      "title": "Ninja Creami Black Friday: check the model",
+      "description": "NC301 programs, pints, and warranty to match on a listing, next to the Foodi 10-in-1 function list. A season name is not the model string.",
+      "hub": "kitchen",
+      "subject": "ninja-creami-nc301",
+      "others": [
+        "ninja-foodi-10in1"
+      ],
+      "seeAlso": [
+        {
+          "section": "worth-it",
+          "slug": "zojirushi-ns-zcc10"
+        },
+        {
+          "section": "recalls",
+          "slug": "air-fryer-recalls"
+        }
+      ],
+      "sections": [
+        {
+          "heading": "NC301 is the model string",
+          "paragraphs": [
+            "The CREAMi card states model NC301, programs of 7 preset programs, pints of Two 16 oz pints included, care of Containers, lids, and paddle are dishwasher safe, and a warranty of One year limited. A listing title can add a season name and still be a different machine. The string to match for this card is NC301. The box line to match is two 16 oz pints included, with containers, lids, and paddle described as dishwasher safe.",
+            "The other Ninja card on this page is the Foodi 10-in-1. It states power of 1,800 W, functions of Air Fry, Whole Roast, Air Roast, Bake, Dehydrate, Pizza, Broil, Toast, Bagel, and Reheat, a capacity line of Fits a 5 lb chicken and a sheet pan of vegetables, two 12 in pizzas, or a 12 lb turkey, dimensions of 62.2 × 50.6 × 42.49 cm, and a warranty of 1 year limited. Air Fry is one name in that function list. It is an oven card, not an ice cream maker. The NC301 card does not print an air-fry function or a wattage."
+          ]
+        },
+        {
+          "heading": "Pick the pint line or the oven function list",
+          "paragraphs": [
+            "Pick the NC301 if the listing shows NC301 and you are matching 7 preset programs, two 16 oz pints included, and a one year limited warranty. The care line says the containers, lids, and paddle are dishwasher safe. Confirm those words on the listing and on the maker page. A different pint size, or a different program count, is a different model string.",
+            "Pick the Foodi 10-in-1 if the listing is that oven and you are matching Air Fry, Whole Roast, Air Roast, Bake, Dehydrate, Pizza, Broil, Toast, Bagel, and Reheat, at 1,800 W. The capacity sentence is Fits a 5 lb chicken and a sheet pan of vegetables, two 12 in pizzas, or a 12 lb turkey. The dimensions are 62.2 × 50.6 × 42.49 cm. Do not pick the oven because the word Ninja appears on an ice cream listing. Do not pick the CREAMi because an oven listing says Air Fry.",
+            "The comparison page for NC301 and the Deluxe NC501 is the page that lines those two ice cream makers up. This page does not copy the NC501 figures. Open that comparison and the Ninja page it cites if the listing says Deluxe, XL, or NC501. NC301 remains the 7 program card with two 16 oz pints. The Foodi OP300 notice is a pressure-cooker lid notice. It names OP300-series model numbers, not NC301. The air fryer recall list links that notice and says what it covers."
+          ]
+        },
+        {
+          "heading": "What to verify on the listing",
+          "paragraphs": [
+            "Read the model string, then the included pints, then the warranty sentence. NC301, two 16 oz pints included, 7 preset programs, and one year limited are the four lines on this card that a listing has to match. The care line says which parts are dishwasher safe. A return window and a warranty term belong to the maker page or the retailer page you are buying from. This page does not restate a store policy that is not on the maker card.",
+            "The recall block below is the catalogue match for the NC301 and for the Foodi 10-in-1. A family name is not the model number. Search NC301 on CPSC Recalls and on Health Canada recalls and safety alerts as its own string. Then search the oven’s name as its own string. The dated line under each card is the catalogue check, not a substitute for the model printed on the box."
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "airpods-pro-3",
+      "linkLabel": "AirPods Pro 3 model check",
+      "title": "AirPods Pro 3 Black Friday: check the model",
+      "description": "AirPods Pro 3 listening, hearing, and IP57 lines to match on a listing, next to the WH-1000XM5 and OpenRun Pro 2 play-time lines.",
+      "hub": "personal-tech",
+      "subject": "airpods-pro-3",
+      "others": [
+        "sony-wh-1000xm5",
+        "shokz-openrun-pro-2"
+      ],
+      "seeAlso": [
+        {
+          "section": "alternatives",
+          "slug": "sony-wh-1000xm5"
+        },
+        {
+          "section": "black-friday",
+          "slug": "levoit-air-purifiers"
+        }
+      ],
+      "sections": [
+        {
+          "heading": "AirPods Pro 3 listening lines",
+          "paragraphs": [
+            "The AirPods Pro 3 page states listening of Up to 8 hours with Active Noise Cancellation, transparency of Up to 10 hours with the Hearing Aid feature, a sensor of Heart rate, hearing of Hearing Aid feature, play time of Up to 8 hours with Active Noise Cancellation, and a rating of IP57. A listing that says AirPods, or Pro, still has to match these lines if this is the card you mean. The listening line and the play-time line both say up to 8 hours with Active Noise Cancellation. The transparency line is a different hour count and names the Hearing Aid feature.",
+            "The WH-1000XM5 card states battery of Max. 30 hours with noise cancelling on, max. 40 hours with it off, a weight of Approx. 8.82 oz, a charge time of Approx. 3.5 hours, and noise cancelling of 2 processors control 8 microphones. The OpenRun Pro 2 card states play time of Up to 12 hours, a quick charge of 5 minutes for about 150 minutes at 75% volume, and a rating of IP55. One is an over-ear headphone. One is an open-ear headphone. The AirPods card is the in-ear card."
+          ]
+        },
+        {
+          "heading": "Pick the hour line that matches the form",
+          "paragraphs": [
+            "Pick the AirPods Pro 3 if the listing is that model and you are matching up to 8 hours with Active Noise Cancellation, IP57, and the hearing line that says Hearing Aid feature. The sensor line says heart rate. The transparency line says up to 10 hours with the Hearing Aid feature. Those are Apple’s sentences on this card. A season name in the listing title does not change the model.",
+            "Pick the WH-1000XM5 if the listing shows WH-1000XM5 and you are matching max. 30 hours with noise cancelling on, or max. 40 hours with it off, at about 8.82 oz, with a charge time of about 3.5 hours. That is a headband headphone. It is not an in-ear bud, and it does not print IP57. Eight hours and thirty hours are different playback lines.",
+            "Pick the OpenRun Pro 2 if the listing is that model and you are matching up to 12 hours, IP55, and the quick-charge sentence of 5 minutes for about 150 minutes at 75% volume. The driver line says dual. That card does not print a noise-cancelling hour line and it does not print IP57. IP55 and IP57 are different rating lines. This page does not treat them as the same code."
+          ]
+        },
+        {
+          "heading": "What to verify on the listing",
+          "paragraphs": [
+            "Match the generation and the form before the accessory list. AirPods Pro 3 on this card is the listening line of up to 8 hours with Active Noise Cancellation, the IP57 line, and the Hearing Aid feature line. WH-1000XM5 is the over-ear battery line. OpenRun Pro 2 is the open-ear 12 hour line. A case-only listing, or a listing for an earlier Pro generation, is a different card. The comparison with AirPods Pro 2 is the page that lines those two Apple cards up.",
+            "The recall block is the catalogue match for each of the three. Confirm the name on the box. Search that name on CPSC Recalls for a US purchase and on Health Canada recalls and safety alerts for a Canadian purchase. The dated line on the card is the catalogue check. A listing title is not that check."
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "levoit-air-purifiers",
+      "linkLabel": "Levoit purifier model check",
+      "title": "Levoit air purifier Black Friday check",
+      "description": "Core 300S-P, Core 600S-P, and Vital 200S-P lines to match on a listing: cabinet, room or CADR, and noise. The Classic 300S card is a humidifier.",
+      "hub": "air-water",
+      "subject": "levoit-core-300s-p",
+      "others": [
+        "levoit-core-600s",
+        "levoit-vital-200s"
+      ],
+      "seeAlso": [
+        {
+          "section": "black-friday",
+          "slug": "airpods-pro-3"
+        },
+        {
+          "section": "alternatives",
+          "slug": "irobot-roomba-combo-j9-plus"
+        }
+      ],
+      "sections": [
+        {
+          "heading": "Three purifier cards, three room sentences",
+          "paragraphs": [
+            "A listing that says Levoit, or 300S, can be more than one card. The Core 300S-P manual states a power supply of AC 120 V, 60 Hz, rated power of 39 W, noise of 22–54.5 dB, dimensions of 8.7 × 8.7 × 14.2 in, and a weight of 7.48 lb. That card does not print a CADR label or a room-size label.",
+            "The Core 600S-P page states a room size of 2,909 sq ft at 1 air change per hour, or 606 sq ft at 4.8, noise of 26–55 dB, filtration of 3-stage, CADR of 391 CFM, a weight of 13.7 lb / 6.2 kg, a size of 12.3 x 12.3 x 23.6 in / 31.3 x 31.3 x 60 cm, and power of 49 W, AC 120 V, 60 Hz. The Vital 200S-P page states filtration of 3-stage, a room rate of Changes the air in a 1,862 sq ft room once per hour, noise of As low as 23 dB, a sensor of Infrared dust sensor, and a warranty of 2-year limited. The Classic 300S card in the winter list is a humidifier, with a tank line, not one of these three purifiers."
+          ]
+        },
+        {
+          "heading": "Pick the cabinet, the CFM line, or the room-rate line",
+          "paragraphs": [
+            "Pick the Core 300S-P if the listing shows that model and you are matching a cabinet of 8.7 × 8.7 × 14.2 in at 7.48 lb, with rated power of 39 W and noise of 22–54.5 dB. Pick it when you do not need a CADR figure from the same page, because this card does not have one. A listing that only says 300S still has to show Core 300S-P if this is the purifier.",
+            "Pick the Core 600S-P if you are matching CADR of 391 CFM or the room line 2,909 sq ft at 1 air change per hour, or 606 sq ft at 4.8. The cabinet is 12.3 x 12.3 x 23.6 in / 31.3 x 31.3 x 60 cm at 13.7 lb / 6.2 kg. Power is 49 W, AC 120 V, 60 Hz. Noise is 26–55 dB. The 300S-P noise line is 22–54.5 dB. Those ranges are not the same sentence. The 600S-P page prints both an air-change rate and a CFM figure. Read the sentence you are matching.",
+            "Pick the Vital 200S-P if you are matching the room-rate line Changes the air in a 1,862 sq ft room once per hour, filtration of 3-stage, noise of As low as 23 dB, and a sensor line of Infrared dust sensor. The warranty line is 2-year limited. That card does not print a CADR in CFM and it does not print the 300S-P cabinet size. A 1,862 sq ft once-per-hour line is not the 606 sq ft line at 4.8 air changes on the 600S-P page."
+          ]
+        },
+        {
+          "heading": "What to verify on the listing",
+          "paragraphs": [
+            "Read the full model, not the word Levoit and not the digits 300 alone. Core 300S-P, Core 600S-P, and Vital 200S-P are three purifier strings. Classic 300S is a humidifier card. A filter bundle that names a different model is a different listing. The power line to confirm is 39 W on the 300S-P manual and 49 W on the 600S-P page. The Vital card’s warranty line is 2-year limited. The other two cards on this page do not print that warranty sentence.",
+            "The recall block is the catalogue match for each purifier. Search the model on CPSC Recalls and on Health Canada recalls and safety alerts. A season name in the listing is not a CADR figure and it is not the cabinet size. The dated line under the card is the catalogue check. Confirm the name on the rating label before you pay."
           ]
         }
       ]
