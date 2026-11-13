@@ -526,11 +526,17 @@
     return out.join(" · ");
   }
 
+  function typeRepeatsModel(type, model) {
+    if (!type || !model) return false;
+    return String(model).toLowerCase().indexOf(String(type).toLowerCase()) !== -1;
+  }
+
   function specTile(product) {
     product = product || {};
     var brand = String(product.sourceName || "").trim();
     var model = displayModel(product);
     var type = productType(product);
+    if (typeRepeatsModel(type, model)) type = "";
     var facts = specFacts(product);
     var html = '<div class="spec-tile" data-cat="' + esc(product.category || "") + '">';
     if (brand) html += '<p class="spec-brand">' + esc(brand) + "</p>";
@@ -551,10 +557,12 @@
     opts = opts || {};
     var recall = recallFor(product, reg);
     var href = esc(productPath(product));
-    var title = '<h2 class="p-title"><a href="' + href + '">' + visibleTitle(product.title) + "</a></h2>";
+    var media = visual(product, opts);
+    var hidden = media.indexOf("spec-tile") !== -1 ? " visually-hidden" : "";
+    var title = '<h2 class="p-title' + hidden + '"><a href="' + href + '">' + visibleTitle(product.title) + "</a></h2>";
     var more = '<a class="hub-more" href="' + href + '">See specs and stores</a>';
     var id = ' id="' + esc(product.id) + '" data-category="' + esc(product.category || "") + '"';
-    return '<article class="product-grid hub-card"' + id + '><div class="pick-media">' + visual(product, opts) + "</div>" +
+    return '<article class="product-grid hub-card"' + id + '><div class="pick-media">' + media + "</div>" +
       '<div class="p-main">' + badgeHtml(recall) + noteBadge(product) + title +
       '<p class="pick-if">' + esc(pickLine(product)) + "</p>" + more + "</div></article>";
   }

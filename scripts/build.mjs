@@ -704,6 +704,10 @@ function productPage(product) {
     ? "Checked Lab lists this model so the recall check and the maker page are in one place. The lines below are what that maker page states."
     : "Checked Lab lists this model so the recall check and the maker page are in one place. No maker spec line is on this page yet.";
   const pick = card.pickLine(product);
+  const media = card.visual(product, { eager: true, hero: true });
+  const titleHtml = media.includes("spec-tile")
+    ? '<div class="visually-hidden"><h1 class="p-title">' + card.visibleTitle(product.title) + "</h1></div>"
+    : '<h1 class="p-title">' + card.visibleTitle(product.title) + "</h1>";
   return `<!DOCTYPE html>
 <html lang="en" data-region="US">
 <head>
@@ -768,11 +772,11 @@ ${nav(hub)}
 </nav>
 <article class="product-grid" id="${card.esc(product.id)}" data-category="${card.esc(hub)}">
 <div class="fold-top">
-<div class="pick-media">${card.visual(product, { eager: true, hero: true })}</div>
+<div class="pick-media">${media}</div>
 <div class="p-main">
 <span class="only-us">${card.badgeHtml(us)}</span>
 <span class="only-ca">${card.badgeHtml(ca)}</span>
-<h1 class="p-title">${card.visibleTitle(product.title)}</h1>
+${titleHtml}
 <p class="pick-if">${card.esc(pick)}</p>
 <div class="only-us">${card.amazonButton(product, "US")}</div>
 <div class="only-ca">${card.amazonButton(product, "CA")}</div>
@@ -1373,9 +1377,11 @@ function writeCompares() {
     });
     const rows = sharedSpecRows(pair[0], pair[1]);
     card.beginPage();
-    const head = pair.map((product, index) =>
-      '<th><div class="compare-who">' + card.visual(product, { eager: index === 0, sizes: "(max-width: 640px) 46vw, 180px" }) + "<p>" + card.esc(shortPickName(product)) + "</p></div></th>"
-    ).join("");
+    const head = pair.map((product, index) => {
+      const art = card.visual(product, { eager: index === 0, sizes: "(max-width: 640px) 46vw, 180px" });
+      const nameClass = art.includes("spec-tile") ? ' class="visually-hidden"' : "";
+      return '<th><div class="compare-who">' + art + "<p" + nameClass + ">" + card.esc(shortPickName(product)) + "</p></div></th>";
+    }).join("");
     const body = rows.map((row) =>
       "<tr><th>" + card.esc(row.label) + "</th><td>" + specCell(row.left) + "</td><td>" + specCell(row.right) + "</td></tr>"
     ).join("");
@@ -2706,9 +2712,11 @@ function bfStatusHtml(rec, place) {
 }
 
 function bfModel(product, opts) {
+  const art = card.visual(product, opts);
+  const hidden = art.includes("spec-tile") ? ' class="visually-hidden"' : "";
   return '<article class="bf-model" id="' + card.esc(product.id) + '">' +
-    card.visual(product, opts) +
-    '<h3><a href="' + card.productPath(product) + '">' + card.visibleTitle(product.title) + "</a></h3>" +
+    art +
+    "<h3" + hidden + '><a href="' + card.productPath(product) + '">' + card.visibleTitle(product.title) + "</a></h3>" +
     '<p class="pick-if">' + card.esc(card.pickLine(product)) + "</p>" +
     '<a class="hub-more" href="' + card.productPath(product) + '">See the model</a>' +
     '<p class="only-us pick-status">' + bfStatusHtml(card.recallFor(product, "US"), "US") + "</p>" +
@@ -3202,9 +3210,11 @@ function giftOtherNote(product) {
 }
 
 function giftPickHtml(product, guide, opts) {
+  const art = card.visual(product, opts);
+  const hidden = art.includes("spec-tile") ? ' class="visually-hidden"' : "";
   return '<article class="guide-pick" id="' + card.esc(product.id) + '">' +
-    card.visual(product, opts) +
-    '<h2><a href="' + card.productPath(product) + '">' + card.visibleTitle(product.title) + "</a></h2>" +
+    art +
+    "<h2" + hidden + '><a href="' + card.productPath(product) + '">' + card.visibleTitle(product.title) + "</a></h2>" +
     '<p class="pick-if">' + card.esc(card.pickLine(product)) + "</p>" +
     '<div class="only-us">' + card.amazonButton(product, "US") + "</div>" +
     '<div class="only-ca">' + card.amazonButton(product, "CA") + "</div>" +
@@ -3871,9 +3881,11 @@ function kidsGuideHtml(guide, grouped) {
   const guides = grouped.map((item) => item.guide);
   const picks = guide.picks.map((pick) => {
     const buttons = winterSearchButtons({ slug: guide.slug + "-" + pick.id, searches: [pick.search] });
+    const art = card.visual({ id: pick.id, title: pick.name, category: "" });
+    const hidden = art.includes("spec-tile") ? ' class="visually-hidden"' : "";
     return '<article class="guide-pick" id="' + card.esc(pick.id) + '">' +
-      card.visual({ id: pick.id, title: pick.name, category: "" }) +
-      "<h2>" + card.esc(pick.name) + "</h2>" +
+      art +
+      "<h2" + hidden + ">" + card.esc(pick.name) + "</h2>" +
       '<p class="why">' + card.esc(pick.why) + "</p>" +
       "<p>" + officialSpans(pick.check, pick.id) + "</p>" +
       buttons +
@@ -3914,9 +3926,11 @@ function hostGuideHtml(guide, grouped) {
   const guides = grouped.map((item) => item.guide);
   const picks = guide.picks.map((pick) => {
     const buttons = winterSearchButtons({ slug: guide.slug + "-" + pick.id, searches: [pick.search] });
+    const art = card.visual({ id: pick.id, title: pick.name, category: "" });
+    const hidden = art.includes("spec-tile") ? ' class="visually-hidden"' : "";
     return '<article class="guide-pick" id="' + card.esc(pick.id) + '">' +
-      card.visual({ id: pick.id, title: pick.name, category: "" }) +
-      "<h2>" + card.esc(pick.name) + "</h2>" +
+      art +
+      "<h2" + hidden + ">" + card.esc(pick.name) + "</h2>" +
       '<p class="why">' + card.esc(pick.why) + "</p>" +
       "<p>" + officialSpans(pick.check, pick.id) + "</p>" +
       buttons +
