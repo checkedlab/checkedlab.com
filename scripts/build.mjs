@@ -214,7 +214,7 @@ for (const hub of HUBS) {
   const file = join(root, hub, "index.html");
   let html = readFileSync(file, "utf8");
   card.beginPage();
-  html = fillMount(html, byHub.get(hub).map((product, index) => card.card(product, "US", index < 3 ? { eager: true } : {})).join("\n"));
+  html = fillMount(html, byHub.get(hub).map((product, index) => card.card(product, "US", index === 0 ? { eager: true } : {})).join("\n"));
   const lead = byHub.get(hub).find((product) => card.schemaImage(product));
   html = ensureImagePreload(html, lead);
   html = pointItemList(html, hub);
@@ -265,7 +265,7 @@ for (const hub of HUBS) {
   const popular = POPULAR_IDS.map((id) => byId.get(id)).filter(Boolean);
   const recallsOnHome = products.filter(isBin);
   card.beginPage();
-  html = fillMount(html, popular.map((product, index) => card.card(product, "US", index < 6 ? { eager: true } : {})).join("\n"), POP_START, POP_END);
+  html = fillMount(html, popular.map((product, index) => card.card(product, "US", index === 0 ? { eager: true } : {})).join("\n"), POP_START, POP_END);
   html = fillMount(html, recallsOnHome.length ? recallsOnHome.map((product) => card.card(product, "US")).join("\n") : '<p class="empty">No official model recall is on the list.</p>', REC_START, REC_END);
   html = fillHomePointer(html, recalls.checkedAt || "");
   html = html.replace(/<section class="hub-tiles"[\s\S]*?<\/section>\n?/g, "");
@@ -342,6 +342,25 @@ function assertProducts(list) {
     if (ids.has(product.id)) throw new Error("Duplicate product id: " + product.id);
     ids.add(product.id);
   }
+  assertUniqueModelPhotos(list);
+}
+
+function assertUniqueModelPhotos(list) {
+  const seen = new Map();
+  for (const product of list) {
+    if (product.imageKind !== "model") continue;
+    const src = String(product.image || "");
+    if (!src.startsWith("/images/")) throw new Error("Model photo path: " + product.id);
+    if (seen.has(src)) {
+      throw new Error("Photo file used as hero on more than one product: " + src + " (" + seen.get(src) + ", " + product.id + ")");
+    }
+    seen.set(src, product.id);
+    if (!existsSync(join(root, src.slice(1)))) throw new Error("Missing product photo: " + src);
+    const small = product.image_source && product.image_source.src400;
+    if (small && !existsSync(join(root, String(small).replace(/^\//, "")))) {
+      throw new Error("Missing product photo: " + small);
+    }
+  }
 }
 
 function assertRenderer() {
@@ -363,11 +382,11 @@ function assertRenderer() {
   if (bin.includes("store-btn") || bin.includes("check-title") || bin.includes("evidence")) {
     throw new Error("Hub card includes a product-page block");
   }
-  if (!bin.includes('class="type-tile"') || !bin.includes('class="pick-if"') || !bin.includes("Pick it for:")) {
-    throw new Error("Hub card is missing the scan tile");
+  if (!bin.includes('class="spec-tile"') || !bin.includes('class="spec-model"') || !bin.includes('class="pick-if"') || !bin.includes("Pick it for:")) {
+    throw new Error("Hub card is missing the spec tile");
   }
-  if (bin.includes('class="p-photo"') || bin.includes('class="illu"') || /amazon\.com/i.test(bin)) {
-    throw new Error("Hub card used a repeated photo, an illustration, or an Amazon image");
+  if (bin.includes('class="p-photo"') || bin.includes('class="type-tile"') || bin.includes('class="illu"') || /amazon\.com/i.test(bin)) {
+    throw new Error("Hub card used a photo, an icon tile, or an Amazon image");
   }
   if (/\$\d/.test(bin) || bin.includes("offers")) throw new Error("Renderer emitted a price");
   const usStores = card.storeButtons(products[0], "US");
@@ -745,7 +764,7 @@ ${nav(hub)}
 </nav>
 <article class="product-grid" id="${card.esc(product.id)}" data-category="${card.esc(hub)}">
 <div class="fold-top">
-<div class="pick-media">${card.visual(product, { eager: true })}</div>
+<div class="pick-media">${card.visual(product, { eager: true, hero: true })}</div>
 <div class="p-main">
 <span class="only-us">${card.badgeHtml(us)}</span>
 <span class="only-ca">${card.badgeHtml(ca)}</span>
@@ -952,7 +971,9 @@ function assertSafeImages(html, where) {
     const src = (tag.match(/\bsrc="([^"]+)"/i) || [])[1] || "";
     if (/amazon\.com|media-amazon|images-amazon/i.test(src)) throw new Error("Amazon image on " + where);
     if (/^https?:\/\//i.test(src)) throw new Error("Hotlinked image on " + where);
-    if (src.includes("/images/") && !src.startsWith("/images/photos/")) throw new Error("Unlicensed product photo on " + where);
+    if (src.includes("/images/") && !src.startsWith("/images/photos/") && !src.startsWith("/images/products/")) {
+      throw new Error("Unlicensed product photo on " + where);
+    }
     if (!/\balt="/i.test(tag)) throw new Error("Image missing alt on " + where);
     if (!/loading="lazy"|fetchpriority="high"/i.test(tag)) throw new Error("Image missing load hint on " + where);
   }
@@ -1165,10 +1186,10 @@ function noticeHtml(notice) {
 
 function catalogueHtml(entry) {
   card.beginPage();
-  const cards = entry.products.map((id) => {
+    const cards = entry.products.map((id, index) => {
     const product = products.find((item) => item.id === id);
     if (!product) throw new Error("Explainer is missing catalogue id " + id);
-    return card.card(product, "US");
+    return card.card(product, "US", index === 0 ? { eager: true } : {});
   }).join("\n");
   const lines = entry.products.map((id) => {
     const product = products.find((item) => item.id === id);
@@ -1346,8 +1367,8 @@ function writeCompares() {
     });
     const rows = sharedSpecRows(pair[0], pair[1]);
     card.beginPage();
-    const head = pair.map((product) =>
-      '<th><div class="compare-who">' + card.visual(product, { eager: true }) + "<p>" + card.esc(shortPickName(product)) + "</p></div></th>"
+    const head = pair.map((product, index) =>
+      '<th><div class="compare-who">' + card.visual(product, { eager: index === 0, sizes: "(max-width: 640px) 46vw, 180px" }) + "<p>" + card.esc(shortPickName(product)) + "</p></div></th>"
     ).join("");
     const body = rows.map((row) =>
       "<tr><th>" + card.esc(row.label) + "</th><td>" + specCell(row.left) + "</td><td>" + specCell(row.right) + "</td></tr>"
@@ -2254,7 +2275,7 @@ function writeBlackFriday() {
   const sections = HUBS.map((hub) => {
     const group = picked.filter((product) => product.category === hub);
     return '<section class="pick-grid" id="' + hub + '"><h2><a href="/' + hub + '/">' + card.esc(HUB_NAME[hub]) + "</a></h2>" +
-      group.map((product, index) => bfModel(product, hub === "winter" && index < 3 ? { eager: true } : {})).join("\n") +
+      group.map((product, index) => bfModel(product, hub === "winter" && index === 0 ? { eager: true } : {})).join("\n") +
       '<p class="lede"><a href="/' + hub + '/">All ' + card.esc(HUB_NAME[hub]) + " models</a></p></section>";
   }).join("\n");
   const faqHtml = faqs.map((item) =>
@@ -2675,9 +2696,9 @@ function giftOtherNote(product) {
   return '<p class="recall-other">An official notice for a different model is on the <a href="' + card.productPath(product) + '">model page</a>.</p>';
 }
 
-function giftPickHtml(product, guide) {
+function giftPickHtml(product, guide, opts) {
   return '<article class="guide-pick" id="' + card.esc(product.id) + '">' +
-    card.visual(product) +
+    card.visual(product, opts) +
     '<h2><a href="' + card.productPath(product) + '">' + card.visibleTitle(product.title) + "</a></h2>" +
     '<p class="pick-if">' + card.esc(card.pickLine(product)) + "</p>" +
     '<div class="only-us">' + card.amazonButton(product, "US") + "</div>" +
@@ -2868,7 +2889,7 @@ function giftGuideHtml(guide, picks, grouped) {
   const main = giftCrumbs(guide.h1) +
     "<h1>" + card.esc(guide.h1) + "</h1>" +
     '<p class="sub">' + card.esc(String(guide.description).split(/(?<=\.)\s/)[0]) + "</p>" +
-    '<section class="pick-grid">\n' + picks.map((product) => giftPickHtml(product, guide)).join("\n") + "\n</section>" +
+    '<section class="pick-grid">\n' + picks.map((product, index) => giftPickHtml(product, guide, index === 0 ? { eager: true } : {})).join("\n") + "\n</section>" +
     productFold("gift-notes", "How to read this list",
       '<p class="lede">' + card.esc(guide.description) + "</p>" +
       '<p>Each spec line is copied from the maker fields stored for that model. The badge is the recorded CPSC check on the US view and the recorded Health Canada check on the CA view. <a href="/how-we-check/">How we check</a> says what the date means. <a href="/gifts/#gift-finder">Gift finder</a>.</p>' +
@@ -3000,12 +3021,12 @@ function winterCatalogueHtml(guide) {
     return "<p>No catalogue card is listed in this guide. Search the model number on the unit using the official pages above.</p>";
   }
   card.beginPage();
-  return "<ul>" + guide.catalogue.map((item) => {
+  return "<ul>" + guide.catalogue.map((item, index) => {
     const product = products.find((entry) => entry.id === item.id);
     if (!product) throw new Error("Winter guide names a missing card: " + item.id);
     const us = recallSentence(card.recallFor(product, "US"), "US");
     const ca = recallSentence(card.recallFor(product, "CA"), "Canadian");
-    return '<li class="catalogue-pick">' + card.visual(product) + '<a href="' + card.productPath(product) + '">' + card.esc(product.title) + "</a>. " +
+    return '<li class="catalogue-pick">' + card.visual(product, index === 0 ? { eager: true } : {}) + '<a href="' + card.productPath(product) + '">' + card.esc(product.title) + "</a>. " +
       card.esc(us) + " " + card.esc(ca) + " " + winterSpans(item.note, item.id) + "</li>";
   }).join("") + "</ul>";
 }
@@ -4439,7 +4460,7 @@ ${DISCLOSURE}
 <main id="main">
 <div class="wrap prose">
 <h1>Photo credits</h1>
-<p class="lede">Lifestyle and category photos are from Pexels. A photo of an exact catalogue model is from Wikimedia Commons under the license named here. Nothing is hotlinked, and none of these files are manufacturer or Amazon photos.</p>
+<p class="lede">Lifestyle and category photos are from Pexels. Catalogue model photos are from Wikimedia Commons or Flickr under the license named on each line. Nothing is hotlinked, and none of these files are manufacturer or Amazon photos.</p>
 <ul class="credits">
 ${rows}
 </ul>
@@ -5102,7 +5123,7 @@ function verifyOutput(pages) {
     const html = readFileSync(join(root, hub, "index.html"), "utf8");
     const found = [...html.matchAll(/<article class="(?:product-grid hub-card|product-row)"[\s\S]*?<\/article>/g)].map((match) => match[0]);
     card.beginPage();
-    const expected = byHub.get(hub).map((product, index) => card.card(product, "US", index < 3 ? { eager: true } : {}));
+    const expected = byHub.get(hub).map((product, index) => card.card(product, "US", index === 0 ? { eager: true } : {}));
     if (found.length !== expected.length) throw new Error(hub + " card count " + found.length);
     expected.forEach((markup, index) => {
       if (found[index] !== markup) throw new Error(hub + " card " + index + " does not match card()");

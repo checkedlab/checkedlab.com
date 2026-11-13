@@ -186,13 +186,13 @@
     return meta.kind === "amazon" || /media-amazon\.com|ssl-images-amazon\.com|images-amazon\.com/i.test(src);
   }
 
-  /* A real photo renders from a local /images/photos/ file with a recorded
-     license, or from an http(s) product.image that is not an Amazon hotlink.
-     The same slot is used either way. Category photos never claim the model. */
+  /* A real photo renders from a local licensed file under /images/photos/
+     or /images/products/, or from an http(s) product.image that is not an
+     Amazon hotlink. Category photos never claim the model. */
   function licensedSrc(product) {
     var src = String(product && product.image || "").trim();
-    if (/^images\/photos\/[a-z0-9.-]+\.webp$/i.test(src)) src = "/" + src;
-    if (/^\/images\/photos\/[a-z0-9.-]+\.webp$/i.test(src) && product && product.imageLicense) return src;
+    if (/^images\/(?:photos|products)\/[a-z0-9.-]+\.webp$/i.test(src)) src = "/" + src;
+    if (/^\/images\/(?:photos|products)\/[a-z0-9.-]+\.webp$/i.test(src) && product && product.imageLicense) return src;
     if (!/^https?:\/\//i.test(src) || amazonImage(product)) return "";
     try {
       var u = new URL(src);
@@ -374,10 +374,174 @@
     "personal-tech": '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 0 1 16 0"/><path d="M4 12v3a2 2 0 0 0 2 2h1v-5H4zM20 12v3a2 2 0 0 1-2 2h-1v-5h3z"/></svg>'
   };
 
+  function productType(product) {
+    var t = [product && product.title, product && product.id].join(" ").toLowerCase();
+    var rules = [
+      [/air purifier|airmega|core 300|core 600|vital 200|211i|5500-2|hpa300/, "Air purifier"],
+      [/humidifier/, "Humidifier"],
+      [/dehumidifier|50 pint|mad50/, "Dehumidifier"],
+      [/reverse osmosis|roes|rcc7|g3p600/, "Reverse osmosis"],
+      [/pitcher|under-sink|water filter|brita|zerowater|aquasana/, "Water filter"],
+      [/robot vacuum|roomba|roborock|qrevo/, "Robot vacuum"],
+      [/vacuum/, "Cordless vacuum"],
+      [/stand mixer|kitchenaid|artisan/, "Stand mixer"],
+      [/blender|vitamix/, "Blender"],
+      [/food processor|cuisinart/, "Food processor"],
+      [/ice cream|creami/, "Ice cream maker"],
+      [/air fry|crispi|cosori|foodi|bov900/, "Air fryer"],
+      [/rice cooker|zojirushi/, "Rice cooker"],
+      [/dutch oven|le creuset|lecreuset/, "Dutch oven"],
+      [/skillet|lodge/, "Skillet"],
+      [/fry pan|all-clad|allclad/, "Fry pan"],
+      [/knife|wusthof|carving/, "Knife"],
+      [/half sheet|sheet pan|nordic/, "Sheet pan"],
+      [/grinder|baratza|encore/, "Grinder"],
+      [/espresso|barista|bes870/, "Espresso machine"],
+      [/kettle|stagg/, "Kettle"],
+      [/aeropress|chemex|moccamaster|coffee maker/, "Coffee maker"],
+      [/precision cooker|anova|instant pot|multi-cook|pressure cook/, "Multi-cooker"],
+      [/headphone|airpod|bose|wh-1000|shokz|openrun/, "Headphones"],
+      [/speaker|sonos|jbl|charge 5|era 100/, "Speaker"],
+      [/toothbrush|oral-b|sonicare|hx3681|io series|io-3/, "Toothbrush"],
+      [/water flosser|waterpik/, "Water flosser"],
+      [/oneblade|shaver|braun/, "Shaver"],
+      [/keyboard|keychron/, "Keyboard"],
+      [/mouse|mx master/, "Mouse"],
+      [/forerunner|\bwatch\b/, "Watch"],
+      [/power bank|a1289|powercore/, "Power bank"],
+      [/charger|nano-30|nano 30|mxs 5|ctek|battery tender/, "Charger"],
+      [/dash cam|gopro|hero13/, "Camera"],
+      [/inflator|compressor|fanttik|viair/, "Inflator"],
+      [/jump starter|noco|boost gb|gb40|gb50/, "Jump starter"],
+      [/drill|dewalt|dcd771/, "Drill"],
+      [/torque wrench|tekton/, "Torque wrench"],
+      [/scan tool|obd|bluedriver|innova|carscan/, "Scan tool"],
+      [/multimeter|fluke/, "Multimeter"],
+      [/wiper|bosch icon/, "Wiper blades"],
+      [/pressure washer|sunjoe spx|spx3000/, "Pressure washer"],
+      [/garage door|chamberlain/, "Garage door opener"],
+      [/snow blower|snow shovel|power clear|snt2110|ss10/, "Snow tool"],
+      [/shoe|boot dryer|peet/, "Boot dryer"],
+      [/blanket|throw|pendleton/, "Blanket"],
+      [/heater|radiator|lasko|dreo|vornado|delonghi|mh9bx/, "Heater"],
+      [/bottle|stanley/, "Bottle"],
+      [/mattress|casper|saatva|helix|zinus/, "Mattress"],
+      [/pillow|purple|coop|tempur/, "Pillow"],
+      [/sheet set|brooklinen/, "Sheets"],
+      [/comforter|buffy/, "Comforter"],
+      [/sleep mask|manta/, "Sleep mask"],
+      [/wake-up|smartsleep|hf3520/, "Wake-up light"],
+      [/white noise|lectrofan|hatch|restore/, "Sound machine"],
+      [/chair|aeron|steelcase|leap/, "Chair"],
+      [/litter/, "Litter box"],
+      [/feeder|fountain|drinkwell|catit|raindrop|slo bowl|fun feeder|simply feed|simply-feed/, "Pet feeder"],
+      [/harness|kurgo|sleepypod|easy walk/, "Harness"],
+      [/dog toy|kong/, "Dog toy"],
+      [/dog camera|furbo/, "Pet camera"],
+      [/nail|dremel/, "Nail grinder"],
+      [/diffuser|feliway/, "Diffuser"],
+      [/deshedding|furminator/, "Grooming tool"],
+      [/theragun|massage/, "Massage gun"],
+      [/extinguisher|kidde/, "Fire extinguisher"],
+      [/gravy|oxo/, "Kitchen tool"],
+      [/roasting pan/, "Roasting pan"],
+      [/thermapen|thermometer/, "Thermometer"],
+      [/duplo|lego|magna-tile|building set/, "Building set"],
+      [/crayon/, "Art supplies"],
+      [/hot wheels|toy car/, "Toy cars"],
+      [/wagon|radio flyer/, "Wagon"],
+      [/scooter|razor/, "Scooter"]
+    ];
+    for (var i = 0; i < rules.length; i++) {
+      if (rules[i][0].test(t)) return rules[i][1];
+    }
+    return "";
+  }
+
+  function displayModel(product) {
+    var title = String((product && product.title) || "").trim();
+    var brand = String((product && product.sourceName) || "").trim();
+    var name = title;
+    if (brand) {
+      var candidates = [brand];
+      var first = brand.split(/\s+/)[0];
+      if (first && first.length > 2 && first.toLowerCase() !== brand.toLowerCase()) candidates.push(first);
+      for (var i = 0; i < candidates.length; i++) {
+        var c = candidates[i];
+        if (name.toLowerCase().indexOf(c.toLowerCase()) === 0) {
+          var rest = name.slice(c.length).replace(/^[\s,–\-:]+/, "");
+          if (rest) { name = rest; break; }
+        }
+      }
+    }
+    return name || String((product && product.model) || title || "Model");
+  }
+
+  function tidyMeasure(value) {
+    var v = String(value || "").replace(/\s+/g, " ").trim();
+    v = v.split(/\s+with\s+/i)[0].trim();
+    v = v.split(/\s+at\s+/i)[0].trim();
+    v = v.replace(/^(approx\.?|about|max\.?)\s+/i, "");
+    v = v.replace(/(\d+(?:\.\d+)?)\s+hours?\b/gi, "$1 h");
+    v = v.replace(/(\d+(?:\.\d+)?)\s+minutes?\b/gi, "$1 min");
+    return v.trim();
+  }
+
+  function factBit(spec) {
+    var label = String(spec.label || "").replace(/\s+/g, " ").trim();
+    var value = String(spec.value || "").replace(/\s+/g, " ").trim();
+    var ll = label.toLowerCase();
+    if (/%/.test(value)) return "";
+    if (/^(functions|modes|programs)$/.test(ll)) {
+      var parts = value.split(/,\s+/).map(function (part) {
+        return part.replace(/^and\s+/i, "").trim();
+      }).filter(Boolean);
+      if (parts.length >= 3) return parts.length + " " + ll;
+    }
+    var first = tidyMeasure(value.split(/;\s+|,\s+/)[0]);
+    if (!first || first.length > 42) return "";
+    if (/^\d+(?:\.\d+)?$/.test(first) && ll && ll.length <= 22) return first + " " + ll;
+    if (/^(weight|capacity|power|peak current|suction|cadr)$/.test(ll)) return first;
+    if (ll === "battery" || ll === "run time" || ll === "runtime") {
+      var word = ll === "battery" ? "battery" : "run time";
+      if (first.toLowerCase().indexOf(word) === -1) return first + " " + word;
+      return first;
+    }
+    if (ll && first.toLowerCase().indexOf(ll) === -1 && ll.length <= 16 && !/model|dimension|cleanup|display|connection|filtration|enclosure|schedule|audio|bluetooth|name/.test(ll)) {
+      return first + " " + ll;
+    }
+    return first;
+  }
+
+  function specFacts(product) {
+    var specs = ((product && product.specs) || []).filter(function (spec) {
+      return spec && spec.label && spec.value && !isIdSpec(spec, product) &&
+        !/\$\d|\bscore\b|\bwinner\b|\bbest overall\b|\bstar rating\b/i.test(String(spec.label) + " " + String(spec.value));
+    }).sort(function (a, b) { return specRank(a.label) - specRank(b.label); });
+    var out = [];
+    for (var i = 0; i < specs.length && out.length < 3; i++) {
+      var bit = factBit(specs[i]);
+      if (bit && out.indexOf(bit) === -1) out.push(bit);
+    }
+    return out.join(" · ");
+  }
+
+  function specTile(product) {
+    product = product || {};
+    var brand = String(product.sourceName || "").trim();
+    var model = displayModel(product);
+    var type = productType(product);
+    var facts = specFacts(product);
+    var html = '<div class="spec-tile" data-cat="' + esc(product.category || "") + '">';
+    if (brand) html += '<p class="spec-brand">' + esc(brand) + "</p>";
+    html += '<p class="spec-model">' + esc(model) + "</p>";
+    if (type) html += '<p class="spec-type">' + esc(type) + "</p>";
+    if (facts) html += '<p class="spec-facts">' + esc(facts) + "</p>";
+    return html + "</div>";
+  }
+
   function tile(product) {
-    var cat = (product && product.category) || "kitchen";
-    var icon = CAT_ICON[cat] || CAT_ICON.kitchen;
-    return '<div class="type-tile" data-cat="' + esc(cat) + '" aria-hidden="true"><span class="tile-band"></span><span class="tile-icon">' + icon + "</span></div>";
+    return specTile(product);
   }
 
   var pageSeen = Object.create(null);
@@ -628,22 +792,87 @@
 
   function modelPhoto(product) {
     if (!product || product.imageKind !== "model") return "";
+    if (product.imageMatch === "related") return "";
     var src = licensedSrc(product);
-    if (!src || src.indexOf("/images/photos/") !== 0) return "";
+    if (!src) return "";
+    if (src.indexOf("/images/photos/") !== 0 && src.indexOf("/images/products/") !== 0) return "";
     return src;
+  }
+
+  function licenseHref(product) {
+    if (product.imageLicenseUrl) return String(product.imageLicenseUrl);
+    var license = String(product.imageLicense || "");
+    var map = {
+      "CC BY 2.0": "https://creativecommons.org/licenses/by/2.0/",
+      "CC BY 3.0": "https://creativecommons.org/licenses/by/3.0/",
+      "CC BY 4.0": "https://creativecommons.org/licenses/by/4.0/",
+      "CC BY-SA 2.0": "https://creativecommons.org/licenses/by-sa/2.0/",
+      "CC BY-SA 3.0": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "CC BY-SA 4.0": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "CC0": "https://creativecommons.org/publicdomain/zero/1.0/"
+    };
+    return map[license] || "";
+  }
+
+  function externalLink(href, label) {
+    var safe = esc(href).replace(/%/g, "&#37;");
+    return '<a href="' + safe + '" target="_blank" rel="noopener">' + esc(label) + "</a>";
+  }
+
+  function photoCaption(product) {
+    var parts = [];
+    if (product.imageMatch === "same_line" || product.imageMatch === "related") {
+      var shown = product.imageShows || product.title || "";
+      var note = product.imageMatch === "related" ? "similar model" : "same line";
+      var line = "Shown: " + shown + " (" + note + ")";
+      if (product.imageMatch === "related" && line.toLowerCase().indexOf("similar model") < 0) line += ". Similar model";
+      parts.push(esc(line) + ".");
+    }
+    var credit = product.imageCredit || "";
+    var source = product.imageSource || "";
+    if (credit) parts.push(source ? externalLink(source, credit) : esc(credit));
+    var license = product.imageLicense || "";
+    var href = licenseHref(product);
+    if (license && href) parts.push(externalLink(href, license));
+    if (!parts.length) return "";
+    return '<figcaption class="img-credit">' + parts.join(" ") + "</figcaption>";
+  }
+
+  function photoAlt(product) {
+    if (product.imageMatch === "same_line" || product.imageMatch === "related") {
+      return product.imageShows || product.title || "Licensed product photo";
+    }
+    return product.title || product.imageShows || "Licensed product photo";
+  }
+
+  function photoSizes(opts) {
+    if (opts.sizes) return opts.sizes;
+    if (opts.hero) return "(min-width: 800px) 480px, 100vw";
+    return "(min-width: 1100px) 340px, (min-width: 800px) 46vw, 100vw";
   }
 
   function visual(product, opts) {
     opts = opts || {};
     var src = modelPhoto(product);
-    if (!src || pageSeen[src]) return tile(product || {});
+    if (!src || pageSeen[src]) return specTile(product || {});
     pageSeen[src] = 1;
-    var load = opts.eager ? ' fetchpriority="high" decoding="async"' : ' loading="lazy" decoding="async"';
-    var credit = product.imageCredit ? '<p class="img-credit">' + esc(product.imageCredit) + "</p>" : "";
     var meta = product.image_source || {};
     var width = Number(meta.width) || 1200;
     var height = Number(meta.height) || 900;
-    return '<img class="p-photo" src="' + esc(src) + '" alt="' + esc(product.title || "Product") + '" width="' + width + '" height="' + height + '" data-brand="' + esc(product.sourceName || "") + '" data-model="' + esc(product.model || "") + '" data-category="' + esc(product.category || "") + '"' + load + ">" + credit;
+    var extra = "";
+    var small = meta.src400 || "";
+    var smallW = Number(meta.width400) || 0;
+    if (small && width) {
+      var w400 = smallW || Math.min(400, width);
+      if (width !== w400) {
+        extra = ' srcset="' + esc(small) + " " + w400 + 'w, ' + esc(src) + " " + width + 'w" sizes="' + esc(photoSizes(opts)) + '"';
+      }
+    }
+    var load = opts.eager ? ' fetchpriority="high" decoding="async"' : ' loading="lazy" decoding="async"';
+    return '<figure class="p-figure"><img class="p-photo" src="' + esc(src) + '"' + extra +
+      ' alt="' + esc(photoAlt(product)) + '" width="' + width + '" height="' + height + '"' +
+      ' data-brand="' + esc(product.sourceName || "") + '" data-model="' + esc(product.model || "") + '" data-category="' + esc(product.category || "") + '"' +
+      load + ">" + photoCaption(product) + "</figure>";
   }
 
   var SCENES = {
