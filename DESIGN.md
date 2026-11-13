@@ -55,7 +55,7 @@ Scale, from a 16px body:
 | Step | Size | Use |
 | --- | --- | --- |
 | Meta | 12px | Eyebrows, model line, badge |
-| Small | 13–14px | Disclosure, notes, store buttons |
+| Small | 12–14px | Footer disclosure line, notes, store buttons |
 | Body | 16px | Cards, evidence |
 | Lede | 17–18px | Prose, “why it’s listed” |
 | Sub | 20px | Home deck |
@@ -78,8 +78,8 @@ Where there is no photograph, the card does not reserve a media column. The writ
 
 ## Trust cues
 
-- The affiliate disclosure stays at the top, in the same words, the way Wirecutter and the Strategist put the commission sentence above the picks.
-- The footer is a solid brand band and repeats “As an Amazon Associate I earn from qualifying purchases.”
+- The affiliate disclosure is one small muted line in the footer: “As an Amazon Associate, Checked Lab earns from qualifying purchases.”
+- The footer is a solid brand band. That line sits in the band once per page, in 12px type and a low-contrast gray, with no bold label.
 - The current hub is an underline, not a filled pill.
 - US / CA is a small segmented control. The active side is the brand color.
 - Status color is meaningful: green means the recorded check found no matching recall, red means BIN, gray means the check is not a pass.
