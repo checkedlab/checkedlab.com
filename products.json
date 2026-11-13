@@ -423,10 +423,10 @@
     ],
     "image_source": {
       "kind": "commons",
-      "width": 800,
-      "height": 600,
+      "width": 600,
+      "height": 800,
       "src400": "/images/products/vitamix-e310-400.webp",
-      "width400": 400
+      "width400": 300
     },
     "imageCredit": "Photo: Anna Powell, CC BY-SA 4.0, via Wikimedia Commons",
     "imageLicense": "CC BY-SA 4.0",
