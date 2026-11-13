@@ -11614,7 +11614,7 @@
         "agrees": true
       },
       {
-        "claim": "Noise: 26 dB.",
+        "claim": "Noise: 26–55 dB.",
         "source": "Levoit",
         "url": "https://levoit.com/products/core-600s-p-smart-air-purifier",
         "agrees": true
@@ -11648,7 +11648,7 @@
       },
       {
         "label": "Noise",
-        "value": "26 dB",
+        "value": "26–55 dB",
         "source": "Levoit",
         "url": "https://levoit.com/products/core-600s-p-smart-air-purifier"
       },
