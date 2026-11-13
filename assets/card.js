@@ -291,17 +291,6 @@
     return product.model || head || product.title || "";
   }
 
-  var CAT_LINE = {
-    kitchen: "kitchen gear",
-    cleaning: "cleaning gear",
-    winter: "winter gear",
-    "car-garage": "car and garage gear",
-    "air-water": "air and water gear",
-    pet: "pet gear",
-    sleep: "sleep gear",
-    "personal-tech": "personal tech"
-  };
-
   function isIdSpec(spec, product) {
     var label = String(spec.label || "").toLowerCase().trim();
     var value = String(spec.value || "").trim().toLowerCase();
@@ -320,47 +309,8 @@
     return 40;
   }
 
-  function phraseSpec(label, value) {
-    var ll = String(label || "").toLowerCase().trim();
-    var v = String(value || "").replace(/\s+/g, " ").trim();
-    if (/^(functions|modes|programs)$/.test(ll)) {
-      var bits = v.split(/,\s+/).map(function (part) { return part.trim(); }).filter(Boolean);
-      if (bits.length >= 3) return bits.length + " " + ll;
-    }
-    if (ll === "battery") return v.split(/,\s+/)[0].replace(/^max\.?\s*/i, "up to ");
-    if (ll === "motor") return "a " + v + " motor";
-    if (ll === "container" || ll === "containers") return "a " + v.split(/,\s+/)[0] + " container";
-    if (ll === "capacity") {
-      var sized = v.match(/^(\d+(?:\.\d+)?)\s+([A-Za-z]+)$/);
-      if (sized) return sized[1] + "-" + sized[2].toLowerCase() + " capacity";
-      return v + " capacity";
-    }
-    if (ll === "speeds") return v + " speeds";
-    if (ll === "bowl") return "a " + v.split(/,\s+/)[0] + " bowl";
-    if (ll === "power" || ll === "rated power") return v.split(/,\s+/)[0];
-    if (ll === "heat output") return v.split(/,\s+/)[0] + " of heat";
-    if (ll === "cadr") return "CADR " + v.split(/,\s+/)[0];
-    if (ll === "room coverage") return "room coverage of " + v;
-    if (ll === "suction") return v + " suction";
-    if (ll === "run time" || ll === "runtime") return v + " run time";
-    if (ll === "weight") return v;
-    if (ll === "noise cancelling") return v;
-    if (v.length > 56) v = v.split(/,\s+/)[0];
-    if (v.toLowerCase().indexOf(ll) >= 0) return v;
-    return v + " " + ll;
-  }
-
   function pickLine(product) {
-    var specs = (product.specs || []).filter(function (spec) {
-      return spec && spec.label && spec.value && !isIdSpec(spec, product) && !/\$\d|\d+\s*%/.test(spec.label + " " + spec.value);
-    }).sort(function (a, b) { return specRank(a.label) - specRank(b.label); });
-    if (!specs.length) return "Pick it for: " + (CAT_LINE[product.category] || "this category");
-    var phrases = specs.slice(0, 2).map(function (spec) { return phraseSpec(spec.label, spec.value); });
-    if (phrases.length === 2 && (phrases[0] + " and " + phrases[1]).length > 110) phrases = phrases.slice(0, 1);
-    var joined = phrases.length === 2 && /^(a|an) /.test(phrases[0]) && /^(a|an) /.test(phrases[1])
-      ? phrases[0] + " and " + phrases[1]
-      : phrases.join(", ");
-    return "Pick it for: " + joined;
+    return String((product && product.pick) || "").replace(/\s+/g, " ").trim();
   }
 
   var CAT_ICON = {

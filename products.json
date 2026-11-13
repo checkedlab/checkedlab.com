@@ -2,6 +2,7 @@
   {
     "id": "ninja-crispi-fn101",
     "title": "Ninja Crispi Glass Air Fryer, 4-in-1",
+    "pick": "Pick it if you want an air fryer that cooks in glass containers.",
     "category": "kitchen",
     "receipt": null,
     "meta": "FN101 • SPECS PER NINJA",
@@ -105,6 +106,7 @@
   {
     "id": "ninja-foodi-10in1",
     "title": "Ninja Foodi 10-in-1 XL Pro Air Fry Oven",
+    "pick": "Pick it if you want one oven that air fries, roasts, bakes, and toasts.",
     "category": "kitchen",
     "receipt": null,
     "meta": "DT201C • CANADIAN MODEL • ASIN B08LQY2XF5 ON AMAZON.CA",
@@ -223,6 +225,7 @@
   {
     "id": "instant-pot-duo-plus",
     "title": "Instant Pot Duo Plus, 6Qt",
+    "pick": "Pick it if you want one cooker that pressure cooks, slow cooks, and has a rice setting.",
     "category": "kitchen",
     "receipt": null,
     "meta": "6 QT MULTI-COOKER • NO SOURCED SPEED FIGURE",
@@ -328,6 +331,7 @@
   {
     "id": "vitamix-e310",
     "title": "Vitamix E310 Explorian Blender, 48oz",
+    "pick": "Pick it if you want a blender with 10 speeds and a 5-year full warranty.",
     "category": "kitchen",
     "receipt": null,
     "meta": "E310 • SPECS PER VITAMIX",
@@ -440,6 +444,7 @@
   {
     "id": "kitchenaid-artisan",
     "title": "KitchenAid Artisan Stand Mixer 5-Qt",
+    "pick": "Pick it if you want a tilt-head stand mixer with 10 speeds and a 5-quart bowl.",
     "category": "kitchen",
     "receipt": null,
     "meta": "KSM150PS • SPECS PER KITCHENAID",
@@ -546,6 +551,7 @@
   {
     "id": "cosori-pro-5-8",
     "title": "COSORI Pro II Air Fryer",
+    "pick": "Pick it if you want a basket air fryer with a 5.8-quart capacity.",
     "category": "kitchen",
     "receipt": null,
     "meta": "COSORI • CS358-AF SERIES • AMAZON.COM ASIN B089ZT66H9",
@@ -683,6 +689,7 @@
     "id": "lasko-ct32150",
     "category": "winter",
     "title": "Lasko 32 inch Digital Ceramic Tower Heater CT32150",
+    "pick": "Pick it if you want a tall tower heater that shuts off if it tips over.",
     "model": "CT32150",
     "meta": "LASKO • CT32150 • MODEL PAGE LINKED",
     "searchQuery": "Lasko CT32150",
@@ -795,6 +802,7 @@
     "id": "lasko-ct14401",
     "category": "winter",
     "title": "Lasko Ready Heat 14 inch Ceramic Tower Heater CT14401",
+    "pick": "Pick it if you want a compact tower heater, 14 inches tall, with overheat protection.",
     "model": "CT14401",
     "meta": "LASKO • CT14401 • MODEL PAGE LINKED",
     "searchQuery": "Lasko CT14401",
@@ -900,6 +908,7 @@
     "id": "levoit-classic-300s",
     "category": "winter",
     "title": "Levoit Classic 300S Smart Humidifier",
+    "pick": "Pick it if you want a humidifier that can run up to 60 hours on low, with a 6 L tank.",
     "model": "Classic 300S",
     "meta": "LEVOIT • CLASSIC 300S • MODEL PAGE LINKED",
     "searchQuery": "Levoit Classic 300S",
@@ -1079,6 +1088,7 @@
     "id": "snowjoe-24v-ss10",
     "category": "winter",
     "title": "Snow Joe 24V-SS10 Cordless Snow Shovel",
+    "pick": "Pick it if you want a cordless snow shovel with a 10-inch clearing width.",
     "model": "24V-SS10",
     "meta": "SNOW JOE • 24V-SS10 • MODEL PAGE LINKED",
     "searchQuery": "Snow Joe 24V-SS10",
@@ -1176,6 +1186,7 @@
     "id": "noco-gb40",
     "category": "car-garage",
     "title": "NOCO Boost Plus GB40 Jump Starter",
+    "pick": "Pick it if you want a jump starter for gas engines up to 6 liters.",
     "model": "GB40",
     "meta": "NOCO • GB40 • MODEL PAGE LINKED",
     "searchQuery": "NOCO GB40",
@@ -1281,6 +1292,7 @@
     "id": "noco-gb50",
     "category": "car-garage",
     "title": "NOCO Boost GB50 Jump Starter",
+    "pick": "Pick it if you want a jump starter for gas engines up to 7 liters.",
     "model": "GB50",
     "meta": "NOCO • GB50 • NAMED ON THE OFFICIAL GB40 HOW-TO PAGE",
     "searchQuery": "NOCO GB50",
@@ -1376,6 +1388,7 @@
     "id": "battery-tender-junior",
     "category": "car-garage",
     "title": "Battery Tender Junior 12V 750mA",
+    "pick": "Pick it if you want a 12 V charger for lead-acid, AGM, and gel batteries.",
     "model": "Junior 12V 750mA",
     "meta": "BATTERY TENDER • JUNIOR 12V 750MA • MODEL PAGE LINKED",
     "searchQuery": "Battery Tender Junior 12V 750mA",
@@ -1473,6 +1486,7 @@
     "id": "bosch-icon",
     "category": "car-garage",
     "title": "Bosch ICON Wiper Blades",
+    "pick": "Pick it if you want beam wiper blades with a double locking connector.",
     "model": "ICON",
     "meta": "BOSCH • ICON LINE • MATCH THE LENGTH TO THE VEHICLE",
     "searchQuery": "Bosch ICON wiper blade",
@@ -1562,6 +1576,7 @@
     "id": "coway-ap-1512hh",
     "category": "air-water",
     "title": "Coway Airmega Mighty AP-1512HH",
+    "pick": "Pick it if you want a purifier rated for 361 square feet at 4.8 air changes an hour.",
     "model": "AP-1512HH",
     "meta": "COWAY • AP-1512HH • MODEL PAGE LINKED",
     "searchQuery": "Coway AP-1512HH",
@@ -1659,6 +1674,7 @@
     "id": "levoit-core-300s-p",
     "category": "air-water",
     "title": "Levoit Core 300S-P Smart Air Purifier",
+    "pick": "Pick it if you want a compact air purifier for a small footprint.",
     "model": "Core 300S-P",
     "meta": "LEVOIT • CORE 300S-P • MODEL PAGE LINKED",
     "searchQuery": "Levoit Core 300S-P",
@@ -1759,6 +1775,7 @@
     "id": "midea-mad50s1qwt",
     "category": "air-water",
     "title": "Midea Cube MAD50S1QWT Dehumidifier",
+    "pick": "Pick it if you want a dehumidifier rated for 50 pints a day.",
     "model": "MAD50S1QWT",
     "meta": "MIDEA • MAD50S1QWT • CONFIRM THE PINT RATING ON THE LISTING",
     "searchQuery": "Midea MAD50S1QWT",
@@ -1864,6 +1881,7 @@
     "id": "brita-tahoe-elite",
     "category": "air-water",
     "title": "Brita Tahoe Water Pitcher with Elite Filter",
+    "pick": "Pick it if you want a 10-cup water pitcher with a filter listed for 6 months.",
     "model": "Tahoe Elite",
     "meta": "BRITA • TAHOE • ELITE FILTER • MODEL PAGE LINKED",
     "searchQuery": "Brita Tahoe Elite pitcher",
@@ -1969,6 +1987,7 @@
     "id": "petsafe-drinkwell-platinum",
     "category": "pet",
     "title": "PetSafe Drinkwell Platinum Fountain",
+    "pick": "Pick it if you want a plug-in pet fountain that holds 168 ounces.",
     "model": "PWW00-13703",
     "meta": "PETSAFE • PWW00-13703 • MODEL PAGE LINKED",
     "searchQuery": "PetSafe Drinkwell Platinum PWW00-13703",
@@ -2063,6 +2082,7 @@
     "id": "litter-robot-4",
     "category": "pet",
     "title": "Whisker Litter-Robot 4",
+    "pick": "Pick it if you want a litter box for up to 4 cats that can go 8 days between drawer empties for one cat.",
     "model": "Litter-Robot 4",
     "meta": "WHISKER • LITTER-ROBOT 4 • MODEL PAGE LINKED",
     "searchQuery": "Litter-Robot 4",
@@ -2173,6 +2193,7 @@
     "id": "petlibro-plaf105",
     "category": "pet",
     "title": "PETLIBRO Granary 2 Series Feeder PLAF105",
+    "pick": "Pick it if you want a feeder with a 5-liter tank for kibble from 2 to 15 mm.",
     "model": "PLAF105",
     "meta": "PETLIBRO • PLAF105 • MODEL PAGE LINKED",
     "searchQuery": "PETLIBRO PLAF105",
@@ -2295,6 +2316,7 @@
     "id": "furminator-medium-short",
     "category": "pet",
     "title": "FURminator Undercoat deShedding Tool, Medium Dog, Short Hair",
+    "pick": "Pick it if you want a short-hair deShedding tool for a dog of 25 to 50 lb.",
     "model": "Medium dog short hair",
     "meta": "FURMINATOR • MEDIUM DOG • SHORT HAIR • MODEL PAGE LINKED",
     "searchQuery": "FURminator deShedding medium dog short hair",
@@ -2378,6 +2400,7 @@
     "id": "purple-harmony",
     "category": "sleep",
     "title": "Purple Harmony Pillow",
+    "pick": "Pick it if you want a pillow with a ventilated Talalay latex core.",
     "model": "Harmony",
     "meta": "PURPLE • HARMONY PILLOW • MODEL PAGE LINKED",
     "searchQuery": "Purple Harmony Pillow",
@@ -2479,6 +2502,7 @@
     "id": "tempur-neck",
     "category": "sleep",
     "title": "Tempur-Pedic TEMPUR-Neck Pillow",
+    "pick": "Pick it if you want a neck pillow in small, medium, or large, with a washable cover.",
     "model": "TEMPUR-Neck",
     "meta": "TEMPUR-PEDIC • TEMPUR-NECK • MODEL PAGE LINKED",
     "searchQuery": "Tempur-Pedic TEMPUR-Neck pillow",
@@ -2581,6 +2605,7 @@
     "id": "brooklinen-luxe-core",
     "category": "sleep",
     "title": "Brooklinen Luxe Sateen Core Sheet Set",
+    "pick": "Pick it if you want cotton sheets that fit a mattress up to 16 inches deep.",
     "model": "Luxe Sateen Core Sheet Set",
     "meta": "BROOKLINEN • LUXE CORE SHEET SET • MODEL PAGE LINKED",
     "searchQuery": "Brooklinen Luxe Sateen Core Sheet Set",
@@ -2687,6 +2712,7 @@
     "id": "herman-miller-aeron",
     "category": "sleep",
     "title": "Herman Miller Aeron Chair",
+    "pick": "Pick it if you want a chair with 8Z Pellicle suspension and adjustable lumbar.",
     "model": "Aeron",
     "meta": "HERMAN MILLER • AERON • MODEL PAGE LINKED",
     "searchQuery": "Herman Miller Aeron Chair",
@@ -2780,6 +2806,7 @@
     "id": "philips-hx3681",
     "category": "personal-tech",
     "title": "Philips Sonicare 4100 HX3681/26",
+    "pick": "Pick it if you want a toothbrush with a 14-day battery and QuadPacer.",
     "model": "HX3681/26",
     "meta": "PHILIPS • HX3681/26 • MODEL PAGE LINKED",
     "searchQuery": "Philips Sonicare HX3681/26",
@@ -2866,6 +2893,7 @@
     "id": "braun-70-n1000s",
     "category": "personal-tech",
     "title": "Braun Series 7 70-N1000s",
+    "pick": "Pick it if you want a Series 7 shaver that takes the 73S head.",
     "model": "70-N1000s",
     "meta": "BRAUN • 70-N1000S • MODEL PAGE LINKED",
     "searchQuery": "Braun Series 7 70-N1000s",
@@ -2960,6 +2988,7 @@
     "id": "sony-wh-1000xm5",
     "category": "personal-tech",
     "title": "Sony WH-1000XM5 Headphones",
+    "pick": "Pick it if you want noise-cancelling headphones that play for up to 30 hours with noise cancelling on.",
     "model": "WH-1000XM5",
     "meta": "SONY • WH-1000XM5 • MODEL PAGE LINKED",
     "searchQuery": "Sony WH-1000XM5",
@@ -3109,6 +3138,7 @@
     "id": "anker-a1289",
     "category": "personal-tech",
     "title": "Anker 737 Power Bank PowerCore 24K A1289",
+    "pick": "Pick it if you want a power bank with 24,000 mAh and up to 140 W from USB-C.",
     "model": "A1289",
     "meta": "ANKER • A1289 • MODEL PAGE LINKED",
     "searchQuery": "Anker 737 Power Bank A1289",
@@ -3172,6 +3202,7 @@
   {
     "id": "breville-bes870xl",
     "title": "Breville Barista Express BES870XL",
+    "pick": "Pick it if you want one machine that grinds the beans and pulls the espresso.",
     "category": "kitchen",
     "receipt": null,
     "meta": "BES870 • SPECS PER BREVILLE",
@@ -3287,6 +3318,7 @@
   {
     "id": "breville-bov900",
     "title": "Breville Smart Oven Air Fryer Pro BOV900",
+    "pick": "Pick it if you want an oven that air fries and has room for a 14 lb turkey.",
     "category": "kitchen",
     "receipt": null,
     "meta": "BOV900 • SPECS PER BREVILLE",
@@ -3404,6 +3436,7 @@
   {
     "id": "moccamaster-kbgv",
     "title": "Technivorm Moccamaster KBGV Select",
+    "pick": "Pick it if you want something that holds 10 cups and turns itself off after 100 minutes.",
     "category": "kitchen",
     "receipt": null,
     "meta": "KBGV • SPECS PER TECHNIVORM",
@@ -3511,6 +3544,7 @@
   {
     "id": "aeropress-original",
     "title": "AeroPress Original Coffee Maker",
+    "pick": "Pick it if you want a coffee maker for 1 to 2 cups that is BPA free.",
     "category": "kitchen",
     "receipt": null,
     "meta": "AEROPRESS • SPECS PER AEROPRESS",
@@ -3621,6 +3655,7 @@
   {
     "id": "fellow-stagg-ekg",
     "title": "Fellow Stagg EKG Electric Kettle",
+    "pick": "Pick it if you want a kettle that holds the water at the temperature you set.",
     "category": "kitchen",
     "receipt": null,
     "meta": "STAGG EKG • SPECS PER FELLOW",
@@ -3731,6 +3766,7 @@
   {
     "id": "lodge-classic-skillet",
     "title": "Lodge 10.25 Inch Classic Cast Iron Skillet",
+    "pick": "Pick it if you want a cast iron skillet seasoned with vegetable oil.",
     "category": "kitchen",
     "receipt": null,
     "meta": "L8SK3 • SPECS PER LODGE",
@@ -3847,6 +3883,7 @@
   {
     "id": "lecreuset-signature-5-5",
     "title": "Le Creuset Signature Round Dutch Oven, 5.5 qt",
+    "pick": "Pick it if you want an enameled cast iron Dutch oven that holds 5.5 quarts.",
     "category": "kitchen",
     "receipt": null,
     "meta": "5.5 QT • SPECS PER LE CREUSET",
@@ -3963,6 +4000,7 @@
   {
     "id": "allclad-d3-4112",
     "title": "All-Clad D3 Stainless Fry Pan, 12 inch",
+    "pick": "Pick it if you want a stainless fry pan you can put in the oven up to 600 F.",
     "category": "kitchen",
     "receipt": null,
     "meta": "4112 • SPECS PER ALL-CLAD",
@@ -4080,6 +4118,7 @@
   {
     "id": "cuisinart-dfp-14bcny",
     "title": "Cuisinart Custom 14-Cup Food Processor DFP-14BCNY",
+    "pick": "Pick it if you want a food processor with a 14 cup bowl.",
     "category": "kitchen",
     "receipt": null,
     "meta": "DFP-14BCNY • SPECS PER CUISINART",
@@ -4211,6 +4250,7 @@
   {
     "id": "zojirushi-ns-zcc10",
     "title": "Zojirushi Neuro Fuzzy Rice Cooker NS-ZCC10",
+    "pick": "Pick it if you want a rice cooker for up to 5.5 cups, made in Japan.",
     "category": "kitchen",
     "receipt": null,
     "meta": "NS-ZCC10 • SPECS PER ZOJIRUSHI",
@@ -4322,6 +4362,7 @@
   {
     "id": "chemex-cm-6a",
     "title": "Chemex Classic 6-Cup CM-6A",
+    "pick": "Pick it if you want the 6-cup size in borosilicate glass, holding 30 ounces.",
     "category": "kitchen",
     "receipt": null,
     "meta": "CM-6A • SPECS PER CHEMEX",
@@ -4432,6 +4473,7 @@
   {
     "id": "anova-precision-nano",
     "title": "Anova Precision Cooker Nano",
+    "pick": "Pick it if you want a precision cooker you can set from 32 F to 197 F.",
     "category": "kitchen",
     "receipt": null,
     "meta": "PRECISION COOKER NANO • SPECS PER ANOVA CULINARY",
@@ -4538,6 +4580,7 @@
   {
     "id": "wusthof-classic-8",
     "title": "Wusthof Classic 8-Inch Cook's Knife",
+    "pick": "Pick it if you want a forged cook's knife with an 8.0-inch blade.",
     "category": "kitchen",
     "receipt": null,
     "meta": "1040100120 • SPECS PER WUSTHOF",
@@ -4654,6 +4697,7 @@
   {
     "id": "nordic-ware-43100",
     "title": "Nordic Ware Naturals Baker's Half Sheet",
+    "pick": "Pick it if you want an aluminum baker's half sheet.",
     "category": "kitchen",
     "receipt": null,
     "meta": "43100 • SPECS PER NORDIC WARE",
@@ -4770,6 +4814,7 @@
   {
     "id": "dreo-atom-316",
     "title": "Dreo Atom 316 Space Heater",
+    "pick": "Pick it if you want a heater you can set from 41 F to 95 F for a 200 square foot room.",
     "category": "winter",
     "receipt": null,
     "meta": "ATOM 316 • SPECS PER DREO",
@@ -4886,6 +4931,7 @@
   {
     "id": "honeywell-hev615w",
     "title": "Honeywell Top Fill Cool Moisture Tower Humidifier HEV615W",
+    "pick": "Pick it if you want a top-fill humidifier that runs 24 hours on low.",
     "category": "winter",
     "receipt": null,
     "meta": "HEV615W • SPECS PER HONEYWELL",
@@ -4992,6 +5038,7 @@
   {
     "id": "toro-power-clear-38753",
     "title": "Toro Power Clear 721 E Snow Blower",
+    "pick": "Pick it if you want a snow blower that clears a 21-inch path.",
     "category": "winter",
     "receipt": null,
     "meta": "38753 • SPECS PER TORO",
@@ -5138,6 +5185,7 @@
   {
     "id": "peet-original",
     "title": "PEET Original Shoe and Boot Dryer",
+    "pick": "Pick it if you want a shoe and boot dryer with a 25-year warranty.",
     "category": "winter",
     "receipt": null,
     "meta": "ORIGINAL PEET • SPECS PER PEET",
@@ -5244,6 +5292,7 @@
   {
     "id": "stanley-classic-1-5",
     "title": "Stanley Classic Legendary Bottle, 1.5 qt",
+    "pick": "Pick it if you want a 1.5-quart bottle with double-wall vacuum insulation.",
     "category": "winter",
     "receipt": null,
     "meta": "1.5 QT • SPECS PER STANLEY",
@@ -5360,6 +5409,7 @@
   {
     "id": "mr-heater-mh9bx",
     "title": "Mr. Heater Portable Buddy MH9BX",
+    "pick": "Pick it if you want a portable heater you can set to 4,000 or 9,000 BTU.",
     "category": "winter",
     "receipt": null,
     "meta": "MH9BX • SPECS PER MR. HEATER",
@@ -5467,6 +5517,7 @@
   {
     "id": "pendleton-eco-wise",
     "title": "Pendleton Eco-Wise Wool Blanket, Full/Queen",
+    "pick": "Pick it if you want a full/queen wool blanket made in the USA.",
     "category": "winter",
     "receipt": null,
     "meta": "70080 • SPECS PER PENDLETON",
@@ -5583,6 +5634,7 @@
   {
     "id": "vornado-avh2",
     "title": "Vornado AVH2 Whole Room Heater",
+    "pick": "Pick it if you want a whole-room heater with a low setting and a high setting.",
     "category": "winter",
     "receipt": null,
     "meta": "AVH2 • SPECS PER VORNADO",
@@ -5689,6 +5741,7 @@
   {
     "id": "delonghi-trd40615e",
     "title": "De'Longhi Dragon 4 Radiator TRD40615E",
+    "pick": "Pick it if you want a radiator with 6 fins.",
     "category": "winter",
     "receipt": null,
     "meta": "TRD40615E • SPECS PER DE'LONGHI",
@@ -5806,6 +5859,7 @@
   {
     "id": "ego-snt2110",
     "title": "EGO Power+ 21-inch Snow Blower with Steel Auger",
+    "pick": "Pick it if you want a snow blower with a steel auger, a 21-inch clearing width, and two 56V batteries.",
     "category": "winter",
     "receipt": null,
     "meta": "SNT2110 • SPECS PER EGO",
@@ -5922,6 +5976,7 @@
   {
     "id": "sunjoe-spx3000",
     "title": "Sun Joe SPX3000 Electric Pressure Washer",
+    "pick": "Pick it if you want an electric pressure washer rated up to 2,030 PSI.",
     "category": "car-garage",
     "receipt": null,
     "meta": "SPX3000 • SPECS PER SUN JOE",
@@ -6038,6 +6093,7 @@
   {
     "id": "viair-88p",
     "title": "VIAIR 88P Portable Compressor",
+    "pick": "Pick it if you want a portable compressor that goes up to 120 PSI.",
     "category": "car-garage",
     "receipt": null,
     "meta": "88P • SPECS PER VIAIR",
@@ -6139,6 +6195,7 @@
   {
     "id": "innova-5210",
     "title": "Innova CarScan Advisor 5210",
+    "pick": "Pick it if you want a scan tool that reads the engine and ABS.",
     "category": "car-garage",
     "receipt": null,
     "meta": "5210 • SPECS PER INNOVA",
@@ -6239,6 +6296,7 @@
   {
     "id": "garmin-dash-mini-2",
     "title": "Garmin Dash Cam Mini 2",
+    "pick": "Pick it if you want a dash cam that saves incident video automatically.",
     "category": "car-garage",
     "receipt": null,
     "meta": "DASH CAM MINI 2 • SPECS PER GARMIN",
@@ -6349,6 +6407,7 @@
   {
     "id": "chamberlain-b6850",
     "title": "Chamberlain B6850 Belt Drive Opener",
+    "pick": "Pick it if you want a belt drive opener with a 360 degree camera.",
     "category": "car-garage",
     "receipt": null,
     "meta": "B6850 • SPECS PER CHAMBERLAIN",
@@ -6457,6 +6516,7 @@
   {
     "id": "tekton-24335",
     "title": "TEKTON 1/2-Inch Drive Torque Wrench 24335",
+    "pick": "Pick it if you want a 1/2-inch drive torque wrench for 10 to 150 ft-lb.",
     "category": "car-garage",
     "receipt": null,
     "meta": "24335 • SPECS PER TEKTON",
@@ -6567,6 +6627,7 @@
   {
     "id": "obdlink-mx-plus",
     "title": "OBDLink MX+ Scan Tool",
+    "pick": "Pick it if you want a Bluetooth scan tool that also reads SW-CAN and MS-CAN.",
     "category": "car-garage",
     "receipt": null,
     "meta": "MX+ • SPECS PER OBDLINK",
@@ -6668,6 +6729,7 @@
   {
     "id": "fluke-117",
     "title": "Fluke 117 Electrician's Multimeter",
+    "pick": "Pick it if you want an electrician's multimeter rated CAT III 600 V.",
     "category": "car-garage",
     "receipt": null,
     "meta": "FLUKE 117 • SPECS PER FLUKE",
@@ -6783,6 +6845,7 @@
   {
     "id": "dewalt-dcd771",
     "title": "DeWalt 20V MAX Compact Drill DCD771",
+    "pick": "Pick it if you want a compact drill with a 1/2-inch chuck and two batteries in the kit.",
     "category": "car-garage",
     "receipt": null,
     "meta": "DCD771 • SPECS PER DEWALT",
@@ -6892,6 +6955,7 @@
   {
     "id": "ctek-mxs-5",
     "title": "CTEK MXS 5.0 Battery Charger",
+    "pick": "Pick it if you want a 12 V charger that can maintain batteries up to 160 Ah.",
     "category": "car-garage",
     "receipt": null,
     "meta": "MXS 5.0 • SPECS PER CTEK",
@@ -6993,6 +7057,7 @@
   {
     "id": "bluedriver",
     "title": "BlueDriver Bluetooth Pro Scan Tool",
+    "pick": "Pick it if you want a Bluetooth scan tool that plugs into the OBD port.",
     "category": "car-garage",
     "receipt": null,
     "meta": "BLUEDRIVER • SPECS PER BLUEDRIVER",
@@ -7087,6 +7152,7 @@
   {
     "id": "fanttik-x8-apex",
     "title": "Fanttik X8 Apex Tire Inflator",
+    "pick": "Pick it if you want a tire inflator you can run on its battery, up to 150 PSI.",
     "category": "car-garage",
     "receipt": null,
     "meta": "X8 APEX • SPECS PER FANTTIK",
@@ -7187,6 +7253,7 @@
   {
     "id": "honeywell-hpa300",
     "title": "Honeywell HPA300 True HEPA Air Purifier",
+    "pick": "Pick it if you want a True HEPA purifier rated for 465 square feet at 4.8 air changes an hour.",
     "category": "air-water",
     "receipt": null,
     "meta": "HPA300 • SPECS PER HONEYWELL",
@@ -7321,6 +7388,7 @@
   {
     "id": "blueair-211i-max",
     "title": "Blueair Blue Pure 211i Max",
+    "pick": "Pick it if you want a purifier recommended for a 674 square foot room.",
     "category": "air-water",
     "receipt": null,
     "meta": "211I MAX • SPECS PER BLUEAIR",
@@ -7422,6 +7490,7 @@
   {
     "id": "aquasana-claryum",
     "title": "Aquasana Claryum 2-Stage Under-Sink Filter",
+    "pick": "Pick it if you want an under-sink filter certified to NSF/ANSI 42, 53, and 401.",
     "category": "air-water",
     "receipt": null,
     "meta": "CLARYUM • SPECS PER AQUASANA",
@@ -7532,6 +7601,7 @@
   {
     "id": "waterdrop-g3p600",
     "title": "Waterdrop G3P600 Reverse Osmosis System",
+    "pick": "Pick it if you want a reverse osmosis system rated for 600 gallons a day.",
     "category": "air-water",
     "receipt": null,
     "meta": "G3P600 • SPECS PER WATERDROP",
@@ -7632,6 +7702,7 @@
   {
     "id": "ispring-rcc7",
     "title": "iSpring RCC7 Reverse Osmosis System",
+    "pick": "Pick it if you want a 5-stage reverse osmosis system certified to NSF/ANSI 58.",
     "category": "air-water",
     "receipt": null,
     "meta": "RCC7 • SPECS PER ISPRING",
@@ -7732,6 +7803,7 @@
   {
     "id": "apec-roes-50",
     "title": "APEC ROES-50 Essence Reverse Osmosis",
+    "pick": "Pick it if you want a 5-stage reverse osmosis system with a 4-gallon tank.",
     "category": "air-water",
     "receipt": null,
     "meta": "ROES-50 • SPECS PER APEC",
@@ -7832,6 +7904,7 @@
   {
     "id": "coway-airmega-250",
     "title": "Coway Airmega 250 Air Purifier",
+    "pick": "Pick it if you want a purifier rated for 465 square feet at 4 air changes an hour.",
     "category": "air-water",
     "receipt": null,
     "meta": "AIRMEGA 250 • SPECS PER COWAY",
@@ -7962,6 +8035,7 @@
   {
     "id": "winix-5500-2",
     "title": "Winix 5500-2 Air Purifier",
+    "pick": "Pick it if you want a purifier with an AHAM room size of 360 square feet.",
     "category": "air-water",
     "receipt": null,
     "meta": "5500-2 • SPECS PER WINIX",
@@ -8077,6 +8151,7 @@
   {
     "id": "dremel-7760",
     "title": "Dremel 7760 Pet Nail Grooming Kit",
+    "pick": "Pick it if you want a pet nail groomer with a nail guard and a 45 degree paw guide.",
     "category": "pet",
     "receipt": null,
     "meta": "7760 • SPECS PER DREMEL",
@@ -8177,6 +8252,7 @@
   {
     "id": "petsafe-scoopfree-plus",
     "title": "PetSafe ScoopFree Crystal Plus Litter Box",
+    "pick": "Pick it if you want a litter box you can leave up to 30 days.",
     "category": "pet",
     "receipt": null,
     "meta": "PAL00-18016 • SPECS PER PETSAFE",
@@ -8300,6 +8376,7 @@
   {
     "id": "catit-flower-fountain",
     "title": "Catit Flower Fountain",
+    "pick": "Pick it if you want a fountain with 3 flow settings and a 3-liter capacity.",
     "category": "pet",
     "receipt": null,
     "meta": "FLOWER FOUNTAIN • SPECS PER CATIT",
@@ -8400,6 +8477,7 @@
   {
     "id": "feliway-optimum",
     "title": "Feliway Optimum Diffuser",
+    "pick": "Pick it if you want a diffuser that covers 700 square feet from one outlet.",
     "category": "pet",
     "receipt": null,
     "meta": "FELIWAY OPTIMUM • SPECS PER FELIWAY",
@@ -8500,6 +8578,7 @@
   {
     "id": "kong-classic",
     "title": "KONG Classic Dog Toy",
+    "pick": "Pick it if you want a natural rubber chew for an average chewer.",
     "category": "pet",
     "receipt": null,
     "meta": "KONG CLASSIC • SPECS PER KONG",
@@ -8609,6 +8688,7 @@
   {
     "id": "whisker-feeder-robot",
     "title": "Whisker Feeder-Robot",
+    "pick": "Pick it if you want a feeder that schedules up to 8 meals a day.",
     "category": "pet",
     "receipt": null,
     "meta": "FEEDER-ROBOT • SPECS PER WHISKER",
@@ -8709,6 +8789,7 @@
   {
     "id": "sleepypod-clickit",
     "title": "Sleepypod Clickit Sport Harness",
+    "pick": "Pick it if you want a 3-point dog car harness rated up to 25 lb.",
     "category": "pet",
     "receipt": null,
     "meta": "CLICKIT SPORT • SPECS PER SLEEPYPOD",
@@ -8819,6 +8900,7 @@
   {
     "id": "furbo-360",
     "title": "Furbo 360 Dog Camera",
+    "pick": "Pick it if you want a dog camera with a rotating 360 degree view.",
     "category": "pet",
     "receipt": null,
     "meta": "FURBO 360 • SPECS PER FURBO",
@@ -8919,6 +9001,7 @@
   {
     "id": "casper-original",
     "title": "Casper Original Foam Mattress",
+    "pick": "Pick it if you want a foam mattress with a zoned memory foam core.",
     "category": "sleep",
     "receipt": null,
     "meta": "ORIGINAL FOAM • SPECS PER CASPER",
@@ -9029,6 +9112,7 @@
   {
     "id": "saatva-classic",
     "title": "Saatva Classic Mattress",
+    "pick": "Pick it if you want a coil mattress you can order in plush soft, luxury firm, or firm.",
     "category": "sleep",
     "receipt": null,
     "meta": "SAATVA CLASSIC • SPECS PER SAATVA",
@@ -9139,6 +9223,7 @@
   {
     "id": "coop-original-pillow",
     "title": "Coop Original Pillow",
+    "pick": "Pick it if you want a medium-firm pillow filled with memory foam and microfiber.",
     "category": "sleep",
     "receipt": null,
     "meta": "ORIGINAL PILLOW • SPECS PER COOP SLEEP GOODS",
@@ -9250,6 +9335,7 @@
   {
     "id": "hatch-restore-3",
     "title": "Hatch Restore 3",
+    "pick": "Pick it if you want LEDs and a 2.4 GHz Wi-Fi connection in one unit.",
     "category": "sleep",
     "receipt": null,
     "meta": "RESTORE 3 • SPECS PER HATCH",
@@ -9350,6 +9436,7 @@
   {
     "id": "lectrofan-classic",
     "title": "LectroFan Classic White Noise Machine",
+    "pick": "Pick it if you want a white noise machine with 10 fan sounds and 10 white noises.",
     "category": "sleep",
     "receipt": null,
     "meta": "LECTROFAN CLASSIC • SPECS PER ADAPTIVE SOUND TECHNOLOGIES",
@@ -9467,6 +9554,7 @@
   {
     "id": "steelcase-leap",
     "title": "Steelcase Leap Chair",
+    "pick": "Pick it if you want a chair rated for 400 lb, with a 12-year parts warranty.",
     "category": "sleep",
     "receipt": null,
     "meta": "LEAP • SPECS PER STEELCASE",
@@ -9577,6 +9665,7 @@
   {
     "id": "zinus-green-tea-12",
     "title": "Zinus 12-Inch Green Tea Memory Foam Mattress",
+    "pick": "Pick it if you want a 12-inch memory foam mattress with CertiPUR-US foam.",
     "category": "sleep",
     "receipt": null,
     "meta": "GREEN TEA • SPECS PER ZINUS",
@@ -9677,6 +9766,7 @@
   {
     "id": "manta-sleep-mask",
     "title": "Manta Sleep Mask",
+    "pick": "Pick it if you want a sleep mask with blackout cups that stay off your eyelids.",
     "category": "sleep",
     "receipt": null,
     "meta": "MANTA SLEEP MASK • SPECS PER MANTA",
@@ -9777,6 +9867,7 @@
   {
     "id": "buffy-cloud-comforter",
     "title": "Buffy Cloud Comforter",
+    "pick": "Pick it if you want a comforter with a lyocell sateen shell and recycled PET fill.",
     "category": "sleep",
     "receipt": null,
     "meta": "CLOUD COMFORTER • SPECS PER BUFFY",
@@ -9887,6 +9978,7 @@
   {
     "id": "philips-hf3520",
     "title": "Philips SmartSleep Wake-up Light HF3520",
+    "pick": "Pick it if you want a wake-up light with 5 natural sounds and an FM radio.",
     "category": "sleep",
     "receipt": null,
     "meta": "HF3520 • SPECS PER PHILIPS",
@@ -9987,6 +10079,7 @@
   {
     "id": "oral-b-io-3",
     "title": "Oral-B iO Series 3 Toothbrush",
+    "pick": "Pick it if you want a rechargeable toothbrush with Daily Clean, Whiten, and Sensitive modes.",
     "category": "personal-tech",
     "receipt": null,
     "meta": "IO SERIES 3 • SPECS PER ORAL-B",
@@ -10097,6 +10190,7 @@
   {
     "id": "garmin-forerunner-265",
     "title": "Garmin Forerunner 265",
+    "pick": "Pick it if you want a smartwatch with an AMOLED touchscreen and up to 13 days of battery.",
     "category": "personal-tech",
     "receipt": null,
     "meta": "FORERUNNER 265 • SPECS PER GARMIN",
@@ -10206,6 +10300,7 @@
   {
     "id": "jbl-charge-5",
     "title": "JBL Charge 5 Speaker",
+    "pick": "Pick it if you want a speaker that plays up to 20 hours and has an IP67 rating.",
     "category": "personal-tech",
     "receipt": null,
     "meta": "CHARGE 5 • SPECS PER JBL",
@@ -10316,6 +10411,7 @@
   {
     "id": "gopro-hero13",
     "title": "GoPro HERO13 Black",
+    "pick": "Pick it if you want 5.3K video in a body that is waterproof to 33 feet.",
     "category": "personal-tech",
     "receipt": null,
     "meta": "HERO13 • SPECS PER GOPRO",
@@ -10426,6 +10522,7 @@
   {
     "id": "shokz-openrun-pro-2",
     "title": "Shokz OpenRun Pro 2",
+    "pick": "Pick it if you want open-ear headphones with up to 12 hours of play time.",
     "category": "personal-tech",
     "receipt": null,
     "meta": "OPENRUN PRO 2 • SPECS PER SHOKZ",
@@ -10535,6 +10632,7 @@
   {
     "id": "philips-oneblade-360",
     "title": "Philips Norelco OneBlade 360 QP4631",
+    "pick": "Pick it if you want a 360 blade with a 5-in-1 adjustable comb.",
     "category": "personal-tech",
     "receipt": null,
     "meta": "QP4631 • SPECS PER PHILIPS NORELCO",
@@ -10647,6 +10745,7 @@
   {
     "id": "airpods-pro-3",
     "title": "Apple AirPods Pro 3",
+    "pick": "Pick it if you want earbuds with noise cancelling, a Hearing Aid feature, and an IP57 rating.",
     "category": "personal-tech",
     "receipt": null,
     "meta": "AIRPODS PRO 3 • SPECS PER APPLE",
@@ -10769,6 +10868,7 @@
   {
     "id": "anker-nano-30w",
     "title": "Anker Nano 30W USB-C Charger",
+    "pick": "Pick it if you want a USB-C charger with up to 30 W output.",
     "category": "personal-tech",
     "receipt": null,
     "meta": "A2147 • SPECS PER ANKER",
@@ -10874,6 +10974,7 @@
   {
     "id": "bose-qc-ultra",
     "title": "Bose QuietComfort Ultra Headphones",
+    "pick": "Pick it if you want headphones with Quiet, Aware, and Immersion modes, and up to 24 hours of battery.",
     "category": "personal-tech",
     "receipt": null,
     "meta": "QUIETCOMFORT ULTRA • SPECS PER BOSE",
@@ -10996,6 +11097,7 @@
   {
     "id": "logitech-mx-master-3s",
     "title": "Logitech MX Master 3S",
+    "pick": "Pick it if you want quiet clicks and tracking on glass.",
     "category": "personal-tech",
     "receipt": null,
     "meta": "MX MASTER 3S • SPECS PER LOGITECH",
@@ -11100,6 +11202,7 @@
   {
     "id": "sonos-era-100",
     "title": "Sonos Era 100",
+    "pick": "Pick it if you want stereo sound with Bluetooth button pairing.",
     "category": "personal-tech",
     "receipt": null,
     "meta": "ERA 100 • SPECS PER SONOS",
@@ -11210,6 +11313,7 @@
   {
     "id": "theragun-prime",
     "title": "Therabody Theragun Prime",
+    "pick": "Pick it if you want percussive therapy with heat and 5 speeds.",
     "category": "personal-tech",
     "receipt": null,
     "meta": "THERAGUN PRIME • SPECS PER THERABODY",
@@ -11329,6 +11433,7 @@
   {
     "id": "baratza-encore-esp",
     "title": "Baratza Encore ESP",
+    "pick": "Pick it if you want a separate grinder you can set for espresso or for filter coffee.",
     "category": "kitchen",
     "receipt": null,
     "meta": "ENCORE ESP • SPECS PER BARATZA",
@@ -11446,6 +11551,7 @@
   {
     "id": "keychron-v3",
     "title": "Keychron V3 Mechanical Keyboard",
+    "pick": "Pick it if you want a wired mechanical keyboard with a knob and hot-swap switches.",
     "category": "personal-tech",
     "receipt": null,
     "meta": "V3 • SPECS PER KEYCHRON",
@@ -11562,6 +11668,7 @@
   {
     "id": "ninja-creami-nc301",
     "title": "Ninja CREAMi 7-in-1 Ice Cream Maker NC301",
+    "pick": "Pick it if you want an ice cream maker with seven programs and two 16 oz pints included.",
     "category": "kitchen",
     "receipt": null,
     "meta": "NC301 • SPECS PER NINJA",
@@ -11673,6 +11780,7 @@
   {
     "id": "helix-midnight",
     "title": "Helix Midnight Mattress",
+    "pick": "Pick it if you want a mattress with a 365-night trial and a limited lifetime warranty.",
     "category": "sleep",
     "receipt": null,
     "meta": "MIDNIGHT • SPECS PER HELIX",
@@ -11767,6 +11875,7 @@
   {
     "id": "levoit-vital-200s",
     "title": "Levoit Vital 200S-P Air Purifier",
+    "pick": "Pick it if you want a purifier that changes the air in a 1,862 square foot room once an hour.",
     "category": "air-water",
     "receipt": null,
     "meta": "VITAL 200S-P • SPECS PER LEVOIT",
@@ -11884,6 +11993,7 @@
   {
     "id": "waterpik-wp-660",
     "title": "Waterpik Aquarius Water Flosser WP-660",
+    "pick": "Pick it if you want a water flosser with 10 pressure settings and a 22-ounce reservoir.",
     "category": "personal-tech",
     "receipt": null,
     "meta": "WP-660 • SPECS PER WATERPIK",
@@ -12000,6 +12110,7 @@
   {
     "id": "levoit-lv600hh",
     "title": "Levoit LV600HH Hybrid Ultrasonic Humidifier",
+    "pick": "Pick it if you want a humidifier that can blow warm mist or cool mist.",
     "category": "air-water",
     "receipt": null,
     "meta": "LV600HH • SPECS PER LEVOIT",
@@ -12106,6 +12217,7 @@
   {
     "id": "zerowater-zp010",
     "title": "ZeroWater 10-Cup Pitcher ZP-010",
+    "pick": "Pick it if you want a 10-cup pitcher that comes with a TDS meter.",
     "category": "air-water",
     "receipt": null,
     "meta": "ZP-010 • SPECS PER ZEROWATER",
@@ -12219,6 +12331,7 @@
   {
     "id": "levoit-core-600s",
     "title": "Levoit Core 600S-P Smart Air Purifier",
+    "pick": "Pick it if you want a purifier rated for 606 square feet at 4.8 air changes an hour.",
     "category": "air-water",
     "receipt": null,
     "meta": "CORE 600S-P • SPECS PER LEVOIT",
@@ -12348,6 +12461,7 @@
   {
     "id": "homelabs-50-pint",
     "title": "hOmeLabs 50 Pint Wi-Fi Dehumidifier",
+    "pick": "Pick it if you want a dehumidifier you can control over Wi-Fi, rated for 50 pints a day.",
     "category": "air-water",
     "receipt": null,
     "meta": "50 PINT • SPECS PER HOMELABS",
@@ -12464,6 +12578,7 @@
   {
     "id": "pioneer-raindrop-6023",
     "title": "Pioneer Pet Raindrop Stainless Fountain 6023",
+    "pick": "Pick it if you want a stainless steel pet fountain that holds 60 ounces.",
     "category": "pet",
     "receipt": null,
     "meta": "6023 • SPECS PER PIONEER PET",
@@ -12570,6 +12685,7 @@
   {
     "id": "petsafe-easy-walk",
     "title": "PetSafe Easy Walk Harness",
+    "pick": "Pick it if you want a dog harness with the leash clip on the chest.",
     "category": "pet",
     "receipt": null,
     "meta": "EASY WALK • SPECS PER PETSAFE",
@@ -12680,6 +12796,7 @@
   {
     "id": "petsafe-simply-feed",
     "title": "PetSafe Healthy Pet Simply Feed",
+    "pick": "Pick it if you want a feeder that can schedule up to 12 meals a day.",
     "category": "pet",
     "receipt": null,
     "meta": "PFD00-14574 • SPECS PER PETSAFE",
@@ -12787,6 +12904,7 @@
   {
     "id": "kurgo-tru-fit-smart",
     "title": "Kurgo Tru-Fit Smart Dog Harness",
+    "pick": "Pick it if you want a dog harness with leash clips on the front and the back.",
     "category": "pet",
     "receipt": null,
     "meta": "K01174 • SPECS PER KURGO",
@@ -12904,6 +13022,7 @@
   {
     "id": "outward-hound-fun-feeder",
     "title": "Outward Hound Fun Feeder Slo Bowl",
+    "pick": "Pick it if you want a bowl that is safe for the top rack of the dishwasher.",
     "category": "pet",
     "receipt": null,
     "meta": "SLO BOWL • SPECS PER OUTWARD HOUND",
@@ -13049,6 +13168,7 @@
     ],
     "id": "irobot-roomba-combo-j9-plus",
     "title": "iRobot Roomba Combo j9+ Auto-Fill Robot Vacuum and Mop",
+    "pick": "Pick it if you want one robot that vacuums and mops, with an Auto-Fill dock.",
     "category": "cleaning",
     "model": "C975020",
     "meta": "C975020 • SPECS PER IROBOT",
@@ -13161,6 +13281,7 @@
     ],
     "id": "shark-av2501s",
     "title": "Shark AI Ultra Robot Vacuum AV2501S",
+    "pick": "Pick it if you want a robot that vacuums, without a mop.",
     "category": "cleaning",
     "model": "AV2501S",
     "meta": "AV2501S • SPECS PER SHARK",
@@ -13285,6 +13406,7 @@
     ],
     "id": "shark-av2820ae",
     "title": "Shark PowerDetect Robot Vacuum AV2820AE",
+    "pick": "Pick it if you want a robot vacuum with a 5.7-inch cleaning path.",
     "category": "cleaning",
     "model": "AV2820AE",
     "meta": "AV2820AE • SPECS PER SHARK",
@@ -13393,6 +13515,7 @@
     ],
     "id": "roborock-qrevo-s",
     "title": "Roborock Qrevo S Robot Vacuum and Mop",
+    "pick": "Pick it if you want a robot that vacuums and mops, and is ready to run again in about 4 hours.",
     "category": "cleaning",
     "model": "Qrevo S",
     "meta": "QREVO S • QX1PEC ON THE US MANUAL • SPECS PER ROBOROCK",
@@ -13501,6 +13624,7 @@
     ],
     "id": "eufy-x10-pro-omni",
     "title": "eufy X10 Pro Omni Robot Vacuum and Mop",
+    "pick": "Pick it if you want a robot that vacuums and mops, and can vacuum for 173 minutes on standard.",
     "category": "cleaning",
     "model": "X10 Pro Omni",
     "meta": "X10 PRO OMNI • SPECS PER EUFY",
@@ -13611,6 +13735,7 @@
     ],
     "id": "dyson-v15-detect",
     "title": "Dyson V15 Detect Absolute Cordless Vacuum",
+    "pick": "Pick it if you want a cordless vacuum with whole-machine HEPA filtration and up to 60 minutes of run time.",
     "category": "cleaning",
     "model": "V15 Detect Absolute",
     "meta": "V15 DETECT ABSOLUTE • SPECS PER DYSON",
@@ -13736,6 +13861,7 @@
     ],
     "id": "dyson-v8",
     "title": "Dyson V8 Cordless Vacuum",
+    "pick": "Pick it if you want a cordless vacuum with a 40-minute maximum run time.",
     "category": "cleaning",
     "model": "V8",
     "meta": "V8 • SPECS PER DYSON",
@@ -13857,6 +13983,7 @@
     ],
     "id": "shark-ip3251",
     "title": "Shark PowerDetect Clean and Empty Cordless Vacuum IP3251",
+    "pick": "Pick it if you want a cordless vacuum with up to 70 minutes at the hand vacuum in ECO mode.",
     "category": "cleaning",
     "model": "IP3251",
     "meta": "IP3251 • SPECS PER SHARK",
@@ -13965,6 +14092,7 @@
     ],
     "id": "tineco-pure-one-s15",
     "title": "Tineco PURE ONE S15 PRO Cordless Vacuum",
+    "pick": "Pick it if you want a cordless vacuum with a 40-minute run time and a 4-hour charge.",
     "category": "cleaning",
     "model": "PURE ONE S15 PRO",
     "meta": "PURE ONE S15 PRO • SPECS PER TINECO",
@@ -14077,6 +14205,7 @@
     ],
     "id": "bissell-iconpet-2288",
     "title": "BISSELL ICONpet Cordless Vacuum 2288",
+    "pick": "Pick it if you want a cordless pet vacuum with a 10.5-inch cleaning path.",
     "category": "cleaning",
     "model": "2288",
     "meta": "2288 • SPECS PER BISSELL",
