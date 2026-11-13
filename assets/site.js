@@ -1,3 +1,28 @@
+(function () {
+  function fallbackPhoto(img) {
+    if (!img || !img.classList || !img.classList.contains("p-photo") || img.dataset.fellback) return;
+    if (!window.CheckedLabCard || !window.CheckedLabCard.tile) return;
+    img.dataset.fellback = "1";
+    var html = window.CheckedLabCard.tile({
+      sourceName: img.getAttribute("data-brand") || "",
+      model: img.getAttribute("data-model") || "",
+      category: img.getAttribute("data-category") || "",
+      title: img.getAttribute("alt") || ""
+    });
+    var holder = document.createElement("div");
+    holder.innerHTML = html;
+    var tile = holder.firstElementChild;
+    if (!tile) return;
+    var credit = img.nextElementSibling;
+    if (credit && credit.classList.contains("img-credit")) credit.remove();
+    img.replaceWith(tile);
+  }
+  document.addEventListener("error", function (event) { fallbackPhoto(event.target); }, true);
+  document.querySelectorAll("img.p-photo").forEach(function (img) {
+    if (img.complete && img.naturalWidth === 0) fallbackPhoto(img);
+  });
+})();
+
 /* Store buttons and recall status. No price, stock, or check time is rendered.
    Cards already in the HTML stay put when they match the region. */
 (function () {
@@ -51,6 +76,7 @@
 
   function mountProducts(list) {
     if (!window.CheckedLabCard) return;
+    if (window.CheckedLabCard.beginPage) window.CheckedLabCard.beginPage();
     var page = document.body.dataset.page;
     var category = document.body.dataset.category;
     var reg = region();
@@ -69,8 +95,8 @@
       });
       if (title) title.textContent = q ? "Matches" : "Recently recall-checked";
       if (empty) empty.hidden = popular.length !== 0;
-      paint(document.getElementById("popular-mount"), popular.map(function (product) {
-        return window.CheckedLabCard.card(product, reg);
+      paint(document.getElementById("popular-mount"), popular.map(function (product, index) {
+        return window.CheckedLabCard.card(product, reg, index < 6 ? { eager: true } : {});
       }).join(""), reg);
       paint(document.getElementById("recall-mount"), recalls.length
         ? recalls.map(function (product) { return window.CheckedLabCard.card(product, reg); }).join("")
@@ -80,21 +106,27 @@
     var mount = document.getElementById("product-mount");
     if (!mount) return;
     var shown = list;
+    var query = "";
+    var search = document.querySelector("[data-model-search]");
+    if (search) query = search.value.trim().toLowerCase();
     if (page === "category") {
       shown = list.filter(function (product) { return product.category === category; });
+      if (query) shown = shown.filter(function (product) { return blob(product).indexOf(query) !== -1; });
     } else if (page === "bin") {
       shown = list.filter(isBin);
     } else {
       return;
     }
-    if (mount.querySelector(".product-grid, .product-row") && mount.getAttribute("data-rendered-region") === reg) return;
+    if (!query && mount.querySelector(".product-grid, .product-row") && mount.getAttribute("data-rendered-region") === reg) return;
     if (!shown.length) {
       paint(mount, page === "bin"
         ? '<p class="empty">Nothing is on the BIN list. A product lands here only when a recall record matches its brand and model. An unconfirmed model is not a BIN.</p>'
         : '<p class="empty">No products in this category yet. Recall-checked and maker-sourced. More picks coming.</p>', reg);
       return;
     }
-    paint(mount, shown.map(function (product) { return window.CheckedLabCard.card(product, reg); }).join(""), reg);
+    paint(mount, shown.map(function (product, index) {
+      return window.CheckedLabCard.card(product, reg, index < 3 ? { eager: true } : {});
+    }).join(""), reg);
   }
 
   var products = [];
@@ -128,6 +160,13 @@
   });
 
   reveal(document);
+
+  var preset = "";
+  try { preset = new URLSearchParams(window.location.search).get("q") || ""; } catch (e) {}
+  if (preset) {
+    var boxes = document.querySelectorAll("[data-model-search]");
+    Array.prototype.forEach.call(boxes, function (box) { if (!box.value) box.value = preset; });
+  }
 
   if (document.getElementById("product-mount") || document.getElementById("popular-mount")) {
     fetch("/products.json")
@@ -295,6 +334,7 @@
   document.addEventListener("submit", function (event) {
     var form = event.target;
     if (!form || !form.querySelector || !form.querySelector("[data-model-search]")) return;
+    if (document.body.dataset.page !== "home") return;
     event.preventDefault();
     var dest = document.getElementById("popular");
     if (!dest) return;

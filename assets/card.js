@@ -283,16 +283,116 @@
     return esc(title).replace(/([A-Za-z0-9])-([A-Za-z0-9])/g, "$1\u2011$2");
   }
 
+  function shortModel(product) {
+    if (product.model && String(product.model).length <= 32) return String(product.model);
+    var meta = String(product.meta || "");
+    var head = meta.split("•")[0].trim();
+    if (head && head.length <= 32) return head;
+    return product.model || head || product.title || "";
+  }
+
+  var CAT_LINE = {
+    kitchen: "kitchen gear",
+    cleaning: "cleaning gear",
+    winter: "winter gear",
+    "car-garage": "car and garage gear",
+    "air-water": "air and water gear",
+    pet: "pet gear",
+    sleep: "sleep gear",
+    "personal-tech": "personal tech"
+  };
+
+  function isIdSpec(spec, product) {
+    var label = String(spec.label || "").toLowerCase().trim();
+    var value = String(spec.value || "").trim().toLowerCase();
+    if (/^(model|item|sku|asin|name|series)$/.test(label)) return true;
+    if (/model number|model name|part number/.test(label)) return true;
+    var model = String((product && product.model) || "").trim().toLowerCase();
+    if (model && value === model) return true;
+    return false;
+  }
+
+  function specRank(label) {
+    var order = ["battery", "run time", "runtime", "suction", "capacity", "motor", "heat output", "cadr", "room coverage", "peak current", "speeds", "container", "containers", "bowl", "functions", "modes", "programs", "power", "rated power", "noise cancelling", "weight", "filtration", "bin volume", "tank"];
+    var index = order.indexOf(String(label || "").toLowerCase());
+    if (index >= 0) return index;
+    if (/dimension|warranty|voltage|power supply|enclosure|cleanup|connection|charge time|safety/.test(String(label || "").toLowerCase())) return 80;
+    return 40;
+  }
+
+  function phraseSpec(label, value) {
+    var ll = String(label || "").toLowerCase().trim();
+    var v = String(value || "").replace(/\s+/g, " ").trim();
+    if (/^(functions|modes|programs)$/.test(ll)) {
+      var bits = v.split(/,\s+/).map(function (part) { return part.trim(); }).filter(Boolean);
+      if (bits.length >= 3) return bits.length + " " + ll;
+    }
+    if (ll === "battery") return v.split(/,\s+/)[0].replace(/^max\.?\s*/i, "up to ");
+    if (ll === "motor") return "a " + v + " motor";
+    if (ll === "container" || ll === "containers") return "a " + v.split(/,\s+/)[0] + " container";
+    if (ll === "capacity") {
+      var sized = v.match(/^(\d+(?:\.\d+)?)\s+([A-Za-z]+)$/);
+      if (sized) return sized[1] + "-" + sized[2].toLowerCase() + " capacity";
+      return v + " capacity";
+    }
+    if (ll === "speeds") return v + " speeds";
+    if (ll === "bowl") return "a " + v.split(/,\s+/)[0] + " bowl";
+    if (ll === "power" || ll === "rated power") return v.split(/,\s+/)[0];
+    if (ll === "heat output") return v.split(/,\s+/)[0] + " of heat";
+    if (ll === "cadr") return "CADR " + v.split(/,\s+/)[0];
+    if (ll === "room coverage") return "room coverage of " + v;
+    if (ll === "suction") return v + " suction";
+    if (ll === "run time" || ll === "runtime") return v + " run time";
+    if (ll === "weight") return v;
+    if (ll === "noise cancelling") return v;
+    if (v.length > 56) v = v.split(/,\s+/)[0];
+    if (v.toLowerCase().indexOf(ll) >= 0) return v;
+    return v + " " + ll;
+  }
+
+  function pickLine(product) {
+    var specs = (product.specs || []).filter(function (spec) {
+      return spec && spec.label && spec.value && !isIdSpec(spec, product) && !/\$\d|\d+\s*%/.test(spec.label + " " + spec.value);
+    }).sort(function (a, b) { return specRank(a.label) - specRank(b.label); });
+    if (!specs.length) return "Pick it for: " + (CAT_LINE[product.category] || "this category");
+    var phrases = specs.slice(0, 2).map(function (spec) { return phraseSpec(spec.label, spec.value); });
+    if (phrases.length === 2 && (phrases[0] + " and " + phrases[1]).length > 110) phrases = phrases.slice(0, 1);
+    var joined = phrases.length === 2 && /^(a|an) /.test(phrases[0]) && /^(a|an) /.test(phrases[1])
+      ? phrases[0] + " and " + phrases[1]
+      : phrases.join(", ");
+    return "Pick it for: " + joined;
+  }
+
+  var CAT_ICON = {
+    winter: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M4 8l16 8M20 8L4 16"/></svg>',
+    "car-garage": '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 14h16v4H4zM6 14l2-4h8l2 4"/><circle cx="7.5" cy="18" r="1.2"/><circle cx="16.5" cy="18" r="1.2"/></svg>',
+    "air-water": '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4c3 3 5 5.5 5 8.5a5 5 0 1 1-10 0C7 9.5 9 7 12 4z"/></svg>',
+    pet: '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="8" cy="8" r="2"/><circle cx="16" cy="8" r="2"/><circle cx="6.5" cy="13" r="1.6"/><circle cx="17.5" cy="13" r="1.6"/><path d="M9 16c.8 2 5.2 2 6 0"/></svg>',
+    kitchen: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 10h12v7a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2zM9 10V7M15 10V7"/></svg>',
+    cleaning: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 16h9a3 3 0 0 0 3-3V8"/><circle cx="17" cy="7" r="2"/><path d="M19 7h2M7 16v3h6"/></svg>',
+    sleep: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 5a7 7 0 1 0 4 12 8 8 0 1 1-4-12z"/></svg>',
+    "personal-tech": '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 0 1 16 0"/><path d="M4 12v3a2 2 0 0 0 2 2h1v-5H4zM20 12v3a2 2 0 0 1-2 2h-1v-5h3z"/></svg>'
+  };
+
+  function tile(product) {
+    var cat = (product && product.category) || "kitchen";
+    var icon = CAT_ICON[cat] || CAT_ICON.kitchen;
+    return '<div class="type-tile" data-cat="' + esc(cat) + '" aria-hidden="true"><span class="tile-band"></span><span class="tile-icon">' + icon + "</span></div>";
+  }
+
+  var pageSeen = Object.create(null);
+  function beginPage() { pageSeen = Object.create(null); }
+
   function card(product, reg, opts) {
     opts = opts || {};
     var recall = recallFor(product, reg);
     var href = esc(productPath(product));
     var title = '<h2 class="p-title"><a href="' + href + '">' + visibleTitle(product.title) + "</a></h2>";
-    var meta = '<p class="p-meta">' + esc(modelLine(product)) + "</p>";
     var more = '<a class="hub-more" href="' + href + '">See specs and stores</a>';
     var id = ' id="' + esc(product.id) + '" data-category="' + esc(product.category || "") + '"';
-    return '<article class="product-grid hub-card"' + id + ">" + photoColumn(product, reg, opts) +
-      '<div class="p-main">' + badgeHtml(recall) + noteBadge(product) + title + meta + hubSpecs(product) + more + "</div></article>";
+    return '<article class="product-grid hub-card"' + id + '><div class="pick-media">' + visual(product, opts) + "</div>" +
+      '<div class="p-main">' + badgeHtml(recall) + noteBadge(product) + title +
+      '<p class="pick-if">' + esc(pickLine(product)) + "</p>" + more + "</div></article>";
   }
 
   var artSeq = 0;
@@ -526,39 +626,24 @@
     stickvac: ["cat-stick.webp", "Photo by Vedat \u00d6ncelik on Pexels", 1600, 2399]
   };
 
-  function photoRecord(product) {
+  function modelPhoto(product) {
+    if (!product || product.imageKind !== "model") return "";
     var src = licensedSrc(product);
-    if (src) {
-      var model = product && product.imageKind === "model";
-      return {
-        src: src,
-        kind: model ? "model" : "category",
-        credit: (product && product.imageCredit) || "",
-        alt: model ? ((product && product.title) || "Product") : "Category photo",
-        width: 1200,
-        height: 900
-      };
-    }
-    var row = CATEGORY_PHOTOS[motifKey(product || {})] || CATEGORY_PHOTOS.box;
-    return {
-      src: "/images/photos/" + row[0],
-      kind: "category",
-      credit: row[1],
-      alt: "Category photo",
-      width: row[2],
-      height: row[3]
-    };
+    if (!src || src.indexOf("/images/photos/") !== 0) return "";
+    return src;
   }
 
   function visual(product, opts) {
     opts = opts || {};
-    var photo = photoRecord(product);
+    var src = modelPhoto(product);
+    if (!src || pageSeen[src]) return tile(product || {});
+    pageSeen[src] = 1;
     var load = opts.eager ? ' fetchpriority="high" decoding="async"' : ' loading="lazy" decoding="async"';
-    var caption = photo.kind === "model"
-      ? (photo.credit || "")
-      : ("Category photo" + (photo.credit ? " · " + photo.credit : ""));
-    return '<img class="p-photo" src="' + esc(photo.src) + '" alt="' + esc(photo.alt) + '" width="' + photo.width + '" height="' + photo.height + '"' + load + ">" +
-      (caption ? '<p class="img-credit">' + esc(caption) + "</p>" : "");
+    var credit = product.imageCredit ? '<p class="img-credit">' + esc(product.imageCredit) + "</p>" : "";
+    var meta = product.image_source || {};
+    var width = Number(meta.width) || 1200;
+    var height = Number(meta.height) || 900;
+    return '<img class="p-photo" src="' + esc(src) + '" alt="' + esc(product.title || "Product") + '" width="' + width + '" height="' + height + '" data-brand="' + esc(product.sourceName || "") + '" data-model="' + esc(product.model || "") + '" data-category="' + esc(product.category || "") + '"' + load + ">" + credit;
   }
 
   var SCENES = {
@@ -581,9 +666,8 @@
     cleaning: ["hub-cleaning.webp", "A robot vacuum on a wood floor", "Photo by Ron Lach on Pexels", 1600, 2400]
   };
 
-  function scene(name) {
-    var row = SCENES[name] || SCENES.home;
-    return '<figure class="scene-photo"><img src="/images/photos/' + row[0] + '" alt="' + esc(row[1]) + '" width="' + row[3] + '" height="' + row[4] + '" loading="lazy" decoding="async"><figcaption>' + esc(row[2]) + "</figcaption></figure>";
+  function scene() {
+    return "";
   }
 
   return {
@@ -598,6 +682,9 @@
     imageHtml: imageHtml,
     imageColumn: imageColumn,
     visual: visual,
+    tile: tile,
+    pickLine: pickLine,
+    beginPage: beginPage,
     scene: scene,
     noteBadge: noteBadge,
     motifKey: motifKey,
