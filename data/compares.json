@@ -25,7 +25,7 @@
       "levoit-core-300s-p"
     ],
     "fit": [
-      "The shared labels are dimensions and weight. Coway states 16.8 × 18.3 × 9.6 in and 12.3 lb. Levoit states 8.7 × 8.7 × 14.2 in and 7.48 lb.",
+      "The shared labels are dimensions and weight. Coway states 16.8 \u00d7 18.3 \u00d7 9.6 in and 12.3 lb. Levoit states 8.7 \u00d7 8.7 \u00d7 14.2 in and 7.48 lb.",
       "CADR, room coverage, and power are on the Coway card only. Rated power, noise, and power supply are on the Levoit card only. Those rows are left out because the other card does not use the same label."
     ]
   },
@@ -55,7 +55,7 @@
       "cosori-pro-5-8"
     ],
     "fit": [
-      "The shared labels are dimensions and weight. The Crispi page states 11.5 × 9.76 × 11.81 in and 14.55 lb. The Pro II page states 11.8 × 13.8 × 12.6 in and 12.3 lb.",
+      "The shared labels are dimensions and weight. The Crispi page states 11.5 \u00d7 9.76 \u00d7 11.81 in and 14.55 lb. The Pro II page states 11.8 \u00d7 13.8 \u00d7 12.6 in and 12.3 lb.",
       "Power, containers, and modes are on the Crispi card only. Capacity, rated power, and power supply are on the Pro II card only. Those rows are left out because the other card does not use the same label."
     ]
   },
@@ -211,7 +211,7 @@
       "for-the-home-cook"
     ],
     "fit": [
-      "The Duo Plus page states pressure cook, slow cook, sauté, sous vide, steam, sterilize, keep warm, rice, and yogurt, a 6 quart volume, 1,000 W at 120 V and 60 Hz, and 12.2 L x 13.4 W x 12.9 H in. The Foodi page states Air Fry, Whole Roast, Air Roast, Bake, Dehydrate, Pizza, Broil, Toast, Bagel, and Reheat, a capacity line for a 5 lb chicken and a sheet pan of vegetables, two 12 in pizzas, or a 12 lb turkey, 1,800 W, and 62.2 × 50.6 × 42.49 cm.",
+      "The Duo Plus page states pressure cook, slow cook, saut\u00e9, sous vide, steam, sterilize, keep warm, rice, and yogurt, a 6 quart volume, 1,000 W at 120 V and 60 Hz, and 12.2 L x 13.4 W x 12.9 H in. The Foodi page states Air Fry, Whole Roast, Air Roast, Bake, Dehydrate, Pizza, Broil, Toast, Bagel, and Reheat, a capacity line for a 5 lb chicken and a sheet pan of vegetables, two 12 in pizzas, or a 12 lb turkey, 1,800 W, and 62.2 \u00d7 50.6 \u00d7 42.49 cm.",
       "The capacity lines name different things: quarts on the Duo Plus page, and food that fits on the Foodi page. A lower stated wattage is the Duo Plus line. The dimension rows use the units each page prints, inches on the Instant Pot page and centimetres on the Ninja page. Warranty is on the Foodi card only."
     ]
   },
@@ -287,7 +287,7 @@
       {
         "heading": "The width row does not separate them",
         "paragraphs": [
-          "Both maker pages print 21 in on the clearing-width line. A reader who stops at width has not found a difference. The throw line is the shared row that does differ. The EGO page prints up to 40 ft. The Toro page prints up to 35 ft. Both are the maker’s own “up to” wording.",
+          "Both maker pages print 21 in on the clearing-width line. A reader who stops at width has not found a difference. The throw line is the shared row that does differ. The EGO page prints up to 40 ft. The Toro page prints up to 35 ft. Both are the maker\u2019s own \u201cup to\u201d wording.",
           "The units match, inches for width and feet for throw, so the rows can sit in one table. A longer stated throw, at the same stated width, is the EGO line. A shorter stated throw is the Toro line. Neither throw line names a snow depth, a slope, or a wind speed."
         ]
       },
@@ -303,7 +303,7 @@
         "heading": "Older Power Clear notices are a model-number question",
         "paragraphs": [
           "The recall block on this page is the catalogue match for SNT2110 and for 38753. Open each model page for the feed link. The Toro card also links older Power Clear notices. The 2010 CPSC notice names Power Clear 180 models 38272 and 38282. The 2011 CPSC notice names snowblower models 38588 and 38589, plus a mower model. The catalogue model on this page is 38753, which is not one of those model numbers.",
-          "Health Canada’s 2010 notice names the same Power Clear 180 models, 38272 and 38282. Health Canada’s 2011 notice names 38588 and 38589. Read the model and serial decal the notice describes before treating 38753 as one of those machines. The EGO card does not carry those Toro notices."
+          "Health Canada\u2019s 2010 notice names the same Power Clear 180 models, 38272 and 38282. Health Canada\u2019s 2011 notice names 38588 and 38589. Read the model and serial decal the notice describes before treating 38753 as one of those machines. The EGO card does not carry those Toro notices."
         ]
       }
     ]
@@ -368,7 +368,7 @@
       {
         "heading": "Pick by the room line you can actually cite",
         "paragraphs": [
-          "Pick the Blueair page if the room figure you are matching is the 674 sq ft recommended line, and the cabinet you are matching is 22.7 x 14.4 x 14.4 in at 16.2 lb. The sound line on that page is a range, 23 to 53 dB, which is a different label from Coway’s noise line.",
+          "Pick the Blueair page if the room figure you are matching is the 674 sq ft recommended line, and the cabinet you are matching is 22.7 x 14.4 x 14.4 in at 16.2 lb. The sound line on that page is a range, 23 to 53 dB, which is a different label from Coway\u2019s noise line.",
           "Pick the Airmega 250 page if the figures you are matching are the CADR trio, the 4-air-change coverage of 465 sq ft, or the 1-year Max2 filter line. The stated weight on that page is 20.5 lb, higher than the Blueair weight line. The noise line is 22 to 54 dB(A). Do not treat the Blueair decibel range and the Coway decibel range as one table row. The pages do not share that label.",
           "A square-foot line with no air-change rate and a square-foot line that names 4 air changes per hour are not the same claim. Read the sentence the maker printed. The recall block is the catalogue match for each model on the check date."
         ]
@@ -389,23 +389,23 @@
       "for-the-home"
     ],
     "fit": [
-      "The Core 300S-P manual states noise of 22–54.5 dB and a weight of 7.48 lb. The Core 600S-P page states noise of 26–55 dB (as low as 26 dB per the maker) and a weight of 13.7 lb / 6.2 kg.",
-      "A lower stated weight is the Core 300S-P line. The 600S-P noise line is 26–55 dB (as low as 26 dB per the maker). The 300S-P noise line is 22–54.5 dB. Power, size, CADR, and room size use labels that only one card uses."
+      "The Core 300S-P manual states noise of 22\u201354.5 dB and a weight of 7.48 lb. The Core 600S-P page states noise of 26\u201355 dB (as low as 26 dB per the maker) and a weight of 13.7 lb / 6.2 kg.",
+      "A lower stated weight is the Core 300S-P line. The 600S-P noise line is 26\u201355 dB (as low as 26 dB per the maker). The 300S-P noise line is 22\u201354.5 dB. Power, size, CADR, and room size use labels that only one card uses."
     ],
     "sections": [
       {
         "heading": "Same brand, two cabinets",
         "paragraphs": [
-          "Both cards are Levoit Core models, and the shared labels are noise and weight. The 300S-P manual prints 22–54.5 dB and 7.48 lb, with dimensions of 8.7 × 8.7 × 14.2 in and rated power of 39 W at AC 120 V, 60 Hz. The 600S-P page prints 26–55 dB (as low as 26 dB per the maker) and 13.7 lb / 6.2 kg, with a size of 12.3 x 12.3 x 23.6 in and power of 49 W at AC 120 V, 60 Hz.",
+          "Both cards are Levoit Core models, and the shared labels are noise and weight. The 300S-P manual prints 22\u201354.5 dB and 7.48 lb, with dimensions of 8.7 \u00d7 8.7 \u00d7 14.2 in and rated power of 39 W at AC 120 V, 60 Hz. The 600S-P page prints 26\u201355 dB (as low as 26 dB per the maker) and 13.7 lb / 6.2 kg, with a size of 12.3 x 12.3 x 23.6 in and power of 49 W at AC 120 V, 60 Hz.",
           "CADR on the 600S-P page is 391 CFM. Room size on that page is 2,909 sq ft at 1 air change per hour, or 606 sq ft at 4.8. The 300S-P card does not use a CADR label or a room-size label, so those rows stay off the table. Filtration on the 600S-P page says 3-stage. That label is not on the 300S-P card."
         ]
       },
       {
         "heading": "Pick the smaller stated weight or the CADR line",
         "paragraphs": [
-          "Pick the Core 300S-P manual if the weight you are matching is 7.48 lb and the cabinet you are matching is 8.7 × 8.7 × 14.2 in. The power line that goes with that cabinet is 39 W. The noise line is 22–54.5 dB.",
-          "Pick the Core 600S-P page if the figure you are matching is 391 CFM, the room line that names 606 sq ft at 4.8 air changes, or the taller cabinet of 12.3 x 12.3 x 23.6 in. The stated weight on that page is 13.7 lb, and the noise line is 26–55 dB (as low as 26 dB per the maker). A lower stated wattage is the 300S-P line, 39 W against 49 W, and those power labels are not identical, so wattage stays on the cards.",
-          "Both noise lines are ranges. The 600S-P page prints 26–55 dB (as low as 26 dB per the maker). The 300S-P manual prints 22–54.5 dB. Read the range the page prints before comparing the low ends. The recall lines below are the catalogue match for each model."
+          "Pick the Core 300S-P manual if the weight you are matching is 7.48 lb and the cabinet you are matching is 8.7 \u00d7 8.7 \u00d7 14.2 in. The power line that goes with that cabinet is 39 W. The noise line is 22\u201354.5 dB.",
+          "Pick the Core 600S-P page if the figure you are matching is 391 CFM, the room line that names 606 sq ft at 4.8 air changes, or the taller cabinet of 12.3 x 12.3 x 23.6 in. The stated weight on that page is 13.7 lb, and the noise line is 26\u201355 dB (as low as 26 dB per the maker). A lower stated wattage is the 300S-P line, 39 W against 49 W, and those power labels are not identical, so wattage stays on the cards.",
+          "Both noise lines are ranges. The 600S-P page prints 26\u201355 dB (as low as 26 dB per the maker). The 300S-P manual prints 22\u201354.5 dB. Read the range the page prints before comparing the low ends. The recall lines below are the catalogue match for each model."
         ]
       }
     ]
@@ -431,7 +431,7 @@
       {
         "heading": "Both pages name stages and a daily capacity",
         "paragraphs": [
-          "The shared labels are stages and capacity. Waterdrop prints 8 stages and 600 gallons per day. APEC prints 5 stages and 50 gallons per day at 60 psi. The APEC capacity line includes a pressure, 60 psi. The Waterdrop capacity line does not print a pressure in that field. The numbers are both “gallons per day,” and the APEC line is the one that names the test pressure.",
+          "The shared labels are stages and capacity. Waterdrop prints 8 stages and 600 gallons per day. APEC prints 5 stages and 50 gallons per day at 60 psi. The APEC capacity line includes a pressure, 60 psi. The Waterdrop capacity line does not print a pressure in that field. The numbers are both \u201cgallons per day,\u201d and the APEC line is the one that names the test pressure.",
           "Waterdrop also states a 2:1 pure-to-drain ratio and certifications of NSF/ANSI 42, 58, and 372. APEC also states a 4 gallon tank and dimensions of 15.5 in L x 5.25 in W x 17 in H. Those labels are not shared, so the table leaves them on the cards."
         ]
       },
@@ -466,7 +466,7 @@
       {
         "heading": "The shared rows do not share a unit",
         "paragraphs": [
-          "Robot weight and robot dimensions are the labels both pages use. iRobot prints 8.9 lb and 3.4 x 13.7 x 13.7 in. eufy prints 4,560 g and 327 mm x 353 mm x 113.5 mm. This table does not convert those units. A reader who wants one unit has to do that arithmetic outside the maker’s sentence.",
+          "Robot weight and robot dimensions are the labels both pages use. iRobot prints 8.9 lb and 3.4 x 13.7 x 13.7 in. eufy prints 4,560 g and 327 mm x 353 mm x 113.5 mm. This table does not convert those units. A reader who wants one unit has to do that arithmetic outside the maker\u2019s sentence.",
           "The Roomba page also states a lithium-ion battery, dock dimensions of 15.8 in W x 16.4 in D x 16.3 in H, and a dock weight of 21.9 lb. The eufy page also states 8,000 Pa suction, a run time of 173 min vacuum or 136 min vacuum and mop on standard, and a 330 ml dustbin. None of those labels are on both cards."
         ]
       },
@@ -475,7 +475,7 @@
         "paragraphs": [
           "Pick the Combo j9+ page if the figures you are matching are the inch dimensions of the robot, the 8.9 lb robot weight, or the dock at 15.8 in by 16.4 in by 16.3 in and 21.9 lb. The battery line on that page names the chemistry, lithium-ion, and does not print a milliamp-hour figure.",
           "Pick the X10 Pro Omni page if the figure you are matching is 8,000 Pa, the run-time line of 173 minutes vacuum or 136 minutes vacuum and mop on standard, or the 330 ml dustbin. The robot weight on that page is 4,560 g, and the dimensions are in millimetres. A dock weight is not on the eufy card used here.",
-          "The Canadian catalogue note on the Roomba card links a Clean Base notice for the Roomba i7+, which is a different model name from Combo j9+. Read that notice’s model line before applying it to C975020. The recall block below is the catalogue match for each robot on the check date."
+          "The Canadian catalogue note on the Roomba card links a Clean Base notice for the Roomba i7+, which is a different model name from Combo j9+. Read that notice\u2019s model line before applying it to C975020. The recall block below is the catalogue match for each robot on the check date."
         ]
       }
     ]
@@ -509,7 +509,7 @@
         "heading": "Pick by run time, charge time, or the filtration line",
         "paragraphs": [
           "Pick the V15 Detect Absolute page if the run-time figure you are matching is up to 60 min, the suction figure you are matching is 230 AW in Boost mode, or the filtration line you need is whole-machine HEPA. The charge line that goes with that page is 4.5 hrs. The bin line is 0.2 gallon.",
-          "Pick the PURE ONE S15 PRO page if the run-time figure you are matching is 40 min, the charge line is 4 hours, or you need the 2500 mAh battery line and the 0.47 L dust-capacity line. The stated weight, 6.8 lbs, sits next to Dyson’s 6.83 lb. Both weights are as the maker pages state them.",
+          "Pick the PURE ONE S15 PRO page if the run-time figure you are matching is 40 min, the charge line is 4 hours, or you need the 2500 mAh battery line and the 0.47 L dust-capacity line. The stated weight, 6.8 lbs, sits next to Dyson\u2019s 6.83 lb. Both weights are as the maker pages state them.",
           "A Health Canada notice linked from the Dyson V15 card names a FirstPower replacement battery for Dyson V6 series vacuums. That notice names V6, not the V15 Detect Absolute. Read the model on the notice before applying it here. The recall block is the catalogue match for each cordless vacuum."
         ]
       }
@@ -561,21 +561,21 @@
       "for-pet-owners"
     ],
     "fit": [
-      "The Drinkwell Platinum page states 168 oz, dimensions of 15.8 × 10.3 × 10.0 in, and a BPA-free material line that includes top-shelf dishwasher safe. The Raindrop 6023 page states 60 oz, dimensions of 11.75 x 9.75 x 4.25 in, and 18/8 stainless steel, dishwasher safe.",
+      "The Drinkwell Platinum page states 168 oz, dimensions of 15.8 \u00d7 10.3 \u00d7 10.0 in, and a BPA-free material line that includes top-shelf dishwasher safe. The Raindrop 6023 page states 60 oz, dimensions of 11.75 x 9.75 x 4.25 in, and 18/8 stainless steel, dishwasher safe.",
       "A larger stated capacity is the Drinkwell line. A smaller stated footprint is the Raindrop line. Power is on the Drinkwell card only. Weight and filter are on the Raindrop card only."
     ],
     "sections": [
       {
         "heading": "Capacity and the bowl material",
         "paragraphs": [
-          "Capacity, dimensions, and material are the shared labels. PetSafe prints 168 oz, 15.8 × 10.3 × 10.0 in, and BPA-free, top-shelf dishwasher safe. Pioneer Pet prints 60 oz, 11.75 x 9.75 x 4.25 in, and 18/8 stainless steel, dishwasher safe. A larger stated capacity is the Drinkwell line. A lower stated height, 4.25 in against 10.0 in, is the Raindrop line.",
+          "Capacity, dimensions, and material are the shared labels. PetSafe prints 168 oz, 15.8 \u00d7 10.3 \u00d7 10.0 in, and BPA-free, top-shelf dishwasher safe. Pioneer Pet prints 60 oz, 11.75 x 9.75 x 4.25 in, and 18/8 stainless steel, dishwasher safe. A larger stated capacity is the Drinkwell line. A lower stated height, 4.25 in against 10.0 in, is the Raindrop line.",
           "The material sentences are not the same claim. One page names a BPA-free plastic description and top-shelf dishwasher safe. The other names 18/8 stainless steel and dishwasher safe. Both say dishwasher safe. Only the Raindrop page names a steel grade in that field."
         ]
       },
       {
         "heading": "Pick by ounces, height, or the filter line",
         "paragraphs": [
-          "Pick the Drinkwell Platinum page if the capacity you are matching is 168 oz, or the power line you need is plug-in. The cabinet on that page is 15.8 × 10.3 × 10.0 in. Weight is not on that card.",
+          "Pick the Drinkwell Platinum page if the capacity you are matching is 168 oz, or the power line you need is plug-in. The cabinet on that page is 15.8 \u00d7 10.3 \u00d7 10.0 in. Weight is not on that card.",
           "Pick the Raindrop 6023 page if the capacity you are matching is 60 oz, the material line you need names 18/8 stainless steel, or you need the stated weight of 1.7 lb and the replaceable charcoal filter line. The dimensions on that page are 11.75 x 9.75 x 4.25 in, a shorter stated height than the Drinkwell line.",
           "A charcoal filter line is not a purification certification. The Raindrop page says the filter is replaceable charcoal. It does not, in these fields, name an NSF standard. The recall block is the catalogue match for each fountain."
         ]
@@ -604,7 +604,7 @@
         "heading": "The shared rows are portion size and power",
         "paragraphs": [
           "Portions and power are the labels both pages print. Whisker states 1/8 cup to 1 cup and a backup battery. PetSafe states 1/8 to 4 cups and battery. The low end of both portion lines is 1/8. The high end differs: 1 cup on the Feeder-Robot page, 4 cups on the Simply Feed page.",
-          "Whisker also states up to 8 scheduled meals a day and a warranty of 12 months included. PetSafe also states a 24 cup capacity, up to 12 meals a day, and dimensions of 19.0 x 9.0 x 12.5 in. Meal-count labels are not the same string on the two cards, “Meals” against “Schedule,” so the meal lines stay off the table even though both pages talk about meals."
+          "Whisker also states up to 8 scheduled meals a day and a warranty of 12 months included. PetSafe also states a 24 cup capacity, up to 12 meals a day, and dimensions of 19.0 x 9.0 x 12.5 in. Meal-count labels are not the same string on the two cards, \u201cMeals\u201d against \u201cSchedule,\u201d so the meal lines stay off the table even though both pages talk about meals."
         ]
       },
       {
@@ -613,6 +613,988 @@
           "Pick the Feeder-Robot page if the portion cap you are matching is 1 cup, the meal line you are matching is up to 8 scheduled meals a day, or the power line you need says backup battery. The warranty line on that page is 12 months included. A hopper capacity in cups is not on that card.",
           "Pick the Simply Feed page if the portion cap you are matching is 4 cups, the schedule line is up to 12 meals a day, or you need the 24 cup capacity and the 19.0 x 9.0 x 12.5 in dimensions. The power line on that page says battery, without the word backup.",
           "A backup-battery line and a battery line are both power labels, which is why they share a row, and they are not the same sentence. Read the word the page prints. The recall block is the catalogue match for each feeder."
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "ispring-rcc7-vs-waterdrop-g3p600",
+    "title": "iSpring RCC7 vs Waterdrop G3P600: which one to buy",
+    "linkLabel": "RCC7 and G3P600 specs",
+    "description": "The RCC7 is a 5-stage system at 75 gallons a day, and the G3P600 is an 8-stage system at 600 gallons a day.",
+    "hub": "air-water",
+    "products": [
+      "ispring-rcc7",
+      "waterdrop-g3p600"
+    ],
+    "related": [
+      "brita-tahoe-elite-vs-zerowater-zp010",
+      "waterdrop-g3p600-vs-apec-roes-50"
+    ],
+    "verdict": [
+      {
+        "id": "ispring-rcc7",
+        "heading": "Get the RCC7 if",
+        "bullets": [
+          "You want a 5-stage system that makes 75 gallons a day.",
+          "You want NSF/ANSI 58 certification.",
+          "You want a membrane down to 0.0001 microns."
+        ]
+      },
+      {
+        "id": "waterdrop-g3p600",
+        "heading": "Get the G3P600 if",
+        "bullets": [
+          "You want an 8-stage system that makes 600 gallons a day.",
+          "You want a 2:1 pure-to-drain ratio.",
+          "You want NSF/ANSI 42, 58, and 372 certification."
+        ]
+      }
+    ],
+    "specAdds": {
+      "ispring-rcc7": [
+        {
+          "label": "Capacity",
+          "value": "75 gallons per day",
+          "source": "iSpring",
+          "url": "https://www.ispringfilter.com/products/5-stage-essence-ro-water-filtration-system-ispring-rcc7-5-stage-residential-under-sink-reverse-osmosis-water-filter-system-wqa-certified-75-gpd"
+        },
+        {
+          "label": "Certifications",
+          "value": "NSF/ANSI 58",
+          "source": "iSpring",
+          "url": "https://www.ispringfilter.com/products/5-stage-essence-ro-water-filtration-system-ispring-rcc7-5-stage-residential-under-sink-reverse-osmosis-water-filter-system-wqa-certified-75-gpd"
+        }
+      ]
+    },
+    "fit": [
+      "The iSpring card calls the daily figure Output and prints 75 gallons per day. The Waterdrop card calls its daily figure Capacity and prints 600 gallons per day. This table uses Capacity for both so the gallons sit on one row. Stages are 5 on the iSpring page and 8 on the Waterdrop page.",
+      "A stage count is how the maker numbers the system. It is not a list of the same contaminants. Read the certification sentence on the page you are buying from."
+    ],
+    "sections": [
+      {
+        "heading": "Tank system and tankless system",
+        "paragraphs": [
+          "These two cards are both under-sink reverse osmosis, and the shared rows are stages, daily gallons, and certifications. iSpring prints 5 stages, 75 gallons per day, and NSF/ANSI 58. Waterdrop prints 8 stages, 600 gallons per day, and NSF/ANSI 42, 58, and 372. The gallons are not close. A reader who stops at the word reverse osmosis has not read the capacity line.",
+          "The Waterdrop card also states a 2:1 pure-to-drain ratio. That label is not on the iSpring card, so the ratio stays off the table. The iSpring card states a membrane down to 0.0001 microns. That label is not on the Waterdrop card. The iSpring page is the one that names a storage-tank style of system in this catalogue. The Waterdrop G3P600 card does not print a tank volume."
+        ]
+      },
+      {
+        "heading": "Pick the gallons line you can cite",
+        "paragraphs": [
+          "Pick the RCC7 if the daily figure you are matching is 75 gallons, the stage count is 5, or you need the NSF/ANSI 58 line and the 0.0001 micron membrane line. Those last two are the iSpring wording. The card labels the gallons Output. The table repeats them under Capacity so they sit beside Waterdrop\u2019s gallons.",
+          "Pick the G3P600 if the daily figure you are matching is 600 gallons, the stage count is 8, or you need the 2:1 pure-to-drain line and the certification line that names NSF/ANSI 42, 58, and 372. A higher stated stage count is not, by itself, a longer contaminant list. Open the certification sentence.",
+          "The Brita and ZeroWater comparison on this site is a pitcher pair, not an under-sink pair. The G3P600 and APEC comparison is the other under-sink pair, and it uses the same Waterdrop card."
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "levoit-core-300s-vs-300p",
+    "title": "Levoit Core 300S-P vs Core 300-P: which one to buy",
+    "linkLabel": "Core 300S-P and 300-P specs",
+    "description": "The 300S-P is 39 W and 7.48 lb, and the 300-P is 56 W and 7.9 lb, in the same cabinet.",
+    "hub": "air-water",
+    "products": [
+      "levoit-core-300s-p",
+      "levoit-core-300-p"
+    ],
+    "related": [
+      "levoit-core-600s-vs-winix-5500-2"
+    ],
+    "verdict": [
+      {
+        "id": "levoit-core-300s-p",
+        "heading": "Get the Core 300S-P if",
+        "bullets": [
+          "You want the lower power draw, 39 W.",
+          "You want the lighter unit, at 7.48 lb.",
+          "You want a noise range of 22\u201354.5 dB."
+        ]
+      },
+      {
+        "id": "levoit-core-300-p",
+        "heading": "Get the Core 300-P if",
+        "bullets": [
+          "You want the 56 W unit, at 7.9 lb.",
+          "You want a noise range of 24\u201354.5 dB.",
+          "You want a room size of 1066 ft2 at one air change, or 222 ft2 at 4.8, and a 143 CFM CADR."
+        ]
+      }
+    ],
+    "guests": [
+      {
+        "id": "levoit-core-300-p",
+        "title": "Levoit Core 300-P Air Purifier",
+        "model": "Core 300-P",
+        "category": "air-water",
+        "sourceName": "Levoit",
+        "sourceUrl": "https://levoit.com/products/core300-p-air-purifier",
+        "searchQuery": "Levoit Core 300-P Air Purifier",
+        "specs": [
+          {
+            "label": "Power supply",
+            "value": "AC 120V, 60Hz",
+            "source": "Levoit",
+            "url": "https://levoit.com/products/core300-p-air-purifier"
+          },
+          {
+            "label": "Rated power",
+            "value": "56 W",
+            "source": "Levoit",
+            "url": "https://levoit.com/products/core300-p-air-purifier"
+          },
+          {
+            "label": "Noise",
+            "value": "24\u201354.5 dB",
+            "source": "Levoit",
+            "url": "https://levoit.com/products/core300-p-air-purifier"
+          },
+          {
+            "label": "Dimensions",
+            "value": "8.7 x 8.7 x 14.2 in",
+            "source": "Levoit",
+            "url": "https://levoit.com/products/core300-p-air-purifier"
+          },
+          {
+            "label": "Weight",
+            "value": "7.9 lb",
+            "source": "Levoit",
+            "url": "https://levoit.com/products/core300-p-air-purifier"
+          },
+          {
+            "label": "CADR",
+            "value": "143 CFM on the sales page",
+            "source": "Levoit",
+            "url": "https://levoit.com/products/core300-p-air-purifier"
+          },
+          {
+            "label": "Room size",
+            "value": "1066 ft2 at 1 ACH, or 222 ft2 at 4.8 ACH",
+            "source": "Levoit",
+            "url": "https://levoit.com/products/core300-p-air-purifier"
+          },
+          {
+            "label": "Manual CADR",
+            "value": "Smoke 143, dust 153, pollen 167 CFM",
+            "source": "Levoit",
+            "url": "https://levoit.com/cdn/shop/files/HEAPAPLVNUS0161Y_Core_300-p_Air_Purifier_manual_US_A2-241204_1.pdf?v=16138163822833683248"
+          }
+        ]
+      }
+    ],
+    "fit": [
+      "The catalogue model is the Core 300S-P, not a separate Core 300S card. Levoit\u2019s Core 300-P sales page is a different listing. The shared rows are power supply, rated power, noise, dimensions, and weight.",
+      "Both pages print a cabinet of 8.7 by 8.7 by 14.2 inches. The 300S-P manual says 39 W, 22\u201354.5 dB, and 7.48 lb. The 300-P sales page says 56 W, 24\u201354.5 dB, and 7.9 lb."
+    ],
+    "sections": [
+      {
+        "heading": "The names are easy to cross",
+        "paragraphs": [
+          "Levoit sells a page titled Core 300-P. In that page\u2019s specification block the model line reads Core 300. The same page\u2019s included-items heading names the Core 300S-P. Read the title on the listing and the model on the box before you treat those three strings as one machine. This catalogue has a card for the Core 300S-P. It does not have a separate card for a Core 300S or for the Core 300-P.",
+          "The 300-P manual covers the Core 300 series and the Core 300-P series. Its CADR block lists smoke 143 CFM, dust 153 CFM, and pollen 167 CFM. The sales page prints a single CADR of 143 CFM. The table uses the sales-page figure. The manual\u2019s three-number line is the other official sentence, and it is linked from the source list below."
+        ]
+      },
+      {
+        "heading": "Same cabinet, different watt and weight lines",
+        "paragraphs": [
+          "Dimensions match: 8.7 \u00d7 8.7 \u00d7 14.2 in on the 300S-P manual and 8.7 x 8.7 x 14.2 in on the 300-P sales page. Power supply is AC 120 V, 60 Hz on both. Rated power is 39 W on the 300S-P manual and 56 W on the 300-P page. Weight is 7.48 lb against 7.9 lb. Noise is a range on both pages, 22\u201354.5 dB on the 300S-P manual and 24\u201354.5 dB on the 300-P page. A lower stated wattage and a lower stated weight are the 300S-P lines.",
+          "Room size and CADR are on the 300-P page and not on the 300S-P card, so they stay off the shared table. The 300-P page says 1066 ft2 at 1 air change per hour, or 222 ft2 at 4.8. Do not borrow the Core 600S-P CADR for either of these small cabinets. That figure lives on the 600S-P comparison."
+        ]
+      },
+      {
+        "heading": "Pick the card whose model string you can match",
+        "paragraphs": [
+          "Pick the Core 300S-P if the box and the listing say Core 300S-P, and the figures you are matching are 39 W, 7.48 lb, and 22\u201354.5 dB in an 8.7 by 8.7 by 14.2 in cabinet. That is the model on the catalogue card.",
+          "Pick the Core 300-P sales page if the listing title is Core 300-P and the figures you are matching are 56 W, 7.9 lb, 24\u201354.5 dB, and the 1066 ft2 or 222 ft2 room lines. Then read the spec block\u2019s model line, which prints Core 300, and the included-items heading, which names the 300S-P. If those strings do not match the carton, stop and use the string on the carton.",
+          "A CADR of 143 CFM on the sales page and a smoke CADR of 143 CFM in the manual are the same first number. Dust 153 and pollen 167 appear in the manual and not as separate lines on the sales page. The manual link is on the Manual CADR line under the table."
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "bluedriver-vs-obdlink-mx-plus",
+    "title": "BlueDriver vs OBDLink MX+: which scanner to buy",
+    "linkLabel": "BlueDriver and MX+ specs",
+    "description": "BlueDriver connects to iOS and Android, and the MX+ adds a 3-year warranty.",
+    "hub": "car-garage",
+    "products": [
+      "bluedriver",
+      "obdlink-mx-plus"
+    ],
+    "alsoFrom": [
+      "innova-5210"
+    ],
+    "related": [
+      "noco-gb40-vs-gb50",
+      "ego-snt2110-vs-toro-power-clear-38753"
+    ],
+    "verdict": [
+      {
+        "id": "bluedriver",
+        "heading": "Get the BlueDriver if",
+        "bullets": [
+          "You want Bluetooth to iOS and Android.",
+          "A 1-year limited warranty is enough."
+        ]
+      },
+      {
+        "id": "obdlink-mx-plus",
+        "heading": "Get the MX+ if",
+        "bullets": [
+          "You want Class 2 Bluetooth v3.0.",
+          "You want a 3-year warranty and a 180-day money-back guarantee.",
+          "You need SW-CAN and MS-CAN."
+        ]
+      }
+    ],
+    "specAdds": {
+      "bluedriver": [
+        {
+          "label": "Bluetooth",
+          "value": "Bluetooth to iOS and Android",
+          "source": "BlueDriver",
+          "url": "https://us.bluedriver.com/products/bluedriver-pro-scanner"
+        },
+        {
+          "label": "Warranty",
+          "value": "1-year limited warranty",
+          "source": "BlueDriver",
+          "url": "https://us.bluedriver.com/policies/terms-of-service"
+        }
+      ],
+      "obdlink-mx-plus": [
+        {
+          "label": "Warranty",
+          "value": "3 year warranty and a 180-day money-back guarantee",
+          "source": "OBDLink",
+          "url": "https://www.obdlink.com/products/obdlink-mxp/"
+        }
+      ]
+    },
+    "fit": [
+      "Both are Bluetooth adapters for the OBD-II port, and the shared rows are Bluetooth and warranty. BlueDriver\u2019s product page says it connects to iOS and Android. OBDLink\u2019s MX+ page says Class 2 Bluetooth v3.0 and lists iOS, Android, and Windows.",
+      "The BlueDriver terms list a 1-year limited warranty. The MX+ page says a 3 year warranty and a 180-day money-back guarantee. Voltage, size, and the SW-CAN line are on the MX+ card only."
+    ],
+    "sections": [
+      {
+        "heading": "Two plugs, two different spec blocks",
+        "paragraphs": [
+          "BlueDriver\u2019s product page describes a Bluetooth scan tool for 1996 and newer cars, SUVs, and light trucks sold in North America, including most gas, diesel, and hybrid vehicles, and says it supports all major OBD2 protocols. The MX+ page says the adapter works with all 1996 and newer cars and light trucks sold in the United States, supports all legislated OBD-II protocols, and adds SW-CAN and MS-CAN for Ford and GM networks. Those coverage sentences are not the same label, so they stay in the writeup.",
+          "The MX+ specification table also prints 12V systems with an 8 to 18 V operating range, dimensions of 1.97 x 1.77 x 0.91 in, and a device weight of 3 oz. None of those labels are on the BlueDriver card. BlueDriver\u2019s card still carries the older lines for a North American origin and a Bluetooth connection to the OBD port. The Bluetooth row in this table uses the current product-page sentence."
+        ]
+      },
+      {
+        "heading": "Pick the app list or the protocol line",
+        "paragraphs": [
+          "Pick the BlueDriver if the phone list you are matching is iOS and Android, and the warranty sentence you are matching is the 1-year limited warranty on the BlueDriver terms. The product page also names enhanced diagnostics, with makes such as GM, Ford, Chrysler, Toyota, Honda, and others printed under that heading. A make on that list is a BlueDriver sentence, not a promise that every module on every car is covered. The page says enhanced diagnostics may not yet be offered on your vehicle.",
+          "Pick the MX+ if the Bluetooth line you are matching is Class 2 Bluetooth v3.0, the app list includes Windows as well as iOS and Android, or you need the SW-CAN and MS-CAN sentence. The warranty on that page is 3 years, plus the 180-day money-back guarantee. The Innova 5210 card on this site is a different scanner, with its own engine and ABS line. It is linked here because people cross-shop the three names.",
+          "A Bluetooth version number and a sentence that only says Bluetooth are both connection facts, and they are not the same fact. Read the string on the page you are about to order."
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "herman-miller-aeron-vs-steelcase-leap",
+    "title": "Herman Miller Aeron vs Steelcase Leap: which chair to buy",
+    "linkLabel": "Aeron and Leap specs",
+    "description": "Aeron comes in three sizes with limits of 300, 350, and 400 lb, and Leap is one chair with a 400 lb limit.",
+    "hub": "sleep",
+    "products": [
+      "herman-miller-aeron",
+      "steelcase-leap"
+    ],
+    "linkFrom": [
+      "/gifts/"
+    ],
+    "related": [
+      "vitamix-e310-vs-e320",
+      "fellow-stagg-ekg-vs-ekg-pro"
+    ],
+    "verdict": [
+      {
+        "id": "herman-miller-aeron",
+        "heading": "Get the Aeron if",
+        "bullets": [
+          "You want size A, B, or C, with a limit of 300, 350, or 400 lb.",
+          "You want the lighter chair, from 40 lb to 43 lb by size.",
+          "You want the 8Z Pellicle seat, adjustable PostureFit SL, and Harmonic 2 tilt."
+        ]
+      },
+      {
+        "id": "steelcase-leap",
+        "heading": "Get the Leap if",
+        "bullets": [
+          "You want one chair at 46.7 lb, with a seat height of 15.5 to 20.5 in.",
+          "You want a 400 lb weight limit.",
+          "You want a 12-year limited warranty on parts and labor."
+        ]
+      }
+    ],
+    "specAdds": {
+      "herman-miller-aeron": [
+        {
+          "label": "Seat height",
+          "value": "Size A 14\u00be to 19 in, size B 16 to 20\u00bd in, size C 16 to 20\u00bd in",
+          "source": "Herman Miller",
+          "url": "https://store.hermanmiller.com/office-chairs-aeron/aeron-chair/100100011.html?lang=en_US"
+        },
+        {
+          "label": "Chair weight",
+          "value": "Size A 40 lb, size B 41 lb, size C 43 lb",
+          "source": "Herman Miller",
+          "url": "https://store.hermanmiller.com/office-chairs-aeron/aeron-chair/100100011.html?lang=en_US"
+        },
+        {
+          "label": "Limit",
+          "value": "Size A 300 lb, size B 350 lb, size C 400 lb",
+          "source": "Herman Miller",
+          "url": "https://store.hermanmiller.com/office-chairs-aeron/aeron-chair/100100011.html?lang=en_US"
+        },
+        {
+          "label": "Warranty",
+          "value": "12-year warranty",
+          "source": "Herman Miller",
+          "url": "https://store.hermanmiller.com/office-chairs-aeron/aeron-chair/100100011.html?lang=en_US"
+        }
+      ]
+    },
+    "fit": [
+      "Aeron is three sizes on the Herman Miller store page. Leap\u2019s catalogue card is one work chair: seat height 15.5 to 20.5 in, chair weight 46.7 lb, a 400 lb limit, and a 12-year limited warranty on parts and labor.",
+      "The Aeron store page prints a 12-year warranty, size A up to 300 lb, size B up to 350 lb, and size C up to 400 lb. A single 400 lb line and a three-size limit line are not the same claim."
+    ],
+    "sections": [
+      {
+        "heading": "One size line against three",
+        "paragraphs": [
+          "The shared labels are seat height, chair weight, limit, and warranty. On the Aeron store page, size A lists a seat height from 14\u00be to 19 in and a chair weight of 40 lb. Size B lists 16 to 20\u00bd in and 41 lb. Size C lists 16 to 20\u00bd in and 43 lb. The same page\u2019s general product-weight line says 41 lb, which matches the size B figure. Leap\u2019s card states 15.5 to 20.5 in and 46.7 lb. A lower stated chair weight, at the size you actually order, is an Aeron line. Leap\u2019s 46.7 lb is the single figure on that card.",
+          "Limits differ in shape. Aeron\u2019s store page caps size A at 300 lb, size B at 350 lb, and size C at 400 lb. The Steelcase Leap page says the chair is durable enough to handle weight up to 400 lb, and the same page points Leap Plus at users up to 500 lb. This comparison uses the standard Leap card, not Leap Plus. Do not read Aeron\u2019s size C cap and Leap\u2019s 400 lb line as one shared number until you have picked an Aeron size."
+        ]
+      },
+      {
+        "heading": "What each maker names, besides the table",
+        "paragraphs": [
+          "The Aeron overview page names three sizes, A, B, and C, an 8Z Pellicle suspension, adjustable PostureFit SL, and Harmonic 2 tilt. Those labels are not on the Leap card, so they stay off the table. The Leap page names LiveBack, a height-adjustable lumbar support, a lower-back firmness control, and arms that adjust in height, width, depth, and pivot. Those labels are not on the Aeron card. A lumbar sentence from one maker is not a medical claim, and it is not the other maker\u2019s sentence.",
+          "Both warranty lines say 12 years, and then they diverge. Herman Miller\u2019s store page says 12-year warranty and that terms apply. Steelcase\u2019s Leap page says a limited lifetime warranty of 12 years, multi-shift, 24/7, parts and labor. The catalogue card shortens the Leap line to 12 years limited on parts and labor. Read the full sentence on the Steelcase page before you treat the two 12-year lines as identical."
+        ]
+      },
+      {
+        "heading": "Pick the size chart or the single chair",
+        "paragraphs": [
+          "Pick the Aeron if you are matching a size. Size A is the 300 lb cap and the 14\u00be to 19 in seat. Size B is the 350 lb cap, 16 to 20\u00bd in, and 41 lb. Size C is the 400 lb cap, the same 16 to 20\u00bd in seat line, and 43 lb. The pellicle, PostureFit SL, and Harmonic 2 names are the Aeron overview, not the Leap page.",
+          "Pick the Leap if you are matching 46.7 lb, a seat height of 15.5 to 20.5 in, and the up-to-400 lb line on the Leap page, with the 12-year multi-shift warranty sentence. If the person who will sit in it is over that 400 lb line, the Leap page is the one that names Leap Plus at up to 500 lb. That is a different chair from the card on this page.",
+          "Seat-height ranges overlap on paper and still come from different measuring notes. Quote the range on the page for the size you order. The gift-guide index links here because both chairs are in the sleep catalogue."
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "vitamix-e310-vs-e320",
+    "title": "Vitamix E310 vs E320: which one to buy",
+    "linkLabel": "E310 and E320 specs",
+    "description": "The E310 is a 48 oz jar with a 5-year full warranty, and the E320 is a 64 oz jar with a 7-year limited warranty.",
+    "hub": "kitchen",
+    "products": [
+      "vitamix-e310",
+      "vitamix-e320"
+    ],
+    "explainers": [
+      "vitamix-ascent-venturist-containers"
+    ],
+    "related": [
+      "instant-pot-duo-plus-vs-ninja-foodi-10in1",
+      "ninja-creami-nc301-vs-deluxe-nc501"
+    ],
+    "verdict": [
+      {
+        "id": "vitamix-e310",
+        "heading": "Get the E310 if",
+        "bullets": [
+          "You blend for one or two and want a smaller 48 oz jar.",
+          "You want the 2 HP motor.",
+          "You want the 5-year full warranty."
+        ]
+      },
+      {
+        "id": "vitamix-e320",
+        "heading": "Get the E320 if",
+        "bullets": [
+          "You make big family batches and want the 64 oz jar.",
+          "You want the 2.2 HP motor.",
+          "You want the longer 7-year limited warranty."
+        ]
+      }
+    ],
+    "guests": [
+      {
+        "id": "vitamix-e320",
+        "title": "Vitamix Explorian E320",
+        "model": "E320",
+        "category": "kitchen",
+        "sourceName": "Vitamix",
+        "sourceUrl": "https://www.vitamix.com/us/en_us/products/e320",
+        "searchQuery": "Vitamix Explorian E320",
+        "specs": [
+          {
+            "label": "Motor",
+            "value": "2.2 HP",
+            "source": "Vitamix",
+            "url": "https://www.vitamix.com/us/en_us/products/e320"
+          },
+          {
+            "label": "Container",
+            "value": "64 oz",
+            "source": "Vitamix",
+            "url": "https://www.vitamix.com/us/en_us/products/e320"
+          },
+          {
+            "label": "Dimensions",
+            "value": "9 x 8 x 18 in",
+            "source": "Vitamix",
+            "url": "https://www.vitamix.com/us/en_us/products/e320"
+          },
+          {
+            "label": "Weight",
+            "value": "10.5 lb",
+            "source": "Vitamix",
+            "url": "https://www.vitamix.com/us/en_us/products/e320"
+          },
+          {
+            "label": "Warranty",
+            "value": "7-year limited warranty",
+            "source": "Vitamix",
+            "url": "https://www.vitamix.com/us/en_us/products/e320"
+          },
+          {
+            "label": "Speeds",
+            "value": "Ten variable speeds",
+            "source": "Vitamix",
+            "url": "https://www.vitamix.com/us/en_us/products/e320"
+          },
+          {
+            "label": "Electrical",
+            "value": "120 V",
+            "source": "Vitamix",
+            "url": "https://www.vitamix.com/us/en_us/products/e320"
+          },
+          {
+            "label": "Manual dimensions",
+            "value": "Height 17 in with the 64 oz container, width 8 in, depth 11 in",
+            "source": "Vitamix",
+            "url": "https://www.vitamix.com/content/dam/vitamix/files/131719_Explorian%20E320%20Domestic_Rev%20B_2023-07-12LR.pdf"
+          }
+        ]
+      }
+    ],
+    "fit": [
+      "Both are Explorian household blenders. The E310 card says 2 HP, a 48 oz container, 9 \u00d7 8 \u00d7 18 in, 10.5 lb, and a 5-year full warranty. The E320 product page says 2.2 HP, a 64-ounce container, 9 x 8 x 18 in, 10.5 lbs, and a 7-year limited warranty.",
+      "The weight lines match. The motor, the container, and the warranty wording do not. The E320 owner\u2019s manual prints a different height, width, and depth from the product page. Both links are on this page."
+    ],
+    "sections": [
+      {
+        "heading": "What actually changes between the two Explorians",
+        "paragraphs": [
+          "The E320 page is a current Vitamix product page, with colorways listed for sale. It describes a low-profile 64-ounce container, ten variable speeds, a pulse feature, and a self-clean with dish soap and warm water in 30 to 60 seconds. The E310 card already records a 48 oz container and a self-clean in that same 30 to 60 second wording. The motor line is the clean split: 2 HP on the E310 card, 2.2 HP on the E320 page.",
+          "Dimensions on the E320 product page are 9 x 8 x 18 in, the same inches the E310 card prints. The E320 domestic manual, revision B, prints a height of 17 inches with the 64 oz container on the base, a width of 8 inches, and a depth of 11 inches. This table uses the product-page dimensions because that is the line next to the 2.2 HP and 64-ounce figures. The manual line is listed under the table so the disagreement stays visible. Vitamix has not, on these two pages, said which measuring method produced which set."
+        ]
+      },
+      {
+        "heading": "Warranty words are not interchangeable",
+        "paragraphs": [
+          "The E310 card says a 5-year full warranty. The E320 page says a 7-year limited warranty and points readers at the warranty text. Full and limited are the words Vitamix printed. A longer year count on a limited warranty is not the same sentence as a shorter full warranty. Open the warranty link on the machine you are ordering.",
+          "The E320 page also lists a low-profile tamper in the box with the motor base and the 64-ounce container, and it says household use. There is a separate E320 plus Personal Cup Adapter page, with a different weight and a split warranty. This comparison is the E320 blender page, not that bundle."
+        ]
+      },
+      {
+        "heading": "Pick the container you will actually fill",
+        "paragraphs": [
+          "Pick the E310 if the container you are matching is 48 oz, the motor line is 2 HP, and the warranty line is the 5-year full warranty. The catalogue card is that machine. The 2024 container notice linked from the recall page names Ascent and Venturist 8-ounce and 20-ounce containers, not the Explorian 48 oz container. Read that notice before you assume it covers the E310.",
+          "Pick the E320 if the container you are matching is 64 ounces, the motor line is 2.2 HP, and the warranty line is the 7-year limited warranty. The product page and the manual disagree on the cabinet inches. Measure the shelf against the line you trust, and keep the other line in view. Ten speeds and pulse are on the E320 page. The E310 evidence line says 10 variable speeds as well, so speed count is not the split.",
+          "Both pages print 10.5 lb. If weight is the only line you care about, these two product pages do not separate the machines."
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "ninja-creami-nc301-vs-deluxe-nc501",
+    "title": "Ninja CREAMi NC301 vs Deluxe NC501: which to buy",
+    "linkLabel": "NC301 and NC501 specs",
+    "description": "The NC301 uses 16 oz pints and 7 programs, and the NC501 uses 24 oz tubs and more programs.",
+    "hub": "kitchen",
+    "products": [
+      "ninja-creami-nc301",
+      "ninja-creami-nc501"
+    ],
+    "guides": [
+      "for-the-home-cook",
+      "for-kids"
+    ],
+    "related": [
+      "ninja-crispi-fn101-vs-cosori-pro-5-8",
+      "vitamix-e310-vs-e320"
+    ],
+    "verdict": [
+      {
+        "id": "ninja-creami-nc301",
+        "heading": "Get the NC301 if",
+        "bullets": [
+          "You want the smaller 16 oz pints.",
+          "You want 7 preset programs."
+        ]
+      },
+      {
+        "id": "ninja-creami-nc501",
+        "heading": "Get the NC501 if",
+        "bullets": [
+          "You want the larger 24 oz tubs.",
+          "You want more programs, and Ninja lists both 11 and 12.",
+          "You have room for 15.43 lb and a cabinet of 18.9 by 10.04 by 19.88 in."
+        ]
+      }
+    ],
+    "guests": [
+      {
+        "id": "ninja-creami-nc501",
+        "title": "Ninja CREAMi XL Deluxe NC501",
+        "model": "NC501",
+        "category": "kitchen",
+        "sourceName": "Ninja",
+        "sourceUrl": "https://www.sharkninja.com/ninja-creami-xl-deluxe-11-in-1-ice-cream-and-frozen-treat-maker/NC501.html",
+        "searchQuery": "Ninja CREAMi Deluxe NC501",
+        "specs": [
+          {
+            "label": "Model",
+            "value": "NC501",
+            "source": "Ninja",
+            "url": "https://www.sharkninja.com/ninja-creami-xl-deluxe-11-in-1-ice-cream-and-frozen-treat-maker/NC501.html"
+          },
+          {
+            "label": "Programs",
+            "value": "11 one-touch programs in the box list; the spec table says 12 automatic programs",
+            "source": "Ninja",
+            "url": "https://www.sharkninja.com/ninja-creami-xl-deluxe-11-in-1-ice-cream-and-frozen-treat-maker/NC501.html"
+          },
+          {
+            "label": "Pints",
+            "value": "Two 24 oz XL tubs",
+            "source": "Ninja",
+            "url": "https://www.sharkninja.com/ninja-creami-xl-deluxe-11-in-1-ice-cream-and-frozen-treat-maker/NC501.html"
+          },
+          {
+            "label": "Care",
+            "value": "All parts dishwasher safe",
+            "source": "Ninja",
+            "url": "https://www.sharkninja.com/ninja-creami-xl-deluxe-11-in-1-ice-cream-and-frozen-treat-maker/NC501.html"
+          },
+          {
+            "label": "Warranty",
+            "value": "One (1) year limited",
+            "source": "Ninja",
+            "url": "https://www.sharkninja.com/ninja-creami-xl-deluxe-11-in-1-ice-cream-and-frozen-treat-maker/NC501.html"
+          },
+          {
+            "label": "Weight",
+            "value": "15.43 lb",
+            "source": "Ninja",
+            "url": "https://www.sharkninja.com/ninja-creami-xl-deluxe-11-in-1-ice-cream-and-frozen-treat-maker/NC501.html"
+          },
+          {
+            "label": "Dimensions",
+            "value": "18.9 in L x 10.04 in W x 19.88 in H",
+            "source": "Ninja",
+            "url": "https://www.sharkninja.com/ninja-creami-xl-deluxe-11-in-1-ice-cream-and-frozen-treat-maker/NC501.html"
+          },
+          {
+            "label": "Wattage",
+            "value": "800 watts",
+            "source": "Ninja",
+            "url": "https://www.sharkninja.com/ninja-creami-xl-deluxe-11-in-1-ice-cream-and-frozen-treat-maker/NC501.html"
+          }
+        ]
+      }
+    ],
+    "fit": [
+      "The NC301 card says 7 preset programs, two 16 oz pints, dishwasher-safe containers, lids, and paddle, and a one-year limited warranty. The NC501 page is the XL Deluxe. Its box list says 11 one-touch programs and two 24 oz XL tubs. The same page\u2019s spec table says 12 automatic programs.",
+      "Both warranty lines are one year. The pint size and the program count are the split. Ninja prints two program counts on the NC501 page, and this page does not pick one of them for you."
+    ],
+    "sections": [
+      {
+        "heading": "The Deluxe page disagrees with itself on programs",
+        "paragraphs": [
+          "SharkNinja\u2019s NC501 page titles the machine the CREAMi XL Deluxe and prints the model NC501. In the box list it says 11 one-touch programs. In the specification block it says 12 automatic programs. Both sentences are on that page. A shopper who quotes only one of them is quoting half of what Ninja printed. The NC301 card says 7 preset programs, and that card does not have a second program count.",
+          "Pints are easier. NC301 includes two 16 oz pints. NC501 includes two 24 oz CREAMi XL tubs, plus an outer bowl and lid and a Deluxe Creamerizer paddle. The NC501 page also says all parts are dishwasher safe, and the spec block says dishwasher safe: yes. The NC301 line is narrower: containers, lids, and paddle. Read the noun in the sentence before you assume every loose part on the NC301 is covered by the NC501 wording."
+        ]
+      },
+      {
+        "heading": "Size is published for the Deluxe",
+        "paragraphs": [
+          "The NC501 spec block lists 15.43 lb, 18.9 in long, 10.04 in wide, and 19.88 in high, 120 volts, and 800 watts. Those labels are not on the NC301 card, so weight, dimensions, and wattage stay off the shared table and under the fold. A Ninja support note for the NC500 series says the Deluxe pint\u2019s maximum fill line is 24 oz, which matches the tub size on the product page.",
+          "The product title on the NC501 page says 11-in-1, and the box list says 11 one-touch programs, while the spec table says 12. If a listing you are reading uses a different count, match it to one of those two official lines or walk away from the listing. This catalogue does not have a separate model page for the NC501."
+        ]
+      },
+      {
+        "heading": "Pick the pint size, then read the program line twice",
+        "paragraphs": [
+          "Pick the NC301 if the pints you are matching are 16 oz, the program line is 7 presets, and the care line names the containers, lids, and paddle. The warranty on that card is one year limited. That is the machine with a model page here.",
+          "Pick the NC501 if the tubs you are matching are 24 oz and you have decided what to do with the 11-versus-12 program lines on Ninja\u2019s own page. The warranty line there is also one year limited. The 15.43 lb weight and the 18.9 by 10.04 by 19.88 in cabinet are the size figures on that spec block.",
+          "A one-year warranty on both pages does not make the machines the same. The container volume is the line that changes the batch you can freeze."
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "litter-robot-4-vs-5",
+    "title": "Litter-Robot 4 vs Litter-Robot 5: which one to buy",
+    "linkLabel": "Litter-Robot 4 and 5 specs",
+    "description": "The Litter-Robot 4 is the lighter one, for up to 4 cats, and the 5 is for up to 5 cats.",
+    "hub": "pet",
+    "products": [
+      "litter-robot-4",
+      "litter-robot-5"
+    ],
+    "related": [
+      "whisker-feeder-robot-vs-petsafe-simply-feed"
+    ],
+    "verdict": [
+      {
+        "id": "litter-robot-4",
+        "heading": "Get the Litter-Robot 4 if",
+        "bullets": [
+          "You want the lighter unit, at 24 lb empty.",
+          "You have up to 4 cats.",
+          "Up to 8 days before emptying the drawer, for one cat, is enough."
+        ]
+      },
+      {
+        "id": "litter-robot-5",
+        "heading": "Get the Litter-Robot 5 if",
+        "bullets": [
+          "You have up to 5 cats.",
+          "You want up to 10 days before emptying the drawer for one cat.",
+          "You can fit 29.9 in of height and 28.7 lb empty, or the manual figure of 29.50 in and 28.7\u201329.6 lb."
+        ]
+      }
+    ],
+    "guests": [
+      {
+        "id": "litter-robot-5",
+        "title": "Whisker Litter-Robot 5",
+        "model": "Litter-Robot 5",
+        "category": "pet",
+        "sourceName": "Whisker",
+        "sourceUrl": "https://www.whisker.com/litter-robot-5",
+        "searchQuery": "Whisker Litter-Robot 5",
+        "specs": [
+          {
+            "label": "Power",
+            "value": "15 Volt DC",
+            "source": "Whisker",
+            "url": "https://www.whisker.com/litter-robot-5"
+          },
+          {
+            "label": "Height",
+            "value": "29.9 in",
+            "source": "Whisker",
+            "url": "https://www.whisker.com/litter-robot-5"
+          },
+          {
+            "label": "Footprint",
+            "value": "22 x 27 in",
+            "source": "Whisker",
+            "url": "https://www.whisker.com/litter-robot-5"
+          },
+          {
+            "label": "Entryway",
+            "value": "15.75 x 15.75 in",
+            "source": "Whisker",
+            "url": "https://www.whisker.com/litter-robot-5"
+          },
+          {
+            "label": "Weight",
+            "value": "28.7 lb empty",
+            "source": "Whisker",
+            "url": "https://www.whisker.com/litter-robot-5"
+          },
+          {
+            "label": "Cleaning",
+            "value": "Up to 10 days before emptying the waste drawer in a 1-cat household",
+            "source": "Whisker",
+            "url": "https://www.whisker.com/litter-robot-5"
+          },
+          {
+            "label": "Household",
+            "value": "Up to 5 cats",
+            "source": "Whisker",
+            "url": "https://www.whisker.com/litter-robot-5"
+          },
+          {
+            "label": "Headroom",
+            "value": "17.5 in inside",
+            "source": "Whisker",
+            "url": "https://www.whisker.com/litter-robot-5"
+          },
+          {
+            "label": "Manual size",
+            "value": "Fully assembled height 29.50 in, weight 28.7\u201329.6 lb",
+            "source": "Whisker",
+            "url": "https://www.whisker.com/manual_pdf/Litter-Robot-5-Manual.pdf"
+          }
+        ]
+      }
+    ],
+    "fit": [
+      "Whisker sells Litter-Robot 5 for shipment in the United States and Canada. The sales page says 15 volt DC, 29.9 in tall, a 22 by 27 in footprint, a 15.75 in entry, 28.7 lb empty, up to 5 cats, and up to 10 days before emptying the drawer for one cat.",
+      "The Litter-Robot 4 card says 15 V DC, 29.5 in, the same 22 by 27 in footprint, the same 15.75 in entry, 24 lb empty, up to 4 cats, and up to 8 days for one cat. Power, footprint, and entry match. Height, weight, cats, and days do not."
+    ],
+    "sections": [
+      {
+        "heading": "The sales page and the manual do not print one height",
+        "paragraphs": [
+          "On the Litter-Robot 5 product page the dimension table says height 29.9 inches and empty weight 28.7 lb, with 17.5 inches of inside headroom. The Litter-Robot 5 manual\u2019s fully assembled row says 29.50 inches high, 22.00 inches wide, and 27.25 inches deep, and a weight of 28.7 to 29.6 lb. The table on this page uses the sales-page height and the 28.7 lb figure. The manual\u2019s range is the other official line. A 29.9 in shelf measurement and a 29.50 in manual measurement are both Whisker\u2019s, and they are not the same number.",
+          "Litter-Robot 4\u2019s card says 29.5 in and 24 lb empty. Against the Litter-Robot 5 sales page, that is a shorter stated height and a lower stated empty weight. Against the manual\u2019s 29.50 in, the 4\u2019s 29.5 in height matches the manual and not the 29.9 in sales line. Quote the document you are using."
+        ]
+      },
+      {
+        "heading": "Cats and days are the lines that move",
+        "paragraphs": [
+          "Household size is up to 4 cats on the Litter-Robot 4 card and up to 5 cats on the Litter-Robot 5 page. The waste-drawer line is up to 8 days for one cat on the 4, and up to 10 days for one cat on the 5. Whisker\u2019s own FAQ on the 5 page says how often you empty the drawer depends on the number and size of the cats, and that you may only need to empty it as low as once every 10 days. The 10-day sentence is an upper figure for a one-cat household, not a schedule.",
+          "The 5 page also says the robot needs a 2.4 GHz Wi-Fi signal, and that it ships within the United States and Canada. The 4 card does not use a Wi-Fi label, so that line stays off the table. Litter-Robot 5 Pro is a different product on Whisker\u2019s compare chart, with cameras. This page is the Litter-Robot 5, not the Pro."
+        ]
+      },
+      {
+        "heading": "Pick the weight and the cat count you can point at",
+        "paragraphs": [
+          "Pick the Litter-Robot 4 if the empty weight you are matching is 24 lb, the cat line is up to 4, and the drawer line is up to 8 days for one cat. Height on that card is 29.5 in. Power is 15 V DC. The footprint and the entry match the 5\u2019s sales page.",
+          "Pick the Litter-Robot 5 if the cat line you are matching is up to 5 and the drawer line is up to 10 days for one cat, and you have chosen which height to plan around: 29.9 in on the sales page or 29.50 in in the manual. Empty weight on the sales page is 28.7 lb. The manual allows 28.7 to 29.6 lb. There is no separate model page here for the 5.",
+          "The PetSafe ScoopFree comparison uses the Litter-Robot 4 card. It does not describe the 5. Open that page only when the 4 is the machine you are weighing against a ScoopFree."
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "fellow-stagg-ekg-vs-ekg-pro",
+    "title": "Fellow Stagg EKG vs EKG Pro: which kettle to buy",
+    "linkLabel": "Stagg EKG and EKG Pro specs",
+    "description": "The Stagg EKG comes in 0.9 L and 1.5 L at 1200 W, and the Pro is a 0.9 L kettle with a timed hold.",
+    "hub": "kitchen",
+    "products": [
+      "fellow-stagg-ekg",
+      "fellow-stagg-ekg-pro"
+    ],
+    "related": [
+      "vitamix-e310-vs-e320"
+    ],
+    "verdict": [
+      {
+        "id": "fellow-stagg-ekg",
+        "heading": "Get the Stagg EKG if",
+        "bullets": [
+          "You want a choice of 0.9 L or 1.5 L.",
+          "You want 1200 W and to-the-degree temperature control.",
+          "You want it to hold the set temperature while you pour."
+        ]
+      },
+      {
+        "id": "fellow-stagg-ekg-pro",
+        "heading": "Get the EKG Pro if",
+        "bullets": [
+          "You want the 0.9 L kettle, from 1000\u20131200 W.",
+          "You want to set the temperature from 104\u00b0F to 212\u00b0F.",
+          "You want a hold of 15, 30, 45, or 60 minutes, and a 2-year warranty you can extend."
+        ]
+      }
+    ],
+    "guests": [
+      {
+        "id": "fellow-stagg-ekg-pro",
+        "title": "Fellow Stagg EKG Pro",
+        "model": "EKG Pro",
+        "category": "kitchen",
+        "sourceName": "Fellow",
+        "sourceUrl": "https://fellowproducts.com/products/stagg-ekg-electric-pour-over-kettle?variant=18635551080563",
+        "searchQuery": "Fellow Stagg EKG Pro",
+        "specs": [
+          {
+            "label": "Power",
+            "value": "1000\u20131200 W at 110\u2013120 V",
+            "source": "Fellow",
+            "url": "https://fellowproducts.com/products/stagg-ekg-electric-pour-over-kettle?variant=18635551080563"
+          },
+          {
+            "label": "Temperature",
+            "value": "104\u00b0F to 212\u00b0F",
+            "source": "Fellow",
+            "url": "https://fellowproducts.com/products/stagg-ekg-electric-pour-over-kettle?variant=18635551080563"
+          },
+          {
+            "label": "Hold",
+            "value": "15, 30, 45, or 60 minutes",
+            "source": "Fellow",
+            "url": "https://fellowproducts.com/products/stagg-ekg-electric-pour-over-kettle?variant=18635551080563"
+          },
+          {
+            "label": "Listed capacities",
+            "value": "0.9 L (30 oz)",
+            "source": "Fellow",
+            "url": "https://fellowproducts.com/products/stagg-ekg-electric-pour-over-kettle?variant=18635551080563"
+          },
+          {
+            "label": "Dimensions",
+            "value": "11.10 x 6.77 x 7.7 in",
+            "source": "Fellow",
+            "url": "https://fellowproducts.com/products/stagg-ekg-electric-pour-over-kettle?variant=18635551080563"
+          },
+          {
+            "label": "Weight",
+            "value": "1,400 g including the base",
+            "source": "Fellow",
+            "url": "https://fellowproducts.com/products/stagg-ekg-electric-pour-over-kettle?variant=18635551080563"
+          },
+          {
+            "label": "Warranty",
+            "value": "2-year standard warranty with an option to extend",
+            "source": "Fellow",
+            "url": "https://fellowproducts.com/products/stagg-ekg-electric-pour-over-kettle?variant=18635551080563"
+          }
+        ]
+      }
+    ],
+    "fit": [
+      "The catalogue card for the Stagg EKG records 1200 W, to-the-degree control, a hold that keeps the set temperature while you pour, and both 0.9 L and 1.5 L sizes on the Fellow page. The current Pro variant on that page lists 0.9 L, 1000\u20131200 W, and a temperature range of 104\u00b0F to 212\u00b0F.",
+      "Fellow\u2019s model menu on the page now offers Pro and Pro Studio Edition. Pro Studio uses the same precision features with different materials. This comparison uses the Pro details, not a guess about a discontinued kettle."
+    ],
+    "sections": [
+      {
+        "heading": "The page the card cites now opens on the Pro",
+        "paragraphs": [
+          "The Stagg EKG card points at Fellow\u2019s electric pour-over kettle page and records two capacities, 0.9 L and 1.5 L, plus 1200 W. Opening that page now shows a model selector for Pro and Pro Studio Edition, and the Pro details block lists a single capacity of 30 oz, which is 0.9 L. The 1.5 L figure remains on the card as what was recorded from that URL. It is not the capacity in the Pro details block.",
+          "Pro power is printed as 110\u2013120 V, 1000\u20131200 W, 50\u201360 Hz. The card\u2019s power line is 1200 W. The top of the Pro range matches the card. The bottom of the range, 1000 W, is only on the Pro details. Temperature on the Pro is 104\u00b0F to 212\u00b0F. The card says to-the-degree control and does not print that range."
+        ]
+      },
+      {
+        "heading": "Hold, schedule, and the Studio edition",
+        "paragraphs": [
+          "The card\u2019s hold line says the kettle keeps the set temperature while you pour. The Pro page lets you set the hold to 15, 30, 45, or 60 minutes. Those are different sentences. The Pro page also names scheduling, a brew stopwatch, altitude, a chime, Fahrenheit or Celsius, and firmware updates through the EKG Updater app. Fellow says the app does not control the kettle remotely. Pro Studio Edition, on the same page, is described as the same precision performance with a glass top, metal accents, and different touch points.",
+          "Dimensions in the Pro details are 11.10 by 6.77 by 7.7 inches. Weight is 1,400 g, including the base. The warranty line on the comparison block is a 2-year standard warranty with an option to extend, and Fellow prints that line for the Pro. The EKG card does not carry a warranty spec, so the 2-year line stays off the shared table."
+        ]
+      },
+      {
+        "heading": "Pick the card you can still match to a box",
+        "paragraphs": [
+          "Pick the Stagg EKG card if you are matching 1200 W and a listing that still offers the 0.9 L and 1.5 L sizes the card records. Confirm the model on the box. The Fellow page\u2019s selector no longer shows a non-Pro EKG as a current variant.",
+          "Pick the EKG Pro if you are matching 0.9 L, the 1000\u20131200 W line, the 104\u00b0F to 212\u00b0F range, and a hold you set in 15-minute steps up to 60 minutes. Pro Studio is the materials variant on the same page, not a third capacity. There is no separate model page here for the Pro.",
+          "A gooseneck spout is the Pro\u2019s pour-over description. A wide spout on Fellow\u2019s comparison block belongs to the all-purpose column, not to the Pro details used here."
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "airpods-pro-3-vs-airpods-pro-2",
+    "title": "AirPods Pro 3 vs AirPods Pro 2: which to buy",
+    "linkLabel": "AirPods Pro 3 and Pro 2 specs",
+    "description": "The Pro 3 listens for up to 8 hours and tracks heart rate, and the Pro 2 listens for up to 6 hours.",
+    "hub": "personal-tech",
+    "products": [
+      "airpods-pro-3",
+      "airpods-pro-2"
+    ],
+    "related": [
+      "sony-wh-1000xm5-vs-bose-qc-ultra"
+    ],
+    "verdict": [
+      {
+        "id": "airpods-pro-3",
+        "heading": "Get the Pro 3 if",
+        "bullets": [
+          "You want heart-rate tracking and up to 8 hours with Active Noise Cancellation.",
+          "You want an IP57 rating.",
+          "You want up to 10 hours with the Hearing Aid feature."
+        ]
+      },
+      {
+        "id": "airpods-pro-2",
+        "heading": "Get the Pro 2 if",
+        "bullets": [
+          "You want up to 6 hours on a charge and up to 30 hours with the case.",
+          "You want the H2 chip and an IP54 rating.",
+          "You want a refurbished USB-C pair from Apple."
+        ]
+      }
+    ],
+    "guests": [
+      {
+        "id": "airpods-pro-2",
+        "title": "Apple AirPods Pro 2",
+        "model": "AirPods Pro 2",
+        "category": "personal-tech",
+        "sourceName": "Apple",
+        "sourceUrl": "https://support.apple.com/en-us/111834",
+        "searchQuery": "Apple AirPods Pro 2 USB-C",
+        "specs": [
+          {
+            "label": "Listening",
+            "value": "Up to 6 hours of listening time on a single charge",
+            "source": "Apple",
+            "url": "https://support.apple.com/en-us/111834"
+          },
+          {
+            "label": "Hearing",
+            "value": "Hearing Test, Hearing Aid, and Hearing Protection",
+            "source": "Apple",
+            "url": "https://support.apple.com/en-us/111834"
+          },
+          {
+            "label": "Rating",
+            "value": "IP54",
+            "source": "Apple",
+            "url": "https://support.apple.com/en-us/111834"
+          },
+          {
+            "label": "Case listening",
+            "value": "Up to 30 hours of listening time with the case",
+            "source": "Apple",
+            "url": "https://support.apple.com/en-us/111834"
+          },
+          {
+            "label": "Chip",
+            "value": "Apple H2 headphone chip",
+            "source": "Apple",
+            "url": "https://support.apple.com/en-us/111834"
+          },
+          {
+            "label": "Where sold",
+            "value": "Apple\u2019s US store lists a refurbished USB-C pair",
+            "source": "Apple",
+            "url": "https://www.apple.com/shop/product/ftjv3ll/a/Refurbished-AirPods-Pro-2-with-MagSafe-Charging-Case-USB-C"
+          }
+        ]
+      }
+    ],
+    "fit": [
+      "Apple\u2019s AirPods Pro 3 card says up to 8 hours of listening with Active Noise Cancellation, a heart-rate sensor, a Hearing Aid feature, and an IP57 mark. The USB-C AirPods Pro 2 tech specs say up to 6 hours of listening on a single charge, IP54, and an H2 chip.",
+      "The US shop path that used to name AirPods Pro 2 now opens the AirPods Pro 3 buy page. Apple still lists a refurbished AirPods Pro 2 with a MagSafe charging case (USB-C) on the US store. The specs below are the USB-C tech specs, not the older Lightning sheet."
+    ],
+    "sections": [
+      {
+        "heading": "What Apple still prints for Pro 2",
+        "paragraphs": [
+          "The support page titled AirPods Pro 2 with MagSafe Charging Case (USB-C) says the year introduced is 2023. Listening is up to 6 hours on a single charge, and up to 5.5 hours with Spatial Audio and head tracking. Apple\u2019s test note for that 6-hour figure says Active Noise Cancellation was enabled, volume was at 50 percent, and the playlist was AAC. The Pro 3 card states the 8-hour line with Active Noise Cancellation in the spec itself. The Pro 2 bullet does not put those words in the bullet. The test note does.",
+          "With the case, the Pro 2 page says up to 30 hours of listening. The Pro 3 card on this site does not carry a case-hours line, so that row stays off the table. Resistance is IP54 for the Pro 2 earbuds and case. The Pro 3 card says IP57. Hearing health on the Pro 2 page lists a Hearing Test, a Hearing Aid feature, and Hearing Protection. The Pro 3 card\u2019s hearing line names the Hearing Aid feature. The heart-rate sensor is on the Pro 3 card and is not in the Pro 2 sensor list."
+        ]
+      },
+      {
+        "heading": "Which listing is actually on the US shop",
+        "paragraphs": [
+          "Opening Apple\u2019s US address for buying AirPods Pro 2 currently shows the AirPods Pro 3 buy page, including the 8-hour line and the IP57 description. The refurbished product page for AirPods Pro 2 with the USB-C MagSafe case is a separate Apple listing, and it repeats up to 6 hours on one charge and up to 30 hours with the case. If you want a new pair from that US shop path, the page in front of you is the Pro 3. If you want the Pro 2, use the refurbished listing or another Apple storefront that still names it, and match the USB-C case in the title.",
+          "The Pro 2 box list on the tech specs includes four silicone tip sizes, XS through L, and a USB-C charge cable. The Pro 3 buy page says five tip sizes, XXS through L, and says a USB-C charge cable is not in the box. Tip count and the cable are not shared labels on the cards, so they stay in this note."
+        ]
+      },
+      {
+        "heading": "Pick the hour line and the listing type",
+        "paragraphs": [
+          "Pick the Pro 3 if the listening line you are matching is up to 8 hours with Active Noise Cancellation, you want the heart-rate sensor, and the resistance mark you are matching is IP57. That is the model with a page in this catalogue, and it is the model the US new-buy path shows.",
+          "Pick the Pro 2 if the listening line you are matching is up to 6 hours on a single charge, the case line is up to 30 hours, and the resistance mark is IP54, on the USB-C tech specs. Then confirm the listing is the refurbished USB-C pair, or another current Apple listing that still uses the Pro 2 name. The H2 chip is on that tech specs page.",
+          "The Sony and Bose comparison is a different kind of headphone. The Shokz comparison uses the Pro 3 card. Neither of those pages describes the Pro 2."
         ]
       }
     ]

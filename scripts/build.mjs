@@ -604,9 +604,13 @@ function siblingLinks(product) {
     ...explainers.filter((entry) => entry.products.includes(product.id)).map((entry) =>
       '<a href="/recalls/' + entry.slug + '/">' + card.esc(entry.linkLabel) + "</a>"
     ),
-    ...compares.filter((entry) => entry.products.includes(product.id)).map((entry) => {
-      const other = products.find((item) => item.id === entry.products.find((id) => id !== product.id));
-      return '<a href="/compare/' + entry.slug + '/">Compare with ' + card.esc(other.model || other.title) + "</a>";
+    ...compares.filter((entry) => entry.products.includes(product.id) || (entry.alsoFrom || []).includes(product.id)).map((entry) => {
+      const otherId = entry.products.find((id) => id !== product.id);
+      const other = otherId ? resolveCompareSide(entry, otherId) : null;
+      const label = entry.products.includes(product.id) && other
+        ? "Compare with " + (other.model || other.title)
+        : entry.linkLabel;
+      return '<a href="/compare/' + entry.slug + '/">' + card.esc(label) + "</a>";
     }),
     ...editorialLinksForProduct(product),
     ...bestTypesForIds([product.id]).map(bestAnchor),
@@ -1209,9 +1213,13 @@ function catalogueHtml(entry) {
     const ca = recallSentence(card.recallFor(product, "CA"), "Canadian");
     return "<li>" + card.esc(us) + " " + card.esc(ca) + " <a href=\"" + card.productPath(product) + "\">" + card.esc(product.title) + "</a>.</li>";
   }).join("");
+  const compareLinks = compares.filter((item) => (item.explainers || []).includes(entry.slug)).map((item) =>
+    '<a href="/compare/' + item.slug + '/">' + card.esc(item.linkLabel) + "</a>"
+  ).join(" ");
   return '<div class="pick-grid">' + cards + "</div>" +
     productFold("catalogue-lines", "Checked Lab catalogue", "<p>" + card.esc(entry.catalogue) + "</p><ul>" + lines + "</ul>" +
-    '<p class="lede"><a href="/recalls/">All recall checks</a> <a href="/' + entry.hub + '/">' + card.esc(HUB_NAME[entry.hub]) + "</a> <a href=\"/how-we-check/\">How we check</a></p>");
+    '<p class="lede"><a href="/recalls/">All recall checks</a> <a href="/' + entry.hub + '/">' + card.esc(HUB_NAME[entry.hub]) + "</a> <a href=\"/how-we-check/\">How we check</a>" +
+    (compareLinks ? " " + compareLinks : "") + "</p>");
 }
 
 function sharedSpecRows(left, right) {
@@ -1324,6 +1332,70 @@ function pickPair(entry, pair) {
   ).join("") + "</div>";
 }
 
+function resolveCompareSide(entry, id) {
+  const catalog = products.find((item) => item.id === id);
+  const guest = (entry.guests || []).find((item) => item.id === id);
+  const base = catalog || guest;
+  if (!base) throw new Error("Compare is missing " + id);
+  const adds = (entry.specAdds && entry.specAdds[id]) || [];
+  const addLabels = new Set(adds.map((spec) => spec.label));
+  const specs = [...(base.specs || []).filter((spec) => spec && !addLabels.has(spec.label)), ...adds];
+  return { ...base, specs, catalog: Boolean(catalog) };
+}
+
+function relatedCompares(entry) {
+  const slugs = new Set(entry.related || []);
+  for (const other of compares) {
+    if (other.slug === entry.slug) continue;
+    if (other.products.some((id) => entry.products.includes(id))) slugs.add(other.slug);
+    if ((other.related || []).includes(entry.slug)) slugs.add(other.slug);
+  }
+  return compares.filter((other) => slugs.has(other.slug));
+}
+
+function compareArt(product, index, strict) {
+  if (strict && product.imageMatch !== "exact") return card.tile(product);
+  return card.visual(product, { eager: index === 0, sizes: "(max-width: 640px) 46vw, 180px" });
+}
+
+function verdictBlock(entry, pair) {
+  return '<div class="pick-pair">' + entry.verdict.map((item) => {
+    if (!item.heading || !Array.isArray(item.bullets) || item.bullets.length < 2 || item.bullets.length > 3) {
+      throw new Error("Verdict needs a heading and two or three bullets: " + entry.slug);
+    }
+    const side = pair.find((product) => product.id === item.id);
+    let link = "";
+    if (side && side.catalog) link = '<a class="hub-more" href="' + card.productPath(side) + '">See the model</a>';
+    else if (side && side.sourceUrl) {
+      link = '<a class="hub-more" href="' + card.esc(side.sourceUrl) + '" target="_blank" rel="noopener">Maker page</a>';
+    }
+    return '<article class="pick-box"><h2>' + card.esc(item.heading) + "</h2><ul>" +
+      item.bullets.map((bullet) => "<li>" + card.esc(bullet) + "</li>").join("") +
+      "</ul>" + link + "</article>";
+  }).join("") + "</div>";
+}
+
+function sideAnchor(product) {
+  if (product.catalog) return '<a href="' + card.productPath(product) + '">' + card.esc(product.title) + "</a>";
+  if (product.sourceUrl) {
+    return '<a href="' + card.esc(product.sourceUrl) + '" target="_blank" rel="noopener">' + card.esc(product.sourceName || product.title) + "</a>";
+  }
+  return card.esc(product.title);
+}
+
+function unmatchedSpecHtml(pair, rows) {
+  const labels = new Set(rows.map((row) => row.label));
+  return pair.map((product) => {
+    const specs = (product.specs || []).filter((spec) => spec && spec.label && spec.value && spec.url && !labels.has(spec.label));
+    if (!specs.length) return "";
+    const items = specs.map((spec) =>
+      "<li>" + card.esc(spec.label) + ": " + card.esc(spec.value) +
+      ' <a href="' + card.esc(spec.url) + '" target="_blank" rel="noopener">Source</a></li>'
+    ).join("");
+    return "<h3>" + card.esc(shortPickName(product)) + "</h3><ul>" + items + "</ul>";
+  }).join("");
+}
+
 function compareJsonLd(entry, pair) {
   const url = ORIGIN + "/compare/" + entry.slug + "/";
   const graph = {
@@ -1349,12 +1421,12 @@ function compareJsonLd(entry, pair) {
         "@type": "ItemList",
         name: entry.title,
         numberOfItems: 2,
-        itemListElement: pair.map((product, index) => ({
-          "@type": "ListItem",
-          position: index + 1,
-          name: product.title,
-          url: ORIGIN + card.productPath(product)
-        }))
+        itemListElement: pair.map((product, index) => {
+          const item = { "@type": "ListItem", position: index + 1, name: product.title };
+          if (product.catalog) item.url = ORIGIN + card.productPath(product);
+          else if (product.sourceUrl) item.url = product.sourceUrl;
+          return item;
+        })
       }
     ]
   };
@@ -1368,19 +1440,28 @@ function compareBodyWords(entry) {
   return chunks.join(" ").split(/\s+/).filter(Boolean).length;
 }
 
+function assertBuyerVerdict(entry) {
+  if (!entry.verdict) return;
+  const siteVoice = /\b(cards?|catalogues?|catalogs?|pages?|matching)\b/i;
+  const intro = String(entry.description || "").split(/(?<=\.)\s/)[0];
+  if (siteVoice.test(intro)) throw new Error("Compare intro talks about the site: " + entry.slug);
+  for (const item of entry.verdict) {
+    const text = [item.heading, ...(item.bullets || [])].join(" ");
+    if (siteVoice.test(text)) throw new Error("Verdict talks about the site: " + entry.slug);
+  }
+}
+
 function writeCompares() {
-  if (compares.length !== 26) throw new Error("Expected twenty-six compare pages");
+  if (compares.length !== 35) throw new Error("Expected thirty-five compare pages");
   for (const entry of compares) {
     if (!/^[a-z0-9-]+$/.test(entry.slug)) throw new Error("Bad compare slug");
-    const pair = entry.products.map((id) => {
-      const product = products.find((item) => item.id === id);
-      if (!product) throw new Error("Compare is missing " + id);
-      return product;
-    });
+    assertBuyerVerdict(entry);
+    const pair = entry.products.map((id) => resolveCompareSide(entry, id));
+    if (entry.verdict && entry.verdict.length !== 2) throw new Error("Verdict needs two sides: " + entry.slug);
     const rows = sharedSpecRows(pair[0], pair[1]);
     card.beginPage();
     const head = pair.map((product, index) => {
-      const art = card.visual(product, { eager: index === 0, sizes: "(max-width: 640px) 46vw, 180px" });
+      const art = compareArt(product, index, Boolean(entry.verdict));
       const nameClass = art.includes("spec-tile") ? ' class="visually-hidden"' : "";
       return '<th><div class="compare-who">' + art + "<p" + nameClass + ">" + card.esc(shortPickName(product)) + "</p></div></th>";
     }).join("");
@@ -1390,7 +1471,7 @@ function writeCompares() {
     const recallsHtml = pair.map((product) => {
       const us = recallSentence(card.recallFor(product, "US"), "US");
       const ca = recallSentence(card.recallFor(product, "CA"), "Canadian");
-      return "<p><a href=\"" + card.productPath(product) + "\">" + card.esc(product.title) + "</a>. " + card.esc(us) + " " + card.esc(ca) + "</p>";
+      return "<p>" + sideAnchor(product) + ". " + card.esc(us) + " " + card.esc(ca) + "</p>";
     }).join("") +
       '<p>Those sentences are the catalogue match dated ' + card.esc(recalls.checkedAt) + ' (UTC), from the <a href="' + CPSC_SEARCH + '" target="_blank" rel="noopener">CPSC Recalls</a> search and the <a href="' + HC_SEARCH + '" target="_blank" rel="noopener">Health Canada recalls and safety alerts</a> search. Open the model page for the feed link.</p>';
     const stores = (region, heading) => "<h2>" + heading + "</h2>" + pair.map((product) =>
@@ -1410,9 +1491,8 @@ function writeCompares() {
       const pickText = entry.sections.map((section) => section.paragraphs.join(" ")).join(" ");
       if (!/Pick the /.test(pickText)) throw new Error("Compare page has no pick-by-spec line: " + entry.slug);
     }
-    const related = compares.filter((other) =>
-      other.slug !== entry.slug && other.products.some((id) => entry.products.includes(id))
-    );
+    const related = relatedCompares(entry);
+    if (entry.verdict && related.length < 2) throw new Error("Compare needs two related pages: " + entry.slug);
     const relatedHtml = related.length
       ? '<p class="lede">Related spec pages: ' + related.map((other) =>
         '<a href="/compare/' + other.slug + '/">' + card.esc(other.linkLabel) + "</a>"
@@ -1471,16 +1551,16 @@ ${nav(entry.hub)}
 </nav>
 <h1>${card.esc(entry.title)}</h1>
 <p class="sub">${card.esc(entry.description.split(/(?<=\.)\s/)[0])}</p>
-<div class="compare-wrap">
+${entry.verdict ? verdictBlock(entry, pair) + "\n" : ""}<div class="compare-wrap">
 <table class="compare">
 <thead><tr><th>Spec</th>${head}</tr></thead>
 <tbody>${body}</tbody>
 </table>
 </div>
-${pickPair(entry, pair)}
+${entry.verdict ? "" : pickPair(entry, pair)}
 <nav class="toc" aria-label="Jump to"><p>Jump to</p><a href="#how-to-read">How to read this</a><a href="#recall-check">Recall check</a><a href="#stores">Stores</a></nav>
-${productFold("how-to-read", "How to read this", '<p class="lede">' + card.esc(entry.description) + "</p><p>Each line below is copied from that model’s maker page. The Source link opens that page. A spec that only one card lists is left out of the table. Recall lines use the " + card.esc(recalls.checkedAt) + " (UTC) catalogue check.</p>" + fit + (sections ? "\n" + sections : "") + (relatedHtml ? "\n" + relatedHtml : ""))}
-${productFold("recall-check", "Recall check", recallsHtml + '<p class="lede"><a href="/compare/">All comparisons</a> <a href="/recalls/">All recall checks</a> <a href="/' + entry.hub + '/">' + card.esc(HUB_NAME[entry.hub]) + '</a> <a href="/how-we-check/">How we check</a> <a href="' + card.productPath(pair[0]) + '">' + card.esc(pair[0].title) + '</a> <a href="' + card.productPath(pair[1]) + '">' + card.esc(pair[1].title) + "</a></p>")}
+${productFold("how-to-read", "How to read this", '<p class="lede">' + card.esc(entry.description) + "</p><p>Each line below is copied from that model’s maker page. The Source link opens that page. A spec that only one card lists is left out of the table. Recall lines use the " + card.esc(recalls.checkedAt) + " (UTC) catalogue check.</p>" + fit + (sections ? "\n" + sections : "") + (entry.verdict ? unmatchedSpecHtml(pair, rows) : "") + (relatedHtml ? "\n" + relatedHtml : ""))}
+${productFold("recall-check", "Recall check", recallsHtml + '<p class="lede"><a href="/compare/">All comparisons</a> ' + (entry.verdict ? '<a href="/black-friday/">Black Friday</a> ' : "") + '<a href="/recalls/">All recall checks</a> <a href="/' + entry.hub + '/">' + card.esc(HUB_NAME[entry.hub]) + '</a> <a href="/how-we-check/">How we check</a> ' + pair.map(sideAnchor).join(" ") + "</p>")}
 ${productFold("stores", "Stores", stores("US", "United States stores") + stores("CA", "Canadian stores"))}
 </div>
 </main>
@@ -3349,6 +3429,11 @@ function giftHubHtml(grouped) {
       renderHubGuide("gifts", { faq: false }) +
       giftQuiz() +
       '<p>A recipient list is published when the catalogue can fill it with at least five models and the recorded US and Canadian checks found no matching recall. The spec line on each model is copied from the maker fields. <a href="/how-we-check/">How we check</a> says what the date means. <a href="' + giftPath(kidsGuide()) + '">Gifts for kids</a> is a recall-check list, not a catalogue list. <a href="/toy-safety/">Toy safety</a> covers button batteries, magnets, water beads, and ride-ons. <a href="' + giftPath(hostGuide()) + '">Gifts for the host</a> is a recall-check list for holiday hosting. <a href="/thanksgiving/">Thanksgiving and holiday hosting</a> covers turkey fryers, pressure cookers, turkey temperatures, and kitchen fires.</p>' +
+      (compares.some((entry) => (entry.linkFrom || []).includes("/gifts/"))
+        ? '<p class="lede">Spec comparisons: ' + compares.filter((entry) => (entry.linkFrom || []).includes("/gifts/")).map((entry) =>
+          '<a href="/compare/' + entry.slug + '/">' + card.esc(entry.linkLabel) + "</a>"
+        ).join(" ") + ".</p>"
+        : "") +
       bestLede(grouped.flatMap((item) => item.picks.map((product) => product.id)))) +
     '<section class="faq" id="questions"><h2>Questions</h2>' +
     faqs.map((item) => "<h3>" + card.esc(item.q) + '</h3><p class="faq-a">' + card.esc(item.a) + "</p>").join("") +
@@ -3886,6 +3971,7 @@ function kidsGuideHtml(guide, grouped) {
     "<h1>" + card.esc(guide.h1) + "</h1>" +
     '<p class="lede">' + card.esc(guide.description) + "</p>" +
     '<p>Each line names a widely sold kids product and the official check to do. The button opens the Amazon search for the words under it. It is not a product page. <a href="/toy-safety/">Toy safety</a> covers <a href="/toy-safety/button-coin-batteries/">button and coin batteries</a>, <a href="/toy-safety/magnets/">magnets</a>, <a href="/toy-safety/water-beads/">water beads</a>, and <a href="/toy-safety/ride-ons-and-scooters/">ride-ons and scooters</a>. <a href="/how-we-check/">How we check</a> says what a dated catalogue line means.</p>' +
+    compareLinksForGuide(guide) +
     giftJumps(guides, guide.slug) +
     '<section class="pick-grid">\n' + picks + "\n</section>" +
     '<p class="lede"><a href="/gifts/">All gift guides</a></p>' +

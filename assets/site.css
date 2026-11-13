@@ -875,6 +875,8 @@ body[data-page="product"] .p-photo {
 .pick-box { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 16px 16px 18px; }
 .pick-box h2 { font-size: 1.35rem; margin: 0 0 8px; }
 .pick-box p { margin: 0 0 12px; }
+.pick-box ul { margin: 0 0 12px; padding-left: 1.15rem; }
+.pick-box li { margin: 0 0 6px; }
 .compare { width: 100%; border-collapse: collapse; background: #fff; }
 .compare th, .compare td { text-align: left; vertical-align: top; padding: 12px; border-bottom: 1px solid var(--line); }
 .compare th:first-child { width: 7rem; }
