@@ -206,6 +206,11 @@ const GUIDE_START = "<!-- checkedlab:guide start -->";
 const GUIDE_END = "<!-- checkedlab:guide end -->";
 const GUIDE_KEYS = ["home", "black-friday", "gifts", "compare", ...HUBS];
 const COPY_BAN = /\$\d|\bwe tested\b|\btested by us\b|\bwe bought\b|\bdoes not test\b|\bdid not test\b|\bnot tested\b|\bnot(?: a)? measured\b|\bfrom this site\b|\bnot tested by\b|\bwe did not\b|\bwe didn['’]t\b|\bwe haven['’]t\b|hands-on|lab-tested|lab tested|out of 5|star rating|best overall|\bwinner\b|\bscore\b/i;
+/* /social/ text and captions use COPY_BAN plus the phrases a shopper post must not use. */
+const SOCIAL_COPY_BAN = new RegExp(
+  COPY_BAN.source + "|not a verdict|catalogue check|stay(?:s)? off (?:this|the) table|has not been recorded|\\bcatalogue\\b|\\bmaker lines\\b|\\bverdict\\b|\\bcell\\b",
+  "i"
+);
 const READER_VOICE_BAN = /worth matching|in this catalogue|in this catalog|check the model|to match on|on a listing/i;
 const READER_WORDING_BAN = /\bworth matching\b|Pick it for:|The maker lines|\bmaker lines\b/i;
 const VOICE_PAGES = new Set([
@@ -5915,6 +5920,27 @@ function headerValue(vercel, source, key) {
   return header && header.value;
 }
 
+function assertSocialCopy() {
+  const dir = join(root, "social");
+  const files = walkFiles(dir).filter((file) => /\.(md|txt|html)$/i.test(file));
+  if (!files.length) throw new Error("Social copy scan found no text");
+  for (const file of files) {
+    const text = readFileSync(file, "utf8");
+    const rel = "/social/" + file.slice(dir.length + 1).split("\\").join("/");
+    const banned = text.match(SOCIAL_COPY_BAN);
+    if (banned) {
+      const at = Math.max(0, banned.index - 40);
+      const snippet = text.slice(at, banned.index + banned[0].length + 40).replace(/\s+/g, " ").trim();
+      throw new Error("Social copy ban on " + rel + ": " + banned[0] + " near “" + snippet + "”");
+    }
+    for (const match of text.matchAll(/^Title:\s*(.+)$/gm)) {
+      const title = match[1].trim();
+      if (title.length > 60) throw new Error("Social title is " + title.length + " characters on " + rel + ": " + title);
+    }
+  }
+  console.log("Social copy check: " + files.length + " text file" + (files.length === 1 ? "" : "s") + ".");
+}
+
 function assertSocialAssets(dist) {
   const expected = [
     "2026-11/ig/01-sony-bose-cover.png",
@@ -5932,9 +5958,18 @@ function assertSocialAssets(dist) {
     "2026-11/ig/05-litter-cover.png",
     "2026-11/ig/05-litter-cta.png",
     "2026-11/ig/05-litter-table.png",
+    "2026-11/ig/06-airpods-cover.png",
+    "2026-11/ig/06-airpods-cta.png",
+    "2026-11/ig/06-airpods-table.png",
+    "2026-11/ig/07-vitamix-cover.png",
+    "2026-11/ig/07-vitamix-cta.png",
+    "2026-11/ig/07-vitamix-table.png",
+    "2026-11/captions-week2.md",
+    "2026-11/shorts/airpods-pro-3-vs-pro-2.mp4",
     "2026-11/shorts/black-friday-recall-check.mp4",
     "2026-11/shorts/dyson-v15-vs-v8.mp4",
-    "2026-11/shorts/sony-xm5-vs-bose-qc-ultra.mp4"
+    "2026-11/shorts/sony-xm5-vs-bose-qc-ultra.mp4",
+    "2026-11/shorts/vitamix-e310-vs-e320.mp4"
   ].sort();
   const dir = join(root, "social");
   const found = walkFiles(dir).map((file) => file.slice(dir.length + 1).split("\\").join("/")).sort();
@@ -6278,6 +6313,7 @@ function verifyOutput(pages) {
   assertBuyerPicks();
   assertAllPageVoice();
   assertHubReaderText();
+  assertSocialCopy();
 }
 
 function assertBuyerPicks() {
