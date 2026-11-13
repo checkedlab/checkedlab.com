@@ -378,8 +378,8 @@
     var t = [product && product.title, product && product.id].join(" ").toLowerCase();
     var rules = [
       [/air purifier|airmega|core 300|core 600|vital 200|211i|5500-2|hpa300/, "Air purifier"],
-      [/humidifier/, "Humidifier"],
       [/dehumidifier|50 pint|mad50/, "Dehumidifier"],
+      [/humidifier/, "Humidifier"],
       [/reverse osmosis|roes|rcc7|g3p600/, "Reverse osmosis"],
       [/pitcher|under-sink|water filter|brita|zerowater|aquasana/, "Water filter"],
       [/robot vacuum|roomba|roborock|qrevo/, "Robot vacuum"],
@@ -399,7 +399,8 @@
       [/espresso|barista|bes870/, "Espresso machine"],
       [/kettle|stagg/, "Kettle"],
       [/aeropress|chemex|moccamaster|coffee maker/, "Coffee maker"],
-      [/precision cooker|anova|instant pot|multi-cook|pressure cook/, "Multi-cooker"],
+      [/precision cooker|anova/, "Sous vide cooker"],
+      [/instant pot|multi-cook|pressure cook/, "Multi-cooker"],
       [/headphone|airpod|bose|wh-1000|shokz|openrun/, "Headphones"],
       [/speaker|sonos|jbl|charge 5|era 100/, "Speaker"],
       [/toothbrush|oral-b|sonicare|hx3681|io series|io-3/, "Toothbrush"],
@@ -410,23 +411,25 @@
       [/forerunner|\bwatch\b/, "Watch"],
       [/power bank|a1289|powercore/, "Power bank"],
       [/charger|nano-30|nano 30|mxs 5|ctek|battery tender/, "Charger"],
-      [/dash cam|gopro|hero13/, "Camera"],
+      [/dash cam/, "Dash cam"],
+      [/gopro|hero13/, "Camera"],
       [/inflator|compressor|fanttik|viair/, "Inflator"],
       [/jump starter|noco|boost gb|gb40|gb50/, "Jump starter"],
       [/drill|dewalt|dcd771/, "Drill"],
       [/torque wrench|tekton/, "Torque wrench"],
-      [/scan tool|obd|bluedriver|innova|carscan/, "Scan tool"],
+      [/scan tool|obd|bluedriver|innova|carscan/, "OBD scanner"],
       [/multimeter|fluke/, "Multimeter"],
       [/wiper|bosch icon/, "Wiper blades"],
       [/pressure washer|sunjoe spx|spx3000/, "Pressure washer"],
       [/garage door|chamberlain/, "Garage door opener"],
-      [/snow blower|snow shovel|power clear|snt2110|ss10/, "Snow tool"],
+      [/snow shovel|ss10/, "Snow shovel"],
+      [/snow blower|power clear|snt2110/, "Snow blower"],
       [/shoe|boot dryer|peet/, "Boot dryer"],
       [/blanket|throw|pendleton/, "Blanket"],
       [/heater|radiator|lasko|dreo|vornado|delonghi|mh9bx/, "Heater"],
       [/bottle|stanley/, "Bottle"],
       [/mattress|casper|saatva|helix|zinus/, "Mattress"],
-      [/pillow|purple|coop|tempur/, "Pillow"],
+      [/pillow|purple|\bcoop\b|tempur/, "Pillow"],
       [/sheet set|brooklinen/, "Sheets"],
       [/comforter|buffy/, "Comforter"],
       [/sleep mask|manta/, "Sleep mask"],
@@ -434,7 +437,9 @@
       [/white noise|lectrofan|hatch|restore/, "Sound machine"],
       [/chair|aeron|steelcase|leap/, "Chair"],
       [/litter/, "Litter box"],
-      [/feeder|fountain|drinkwell|catit|raindrop|slo bowl|fun feeder|simply feed|simply-feed/, "Pet feeder"],
+      [/fountain|drinkwell|catit|raindrop/, "Pet fountain"],
+      [/slo bowl|fun feeder/, "Slow feeder"],
+      [/feeder|simply feed|simply-feed/, "Pet feeder"],
       [/harness|kurgo|sleepypod|easy walk/, "Harness"],
       [/dog toy|kong/, "Dog toy"],
       [/dog camera|furbo/, "Pet camera"],
@@ -531,14 +536,15 @@
     return String(model).toLowerCase().indexOf(String(type).toLowerCase()) !== -1;
   }
 
-  function specTile(product) {
+  function specTile(product, opts) {
     product = product || {};
+    opts = opts || {};
     var brand = String(product.sourceName || "").trim();
     var model = displayModel(product);
     var type = productType(product);
     if (typeRepeatsModel(type, model)) type = "";
     var facts = specFacts(product);
-    var html = '<div class="spec-tile" data-cat="' + esc(product.category || "") + '">';
+    var html = '<div class="spec-tile' + (opts.under ? " spec-under" : "") + '" data-cat="' + esc(product.category || "") + '">';
     if (brand) html += '<p class="spec-brand">' + esc(brand) + "</p>";
     html += '<p class="spec-model">' + esc(model) + "</p>";
     if (type) html += '<p class="spec-type">' + esc(type) + "</p>";
@@ -557,7 +563,7 @@
     opts = opts || {};
     var recall = recallFor(product, reg);
     var href = esc(productPath(product));
-    var media = visual(product, opts);
+    var media = mediaWithSpecs(product, opts);
     var hidden = media.indexOf("spec-tile") !== -1 ? " visually-hidden" : "";
     var title = '<h2 class="p-title' + hidden + '"><a href="' + href + '">' + visibleTitle(product.title) + "</a></h2>";
     var more = '<a class="hub-more" href="' + href + '">See specs and stores</a>';
@@ -800,7 +806,6 @@
 
   function modelPhoto(product) {
     if (!product || product.imageKind !== "model") return "";
-    if (product.imageMatch === "related") return "";
     var src = licensedSrc(product);
     if (!src) return "";
     if (src.indexOf("/images/photos/") !== 0 && src.indexOf("/images/products/") !== 0) return "";
@@ -847,10 +852,8 @@
   }
 
   function photoAlt(product) {
-    if (product.imageMatch === "same_line" || product.imageMatch === "related") {
-      return product.imageShows || product.title || "Licensed product photo";
-    }
-    return product.title || product.imageShows || "Licensed product photo";
+    if (product.imageMatch === "exact") return product.title || product.imageShows || "Product photo";
+    return productType(product) || "Product photo";
   }
 
   function genericPhotoAlt(product) {
@@ -894,14 +897,20 @@
       }
     }
     var load = opts.eager ? ' fetchpriority="high" decoding="async"' : ' loading="lazy" decoding="async"';
+    var hero = opts.hero ? " data-hero" : "";
     var alt = (opts.genericUnlessExact && product.imageMatch !== "exact")
-      ? genericPhotoAlt(product)
+      ? (productType(product) || genericPhotoAlt(product))
       : photoAlt(product);
-    var caption = opts.noCredit ? "" : photoCaption(product);
     return '<figure class="p-figure"><img class="p-photo" src="' + esc(src) + '"' + extra +
       ' alt="' + esc(alt) + '" width="' + width + '" height="' + height + '"' +
       ' data-brand="' + esc(product.sourceName || "") + '" data-model="' + esc(product.model || "") + '" data-category="' + esc(product.category || "") + '"' +
-      load + ">" + caption + "</figure>";
+      hero + load + "></figure>";
+  }
+
+  function mediaWithSpecs(product, opts) {
+    var photo = visual(product, opts);
+    if (photo.indexOf("p-photo") === -1) return photo;
+    return photo + specTile(product, { under: true });
   }
 
   var SCENES = {
@@ -940,6 +949,7 @@
     imageHtml: imageHtml,
     imageColumn: imageColumn,
     visual: visual,
+    mediaWithSpecs: mediaWithSpecs,
     tile: tile,
     pickLine: pickLine,
     beginPage: beginPage,

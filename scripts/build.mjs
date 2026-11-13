@@ -354,10 +354,12 @@ function assertUniqueModelPhotos(list) {
     if (product.imageKind !== "model") continue;
     const src = String(product.image || "");
     if (!src.startsWith("/images/")) throw new Error("Model photo path: " + product.id);
-    if (seen.has(src)) {
-      throw new Error("Photo file used as hero on more than one product: " + src + " (" + seen.get(src) + ", " + product.id + ")");
+    const users = seen.get(src) || [];
+    users.push(product.id);
+    if (users.length > 3) {
+      throw new Error("Photo file used as hero on more than 3 product pages: " + src + " (" + users.join(", ") + ")");
     }
-    seen.set(src, product.id);
+    seen.set(src, users);
     if (!existsSync(join(root, src.slice(1)))) throw new Error("Missing product photo: " + src);
     const small = product.image_source && product.image_source.src400;
     if (small && !existsSync(join(root, String(small).replace(/^\//, "")))) {
@@ -2712,7 +2714,7 @@ function bfStatusHtml(rec, place) {
 }
 
 function bfModel(product, opts) {
-  const art = card.visual(product, opts);
+  const art = card.mediaWithSpecs(product, opts);
   const hidden = art.includes("spec-tile") ? ' class="visually-hidden"' : "";
   return '<article class="bf-model" id="' + card.esc(product.id) + '">' +
     art +
@@ -3210,7 +3212,7 @@ function giftOtherNote(product) {
 }
 
 function giftPickHtml(product, guide, opts) {
-  const art = card.visual(product, opts);
+  const art = card.mediaWithSpecs(product, opts);
   const hidden = art.includes("spec-tile") ? ' class="visually-hidden"' : "";
   return '<article class="guide-pick" id="' + card.esc(product.id) + '">' +
     art +
@@ -4950,12 +4952,47 @@ function assertWinterPages() {
   }
 }
 
+function licenseUrlFor(license) {
+  const map = {
+    "CC BY 2.0": "https://creativecommons.org/licenses/by/2.0/",
+    "CC BY 3.0": "https://creativecommons.org/licenses/by/3.0/",
+    "CC BY 4.0": "https://creativecommons.org/licenses/by/4.0/",
+    "CC BY-SA 2.0": "https://creativecommons.org/licenses/by-sa/2.0/",
+    "CC BY-SA 3.0": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "CC BY-SA 4.0": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "CC0": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "Public domain": "https://creativecommons.org/publicdomain/mark/1.0/"
+  };
+  return map[license] || "";
+}
+
+function creditAuthor(credit) {
+  const match = String(credit || "").match(/^Photo(?::| by)\s+([^,]+)/);
+  return match ? match[1].trim() : "";
+}
+
+function extLink(href, label) {
+  return '<a href="' + card.esc(href) + '" target="_blank" rel="noopener">' + card.esc(label) + "</a>";
+}
+
 function writePhotoCredits() {
   const photos = JSON.parse(readFileSync(join(root, "data", "photos.json"), "utf8"));
-  const rows = photos.map((photo) =>
-    "<li><a href=\"" + card.esc(photo.source) + "\">" + card.esc(photo.credit) + "</a>" +
-    "<small>" + card.esc(photo.license) + " · " + card.esc(photo.use) + " · " + card.esc(photo.file) + "</small></li>"
+  const lifestyle = photos.map((photo) =>
+    "<li>" + extLink(photo.source, photo.credit) +
+    "<small>" + card.esc(photo.license) + " · " + card.esc(photo.use) + "</small></li>"
   ).join("\n");
+  const catalogue = products.filter((product) => product.imageKind === "model" && product.imageSource).map((product) => {
+    const author = product.imageAuthor || creditAuthor(product.imageCredit) || "Photographer";
+    const license = product.imageLicense || "";
+    const licenseHref = product.imageLicenseUrl || licenseUrlFor(license);
+    const shows = product.imageShows || product.title;
+    const who = extLink(product.imageSource, author);
+    const terms = licenseHref ? extLink(licenseHref, license || "License") : card.esc(license);
+    const source = extLink(product.imageSource, "Source page");
+    return "<li>" + who +
+      "<small>" + terms + " · " + source + " · Shows: " + card.esc(shows) +
+      " · " + card.esc(product.title) + "</small></li>";
+  }).join("\n");
   const html = `<!DOCTYPE html>
 <html lang="en" data-region="US">
 <head>
@@ -4964,9 +5001,9 @@ function writePhotoCredits() {
 <script src="/assets/region-boot.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Photo credits — Checked Lab</title>
-<meta name="description" content="Photographers and licenses for the photos on Checked Lab. Files are stored on this site.">
+<meta name="description" content="Photographers, licenses, source pages, and what each photo shows on Checked Lab.">
 <meta property="og:title" content="Photo credits — Checked Lab">
-<meta property="og:description" content="Photographers and licenses for the photos on Checked Lab.">
+<meta property="og:description" content="Photographers, licenses, source pages, and what each photo shows on Checked Lab.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="${ORIGIN}/photo-credits/">
 <meta property="og:image" content="${ORIGIN}/assets/og.png">
@@ -4981,9 +5018,14 @@ ${DISCLOSURE}
 <main id="main">
 <div class="wrap prose">
 <h1>Photo credits</h1>
-<p class="lede">Lifestyle and category photos are from Pexels. Catalogue model photos are from Wikimedia Commons or Flickr under the license named on each line. Nothing is hotlinked, and none of these files are manufacturer or Amazon photos.</p>
+<p class="lede">Photos are stored on this site. Each catalogue line names the photographer, links the license and the source page, and says what the photo shows. A catalogue photo may be the exact model, another model of the same brand, or the same kind of product. Captions are not repeated under the photos.</p>
+<h2>Catalogue photos</h2>
 <ul class="credits">
-${rows}
+${catalogue}
+</ul>
+<h2>Scene photos</h2>
+<ul class="credits">
+${lifestyle}
 </ul>
 </div>
 </main>
