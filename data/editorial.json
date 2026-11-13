@@ -47,7 +47,7 @@
           "heading": "The 300S-P card is a small cabinet",
           "paragraphs": [
             "The Core 300S-P manual states AC 120 V, 60 Hz, 39 W, noise of 22–54.5 dB, dimensions of 8.7 × 8.7 × 14.2 in, and a weight of 7.48 lb. It does not print a CADR label or a room-size label. An alternative on this page is a purifier card that does print a room or CADR line, or the larger Levoit that prints both.",
-            "The Airmega Mighty AP-1512HH page states CADR of 233 smoke, 246 dust, and 240 pollen, room coverage of 361 ft² at 4.8 air changes per hour, dimensions of 16.8 × 18.3 × 9.6 in, a weight of 12.3 lb, and 77 W. The Core 600S-P page states 391 CFM, 13.7 lb, 12.3 x 12.3 x 23.6 in, 49 W, noise of 26 dB, and a room line of 2,909 sq ft at 1 air change per hour or 606 sq ft at 4.8. The Blue Pure 211i Max page states a recommended room of 674 sq ft, 22.7 x 14.4 x 14.4 in, 16.2 lb, and sound of 23 to 53 dB."
+            "The Airmega Mighty AP-1512HH page states CADR of 233 smoke, 246 dust, and 240 pollen, room coverage of 361 ft² at 4.8 air changes per hour, dimensions of 16.8 × 18.3 × 9.6 in, a weight of 12.3 lb, and 77 W. The Core 600S-P page states 391 CFM, 13.7 lb, 12.3 x 12.3 x 23.6 in, 49 W, noise of 26–55 dB (as low as 26 dB per the maker), and a room line of 2,909 sq ft at 1 air change per hour or 606 sq ft at 4.8. The Blue Pure 211i Max page states a recommended room of 674 sq ft, 22.7 x 14.4 x 14.4 in, 16.2 lb, and sound of 23 to 53 dB."
           ]
         },
         {
@@ -55,7 +55,7 @@
           "paragraphs": [
             "Pick the Core 300S-P if the cabinet you are matching is 8.7 × 8.7 × 14.2 in at 7.48 lb and the power line is 39 W. The noise line is a range, 22–54.5 dB. Pick it when you do not need a CADR figure from the same page, because this card does not have one.",
             "Pick the AP-1512HH if you need a CADR trio and a room line that names 361 ft² at 4.8 air changes per hour. The stated weight is 12.3 lb and the power line is 77 W, both higher than the 300S-P lines. The cabinet is larger in two of the three dimensions.",
-            "Pick the Core 600S-P if the figure you need is 391 CFM or the room line that names 606 sq ft at 4.8 air changes, in a 12.3 x 12.3 x 23.6 in cabinet at 13.7 lb. The noise line on that page is the single figure 26 dB, not the 300S-P range. Pick the 211i Max if the room figure you are matching is 674 sq ft recommended, at 16.2 lb, and you are reading a sound range of 23 to 53 dB rather than a CADR trio.",
+            "Pick the Core 600S-P if the figure you need is 391 CFM or the room line that names 606 sq ft at 4.8 air changes, in a 12.3 x 12.3 x 23.6 in cabinet at 13.7 lb. The noise line on that page is 26–55 dB (as low as 26 dB per the maker). The 300S-P noise line is 22–54.5 dB. Pick the 211i Max if the room figure you are matching is 674 sq ft recommended, at 16.2 lb, and you are reading a sound range of 23 to 53 dB rather than a CADR trio.",
             "Do not add the Blueair square-foot line to the Coway square-foot line. One names a recommended room. The other names a room at 4.8 air changes per hour. The 600S-P page prints both an air-change rate and a CFM figure. Read the sentence on the page you are matching."
           ]
         }
