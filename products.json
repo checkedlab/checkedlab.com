@@ -10753,17 +10753,18 @@
     "image_source": {
       "kind": "commons",
       "width": 800,
-      "height": 440,
+      "height": 436,
       "src400": "/images/products/airpods-pro-3-400.webp",
       "width400": 400
     },
     "imageCredit": "Photo: Burkhard Mücke, CC BY-SA 4.0, via Wikimedia Commons",
     "imageLicense": "CC BY-SA 4.0",
-    "imageSource": "https://commons.wikimedia.org/wiki/File:AirPods_Pro_3_in_wei%C3%9F.jpg",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Airpods_Modell_Pro_3.jpg",
     "imageKind": "model",
     "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "imageMatch": "exact",
-    "imageShows": "Apple AirPods Pro 3"
+    "imageShows": "Apple AirPods Pro 3 earbuds",
+    "imageAuthor": "Burkhard Mücke"
   },
   {
     "id": "anker-nano-30w",
@@ -13112,23 +13113,7 @@
         "source": "iRobot",
         "url": "https://www.irobot.com/en_US/roomba-combo-j9plus-auto-fill-robot-vacuum-and-mop/C975020.html/"
       }
-    ],
-    "image": "/images/products/irobot-roomba-combo-j9-plus.webp",
-    "image_source": {
-      "kind": "commons",
-      "width": 800,
-      "height": 800,
-      "src400": "/images/products/irobot-roomba-combo-j9-plus-400.webp",
-      "width400": 400
-    },
-    "imageCredit": "Photo: Uwe Aranas, CC BY-SA 4.0, via Wikimedia Commons",
-    "imageLicense": "CC BY-SA 4.0",
-    "imageSource": "https://commons.wikimedia.org/wiki/File:IRobot-Roomba-Top-view-01.jpg",
-    "imageKind": "model",
-    "imageMatch": "related",
-    "imageAuthor": "Uwe Aranas",
-    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "imageShows": "iRobot Roomba"
+    ]
   },
   {
     "receipt": null,
