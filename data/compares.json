@@ -18,7 +18,7 @@
     "slug": "coway-ap-1512hh-vs-levoit-core-300s-p",
     "title": "Coway Airmega Mighty and Levoit Core 300S-P, from the maker pages",
     "linkLabel": "Coway Mighty and Core 300S-P specs",
-    "description": "Size and weight as the Coway and Levoit pages state them for the AP-1512HH and the Core 300S-P, with a dated recall line for each. Specs that only one page lists stay off this table.",
+    "description": "Size and weight as the Coway and Levoit pages state them for the AP-1512HH and the Core 300S-P, with a dated recall line for each. Specs that only one page lists are left out.",
     "hub": "air-water",
     "products": [
       "coway-ap-1512hh",
@@ -48,7 +48,7 @@
     "slug": "ninja-crispi-fn101-vs-cosori-pro-5-8",
     "title": "Ninja Crispi FN101 and COSORI Pro II, from the maker pages",
     "linkLabel": "Crispi and Cosori Pro II specs",
-    "description": "Dimensions and weight as the Ninja and COSORI pages state them for the FN101 and the Pro II, with a dated recall line for each. Specs that only one page lists stay off this table.",
+    "description": "Dimensions and weight as the Ninja and COSORI pages state them for the FN101 and the Pro II, with a dated recall line for each. Specs that only one page lists are left out.",
     "hub": "kitchen",
     "products": [
       "ninja-crispi-fn101",
@@ -158,7 +158,7 @@
     ],
     "fit": [
       "The Core 600S-P specifications list states 391 CFM, 13.7 lb, 12.3 x 12.3 x 23.6 in, and 49 W at AC 120 V, 60 Hz. The 5500-2 manual states 243 dust, 246 pollen, and 232 smoke, about 15 lb, 15 x 8.2 x 23.6 in, and 70 W at 120 V / 60 Hz.",
-      "A lower stated weight and a lower stated wattage are the Core 600S-P lines. The CADR row is one CFM figure on the Levoit page and three CADR figures on the Winix page. Room coverage uses a different label on each card, so it stays off this table. Noise and filtration are on the Levoit card only."
+      "A lower stated weight and a lower stated wattage are the Core 600S-P lines. The CADR row is one CFM figure on the Levoit page and three CADR figures on the Winix page. Room coverage uses a different label on each card, so it is left out. Noise and filtration are on the Levoit card only."
     ]
   },
   {
@@ -176,7 +176,7 @@
     ],
     "fit": [
       "The HPA300 product details state 20.8 x 10.83 x 22.38 in, 17 lb, smoke CADR 300, dust CADR 320, pollen CADR 300, a True HEPA filter replaced once per year, and a pre-filter replaced every 3 months. The Airmega 250 specifications state 18.5 x 19.7 x 8.3 in, 20.5 lb, smoke CADR 249, dust CADR 261, pollen CADR 230, and a Max2 filter life of 1 year.",
-      "Higher stated smoke, dust, and pollen CADR figures are the HPA300 lines. A lower stated weight is the HPA300 line. Noise and the square-foot coverage lines use labels that only one card uses, so they stay off this table."
+      "Higher stated smoke, dust, and pollen CADR figures are the HPA300 lines. A lower stated weight is the HPA300 line. Noise and the square-foot coverage lines use labels that only one card uses, so they are left out."
     ]
   },
   {
@@ -292,7 +292,7 @@
         ]
       },
       {
-        "heading": "Pick by the lines that stay off the table",
+        "heading": "Pick by the lines only one page lists",
         "paragraphs": [
           "Pick the EGO page if the decision turns on a battery power line at that 21 in width. The EGO page states that Peak Power uses two 56V ARC Lithium batteries, names a steel auger, and states a 5-year limited tool warranty. Those labels are not on the Toro card, so they are not in the table. Pick the EGO page as well if the throw figure you are matching is the longer one, up to 40 ft.",
           "Pick the Toro page if the decision turns on a gas-engine line at the same stated width. The Toro page states a 212 cc engine, an intake height of 12.5 in, and a weight of 84 lb, with a throw of up to 35 ft. Intake height and weight are Toro-only labels. A stated weight of 84 lb is the figure to read if you are matching a walk-behind machine rather than a battery tool.",
@@ -355,7 +355,7 @@
     ],
     "fit": [
       "The Blueair page states 22.7 x 14.4 x 14.4 in and 16.2 lb. The Airmega 250 specifications state 18.5 x 19.7 x 8.3 in and 20.5 lb.",
-      "A lower stated weight is the Blueair line. Room coverage, sound, CADR, noise, and filter life use labels that only one card uses, so they stay off this table."
+      "A lower stated weight is the Blueair line. Room coverage, sound, CADR, noise, and filter life use labels that only one card uses, so they are left out."
     ],
     "sections": [
       {
@@ -397,7 +397,7 @@
         "heading": "Same brand, two cabinets",
         "paragraphs": [
           "Both cards are Levoit Core models, and the shared labels are noise and weight. The 300S-P manual prints 22\u201354.5 dB and 7.48 lb, with dimensions of 8.7 \u00d7 8.7 \u00d7 14.2 in and rated power of 39 W at AC 120 V, 60 Hz. The 600S-P page prints 26\u201355 dB (as low as 26 dB per the maker) and 13.7 lb / 6.2 kg, with a size of 12.3 x 12.3 x 23.6 in and power of 49 W at AC 120 V, 60 Hz.",
-          "CADR on the 600S-P page is 391 CFM. Room size on that page is 2,909 sq ft at 1 air change per hour, or 606 sq ft at 4.8. The 300S-P card does not use a CADR label or a room-size label, so those rows stay off the table. Filtration on the 600S-P page says 3-stage. That label is not on the 300S-P card."
+          "CADR on the 600S-P page is 391 CFM. Room size on that page is 2,909 sq ft at 1 air change per hour, or 606 sq ft at 4.8. The 300S-P card does not use a CADR label or a room-size label, so those rows are left out. Filtration on the 600S-P page says 3-stage. That label is not on the 300S-P card."
         ]
       },
       {
@@ -534,7 +534,7 @@
         "heading": "The run-time lines name different setups",
         "paragraphs": [
           "The shared labels are weight, run time, and charge time. Shark prints 18.47 lbs, up to 70 minutes measured at the hand vacuum in ECO mode, and 6 hours. Tineco prints 6.8 lbs, 40 min, and 4 hours. The Shark run-time sentence names a configuration, the hand vacuum in ECO mode. The Tineco run-time field prints 40 min without that phrase.",
-          "Shark also states a 0.7 qt dust cup, dimensions of 10.24 in L x 18.5 in W x 46.46 in H, and 21.6 volts. Tineco also states a 2500 mAh battery and a 0.47 L dust capacity. Dust cup and dust capacity are different labels, so they stay off the table."
+          "Shark also states a 0.7 qt dust cup, dimensions of 10.24 in L x 18.5 in W x 46.46 in H, and 21.6 volts. Tineco also states a 2500 mAh battery and a 0.47 L dust capacity. Dust cup and dust capacity are different labels, so they are left out."
         ]
       },
       {
@@ -604,7 +604,7 @@
         "heading": "The shared rows are portion size and power",
         "paragraphs": [
           "Portions and power are the labels both pages print. Whisker states 1/8 cup to 1 cup and a backup battery. PetSafe states 1/8 to 4 cups and battery. The low end of both portion lines is 1/8. The high end differs: 1 cup on the Feeder-Robot page, 4 cups on the Simply Feed page.",
-          "Whisker also states up to 8 scheduled meals a day and a warranty of 12 months included. PetSafe also states a 24 cup capacity, up to 12 meals a day, and dimensions of 19.0 x 9.0 x 12.5 in. Meal-count labels are not the same string on the two cards, \u201cMeals\u201d against \u201cSchedule,\u201d so the meal lines stay off the table even though both pages talk about meals."
+          "Whisker also states up to 8 scheduled meals a day and a warranty of 12 months included. PetSafe also states a 24 cup capacity, up to 12 meals a day, and dimensions of 19.0 x 9.0 x 12.5 in. Meal-count labels are not the same string on the two cards, \u201cMeals\u201d against \u201cSchedule,\u201d so the meal lines are left out even though both pages talk about meals."
         ]
       },
       {
@@ -676,7 +676,7 @@
         "heading": "Tank system and tankless system",
         "paragraphs": [
           "These two cards are both under-sink reverse osmosis, and the shared rows are stages, daily gallons, and certifications. iSpring prints 5 stages, 75 gallons per day, and NSF/ANSI 58. Waterdrop prints 8 stages, 600 gallons per day, and NSF/ANSI 42, 58, and 372. The gallons are not close. A reader who stops at the word reverse osmosis has not read the capacity line.",
-          "The Waterdrop card also states a 2:1 pure-to-drain ratio. That label is not on the iSpring card, so the ratio stays off the table. The iSpring card states a membrane down to 0.0001 microns. That label is not on the Waterdrop card. The iSpring page is the one that names a storage-tank style of system in this catalogue. The Waterdrop G3P600 card does not print a tank volume."
+          "The Waterdrop card also states a 2:1 pure-to-drain ratio. That label is not on the iSpring card, so the ratio is left out. The iSpring card states a membrane down to 0.0001 microns. That label is not on the Waterdrop card. The iSpring page is the one that names a storage-tank style of system in this catalogue. The Waterdrop G3P600 card does not print a tank volume."
         ]
       },
       {
@@ -974,7 +974,7 @@
       {
         "heading": "What each maker names, besides the table",
         "paragraphs": [
-          "The Aeron overview page names three sizes, A, B, and C, an 8Z Pellicle suspension, adjustable PostureFit SL, and Harmonic 2 tilt. Those labels are not on the Leap card, so they stay off the table. The Leap page names LiveBack, a height-adjustable lumbar support, a lower-back firmness control, and arms that adjust in height, width, depth, and pivot. Those labels are not on the Aeron card. A lumbar sentence from one maker is not a medical claim, and it is not the other maker\u2019s sentence.",
+          "The Aeron overview page names three sizes, A, B, and C, an 8Z Pellicle suspension, adjustable PostureFit SL, and Harmonic 2 tilt. Those labels are not on the Leap card, so they are left out. The Leap page names LiveBack, a height-adjustable lumbar support, a lower-back firmness control, and arms that adjust in height, width, depth, and pivot. Those labels are not on the Aeron card. A lumbar sentence from one maker is not a medical claim, and it is not the other maker\u2019s sentence.",
           "Both warranty lines say 12 years, and then they diverge. Herman Miller\u2019s store page says 12-year warranty and that terms apply. Steelcase\u2019s Leap page says a limited lifetime warranty of 12 years, multi-shift, 24/7, parts and labor. The catalogue card shortens the Leap line to 12 years limited on parts and labor. Read the full sentence on the Steelcase page before you treat the two 12-year lines as identical."
         ]
       },
@@ -1358,7 +1358,7 @@
         "heading": "Cats and days are the lines that move",
         "paragraphs": [
           "Household size is up to 4 cats on the Litter-Robot 4 card and up to 5 cats on the Litter-Robot 5 page. The waste-drawer line is up to 8 days for one cat on the 4, and up to 10 days for one cat on the 5. Whisker\u2019s own FAQ on the 5 page says how often you empty the drawer depends on the number and size of the cats, and that you may only need to empty it as low as once every 10 days. The 10-day sentence is an upper figure for a one-cat household, not a schedule.",
-          "The 5 page also says the robot needs a 2.4 GHz Wi-Fi signal, and that it ships within the United States and Canada. The 4 card does not use a Wi-Fi label, so that line stays off the table. Litter-Robot 5 Pro is a different product on Whisker\u2019s compare chart, with cameras. This page is the Litter-Robot 5, not the Pro."
+          "The 5 page also says the robot needs a 2.4 GHz Wi-Fi signal, and that it ships within the United States and Canada. The 4 card does not use a Wi-Fi label, so that line is left out. Litter-Robot 5 Pro is a different product on Whisker\u2019s compare chart, with cameras. This page is the Litter-Robot 5, not the Pro."
         ]
       },
       {
@@ -1579,7 +1579,7 @@
         "heading": "What Apple still prints for Pro 2",
         "paragraphs": [
           "The support page titled AirPods Pro 2 with MagSafe Charging Case (USB-C) says the year introduced is 2023. Listening is up to 6 hours on a single charge, and up to 5.5 hours with Spatial Audio and head tracking. Apple\u2019s test note for that 6-hour figure says Active Noise Cancellation was enabled, volume was at 50 percent, and the playlist was AAC. The Pro 3 card states the 8-hour line with Active Noise Cancellation in the spec itself. The Pro 2 bullet does not put those words in the bullet. The test note does.",
-          "With the case, the Pro 2 page says up to 30 hours of listening. The Pro 3 card on this site does not carry a case-hours line, so that row stays off the table. Resistance is IP54 for the Pro 2 earbuds and case. The Pro 3 card says IP57. Hearing health on the Pro 2 page lists a Hearing Test, a Hearing Aid feature, and Hearing Protection. The Pro 3 card\u2019s hearing line names the Hearing Aid feature. The heart-rate sensor is on the Pro 3 card and is not in the Pro 2 sensor list."
+          "With the case, the Pro 2 page says up to 30 hours of listening. The Pro 3 card on this site does not carry a case-hours line, so that row is left out. Resistance is IP54 for the Pro 2 earbuds and case. The Pro 3 card says IP57. Hearing health on the Pro 2 page lists a Hearing Test, a Hearing Aid feature, and Hearing Protection. The Pro 3 card\u2019s hearing line names the Hearing Aid feature. The heart-rate sensor is on the Pro 3 card and is not in the Pro 2 sensor list."
         ]
       },
       {

@@ -20,7 +20,7 @@ Photo: Burkhard Mücke, CC BY-SA 4.0, Wikimedia Commons
 
 https://www.checkedlab.com/compare/airpods-pro-3-vs-airpods-pro-2/
 
-#CheckedLab #PersonalTech #MakerSpecs
+#CheckedLab #PersonalTech
 
 ### YouTube Short
 
@@ -39,7 +39,7 @@ Photo: Burkhard Mücke, CC BY-SA 4.0, Wikimedia Commons
 
 https://www.checkedlab.com/compare/airpods-pro-3-vs-airpods-pro-2/
 
-#CheckedLab #PersonalTech #MakerSpecs
+#CheckedLab #PersonalTech
 
 ## Vitamix E310 vs E320
 
@@ -55,7 +55,7 @@ The E310 is a 48 oz jar, a 2 HP motor, and a 5-year full warranty.
 
 https://www.checkedlab.com/compare/vitamix-e310-vs-e320/
 
-#CheckedLab #Kitchen #MakerSpecs
+#CheckedLab #Kitchen
 
 ### YouTube Short
 
@@ -70,4 +70,4 @@ The E310 is a 48 oz jar, a 2 HP motor, and a 5-year full warranty.
 
 https://www.checkedlab.com/compare/vitamix-e310-vs-e320/
 
-#CheckedLab #Kitchen #MakerSpecs
+#CheckedLab #Kitchen
