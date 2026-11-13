@@ -291,21 +291,76 @@
     return product.model || head || product.title || "";
   }
 
+  var CAT_LINE = {
+    kitchen: "kitchen gear",
+    cleaning: "cleaning gear",
+    winter: "winter gear",
+    "car-garage": "car and garage gear",
+    "air-water": "air and water gear",
+    pet: "pet gear",
+    sleep: "sleep gear",
+    "personal-tech": "personal tech"
+  };
+
+  function isIdSpec(spec, product) {
+    var label = String(spec.label || "").toLowerCase().trim();
+    var value = String(spec.value || "").trim().toLowerCase();
+    if (/^(model|item|sku|asin|name|series)$/.test(label)) return true;
+    if (/model number|model name|part number/.test(label)) return true;
+    var model = String((product && product.model) || "").trim().toLowerCase();
+    if (model && value === model) return true;
+    return false;
+  }
+
+  function specRank(label) {
+    var order = ["battery", "run time", "runtime", "suction", "capacity", "motor", "heat output", "cadr", "room coverage", "peak current", "speeds", "container", "containers", "bowl", "functions", "modes", "programs", "power", "rated power", "noise cancelling", "weight", "filtration", "bin volume", "tank"];
+    var index = order.indexOf(String(label || "").toLowerCase());
+    if (index >= 0) return index;
+    if (/dimension|warranty|voltage|power supply|enclosure|cleanup|connection|charge time|safety/.test(String(label || "").toLowerCase())) return 80;
+    return 40;
+  }
+
+  function phraseSpec(label, value) {
+    var ll = String(label || "").toLowerCase().trim();
+    var v = String(value || "").replace(/\s+/g, " ").trim();
+    if (/^(functions|modes|programs)$/.test(ll)) {
+      var bits = v.split(/,\s+/).map(function (part) { return part.trim(); }).filter(Boolean);
+      if (bits.length >= 3) return bits.length + " " + ll;
+    }
+    if (ll === "battery") return v.split(/,\s+/)[0].replace(/^max\.?\s*/i, "up to ");
+    if (ll === "motor") return "a " + v + " motor";
+    if (ll === "container" || ll === "containers") return "a " + v.split(/,\s+/)[0] + " container";
+    if (ll === "capacity") {
+      var sized = v.match(/^(\d+(?:\.\d+)?)\s+([A-Za-z]+)$/);
+      if (sized) return sized[1] + "-" + sized[2].toLowerCase() + " capacity";
+      return v + " capacity";
+    }
+    if (ll === "speeds") return v + " speeds";
+    if (ll === "bowl") return "a " + v.split(/,\s+/)[0] + " bowl";
+    if (ll === "power" || ll === "rated power") return v.split(/,\s+/)[0];
+    if (ll === "heat output") return v.split(/,\s+/)[0] + " of heat";
+    if (ll === "cadr") return "CADR " + v.split(/,\s+/)[0];
+    if (ll === "room coverage") return "room coverage of " + v;
+    if (ll === "suction") return v + " suction";
+    if (ll === "run time" || ll === "runtime") return v + " run time";
+    if (ll === "weight") return v;
+    if (ll === "noise cancelling") return v;
+    if (v.length > 56) v = v.split(/,\s+/)[0];
+    if (v.toLowerCase().indexOf(ll) >= 0) return v;
+    return v + " " + ll;
+  }
+
   function pickLine(product) {
     var specs = (product.specs || []).filter(function (spec) {
-      return spec && spec.label && spec.value && !/\$\d|\d+\s*%/.test(spec.label + " " + spec.value);
-    });
-    var line;
-    if (specs.length) {
-      line = "Pick it if the maker line you need is " + specs[0].label + ": " + specs[0].value + ".";
-    } else if (product.evidence && product.evidence[0] && product.evidence[0].claim) {
-      var claim = String(product.evidence[0].claim).replace(/\s+/g, " ").trim();
-      line = "Pick it if this maker line fits: " + claim.split(/(?<=\.)\s/)[0];
-    } else {
-      line = "Pick it if the model on the box matches " + (product.model || product.title) + ".";
-    }
-    if (line.length > 118) line = line.slice(0, 115).replace(/\s+\S*$/, "") + "…";
-    return line;
+      return spec && spec.label && spec.value && !isIdSpec(spec, product) && !/\$\d|\d+\s*%/.test(spec.label + " " + spec.value);
+    }).sort(function (a, b) { return specRank(a.label) - specRank(b.label); });
+    if (!specs.length) return "Pick it for: " + (CAT_LINE[product.category] || "this category");
+    var phrases = specs.slice(0, 2).map(function (spec) { return phraseSpec(spec.label, spec.value); });
+    if (phrases.length === 2 && (phrases[0] + " and " + phrases[1]).length > 110) phrases = phrases.slice(0, 1);
+    var joined = phrases.length === 2 && /^(a|an) /.test(phrases[0]) && /^(a|an) /.test(phrases[1])
+      ? phrases[0] + " and " + phrases[1]
+      : phrases.join(", ");
+    return "Pick it for: " + joined;
   }
 
   var CAT_ICON = {
@@ -320,11 +375,9 @@
   };
 
   function tile(product) {
-    var brand = (product && product.sourceName) || String((product && product.title) || "Model").split(" ")[0];
-    var model = shortModel(product || {});
-    var icon = CAT_ICON[(product && product.category) || ""] || CAT_ICON.kitchen;
-    return '<div class="type-tile" aria-hidden="true"><span class="tile-icon">' + icon + "</span>" +
-      '<p class="tile-brand">' + esc(brand) + '</p><p class="tile-model">' + esc(model) + "</p></div>";
+    var cat = (product && product.category) || "kitchen";
+    var icon = CAT_ICON[cat] || CAT_ICON.kitchen;
+    return '<div class="type-tile" data-cat="' + esc(cat) + '" aria-hidden="true"><span class="tile-band"></span><span class="tile-icon">' + icon + "</span></div>";
   }
 
   var pageSeen = Object.create(null);
@@ -587,7 +640,10 @@
     pageSeen[src] = 1;
     var load = opts.eager ? ' fetchpriority="high" decoding="async"' : ' loading="lazy" decoding="async"';
     var credit = product.imageCredit ? '<p class="img-credit">' + esc(product.imageCredit) + "</p>" : "";
-    return '<img class="p-photo" src="' + esc(src) + '" alt="' + esc(product.title || "Product") + '" width="1200" height="900"' + load + ">" + credit;
+    var meta = product.image_source || {};
+    var width = Number(meta.width) || 1200;
+    var height = Number(meta.height) || 900;
+    return '<img class="p-photo" src="' + esc(src) + '" alt="' + esc(product.title || "Product") + '" width="' + width + '" height="' + height + '" data-brand="' + esc(product.sourceName || "") + '" data-model="' + esc(product.model || "") + '" data-category="' + esc(product.category || "") + '"' + load + ">" + credit;
   }
 
   var SCENES = {

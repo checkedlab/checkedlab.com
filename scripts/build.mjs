@@ -214,7 +214,7 @@ for (const hub of HUBS) {
   const file = join(root, hub, "index.html");
   let html = readFileSync(file, "utf8");
   card.beginPage();
-  html = fillMount(html, byHub.get(hub).map((product, index) => card.card(product, "US", index === 0 ? { eager: true } : {})).join("\n"));
+  html = fillMount(html, byHub.get(hub).map((product, index) => card.card(product, "US", index < 3 ? { eager: true } : {})).join("\n"));
   const lead = byHub.get(hub).find((product) => card.schemaImage(product));
   html = ensureImagePreload(html, lead);
   html = pointItemList(html, hub);
@@ -265,7 +265,7 @@ for (const hub of HUBS) {
   const popular = POPULAR_IDS.map((id) => byId.get(id)).filter(Boolean);
   const recallsOnHome = products.filter(isBin);
   card.beginPage();
-  html = fillMount(html, popular.map((product) => card.card(product, "US")).join("\n"), POP_START, POP_END);
+  html = fillMount(html, popular.map((product, index) => card.card(product, "US", index < 6 ? { eager: true } : {})).join("\n"), POP_START, POP_END);
   html = fillMount(html, recallsOnHome.length ? recallsOnHome.map((product) => card.card(product, "US")).join("\n") : '<p class="empty">No official model recall is on the list.</p>', REC_START, REC_END);
   html = fillHomePointer(html, recalls.checkedAt || "");
   html = html.replace(/<section class="hub-tiles"[\s\S]*?<\/section>\n?/g, "");
@@ -363,7 +363,7 @@ function assertRenderer() {
   if (bin.includes("store-btn") || bin.includes("check-title") || bin.includes("evidence")) {
     throw new Error("Hub card includes a product-page block");
   }
-  if (!bin.includes('class="type-tile"') || !bin.includes('class="pick-if"') || !bin.includes("Pick it if")) {
+  if (!bin.includes('class="type-tile"') || !bin.includes('class="pick-if"') || !bin.includes("Pick it for:")) {
     throw new Error("Hub card is missing the scan tile");
   }
   if (bin.includes('class="p-photo"') || bin.includes('class="illu"') || /amazon\.com/i.test(bin)) {
@@ -751,7 +751,6 @@ ${nav(hub)}
 <span class="only-ca">${card.badgeHtml(ca)}</span>
 <h1 class="p-title">${card.visibleTitle(product.title)}</h1>
 <p class="pick-if">${card.esc(pick)}</p>
-<p class="p-meta">${card.esc(product.model || product.meta || "")}</p>
 <div class="only-us">${card.amazonButton(product, "US")}</div>
 <div class="only-ca">${card.amazonButton(product, "CA")}</div>
 </div>
@@ -1206,24 +1205,89 @@ function mentionsModel(text, product) {
   return Boolean(model && model.length > 1 && hay.includes(model));
 }
 
-function pickBoxText(entry, product) {
-  const paragraphs = [];
-  for (const section of entry.sections || []) {
-    for (const paragraph of section.paragraphs || []) paragraphs.push(paragraph);
+function specNumber(value) {
+  const match = String(value).replace(/,/g, "").match(/(\d+(?:\.\d+)?)/);
+  return match ? Number(match[1]) : null;
+}
+
+function shortPickName(product) {
+  const model = String(product.model || "").trim();
+  if (!model) return product.title;
+  if (model.length <= 18) return model;
+  const token = model.split(/\s+/)[0];
+  if (/\d/.test(token) && token.length <= 12) return token;
+  return model;
+}
+
+function clipValue(value) {
+  const text = String(value).replace(/\s+/g, " ").trim();
+  return text.length > 48 ? text.split(",")[0] : text;
+}
+
+function compareRank(label) {
+  const order = ["run time", "runtime", "battery", "suction", "weight", "charge time", "capacity", "bin volume", "power", "heat output", "cadr", "peak current"];
+  const index = order.indexOf(String(label || "").toLowerCase());
+  return index >= 0 ? index : 40;
+}
+
+function favorablePhrase(label, value, otherValue) {
+  const name = String(label || "").toLowerCase();
+  const mine = specNumber(value);
+  const theirs = specNumber(otherValue);
+  if (mine == null || theirs == null || mine === theirs) return "";
+  const shown = clipValue(value);
+  if (/run time|runtime/.test(name) && mine > theirs) return "longer run time (" + shown + ")";
+  if (name === "suction" && mine > theirs) return "stronger suction (" + shown + ")";
+  if (name === "weight" && mine < theirs) return "a lower weight (" + shown + ")";
+  if (/charge/.test(name) && mine < theirs) return "a shorter charge (" + shown + ")";
+  if (mine > theirs && /capacity|power|heat|cadr|battery|bin volume/.test(name)) return "a higher " + name + " (" + shown + ")";
+  return "";
+}
+
+function plainPhrase(label, value) {
+  const name = String(label || "").toLowerCase();
+  const shown = clipValue(value);
+  if (/run time|runtime/.test(name)) return shown + " run time";
+  if (name === "suction") return "suction of " + shown;
+  if (name === "weight") return "a weight of " + shown;
+  if (/charge/.test(name)) return "a charge time of " + shown;
+  return name + " of " + shown;
+}
+
+function pickBoxText(entry, product, pair) {
+  const other = pair.find((item) => item.id !== product.id);
+  let rows = [];
+  try {
+    rows = sharedSpecRows(product, other);
+  } catch {
+    rows = [];
   }
-  const named = paragraphs.find((paragraph) => /^Pick the /i.test(paragraph) && mentionsModel(paragraph.slice(0, 120), product));
-  if (named) return named;
-  const sentence = (entry.fit || []).join(" ").split(/(?<=[.!?])\s+/).find((item) => mentionsModel(item, product));
-  if (sentence) return sentence;
-  const spec = (product.specs || []).find((item) => item && item.label && item.value);
-  if (spec) return "The maker page states " + spec.label + " " + spec.value + ".";
-  return "The model on the listing matches " + (product.model || product.title) + ".";
+  const ranked = rows.filter((row) => String(row.left.value).trim() !== String(row.right.value).trim())
+    .sort((a, b) => compareRank(a.label) - compareRank(b.label));
+  const phrases = [];
+  for (const row of ranked) {
+    const phrase = favorablePhrase(row.label, row.left.value, row.right.value);
+    if (!phrase) continue;
+    phrases.push(phrase);
+    if (phrases.length === 2) break;
+  }
+  if (phrases.length < 2) {
+    for (const row of ranked) {
+      if (favorablePhrase(row.label, row.left.value, row.right.value)) continue;
+      phrases.push(plainPhrase(row.label, row.left.value));
+      if (phrases.length === 2) break;
+    }
+  }
+  if (!phrases.length) {
+    return "you want " + card.pickLine(product).replace(/^Pick it for:\s*/, "") + ".";
+  }
+  return "you want " + (phrases.length === 2 ? phrases[0] + " and " + phrases[1] : phrases[0]) + ".";
 }
 
 function pickPair(entry, pair) {
   return '<div class="pick-pair">' + pair.map((product) =>
-    '<article class="pick-box"><h2>Pick ' + card.esc(product.model || product.title) + " if</h2><p>" +
-    card.esc(pickBoxText(entry, product)) + '</p><a class="hub-more" href="' + card.productPath(product) + '">See the model</a></article>'
+    '<article class="pick-box"><h2>Pick the ' + card.esc(shortPickName(product)) + " if</h2><p>" +
+    card.esc(pickBoxText(entry, product, pair)) + '</p><a class="hub-more" href="' + card.productPath(product) + '">See the model</a></article>'
   ).join("") + "</div>";
 }
 
@@ -1283,7 +1347,7 @@ function writeCompares() {
     const rows = sharedSpecRows(pair[0], pair[1]);
     card.beginPage();
     const head = pair.map((product) =>
-      '<th><div class="compare-who">' + card.visual(product) + "<p>" + card.esc(product.model || product.title) + "</p></div></th>"
+      '<th><div class="compare-who">' + card.visual(product, { eager: true }) + "<p>" + card.esc(shortPickName(product)) + "</p></div></th>"
     ).join("");
     const body = rows.map((row) =>
       "<tr><th>" + card.esc(row.label) + "</th><td>" + specCell(row.left) + "</td><td>" + specCell(row.right) + "</td></tr>"
@@ -2116,9 +2180,9 @@ function bfStatusHtml(rec, place) {
   return card.badgeHtml(rec) + " " + card.esc(sentence) + notice;
 }
 
-function bfModel(product) {
+function bfModel(product, opts) {
   return '<article class="bf-model" id="' + card.esc(product.id) + '">' +
-    card.visual(product) +
+    card.visual(product, opts) +
     '<h3><a href="' + card.productPath(product) + '">' + card.visibleTitle(product.title) + "</a></h3>" +
     '<p class="pick-if">' + card.esc(card.pickLine(product)) + "</p>" +
     '<a class="hub-more" href="' + card.productPath(product) + '">See the model</a>' +
@@ -2190,7 +2254,7 @@ function writeBlackFriday() {
   const sections = HUBS.map((hub) => {
     const group = picked.filter((product) => product.category === hub);
     return '<section class="pick-grid" id="' + hub + '"><h2><a href="/' + hub + '/">' + card.esc(HUB_NAME[hub]) + "</a></h2>" +
-      group.map(bfModel).join("\n") +
+      group.map((product, index) => bfModel(product, hub === "winter" && index < 3 ? { eager: true } : {})).join("\n") +
       '<p class="lede"><a href="/' + hub + '/">All ' + card.esc(HUB_NAME[hub]) + " models</a></p></section>";
   }).join("\n");
   const faqHtml = faqs.map((item) =>
@@ -5038,7 +5102,7 @@ function verifyOutput(pages) {
     const html = readFileSync(join(root, hub, "index.html"), "utf8");
     const found = [...html.matchAll(/<article class="(?:product-grid hub-card|product-row)"[\s\S]*?<\/article>/g)].map((match) => match[0]);
     card.beginPage();
-    const expected = byHub.get(hub).map((product, index) => card.card(product, "US", index === 0 ? { eager: true } : {}));
+    const expected = byHub.get(hub).map((product, index) => card.card(product, "US", index < 3 ? { eager: true } : {}));
     if (found.length !== expected.length) throw new Error(hub + " card count " + found.length);
     expected.forEach((markup, index) => {
       if (found[index] !== markup) throw new Error(hub + " card " + index + " does not match card()");

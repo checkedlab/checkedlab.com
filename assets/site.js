@@ -1,3 +1,28 @@
+(function () {
+  function fallbackPhoto(img) {
+    if (!img || !img.classList || !img.classList.contains("p-photo") || img.dataset.fellback) return;
+    if (!window.CheckedLabCard || !window.CheckedLabCard.tile) return;
+    img.dataset.fellback = "1";
+    var html = window.CheckedLabCard.tile({
+      sourceName: img.getAttribute("data-brand") || "",
+      model: img.getAttribute("data-model") || "",
+      category: img.getAttribute("data-category") || "",
+      title: img.getAttribute("alt") || ""
+    });
+    var holder = document.createElement("div");
+    holder.innerHTML = html;
+    var tile = holder.firstElementChild;
+    if (!tile) return;
+    var credit = img.nextElementSibling;
+    if (credit && credit.classList.contains("img-credit")) credit.remove();
+    img.replaceWith(tile);
+  }
+  document.addEventListener("error", function (event) { fallbackPhoto(event.target); }, true);
+  document.querySelectorAll("img.p-photo").forEach(function (img) {
+    if (img.complete && img.naturalWidth === 0) fallbackPhoto(img);
+  });
+})();
+
 /* Store buttons and recall status. No price, stock, or check time is rendered.
    Cards already in the HTML stay put when they match the region. */
 (function () {
@@ -70,8 +95,8 @@
       });
       if (title) title.textContent = q ? "Matches" : "Recently recall-checked";
       if (empty) empty.hidden = popular.length !== 0;
-      paint(document.getElementById("popular-mount"), popular.map(function (product) {
-        return window.CheckedLabCard.card(product, reg);
+      paint(document.getElementById("popular-mount"), popular.map(function (product, index) {
+        return window.CheckedLabCard.card(product, reg, index < 6 ? { eager: true } : {});
       }).join(""), reg);
       paint(document.getElementById("recall-mount"), recalls.length
         ? recalls.map(function (product) { return window.CheckedLabCard.card(product, reg); }).join("")
@@ -99,7 +124,9 @@
         : '<p class="empty">No products in this category yet. Recall-checked and maker-sourced. More picks coming.</p>', reg);
       return;
     }
-    paint(mount, shown.map(function (product) { return window.CheckedLabCard.card(product, reg); }).join(""), reg);
+    paint(mount, shown.map(function (product, index) {
+      return window.CheckedLabCard.card(product, reg, index < 3 ? { eager: true } : {});
+    }).join(""), reg);
   }
 
   var products = [];
