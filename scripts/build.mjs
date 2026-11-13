@@ -168,7 +168,7 @@ const WINTER_CHECK = "How we check describes the dated CPSC and Health Canada ma
 const GIFT_BAN = /\$\d|\bwe tested\b|\btested by us\b|\bwe bought\b|\bdoes not test\b|\bdid not test\b|\bnot tested\b|hands-on|lab-tested|lab tested|out of 5|star rating|review count|\bdiscount\b|\bstars?\b|\d+\s*%\s*off\b/i;
 const BF_TITLE = "Black Friday 2026: what to know before you buy";
 const BF_H1 = "What to know before you buy on Black Friday";
-const BF_DESC = "Before you buy on Black Friday, confirm the model number and read the dated CPSC or Health Canada check. Catalogue cards for gifts and seasonal buys.";
+const BF_DESC = "Before you buy on Black Friday, confirm the model number and read the dated CPSC or Health Canada check. Listed models for gifts and seasonal buys.";
 const US_DATES = "Amazon announced that Black Friday Week and Cyber Monday deals on Amazon.com run November 19–30, 2026.";
 const CA_DATES = "Amazon.ca’s Black Friday page, titled 2026 Black Friday, describes Black Friday Week as November 19–27.";
 const US_DEALS = "https://www.amazon.com/blackfriday?tag=checkedlab01-20";
@@ -305,6 +305,54 @@ function assertAllPageVoice() {
     assertPageVoice(html, where);
     const banned = html.match(/\bworth matching\b/i);
     if (banned) throw new Error("Reader wording ban on " + where + ": " + banned[0]);
+  }
+}
+
+const HUB_TEXT_BAN = [
+  ["maker lines", /maker lines/i],
+  ["maker page", /maker page/i],
+  ["page states", /page states/i],
+  ["you are matching", /you are matching/i],
+  ["catalogue", /catalogue/i],
+  [" recall match", / recall match(?![a-z])/i],
+  ["?.", /\?\./]
+];
+
+function readerFacingText(html) {
+  return String(html)
+    .replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, " ")
+    .replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi, " ")
+    .replace(/<!--[\s\S]*?-->/g, " ")
+    .replace(/<[^>]+>/g, " ")
+    .replace(/&(?:amp|#38);/gi, "&")
+    .replace(/&(?:#39|apos);/gi, "'")
+    .replace(/&(?:#34|quot);/gi, '"')
+    .replace(/&nbsp;|&#160;/gi, " ")
+    .replace(/&#(\d+);/g, (_, n) => String.fromCharCode(Number(n)))
+    .replace(/&#x([0-9a-f]+);/gi, (_, n) => String.fromCharCode(parseInt(n, 16)))
+    .replace(/\s+/g, " ");
+}
+
+function assertHubReaderText() {
+  const files = [
+    "index.html",
+    "alternatives/index.html",
+    "worth-it/index.html",
+    "compare/index.html",
+    "recalls/index.html",
+    "black-friday/index.html",
+    "gifts/index.html",
+    "best/index.html"
+  ].concat(HUBS.map((hub) => hub + "/index.html"));
+  for (const rel of files) {
+    const text = readerFacingText(readFileSync(join(root, rel), "utf8"));
+    for (const [label, re] of HUB_TEXT_BAN) {
+      const found = text.match(re);
+      if (!found) continue;
+      const at = Math.max(0, found.index - 48);
+      const snippet = text.slice(at, found.index + found[0].length + 48).replace(/\s+/g, " ").trim();
+      throw new Error("Reader voice ban on " + rel + ": " + label + " near “" + snippet + "”");
+    }
   }
 }
 
@@ -1112,7 +1160,7 @@ function assertSafeImages(html, where) {
 
 function homePointer(checkedAt) {
   const date = checkedAt || "";
-  return '<p class="recall-pointer">Catalogue recall checks are dated <time datetime="' + card.esc(date) + '">' + card.esc(date) + '</time> (UTC). <a href="/recalls/">Recall checks</a> lists every model for the United States and Canada.</p>';
+  return '<p class="recall-pointer">Recall checks are dated <time datetime="' + card.esc(date) + '">' + card.esc(date) + '</time> (UTC). <a href="/recalls/">Recall checks</a> lists every model for the United States and Canada.</p>';
 }
 
 function fillHomePointer(html, checkedAt) {
@@ -1147,7 +1195,7 @@ function href(url) {
 }
 
 function binEmptyHtml(date) {
-  return '<p class="empty">No catalogue model is binned as of ' + card.esc(date) + ".</p>";
+  return '<p class="empty">No listed model is binned as of ' + card.esc(date) + ".</p>";
 }
 
 function otherLines(rec) {
@@ -1197,7 +1245,7 @@ function binSection(ordered, date) {
     ].filter(Boolean).join(" and ");
     return "<li><a href=\"" + card.productPath(product) + "\">" + card.visibleTitle(product.title) + '</a> <span class="p-meta">' + card.esc(where) + "</span></li>";
   }).join("");
-  return "<h2>BIN</h2>\n<p>These catalogue models match an official notice.</p>\n<ul>" + items + "</ul>";
+  return "<h2>BIN</h2>\n<p>These listed models match an official notice.</p>\n<ul>" + items + "</ul>";
 }
 
 function noticeList(items) {
@@ -1223,11 +1271,11 @@ function categorySection(date) {
     const hubHref = HUBS.includes(cat.hub) ? "/" + cat.hub + "/" : "/recalls/";
     return '<section class="recall-cat" id="category-' + card.esc(cat.id || "notices") + '"><h3>' + card.esc(cat.title || "Notices") + '</h3><p class="lede"><a href="' + hubHref + '">' + card.esc(hubName) + " models</a></p><div class=\"recall-columns\"><div><h4>United States</h4>" + noticeList(cat.us) + "</div><div><h4>Canada</h4>" + noticeList(cat.ca) + "</div></div></section>";
   }).join("\n");
-  return '<section id="category-notices"><h2>Official notices in these categories</h2><p>These lines are titles, dates, and model text copied from CPSC and Health Canada notices for air fryers, space heaters, and power banks. A notice can name models that are outside this catalogue. The link opens the official page.</p>' + blocks + "</section>";
+  return '<section id="category-notices"><h2>Official notices in these categories</h2><p>These lines are titles, dates, and model text copied from CPSC and Health Canada notices for air fryers, space heaters, and power banks. A notice can name models that are outside this list. The link opens the official page.</p>' + blocks + "</section>";
 }
 
 function recallsDescription(date) {
-  return "US and Canada recall status for every catalogue model, checked " + date + " (UTC). Official CPSC and Health Canada notices are linked.";
+  return "US and Canada recall status for every listed model, checked " + date + " (UTC). Official CPSC and Health Canada notices are linked.";
 }
 
 function recallsJsonLd(ordered, date) {
@@ -1738,12 +1786,12 @@ function compareIndexJsonLd() {
       {
         "@type": "CollectionPage",
         "@id": url,
-        name: "Spec comparisons, from the maker pages",
-        headline: "Spec comparisons, from the maker pages",
+        name: "Spec comparisons",
+        headline: "Spec comparisons",
         url: url,
         dateModified: recalls.checkedAt,
         inLanguage: "en",
-        description: "Pairs of catalogue models. Each page repeats spec lines that both maker pages share, with a source link and a dated recall line.",
+        description: "Two models, side by side. Each page repeats the specs both product pages share, with a source link and a dated recall line.",
         mainEntity: {
           "@type": "ItemList",
           name: "Spec comparisons",
@@ -1773,11 +1821,11 @@ function compareIndexJsonLd() {
 
 function writeCompareIndex() {
   const url = ORIGIN + "/compare/";
-  const title = "Spec comparisons, from the maker pages";
-  const description = "Pairs of catalogue models. Each page repeats spec lines that both maker pages share, with a source link and a dated recall line.";
+  const title = "Spec comparisons";
+  const description = "Two models, side by side. Each page repeats the specs both product pages share, with a source link and a dated recall line.";
   const sections = HUBS.filter((hub) => compares.some((entry) => entry.hub === hub)).map((hub) => {
     const items = compares.filter((entry) => entry.hub === hub).map((entry) =>
-      "<li><a href=\"/compare/" + entry.slug + "/\">" + card.esc(entry.title) + "</a>. " + card.esc(entry.description) + "</li>"
+      "<li><a href=\"/compare/" + entry.slug + "/\">" + card.esc(entry.linkLabel) + "</a>. " + card.esc(entry.description) + "</li>"
     ).join("");
     return "<h2><a href=\"/" + hub + "/\">" + card.esc(HUB_NAME[hub]) + "</a></h2><ul>" + items + "</ul>";
   }).join("");
@@ -1831,9 +1879,9 @@ ${sceneBlock("compare")}
 <span aria-current="page">Spec comparisons</span>
 </nav>
 <h1>${card.esc(title)}</h1>
-<p class="sub">Open a pair. The table is the spec lines both maker pages share.</p>
+<p class="sub">Open a pair. The table is the specs both product pages share.</p>
 ${sections}
-${productFold("compare-guide", "How to read a comparison", '<p class="lede">' + card.esc(description) + "</p>" + renderHubGuide("compare") + '<p>Each line on a comparison is copied from that model’s maker page. A spec that only one card lists is left out of the table. Recall lines use the ' + card.esc(recalls.checkedAt) + ' (UTC) catalogue check. Search the model on <a href="' + CPSC_SEARCH + '" target="_blank" rel="noopener">CPSC Recalls</a> and on <a href="' + HC_SEARCH + '" target="_blank" rel="noopener">Health Canada recalls and safety alerts</a>.</p>')}
+${productFold("compare-guide", "How to read a comparison", '<p class="lede">' + card.esc(description) + "</p>" + renderHubGuide("compare") + '<p>Each line on a comparison is copied from that model’s product page. A spec that only one card lists is left out of the table. Recall lines use the ' + card.esc(recalls.checkedAt) + ' (UTC) check. Search the model on <a href="' + CPSC_SEARCH + '" target="_blank" rel="noopener">CPSC Recalls</a> and on <a href="' + HC_SEARCH + '" target="_blank" rel="noopener">Health Canada recalls and safety alerts</a>.</p>')}
 <p class="lede"><a href="/recalls/">All recall checks</a> <a href="/how-we-check/">How we check</a> <a href="/black-friday/">Black Friday</a> <a href="/gifts/">Gift guides</a> <a href="/alternatives/">Alternatives</a> <a href="/worth-it/">Worth it?</a></p>
 </div>
 </main>
@@ -1952,10 +2000,10 @@ function editorialIndexBlock() {
     '<a href="/worth-it/' + entry.slug + '/">' + card.esc(entry.linkLabel) + "</a>"
   ).join(" ");
   return "<h2>Alternatives and spec matches</h2>" +
-    "<p>These pages stay inside the catalogue. A pick line cites a maker spec from the card.</p>" +
+    "<p>These pages stay on Checked Lab. A pick cites a spec from the card.</p>" +
     '<p class="lede"><a href="/alternatives/">Alternatives</a> ' + alt + "</p>" +
     '<p class="lede"><a href="/worth-it/">Worth it?</a> ' + worth + "</p>" +
-    '<h2>One model at a time</h2><p>Each page is one catalogue model: the maker lines, a pick by those lines, and the dated recall sentence.</p><p class="lede">' +
+    '<h2>One model at a time</h2><p>Each page is one model: the specs, a pick based on those specs, and the dated recall sentence.</p><p class="lede">' +
     editorial.season.map((entry) => '<a href="/black-friday/' + entry.slug + '/">' + card.esc(entry.linkLabel) + "</a>").join(" ") +
     "</p>";
 }
@@ -2164,11 +2212,15 @@ function editorialIndexArticle(section, title, description, list) {
   return JSON.stringify(graph, null, 2).replace(/</g, "\\u003c");
 }
 
+function linkTail(title) {
+  return /[.!?]$/.test(String(title).trim()) ? " " : ". ";
+}
+
 function writeEditorialIndex(section, title, description, intro, list) {
   assertHeadline(title, description, section + " index", false);
   for (const paragraph of intro) assertReaderVoice(paragraph, section + " index intro");
   const items = list.map((entry) =>
-    "<li><a href=\"/" + section + "/" + entry.slug + "/\">" + card.esc(entry.title) + "</a>. " + card.esc(entry.description) + "</li>"
+    "<li><a href=\"/" + section + "/" + entry.slug + "/\">" + card.esc(entry.title) + "</a>" + linkTail(entry.title) + card.esc(entry.description) + "</li>"
   ).join("");
   const url = ORIGIN + "/" + section + "/";
   const html = `<!DOCTYPE html>
@@ -2206,7 +2258,7 @@ ${sceneBlock("compare")}
 <h1>${card.esc(title)}</h1>
 <p class="sub">${card.esc(String(description).split(/(?<=\.)\s/)[0])}</p>
 <ul class="scan-list">${items}</ul>
-${productFold("about-list", "How to use this list", intro.map((paragraph) => "<p>" + paragraph + "</p>").join("\n") + '<p class="lede"><a href="/compare/">Spec comparisons</a> <a href="/black-friday/">Black Friday</a> <a href="/recalls/">Recall checks</a> <a href="/how-we-check/">How we check</a> <a href="/alternatives/">Alternatives</a> <a href="/worth-it/">Worth it?</a></p>')}
+<section id="about-list"><h2>How to use this list</h2>${intro.map((paragraph) => "<p>" + paragraph + "</p>").join("\n")}<p class="lede"><a href="/compare/">Spec comparisons</a> <a href="/black-friday/">Black Friday</a> <a href="/recalls/">Recall checks</a> <a href="/how-we-check/">How we check</a> <a href="/alternatives/">Alternatives</a> <a href="/worth-it/">Is it worth it?</a></p></section>
 </div>
 </main>
 <footer><div class="foot">${DISCLOSURE}</div></footer>
@@ -2318,7 +2370,7 @@ function bestWords(type) {
 
 function bestMethodHtml() {
   return [
-    "<p>Checked Lab lines up maker pages, store links, and public recall records for shoppers in the US and Canada.</p>",
+    "<p>Checked Lab lines up product pages, store links, and public recall records for shoppers in the US and Canada.</p>",
     "<p>Manufacturer pages, and only the sentences those pages actually state. The source link sits next to the spec.</p>",
     "<p>US recalls come from the CPSC SaferProducts API, and Canadian recalls from Health Canada’s open dataset d38de914-c94c-429b-8ab1-8776c31643e3. The date is the day that match was recorded.</p>",
     "<p>Placement on a card is editorial. Brands do not buy a slot on the page. Prices stay on the store sites. The buttons open the store.</p>"
@@ -2722,13 +2774,13 @@ function writeEditorial() {
   for (const entry of editorial.alternatives) writeEditorialPage(entry, "alternatives", "Alternatives");
   for (const entry of editorial.worth) writeEditorialPage(entry, "worth-it", "Worth it?");
   for (const entry of editorial.season) writeEditorialPage(entry, "black-friday", "Black Friday");
-  writeEditorialIndex("alternatives", "Alternatives worth comparing", "Catalogue models you can read next to a named card. Each page cites maker spec lines and the dated recall check.", [
-    "An alternative here is another model already on Checked Lab, not a model from outside the catalogue. The page quotes the maker lines and says which line to read for a given use.",
-    "Open the model page for the full card. The recall sentence is the catalogue match dated " + card.esc(recalls.checkedAt) + " (UTC). Search the model on <a href=\"" + CPSC_SEARCH + "\" target=\"_blank\" rel=\"noopener\">CPSC Recalls</a> and on <a href=\"" + HC_SEARCH + "\" target=\"_blank\" rel=\"noopener\">Health Canada recalls and safety alerts</a>."
+  writeEditorialIndex("alternatives", "Alternatives worth comparing", "Other models already on Checked Lab, set beside a named card. Each page cites the published specs and the dated recall check.", [
+    "An alternative here is another model already on Checked Lab. The page quotes the published specs and says which figure to read for the way you will use it.",
+    "Open the model page for the full card. The recall line is the CPSC and Health Canada check dated " + card.esc(recalls.checkedAt) + " (UTC). Search the model on <a href=\"" + CPSC_SEARCH + "\" target=\"_blank\" rel=\"noopener\">CPSC Recalls</a> and on <a href=\"" + HC_SEARCH + "\" target=\"_blank\" rel=\"noopener\">Health Canada recalls and safety alerts</a>."
   ], editorial.alternatives);
-  writeEditorialIndex("worth-it", "Is it worth it?", "When a maker page’s lines fit the room, the chore, or the battery figure you are matching. No price verdict.", [
-    "These pages ask whether the maker’s specs fit what you need: a cabinet height, a run time, a jar size, or a battery life. It is not a price, a rating, or a rank.",
-    "Each page names the catalogue neighbour to read when those lines do not fit. The recall sentence is the catalogue match dated " + card.esc(recalls.checkedAt) + " (UTC)."
+  writeEditorialIndex("worth-it", "Is it worth it?", "A plain look at who each product suits, and which spec is worth weighing. Prices stay on the store.", [
+    "Each page says who the product suits and which spec to weigh: a cabinet height, a run time, a jar size, or a battery life. Prices stay on the store.",
+    "If those specs do not fit, the page names another model already listed here. The recall line is the CPSC and Health Canada check dated " + card.esc(recalls.checkedAt) + " (UTC)."
   ], editorial.worth);
 }
 
@@ -2900,7 +2952,7 @@ ${sceneBlock("recalls")}
 </nav>
 <h1>Recall checks</h1>
 ${recallWidget()}
-<p class="lede">Checked <time datetime="${card.esc(date)}">${card.esc(date)}</time> (UTC). Every catalogue model has a United States line from the <a href="${href(usSource)}" target="_blank" rel="noopener">CPSC SaferProducts</a> source and a Canada line from the <a href="${CA_DATASET_PAGE}" target="_blank" rel="noopener">Health Canada open dataset</a>.</p>
+<p class="lede">Checked <time datetime="${card.esc(date)}">${card.esc(date)}</time> (UTC). Every listed model has a United States line from the <a href="${href(usSource)}" target="_blank" rel="noopener">CPSC SaferProducts</a> source and a Canada line from the <a href="${CA_DATASET_PAGE}" target="_blank" rel="noopener">Health Canada open dataset</a>.</p>
 <p>A date is the day that check ran. Open a model for the maker specs. Read <a href="/how-we-check/">how we check</a> and the <a href="/bin-list/">BIN list</a>. <a href="/black-friday/">${card.esc(BF_TITLE)}</a>. <a href="/thanksgiving/">Thanksgiving and holiday hosting, recall-checked</a>. <a href="/winter-safety/">Winter home safety, recall-checked</a>. <a href="/toy-safety/">Holiday toy safety, recall-checked</a>. <a href="/recalls/feed.xml">RSS</a> updates when a recall record changes.</p>
 <p class="recall-filters"><a href="#united-states">United States</a><a href="#canada">Canada</a></p>
 ${binSection(ordered, date)}
@@ -2971,11 +3023,11 @@ function blackFridayFaqs() {
     },
     {
       q: "What should an air fryer shopper match before buying?",
-      a: "Match the model number on the unit to the listing. The Cosori 2023 notices and the Ninja Foodi OP300 notices name specific models. The catalogue cards for the COSORI Pro II, the Ninja Foodi 10-in-1 oven, and the Ninja Crispi link those explainers."
+      a: "Match the model number on the unit to the listing. The Cosori 2023 notices and the Ninja Foodi OP300 notices name specific models. The model cards for the COSORI Pro II, the Ninja Foodi 10-in-1 oven, and the Ninja Crispi link those explainers."
     },
     {
       q: "Does a Black Friday listing check the recall?",
-      a: "A sale listing is not a recall check. Each model on this page repeats the catalogue status and date from the CPSC and Health Canada match. A notice for another model in the same brand can still exist."
+      a: "A sale listing is not a recall check. Each model on this page repeats the recall status and date from the CPSC and Health Canada check. A notice for another model in the same brand can still exist."
     },
     {
       q: "Where is the price?",
@@ -3144,9 +3196,9 @@ ${sceneBlock("black-friday")}
 <p class="sub">Confirm the model number, then read the dated recall check.</p>
 <nav class="toc" aria-label="Jump to"><p>Jump to</p>${jumps}</nav>
 ${sections}
-${productFold("before-you-pay", "Before you pay", '<p class="lede">Confirm the model number, then read the recall check for that model. The status under each card is the catalogue check dated <time datetime="' + card.esc(date) + '">' + card.esc(date) + '</time> (UTC).</p>' + renderHubGuide("black-friday", { faq: false }) + '<p><a href="/gifts/">Holiday 2026 gift guides</a> group the same catalogue by recipient. Each pick quotes the maker specs and repeats this dated check. <a href="/gifts/for-kids/">Gifts for kids</a> names mainstream kids products and the official check to do. <a href="/winter-safety/">Winter home safety, recall-checked</a> covers heaters, heated bedding, alarms, and outage power. <a href="/toy-safety/">Holiday toy safety, recall-checked</a> covers button batteries, magnets, water beads, and ride-ons.</p><p class="only-us">' + card.esc(US_DATES) + ' <a href="' + US_DEALS + '" target="_blank" rel="sponsored nofollow noopener">Amazon.com Black Friday</a>.</p><p class="only-ca">' + card.esc(CA_DATES) + ' <a href="' + CA_DEALS + '" target="_blank" rel="sponsored nofollow noopener">Amazon.ca Black Friday</a>.</p><p>Gift and seasonal models from this catalogue. Open the card and match the model number on the listing.</p><ol class="checklist"><li>Confirm the exact model number on the box, in the manual, and on the listing. A family name such as Foodi or Cosori can point at a different model.</li><li>Check that model on <a href="https://www.cpsc.gov/Recalls" target="_blank" rel="noopener">CPSC Recalls</a> for a US purchase and on <a href="https://recalls-rappels.canada.ca/en" target="_blank" rel="noopener">Health Canada recalls and safety alerts</a> for a Canadian purchase. <a href="/recalls/">Recall checks</a> is the catalogue match. <a href="/how-we-check/">How we check</a> says what the date means.</li><li>Beware look-alike listings and third-party sellers. The brand in the title is not the model number.</li><li>Read the return window on the listing before you pay. The window is printed on the store page.</li></ol>')}
-${productFold("comparisons", "Maker spec comparisons", '<p>Each page repeats spec lines that both maker pages share. The cell links the maker page. The recall line is the catalogue match. <a href="/compare/">All comparisons</a>.</p><p class="lede">' + compares.map((entry) => '<a href="/compare/' + entry.slug + '/">' + card.esc(entry.linkLabel) + "</a>").join(" ") + "</p>" + editorialIndexBlock())}
-${productFold("notices", "Notices to open before you buy", "<p>These pages quote the official notice and name the catalogue card.</p><ul>" + notices + "</ul>")}
+${productFold("before-you-pay", "Before you pay", '<p class="lede">Confirm the model number, then read the recall check for that model. The status under each card is the recall check dated <time datetime="' + card.esc(date) + '">' + card.esc(date) + '</time> (UTC).</p>' + renderHubGuide("black-friday", { faq: false }) + '<p><a href="/gifts/">Holiday 2026 gift guides</a> group the same models by recipient. Each pick quotes the maker specs and repeats this dated check. <a href="/gifts/for-kids/">Gifts for kids</a> names mainstream kids products and the official check to do. <a href="/winter-safety/">Winter home safety, recall-checked</a> covers heaters, heated bedding, alarms, and outage power. <a href="/toy-safety/">Holiday toy safety, recall-checked</a> covers button batteries, magnets, water beads, and ride-ons.</p><p class="only-us">' + card.esc(US_DATES) + ' <a href="' + US_DEALS + '" target="_blank" rel="sponsored nofollow noopener">Amazon.com Black Friday</a>.</p><p class="only-ca">' + card.esc(CA_DATES) + ' <a href="' + CA_DEALS + '" target="_blank" rel="sponsored nofollow noopener">Amazon.ca Black Friday</a>.</p><p>Gift and seasonal models from this list. Open the card and match the model number on the listing.</p><ol class="checklist"><li>Confirm the exact model number on the box, in the manual, and on the listing. A family name such as Foodi or Cosori can point at a different model.</li><li>Check that model on <a href="https://www.cpsc.gov/Recalls" target="_blank" rel="noopener">CPSC Recalls</a> for a US purchase and on <a href="https://recalls-rappels.canada.ca/en" target="_blank" rel="noopener">Health Canada recalls and safety alerts</a> for a Canadian purchase. <a href="/recalls/">Recall checks</a> is the full list. <a href="/how-we-check/">How we check</a> says what the date means.</li><li>Beware look-alike listings and third-party sellers. The brand in the title is not the model number.</li><li>Read the return window on the listing before you pay. The window is printed on the store page.</li></ol>')}
+${productFold("comparisons", "Maker spec comparisons", '<p>Each page repeats the specs both product pages share. The cell links the product page. The recall line is the dated check. <a href="/compare/">All comparisons</a>.</p><p class="lede">' + compares.map((entry) => '<a href="/compare/' + entry.slug + '/">' + card.esc(entry.linkLabel) + "</a>").join(" ") + "</p>" + editorialIndexBlock())}
+${productFold("notices", "Notices to open before you buy", "<p>These pages quote the official notice and name the model card.</p><ul>" + notices + "</ul>")}
 <section class="faq" id="questions">
 <h2>Questions</h2>
 ${faqHtml}
@@ -3458,20 +3510,20 @@ function giftHubFaqs(guides) {
       a: "It is the recorded check for that model. On the US view the source is CPSC. On the CA view the source is Health Canada. The date is the day that check was recorded. No matching recall was found for that model as of that date. A notice for a different model can still exist, and the model page links it."
     },
     {
-      q: "Where do the spec lines come from?",
-      a: "Each spec line is copied from the maker fields stored for that model. The model page links the maker source."
+      q: "Where do the specs come from?",
+      a: "Each spec is copied from the fields stored for that model. The model page links the source."
     },
     {
       q: "Which recipient lists are published?",
-      a: "The lists are the recipient groups this catalogue can fill with at least five models: " + humanList(guides.map((guide) => guide.label)) + "."
+      a: "The lists are the recipient groups this site can fill with at least five models: " + humanList(guides.map((guide) => guide.label)) + "."
     },
     {
       q: "Where is the kids list?",
-      a: "Gifts for kids names " + kidsGuide().picks.length + " mainstream kids product lines and the official check to do before you buy. It does not use a catalogue card. Toy safety covers button and coin batteries, magnets, water beads, and ride-ons and scooters."
+      a: "Gifts for kids names " + kidsGuide().picks.length + " mainstream kids product lines and the official check to do before you buy. It does not use a model card. Toy safety covers button and coin batteries, magnets, water beads, and ride-ons and scooters."
     },
     {
       q: "Where is the host list?",
-      a: "Gifts for the host names " + hostGuide().picks.length + " widely sold hosting tools and the official check to do before you buy. It does not use a catalogue card. Thanksgiving covers turkey fryers, pressure cookers, turkey temperatures, and kitchen fires."
+      a: "Gifts for the host names " + hostGuide().picks.length + " widely sold hosting tools and the official check to do before you buy. It does not use a model card. Thanksgiving covers turkey fryers, pressure cookers, turkey temperatures, and kitchen fires."
     }
   ];
 }
@@ -3628,7 +3680,7 @@ function giftHubHtml(grouped) {
   const checks = checksGuides();
   const list = "<ul class=\"guide-list\">" + grouped.map((item) =>
     "<li><h2><a href=\"" + giftPath(item.guide) + "\">" + card.esc(item.guide.h1) + "</a></h2><p>" +
-    item.picks.length + " catalogue models. " + card.esc(item.guide.description) + "</p></li>"
+    item.picks.length + " models. " + card.esc(item.guide.description) + "</p></li>"
   ).join("") +
     checks.map((guide) =>
       "<li><h2><a href=\"" + giftPath(guide) + "\">" + card.esc(guide.h1) + "</a></h2><p>" +
@@ -3642,7 +3694,7 @@ function giftHubHtml(grouped) {
       '<p class="lede">' + card.esc(giftsDoc.description) + "</p>" +
       renderHubGuide("gifts", { faq: false }) +
       giftQuiz() +
-      '<p>A recipient list is published when the catalogue can fill it with at least five models and the recorded US and Canadian checks found no matching recall. The spec line on each model is copied from the maker fields. <a href="/how-we-check/">How we check</a> says what the date means. <a href="' + giftPath(kidsGuide()) + '">Gifts for kids</a> is a recall-check list, not a catalogue list. <a href="/toy-safety/">Toy safety</a> covers button batteries, magnets, water beads, and ride-ons. <a href="' + giftPath(hostGuide()) + '">Gifts for the host</a> is a recall-check list for holiday hosting. <a href="/thanksgiving/">Thanksgiving and holiday hosting</a> covers turkey fryers, pressure cookers, turkey temperatures, and kitchen fires.</p>' +
+      '<p>A recipient list is published when the list can fill it with at least five models and the recorded US and Canadian checks found no matching recall. The spec line on each model is copied from the maker fields. <a href="/how-we-check/">How we check</a> says what the date means. <a href="' + giftPath(kidsGuide()) + '">Gifts for kids</a> is a recall-check list, not a model list. <a href="/toy-safety/">Toy safety</a> covers button batteries, magnets, water beads, and ride-ons. <a href="' + giftPath(hostGuide()) + '">Gifts for the host</a> is a recall-check list for holiday hosting. <a href="/thanksgiving/">Thanksgiving and holiday hosting</a> covers turkey fryers, pressure cookers, turkey temperatures, and kitchen fires.</p>' +
       (compares.some((entry) => (entry.linkFrom || []).includes("/gifts/"))
         ? '<p class="lede">Spec comparisons: ' + compares.filter((entry) => (entry.linkFrom || []).includes("/gifts/")).map((entry) =>
           '<a href="/compare/' + entry.slug + '/">' + card.esc(entry.linkLabel) + "</a>"
@@ -6100,10 +6152,10 @@ function verifyOutput(pages) {
     throw new Error("Recall page is missing a country section");
   }
   if (!recallPage.includes("This is a different model.")) throw new Error("Different-model line missing");
-  if (!binEmptyHtml("2026-11-10").includes("No catalogue model is binned as of 2026-11-10.")) {
+  if (!binEmptyHtml("2026-11-10").includes("No listed model is binned as of 2026-11-10.")) {
     throw new Error("Empty BIN state is not readable");
   }
-  if (!recallPage.includes("No catalogue model is binned as of") && !recallPage.includes("These catalogue models match an official notice.")) {
+  if (!recallPage.includes("No listed model is binned as of") && !recallPage.includes("These listed models match an official notice.")) {
     throw new Error("BIN section is blank");
   }
   for (const product of pages) {
@@ -6202,6 +6254,7 @@ function verifyOutput(pages) {
   assertEveryPageDisclosure();
   assertBuyerPicks();
   assertAllPageVoice();
+  assertHubReaderText();
 }
 
 function assertBuyerPicks() {

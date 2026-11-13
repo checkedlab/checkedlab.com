@@ -336,7 +336,7 @@
     "slug": "instant-pot-official-notices",
     "title": "Instant Pot official notices: Smart, Smart-60, and Gem 65",
     "linkLabel": "Instant Pot official notices",
-    "description": "Official CPSC and Health Canada notices name Instant Pot Smart, Smart-60, and Gem 65 multicookers. They do not name the Duo Plus. The Duo Plus card has no matching recall record as of the catalogue check date.",
+    "description": "Official CPSC and Health Canada notices name Instant Pot Smart, Smart-60, and Gem 65 multicookers. They do not name the Duo Plus. The Duo Plus card has no matching recall record as of the check date.",
     "hub": "kitchen",
     "products": [
       "instant-pot-duo-plus"
@@ -398,7 +398,7 @@
     "slug": "lasko-heaters",
     "title": "Lasko heater recalls: official model numbers",
     "linkLabel": "Lasko heater notices",
-    "description": "CPSC heater notices name specific older Lasko and Air King model numbers. CT32150 and CT14401 are not those model numbers. The catalogue check found no matching recall for either card on the check date.",
+    "description": "CPSC heater notices name specific older Lasko and Air King model numbers. CT32150 and CT14401 are not those model numbers. The dated check found no matching recall for either card on the check date.",
     "hub": "winter",
     "products": [
       "lasko-ct32150",
@@ -463,7 +463,7 @@
     "slug": "toro-power-clear-snowblowers",
     "title": "Toro Power Clear snowblower recalls: the model numbers",
     "linkLabel": "Toro Power Clear notices",
-    "description": "The 2010 and 2011 CPSC and Health Canada notices name Power Clear 180 models 38272 and 38282, and PC-421 models 38588 and 38589. Catalogue model 38753 is not in those lists.",
+    "description": "The 2010 and 2011 CPSC and Health Canada notices name Power Clear 180 models 38272 and 38282, and PC-421 models 38588 and 38589. Model 38753 is not in those lists.",
     "hub": "winter",
     "products": [
       "toro-power-clear-38753",
