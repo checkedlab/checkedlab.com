@@ -299,7 +299,13 @@ function assertAllPageVoice() {
     }
   };
   walk(root);
-  for (const file of files) assertPageVoice(readFileSync(file, "utf8"), file.slice(root.length));
+  for (const file of files) {
+    const html = readFileSync(file, "utf8");
+    const where = file.slice(root.length);
+    assertPageVoice(html, where);
+    const banned = html.match(/\bworth matching\b/i);
+    if (banned) throw new Error("Reader wording ban on " + where + ": " + banned[0]);
+  }
 }
 
 assertProducts(products);
@@ -1828,7 +1834,7 @@ ${sceneBlock("compare")}
 <p class="sub">Open a pair. The table is the spec lines both maker pages share.</p>
 ${sections}
 ${productFold("compare-guide", "How to read a comparison", '<p class="lede">' + card.esc(description) + "</p>" + renderHubGuide("compare") + '<p>Each line on a comparison is copied from that model’s maker page. A spec that only one card lists is left out of the table. Recall lines use the ' + card.esc(recalls.checkedAt) + ' (UTC) catalogue check. Search the model on <a href="' + CPSC_SEARCH + '" target="_blank" rel="noopener">CPSC Recalls</a> and on <a href="' + HC_SEARCH + '" target="_blank" rel="noopener">Health Canada recalls and safety alerts</a>.</p>')}
-<p class="lede"><a href="/recalls/">All recall checks</a> <a href="/how-we-check/">How we check</a> <a href="/black-friday/">Black Friday</a> <a href="/gifts/">Gift guides</a> <a href="/alternatives/">Alternatives</a> <a href="/worth-it/">Worth matching</a></p>
+<p class="lede"><a href="/recalls/">All recall checks</a> <a href="/how-we-check/">How we check</a> <a href="/black-friday/">Black Friday</a> <a href="/gifts/">Gift guides</a> <a href="/alternatives/">Alternatives</a> <a href="/worth-it/">Worth it?</a></p>
 </div>
 </main>
 <footer>
@@ -1868,7 +1874,7 @@ function editorialHubLinks(hub) {
   const worth = editorial.worth.filter((entry) => entry.hub === hub);
   if (alt.length) links.push('<a href="/alternatives/">Alternatives</a>');
   for (const entry of alt) links.push('<a href="/alternatives/' + entry.slug + '/">' + card.esc(entry.linkLabel) + "</a>");
-  if (worth.length) links.push('<a href="/worth-it/">Worth matching</a>');
+  if (worth.length) links.push('<a href="/worth-it/">Worth it?</a>');
   for (const entry of worth) links.push('<a href="/worth-it/' + entry.slug + '/">' + card.esc(entry.linkLabel) + "</a>");
   for (const entry of editorial.season.filter((item) => item.hub === hub)) {
     links.push('<a href="/black-friday/' + entry.slug + '/">' + card.esc(entry.linkLabel) + "</a>");
@@ -1948,7 +1954,7 @@ function editorialIndexBlock() {
   return "<h2>Alternatives and spec matches</h2>" +
     "<p>These pages stay inside the catalogue. A pick line cites a maker spec from the card.</p>" +
     '<p class="lede"><a href="/alternatives/">Alternatives</a> ' + alt + "</p>" +
-    '<p class="lede"><a href="/worth-it/">Worth matching</a> ' + worth + "</p>" +
+    '<p class="lede"><a href="/worth-it/">Worth it?</a> ' + worth + "</p>" +
     '<h2>One model at a time</h2><p>Each page is one catalogue model: the maker lines, a pick by those lines, and the dated recall sentence.</p><p class="lede">' +
     editorial.season.map((entry) => '<a href="/black-friday/' + entry.slug + '/">' + card.esc(entry.linkLabel) + "</a>").join(" ") +
     "</p>";
@@ -2200,7 +2206,7 @@ ${sceneBlock("compare")}
 <h1>${card.esc(title)}</h1>
 <p class="sub">${card.esc(String(description).split(/(?<=\.)\s/)[0])}</p>
 <ul class="scan-list">${items}</ul>
-${productFold("about-list", "How to use this list", intro.map((paragraph) => "<p>" + paragraph + "</p>").join("\n") + '<p class="lede"><a href="/compare/">Spec comparisons</a> <a href="/black-friday/">Black Friday</a> <a href="/recalls/">Recall checks</a> <a href="/how-we-check/">How we check</a> <a href="/alternatives/">Alternatives</a> <a href="/worth-it/">Worth matching</a></p>')}
+${productFold("about-list", "How to use this list", intro.map((paragraph) => "<p>" + paragraph + "</p>").join("\n") + '<p class="lede"><a href="/compare/">Spec comparisons</a> <a href="/black-friday/">Black Friday</a> <a href="/recalls/">Recall checks</a> <a href="/how-we-check/">How we check</a> <a href="/alternatives/">Alternatives</a> <a href="/worth-it/">Worth it?</a></p>')}
 </div>
 </main>
 <footer><div class="foot">${DISCLOSURE}</div></footer>
@@ -2714,7 +2720,7 @@ function writeEditorial() {
   if (editorial.worth.length !== 5) throw new Error("Expected five worth-it pages");
   if (editorial.season.length !== 9) throw new Error("Expected nine Black Friday model pages");
   for (const entry of editorial.alternatives) writeEditorialPage(entry, "alternatives", "Alternatives");
-  for (const entry of editorial.worth) writeEditorialPage(entry, "worth-it", "Worth matching");
+  for (const entry of editorial.worth) writeEditorialPage(entry, "worth-it", "Worth it?");
   for (const entry of editorial.season) writeEditorialPage(entry, "black-friday", "Black Friday");
   writeEditorialIndex("alternatives", "Alternatives worth comparing", "Catalogue models you can read next to a named card. Each page cites maker spec lines and the dated recall check.", [
     "An alternative here is another model already on Checked Lab, not a model from outside the catalogue. The page quotes the maker lines and says which line to read for a given use.",
