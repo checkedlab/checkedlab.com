@@ -166,7 +166,8 @@ const CPSC_SEARCH = "https://www.cpsc.gov/Recalls";
 const HC_SEARCH = "https://recalls-rappels.canada.ca/en";
 const WINTER_CHECK = "How we check describes the dated CPSC and Health Canada match on a catalogue card. The date is the day that match was recorded. These guides add the label lines to read and the official search to open, including for a model that is not on a card. A clear line on one card does not cover a different model number.";
 const GIFT_BAN = /\$\d|\bwe tested\b|\btested by us\b|\bwe bought\b|\bdoes not test\b|\bdid not test\b|\bnot tested\b|hands-on|lab-tested|lab tested|out of 5|star rating|review count|\bdiscount\b|\bstars?\b|\d+\s*%\s*off\b/i;
-const BF_TITLE = "Black Friday 2026: check the model before you buy";
+const BF_TITLE = "Black Friday 2026: what to know before you buy";
+const BF_H1 = "What to know before you buy on Black Friday";
 const BF_DESC = "Before you buy on Black Friday, confirm the model number and read the dated CPSC or Health Canada check. Catalogue cards for gifts and seasonal buys.";
 const US_DATES = "Amazon announced that Black Friday Week and Cyber Monday deals on Amazon.com run November 19–30, 2026.";
 const CA_DATES = "Amazon.ca’s Black Friday page, titled 2026 Black Friday, describes Black Friday Week as November 19–27.";
@@ -205,6 +206,102 @@ const GUIDE_START = "<!-- checkedlab:guide start -->";
 const GUIDE_END = "<!-- checkedlab:guide end -->";
 const GUIDE_KEYS = ["home", "black-friday", "gifts", "compare", ...HUBS];
 const COPY_BAN = /\$\d|\bwe tested\b|\btested by us\b|\bwe bought\b|\bdoes not test\b|\bdid not test\b|\bnot tested\b|\bnot(?: a)? measured\b|\bfrom this site\b|\bnot tested by\b|\bwe did not\b|\bwe didn['’]t\b|\bwe haven['’]t\b|hands-on|lab-tested|lab tested|out of 5|star rating|best overall|\bwinner\b|\bscore\b/i;
+const READER_VOICE_BAN = /worth matching|in this catalogue|in this catalog|check the model|to match on|on a listing/i;
+const VOICE_PAGES = new Set([
+  "alternatives/irobot-roomba-combo-j9-plus",
+  "alternatives/sony-wh-1000xm5",
+  "worth-it/zojirushi-ns-zcc10",
+  "worth-it/breville-bes870xl",
+  "recalls/air-fryer-recalls",
+  "recalls/space-heater-recalls",
+  "black-friday/ninja-creami",
+  "black-friday/airpods-pro-3",
+  "black-friday/levoit-air-purifiers"
+]);
+const BUYER_PICK = {
+  "irobot-roomba-combo-j9-plus": "Pick it if you want one robot that vacuums and mops, with an Auto-Fill dock.",
+  "roborock-qrevo-s": "Pick it if you want a robot that vacuums and mops, and is ready to run again in about 4 hours.",
+  "eufy-x10-pro-omni": "Pick it if you want a robot that vacuums and mops, and can vacuum for 173 minutes on standard.",
+  "shark-av2501s": "Pick it if you want a robot that vacuums, without a mop.",
+  "sony-wh-1000xm5": "Pick it if you want noise-cancelling headphones that play for up to 30 hours with noise cancelling on.",
+  "bose-qc-ultra": "Pick it if you want headphones with Quiet, Aware, and Immersion modes, and up to 24 hours of battery.",
+  "airpods-pro-3": "Pick it if you want earbuds with noise cancelling, a Hearing Aid feature, and an IP57 rating.",
+  "shokz-openrun-pro-2": "Pick it if you want open-ear headphones with up to 12 hours of play time.",
+  "zojirushi-ns-zcc10": "Pick it if you want a rice cooker for up to 5.5 cups, made in Japan.",
+  "instant-pot-duo-plus": "Pick it if you want one cooker that pressure cooks, slow cooks, and has a rice setting.",
+  "breville-bes870xl": "Pick it if you want one machine that grinds the beans and pulls the espresso.",
+  "baratza-encore-esp": "Pick it if you want a separate grinder you can set for espresso or for filter coffee.",
+  "fellow-stagg-ekg": "Pick it if you want a kettle that holds the water at the temperature you set.",
+  "cosori-pro-5-8": "Pick it if you want a basket air fryer with a 5.8-quart capacity.",
+  "ninja-foodi-10in1": "Pick it if you want one oven that air fries, roasts, bakes, and toasts.",
+  "ninja-crispi-fn101": "Pick it if you want an air fryer that cooks in glass containers.",
+  "lasko-ct32150": "Pick it if you want a tall tower heater that shuts off if it tips over.",
+  "lasko-ct14401": "Pick it if you want a compact tower heater, 14 inches tall, with overheat protection.",
+  "dreo-atom-316": "Pick it if you want a heater you can set from 41 F to 95 F for a 200 square foot room.",
+  "vornado-avh2": "Pick it if you want a whole-room heater with a low setting and a high setting.",
+  "ninja-creami-nc301": "Pick it if you want an ice cream maker with seven programs and two 16 oz pints included.",
+  "levoit-core-300s-p": "Pick it if you want a compact air purifier for a small footprint.",
+  "levoit-core-600s": "Pick it if you want a purifier rated for 606 square feet at 4.8 air changes an hour.",
+  "levoit-vital-200s": "Pick it if you want a purifier that changes the air in a 1,862 square foot room once an hour."
+};
+
+function assertReaderVoice(text, where) {
+  const found = String(text || "").match(READER_VOICE_BAN);
+  if (found) throw new Error("Reader voice ban on " + where + ": " + found[0]);
+}
+
+function assertHeadline(title, description, where, limit) {
+  assertReaderVoice(title, where + " title");
+  assertReaderVoice(description, where + " description");
+  assertReaderVoice(String(description || "").split(/(?<=\.)\s/)[0], where + " intro");
+  if (limit && String(title).length > 60) {
+    throw new Error("Title is " + String(title).length + " characters on " + where + ": " + title);
+  }
+}
+
+function buyerReason(id) {
+  if (Object.prototype.hasOwnProperty.call(BUYER_PICK, id)) return BUYER_PICK[id];
+  return "";
+}
+
+function metaContents(html, key) {
+  const tags = html.match(/<meta\b[^>]*>/gi) || [];
+  const out = [];
+  for (const tag of tags) {
+    const name = (tag.match(/\b(?:name|property)="([^"]+)"/i) || [])[1] || "";
+    if (name.toLowerCase() !== key) continue;
+    out.push((tag.match(/\bcontent="([^"]*)"/i) || [])[1] || "");
+  }
+  return out;
+}
+
+function assertPageVoice(html, where) {
+  const fields = [
+    [(html.match(/<title>([^<]*)<\/title>/i) || [])[1] || "", "title"]
+  ];
+  for (const match of html.matchAll(/<h1[^>]*>([^<]*)<\/h1>/gi)) fields.push([match[1], "h1"]);
+  for (const match of html.matchAll(/<p class="sub">([^<]*)<\/p>/gi)) fields.push([match[1], "intro"]);
+  for (const description of metaContents(html, "description").concat(metaContents(html, "og:description"))) {
+    fields.push([description, "description"]);
+  }
+  for (const [text, label] of fields) assertReaderVoice(text, where + " " + label);
+}
+
+function assertAllPageVoice() {
+  const skip = new Set(["dist", "node_modules", ".git", "scripts", "data", "social"]);
+  const files = [];
+  const walk = (dir) => {
+    for (const entry of readdirSync(dir)) {
+      if (skip.has(entry)) continue;
+      const full = join(dir, entry);
+      if (statSync(full).isDirectory()) walk(full);
+      else if (entry.endsWith(".html")) files.push(full);
+    }
+  };
+  walk(root);
+  for (const file of files) assertPageVoice(readFileSync(file, "utf8"), file.slice(root.length));
+}
+
 assertProducts(products);
 assertRenderer();
 
@@ -240,6 +337,18 @@ for (const hub of HUBS) {
     if (at < 0) throw new Error("Hub lede missing for " + hub);
     const end = html.indexOf("</p>", at);
     html = html.slice(0, end) + ' <a href="' + href + '">' + card.esc(entry.linkLabel) + "</a>" + html.slice(end);
+  }
+  const hubAnchors = explainers.filter((entry) => entry.hub === hub).map((entry) => ["/recalls/" + entry.slug + "/", entry.linkLabel])
+    .concat(editorial.alternatives.filter((entry) => entry.hub === hub).map((entry) => ["/alternatives/" + entry.slug + "/", entry.linkLabel]))
+    .concat(editorial.worth.filter((entry) => entry.hub === hub).map((entry) => ["/worth-it/" + entry.slug + "/", entry.linkLabel]))
+    .concat(editorial.season.filter((entry) => entry.hub === hub).map((entry) => ["/black-friday/" + entry.slug + "/", entry.linkLabel]));
+  for (const [href, label] of hubAnchors) {
+    if (html.includes('href="' + href + '"')) continue;
+    const needle = "Recall checks</a> for " + card.esc(HUB_NAME[hub]) + " models.";
+    const at = html.indexOf(needle);
+    if (at < 0) throw new Error("Hub lede missing for " + hub + " " + href);
+    const end = html.indexOf("</p>", at);
+    html = html.slice(0, end) + ' <a href="' + href + '">' + card.esc(label) + "</a>" + html.slice(end);
   }
   html = appendBestLinks(html, "Recall checks</a> for " + card.esc(HUB_NAME[hub]) + " models.", byHub.get(hub).map((product) => product.id));
   if (hub === "winter" && !html.includes('href="/winter-safety/"')) {
@@ -1202,10 +1311,13 @@ function noticeHtml(notice) {
 
 function catalogueHtml(entry) {
   card.beginPage();
-    const cards = entry.products.map((id, index) => {
+  const voice = VOICE_PAGES.has("recalls/" + entry.slug);
+  const cards = entry.products.map((id, index) => {
     const product = products.find((item) => item.id === id);
     if (!product) throw new Error("Explainer is missing catalogue id " + id);
-    return card.card(product, "US", index === 0 ? { eager: true } : {});
+    const opts = index === 0 ? { eager: true } : {};
+    if (voice) opts.pick = buyerReason(product.id);
+    return card.card(product, "US", opts);
   }).join("\n");
   const lines = entry.products.map((id) => {
     const product = products.find((item) => item.id === id);
@@ -1216,10 +1328,21 @@ function catalogueHtml(entry) {
   const compareLinks = compares.filter((item) => (item.explainers || []).includes(entry.slug)).map((item) =>
     '<a href="/compare/' + item.slug + '/">' + card.esc(item.linkLabel) + "</a>"
   ).join(" ");
+  const also = (entry.also || []).map((slug) => {
+    const other = explainers.find((item) => item.slug === slug);
+    if (!other) throw new Error("Explainer also missing " + slug + " from " + entry.slug);
+    return '<a href="/recalls/' + slug + '/">' + card.esc(other.linkLabel) + "</a>";
+  }).join(" ");
+  const more = (entry.more || []).map((link) => {
+    if (!link || typeof link.href !== "string" || !link.href.startsWith("/") || !link.label) {
+      throw new Error("Explainer more link must be internal: " + entry.slug);
+    }
+    return '<a href="' + card.esc(link.href) + '">' + card.esc(link.label) + "</a>";
+  }).join(" ");
   return '<div class="pick-grid">' + cards + "</div>" +
     productFold("catalogue-lines", "Checked Lab catalogue", "<p>" + card.esc(entry.catalogue) + "</p><ul>" + lines + "</ul>" +
-    '<p class="lede"><a href="/recalls/">All recall checks</a> <a href="/' + entry.hub + '/">' + card.esc(HUB_NAME[entry.hub]) + "</a> <a href=\"/how-we-check/\">How we check</a>" +
-    (compareLinks ? " " + compareLinks : "") + "</p>");
+    '<p class="lede"><a href="/recalls/">All recall checks</a> <a href="/black-friday/">Black Friday</a> <a href="/' + entry.hub + '/">' + card.esc(HUB_NAME[entry.hub]) + "</a> <a href=\"/how-we-check/\">How we check</a>" +
+    (compareLinks ? " " + compareLinks : "") + (also ? " " + also : "") + (more ? " " + more : "") + "</p>");
 }
 
 function sharedSpecRows(left, right) {
@@ -1441,13 +1564,16 @@ function compareBodyWords(entry) {
 }
 
 function assertBuyerVerdict(entry) {
+  assertHeadline(entry.title, entry.description, "compare/" + entry.slug, false);
   if (!entry.verdict) return;
   const siteVoice = /\b(cards?|catalogues?|catalogs?|pages?|matching)\b/i;
   const intro = String(entry.description || "").split(/(?<=\.)\s/)[0];
   if (siteVoice.test(intro)) throw new Error("Compare intro talks about the site: " + entry.slug);
+  assertReaderVoice(intro, "compare/" + entry.slug + " intro");
   for (const item of entry.verdict) {
     const text = [item.heading, ...(item.bullets || [])].join(" ");
     if (siteVoice.test(text)) throw new Error("Verdict talks about the site: " + entry.slug);
+    assertReaderVoice(item.heading, "compare/" + entry.slug + " verdict");
   }
 }
 
@@ -1498,6 +1624,7 @@ function writeCompares() {
         '<a href="/compare/' + other.slug + '/">' + card.esc(other.linkLabel) + "</a>"
       ).join(" ") + ".</p>"
       : "";
+    const crossHtml = anchorsForIds(entry.products).join(" ");
     const url = ORIGIN + "/compare/" + entry.slug + "/";
     const html = `<!DOCTYPE html>
 <html lang="en" data-region="US">
@@ -1560,7 +1687,7 @@ ${entry.verdict ? verdictBlock(entry, pair) + "\n" : ""}<div class="compare-wrap
 ${entry.verdict ? "" : pickPair(entry, pair)}
 <nav class="toc" aria-label="Jump to"><p>Jump to</p><a href="#how-to-read">How to read this</a><a href="#recall-check">Recall check</a><a href="#stores">Stores</a></nav>
 ${productFold("how-to-read", "How to read this", '<p class="lede">' + card.esc(entry.description) + "</p><p>Each line below is copied from that model’s maker page. The Source link opens that page. A spec that only one card lists is left out of the table. Recall lines use the " + card.esc(recalls.checkedAt) + " (UTC) catalogue check.</p>" + fit + (sections ? "\n" + sections : "") + (entry.verdict ? unmatchedSpecHtml(pair, rows) : "") + (relatedHtml ? "\n" + relatedHtml : ""))}
-${productFold("recall-check", "Recall check", recallsHtml + '<p class="lede"><a href="/compare/">All comparisons</a> ' + (entry.verdict ? '<a href="/black-friday/">Black Friday</a> ' : "") + '<a href="/recalls/">All recall checks</a> <a href="/' + entry.hub + '/">' + card.esc(HUB_NAME[entry.hub]) + '</a> <a href="/how-we-check/">How we check</a> ' + pair.map(sideAnchor).join(" ") + "</p>")}
+${productFold("recall-check", "Recall check", recallsHtml + '<p class="lede"><a href="/compare/">All comparisons</a> ' + (entry.verdict ? '<a href="/black-friday/">Black Friday</a> ' : "") + '<a href="/recalls/">All recall checks</a> <a href="/' + entry.hub + '/">' + card.esc(HUB_NAME[entry.hub]) + '</a> <a href="/how-we-check/">How we check</a> ' + pair.map(sideAnchor).join(" ") + (crossHtml ? " " + crossHtml : "") + "</p>")}
 ${productFold("stores", "Stores", stores("US", "United States stores") + stores("CA", "Canadian stores"))}
 </div>
 </main>
@@ -1749,9 +1876,17 @@ function editorialHubLinks(hub) {
   return links;
 }
 
+function editorialLists() {
+  return [
+    ["alternatives", editorial.alternatives],
+    ["worth-it", editorial.worth],
+    ["black-friday", editorial.season]
+  ];
+}
+
 function editorialLinksForProduct(product) {
   const links = [];
-  for (const [section, list] of [["alternatives", editorial.alternatives], ["worth-it", editorial.worth], ["black-friday", editorial.season]]) {
+  for (const [section, list] of editorialLists()) {
     for (const entry of list) {
       const ids = [entry.subject, ...(entry.others || [])];
       if (!ids.includes(product.id)) continue;
@@ -1759,6 +1894,48 @@ function editorialLinksForProduct(product) {
     }
   }
   return links;
+}
+
+function anchorsForIds(ids) {
+  const set = new Set(ids || []);
+  const links = [];
+  const seen = new Set();
+  const add = (href, label) => {
+    if (seen.has(href)) return;
+    seen.add(href);
+    links.push('<a href="' + href + '">' + card.esc(label) + "</a>");
+  };
+  for (const [section, list] of editorialLists()) {
+    for (const entry of list) {
+      const mine = [entry.subject, ...(entry.others || [])];
+      if (!mine.some((id) => set.has(id))) continue;
+      add("/" + section + "/" + entry.slug + "/", entry.linkLabel);
+    }
+  }
+  for (const entry of explainers) {
+    if (!(entry.products || []).some((id) => set.has(id))) continue;
+    add("/recalls/" + entry.slug + "/", entry.linkLabel);
+  }
+  return links;
+}
+
+function seeAlsoHtml(entry) {
+  const refs = entry.seeAlso || [];
+  if (!refs.length) return "";
+  const links = refs.map((ref) => {
+    if (!ref || !ref.section || !ref.slug) throw new Error("Bad seeAlso on " + entry.slug);
+    if (ref.section === "recalls") {
+      const other = explainers.find((item) => item.slug === ref.slug);
+      if (!other) throw new Error("seeAlso recall missing " + ref.slug + " from " + entry.slug);
+      return '<a href="/recalls/' + ref.slug + '/">' + card.esc(other.linkLabel) + "</a>";
+    }
+    const list = editorialLists().find((pair) => pair[0] === ref.section);
+    const other = list && list[1].find((item) => item.slug === ref.slug);
+    if (!other) throw new Error("seeAlso missing " + ref.section + "/" + ref.slug);
+    return '<a href="/' + ref.section + "/" + ref.slug + '/">' + card.esc(other.linkLabel) + "</a>";
+  });
+  if (links.length < 2) throw new Error("seeAlso needs two pages: " + entry.slug);
+  return '<p class="lede">Related pages: ' + links.join(" ") + ".</p>";
 }
 
 function editorialIndexBlock() {
@@ -1842,6 +2019,9 @@ function editorialArticle(entry, section, crumb, pair) {
 function writeEditorialPage(entry, section, crumb) {
   if (!/^[a-z0-9-]+$/.test(entry.slug)) throw new Error("Bad editorial slug");
   if (!HUBS.includes(entry.hub)) throw new Error("Bad editorial hub: " + entry.slug);
+  const where = section + "/" + entry.slug;
+  const voice = VOICE_PAGES.has(where);
+  assertHeadline(entry.title, entry.description, where, voice);
   const words = editorialWords(entry);
   if (words < 320) throw new Error("Editorial page is thin (" + words + " words): " + section + "/" + entry.slug);
   const prose = (entry.sections || []).map((sectionItem) => sectionItem.paragraphs.join(" ")).join(" ");
@@ -1873,7 +2053,10 @@ function writeEditorialPage(entry, section, crumb) {
     : "");
   const url = ORIGIN + "/" + section + "/" + entry.slug + "/";
   card.beginPage();
-  const picks = '<div class="pick-grid">' + pair.map((product) => card.card(product, "US")).join("\n") + "</div>";
+  const picks = '<div class="pick-grid">' + pair.map((product) => {
+    const opts = voice ? { pick: buyerReason(product.id) } : {};
+    return card.card(product, "US", opts);
+  }).join("\n") + "</div>";
   const html = `<!DOCTYPE html>
 <html lang="en" data-region="US">
 <head>
@@ -1918,7 +2101,7 @@ ${sceneBlock("compare")}
 ${picks}
 <nav class="toc" aria-label="Jump to"><p>Jump to</p><a href="#read-lines">The maker lines</a><a href="#recall-check">Recall check</a><a href="#stores">Stores</a></nav>
 ${productFold("read-lines", "The maker lines", '<p class="lede">' + card.esc(entry.description) + "</p><p>Each spec line is copied from that model’s maker page. The Source link opens that page. Recall lines use the " + card.esc(recalls.checkedAt) + " (UTC) catalogue check.</p>" + pair.map(editorialSpecBlock).join("\n") + sections)}
-${productFold("recall-check", "Recall check", recallsHtml + '<p class="lede"><a href="/' + section + '/">' + card.esc(crumb) + '</a> <a href="/' + entry.hub + '/">' + card.esc(HUB_NAME[entry.hub]) + '</a> <a href="/compare/">Spec comparisons</a> <a href="/black-friday/">Black Friday</a> <a href="/recalls/">Recall checks</a> <a href="/how-we-check/">How we check</a> ' + bestTypesForIds(pair.map((product) => product.id)).map(bestAnchor).join(" ") + " " + pair.map((product) => '<a href="' + card.productPath(product) + '">' + card.esc(product.title) + "</a>").join(" ") + "</p>" + relatedHtml)}
+${productFold("recall-check", "Recall check", recallsHtml + '<p class="lede"><a href="/' + section + '/">' + card.esc(crumb) + '</a> <a href="/' + entry.hub + '/">' + card.esc(HUB_NAME[entry.hub]) + '</a> <a href="/compare/">Spec comparisons</a> <a href="/black-friday/">Black Friday</a> <a href="/recalls/">Recall checks</a> <a href="/how-we-check/">How we check</a> ' + bestTypesForIds(pair.map((product) => product.id)).map(bestAnchor).join(" ") + " " + pair.map((product) => '<a href="' + card.productPath(product) + '">' + card.esc(product.title) + "</a>").join(" ") + "</p>" + relatedHtml + seeAlsoHtml(entry))}
 ${productFold("stores", "Stores", stores("US", "United States stores") + stores("CA", "Canadian stores"))}
 </div>
 </main>
@@ -1976,6 +2159,8 @@ function editorialIndexArticle(section, title, description, list) {
 }
 
 function writeEditorialIndex(section, title, description, intro, list) {
+  assertHeadline(title, description, section + " index", false);
+  for (const paragraph of intro) assertReaderVoice(paragraph, section + " index intro");
   const items = list.map((entry) =>
     "<li><a href=\"/" + section + "/" + entry.slug + "/\">" + card.esc(entry.title) + "</a>. " + card.esc(entry.description) + "</li>"
   ).join("");
@@ -2525,28 +2710,46 @@ function assertBestPages() {
 }
 
 function writeEditorial() {
-  if (editorial.alternatives.length !== 3) throw new Error("Expected three alternatives pages");
-  if (editorial.worth.length !== 3) throw new Error("Expected three worth-it pages");
-  if (editorial.season.length !== 6) throw new Error("Expected six Black Friday model pages");
+  if (editorial.alternatives.length !== 5) throw new Error("Expected five alternatives pages");
+  if (editorial.worth.length !== 5) throw new Error("Expected five worth-it pages");
+  if (editorial.season.length !== 9) throw new Error("Expected nine Black Friday model pages");
   for (const entry of editorial.alternatives) writeEditorialPage(entry, "alternatives", "Alternatives");
   for (const entry of editorial.worth) writeEditorialPage(entry, "worth-it", "Worth matching");
   for (const entry of editorial.season) writeEditorialPage(entry, "black-friday", "Black Friday");
-  writeEditorialIndex("alternatives", "Alternatives in this catalogue", "Catalogue models you can read next to a named card. Each page cites maker spec lines and the dated recall check.", [
+  writeEditorialIndex("alternatives", "Alternatives worth comparing", "Catalogue models you can read next to a named card. Each page cites maker spec lines and the dated recall check.", [
     "An alternative here is another model already on Checked Lab, not a model from outside the catalogue. The page quotes the maker lines and says which line to read for a given use.",
     "Open the model page for the full card. The recall sentence is the catalogue match dated " + card.esc(recalls.checkedAt) + " (UTC). Search the model on <a href=\"" + CPSC_SEARCH + "\" target=\"_blank\" rel=\"noopener\">CPSC Recalls</a> and on <a href=\"" + HC_SEARCH + "\" target=\"_blank\" rel=\"noopener\">Health Canada recalls and safety alerts</a>."
   ], editorial.alternatives);
-  writeEditorialIndex("worth-it", "Worth matching to the spec line", "When a maker page’s lines fit the room, the chore, or the battery figure you are matching. No price verdict.", [
-    "Worth matching means the sentences on the maker page describe the constraint you have: a cabinet height, a run time, a jar size, a battery line. It is not a price, a rating, or a rank.",
+  writeEditorialIndex("worth-it", "Is it worth it?", "When a maker page’s lines fit the room, the chore, or the battery figure you are matching. No price verdict.", [
+    "These pages ask whether the maker’s specs fit what you need: a cabinet height, a run time, a jar size, or a battery life. It is not a price, a rating, or a rank.",
     "Each page names the catalogue neighbour to read when those lines do not fit. The recall sentence is the catalogue match dated " + card.esc(recalls.checkedAt) + " (UTC)."
   ], editorial.worth);
 }
 
+function roundupTable(entry) {
+  if (!entry.tableHeading) throw new Error("Roundup needs a table heading: " + entry.slug);
+  const rows = [];
+  const blocks = [];
+  for (const notice of entry.notices) {
+    if (!notice.hazard || !notice.product || !notice.remedy) {
+      throw new Error("Roundup notice needs product, hazard, and remedy: " + entry.slug);
+    }
+    const link = '<a href="' + href(notice.url) + '" target="_blank" rel="noopener">' + card.esc(notice.agency) + " notice</a>";
+    rows.push("<tr><td>" + card.esc(notice.date) + "</td><td>" + card.esc(notice.product) + "</td><td>" + card.esc(notice.models.join(", ")) + "</td><td>" + card.esc(notice.hazard) + "</td><td>" + card.esc(notice.remedy) + "</td><td>" + link + "</td></tr>");
+    const models = "<ul>" + notice.models.map((model) => "<li>" + card.esc(model) + "</li>").join("") + "</ul>";
+    blocks.push('<article class="recall-block"><h3><time datetime="' + card.esc(notice.date) + '">' + card.esc(notice.date) + "</time> · " + card.esc(notice.product) + "</h3><p>" + card.esc(notice.hazard) + "</p><p>" + card.esc(notice.remedy) + "</p><p>" + link + '</p><details><summary>Model numbers</summary>' + models + "</details></article>");
+  }
+  return "<h2>" + card.esc(entry.tableHeading) + '</h2><div class="recall-roundup"><div class="compare-wrap recall-table"><table class="compare"><thead><tr><th>Date</th><th>Product</th><th>Model numbers</th><th>Hazard</th><th>What the notice tells owners</th><th>Notice</th></tr></thead><tbody>' + rows.join("") + '</tbody></table></div><div class="recall-stack">' + blocks.join("") + "</div></div>";
+}
+
 function writeExplainers() {
-  if (explainers.length !== 8) throw new Error("Expected eight explainer pages");
+  if (explainers.length !== 10) throw new Error("Expected ten explainer pages");
   const slugs = new Set();
   for (const entry of explainers) {
     if (!/^[a-z0-9-]+$/.test(entry.slug) || slugs.has(entry.slug)) throw new Error("Bad explainer slug");
     slugs.add(entry.slug);
+    if (entry.roundup && entry.notices.length < 2) throw new Error("Roundup has fewer than two notices: " + entry.slug);
+    assertHeadline(entry.title, entry.description, "recalls/" + entry.slug, VOICE_PAGES.has("recalls/" + entry.slug));
     const url = ORIGIN + "/recalls/" + entry.slug + "/";
     const html = `<!DOCTYPE html>
 <html lang="en" data-region="US">
@@ -2601,6 +2804,7 @@ ${sceneBlock("recalls")}
 </nav>
 <h1>${card.esc(entry.title)}</h1>
 <p class="sub">${card.esc(entry.description.split(/(?<=\.)\s/)[0])}</p>
+${entry.roundup ? roundupTable(entry) : ""}
 ${catalogueHtml(entry)}
 ${productFold("official-notices", "What the notices say", '<p class="lede">' + card.esc(entry.description) + " Catalogue lines below use the " + card.esc(recalls.checkedAt) + " (UTC) check.</p>" + entry.notices.map(noticeHtml).join("\n"))}
 </div>
@@ -2691,7 +2895,7 @@ ${sceneBlock("recalls")}
 <h1>Recall checks</h1>
 ${recallWidget()}
 <p class="lede">Checked <time datetime="${card.esc(date)}">${card.esc(date)}</time> (UTC). Every catalogue model has a United States line from the <a href="${href(usSource)}" target="_blank" rel="noopener">CPSC SaferProducts</a> source and a Canada line from the <a href="${CA_DATASET_PAGE}" target="_blank" rel="noopener">Health Canada open dataset</a>.</p>
-<p>A date is the day that check ran. Open a model for the maker specs. Read <a href="/how-we-check/">how we check</a> and the <a href="/bin-list/">BIN list</a>. <a href="/black-friday/">Black Friday 2026: check the model before you buy</a>. <a href="/thanksgiving/">Thanksgiving and holiday hosting, recall-checked</a>. <a href="/winter-safety/">Winter home safety, recall-checked</a>. <a href="/toy-safety/">Holiday toy safety, recall-checked</a>. <a href="/recalls/feed.xml">RSS</a> updates when a recall record changes.</p>
+<p>A date is the day that check ran. Open a model for the maker specs. Read <a href="/how-we-check/">how we check</a> and the <a href="/bin-list/">BIN list</a>. <a href="/black-friday/">${card.esc(BF_TITLE)}</a>. <a href="/thanksgiving/">Thanksgiving and holiday hosting, recall-checked</a>. <a href="/winter-safety/">Winter home safety, recall-checked</a>. <a href="/toy-safety/">Holiday toy safety, recall-checked</a>. <a href="/recalls/feed.xml">RSS</a> updates when a recall record changes.</p>
 <p class="recall-filters"><a href="#united-states">United States</a><a href="#canada">Canada</a></p>
 ${binSection(ordered, date)}
 <div class="recall-columns">
@@ -2815,7 +3019,7 @@ function blackFridayJsonLd(picked) {
         "@type": "CollectionPage",
         "@id": url,
         name: BF_TITLE,
-        headline: "Before you buy on Black Friday, check the model.",
+        headline: BF_H1,
         url: url,
         dateModified: recalls.checkedAt,
         inLanguage: "en",
@@ -2849,6 +3053,10 @@ function blackFridayJsonLd(picked) {
 }
 
 function writeBlackFriday() {
+  assertReaderVoice(BF_TITLE, "black friday title");
+  assertReaderVoice(BF_H1, "black friday h1");
+  assertReaderVoice(BF_DESC, "black friday description");
+  if (BF_TITLE.length > 60) throw new Error("Black Friday title is over 60 characters");
   card.beginPage();
   const picked = blackFridayPicks();
   const url = ORIGIN + BF_PATH;
@@ -2926,7 +3134,7 @@ ${sceneBlock("black-friday")}
 <span aria-hidden="true">/</span>
 <span aria-current="page">Black Friday</span>
 </nav>
-<h1>Before you buy on Black Friday, check the model.</h1>
+<h1>${card.esc(BF_H1)}</h1>
 <p class="sub">Confirm the model number, then read the dated recall check.</p>
 <nav class="toc" aria-label="Jump to"><p>Jump to</p>${jumps}</nav>
 ${sections}
@@ -2961,7 +3169,7 @@ function assertBlackFriday(html) {
   if (!html.includes('<link rel="canonical" href="' + ORIGIN + BF_PATH + '">')) throw new Error("Black Friday canonical");
   if (!html.includes("<title>" + BF_TITLE + " — Checked Lab</title>")) throw new Error("Black Friday title");
   if (!html.includes('name="description" content="' + BF_DESC + '"')) throw new Error("Black Friday description");
-  if (!html.includes("<h1>Before you buy on Black Friday, check the model.</h1>")) throw new Error("Black Friday H1");
+  if (!html.includes("<h1>" + BF_H1 + "</h1>")) throw new Error("Black Friday H1");
   if (!html.includes('data-region-set="US"') || !html.includes('data-region-set="CA"')) throw new Error("Black Friday region switch");
   if (/\$\d/.test(html) || /\d+\s*%/.test(html)) throw new Error("Black Friday page has a price or a percent");
   if (/we tested|we bought|does not test|did not test|lab-tested|lab tested/i.test(html)) {
@@ -3489,6 +3697,7 @@ function giftGuideHtml(guide, picks, grouped) {
       giftJumps(guides, guide.slug) +
       compareLinksForGuide(guide) +
       bestLede(picks.map((product) => product.id)) +
+      (anchorsForIds(guide.products).length ? '<p class="lede">' + anchorsForIds(guide.products).join(" ") + "</p>" : "") +
       '<p class="lede"><a href="/gifts/">All gift guides</a></p>');
   const jsonLd = giftJson(
     url,
@@ -3970,7 +4179,7 @@ function kidsGuideHtml(guide, grouped) {
   const main = sceneBlock("gifts") + giftCrumbs(guide.h1) +
     "<h1>" + card.esc(guide.h1) + "</h1>" +
     '<p class="lede">' + card.esc(guide.description) + "</p>" +
-    '<p>Each line names a widely sold kids product and the official check to do. The button opens the Amazon search for the words under it. It is not a product page. <a href="/toy-safety/">Toy safety</a> covers <a href="/toy-safety/button-coin-batteries/">button and coin batteries</a>, <a href="/toy-safety/magnets/">magnets</a>, <a href="/toy-safety/water-beads/">water beads</a>, and <a href="/toy-safety/ride-ons-and-scooters/">ride-ons and scooters</a>. <a href="/how-we-check/">How we check</a> says what a dated catalogue line means.</p>' +
+    '<p>Each line names a widely sold kids product and the official check to do. The button opens the Amazon search for the words under it. It is not a product page. <a href="/toy-safety/">Toy safety</a> covers <a href="/toy-safety/button-coin-batteries/">button and coin batteries</a>, <a href="/toy-safety/magnets/">magnets</a>, <a href="/toy-safety/water-beads/">water beads</a>, and <a href="/toy-safety/ride-ons-and-scooters/">ride-ons and scooters</a>. <a href="/how-we-check/">How we check</a> says what a dated catalogue line means. The catalogue ice cream maker has its own model check: <a href="/black-friday/ninja-creami/">Ninja Creami Black Friday model check</a>.</p>' +
     compareLinksForGuide(guide) +
     giftJumps(guides, guide.slug) +
     '<section class="pick-grid">\n' + picks + "\n</section>" +
@@ -4016,7 +4225,7 @@ function hostGuideHtml(guide, grouped) {
   const main = sceneBlock("gifts") + giftCrumbs(guide.h1) +
     "<h1>" + card.esc(guide.h1) + "</h1>" +
     '<p class="lede">' + card.esc(guide.description) + "</p>" +
-    '<p>Each line names a widely sold hosting tool and the official check to do. The button opens the Amazon search for the words under it. It is not a product page. <a href="/thanksgiving/">Thanksgiving and holiday hosting</a> covers <a href="/thanksgiving/turkey-fryers/">turkey fryers</a>, <a href="/thanksgiving/pressure-cookers/">pressure cookers</a>, <a href="/thanksgiving/turkey-temperatures/">turkey temperatures</a>, and <a href="/thanksgiving/kitchen-fires/">kitchen fires</a>. <a href="/how-we-check/">How we check</a> says what a dated catalogue line means.</p>' +
+    '<p>Each line names a widely sold hosting tool and the official check to do. The button opens the Amazon search for the words under it. It is not a product page. <a href="/thanksgiving/">Thanksgiving and holiday hosting</a> covers <a href="/thanksgiving/turkey-fryers/">turkey fryers</a>, <a href="/thanksgiving/pressure-cookers/">pressure cookers</a>, <a href="/thanksgiving/turkey-temperatures/">turkey temperatures</a>, and <a href="/thanksgiving/kitchen-fires/">kitchen fires</a>. <a href="/how-we-check/">How we check</a> says what a dated catalogue line means. The rice cooker card has its own spec match: <a href="/worth-it/zojirushi-ns-zcc10/">Zojirushi rice cooker spec match</a>.</p>' +
     giftJumps(guides, guide.slug) +
     '<section class="pick-grid">\n' + picks + "\n</section>" +
     '<p class="lede"><a href="/gifts/">All gift guides</a></p>' +
@@ -5985,6 +6194,38 @@ function verifyOutput(pages) {
   assertNoOrphans();
   assertBestPages();
   assertEveryPageDisclosure();
+  assertBuyerPicks();
+  assertAllPageVoice();
+}
+
+function assertBuyerPicks() {
+  const pages = [];
+  for (const [section, list] of editorialLists()) {
+    for (const entry of list) {
+      const where = section + "/" + entry.slug;
+      if (!VOICE_PAGES.has(where)) continue;
+      pages.push([join(root, section, entry.slug, "index.html"), [entry.subject, ...(entry.others || [])], where]);
+    }
+  }
+  for (const entry of explainers) {
+    const where = "recalls/" + entry.slug;
+    if (!VOICE_PAGES.has(where)) continue;
+    pages.push([join(root, "recalls", entry.slug, "index.html"), entry.products, where]);
+  }
+  if (pages.length !== VOICE_PAGES.size) throw new Error("Expected " + VOICE_PAGES.size + " voice pages, found " + pages.length);
+  for (const [file, ids, where] of pages) {
+    const html = readFileSync(file, "utf8");
+    if (html.includes("Pick it for:")) throw new Error("Spec pick line still on " + where);
+    for (const id of ids) {
+      const reason = BUYER_PICK[id];
+      if (!reason) throw new Error("No buyer reason for " + id + " on " + where);
+      if (!html.includes(card.esc(reason))) throw new Error("Buyer reason missing for " + id + " on " + where);
+    }
+    if (where.startsWith("recalls/") && (!html.includes('class="recall-stack"') || !html.includes("<summary>Model numbers</summary>"))) {
+      throw new Error("Recall stack missing on " + where);
+    }
+    assertPageVoice(html, where);
+  }
 }
 
 function assertProductSeo(html, product) {

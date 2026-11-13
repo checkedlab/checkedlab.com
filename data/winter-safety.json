@@ -108,7 +108,8 @@
       "links": [
         {"href": "/winter/", "label": "Winter catalogue"},
         {"href": "/recalls/lasko-heaters/", "label": "Lasko heater notices"},
-        {"href": "/compare/lasko-ct32150-vs-ct14401/", "label": "CT32150 and CT14401 specs"}
+        {"href": "/compare/lasko-ct32150-vs-ct14401/", "label": "CT32150 and CT14401 specs"},
+        {"href": "/recalls/space-heater-recalls/", "label": "Space heater recall list"}
       ],
       "faqs": [
         {

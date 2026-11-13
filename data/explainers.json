@@ -76,6 +76,9 @@
           "CAF-P581S-RUSR"
         ]
       }
+    ],
+    "also": [
+      "air-fryer-recalls"
     ]
   },
   {
@@ -133,6 +136,9 @@
           "OP305CO"
         ]
       }
+    ],
+    "also": [
+      "air-fryer-recalls"
     ]
   },
   {
@@ -448,6 +454,9 @@
           "5700"
         ]
       }
+    ],
+    "also": [
+      "space-heater-recalls"
     ]
   },
   {
@@ -566,6 +575,399 @@
         "models": [
           "NV650W",
           "NV652"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "air-fryer-recalls",
+    "title": "Air fryer recalls: what owners should know",
+    "linkLabel": "Air fryer recall list",
+    "description": "These are the air fryer notices on file from CPSC and Health Canada. They cover Cosori, Gourmia, Insignia, PowerXL, Secura, and Ninja Foodi OP300, with the hazard, what owners should do, and the model numbers.",
+    "hub": "kitchen",
+    "roundup": true,
+    "tableHeading": "Ninja, Cosori, and the other air fryer notices",
+    "products": [
+      "cosori-pro-5-8",
+      "ninja-foodi-10in1",
+      "ninja-crispi-fn101"
+    ],
+    "catalogue": "The COSORI Pro II card’s capacity line is 5.8 qt, and the model string used on its explainer is the CS358-AF series. CS358-AF is not in the Cosori model list below. The Foodi 10-in-1 card is an oven function list, not an OP300 model number. The Crispi card’s modes include Air Fry, and FN101 is not in the OP300 list. Match the number on the unit to the number in the notice.",
+    "also": [
+      "cosori-air-fryer-2023",
+      "ninja-foodi-op300",
+      "space-heater-recalls"
+    ],
+    "more": [
+      {
+        "href": "/black-friday/ninja-creami/",
+        "label": "Ninja Creami model check"
+      },
+      {
+        "href": "/worth-it/zojirushi-ns-zcc10/",
+        "label": "Zojirushi rice cooker spec match"
+      }
+    ],
+    "notices": [
+      {
+        "agency": "CPSC",
+        "date": "2023-02-23",
+        "product": "Cosori air fryers",
+        "title": "Two Million COSORI Air Fryers Recalled by Atekcity Due to Fire and Burn Hazards",
+        "url": "https://www.cpsc.gov/Recalls/2023/Two-Million-COSORI-Air-Fryers-Recalled-by-Atekcity-Due-to-Fire-and-Burn-Hazards",
+        "hazard": "The notice says a wire connection in the air fryers can overheat, posing fire and burn hazards.",
+        "says": "The CPSC notice, recall number 23-130, says this recall involves Cosori air fryers in the model numbers listed below. It says the brand name Cosori is on the front, and the model number is printed on the bottom label and in the user manual. It says the units are 3.7 and 5.8 quart, sold in black, gray, white, blue, or red. It says about 2 million were recalled, and about 250,000 were sold in Canada and about 21,000 in Mexico. The Health Canada notice below prints different unit figures. It says the firm has received 205 reports of the air fryers catching fire, burning, melting, overheating, and smoking, including 10 reports of minor superficial burn injuries and 23 reports of minor property damage.",
+        "howToCheck": "The notice says to read the model number on the bottom label of the unit and in the user manual.",
+        "remedy": "The notice tells owners to stop using the recalled air fryers and contact Cosori for a free replacement air fryer or another Cosori product. It says registration asks for contact information and photos of the unit with the cord cut, and that no receipt is needed.",
+        "modelsLabel": "Model numbers in the CPSC notice",
+        "models": [
+          "CP158-AF",
+          "CP158-AF-R19",
+          "CP158-AF-RXW",
+          "CP158-AF-RXR",
+          "CAF-P581-BUSR",
+          "CAF-P581-AUSR",
+          "CAF-P581-RUSR",
+          "CP137-AF",
+          "CP137-AF-RXB",
+          "CP137-AF-RXR",
+          "CP137-AF-RXW",
+          "CS158-AF",
+          "CS158-AF-RXB",
+          "CS158-AF-R19",
+          "CAF-P581S-BUSR",
+          "CAF-P581S-RUSR",
+          "CAF-P581S-AUSR",
+          "CO137-AF",
+          "CO158-AF",
+          "CO158-AF-RXB",
+          "CP258-AF"
+        ]
+      },
+      {
+        "agency": "Health Canada",
+        "date": "2023-02-23",
+        "product": "Cosori air fryers",
+        "title": "Certain models of Cosori-branded Air Fryers recalled due to potential fire hazard",
+        "url": "https://recalls-rappels.canada.ca/en/alert-recall/certain-models-cosori-branded-air-fryers-recalled-due-potential-fire-hazard",
+        "hazard": "The notice says the wire connectors can overheat, posing a potential burn and fire hazard.",
+        "says": "The Health Canada notice, updated 2023-02-23, identification RA-72618, says the recall involves certain Cosori-branded air fryers. It says the model number is on the bottom label and in the user manual, and the batch number is on the bottom or at the back below the rear exhaust vent. It says the company reported 252,828 units sold in Canada, 2,042,631 in the United States, and 21,490 in Mexico, sold from March 2019 to December 2022. Those unit figures are not the same figures as the CPSC notice’s “about 2 million” and “about 250,000” in Canada. It says that as of February 2023 the company had received 205 reports globally, including 56 in Canada, of the air fryers catching fire, burning, melting, overheating, and smoking, with 10 reports of minor superficial burn injuries including 4 in Canada, and 23 reports of minor property damage globally. It says the notice is a joint recall with the CPSC.",
+        "howToCheck": "The notice says the model number is on the bottom label and in the user manual, and the batch number is on the bottom of the unit or at the back below the rear exhaust vent.",
+        "remedy": "The notice tells owners to stop using the recalled products immediately and contact Cosori for a replacement unit. It says no receipt is needed, and it names registration at the Cosori recall page or the recall hotline.",
+        "modelsLabel": "Model numbers in the Health Canada notice",
+        "models": [
+          "CO137-AF",
+          "CP137-AF",
+          "CP137-AF-RXB",
+          "CP137-AF-RXR",
+          "CP137-AF-RXW",
+          "CO158-AF",
+          "CO158-AF-RXB",
+          "CP158-AF",
+          "CP158-AF-R19",
+          "CP158-AF-RXW",
+          "CP158-AF-RXR",
+          "CAF-P581-BUSR",
+          "CAF-P581-AUSR",
+          "CAF-P581-RUSR",
+          "CS158-AF",
+          "CS158-AF-RXB",
+          "CS158-AF-R19",
+          "CAF-P581S-BUSR",
+          "CAF-P581S-RUSR",
+          "CAF-P581S-AUSR",
+          "CP258-AF"
+        ]
+      },
+      {
+        "agency": "CPSC",
+        "date": "2026-11-05",
+        "product": "Gourmia 9-slice air fryer oven",
+        "title": "Gourmia Recalls 9-Slice Digital Air Fryer Ovens Due to Burn Hazard",
+        "url": "https://www.cpsc.gov/Recalls/2027/Gourmia-Recalls-9-Slice-Digital-Air-Fryer-Ovens-Due-to-Burn-Hazard",
+        "hazard": "The notice says the oven’s doors can unexpectedly close when bumped, posing a burn hazard to consumers retrieving hot food.",
+        "says": "The CPSC notice, recall number 27-069, dated November 05, 2026, says this recall involves Gourmia stainless steel digital 9-slice air fryer ovens, model GTF7530, UPC 810002862779. It says the ovens have two spring-loaded glass front French doors with metal handles. It says model GTF7530 and codes 3021 to 0126 can be found on a label on the back of the unit. It says about 175,951 units. It says Gourmia has received 57 reports of the doors closing unexpectedly when retrieving food, resulting in 40 incidents of burns to hands or wrists.",
+        "howToCheck": "The notice says the model and UPC are on the packaging, and model GTF7530 and codes 3021 to 0126 are on a label on the back of the unit.",
+        "remedy": "The notice tells owners to stop using the ovens immediately and contact Gourmia for a free repair kit by mail. It says the kit includes an added doorstop and installation instructions.",
+        "modelsLabel": "Model number in the CPSC notice",
+        "models": [
+          "GTF7530"
+        ]
+      },
+      {
+        "agency": "CPSC",
+        "date": "2024-03-14",
+        "product": "Insignia air fryers and air fryer ovens",
+        "title": "Best Buy Recalls Insignia Air Fryers and Air Fryer Ovens Due to Fire, Burn and Laceration Hazards",
+        "url": "https://www.cpsc.gov/Recalls/2024/Best-Buy-Recalls-Insignia-Air-Fryers-and-Air-Fryer-Ovens-Due-to-Fire-Burn-and-Laceration-Hazards",
+        "hazard": "The notice says the air fryers can overheat, causing the handles to melt or break, posing fire and burn hazards, and that the air fryer ovens can overheat and the glass on the door can shatter, posing fire, burn, and laceration hazards.",
+        "says": "The CPSC notice, recall number 24-159, says this recall involves Insignia air fryers and air fryer ovens in the model numbers listed below. It says INSIGNIA is on the top or front, and a rating label on the underside identifies the brand and the model number. It says capacities range from about 3.4 to 10 quarts. It says about 187,400 units, and about 99,900 were sold in Canada. It says the firm has received 24 reports of overheating, melting, or glass shattering, including six reports of air fryers catching fire, and that no injuries or property damage have been reported.",
+        "howToCheck": "The notice says the model number is on the product rating label on the underside of the unit.",
+        "remedy": "The notice tells owners to stop using the units and follow the instructions at the Best Buy recall registration page, including photos of the unit, the model number, the purchase receipt, and the destruction of the unit. It says the refund is a refund check or a Best Buy store credit, in the amount on the receipt, or the average sales price for the model if no receipt is provided. It says not to return the units to Best Buy stores.",
+        "modelsLabel": "Model numbers in the CPSC notice",
+        "models": [
+          "NS-AF34D2",
+          "NS-AF5DSS2",
+          "NS-AF5MSS2",
+          "NS-AF8DBD2",
+          "NS-AF10DBK2",
+          "NS-AF10DSS2"
+        ]
+      },
+      {
+        "agency": "CPSC",
+        "date": "2023-12-14",
+        "product": "PowerXL dual-basket air fryers",
+        "title": "Empower Brands Recalls Power XL Dual Basket Air Fryers Due to Burn Hazard",
+        "url": "https://www.cpsc.gov/Recalls/2024/Empower-Brands-Recalls-Power-XL-Dual-Basket-Air-Fryers-Due-to-Burn-Hazard",
+        "hazard": "The notice says the plastic U-channel connector used to combine the two baskets can break during use, posing a burn hazard.",
+        "says": "The CPSC notice, recall number 24-051, says this recall involves PowerXL Vortex dual-basket air fryers, models DUAF-10 and DUAF-005. It says the 10-quart DUAF-10 is about 17 inches long by 16 inches wide by 12 1/2 inches tall and weighs about 14 1/2 pounds, and the 9-quart DUAF-005 is about 14 inches long by 13 inches wide by 15 inches tall and weighs about 14 pounds. It says they were sold in black or cinnamon, with a silver PowerXL label on the front and a white label on the bottom or on the power cord that lists the model number. It says about 319,000 units. It says the firm has received 41 reports of the product breaking during use, including three reports of burns.",
+        "howToCheck": "The notice says the model number is on a white label on the bottom of the unit or on the power cord.",
+        "remedy": "The notice tells owners to stop using the recalled dual-basket air fryers immediately and contact Empower Brands for a full refund.",
+        "modelsLabel": "Model numbers in the CPSC notice",
+        "models": [
+          "DUAF-10",
+          "DUAF-005"
+        ]
+      },
+      {
+        "agency": "CPSC",
+        "date": "2023-09-28",
+        "product": "Secura air fryers",
+        "title": "Secura Recalls Air Fryers Due to Fire and Burn Hazards",
+        "url": "https://www.cpsc.gov/Recalls/2023/Secura-Recalls-Air-Fryers-Due-to-Fire-and-Burn-Hazards-Recall-Alert",
+        "hazard": "The notice says a wire connection in the air fryer can overheat, posing fire and burn hazards.",
+        "says": "The CPSC notice, recall number 23-794, says this recall involves Secura air fryers, model SAF-53D (TXG-DT16E) with date code 1901, and model SAF-53 (TXG-DS16) with date codes 1903 and 1904. It says they are black with a silver accent, Secura is on the top, and the model number and four-digit date code are on silver labels at the bottom. It says they measure about 12 inches high, 11 inches deep, and 12 inches wide. It says about 6,400 units, and about 680 were sold in Canada. It says the firm has received nine reports of the air fryers catching fire, burning, and smoking, and that no injuries or property damage have been reported. The Health Canada notice below is narrower: it names only SAF-53 (TXG-DS16) with date codes 1903 and 1904.",
+        "howToCheck": "The notice says the model number and the four-digit date code are on the silver labels at the bottom of the unit.",
+        "remedy": "The notice tells owners to stop using the recalled air fryers and contact Secura. It says registration asks for contact information, photos of the unit with the power cord cut, and the date code. It says no receipt is needed to receive a replacement. It also names an Amazon gift card. The amount is printed on the CPSC notice, which is linked here.",
+        "modelsLabel": "Model numbers in the CPSC notice",
+        "models": [
+          "SAF-53D (TXG-DT16E), date code 1901",
+          "SAF-53 (TXG-DS16), date codes 1903 and 1904"
+        ]
+      },
+      {
+        "agency": "Health Canada",
+        "date": "2026-05-22",
+        "product": "Secura air fryers",
+        "title": "Secura Air Fryers recalled due to fire and burn hazards",
+        "url": "https://recalls-rappels.canada.ca/en/alert-recall/secura-air-fryers-recalled-due-fire-and-burn-hazards",
+        "hazard": "The notice says a wire connection in the air fryer can overheat, posing fire and burn hazards.",
+        "says": "The Health Canada notice, updated 2026-05-22, identification RA-82098, says this recall involves Secura air fryers with model number SAF-53 (TXG-DS16) only, with date codes 1903 and 1904. It does not name SAF-53D or date code 1901. It says they are black with a silver accent, Secura is on the top, and the model number and date code are on silver labels at the bottom. It says they measure about 30 cm high, 28 cm deep, and 30 cm wide. It says 680 units were sold in Canada from May 2019 to October 2020. It says that as of May 14, 2026, the company had received no reports of incident or injury in Canada.",
+        "howToCheck": "The notice says the model number and the four-digit date code are printed on the silver labels at the bottom of the unit.",
+        "remedy": "The notice tells owners to stop using the recalled product and contact Secura for an Amazon.ca gift card code. It says valid proof of purchase is required, and it points owners to the company’s recall instructions.",
+        "modelsLabel": "Model number in the Health Canada notice",
+        "models": [
+          "SAF-53 (TXG-DS16), date codes 1903 and 1904"
+        ]
+      },
+      {
+        "agency": "CPSC",
+        "date": "2025-05-01",
+        "product": "Ninja Foodi OP300 series pressure cookers",
+        "title": "SharkNinja Recalls Foodi Multi-Function Pressure Cookers Due to Burn Hazard",
+        "url": "https://www.cpsc.gov/Recalls/2025/SharkNinja-Recalls-1-8-Million-Foodi-Multi-Function-Pressure-Cookers-Due-to-Burn-Hazard-Serious-Burn-Injuries-Reported",
+        "hazard": "The notice says the pressure-cooking lid can be opened during use, causing hot contents to escape, posing a risk of burn injuries.",
+        "says": "The CPSC notice, recall number 25-247, says this recall involves all Ninja Foodi OP300 Series multi-function pressure cookers. It says the cookers have functions that include pressure cooking and air frying, were sold in black, and have a 6.5-quart capacity. It says Ninja is printed on the front and on the product label. It says an extra code after the model number is not part of the model designation, and gives the example that a unit labeled OP301 I07 is a model OP301. It says replacement pressure-cooker lids bought as a separate part are included. It says about 1,846,400 units, and about 184,240 were sold in Canada. It says SharkNinja has received 106 reports of burn injuries, including more than 50 reports of second- or third-degree burns, with 26 lawsuits filed. This is a pressure-cooking lid notice. It is not a notice for the NC301 ice cream maker or for the Crispi FN101.",
+        "howToCheck": "The notice says the model numbers are printed on a label on the side of the cooker.",
+        "remedy": "The notice tells owners to stop using the pressure-cooking function and contact SharkNinja for a free replacement lid. It says the air frying and other functions can still be used.",
+        "modelsLabel": "Model numbers in the CPSC notice",
+        "models": [
+          "OP300",
+          "OP301",
+          "OP301A",
+          "OP302",
+          "OP302BRN",
+          "OP302HCN",
+          "OP302HAQ",
+          "OP302HW",
+          "OP302HB",
+          "OP305",
+          "OP305CO",
+          "OP350CO"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "space-heater-recalls",
+    "title": "Space heater recalls: what owners should know",
+    "linkLabel": "Space heater recall list",
+    "description": "These are the space heater notices on file from CPSC and Health Canada. They cover Vornado, Lasko, DREO, Govee, and One Stop Gardens, with the hazard, what owners should do, and the model numbers.",
+    "hub": "winter",
+    "roundup": true,
+    "tableHeading": "Lasko heater recalls and the other notices",
+    "products": [
+      "lasko-ct32150",
+      "lasko-ct14401",
+      "dreo-atom-316",
+      "vornado-avh2"
+    ],
+    "catalogue": "The catalogue heaters on this page are CT32150, CT14401, the Dreo Atom 316, and the Vornado AVH2. CT32150 and CT14401 are not in the Lasko model lists below. The Atom 316 is not DR-HSH015. The AVH2 is not TYPE SRTH, TYPE VH2, or the VH110 serial pattern. Read the model on the unit before applying a notice.",
+    "also": [
+      "lasko-heaters",
+      "air-fryer-recalls"
+    ],
+    "more": [
+      {
+        "href": "/black-friday/levoit-air-purifiers/",
+        "label": "Levoit purifier model check"
+      },
+      {
+        "href": "/winter-safety/space-heaters/",
+        "label": "Space heater label check"
+      }
+    ],
+    "notices": [
+      {
+        "agency": "CPSC",
+        "date": "2026-06-04",
+        "product": "Vornado SRTH tower heaters",
+        "title": "Vornado Air Recalls SRTH Small Room Tower Heaters Due to Fire Hazard",
+        "url": "https://www.cpsc.gov/Recalls/2026/Vornado-Air-Recalls-SRTH-Small-Room-Tower-Heaters-Due-to-Fire-Hazard",
+        "hazard": "The notice says the fan blade can detach from the motor shaft, which can cause the fan to slow or stop, leading to overheating, melting, and a fire hazard if the thermal cutoff or fuse does not activate in time.",
+        "says": "The CPSC notice, recall number 26-532, says the recalled Vornado SRTH small room tower heaters were sold in black and white and measure about 12.5 inches high by 6 inches in diameter. It says they have two heat settings and a fan-only setting. It says TYPE SRTH is printed on the silver rating label on the bottom. It says about 255,000 units, and about eight were sold in Canada. It says Vornado has received 32 reports of overheating from fan displacement, including eight reports of fire and one report of smoke inhalation.",
+        "howToCheck": "The notice says TYPE SRTH is on the silver rating label on the bottom of the heater.",
+        "remedy": "The notice tells owners to stop using the heaters immediately and contact Vornado for instructions on submitting photos of the product and proof of destruction to receive a full refund.",
+        "modelsLabel": "Model line in the CPSC notice",
+        "models": [
+          "TYPE SRTH"
+        ]
+      },
+      {
+        "agency": "CPSC",
+        "date": "2025-01-16",
+        "product": "Vornado VH2 whole room heaters",
+        "title": "Vornado Air Recalls VH2 Whole Room Heaters Due to Electric Shock and Fire Hazards",
+        "url": "https://www.cpsc.gov/Recalls/2025/Vornado-Air-Recalls-VH2-Whole-Room-Heaters-Due-to-Electric-Shock-and-Fire-Hazards-Sold-Exclusively-on-Amazon-com",
+        "hazard": "The notice says the power cord can partially detach from the heater enclosure, which can lead to cord damage over time, posing electric shock and fire hazards.",
+        "says": "The CPSC notice, recall number 25-093, says the recall involves Vornado VH2 whole room heaters with a JUL24 or AUG24 date code and TYPE VH2 on the silver rating label on the underside. It says only those date codes are included. It says the heaters are off white, with thermostatic control, automatic or continuous fan operation, and two heat settings. It says about 7,780 units. It says no incidents were reported.",
+        "howToCheck": "The notice says TYPE VH2 and the JUL24 or AUG24 date code are on the silver rating label on the underside.",
+        "remedy": "The notice tells owners to stop using the recalled heaters and contact Vornado to confirm the unit is included and to receive instructions for a free replacement heater.",
+        "modelsLabel": "Model line in the CPSC notice",
+        "models": [
+          "TYPE VH2 with date code JUL24 or AUG24"
+        ]
+      },
+      {
+        "agency": "CPSC",
+        "date": "2014-08-14",
+        "product": "Vornado VH110 heaters",
+        "title": "Vornado Air Recalls Electric Space Heaters",
+        "url": "https://www.cpsc.gov/Recalls/2014/Vornado-Air-Recalls-Electric-Space-Heaters",
+        "hazard": "The notice says the heater can overheat and cause the units to melt, catch fire, and ignite nearby items, posing a fire and burn hazard.",
+        "says": "The CPSC notice, recall number 14-256, says this recall involves Vornado VH110 whole room vortex heaters in black and white. It says recalled heaters have the numbers 1 and 3 as the fourth and fifth digits of the serial number, on a silver decal on the bottom. It says the heaters measure about 10.5 inches high, 9 inches deep, and 10.5 inches at the base. It says about 79,000 units. It says Vornado has received 29 reports of units overheating and melting, including seven reports of heaters catching fire, one report of smoke inhalation, and one report of property damage from soot and smoke.",
+        "howToCheck": "The notice says the model and serial numbers are on a silver decal on the bottom, and that recalled units have 1 and 3 as the fourth and fifth serial digits.",
+        "remedy": "The notice tells owners to turn the heater off, unplug it, and contact Vornado for a free replacement unit, including free shipping.",
+        "modelsLabel": "Model line in the CPSC notice",
+        "models": [
+          "VH110 with serial digits 1 and 3 in the fourth and fifth places"
+        ]
+      },
+      {
+        "agency": "CPSC",
+        "date": "2011-02-08",
+        "product": "Lasko 5540 and Air King 8540",
+        "title": "Lasko Recalls Portable Electric Heaters Due To Fire Hazard",
+        "url": "https://www.cpsc.gov/Recalls/2011/Lasko-Recalls-Portable-Electric-Heaters-Due-To-Fire-Hazard",
+        "hazard": "The notice says an electrical connection in the base can overheat, causing it to melt and expose the electrical connection, posing a fire hazard.",
+        "says": "The CPSC notice, release 11-121, says the recall involves Lasko model 5540 and Air King model 8540 portable electric tower heaters manufactured in 2002, with date codes that begin with 2. It says heaters with date codes beginning with 3, 4, or 5 are not in this recall. It says the heaters are 20.5 inches tall, dark grey with silver front covers and black vent slats. It says about 107,500 units. It says Lasko received 36 reports of the connection overheating, with no reports of injury, and 18 reports of minor burn damage to floors or carpets. A note on the page says the firm’s recall hotline number has changed.",
+        "howToCheck": "The notice says the date code is a four-digit number on the label on the bottom of the unit, on the bottom left of the label, above the voltage number.",
+        "remedy": "The notice tells owners to stop using the heaters immediately and contact Lasko for a free replacement heater.",
+        "modelsLabel": "Model numbers in the CPSC notice",
+        "models": [
+          "Lasko 5540",
+          "Air King 8540"
+        ]
+      },
+      {
+        "agency": "CPSC",
+        "date": "2007-06-28",
+        "product": "Lasko ceramic heaters",
+        "title": "Ceramic Heaters Recalled By Lasko",
+        "url": "https://www.cpsc.gov/Recalls/2007/Ceramic-Heaters-Recalled-By-Lasko-Heaters-Could-Pose-A-Fire-Hazard",
+        "hazard": "The notice says the heater’s cord can overheat where it enters the base, which could pose a fire hazard.",
+        "says": "The CPSC notice, recall number 07-227, says the recall involves Lasko ceramic heaters manufactured in 2005, in the model numbers listed below. It says about 1.2 million units. It says Lasko has received 28 reports of failed power cords, including six reports of minor property damage, and that no injuries have been reported. A note on the page says the firm contact number and website changed.",
+        "howToCheck": "The notice says the model number is on the bottom of the unit or at the rear of the base.",
+        "remedy": "The notice tells owners to stop using the heaters immediately and contact Lasko for a free replacement heater.",
+        "modelsLabel": "Model numbers in the CPSC notice",
+        "models": [
+          "5132",
+          "5345",
+          "5362",
+          "5364",
+          "5420",
+          "5532",
+          "5534",
+          "5566"
+        ]
+      },
+      {
+        "agency": "CPSC",
+        "date": "2004-03-04",
+        "product": "Lasko 5500 and 5700",
+        "title": "CPSC, Lasko Products Inc. Announce Recall of Space Heaters",
+        "url": "https://www.cpsc.gov/Recalls/2004/CPSC-Lasko-Products-Inc-Announce-Recall-of-Space-Heaters-",
+        "hazard": "The notice says the power cord connection can overheat and cause the cord to separate from the heater, posing a fire, burn, and shock hazard.",
+        "says": "The CPSC notice, recall number 04-094, says two heaters are in this recall. It says model 5500 is an oscillating ceramic heater with dark grey vents and a bronze trim, and model 5700 is an oil-filled radiator. It says Lasko is printed near the top of both. It says 186,000 units. It says four consumers reported burned and detached power cords, and that no injuries were reported.",
+        "howToCheck": "The notice says the 5500 model number is on a label under the round base, and the 5700 model number is on a label on the side near the right front wheel.",
+        "remedy": "The notice tells owners to stop using the heaters, unplug them, and contact Lasko for instructions on returning the heater for a free replacement or a product of similar value.",
+        "modelsLabel": "Model numbers in the CPSC notice",
+        "models": [
+          "5500",
+          "5700"
+        ]
+      },
+      {
+        "agency": "Health Canada",
+        "date": "2026-10-29",
+        "product": "DREO space heaters",
+        "title": "DREO Space Heaters recalled due to fire and burn hazards",
+        "url": "https://recalls-rappels.canada.ca/en/alert-recall/dreo-space-heaters-recalled-due-fire-and-burn-hazards",
+        "hazard": "The notice says the recalled space heaters can overheat and ignite, posing fire and burn hazards.",
+        "says": "The Health Canada notice, updated 2026-10-29, identification RA-82854, says the recall involves DREO portable oscillating ceramic space heaters, model DR-HSH015. It says affected units were manufactured from April 2025 (2025/04) to January 2026 (2026/01). It says the heaters are black, about 29 cm wide by 33 cm tall, and include a remote control. It says 36,288 units were sold in Canada and 338,800 in the United States, from September 2025 to August 2026. It says that as of October 22, 2026, the company had received one reported incident and no reports of injury in Canada, and 16 reports of incidents with one report of injury in the United States. It says the notice is a joint recall with the CPSC. The Atom 316 card is a different model string.",
+        "howToCheck": "The notice says the model number and the manufacture date are on labels on the underside.",
+        "remedy": "The notice tells owners to stop using the recalled product immediately and contact DREO for a free replacement space heater.",
+        "modelsLabel": "Model number in the Health Canada notice",
+        "models": [
+          "DR-HSH015"
+        ]
+      },
+      {
+        "agency": "Health Canada",
+        "date": "2024-11-07",
+        "product": "GoveeLife and Govee smart heaters",
+        "title": "GoveeLife and Govee Smart Electric Space Heaters recalled due to fire hazard",
+        "url": "https://recalls-rappels.canada.ca/en/alert-recall/goveelife-and-govee-smart-electric-space-heaters-recalled-due-fire-hazard",
+        "hazard": "The notice says the products can overheat, posing fire and burn hazards.",
+        "says": "The Health Canada notice, updated 2024-11-07, identification RA-76452, says the recall involves GoveeLife and Govee smart electric space heaters in the model numbers listed below, including the H7130101 variation of H7130. It says the brand is on the front or side, the heaters were sold in black and white, and height runs from 9 inches to 26 inches depending on the model. It says approximately 48,584 units were sold in Canada. It also prints a United States count on the same page. It says that as of October 28, 2024, the company had received 7 reports of overheating in Canada and no report of injuries, and 106 reports of overheating and one report of a minor burn injury in the United States. It says the notice is a joint recall with the CPSC.",
+        "howToCheck": "The notice says the model number is on the manufacturer’s label on the underside of the unit.",
+        "remedy": "The notice tells owners to stop using the recalled heaters and register at the GoveeLife heater recall page for a refund.",
+        "modelsLabel": "Model numbers in the Health Canada notice",
+        "models": [
+          "H7130",
+          "H7130101",
+          "H7131",
+          "H7132",
+          "H7133",
+          "H7134",
+          "H7135"
+        ]
+      },
+      {
+        "agency": "CPSC",
+        "date": "2021-07-21",
+        "product": "One Stop Gardens tank-top propane heaters",
+        "title": "Harbor Freight Tools Recalls One Stop Gardens Tank Top Propane Heaters Due to Burn Hazard",
+        "url": "https://www.cpsc.gov/Recalls/2021/Harbor-Freight-Tools-Recalls-One-Stop-Gardens-15-000-and-30-000-BTU-Tank-Top-Propane-Heaters-Due-to-Burn-Hazard",
+        "hazard": "The notice says that in windy weather the flame can be directed to the rear and can melt the tip-switch safety shutoff, so the heater may not turn off if it tips over, posing a burn hazard.",
+        "says": "The CPSC notice, recall number 21-168, says this recall involves the One Stop Gardens 15,000 BTU tank-top propane heater, item 63073, and the 30,000 BTU heater, item 63072. It says the heaters mount on a standard 20 lb propane tank. It says about 350,000 units. It says the firm has received nine reports of flame redirection or a melted tip switch, and that three incidents resulted in minor burn injuries when consumers tried to turn the unit off. These item numbers are not the catalogue heater model numbers.",
+        "howToCheck": "The notice says item 63073 is on the hang tag of the 15,000 BTU heater and item 63072 is on the label of the 30,000 BTU heater.",
+        "remedy": "The notice tells owners to stop using the heaters and return them to a Harbor Freight Tools store for a refund of the purchase price, plus applicable tax, as a Harbor Freight Tools gift card. It says Harbor Freight is contacting known purchasers.",
+        "modelsLabel": "Item numbers in the CPSC notice",
+        "models": [
+          "63073",
+          "63072"
         ]
       }
     ]

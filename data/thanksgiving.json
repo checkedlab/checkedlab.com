@@ -117,6 +117,7 @@
         {"href": "/thanksgiving/kitchen-fires/", "label": "Kitchen fires"},
         {"href": "/thanksgiving/pressure-cookers/", "label": "Pressure cookers"},
         {"href": "/gifts/for-the-host/", "label": "Gifts for the host"},
+        {"href": "/recalls/air-fryer-recalls/", "label": "Air fryer recall list"},
         {"href": "/recalls/cosori-air-fryer-2023/", "label": "Cosori 2023 model list"},
         {"href": "/kitchen/", "label": "Kitchen catalogue"}
       ],
@@ -363,7 +364,8 @@
         {"href": "/thanksgiving/turkey-fryers/", "label": "Turkey fryers"},
         {"href": "/winter-safety/space-heaters/", "label": "Space heaters"},
         {"href": "/winter-safety/", "label": "Winter home safety"},
-        {"href": "/gifts/for-the-host/", "label": "Gifts for the host"}
+        {"href": "/gifts/for-the-host/", "label": "Gifts for the host"},
+        {"href": "/recalls/air-fryer-recalls/", "label": "Air fryer recall list"}
       ],
       "faqs": [
         {
