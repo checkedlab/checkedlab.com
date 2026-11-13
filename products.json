@@ -2312,7 +2312,7 @@
   },
   {
     "receipt": null,
-    "image": "/images/photos/cat-bed.webp",
+    "image": "/images/products/tempur-neck.webp",
     "asin": {
       "us": null,
       "ca": null
@@ -2397,11 +2397,20 @@
         "url": "https://www.tempurpedic.com/shop-pillows/tempur-neck-pillow/"
       }
     ],
-    "image_source": null,
-    "imageCredit": "Photo by Darya Grey_Owl on Pexels",
-    "imageLicense": "Pexels License",
-    "imageSource": "https://www.pexels.com/photo/18492337/",
-    "imageKind": "category"
+    "image_source": {
+      "kind": "flickr",
+      "width": 800,
+      "height": 600,
+      "src400": "/images/products/tempur-neck-400.webp",
+      "width400": 400
+    },
+    "imageCredit": "Photo: The Sleep Judge, CC BY 2.0, via Flickr",
+    "imageLicense": "CC BY 2.0",
+    "imageSource": "https://www.flickr.com/photos/152189565@N04/31792236718",
+    "imageKind": "model",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+    "imageMatch": "exact",
+    "imageShows": "Tempur-Neck Pillow"
   },
   {
     "receipt": null,
@@ -2601,7 +2610,7 @@
   },
   {
     "receipt": null,
-    "image": "/images/photos/cat-brush.webp",
+    "image": "/images/products/philips-hx3681.webp",
     "asin": {
       "us": "B09LD8VFS1",
       "ca": null
@@ -2677,11 +2686,20 @@
         "url": "https://www.usa.philips.com/c-p/HX3681_26/4100-series-sonic-electric-toothbrush"
       }
     ],
-    "image_source": null,
-    "imageCredit": "Photo by Towfiqu barbhuiya on Pexels",
-    "imageLicense": "Pexels License",
-    "imageSource": "https://www.pexels.com/photo/13466251/",
-    "imageKind": "category"
+    "image_source": {
+      "kind": "flickr",
+      "width": 800,
+      "height": 800,
+      "src400": "/images/products/philips-hx3681-400.webp",
+      "width400": 400
+    },
+    "imageCredit": "Photo: electricteeth, CC BY 2.0, via Flickr",
+    "imageLicense": "CC BY 2.0",
+    "imageSource": "https://www.flickr.com/photos/156498286@N05/41647157791",
+    "imageKind": "model",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+    "imageMatch": "exact",
+    "imageShows": "Philips Sonicare ProtectiveClean 4100"
   },
   {
     "receipt": null,
@@ -6420,7 +6438,7 @@
     "category": "car-garage",
     "receipt": null,
     "meta": "DCD771 • SPECS PER DEWALT",
-    "image": "/images/photos/cat-drill.webp",
+    "image": "/images/products/dewalt-dcd771.webp",
     "recallMatch": {
       "brand": [
         "dewalt"
@@ -6508,11 +6526,20 @@
         "url": "https://www.dewalt.com/en-us/product/dcd771c2/20v-max-compact-drilldriver-kit-2-batteries"
       }
     ],
-    "image_source": null,
-    "imageCredit": "Photo by Саша Алалыкин on Pexels",
-    "imageLicense": "Pexels License",
-    "imageSource": "https://www.pexels.com/photo/17419782/",
-    "imageKind": "category"
+    "image_source": {
+      "kind": "commons",
+      "width": 800,
+      "height": 827,
+      "src400": "/images/products/dewalt-dcd771-400.webp",
+      "width400": 400
+    },
+    "imageCredit": "Photo: TaurusEmerald, CC BY-SA 4.0, via Wikimedia Commons",
+    "imageLicense": "CC BY-SA 4.0",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:DeWalt_20_Volt_Max_Cordless_Drill.jpg",
+    "imageKind": "model",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "imageMatch": "same_line",
+    "imageShows": "DeWalt 20V MAX compact cordless drill"
   },
   {
     "id": "ctek-mxs-5",
@@ -7570,7 +7597,7 @@
     "category": "air-water",
     "receipt": null,
     "meta": "5500-2 • SPECS PER WINIX",
-    "image": "/images/photos/cat-purifier.webp",
+    "image": "/images/products/winix-5500-2.webp",
     "recallMatch": {
       "brand": [
         "winix"
@@ -7664,11 +7691,20 @@
         "url": "https://www.winixamerica.com/wp-content/uploads/2025/03/5500-2_User-Manual_V5-V3.pdf"
       }
     ],
-    "image_source": null,
-    "imageCredit": "Photo by Cats Coming on Pexels",
-    "imageLicense": "Pexels License",
-    "imageSource": "https://www.pexels.com/photo/2123430/",
-    "imageKind": "category"
+    "image_source": {
+      "kind": "commons",
+      "width": 800,
+      "height": 907,
+      "src400": "/images/products/winix-5500-2-400.webp",
+      "width400": 400
+    },
+    "imageCredit": "Photo: TaurusEmerald, CC BY-SA 4.0, via Wikimedia Commons",
+    "imageLicense": "CC BY-SA 4.0",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Winix_5500-2_Air_Purifier.jpg",
+    "imageKind": "model",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "imageMatch": "exact",
+    "imageShows": "Winix 5500-2"
   },
   {
     "id": "dremel-7760",
@@ -8089,7 +8125,7 @@
     "category": "pet",
     "receipt": null,
     "meta": "KONG CLASSIC • SPECS PER KONG",
-    "image": "/images/photos/hub-pet.webp",
+    "image": "/images/products/kong-classic.webp",
     "recallMatch": {
       "brand": [
         "kong"
@@ -8177,11 +8213,20 @@
         "url": "https://www.kongcompany.com/kong-classic/"
       }
     ],
-    "image_source": null,
-    "imageCredit": "Photo by Amar Preciado on Pexels",
-    "imageLicense": "Pexels License",
-    "imageSource": "https://www.pexels.com/photo/30070537/",
-    "imageKind": "category"
+    "image_source": {
+      "kind": "commons",
+      "width": 800,
+      "height": 1200,
+      "src400": "/images/products/kong-classic-400.webp",
+      "width400": 400
+    },
+    "imageCredit": "Photo: Hawkins, CC BY 2.0, via Wikimedia Commons",
+    "imageLicense": "CC BY 2.0",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Dog_with_red_kong.jpg",
+    "imageKind": "model",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "imageMatch": "same_line",
+    "imageShows": "KONG Classic dog toy (red), with dog"
   },
   {
     "id": "whisker-feeder-robot",
@@ -8890,7 +8935,7 @@
     "category": "sleep",
     "receipt": null,
     "meta": "LECTROFAN CLASSIC • SPECS PER ADAPTIVE SOUND TECHNOLOGIES",
-    "image": "/images/photos/hub-sleep.webp",
+    "image": "/images/products/lectrofan-classic.webp",
     "recallMatch": {
       "brand": [
         "lectrofan"
@@ -8986,11 +9031,20 @@
         "url": "https://www.soundofsleep.com/wp-content/uploads/2019/02/LectroFan-Classic-Owners-Manual.pdf"
       }
     ],
-    "image_source": null,
-    "imageCredit": "Photo by Ron Lach on Pexels",
-    "imageLicense": "Pexels License",
-    "imageSource": "https://www.pexels.com/photo/10554461/",
-    "imageKind": "category"
+    "image_source": {
+      "kind": "commons",
+      "width": 800,
+      "height": 652,
+      "src400": "/images/products/lectrofan-classic-400.webp",
+      "width400": 400
+    },
+    "imageCredit": "Photo: Morn, CC BY-SA 4.0, via Wikimedia Commons",
+    "imageLicense": "CC BY-SA 4.0",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:LectroFan_white_noise_machine.jpg",
+    "imageKind": "model",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "imageMatch": "exact",
+    "imageShows": "LectroFan white noise machine"
   },
   {
     "id": "steelcase-leap",
@@ -9498,7 +9552,7 @@
     "category": "personal-tech",
     "receipt": null,
     "meta": "IO SERIES 3 • SPECS PER ORAL-B",
-    "image": "/images/photos/cat-brush.webp",
+    "image": "/images/products/oral-b-io-3.webp",
     "recallMatch": {
       "brand": [
         "oral-b",
@@ -9587,11 +9641,20 @@
         "url": "https://oralb.com/en-us/products/oral-b-io-series-3-clean-protect-rechargeable-electric-toothbrush-matte-white/"
       }
     ],
-    "image_source": null,
-    "imageCredit": "Photo by Towfiqu barbhuiya on Pexels",
-    "imageLicense": "Pexels License",
-    "imageSource": "https://www.pexels.com/photo/13466251/",
-    "imageKind": "category"
+    "image_source": {
+      "kind": "flickr",
+      "width": 800,
+      "height": 800,
+      "src400": "/images/products/oral-b-io-3-400.webp",
+      "width400": 400
+    },
+    "imageCredit": "Photo: electricteeth, CC BY 2.0, via Flickr",
+    "imageLicense": "CC BY 2.0",
+    "imageSource": "https://www.flickr.com/photos/156498286@N05/52439391658",
+    "imageKind": "model",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+    "imageMatch": "exact",
+    "imageShows": "Oral-B iO Series 3"
   },
   {
     "id": "garmin-forerunner-265",
@@ -9599,7 +9662,7 @@
     "category": "personal-tech",
     "receipt": null,
     "meta": "FORERUNNER 265 • SPECS PER GARMIN",
-    "image": "/images/photos/cat-watch.webp",
+    "image": "/images/products/garmin-forerunner-265.webp",
     "recallMatch": {
       "brand": [
         "garmin"
@@ -9687,11 +9750,20 @@
         "url": "https://www.garmin.com/en-US/p/886785/"
       }
     ],
-    "image_source": null,
-    "imageCredit": "Photo by Mister Mister on Pexels",
-    "imageLicense": "Pexels License",
-    "imageSource": "https://www.pexels.com/photo/380782/",
-    "imageKind": "category"
+    "image_source": {
+      "kind": "commons",
+      "width": 800,
+      "height": 800,
+      "src400": "/images/products/garmin-forerunner-265-400.webp",
+      "width400": 400
+    },
+    "imageCredit": "Photo: 3r1ccc, CC0, via Wikimedia Commons",
+    "imageLicense": "CC0",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Forerunner_265.jpg",
+    "imageKind": "model",
+    "imageLicenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "imageMatch": "exact",
+    "imageShows": "Garmin Forerunner 265"
   },
   {
     "id": "jbl-charge-5",
@@ -9799,7 +9871,7 @@
     "category": "personal-tech",
     "receipt": null,
     "meta": "HERO13 • SPECS PER GOPRO",
-    "image": "/images/photos/cat-desk.webp",
+    "image": "/images/products/gopro-hero13.webp",
     "recallMatch": {
       "brand": [
         "gopro"
@@ -9888,11 +9960,20 @@
         "url": "https://gopro.com/en/us/shop/cameras/buy/hero13black/CHDHX-131-master.html"
       }
     ],
-    "image_source": null,
-    "imageCredit": "Photo by Helena Lopes on Pexels",
-    "imageLicense": "Pexels License",
-    "imageSource": "https://www.pexels.com/photo/7151696/",
-    "imageKind": "category"
+    "image_source": {
+      "kind": "commons",
+      "width": 800,
+      "height": 534,
+      "src400": "/images/products/gopro-hero13-400.webp",
+      "width400": 400
+    },
+    "imageCredit": "Photo: François de Dijon, CC BY-SA 4.0, via Wikimedia Commons",
+    "imageLicense": "CC BY-SA 4.0",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:GoPro_H%C3%A9ro_13_Black_-_01.jpg",
+    "imageKind": "model",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "imageMatch": "exact",
+    "imageShows": "GoPro HERO13 Black"
   },
   {
     "id": "shokz-openrun-pro-2",
@@ -9900,7 +9981,7 @@
     "category": "personal-tech",
     "receipt": null,
     "meta": "OPENRUN PRO 2 • SPECS PER SHOKZ",
-    "image": "/images/photos/cat-headphones.webp",
+    "image": "/images/products/shokz-openrun-pro-2.webp",
     "recallMatch": {
       "brand": [
         "shokz"
@@ -9988,11 +10069,20 @@
         "url": "https://shokz.com/pages/openrunpro2"
       }
     ],
-    "image_source": null,
-    "imageCredit": "Photo by Aleksandar Spasojevic on Pexels",
-    "imageLicense": "Pexels License",
-    "imageSource": "https://www.pexels.com/photo/210927/",
-    "imageKind": "category"
+    "image_source": {
+      "kind": "commons",
+      "width": 800,
+      "height": 450,
+      "src400": "/images/products/shokz-openrun-pro-2-400.webp",
+      "width400": 400
+    },
+    "imageCredit": "Photo: Kyu3a, CC BY-SA 4.0, via Wikimedia Commons",
+    "imageLicense": "CC BY-SA 4.0",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Shokz_OpenRun_Pro_2_-_1.jpg",
+    "imageKind": "model",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "imageMatch": "exact",
+    "imageShows": "Shokz OpenRun Pro 2"
   },
   {
     "id": "philips-oneblade-360",
@@ -10102,7 +10192,7 @@
     "category": "personal-tech",
     "receipt": null,
     "meta": "AIRPODS PRO 3 • SPECS PER APPLE",
-    "image": "/images/photos/cat-headphones.webp",
+    "image": "/images/products/airpods-pro-3.webp",
     "recallMatch": {
       "brand": [
         "apple"
@@ -10202,11 +10292,20 @@
         "url": "https://www.apple.com/airpods-pro/"
       }
     ],
-    "image_source": null,
-    "imageCredit": "Photo by Aleksandar Spasojevic on Pexels",
-    "imageLicense": "Pexels License",
-    "imageSource": "https://www.pexels.com/photo/210927/",
-    "imageKind": "category"
+    "image_source": {
+      "kind": "commons",
+      "width": 800,
+      "height": 440,
+      "src400": "/images/products/airpods-pro-3-400.webp",
+      "width400": 400
+    },
+    "imageCredit": "Photo: Burkhard Mücke, CC BY-SA 4.0, via Wikimedia Commons",
+    "imageLicense": "CC BY-SA 4.0",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:AirPods_Pro_3_in_wei%C3%9F.jpg",
+    "imageKind": "model",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "imageMatch": "exact",
+    "imageShows": "Apple AirPods Pro 3"
   },
   {
     "id": "anker-nano-30w",

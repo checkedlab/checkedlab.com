@@ -96,7 +96,7 @@
       if (title) title.textContent = q ? "Matches" : "Recently recall-checked";
       if (empty) empty.hidden = popular.length !== 0;
       paint(document.getElementById("popular-mount"), popular.map(function (product, index) {
-        return window.CheckedLabCard.card(product, reg, index < 6 ? { eager: true } : {});
+        return window.CheckedLabCard.card(product, reg, index === 0 ? { eager: true } : {});
       }).join(""), reg);
       paint(document.getElementById("recall-mount"), recalls.length
         ? recalls.map(function (product) { return window.CheckedLabCard.card(product, reg); }).join("")
@@ -125,7 +125,7 @@
       return;
     }
     paint(mount, shown.map(function (product, index) {
-      return window.CheckedLabCard.card(product, reg, index < 3 ? { eager: true } : {});
+      return window.CheckedLabCard.card(product, reg, index === 0 ? { eager: true } : {});
     }).join(""), reg);
   }
 

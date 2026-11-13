@@ -131,7 +131,7 @@
   },
   {
     "file": "/images/photos/cat-kettle.webp",
-    "credit": "Photo by H. H\u00fcm\u00e2 Yardim on Pexels",
+    "credit": "Photo by H. Hümâ Yardim on Pexels",
     "license": "Pexels License",
     "source": "https://www.pexels.com/photo/12974474/",
     "use": "Kettle category",
@@ -171,7 +171,7 @@
   },
   {
     "file": "/images/photos/cat-drill.webp",
-    "credit": "Photo by \u0421\u0430\u0448\u0430 \u0410\u043b\u0430\u043b\u044b\u043a\u0438\u043d on Pexels",
+    "credit": "Photo by Саша Алалыкин on Pexels",
     "license": "Pexels License",
     "source": "https://www.pexels.com/photo/17419782/",
     "use": "Drill and tool category",
@@ -251,7 +251,7 @@
   },
   {
     "file": "/images/photos/cat-humid.webp",
-    "credit": "Photo by Ph\u1ea1m Tu\u1ea5n H\u1ea3i on Pexels",
+    "credit": "Photo by Phạm Tuấn Hải on Pexels",
     "license": "Pexels License",
     "source": "https://www.pexels.com/photo/18507871/",
     "use": "Humidifier category",
@@ -381,7 +381,7 @@
   },
   {
     "file": "/images/photos/cat-stick.webp",
-    "credit": "Photo by Vedat \u00d6ncelik on Pexels",
+    "credit": "Photo by Vedat Öncelik on Pexels",
     "license": "Pexels License",
     "source": "https://www.pexels.com/photo/12167650/",
     "use": "Cordless stick vacuum category",
@@ -397,6 +397,116 @@
     "use": "Exact model photo",
     "width": 1400,
     "height": 933,
+    "kind": "commons"
+  },
+  {
+    "file": "/images/products/winix-5500-2.webp",
+    "credit": "Photo: TaurusEmerald, CC BY-SA 4.0, via Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Winix_5500-2_Air_Purifier.jpg",
+    "use": "Exact model photo",
+    "width": 800,
+    "height": 907,
+    "kind": "commons"
+  },
+  {
+    "file": "/images/products/lectrofan-classic.webp",
+    "credit": "Photo: Morn, CC BY-SA 4.0, via Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:LectroFan_white_noise_machine.jpg",
+    "use": "Exact model photo",
+    "width": 800,
+    "height": 652,
+    "kind": "commons"
+  },
+  {
+    "file": "/images/products/garmin-forerunner-265.webp",
+    "credit": "Photo: 3r1ccc, CC0, via Wikimedia Commons",
+    "license": "CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:Forerunner_265.jpg",
+    "use": "Exact model photo",
+    "width": 800,
+    "height": 800,
+    "kind": "commons"
+  },
+  {
+    "file": "/images/products/gopro-hero13.webp",
+    "credit": "Photo: François de Dijon, CC BY-SA 4.0, via Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:GoPro_H%C3%A9ro_13_Black_-_01.jpg",
+    "use": "Exact model photo",
+    "width": 800,
+    "height": 534,
+    "kind": "commons"
+  },
+  {
+    "file": "/images/products/shokz-openrun-pro-2.webp",
+    "credit": "Photo: Kyu3a, CC BY-SA 4.0, via Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Shokz_OpenRun_Pro_2_-_1.jpg",
+    "use": "Exact model photo",
+    "width": 800,
+    "height": 450,
+    "kind": "commons"
+  },
+  {
+    "file": "/images/products/airpods-pro-3.webp",
+    "credit": "Photo: Burkhard Mücke, CC BY-SA 4.0, via Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:AirPods_Pro_3_in_wei%C3%9F.jpg",
+    "use": "Exact model photo",
+    "width": 800,
+    "height": 440,
+    "kind": "commons"
+  },
+  {
+    "file": "/images/products/oral-b-io-3.webp",
+    "credit": "Photo: electricteeth, CC BY 2.0, via Flickr",
+    "license": "CC BY 2.0",
+    "source": "https://www.flickr.com/photos/156498286@N05/52439391658",
+    "use": "Exact model photo",
+    "width": 800,
+    "height": 800,
+    "kind": "flickr"
+  },
+  {
+    "file": "/images/products/tempur-neck.webp",
+    "credit": "Photo: The Sleep Judge, CC BY 2.0, via Flickr",
+    "license": "CC BY 2.0",
+    "source": "https://www.flickr.com/photos/152189565@N04/31792236718",
+    "use": "Exact model photo",
+    "width": 800,
+    "height": 600,
+    "kind": "flickr"
+  },
+  {
+    "file": "/images/products/philips-hx3681.webp",
+    "credit": "Photo: electricteeth, CC BY 2.0, via Flickr",
+    "license": "CC BY 2.0",
+    "source": "https://www.flickr.com/photos/156498286@N05/41647157791",
+    "use": "Exact model photo",
+    "width": 800,
+    "height": 800,
+    "kind": "flickr"
+  },
+  {
+    "file": "/images/products/kong-classic.webp",
+    "credit": "Photo: Hawkins, CC BY 2.0, via Wikimedia Commons",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Dog_with_red_kong.jpg",
+    "use": "Same-line photo · KONG Classic dog toy (red), with dog",
+    "width": 800,
+    "height": 1200,
+    "kind": "commons"
+  },
+  {
+    "file": "/images/products/dewalt-dcd771.webp",
+    "credit": "Photo: TaurusEmerald, CC BY-SA 4.0, via Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:DeWalt_20_Volt_Max_Cordless_Drill.jpg",
+    "use": "Same-line photo · DeWalt 20V MAX compact cordless drill",
+    "width": 800,
+    "height": 827,
     "kind": "commons"
   }
 ]
