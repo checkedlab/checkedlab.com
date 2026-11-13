@@ -5932,9 +5932,18 @@ function assertSocialAssets(dist) {
     "2026-11/ig/05-litter-cover.png",
     "2026-11/ig/05-litter-cta.png",
     "2026-11/ig/05-litter-table.png",
+    "2026-11/ig/06-airpods-cover.png",
+    "2026-11/ig/06-airpods-cta.png",
+    "2026-11/ig/06-airpods-table.png",
+    "2026-11/ig/07-vitamix-cover.png",
+    "2026-11/ig/07-vitamix-cta.png",
+    "2026-11/ig/07-vitamix-table.png",
+    "2026-11/captions-week2.md",
+    "2026-11/shorts/airpods-pro-3-vs-pro-2.mp4",
     "2026-11/shorts/black-friday-recall-check.mp4",
     "2026-11/shorts/dyson-v15-vs-v8.mp4",
-    "2026-11/shorts/sony-xm5-vs-bose-qc-ultra.mp4"
+    "2026-11/shorts/sony-xm5-vs-bose-qc-ultra.mp4",
+    "2026-11/shorts/vitamix-e310-vs-e320.mp4"
   ].sort();
   const dir = join(root, "social");
   const found = walkFiles(dir).map((file) => file.slice(dir.length + 1).split("\\").join("/")).sort();
