@@ -621,7 +621,7 @@
     "slug": "ispring-rcc7-vs-waterdrop-g3p600",
     "title": "iSpring RCC7 vs Waterdrop G3P600: which one to buy",
     "linkLabel": "RCC7 and G3P600 specs",
-    "description": "Stage count, daily gallons, and the certification line iSpring and Waterdrop print for the RCC7 and the G3P600.",
+    "description": "The RCC7 is a 5-stage system at 75 gallons a day, and the G3P600 is an 8-stage system at 600 gallons a day.",
     "hub": "air-water",
     "products": [
       "ispring-rcc7",
@@ -636,18 +636,18 @@
         "id": "ispring-rcc7",
         "heading": "Get the RCC7 if",
         "bullets": [
-          "You are matching a 5-stage system whose daily figure is 75 gallons.",
-          "The certification line you need is NSF/ANSI 58.",
-          "You want the membrane line that says down to 0.0001 microns."
+          "You want a 5-stage system that makes 75 gallons a day.",
+          "You want NSF/ANSI 58 certification.",
+          "You want a membrane down to 0.0001 microns."
         ]
       },
       {
         "id": "waterdrop-g3p600",
         "heading": "Get the G3P600 if",
         "bullets": [
-          "You are matching an 8-stage system and 600 gallons per day.",
-          "You need the 2:1 pure-to-drain line on the Waterdrop page.",
-          "The certification line you are reading names NSF/ANSI 42, 58, and 372."
+          "You want an 8-stage system that makes 600 gallons a day.",
+          "You want a 2:1 pure-to-drain ratio.",
+          "You want NSF/ANSI 42, 58, and 372 certification."
         ]
       }
     ],
@@ -693,7 +693,7 @@
     "slug": "levoit-core-300s-vs-300p",
     "title": "Levoit Core 300S-P vs Core 300-P: which one to buy",
     "linkLabel": "Core 300S-P and 300-P specs",
-    "description": "Power, noise, size, and weight as Levoit states them for the Core 300S-P and the Core 300-P.",
+    "description": "The 300S-P is 39 W and 7.48 lb, and the 300-P is 56 W and 7.9 lb, in the same cabinet.",
     "hub": "air-water",
     "products": [
       "levoit-core-300s-p",
@@ -707,18 +707,18 @@
         "id": "levoit-core-300s-p",
         "heading": "Get the Core 300S-P if",
         "bullets": [
-          "You are matching the catalogue model whose manual says 39 W and 7.48 lb.",
-          "The noise line you are reading is 22\u201354.5 dB.",
-          "You already have the Core 300S-P card and want that exact name on the box."
+          "You want the lower power draw, 39 W.",
+          "You want the lighter unit, at 7.48 lb.",
+          "You want a noise range of 22\u201354.5 dB."
         ]
       },
       {
         "id": "levoit-core-300-p",
         "heading": "Get the Core 300-P if",
         "bullets": [
-          "You are matching the sales page titled Core 300-P, rated 56 W and 7.9 lb.",
-          "The room line you need is 1066 ft2 at 1 air change, or 222 ft2 at 4.8.",
-          "You can live with a spec block that prints Model: Core 300 on a page titled 300-P."
+          "You want the 56 W unit, at 7.9 lb.",
+          "You want a noise range of 24\u201354.5 dB.",
+          "You want a room size of 1066 ft2 at one air change, or 222 ft2 at 4.8, and a 143 CFM CADR."
         ]
       }
     ],
@@ -816,7 +816,7 @@
     "slug": "bluedriver-vs-obdlink-mx-plus",
     "title": "BlueDriver vs OBDLink MX+: which scanner to buy",
     "linkLabel": "BlueDriver and MX+ specs",
-    "description": "Bluetooth and warranty lines BlueDriver and OBDLink print for the Pro scanner and the MX+.",
+    "description": "BlueDriver connects to iOS and Android, and the MX+ adds a 3-year warranty.",
     "hub": "car-garage",
     "products": [
       "bluedriver",
@@ -834,18 +834,17 @@
         "id": "bluedriver",
         "heading": "Get the BlueDriver if",
         "bullets": [
-          "You want the scanner whose page says Bluetooth to iOS and Android, and a phone app.",
-          "The warranty line you are matching is the 1-year limited warranty on the BlueDriver terms.",
-          "You care about the enhanced-diagnostics list the BlueDriver page prints for named makes."
+          "You want Bluetooth to iOS and Android.",
+          "A 1-year limited warranty is enough."
         ]
       },
       {
         "id": "obdlink-mx-plus",
         "heading": "Get the MX+ if",
         "bullets": [
-          "You want Class 2 Bluetooth v3.0 and apps for iOS, Android, and Windows.",
-          "The warranty line you are matching is 3 years, with a 180-day money-back guarantee.",
-          "You need the page that names SW-CAN and MS-CAN in addition to legislated OBD-II protocols."
+          "You want Class 2 Bluetooth v3.0.",
+          "You want a 3-year warranty and a 180-day money-back guarantee.",
+          "You need SW-CAN and MS-CAN."
         ]
       }
     ],
@@ -899,7 +898,7 @@
     "slug": "herman-miller-aeron-vs-steelcase-leap",
     "title": "Herman Miller Aeron vs Steelcase Leap: which chair to buy",
     "linkLabel": "Aeron and Leap specs",
-    "description": "Seat height, chair weight, weight limit, and warranty as Herman Miller and Steelcase print them for Aeron and Leap.",
+    "description": "Aeron comes in three sizes with limits of 300, 350, and 400 lb, and Leap is one chair with a 400 lb limit.",
     "hub": "sleep",
     "products": [
       "herman-miller-aeron",
@@ -917,18 +916,18 @@
         "id": "herman-miller-aeron",
         "heading": "Get the Aeron if",
         "bullets": [
-          "You are choosing among sizes A, B, and C, with a different weight limit on each size.",
-          "You want the pellicle chair: 8Z Pellicle, PostureFit SL, and Harmonic 2 tilt, as the Herman Miller page names them.",
-          "The warranty line you are matching is the 12-year warranty on the Herman Miller store page."
+          "You want size A, B, or C, with a limit of 300, 350, or 400 lb.",
+          "You want the lighter chair, from 40 lb to 43 lb by size.",
+          "You want the 8Z Pellicle seat, adjustable PostureFit SL, and Harmonic 2 tilt."
         ]
       },
       {
         "id": "steelcase-leap",
         "heading": "Get the Leap if",
         "bullets": [
-          "You are matching one work chair at 46.7 lb with a seat height of 15.5 to 20.5 in.",
-          "The limit you are matching is the Leap page\u2019s line of up to 400 lb.",
-          "You want the warranty sentence that says 12 years, multi-shift, parts and labor."
+          "You want one chair at 46.7 lb, with a seat height of 15.5 to 20.5 in.",
+          "You want a 400 lb weight limit.",
+          "You want a 12-year limited warranty on parts and labor."
         ]
       }
     ],
@@ -993,7 +992,7 @@
     "slug": "vitamix-e310-vs-e320",
     "title": "Vitamix E310 vs E320: which one to buy",
     "linkLabel": "E310 and E320 specs",
-    "description": "Motor, container, size, weight, and warranty as Vitamix states them for the Explorian E310 and E320.",
+    "description": "The E310 is a 48 oz jar with a 5-year full warranty, and the E320 is a 64 oz jar with a 7-year limited warranty.",
     "hub": "kitchen",
     "products": [
       "vitamix-e310",
@@ -1011,18 +1010,18 @@
         "id": "vitamix-e310",
         "heading": "Get the E310 if",
         "bullets": [
-          "You are matching the 2 HP motor and the 48 oz container on the E310 card.",
-          "The warranty line you need is the 5-year full warranty Vitamix states for the E310.",
-          "You want the Explorian that this catalogue already has a model page for."
+          "You blend for one or two and want a smaller 48 oz jar.",
+          "You want the 2 HP motor.",
+          "You want the 5-year full warranty."
         ]
       },
       {
         "id": "vitamix-e320",
         "heading": "Get the E320 if",
         "bullets": [
-          "You are matching the 2.2 HP motor and the 64-ounce container on the E320 page.",
-          "The warranty line you need is the 7-year limited warranty on that page.",
-          "Ten variable speeds and the pulse feature, as the E320 page describes them, are what you are buying."
+          "You make big family batches and want the 64 oz jar.",
+          "You want the 2.2 HP motor.",
+          "You want the longer 7-year limited warranty."
         ]
       }
     ],
@@ -1120,7 +1119,7 @@
     "slug": "ninja-creami-nc301-vs-deluxe-nc501",
     "title": "Ninja CREAMi NC301 vs Deluxe NC501: which to buy",
     "linkLabel": "NC301 and NC501 specs",
-    "description": "Programs, pints, care, and warranty as Ninja states them for the CREAMi NC301 and the Deluxe NC501.",
+    "description": "The NC301 uses 16 oz pints and 7 programs, and the NC501 uses 24 oz tubs and more programs.",
     "hub": "kitchen",
     "products": [
       "ninja-creami-nc301",
@@ -1139,18 +1138,17 @@
         "id": "ninja-creami-nc301",
         "heading": "Get the NC301 if",
         "bullets": [
-          "You are matching 7 preset programs and two 16 oz pints.",
-          "The care line you need says the containers, lids, and paddle are dishwasher safe.",
-          "A one-year limited warranty, as the NC301 page states it, is enough."
+          "You want the smaller 16 oz pints.",
+          "You want 7 preset programs."
         ]
       },
       {
         "id": "ninja-creami-nc501",
         "heading": "Get the NC501 if",
         "bullets": [
-          "You are matching the XL Deluxe, with two 24 oz tubs.",
-          "You have read both program counts on that page: 11 one-touch programs in the box list, and 12 in the spec table.",
-          "The size you are matching is the page\u2019s 15.43 lb machine, 18.9 by 10.04 by 19.88 in."
+          "You want the larger 24 oz tubs.",
+          "You want more programs, and Ninja lists both 11 and 12.",
+          "You have room for 15.43 lb and a cabinet of 18.9 by 10.04 by 19.88 in."
         ]
       }
     ],
@@ -1248,7 +1246,7 @@
     "slug": "litter-robot-4-vs-5",
     "title": "Litter-Robot 4 vs Litter-Robot 5: which one to buy",
     "linkLabel": "Litter-Robot 4 and 5 specs",
-    "description": "Power, size, weight, and household lines Whisker states for Litter-Robot 4 and Litter-Robot 5.",
+    "description": "The Litter-Robot 4 is the lighter one, for up to 4 cats, and the 5 is for up to 5 cats.",
     "hub": "pet",
     "products": [
       "litter-robot-4",
@@ -1262,18 +1260,18 @@
         "id": "litter-robot-4",
         "heading": "Get the Litter-Robot 4 if",
         "bullets": [
-          "You are matching the 24 lb empty weight and the up-to-8-day waste line.",
-          "The household line you need says up to 4 cats.",
-          "You want the model that already has a catalogue card."
+          "You want the lighter unit, at 24 lb empty.",
+          "You have up to 4 cats.",
+          "Up to 8 days before emptying the drawer, for one cat, is enough."
         ]
       },
       {
         "id": "litter-robot-5",
         "heading": "Get the Litter-Robot 5 if",
         "bullets": [
-          "You are matching the sales-page height of 29.9 in and the empty weight of 28.7 lb.",
-          "The household line you need says up to 5 cats, and the waste line says up to 10 days for one cat.",
-          "You have also read the manual, which prints 29.50 in assembled and 28.7 to 29.6 lb."
+          "You have up to 5 cats.",
+          "You want up to 10 days before emptying the drawer for one cat.",
+          "You can fit 29.9 in of height and 28.7 lb empty, or the manual figure of 29.50 in and 28.7\u201329.6 lb."
         ]
       }
     ],
@@ -1377,7 +1375,7 @@
     "slug": "fellow-stagg-ekg-vs-ekg-pro",
     "title": "Fellow Stagg EKG vs EKG Pro: which kettle to buy",
     "linkLabel": "Stagg EKG and EKG Pro specs",
-    "description": "Power, temperature, hold, and capacity as Fellow states them for the Stagg EKG card and the EKG Pro.",
+    "description": "The Stagg EKG comes in 0.9 L and 1.5 L at 1200 W, and the Pro is a 0.9 L kettle with a timed hold.",
     "hub": "kitchen",
     "products": [
       "fellow-stagg-ekg",
@@ -1391,18 +1389,18 @@
         "id": "fellow-stagg-ekg",
         "heading": "Get the Stagg EKG if",
         "bullets": [
-          "You are matching the catalogue card: 1200 W, and both a 0.9 L and a 1.5 L size.",
-          "The hold line you need is the one that says it keeps the set temperature while you pour.",
-          "You want the kettle that already has a model page."
+          "You want a choice of 0.9 L or 1.5 L.",
+          "You want 1200 W and to-the-degree temperature control.",
+          "You want it to hold the set temperature while you pour."
         ]
       },
       {
         "id": "fellow-stagg-ekg-pro",
         "heading": "Get the EKG Pro if",
         "bullets": [
-          "You are matching the Pro details: 0.9 L, 1000\u20131200 W, and 104\u00b0F to 212\u00b0F.",
-          "You want schedule, a brew stopwatch, and a hold you can set to 15, 30, 45, or 60 minutes.",
-          "The warranty line you are reading is Fellow\u2019s 2-year warranty, with an option to extend."
+          "You want the 0.9 L kettle, from 1000\u20131200 W.",
+          "You want to set the temperature from 104\u00b0F to 212\u00b0F.",
+          "You want a hold of 15, 30, 45, or 60 minutes, and a 2-year warranty you can extend."
         ]
       }
     ],
@@ -1494,7 +1492,7 @@
     "slug": "airpods-pro-3-vs-airpods-pro-2",
     "title": "AirPods Pro 3 vs AirPods Pro 2: which to buy",
     "linkLabel": "AirPods Pro 3 and Pro 2 specs",
-    "description": "Listening time, hearing features, and the resistance mark Apple states for AirPods Pro 3 and AirPods Pro 2.",
+    "description": "The Pro 3 listens for up to 8 hours and tracks heart rate, and the Pro 2 listens for up to 6 hours.",
     "hub": "personal-tech",
     "products": [
       "airpods-pro-3",
@@ -1508,18 +1506,18 @@
         "id": "airpods-pro-3",
         "heading": "Get the Pro 3 if",
         "bullets": [
-          "You are matching up to 8 hours of listening with Active Noise Cancellation.",
-          "You want the heart-rate sensor and the IP57 mark on the Pro 3 page.",
-          "The US shop page you open for a new pair is the Pro 3 page."
+          "You want heart-rate tracking and up to 8 hours with Active Noise Cancellation.",
+          "You want an IP57 rating.",
+          "You want up to 10 hours with the Hearing Aid feature."
         ]
       },
       {
         "id": "airpods-pro-2",
         "heading": "Get the Pro 2 if",
         "bullets": [
-          "You are matching up to 6 hours of listening on a single charge, on the USB-C tech specs.",
-          "IP54, the H2 chip, and up to 30 hours with the case are the lines you need.",
-          "A refurbished USB-C pair on Apple\u2019s US store is the listing you mean, not a new Pro 3."
+          "You want up to 6 hours on a charge and up to 30 hours with the case.",
+          "You want the H2 chip and an IP54 rating.",
+          "You want a refurbished USB-C pair from Apple."
         ]
       }
     ],

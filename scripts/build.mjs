@@ -1440,10 +1440,22 @@ function compareBodyWords(entry) {
   return chunks.join(" ").split(/\s+/).filter(Boolean).length;
 }
 
+function assertBuyerVerdict(entry) {
+  if (!entry.verdict) return;
+  const siteVoice = /\b(cards?|catalogues?|catalogs?|pages?|matching)\b/i;
+  const intro = String(entry.description || "").split(/(?<=\.)\s/)[0];
+  if (siteVoice.test(intro)) throw new Error("Compare intro talks about the site: " + entry.slug);
+  for (const item of entry.verdict) {
+    const text = [item.heading, ...(item.bullets || [])].join(" ");
+    if (siteVoice.test(text)) throw new Error("Verdict talks about the site: " + entry.slug);
+  }
+}
+
 function writeCompares() {
   if (compares.length !== 35) throw new Error("Expected thirty-five compare pages");
   for (const entry of compares) {
     if (!/^[a-z0-9-]+$/.test(entry.slug)) throw new Error("Bad compare slug");
+    assertBuyerVerdict(entry);
     const pair = entry.products.map((id) => resolveCompareSide(entry, id));
     if (entry.verdict && entry.verdict.length !== 2) throw new Error("Verdict needs two sides: " + entry.slug);
     const rows = sharedSpecRows(pair[0], pair[1]);
