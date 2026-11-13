@@ -2016,14 +2016,17 @@ function bestStores(product) {
 
 function bestCard(product, pick, opts) {
   const href = card.productPath(product);
+  const media = card.visual(product, Object.assign({ noCredit: true, genericUnlessExact: true }, opts || {}));
+  const tiled = media.includes('class="spec-tile"');
+  const label = pick.bestFor ? '<p class="pick-if">' + card.esc(pick.bestFor) + "</p>" : "";
   return '<article class="product-grid hub-card" id="' + card.esc(product.id) + '">' +
-    '<div class="pick-media">' + card.visual(product, opts || {}) + "</div>" +
+    '<div class="pick-media">' + media + "</div>" +
     '<div class="p-main">' +
-    '<p class="pick-if">' + card.esc(pick.bestFor) + "</p>" +
+    label +
     '<span class="only-us">' + card.badgeHtml(card.recallFor(product, "US")) + "</span>" +
     '<span class="only-ca">' + card.badgeHtml(card.recallFor(product, "CA")) + "</span>" +
     card.noteBadge(product) +
-    '<h2 class="p-title"><a href="' + href + '">' + card.visibleTitle(product.title) + "</a></h2>" +
+    '<h2 class="p-title' + (tiled ? " visually-hidden" : "") + '"><a href="' + href + '">' + card.visibleTitle(product.title) + "</a></h2>" +
     bestSpecItems(product, pick.specs) +
     bestRecall(product) +
     '<p><a class="hub-more" href="' + href + '">Model page</a></p>' +
@@ -2180,9 +2183,23 @@ function assertBestDoc() {
       ids.add(pick.id);
       const product = products.find((item) => item.id === pick.id);
       if (!product) throw new Error("Best pick is not in the catalogue: " + pick.id);
-      if (!pick.bestFor.startsWith("Best for ")) throw new Error("Best label on " + pick.id);
-      if (labels.has(pick.bestFor)) throw new Error("Repeated label on " + type.slug);
-      labels.add(pick.bestFor);
+      const bestFor = pick.bestFor || "";
+      if (bestFor) {
+        if (!bestFor.startsWith("Best for ")) throw new Error("Best label on " + pick.id);
+        if (labels.has(bestFor)) throw new Error("Repeated label on " + type.slug);
+        if (/\b\d+(?:\.\d+)?\s*lb\b/i.test(bestFor)) throw new Error("Weight trivia label on " + pick.id);
+        labels.add(bestFor);
+        const sourced = pick.because + " " + pick.specs.map((label) => {
+          const spec = (product.specs || []).find((item) => item.label === label);
+          return spec ? spec.value : "";
+        }).join(" ");
+        for (const num of bestFor.match(/\d[\d,.]*/g) || []) {
+          const plain = num.replace(/,/g, "");
+          if (!sourced.includes(num) && !sourced.replace(/,/g, "").includes(plain)) {
+            throw new Error("Best label number is not in the sourced specs on " + pick.id + ": " + num);
+          }
+        }
+      }
       if (COPY_BAN.test(pick.bestFor + " " + pick.because)) throw new Error("Best copy ban on " + pick.id);
       for (const label of pick.specs) {
         const spec = (product.specs || []).find((item) => item.label === label);
@@ -2231,9 +2248,9 @@ function writeBestPage(type) {
 <link rel="canonical" href="${url}">
 <script src="/assets/region-boot.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>${card.esc(type.title)} — Checked Lab</title>
+<title>${card.esc(type.title)} | Checked Lab</title>
 <meta name="description" content="${card.esc(type.description)}">
-<meta property="og:title" content="${card.esc(type.title)} — Checked Lab">
+<meta property="og:title" content="${card.esc(type.title)} | Checked Lab">
 <meta property="og:description" content="${card.esc(type.description)}">
 <meta property="og:type" content="article">
 <meta property="og:url" content="${url}">
@@ -2262,7 +2279,7 @@ ${DISCLOSURE}
 <p class="sub">${card.esc(type.description)}</p>
 ${cards}
 <nav class="toc" aria-label="Jump to"><p>Jump to</p><a href="#how-we-picked">How we picked</a><a href="#what-to-look-for">What to look for</a><a href="#questions">Questions</a></nav>
-${productFold("how-we-picked", "How we picked", bestMethodHtml() + type.how.map((paragraph) => "<p>" + card.esc(paragraph) + "</p>").join("") + why + (also ? "<h3>Also in the catalogue</h3>" + also : "") + bestRelatedHtml(ids))}
+${productFold("how-we-picked", "How we picked", bestMethodHtml() + type.how.map((paragraph) => "<p>" + card.esc(paragraph) + "</p>").join("") + why + (also ? "<h3>Also listed</h3>" + also : "") + bestRelatedHtml(ids))}
 ${productFold("what-to-look-for", "What to look for", checklist)}
 <section class="faq" id="questions">
 <h2>Questions</h2>
@@ -2292,7 +2309,7 @@ ${faqs}
 function writeBestIndex() {
   const types = bestTypes();
   const items = types.map((type) =>
-    "<li><a href=\"" + bestPagePath(type) + "\">" + card.esc(type.title) + "</a>. " +
+    "<li><a href=\"" + bestPagePath(type) + "\">" + card.esc(type.h1) + "</a>. " +
     card.esc(type.description) + "</li>"
   ).join("");
   const faqs = bestDoc.faqs.map((item) =>
@@ -2306,9 +2323,9 @@ function writeBestIndex() {
 <link rel="canonical" href="${url}">
 <script src="/assets/region-boot.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>${card.esc(bestDoc.title)} — Checked Lab</title>
+<title>${card.esc(bestDoc.title)} | Checked Lab</title>
 <meta name="description" content="${card.esc(bestDoc.description)}">
-<meta property="og:title" content="${card.esc(bestDoc.title)} — Checked Lab">
+<meta property="og:title" content="${card.esc(bestDoc.title)} | Checked Lab">
 <meta property="og:description" content="${card.esc(bestDoc.description)}">
 <meta property="og:type" content="website">
 <meta property="og:url" content="${url}">
@@ -2371,6 +2388,9 @@ function assertBestPages() {
   if (!index.includes('"@type": "FAQPage"') || !index.includes('"@type": "BreadcrumbList"') || !index.includes('"@type": "ItemList"')) {
     throw new Error("Best index schema missing");
   }
+  if (!index.includes("<h1>The Best Buyer Guides for 2026</h1>")) throw new Error("Best index H1");
+  if (!index.includes("<title>Best Buyer Guides 2026 (US &amp; Canada) | Checked Lab</title>")) throw new Error("Best index title");
+  if (/\bfrom the catalogue\b|\bin this catalogue\b/i.test(index)) throw new Error("Best index still uses catalogue voice");
   for (const type of bestTypes()) {
     const html = readFileSync(join(root, "best", type.slug, "index.html"), "utf8");
     if (!html.includes('href="/best/"')) throw new Error("Best crumb missing on " + type.slug);
@@ -2378,7 +2398,31 @@ function assertBestPages() {
     for (const pick of type.picks) {
       const product = products.find((item) => item.id === pick.id);
       if (!html.includes('href="' + card.productPath(product) + '"')) throw new Error("Best page misses " + pick.id);
-      if (!html.includes(card.esc(pick.bestFor))) throw new Error("Best label missing on " + pick.id);
+      if (pick.bestFor && !html.includes(card.esc(pick.bestFor))) throw new Error("Best label missing on " + pick.id);
+      if (!pick.bestFor && html.includes('id="' + pick.id + '"><')) {
+        const article = html.slice(html.indexOf('id="' + pick.id + '"'));
+        const end = article.indexOf("</article>");
+        if (article.slice(0, end).includes('class="pick-if"')) throw new Error("Empty Best label still rendered on " + pick.id);
+      }
+    }
+    if (/figcaption|img-credit/i.test(html)) throw new Error("Best card shows a photo credit: " + type.slug);
+    if (/\bfrom the catalogue\b|\bin this catalogue\b/i.test(html)) {
+      throw new Error("Best page still says catalogue in the intro voice: " + type.slug);
+    }
+    const articles = html.match(/<article class="product-grid[\s\S]*?<\/article>/g) || [];
+    for (const article of articles) {
+      const id = (article.match(/\bid="([^"]+)"/) || [])[1];
+      const product = products.find((item) => item.id === id);
+      if (!product) continue;
+      if (article.includes('class="spec-tile"')) {
+        if (!article.includes('class="p-title visually-hidden"')) throw new Error("Spec tile repeats the title on " + id);
+      } else if (article.includes('class="p-photo"')) {
+        if (article.includes("visually-hidden")) throw new Error("Photo card hid the title on " + id);
+        const alt = (article.match(/\balt="([^"]*)"/) || [])[1] || "";
+        if (product.imageMatch !== "exact" && alt === card.esc(product.title)) {
+          throw new Error("Photo alt names the model on " + id);
+        }
+      }
     }
     const data = JSON.parse(html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]);
     assertNoCommerce(data);
@@ -5199,6 +5243,7 @@ function applyCategoryHub(html, hub) {
 }
 
 function hoistCatalogue(html) {
+  if (html.includes('id="related-checks"')) return html;
   const guideRe = /<!-- checkedlab:guide start -->[\s\S]*?<!-- checkedlab:guide end -->/;
   const mountRe = /<div id="product-mount"[\s\S]*?\n<\/div>/;
   const guide = html.match(guideRe);
