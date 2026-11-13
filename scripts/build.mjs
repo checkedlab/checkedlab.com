@@ -16,7 +16,7 @@ const FOOTER = `<footer>
 <div class="foot">
 <p><strong>Affiliate disclosure.</strong> As an Amazon Associate I earn from qualifying purchases. Other store links earn us nothing.</p>
 <p>© 2026 Checked Lab<br>Winnipeg, MB</p>
-<p class="foot-mail"><a href="/thanksgiving/">Thanksgiving</a><a href="/toy-safety/">Toy safety</a><a href="/winter-safety/">Winter safety</a><a href="/gifts/">Gift guides</a><a href="/black-friday/">Black Friday</a><a href="/compare/">Spec comparisons</a><a href="/recalls/">Recall checks</a><a href="/how-we-check/">How we check</a><a href="/bin-list/">BIN list</a><a href="/photo-credits/">Photo credits</a><a href="mailto:hello@checkedlab.com">hello@</a><a href="mailto:support@checkedlab.com">support@</a><a href="mailto:press@checkedlab.com">press@</a><a href="mailto:legal@checkedlab.com">legal@</a></p>
+<p class="foot-mail"><a href="/thanksgiving/">Thanksgiving</a><a href="/toy-safety/">Toy safety</a><a href="/winter-safety/">Winter safety</a><a href="/gifts/">Gift guides</a><a href="/best/">Best of</a><a href="/black-friday/">Black Friday</a><a href="/compare/">Spec comparisons</a><a href="/recalls/">Recall checks</a><a href="/how-we-check/">How we check</a><a href="/bin-list/">BIN list</a><a href="/photo-credits/">Photo credits</a><a href="mailto:hello@checkedlab.com">hello@</a><a href="mailto:support@checkedlab.com">support@</a><a href="mailto:press@checkedlab.com">press@</a><a href="mailto:legal@checkedlab.com">legal@</a></p>
 </div>
 </footer>`;
 const BIN_EMPTY = '<p class="empty">Nothing is on the BIN list. A product lands here only when a recall record matches its brand and model. An unconfirmed model is not a BIN.</p>';
@@ -159,7 +159,7 @@ const GIFT_PATH = "/gifts/";
 const WINTER_PATH = "/winter-safety/";
 const TOY_PATH = "/toy-safety/";
 const THANKS_PATH = "/thanksgiving/";
-const SEASON_FOOT = '<p class="foot-mail"><a href="/thanksgiving/">Thanksgiving</a><a href="/toy-safety/">Toy safety</a><a href="/winter-safety/">Winter safety</a><a href="/gifts/">Gift guides</a><a href="/black-friday/">Black Friday</a><a href="/compare/">Spec comparisons</a><a href="/recalls/">Recall checks</a><a href="/how-we-check/">How we check</a><a href="/bin-list/">BIN list</a><a href="mailto:hello@checkedlab.com">hello@</a><a href="mailto:support@checkedlab.com">support@</a><a href="mailto:press@checkedlab.com">press@</a><a href="mailto:legal@checkedlab.com">legal@</a></p>';
+const SEASON_FOOT = '<p class="foot-mail"><a href="/thanksgiving/">Thanksgiving</a><a href="/toy-safety/">Toy safety</a><a href="/winter-safety/">Winter safety</a><a href="/gifts/">Gift guides</a><a href="/best/">Best of</a><a href="/black-friday/">Black Friday</a><a href="/compare/">Spec comparisons</a><a href="/recalls/">Recall checks</a><a href="/how-we-check/">How we check</a><a href="/bin-list/">BIN list</a><a href="mailto:hello@checkedlab.com">hello@</a><a href="mailto:support@checkedlab.com">support@</a><a href="mailto:press@checkedlab.com">press@</a><a href="mailto:legal@checkedlab.com">legal@</a></p>';
 const TOY_HOSTS = new Set(["cpsc.gov", "saferproducts.gov", "recalls-rappels.canada.ca", "canada.ca", "shopulstandards.com"]);
 const THANKS_HOSTS = new Set(["fsis.usda.gov", "usda.gov", "nfpa.org", "usfa.fema.gov"]);
 const CPSC_SEARCH = "https://www.cpsc.gov/Recalls";
@@ -199,6 +199,7 @@ const winterDoc = JSON.parse(readFileSync(join(root, "data", "winter-safety.json
 const toyDoc = JSON.parse(readFileSync(join(root, "data", "toy-safety.json"), "utf8"));
 const thanksDoc = JSON.parse(readFileSync(join(root, "data", "thanksgiving.json"), "utf8"));
 const hubGuides = JSON.parse(readFileSync(join(root, "data", "hub-guides.json"), "utf8"));
+const bestDoc = JSON.parse(readFileSync(join(root, "data", "best.json"), "utf8"));
 const hubWordCounts = {};
 const GUIDE_START = "<!-- checkedlab:guide start -->";
 const GUIDE_END = "<!-- checkedlab:guide end -->";
@@ -240,6 +241,7 @@ for (const hub of HUBS) {
     const end = html.indexOf("</p>", at);
     html = html.slice(0, end) + ' <a href="' + href + '">' + card.esc(entry.linkLabel) + "</a>" + html.slice(end);
   }
+  html = appendBestLinks(html, "Recall checks</a> for " + card.esc(HUB_NAME[hub]) + " models.", byHub.get(hub).map((product) => product.id));
   if (hub === "winter" && !html.includes('href="/winter-safety/"')) {
     const needle = "Recall checks</a> for Winter models.";
     const at = html.indexOf(needle);
@@ -322,6 +324,7 @@ writeEditorial();
 writeRecallFeed(ordered);
 writeBlackFriday();
 writeGifts();
+writeBest();
 writeWinterSafety();
 writeToySafety();
 writeThanksgiving();
@@ -606,6 +609,7 @@ function siblingLinks(product) {
       return '<a href="/compare/' + entry.slug + '/">Compare with ' + card.esc(other.model || other.title) + "</a>";
     }),
     ...editorialLinksForProduct(product),
+    ...bestTypesForIds([product.id]).map(bestAnchor),
     ...winterGuideLinks(product),
     ...thanksGuideLinks(product),
     ...picks.map((item) => '<a href="' + card.productPath(item) + '">' + card.esc(item.title) + "</a>")
@@ -830,6 +834,7 @@ function mastheadHtml(current) {
     '<div class="nav-panel" id="site-nav" data-nav-panel>\n<nav class="primary-nav" aria-label="Primary">\n' +
     '<a href="/recalls/"' + mark("recalls") + ">Recall checks</a>\n" +
     '<a href="/gifts/"' + mark("gifts") + ">Gift guides</a>\n" +
+    '<a href="/best/"' + mark("best") + ">Best of</a>\n" +
     '<a href="/black-friday/"' + mark("black-friday") + ">Black Friday</a>\n" +
     '<details class="cat-menu">\n<summary>Categories</summary>\n<div class="cat-panel">' + cats + "</div>\n</details>\n" +
     '<a href="/how-we-check/"' + mark("how") + ">How we check</a>\n" +
@@ -853,6 +858,7 @@ function inferCurrent(html) {
   if (path.startsWith("/bin-list")) return "bin";
   if (path.startsWith("/recalls")) return "recalls";
   if (path.startsWith("/gifts")) return "gifts";
+  if (path.startsWith("/best")) return "best";
   if (path.startsWith("/black-friday")) return "black-friday";
   if (path.startsWith("/thanksgiving")) return "thanksgiving";
   if (path.startsWith("/toy-safety")) return "toy-safety";
@@ -1835,7 +1841,7 @@ ${sceneBlock("compare")}
 ${picks}
 <nav class="toc" aria-label="Jump to"><p>Jump to</p><a href="#read-lines">The maker lines</a><a href="#recall-check">Recall check</a><a href="#stores">Stores</a></nav>
 ${productFold("read-lines", "The maker lines", '<p class="lede">' + card.esc(entry.description) + "</p><p>Each spec line is copied from that model’s maker page. The Source link opens that page. Recall lines use the " + card.esc(recalls.checkedAt) + " (UTC) catalogue check.</p>" + pair.map(editorialSpecBlock).join("\n") + sections)}
-${productFold("recall-check", "Recall check", recallsHtml + '<p class="lede"><a href="/' + section + '/">' + card.esc(crumb) + '</a> <a href="/' + entry.hub + '/">' + card.esc(HUB_NAME[entry.hub]) + '</a> <a href="/compare/">Spec comparisons</a> <a href="/black-friday/">Black Friday</a> <a href="/recalls/">Recall checks</a> <a href="/how-we-check/">How we check</a> ' + pair.map((product) => '<a href="' + card.productPath(product) + '">' + card.esc(product.title) + "</a>").join(" ") + "</p>" + relatedHtml)}
+${productFold("recall-check", "Recall check", recallsHtml + '<p class="lede"><a href="/' + section + '/">' + card.esc(crumb) + '</a> <a href="/' + entry.hub + '/">' + card.esc(HUB_NAME[entry.hub]) + '</a> <a href="/compare/">Spec comparisons</a> <a href="/black-friday/">Black Friday</a> <a href="/recalls/">Recall checks</a> <a href="/how-we-check/">How we check</a> ' + bestTypesForIds(pair.map((product) => product.id)).map(bestAnchor).join(" ") + " " + pair.map((product) => '<a href="' + card.productPath(product) + '">' + card.esc(product.title) + "</a>").join(" ") + "</p>" + relatedHtml)}
 ${productFold("stores", "Stores", stores("US", "United States stores") + stores("CA", "Canadian stores"))}
 </div>
 </main>
@@ -1944,6 +1950,504 @@ ${productFold("about-list", "How to use this list", intro.map((paragraph) => "<p
   if (COPY_BAN.test(html) || /\bdeal\b|\bdiscount\b/i.test(html)) throw new Error("Editorial index failed the honesty check: " + section);
   mkdirSync(join(root, section), { recursive: true });
   writeFileSync(join(root, section, "index.html"), polish(html));
+}
+
+function bestTypes() {
+  return bestDoc.types;
+}
+
+function bestPagePath(type) {
+  return "/best/" + type.slug + "/";
+}
+
+function bestPaths() {
+  return ["/best/", ...bestTypes().map(bestPagePath)];
+}
+
+function bestModelIds(type) {
+  return type.picks.map((pick) => pick.id).concat((type.also || []).map((item) => item.id));
+}
+
+function bestTypesForIds(ids) {
+  const set = new Set(ids);
+  return bestTypes().filter((type) => bestModelIds(type).some((id) => set.has(id)));
+}
+
+function bestAnchor(type) {
+  return '<a href="' + bestPagePath(type) + '">See all best ' + card.esc(type.name) + "</a>";
+}
+
+function bestLede(ids) {
+  const tags = bestTypesForIds(ids).map(bestAnchor);
+  if (!tags.length) return "";
+  return '<p class="lede">' + tags.join(" ") + "</p>";
+}
+
+function appendBestLinks(html, needle, ids) {
+  let next = html;
+  for (const type of bestTypesForIds(ids)) {
+    const href = bestPagePath(type);
+    if (next.includes(href)) continue;
+    const at = next.indexOf(needle);
+    if (at < 0) throw new Error("Lede missing for best link near " + needle);
+    const end = next.indexOf("</p>", at);
+    next = next.slice(0, end) + " " + bestAnchor(type) + next.slice(end);
+  }
+  return next;
+}
+
+function bestQuotes(text, value) {
+  return String(text).toLowerCase().includes(String(value).toLowerCase());
+}
+
+function bestSpecItems(product, labels) {
+  if (!labels || labels.length < 2 || labels.length > 3) throw new Error("Pick needs 2 or 3 specs: " + product.id);
+  return '<ul class="hub-specs">' + labels.map((label) => {
+    const spec = (product.specs || []).find((item) => item.label === label);
+    if (!spec || !spec.value || !spec.url) throw new Error("Missing sourced spec " + label + " on " + product.id);
+    return "<li><span>" + card.esc(spec.label) + "</span> " + card.esc(spec.value) +
+      ' <a href="' + card.esc(spec.url) + '" target="_blank" rel="noopener">Source</a></li>';
+  }).join("") + "</ul>";
+}
+
+function bestRecall(product) {
+  return '<div class="only-us">' + card.recallBlock(card.recallFor(product, "US")) + "</div>" +
+    '<div class="only-ca">' + card.recallBlock(card.recallFor(product, "CA")) + "</div>";
+}
+
+function bestStores(product) {
+  return '<div class="only-us">' + card.storeButtons(product, "US") + "</div>" +
+    '<div class="only-ca">' + card.storeButtons(product, "CA") + "</div>" +
+    '<p class="price-note">Prices change often, check the current price at the store.</p>' +
+    '<p class="affiliate-note">Amazon link is an affiliate link</p>';
+}
+
+function bestCard(product, pick, opts) {
+  const href = card.productPath(product);
+  const media = card.visual(product, Object.assign({ noCredit: true, genericUnlessExact: true }, opts || {}));
+  const tiled = media.includes('class="spec-tile"');
+  const label = pick.bestFor ? '<p class="pick-if">' + card.esc(pick.bestFor) + "</p>" : "";
+  return '<article class="product-grid hub-card" id="' + card.esc(product.id) + '">' +
+    '<div class="pick-media">' + media + "</div>" +
+    '<div class="p-main">' +
+    label +
+    '<span class="only-us">' + card.badgeHtml(card.recallFor(product, "US")) + "</span>" +
+    '<span class="only-ca">' + card.badgeHtml(card.recallFor(product, "CA")) + "</span>" +
+    card.noteBadge(product) +
+    '<h2 class="p-title' + (tiled ? " visually-hidden" : "") + '"><a href="' + href + '">' + card.visibleTitle(product.title) + "</a></h2>" +
+    bestSpecItems(product, pick.specs) +
+    bestRecall(product) +
+    '<p><a class="hub-more" href="' + href + '">Model page</a></p>' +
+    bestStores(product) +
+    "</div></article>";
+}
+
+function bestWords(type) {
+  const chunks = [...(type.how || []), ...(type.look || []), ...(type.faqs || []).flatMap((item) => [item.q, item.a])];
+  for (const pick of type.picks) chunks.push(pick.bestFor, pick.because);
+  for (const extra of type.also || []) chunks.push(extra.note);
+  return chunks.join(" ").split(/\s+/).filter(Boolean).length;
+}
+
+function bestMethodHtml() {
+  return [
+    "<p>Checked Lab lines up maker pages, store links, and public recall records for shoppers in the US and Canada.</p>",
+    "<p>Manufacturer pages, and only the sentences those pages actually state. The source link sits next to the spec.</p>",
+    "<p>US recalls come from the CPSC SaferProducts API, and Canadian recalls from Health Canada’s open dataset d38de914-c94c-429b-8ab1-8776c31643e3. The date is the day that match was recorded.</p>",
+    "<p>Placement on a card is editorial. Brands do not buy a slot on the page. Prices stay on the store sites. The buttons open the store.</p>"
+  ].join("");
+}
+
+function bestRelatedHtml(ids) {
+  const set = new Set(ids);
+  const compareLinks = compares.filter((entry) => entry.products.some((id) => set.has(id)));
+  const noticeLinks = explainers.filter((entry) => entry.products.some((id) => set.has(id)));
+  return (compareLinks.length
+    ? '<p class="lede">Spec comparisons: ' + compareLinks.map((entry) =>
+      '<a href="/compare/' + entry.slug + '/">' + card.esc(entry.linkLabel) + "</a>"
+    ).join(" ") + ".</p>"
+    : "") + (noticeLinks.length
+    ? '<p class="lede">Official notices: ' + noticeLinks.map((entry) =>
+      '<a href="/recalls/' + entry.slug + '/">' + card.esc(entry.linkLabel) + "</a>"
+    ).join(" ") + ".</p>"
+    : "");
+}
+
+function bestJsonLd(type, picks) {
+  const url = ORIGIN + bestPagePath(type);
+  const graph = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: ORIGIN + "/" },
+          { "@type": "ListItem", position: 2, name: "Best of", item: ORIGIN + "/best/" },
+          { "@type": "ListItem", position: 3, name: type.h1, item: url }
+        ]
+      },
+      {
+        "@type": "Article",
+        headline: type.title,
+        description: type.description,
+        dateModified: recalls.checkedAt,
+        inLanguage: "en",
+        mainEntityOfPage: url
+      },
+      {
+        "@type": "ItemList",
+        name: type.title,
+        numberOfItems: picks.length,
+        itemListElement: picks.map((product, index) => ({
+          "@type": "ListItem",
+          position: index + 1,
+          name: product.title,
+          url: ORIGIN + card.productPath(product)
+        }))
+      },
+      {
+        "@type": "FAQPage",
+        mainEntity: type.faqs.map((item) => ({
+          "@type": "Question",
+          name: item.q,
+          acceptedAnswer: { "@type": "Answer", text: item.a }
+        }))
+      }
+    ]
+  };
+  assertNoCommerce(graph);
+  return JSON.stringify(graph, null, 2).replace(/</g, "\\u003c");
+}
+
+function bestIndexJsonLd() {
+  const url = ORIGIN + "/best/";
+  const types = bestTypes();
+  const graph = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: ORIGIN + "/" },
+          { "@type": "ListItem", position: 2, name: "Best of", item: url }
+        ]
+      },
+      {
+        "@type": "CollectionPage",
+        name: bestDoc.title,
+        headline: bestDoc.h1,
+        url: url,
+        description: bestDoc.description,
+        dateModified: recalls.checkedAt,
+        inLanguage: "en",
+        mainEntity: {
+          "@type": "ItemList",
+          name: bestDoc.title,
+          numberOfItems: types.length,
+          itemListElement: types.map((type, index) => ({
+            "@type": "ListItem",
+            position: index + 1,
+            name: type.title,
+            url: ORIGIN + bestPagePath(type)
+          }))
+        }
+      },
+      {
+        "@type": "FAQPage",
+        mainEntity: bestDoc.faqs.map((item) => ({
+          "@type": "Question",
+          name: item.q,
+          acceptedAnswer: { "@type": "Answer", text: item.a }
+        }))
+      }
+    ]
+  };
+  assertNoCommerce(graph);
+  return JSON.stringify(graph, null, 2).replace(/</g, "\\u003c");
+}
+
+function assertBestDoc() {
+  if (!bestDoc || bestDoc.types.length !== 12) throw new Error("Expected 12 best guides");
+  const seen = new Set();
+  let previousCount = Infinity;
+  let previousName = "";
+  for (const type of bestDoc.types) {
+    if (!/^[a-z0-9-]+$/.test(type.slug)) throw new Error("Bad best slug: " + type.slug);
+    if (seen.has(type.slug)) throw new Error("Duplicate best slug: " + type.slug);
+    seen.add(type.slug);
+    if (type.picks.length < 3 || type.picks.length > 6) throw new Error("Best pick count on " + type.slug);
+    const count = bestModelIds(type).length;
+    if (count < type.picks.length) throw new Error("Best model count on " + type.slug);
+    if (count > previousCount || (count === previousCount && type.name < previousName)) {
+      throw new Error("Best guides are not ordered by model count: " + type.slug);
+    }
+    previousCount = count;
+    previousName = type.name;
+    if (bestWords(type) < 320) throw new Error("Best page is thin (" + bestWords(type) + "): " + type.slug);
+    const labels = new Set();
+    const ids = new Set();
+    for (const pick of type.picks) {
+      if (ids.has(pick.id)) throw new Error("Duplicate pick " + pick.id);
+      ids.add(pick.id);
+      const product = products.find((item) => item.id === pick.id);
+      if (!product) throw new Error("Best pick is not in the catalogue: " + pick.id);
+      const bestFor = pick.bestFor || "";
+      if (bestFor) {
+        if (!bestFor.startsWith("Best for ")) throw new Error("Best label on " + pick.id);
+        if (labels.has(bestFor)) throw new Error("Repeated label on " + type.slug);
+        if (/\b\d+(?:\.\d+)?\s*lb\b/i.test(bestFor)) throw new Error("Weight trivia label on " + pick.id);
+        labels.add(bestFor);
+        const sourced = pick.because + " " + pick.specs.map((label) => {
+          const spec = (product.specs || []).find((item) => item.label === label);
+          return spec ? spec.value : "";
+        }).join(" ");
+        for (const num of bestFor.match(/\d[\d,.]*/g) || []) {
+          const plain = num.replace(/,/g, "");
+          if (!sourced.includes(num) && !sourced.replace(/,/g, "").includes(plain)) {
+            throw new Error("Best label number is not in the sourced specs on " + pick.id + ": " + num);
+          }
+        }
+      }
+      if (COPY_BAN.test(pick.bestFor + " " + pick.because)) throw new Error("Best copy ban on " + pick.id);
+      for (const label of pick.specs) {
+        const spec = (product.specs || []).find((item) => item.label === label);
+        if (!spec) throw new Error("Best spec missing " + label + " on " + pick.id);
+        if (!bestQuotes(pick.because, spec.value)) throw new Error("Best reason misses " + label + " on " + pick.id);
+      }
+    }
+    for (const extra of type.also || []) {
+      const product = products.find((item) => item.id === extra.id);
+      if (!product) throw new Error("Best also-link missing " + extra.id);
+      const quoted = (product.specs || []).some((spec) => spec.value && bestQuotes(extra.note, spec.value));
+      if (!quoted) throw new Error("Also note misses a spec on " + extra.id);
+    }
+    const prose = [...type.how, ...type.look, ...type.faqs.map((item) => item.q + " " + item.a)].join(" ");
+    if (COPY_BAN.test(prose)) throw new Error("Best guide failed the honesty check: " + type.slug);
+  }
+  const intro = bestDoc.intro.join(" ");
+  if (guideWords(intro) < 120) throw new Error("Best index is thin");
+  if (COPY_BAN.test(intro + " " + bestDoc.faqs.map((item) => item.q + " " + item.a).join(" "))) {
+    throw new Error("Best index failed the honesty check");
+  }
+}
+
+function writeBestPage(type) {
+  const picks = type.picks.map((pick) => {
+    const product = products.find((item) => item.id === pick.id);
+    return { pick, product };
+  });
+  const ids = bestModelIds(type);
+  const hubs = [...new Set(picks.map((item) => item.product.category))];
+  const why = picks.map((item) => "<h3>" + card.esc(item.product.title) + "</h3><p>" + card.esc(item.pick.because) + "</p>").join("");
+  const also = (type.also || []).map((extra) => {
+    const product = products.find((item) => item.id === extra.id);
+    return "<p><a href=\"" + card.productPath(product) + "\">" + card.esc(product.title) + "</a>. " + card.esc(extra.note) + "</p>";
+  }).join("");
+  const checklist = '<ol class="checklist">' + type.look.map((item) => "<li>" + card.esc(item) + "</li>").join("") + "</ol>";
+  const faqs = type.faqs.map((item) => "<h3>" + card.esc(item.q) + '</h3><p class="faq-a">' + card.esc(item.a) + "</p>").join("");
+  const hubLinks = hubs.map((hub) => '<a href="/' + hub + '/">' + card.esc(HUB_NAME[hub]) + "</a>").join(" ");
+  const url = ORIGIN + bestPagePath(type);
+  card.beginPage();
+  const cards = '<div class="pick-grid">' + picks.map((item, index) => bestCard(item.product, item.pick, index === 0 ? { eager: true } : {})).join("\n") + "</div>";
+  const html = `<!DOCTYPE html>
+<html lang="en" data-region="US">
+<head>
+<meta charset="UTF-8">
+<link rel="canonical" href="${url}">
+<script src="/assets/region-boot.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>${card.esc(type.title)} | Checked Lab</title>
+<meta name="description" content="${card.esc(type.description)}">
+<meta property="og:title" content="${card.esc(type.title)} | Checked Lab">
+<meta property="og:description" content="${card.esc(type.description)}">
+<meta property="og:type" content="article">
+<meta property="og:url" content="${url}">
+<meta property="og:image" content="${ORIGIN}/assets/og.png">
+<link rel="icon" type="image/png" href="/favicon.png">
+${FONT_PRELOAD}
+<link rel="stylesheet" href="/assets/site.css">
+<meta name="theme-color" content="#F5F5F7">
+<script type="application/ld+json">
+${bestJsonLd(type, picks.map((item) => item.product))}
+</script>
+</head>
+<body data-page="best">
+${DISCLOSURE}
+<div class="masthead"><header><a class="logo" href="/">CHECKED LAB</a></header>${nav(hubs[0])}</div>
+<main id="main">
+<div class="wrap prose">
+<nav class="crumbs" aria-label="Breadcrumb">
+<a href="/">Home</a>
+<span aria-hidden="true">/</span>
+<a href="/best/">Best of</a>
+<span aria-hidden="true">/</span>
+<span aria-current="page">${card.esc(type.h1)}</span>
+</nav>
+<h1>${card.esc(type.h1)}</h1>
+<p class="sub">${card.esc(type.description)}</p>
+${cards}
+<nav class="toc" aria-label="Jump to"><p>Jump to</p><a href="#how-we-picked">How we picked</a><a href="#what-to-look-for">What to look for</a><a href="#questions">Questions</a></nav>
+${productFold("how-we-picked", "How we picked", bestMethodHtml() + type.how.map((paragraph) => "<p>" + card.esc(paragraph) + "</p>").join("") + why + (also ? "<h3>Also listed</h3>" + also : "") + bestRelatedHtml(ids))}
+${productFold("what-to-look-for", "What to look for", checklist)}
+<section class="faq" id="questions">
+<h2>Questions</h2>
+${faqs}
+</section>
+<p class="lede"><a href="/best/">All buyer guides</a> ${hubLinks} <a href="/black-friday/">Black Friday</a> <a href="/gifts/">Gift guides</a> <a href="/recalls/">Recall checks</a> <a href="/how-we-check/">How we check</a> ${picks.map((item) => '<a href="' + card.productPath(item.product) + '">' + card.esc(item.product.title) + "</a>").join(" ")}</p>
+</div>
+</main>
+<footer><div class="foot"><p>As an Amazon Associate I earn from qualifying purchases.</p></div></footer>
+<script src="/assets/site.js" defer></script>
+</body>
+</html>
+`;
+  if (COPY_BAN.test(html)) throw new Error("Best page failed the honesty check: " + type.slug);
+  if (!html.includes("checkedlab01-20") || !html.includes("checkedlab-20")) {
+    throw new Error("Best page is missing Amazon tags: " + type.slug);
+  }
+  const us = [...html.matchAll(/<div class="only-us">([\s\S]*?)<\/div>/g)].map((match) => match[1]).join("\n");
+  const ca = [...html.matchAll(/<div class="only-ca">([\s\S]*?)<\/div>/g)].map((match) => match[1]).join("\n");
+  if (us.includes("checkedlab-20") || ca.includes("checkedlab01-20")) {
+    throw new Error("Amazon tags crossed regions on " + type.slug);
+  }
+  mkdirSync(join(root, "best", type.slug), { recursive: true });
+  writeFileSync(join(root, "best", type.slug, "index.html"), polish(html));
+}
+
+function writeBestIndex() {
+  const types = bestTypes();
+  const items = types.map((type) =>
+    "<li><a href=\"" + bestPagePath(type) + "\">" + card.esc(type.h1) + "</a>. " +
+    card.esc(type.description) + "</li>"
+  ).join("");
+  const faqs = bestDoc.faqs.map((item) =>
+    "<h3>" + card.esc(item.q) + '</h3><p class="faq-a">' + card.esc(item.a) + "</p>"
+  ).join("");
+  const url = ORIGIN + "/best/";
+  const html = `<!DOCTYPE html>
+<html lang="en" data-region="US">
+<head>
+<meta charset="UTF-8">
+<link rel="canonical" href="${url}">
+<script src="/assets/region-boot.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>${card.esc(bestDoc.title)} | Checked Lab</title>
+<meta name="description" content="${card.esc(bestDoc.description)}">
+<meta property="og:title" content="${card.esc(bestDoc.title)} | Checked Lab">
+<meta property="og:description" content="${card.esc(bestDoc.description)}">
+<meta property="og:type" content="website">
+<meta property="og:url" content="${url}">
+<meta property="og:image" content="${ORIGIN}/assets/og.png">
+<link rel="icon" type="image/png" href="/favicon.png">
+${FONT_PRELOAD}
+<link rel="stylesheet" href="/assets/site.css">
+<meta name="theme-color" content="#F5F5F7">
+<script type="application/ld+json">
+${bestIndexJsonLd()}
+</script>
+</head>
+<body data-page="best">
+${DISCLOSURE}
+<div class="masthead"><header><a class="logo" href="/">CHECKED LAB</a></header>${nav("")}</div>
+<main id="main">
+<div class="wrap prose">
+<nav class="crumbs" aria-label="Breadcrumb">
+<a href="/">Home</a>
+<span aria-hidden="true">/</span>
+<span aria-current="page">Best of</span>
+</nav>
+<h1>${card.esc(bestDoc.h1)}</h1>
+<p class="sub">${card.esc(bestDoc.description)}</p>
+<ul class="scan-list">${items}</ul>
+${productFold("how-we-picked", "How these pages were chosen", bestDoc.intro.map((paragraph) => "<p>" + card.esc(paragraph) + "</p>").join("") + bestMethodHtml())}
+<section class="faq" id="questions">
+<h2>Questions</h2>
+${faqs}
+</section>
+<p class="lede"><a href="/black-friday/">Black Friday</a> <a href="/gifts/">Gift guides</a> <a href="/compare/">Spec comparisons</a> <a href="/recalls/">Recall checks</a> <a href="/how-we-check/">How we check</a></p>
+</div>
+</main>
+<footer><div class="foot"><p>As an Amazon Associate I earn from qualifying purchases.</p></div></footer>
+<script src="/assets/site.js" defer></script>
+</body>
+</html>
+`;
+  if (COPY_BAN.test(html)) throw new Error("Best index failed the honesty check");
+  mkdirSync(join(root, "best"), { recursive: true });
+  writeFileSync(join(root, "best", "index.html"), polish(html));
+}
+
+function writeBest() {
+  assertBestDoc();
+  for (const type of bestTypes()) writeBestPage(type);
+  writeBestIndex();
+  const keep = new Set(bestTypes().map((type) => type.slug));
+  const dir = join(root, "best");
+  for (const entry of readdirSync(dir)) {
+    if (entry === "index.html") continue;
+    const full = join(dir, entry);
+    if (!statSync(full).isDirectory()) continue;
+    if (!keep.has(entry)) rmSync(full, { recursive: true, force: true });
+  }
+}
+
+function assertBestPages() {
+  const index = readFileSync(join(root, "best", "index.html"), "utf8");
+  if (!index.includes('"@type": "FAQPage"') || !index.includes('"@type": "BreadcrumbList"') || !index.includes('"@type": "ItemList"')) {
+    throw new Error("Best index schema missing");
+  }
+  if (!index.includes("<h1>The Best Buyer Guides for 2026</h1>")) throw new Error("Best index H1");
+  if (!index.includes("<title>Best Buyer Guides 2026 (US &amp; Canada) | Checked Lab</title>")) throw new Error("Best index title");
+  if (/\bfrom the catalogue\b|\bin this catalogue\b/i.test(index)) throw new Error("Best index still uses catalogue voice");
+  for (const type of bestTypes()) {
+    const html = readFileSync(join(root, "best", type.slug, "index.html"), "utf8");
+    if (!html.includes('href="/best/"')) throw new Error("Best crumb missing on " + type.slug);
+    if (!html.includes("How we picked") || !html.includes("What to look for")) throw new Error("Best sections missing on " + type.slug);
+    for (const pick of type.picks) {
+      const product = products.find((item) => item.id === pick.id);
+      if (!html.includes('href="' + card.productPath(product) + '"')) throw new Error("Best page misses " + pick.id);
+      if (pick.bestFor && !html.includes(card.esc(pick.bestFor))) throw new Error("Best label missing on " + pick.id);
+      if (!pick.bestFor && html.includes('id="' + pick.id + '"><')) {
+        const article = html.slice(html.indexOf('id="' + pick.id + '"'));
+        const end = article.indexOf("</article>");
+        if (article.slice(0, end).includes('class="pick-if"')) throw new Error("Empty Best label still rendered on " + pick.id);
+      }
+    }
+    if (/figcaption|img-credit/i.test(html)) throw new Error("Best card shows a photo credit: " + type.slug);
+    if (/\bfrom the catalogue\b|\bin this catalogue\b/i.test(html)) {
+      throw new Error("Best page still says catalogue in the intro voice: " + type.slug);
+    }
+    const articles = html.match(/<article class="product-grid[\s\S]*?<\/article>/g) || [];
+    for (const article of articles) {
+      const id = (article.match(/\bid="([^"]+)"/) || [])[1];
+      const product = products.find((item) => item.id === id);
+      if (!product) continue;
+      if (article.includes('class="spec-tile"')) {
+        if (!article.includes('class="p-title visually-hidden"')) throw new Error("Spec tile repeats the title on " + id);
+      } else if (article.includes('class="p-photo"')) {
+        if (article.includes("visually-hidden")) throw new Error("Photo card hid the title on " + id);
+        const alt = (article.match(/\balt="([^"]*)"/) || [])[1] || "";
+        if (product.imageMatch !== "exact" && alt === card.esc(product.title)) {
+          throw new Error("Photo alt names the model on " + id);
+        }
+      }
+    }
+    const data = JSON.parse(html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]);
+    assertNoCommerce(data);
+    const types = data["@graph"].map((node) => node["@type"]).sort().join(",");
+    if (types !== "Article,BreadcrumbList,FAQPage,ItemList") throw new Error("Best schema on " + type.slug + " " + types);
+    const faq = data["@graph"].find((node) => node["@type"] === "FAQPage");
+    if (!faq || faq.mainEntity.length !== type.faqs.length) throw new Error("Best FAQPage " + type.slug);
+    faq.mainEntity.forEach((node, index) => {
+      if (node.name !== type.faqs[index].q || node.acceptedAnswer.text !== type.faqs[index].a) {
+        throw new Error("Best FAQ JSON-LD mismatch " + type.slug);
+      }
+    });
+    const list = data["@graph"].find((node) => node["@type"] === "ItemList");
+    if (!list || list.numberOfItems !== type.picks.length) throw new Error("Best ItemList " + type.slug);
+  }
+  const indexNow = readFileSync(join(root, "scripts", "indexnow.mjs"), "utf8");
+  if (!indexNow.includes("sitemap.xml")) throw new Error("IndexNow no longer reads the sitemap");
 }
 
 function writeEditorial() {
@@ -2284,9 +2788,10 @@ function writeBlackFriday() {
   ).join("");
   const sections = HUBS.map((hub) => {
     const group = picked.filter((product) => product.category === hub);
+    const bestTags = bestTypesForIds(group.map((product) => product.id)).map(bestAnchor).join(" ");
     return '<section class="pick-grid" id="' + hub + '"><h2><a href="/' + hub + '/">' + card.esc(HUB_NAME[hub]) + "</a></h2>" +
       group.map((product, index) => bfModel(product, hub === "winter" && index === 0 ? { eager: true } : {})).join("\n") +
-      '<p class="lede"><a href="/' + hub + '/">All ' + card.esc(HUB_NAME[hub]) + " models</a></p></section>";
+      '<p class="lede"><a href="/' + hub + '/">All ' + card.esc(HUB_NAME[hub]) + " models</a>" + (bestTags ? " " + bestTags : "") + "</p></section>";
   }).join("\n");
   const faqHtml = faqs.map((item) =>
     "<h3>" + card.esc(item.q) + '</h3><p class="faq-a">' + card.esc(item.a) + "</p>"
@@ -2853,7 +3358,8 @@ function giftHubHtml(grouped) {
       '<p class="lede">' + card.esc(giftsDoc.description) + "</p>" +
       renderHubGuide("gifts", { faq: false }) +
       giftQuiz() +
-      '<p>A recipient list is published when the catalogue can fill it with at least five models and the recorded US and Canadian checks found no matching recall. The spec line on each model is copied from the maker fields. <a href="/how-we-check/">How we check</a> says what the date means. <a href="' + giftPath(kidsGuide()) + '">Gifts for kids</a> is a recall-check list, not a catalogue list. <a href="/toy-safety/">Toy safety</a> covers button batteries, magnets, water beads, and ride-ons. <a href="' + giftPath(hostGuide()) + '">Gifts for the host</a> is a recall-check list for holiday hosting. <a href="/thanksgiving/">Thanksgiving and holiday hosting</a> covers turkey fryers, pressure cookers, turkey temperatures, and kitchen fires.</p>') +
+      '<p>A recipient list is published when the catalogue can fill it with at least five models and the recorded US and Canadian checks found no matching recall. The spec line on each model is copied from the maker fields. <a href="/how-we-check/">How we check</a> says what the date means. <a href="' + giftPath(kidsGuide()) + '">Gifts for kids</a> is a recall-check list, not a catalogue list. <a href="/toy-safety/">Toy safety</a> covers button batteries, magnets, water beads, and ride-ons. <a href="' + giftPath(hostGuide()) + '">Gifts for the host</a> is a recall-check list for holiday hosting. <a href="/thanksgiving/">Thanksgiving and holiday hosting</a> covers turkey fryers, pressure cookers, turkey temperatures, and kitchen fires.</p>' +
+      bestLede(grouped.flatMap((item) => item.picks.map((product) => product.id)))) +
     '<section class="faq" id="questions"><h2>Questions</h2>' +
     faqs.map((item) => "<h3>" + card.esc(item.q) + '</h3><p class="faq-a">' + card.esc(item.a) + "</p>").join("") +
     "</section>";
@@ -2907,6 +3413,7 @@ function giftGuideHtml(guide, picks, grouped) {
       '<p>Each spec line is copied from the maker fields stored for that model. The badge is the recorded CPSC check on the US view and the recorded Health Canada check on the CA view. <a href="/how-we-check/">How we check</a> says what the date means. <a href="/gifts/#gift-finder">Gift finder</a>.</p>' +
       giftJumps(guides, guide.slug) +
       compareLinksForGuide(guide) +
+      bestLede(picks.map((product) => product.id)) +
       '<p class="lede"><a href="/gifts/">All gift guides</a></p>');
   const jsonLd = giftJson(
     url,
@@ -4588,6 +5095,7 @@ function knownInternalPaths() {
   for (const product of products) paths.add(card.productPath(product));
   for (const entry of compares) paths.add("/compare/" + entry.slug + "/");
   for (const path of editorialPaths()) paths.add(path);
+  for (const path of bestPaths()) paths.add(path);
   for (const entry of explainers) paths.add("/recalls/" + entry.slug + "/");
   for (const path of giftPaths()) paths.add(path);
   for (const path of winterPaths()) paths.add(path);
@@ -4791,6 +5299,7 @@ function applyCategoryHub(html, hub) {
 }
 
 function hoistCatalogue(html) {
+  if (html.includes('id="related-checks"')) return html;
   const guideRe = /<!-- checkedlab:guide start -->[\s\S]*?<!-- checkedlab:guide end -->/;
   const mountRe = /<div id="product-mount"[\s\S]*?\n<\/div>/;
   const guide = html.match(guideRe);
@@ -4931,6 +5440,7 @@ function stampPages(ordered) {
     ["/compare/", join(root, "compare", "index.html")],
     ...compares.map((entry) => ["/compare/" + entry.slug + "/", join(root, "compare", entry.slug, "index.html")]),
     ...editorialPaths().map((path) => [path, join(root, path.slice(1), "index.html")]),
+    ...bestPaths().map((path) => [path, join(root, path.slice(1), "index.html")]),
     ...ordered.filter(indexable).map((product) => [card.productPath(product), join(root, product.category, product.id, "index.html")])
   ];
   const today = new Date().toISOString().slice(0, 10);
@@ -4966,7 +5476,8 @@ function writeSitemap(pages, lastmods) {
     ...explainers.map((entry) => "/recalls/" + entry.slug + "/"),
     "/compare/",
     ...compares.map((entry) => "/compare/" + entry.slug + "/"),
-    ...editorialPaths()
+    ...editorialPaths(),
+    ...bestPaths()
   ];
   const lines = [
     '<?xml version="1.0" encoding="UTF-8"?>',
@@ -5226,7 +5737,7 @@ function verifyOutput(pages) {
   const toyCount = toyPaths().length;
   const thanksCount = thanksPaths().length;
   const staticCore = 7 + HUBS.length;
-  const expectedLocs = staticCore + giftCount + winterCount + toyCount + thanksCount + explainers.length + compares.length + editorialPaths().length + indexed.length;
+  const expectedLocs = staticCore + giftCount + winterCount + toyCount + thanksCount + explainers.length + compares.length + editorialPaths().length + bestPaths().length + indexed.length;
   if (locCount !== expectedLocs) {
     throw new Error("Sitemap URL count " + locCount + " expected " + expectedLocs);
   }
@@ -5237,6 +5748,9 @@ function verifyOutput(pages) {
     }
   }
   for (const path of editorialPaths()) {
+    if (!sitemap.includes("<loc>" + ORIGIN + path + "</loc>")) throw new Error("Sitemap is missing " + path);
+  }
+  for (const path of bestPaths()) {
     if (!sitemap.includes("<loc>" + ORIGIN + path + "</loc>")) throw new Error("Sitemap is missing " + path);
   }
   for (const entry of explainers) {
@@ -5374,6 +5888,7 @@ function verifyOutput(pages) {
   }
   assertUniqueMeta();
   assertNoOrphans();
+  assertBestPages();
 }
 
 function assertProductSeo(html, product) {

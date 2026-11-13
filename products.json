@@ -5,7 +5,7 @@
     "category": "kitchen",
     "receipt": null,
     "meta": "FN101 • SPECS PER NINJA",
-    "image": "/images/products/ninja-crispi-fn101.webp",
+    "image": "/images/photos/cat-airfryer.webp",
     "recallMatch": {
       "brand": [
         "ninja",
@@ -96,21 +96,11 @@
         "url": "https://www.sharkninja.com/ninja-crispi-4-in-1-portable-glass-air-fryer-cooking-system/FN101GY.html"
       }
     ],
-    "image_source": {
-      "kind": "commons",
-      "width": 800,
-      "height": 600,
-      "src400": "/images/products/ninja-crispi-fn101-400.webp",
-      "width400": 400
-    },
-    "imageCredit": "Photo: Samay9211, CC BY-SA 4.0, via Wikimedia Commons",
-    "imageLicense": "CC BY-SA 4.0",
-    "imageSource": "https://commons.wikimedia.org/wiki/File:Air_fryer_interior.jpg",
-    "imageKind": "model",
-    "imageMatch": "generic",
-    "imageAuthor": "Samay9211",
-    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "imageShows": "Air fryer interior"
+    "image_source": null,
+    "imageCredit": "Photo by FOX on Pexels",
+    "imageLicense": "Pexels License",
+    "imageSource": "https://www.pexels.com/photo/35285814/",
+    "imageKind": "category"
   },
   {
     "id": "ninja-foodi-10in1",
@@ -118,7 +108,7 @@
     "category": "kitchen",
     "receipt": null,
     "meta": "DT201C • CANADIAN MODEL • ASIN B08LQY2XF5 ON AMAZON.CA",
-    "image": "/images/products/ninja-foodi-10in1.webp",
+    "image": "/images/photos/cat-airfryer.webp",
     "recallMatch": {
       "brand": [
         "ninja",
@@ -224,21 +214,11 @@
         "url": "https://www.sharkninja.ca/ninja-foodi-10-in-1-xl-pro-air-fry-oven/DT201C.html"
       }
     ],
-    "image_source": {
-      "kind": "commons",
-      "width": 506,
-      "height": 800,
-      "src400": "/images/products/ninja-foodi-10in1-400.webp",
-      "width400": 253
-    },
-    "imageCredit": "Photo: Djsgmnd, CC BY-SA 4.0, via Wikimedia Commons",
-    "imageLicense": "CC BY-SA 4.0",
-    "imageSource": "https://commons.wikimedia.org/wiki/File:Airfryer.jpg",
-    "imageKind": "model",
-    "imageMatch": "generic",
-    "imageAuthor": "Djsgmnd",
-    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "imageShows": "airfryer"
+    "image_source": null,
+    "imageCredit": "Photo by FOX on Pexels",
+    "imageLicense": "Pexels License",
+    "imageSource": "https://www.pexels.com/photo/35285814/",
+    "imageKind": "category"
   },
   {
     "id": "instant-pot-duo-plus",
@@ -336,14 +316,14 @@
       "src400": "/images/products/instant-pot-duo-plus-400.webp",
       "width400": 400
     },
-    "imageCredit": "Photo: Tony Webster from Minneapolis, CC BY 2.0, via Wikimedia Commons",
+    "imageCredit": "Photo: Your Best Digs, CC BY 2.0, via Wikimedia Commons",
     "imageLicense": "CC BY 2.0",
-    "imageSource": "https://commons.wikimedia.org/wiki/File:Instant_Pot_Pressure_Cooker_Vegetables_and_Quinoa_(44383321600).jpg",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Instant_Pot_DUO60_pressure_cooker.jpg",
     "imageKind": "model",
     "imageMatch": "same_line",
-    "imageAuthor": "Tony Webster from Minneapolis",
+    "imageAuthor": "Your Best Digs",
     "imageLicenseUrl": "https://creativecommons.org/licenses/by/2.0",
-    "imageShows": "Instant Pot Pressure Cooker Vegetables and Quinoa (44383321600)"
+    "imageShows": "Instant Pot Duo pressure cooker"
   },
   {
     "id": "vitamix-e310",
@@ -569,7 +549,7 @@
     "category": "kitchen",
     "receipt": null,
     "meta": "COSORI • CS358-AF SERIES • AMAZON.COM ASIN B089ZT66H9",
-    "image": "/images/products/cosori-pro-5-8.webp",
+    "image": "/images/photos/cat-airfryer.webp",
     "recallMatch": {
       "brand": [
         "cosori"
@@ -649,23 +629,13 @@
         "url": "https://cdn.accentuate.io/4894973755480/1613980148681/01.06_M1_CS358-AF_2020-09-29_WEB_US_en.pdf?v=0"
       }
     ],
-    "image_source": {
-      "kind": "commons",
-      "width": 800,
-      "height": 600,
-      "src400": "/images/products/cosori-pro-5-8-400.webp",
-      "width400": 400
-    },
+    "image_source": null,
     "sourceUrl": "https://cdn.accentuate.io/4894973755480/1613980148681/01.06_M1_CS358-AF_2020-09-29_WEB_US_en.pdf?v=0",
     "sourceName": "COSORI",
-    "imageCredit": "Photo: Kskhh, CC BY-SA 4.0, via Wikimedia Commons",
-    "imageLicense": "CC BY-SA 4.0",
-    "imageSource": "https://commons.wikimedia.org/wiki/File:Clickon_Air_Fryer.jpg",
-    "imageKind": "model",
-    "imageMatch": "generic",
-    "imageAuthor": "Kskhh",
-    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "imageShows": "clickon air fryer"
+    "imageCredit": "Photo by FOX on Pexels",
+    "imageLicense": "Pexels License",
+    "imageSource": "https://www.pexels.com/photo/35285814/",
+    "imageKind": "category"
   },
   {
     "receipt": null,
@@ -1478,23 +1448,23 @@
     ],
     "image_source": {
       "kind": "commons",
-      "width": 800,
-      "height": 463,
+      "width": 660,
+      "height": 800,
       "src400": "/images/products/battery-tender-junior-400.webp",
-      "width400": 400
+      "width400": 330
     },
-    "imageCredit": "Photo: 1-1111, CC BY-SA 4.0, via Wikimedia Commons",
-    "imageLicense": "CC BY-SA 4.0",
-    "imageSource": "https://commons.wikimedia.org/wiki/File:1-1111_typical_external_of_a_simple_lead-acid_battery_charger.png",
+    "imageCredit": "Photo: Hannes Grobe ( talk ), CC BY 3.0, via Wikimedia Commons",
+    "imageLicense": "CC BY 3.0",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Car-battery-recharger.jpg",
     "imageKind": "model",
     "imageMatch": "generic",
-    "imageAuthor": "1-1111",
-    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "imageShows": "1-1111 typical external of a simple lead-acid battery charger"
+    "imageAuthor": "Hannes Grobe ( talk )",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by/3.0",
+    "imageShows": "12V battery charger"
   },
   {
     "receipt": null,
-    "image": "/images/products/bosch-icon.webp",
+    "image": "/images/photos/hub-garage.webp",
     "asin": {
       "us": "B07VCVCTHC",
       "ca": null
@@ -1576,21 +1546,11 @@
         "url": "https://www.boschautoparts.com/p/icon-wiper-blades"
       }
     ],
-    "image_source": {
-      "kind": "commons",
-      "width": 800,
-      "height": 534,
-      "src400": "/images/products/bosch-icon-400.webp",
-      "width400": 400
-    },
-    "imageCredit": "Photo: Shixart1985, CC BY 2.0, via Wikimedia Commons",
-    "imageLicense": "CC BY 2.0",
-    "imageSource": "https://commons.wikimedia.org/wiki/File:Old_car_parked_in_garage_with_dusty_windshield_and_wiper_blade_during_the_daytime.jpg",
-    "imageKind": "model",
-    "imageMatch": "generic",
-    "imageAuthor": "Shixart1985",
-    "imageLicenseUrl": "https://creativecommons.org/licenses/by/2.0",
-    "imageShows": "Old car parked in garage with dusty windshield and wiper blade during the daytime"
+    "image_source": null,
+    "imageCredit": "Photo by Tima Miroshnichenko on Pexels",
+    "imageLicense": "Pexels License",
+    "imageSource": "https://www.pexels.com/photo/6263062/",
+    "imageKind": "category"
   },
   {
     "receipt": null,
@@ -2102,7 +2062,7 @@
   },
   {
     "receipt": null,
-    "image": "/images/products/litter-robot-4.webp",
+    "image": "/images/photos/hub-pet.webp",
     "asin": {
       "us": null,
       "ca": null
@@ -2197,21 +2157,11 @@
         "url": "https://www.whisker.com/litter-robot-4"
       }
     ],
-    "image_source": {
-      "kind": "commons",
-      "width": 800,
-      "height": 622,
-      "src400": "/images/products/litter-robot-4-400.webp",
-      "width400": 400
-    },
-    "imageCredit": "Photo: Ildar Sagdejev ( Specious ), CC BY-SA 4.0, via Wikimedia Commons",
-    "imageLicense": "CC BY-SA 4.0",
-    "imageSource": "https://commons.wikimedia.org/wiki/File:2008-07-07_Kiska_resting_on_cat_litter_box.jpg",
-    "imageKind": "model",
-    "imageMatch": "generic",
-    "imageAuthor": "Ildar Sagdejev ( Specious )",
-    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "imageShows": "2008-07-07 Kiska resting on cat litter box"
+    "image_source": null,
+    "imageCredit": "Photo by Amar Preciado on Pexels",
+    "imageLicense": "Pexels License",
+    "imageSource": "https://www.pexels.com/photo/30070537/",
+    "imageKind": "category"
   },
   {
     "receipt": null,
@@ -7282,19 +7232,19 @@
     ],
     "image_source": {
       "kind": "commons",
-      "width": 515,
-      "height": 800,
+      "width": 800,
+      "height": 533,
       "src400": "/images/products/bluedriver-400.webp",
-      "width400": 258
+      "width400": 400
     },
-    "imageCredit": "Photo: Saitobesho, CC BY-SA 3.0, via Wikimedia Commons",
-    "imageLicense": "CC BY-SA 3.0",
-    "imageSource": "https://commons.wikimedia.org/wiki/File:OBD2コネクター.jpg",
+    "imageCredit": "Photo: Losch, CC BY 3.0, via Wikimedia Commons",
+    "imageLicense": "CC BY 3.0",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Bluetooth_ELM327_OBD2-Scanner_IMG_6321.jpg",
     "imageKind": "model",
     "imageMatch": "generic",
-    "imageAuthor": "Saitobesho",
-    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-    "imageShows": "obd2コネクター"
+    "imageAuthor": "Losch",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by/3.0",
+    "imageShows": "OBD2 scanner"
   },
   {
     "id": "fanttik-x8-apex",
@@ -7302,7 +7252,7 @@
     "category": "car-garage",
     "receipt": null,
     "meta": "X8 APEX • SPECS PER FANTTIK",
-    "image": "/images/products/fanttik-x8-apex.webp",
+    "image": "/images/photos/cat-drill.webp",
     "recallMatch": {
       "brand": [
         "fanttik"
@@ -7390,21 +7340,11 @@
         "url": "https://fanttik.com/products/x8-apex-tire-inflator"
       }
     ],
-    "image_source": {
-      "kind": "commons",
-      "width": 800,
-      "height": 600,
-      "src400": "/images/products/fanttik-x8-apex-400.webp",
-      "width400": 400
-    },
-    "imageCredit": "Photo: Tony Webster, CC BY 2.0, via Wikimedia Commons",
-    "imageLicense": "CC BY 2.0",
-    "imageSource": "https://commons.wikimedia.org/wiki/File:Inflating_Temporary_Spare_-_Tire_Inflator_-_Air_Compressor_(54122728542).jpg",
-    "imageKind": "model",
-    "imageMatch": "generic",
-    "imageAuthor": "Tony Webster",
-    "imageLicenseUrl": "https://creativecommons.org/licenses/by/2.0",
-    "imageShows": "Inflating Temporary Spare - Tire Inflator - Air Compressor (54122728542)"
+    "image_source": null,
+    "imageCredit": "Photo by Саша Алалыкин on Pexels",
+    "imageLicense": "Pexels License",
+    "imageSource": "https://www.pexels.com/photo/17419782/",
+    "imageKind": "category"
   },
   {
     "id": "honeywell-hpa300",
@@ -7847,19 +7787,19 @@
     ],
     "image_source": {
       "kind": "commons",
-      "width": 663,
-      "height": 800,
+      "width": 800,
+      "height": 600,
       "src400": "/images/products/waterdrop-g3p600-400.webp",
-      "width400": 332
+      "width400": 400
     },
-    "imageCredit": "Photo: David Shankbone, CC BY 3.0, via Wikimedia Commons",
-    "imageLicense": "CC BY 3.0",
-    "imageSource": "https://commons.wikimedia.org/wiki/File:Reverse_osmosis_membrane_coil.jpg",
+    "imageCredit": "Photo: Mas mufti, CC BY-SA 3.0, via Wikimedia Commons",
+    "imageLicense": "CC BY-SA 3.0",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Reverse_Osmosis_System.jpg",
     "imageKind": "model",
     "imageMatch": "generic",
-    "imageAuthor": "David Shankbone",
-    "imageLicenseUrl": "https://creativecommons.org/licenses/by/3.0",
-    "imageShows": "reverse osmosis membrane coil"
+    "imageAuthor": "Mas mufti",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "imageShows": "Reverse osmosis system"
   },
   {
     "id": "ispring-rcc7",
@@ -7867,7 +7807,7 @@
     "category": "air-water",
     "receipt": null,
     "meta": "RCC7 • SPECS PER ISPRING",
-    "image": "/images/products/ispring-rcc7.webp",
+    "image": "/images/photos/cat-bottle.webp",
     "recallMatch": {
       "brand": [
         "ispring"
@@ -7955,21 +7895,11 @@
         "url": "https://www.ispringfilter.com/products/5-stage-essence-ro-water-filtration-system-ispring-rcc7-5-stage-residential-under-sink-reverse-osmosis-water-filter-system-wqa-certified-75-gpd"
       }
     ],
-    "image_source": {
-      "kind": "commons",
-      "width": 800,
-      "height": 659,
-      "src400": "/images/products/ispring-rcc7-400.webp",
-      "width400": 400
-    },
-    "imageCredit": "Photo: David Shankbone, CC BY 3.0, via Wikimedia Commons",
-    "imageLicense": "CC BY 3.0",
-    "imageSource": "https://commons.wikimedia.org/wiki/File:Reverse_osmosis_membrane_element_layers.jpg",
-    "imageKind": "model",
-    "imageMatch": "generic",
-    "imageAuthor": "David Shankbone",
-    "imageLicenseUrl": "https://creativecommons.org/licenses/by/3.0",
-    "imageShows": "reverse osmosis membrane element layers"
+    "image_source": null,
+    "imageCredit": "Photo by cottonbro studio on Pexels",
+    "imageLicense": "Pexels License",
+    "imageSource": "https://www.pexels.com/photo/3737800/",
+    "imageKind": "category"
   },
   {
     "id": "apec-roes-50",
@@ -8332,7 +8262,7 @@
     "category": "pet",
     "receipt": null,
     "meta": "7760 • SPECS PER DREMEL",
-    "image": "/images/products/dremel-7760.webp",
+    "image": "/images/photos/hub-pet.webp",
     "recallMatch": {
       "brand": [
         "dremel"
@@ -8420,21 +8350,11 @@
         "url": "https://www.dremel.com/us/en/p/7760-pgkd-f0137760dc"
       }
     ],
-    "image_source": {
-      "kind": "commons",
-      "width": 800,
-      "height": 533,
-      "src400": "/images/products/dremel-7760-400.webp",
-      "width400": 400
-    },
-    "imageCredit": "Photo: BarberJP, Public domain, via Wikimedia Commons",
-    "imageLicense": "Public domain",
-    "imageSource": "https://commons.wikimedia.org/wiki/File:Nail_clippers_silver.JPG",
-    "imageKind": "model",
-    "imageMatch": "generic",
-    "imageAuthor": "BarberJP",
-    "imageLicenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
-    "imageShows": "nail clippers silver"
+    "image_source": null,
+    "imageCredit": "Photo by Amar Preciado on Pexels",
+    "imageLicense": "Pexels License",
+    "imageSource": "https://www.pexels.com/photo/30070537/",
+    "imageKind": "category"
   },
   {
     "id": "petsafe-scoopfree-plus",
@@ -10162,7 +10082,7 @@
     "category": "sleep",
     "receipt": null,
     "meta": "HF3520 • SPECS PER PHILIPS",
-    "image": "/images/products/philips-hf3520.webp",
+    "image": "/images/photos/hub-sleep.webp",
     "recallMatch": {
       "brand": [
         "philips"
@@ -10250,21 +10170,11 @@
         "url": "https://www.usa.philips.com/c-p/HF3520_60/smartsleep"
       }
     ],
-    "image_source": {
-      "kind": "openverse",
-      "width": 800,
-      "height": 534,
-      "src400": "/images/products/philips-hf3520-400.webp",
-      "width400": 400
-    },
-    "imageCredit": "Photo: Unknown author, CC0, via rawpixel",
-    "imageLicense": "CC0",
-    "imageSource": "https://www.rawpixel.com/image/5939153/natural-wake-light",
-    "imageKind": "model",
-    "imageMatch": "generic",
-    "imageAuthor": "Unknown author",
-    "imageLicenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
-    "imageShows": "Natural wake up light"
+    "image_source": null,
+    "imageCredit": "Photo by Ron Lach on Pexels",
+    "imageLicense": "Pexels License",
+    "imageSource": "https://www.pexels.com/photo/10554461/",
+    "imageKind": "category"
   },
   {
     "id": "oral-b-io-3",
@@ -12284,7 +12194,7 @@
     "category": "air-water",
     "receipt": null,
     "meta": "LV600HH • SPECS PER LEVOIT",
-    "image": "/images/products/levoit-lv600hh.webp",
+    "image": "/images/photos/cat-humid.webp",
     "recallMatch": {
       "brand": [
         "levoit"
@@ -12378,21 +12288,11 @@
         "url": "https://levoit.com/products/lv600hh-hybrid-ultrasonic-humidifier"
       }
     ],
-    "image_source": {
-      "kind": "commons",
-      "width": 800,
-      "height": 602,
-      "src400": "/images/products/levoit-lv600hh-400.webp",
-      "width400": 400
-    },
-    "imageCredit": "Photo: Andy Li, CC0, via Wikimedia Commons",
-    "imageLicense": "CC0",
-    "imageSource": "https://commons.wikimedia.org/wiki/File:Humidifier_over_fresh_produce_in_Albert_Heijn_2024-11-30.jpg",
-    "imageKind": "model",
-    "imageMatch": "generic",
-    "imageAuthor": "Andy Li",
-    "imageLicenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
-    "imageShows": "humidifier over fresh produce in albert heijn 2024 11 30"
+    "image_source": null,
+    "imageCredit": "Photo by Phạm Tuấn Hải on Pexels",
+    "imageLicense": "Pexels License",
+    "imageSource": "https://www.pexels.com/photo/18507871/",
+    "imageKind": "category"
   },
   {
     "id": "zerowater-zp010",
@@ -13299,18 +13199,18 @@
     "image_source": {
       "kind": "commons",
       "width": 800,
-      "height": 600,
+      "height": 480,
       "src400": "/images/products/outward-hound-fun-feeder-400.webp",
       "width400": 400
     },
-    "imageCredit": "Photo: John Robert McPherson, CC BY-SA 4.0, via Wikimedia Commons",
-    "imageLicense": "CC BY-SA 4.0",
-    "imageSource": "https://commons.wikimedia.org/wiki/File:Urban_Fountain_drinking_fountain_with_dog_bowl_Southbank_Parklands_South_Brisbane_P1360838.jpg",
+    "imageCredit": "Photo: Lionel Allorge, CC BY-SA 3.0, via Wikimedia Commons",
+    "imageLicense": "CC BY-SA 3.0",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Gamelle_anti-glouton_-_1.jpg",
     "imageKind": "model",
     "imageMatch": "generic",
-    "imageAuthor": "John Robert McPherson",
-    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "imageShows": "urban fountain drinking fountain with dog bowl southbank parklands south brisbane p1360838"
+    "imageAuthor": "Lionel Allorge",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "imageShows": "Slow feeder bowl"
   },
   {
     "receipt": null,
@@ -13801,22 +13701,12 @@
         "url": "https://support.roborock.com/hc/en-us/article_attachments/38762941504409"
       }
     ],
-    "image": "/images/products/roborock-qrevo-s.webp",
-    "image_source": {
-      "kind": "commons",
-      "width": 800,
-      "height": 763,
-      "src400": "/images/products/roborock-qrevo-s-400.webp",
-      "width400": 400
-    },
-    "imageCredit": "Photo: Ashledawn, CC BY-SA 4.0, via Wikimedia Commons",
-    "imageLicense": "CC BY-SA 4.0",
-    "imageSource": "https://commons.wikimedia.org/wiki/File:Somlos_S1_Robot_Vacuum_Cleaner.png",
-    "imageKind": "model",
-    "imageMatch": "generic",
-    "imageAuthor": "Ashledawn",
-    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "imageShows": "somlos s1 robot vacuum cleaner"
+    "image": "/images/photos/cat-robot.webp",
+    "image_source": null,
+    "imageCredit": "Photo by Kindel Media on Pexels",
+    "imageLicense": "Pexels License",
+    "imageSource": "https://www.pexels.com/photo/8566421/",
+    "imageKind": "category"
   },
   {
     "receipt": null,
