@@ -207,6 +207,7 @@ const GUIDE_END = "<!-- checkedlab:guide end -->";
 const GUIDE_KEYS = ["home", "black-friday", "gifts", "compare", ...HUBS];
 const COPY_BAN = /\$\d|\bwe tested\b|\btested by us\b|\bwe bought\b|\bdoes not test\b|\bdid not test\b|\bnot tested\b|\bnot(?: a)? measured\b|\bfrom this site\b|\bnot tested by\b|\bwe did not\b|\bwe didn['’]t\b|\bwe haven['’]t\b|hands-on|lab-tested|lab tested|out of 5|star rating|best overall|\bwinner\b|\bscore\b/i;
 const READER_VOICE_BAN = /worth matching|in this catalogue|in this catalog|check the model|to match on|on a listing/i;
+const READER_WORDING_BAN = /\bworth matching\b|Pick it for:|The maker lines|\bmaker lines\b/i;
 const VOICE_PAGES = new Set([
   "alternatives/irobot-roomba-combo-j9-plus",
   "alternatives/sony-wh-1000xm5",
@@ -218,33 +219,6 @@ const VOICE_PAGES = new Set([
   "black-friday/airpods-pro-3",
   "black-friday/levoit-air-purifiers"
 ]);
-const BUYER_PICK = {
-  "irobot-roomba-combo-j9-plus": "Pick it if you want one robot that vacuums and mops, with an Auto-Fill dock.",
-  "roborock-qrevo-s": "Pick it if you want a robot that vacuums and mops, and is ready to run again in about 4 hours.",
-  "eufy-x10-pro-omni": "Pick it if you want a robot that vacuums and mops, and can vacuum for 173 minutes on standard.",
-  "shark-av2501s": "Pick it if you want a robot that vacuums, without a mop.",
-  "sony-wh-1000xm5": "Pick it if you want noise-cancelling headphones that play for up to 30 hours with noise cancelling on.",
-  "bose-qc-ultra": "Pick it if you want headphones with Quiet, Aware, and Immersion modes, and up to 24 hours of battery.",
-  "airpods-pro-3": "Pick it if you want earbuds with noise cancelling, a Hearing Aid feature, and an IP57 rating.",
-  "shokz-openrun-pro-2": "Pick it if you want open-ear headphones with up to 12 hours of play time.",
-  "zojirushi-ns-zcc10": "Pick it if you want a rice cooker for up to 5.5 cups, made in Japan.",
-  "instant-pot-duo-plus": "Pick it if you want one cooker that pressure cooks, slow cooks, and has a rice setting.",
-  "breville-bes870xl": "Pick it if you want one machine that grinds the beans and pulls the espresso.",
-  "baratza-encore-esp": "Pick it if you want a separate grinder you can set for espresso or for filter coffee.",
-  "fellow-stagg-ekg": "Pick it if you want a kettle that holds the water at the temperature you set.",
-  "cosori-pro-5-8": "Pick it if you want a basket air fryer with a 5.8-quart capacity.",
-  "ninja-foodi-10in1": "Pick it if you want one oven that air fries, roasts, bakes, and toasts.",
-  "ninja-crispi-fn101": "Pick it if you want an air fryer that cooks in glass containers.",
-  "lasko-ct32150": "Pick it if you want a tall tower heater that shuts off if it tips over.",
-  "lasko-ct14401": "Pick it if you want a compact tower heater, 14 inches tall, with overheat protection.",
-  "dreo-atom-316": "Pick it if you want a heater you can set from 41 F to 95 F for a 200 square foot room.",
-  "vornado-avh2": "Pick it if you want a whole-room heater with a low setting and a high setting.",
-  "ninja-creami-nc301": "Pick it if you want an ice cream maker with seven programs and two 16 oz pints included.",
-  "levoit-core-300s-p": "Pick it if you want a compact air purifier for a small footprint.",
-  "levoit-core-600s": "Pick it if you want a purifier rated for 606 square feet at 4.8 air changes an hour.",
-  "levoit-vital-200s": "Pick it if you want a purifier that changes the air in a 1,862 square foot room once an hour."
-};
-
 function assertReaderVoice(text, where) {
   const found = String(text || "").match(READER_VOICE_BAN);
   if (found) throw new Error("Reader voice ban on " + where + ": " + found[0]);
@@ -260,8 +234,38 @@ function assertHeadline(title, description, where, limit) {
 }
 
 function buyerReason(id) {
-  if (Object.prototype.hasOwnProperty.call(BUYER_PICK, id)) return BUYER_PICK[id];
-  return "";
+  const product = products.find((item) => item.id === id);
+  return product && product.pick ? product.pick : "";
+}
+
+function pickParagraph(product) {
+  const line = card.pickLine(product);
+  return line ? '<p class="pick-if">' + card.esc(line) + "</p>" : "";
+}
+
+function factNumbers(product) {
+  const parts = [product.title, product.model, product.meta, product.searchQuery];
+  for (const spec of product.specs || []) parts.push(spec && spec.label, spec && spec.value);
+  for (const item of product.evidence || []) parts.push(item && item.claim);
+  const values = new Set();
+  const text = parts.filter(Boolean).join("\n").replace(/,/g, "");
+  for (const match of text.matchAll(/\d+(?:\.\d+)?/g)) values.add(Number(match[0]));
+  return values;
+}
+
+function assertPickLine(product) {
+  if (product.pick == null || product.pick === "") return;
+  const line = String(product.pick);
+  if (!/^Pick it if you want [\s\S]+\.$/.test(line)) throw new Error("Pick line shape on " + product.id);
+  if (line.length > 180) throw new Error("Pick line is long on " + product.id + ": " + line.length);
+  if (COPY_BAN.test(line) || READER_WORDING_BAN.test(line)) throw new Error("Pick line banned wording on " + product.id);
+  const known = factNumbers(product);
+  for (const match of line.replace(/,/g, "").matchAll(/\d+(?:\.\d+)?/g)) {
+    const value = Number(match[0]);
+    if (![...known].some((item) => item === value)) {
+      throw new Error("Pick line number " + match[0] + " is not in the maker facts on " + product.id);
+    }
+  }
 }
 
 function metaContents(html, key) {
@@ -303,7 +307,7 @@ function assertAllPageVoice() {
     const html = readFileSync(file, "utf8");
     const where = file.slice(root.length);
     assertPageVoice(html, where);
-    const banned = html.match(/\bworth matching\b/i);
+    const banned = html.match(READER_WORDING_BAN);
     if (banned) throw new Error("Reader wording ban on " + where + ": " + banned[0]);
   }
 }
@@ -507,6 +511,7 @@ function assertProducts(list) {
     if (!/^[a-z0-9-]+$/.test(product.id || "")) throw new Error("Unsafe product id: " + product.id);
     if (ids.has(product.id)) throw new Error("Duplicate product id: " + product.id);
     ids.add(product.id);
+    assertPickLine(product);
   }
   assertUniqueModelPhotos(list);
 }
@@ -550,8 +555,25 @@ function assertRenderer() {
   if (bin.includes("store-btn") || bin.includes("check-title") || bin.includes("evidence")) {
     throw new Error("Hub card includes a product-page block");
   }
-  if (!bin.includes('class="spec-tile"') || !bin.includes('class="spec-model"') || !bin.includes('class="pick-if"') || !bin.includes("Pick it for:")) {
+  if (!bin.includes('class="spec-tile"') || !bin.includes('class="spec-model"')) {
     throw new Error("Hub card is missing the spec tile");
+  }
+  if (bin.includes('class="pick-if"') || bin.includes("Pick it for:")) {
+    throw new Error("Hub card invented a pick line");
+  }
+  const voiced = card.card({
+    id: "example-voice",
+    title: "Example voice model",
+    category: "kitchen",
+    pick: "Pick it if you want one machine that grinds the beans and pulls the espresso.",
+    evidence: [],
+    checks: ["Read the recall line on this card before you buy."],
+    recall: {
+      us: { status: "none", detail: "No recall matches this model.", url: "https://www.cpsc.gov/Recalls/example" }
+    }
+  }, "US");
+  if (!voiced.includes("Pick it if you want one machine that grinds the beans and pulls the espresso.") || voiced.includes("Pick it for:")) {
+    throw new Error("Hub card dropped the buyer line");
   }
   if (bin.includes('class="p-photo"') || bin.includes('class="type-tile"') || bin.includes('class="illu"') || /amazon\.com/i.test(bin)) {
     throw new Error("Hub card used a photo, an icon tile, or an Amazon image");
@@ -872,7 +894,7 @@ function productPage(product) {
   const why = (product.evidence || []).length
     ? "Checked Lab lists this model so the recall check and the maker page are in one place. The lines below are what that maker page states."
     : "Checked Lab lists this model so the recall check and the maker page are in one place. No maker spec line is on this page yet.";
-  const pick = card.pickLine(product);
+  const pickHtml = pickParagraph(product);
   const media = card.visual(product, { eager: true, hero: true });
   const titleHtml = media.includes("spec-tile")
     ? '<div class="visually-hidden"><h1 class="p-title">' + card.visibleTitle(product.title) + "</h1></div>"
@@ -945,7 +967,7 @@ ${nav(hub)}
 <span class="only-us">${card.badgeHtml(us)}</span>
 <span class="only-ca">${card.badgeHtml(ca)}</span>
 ${titleHtml}
-<p class="pick-if">${card.esc(pick)}</p>
+${pickHtml}
 <div class="only-us">${card.amazonButton(product, "US")}</div>
 <div class="only-ca">${card.amazonButton(product, "CA")}</div>
 </div>
@@ -1497,7 +1519,8 @@ function pickBoxText(entry, product, pair) {
     }
   }
   if (!phrases.length) {
-    return "you want " + card.pickLine(product).replace(/^Pick it for:\s*/, "") + ".";
+    const clause = String(card.pickLine(product) || "").replace(/^Pick it if you want\s+/i, "").replace(/\.$/, "");
+    return clause ? "you want " + clause + "." : "the published specs are the ones to weigh.";
   }
   return "you want " + (phrases.length === 2 ? phrases[0] + " and " + phrases[1] : phrases[0]) + ".";
 }
@@ -2153,8 +2176,8 @@ ${sceneBlock("compare")}
 <h1>${card.esc(entry.title)}</h1>
 <p class="sub">${card.esc(entry.description.split(/(?<=\.)\s/)[0])}</p>
 ${picks}
-<nav class="toc" aria-label="Jump to"><p>Jump to</p><a href="#read-lines">The maker lines</a><a href="#recall-check">Recall check</a><a href="#stores">Stores</a></nav>
-${productFold("read-lines", "The maker lines", '<p class="lede">' + card.esc(entry.description) + "</p><p>Each spec line is copied from that model’s maker page. The Source link opens that page. Recall lines use the " + card.esc(recalls.checkedAt) + " (UTC) catalogue check.</p>" + pair.map(editorialSpecBlock).join("\n") + sections)}
+<nav class="toc" aria-label="Jump to"><p>Jump to</p><a href="#read-lines">What the maker says</a><a href="#recall-check">Recall check</a><a href="#stores">Stores</a></nav>
+${productFold("read-lines", "What the maker says", '<p class="lede">' + card.esc(entry.description) + "</p><p>Each spec line is copied from that model’s maker page. The Source link opens that page. Recall lines use the " + card.esc(recalls.checkedAt) + " (UTC) catalogue check.</p>" + pair.map(editorialSpecBlock).join("\n") + sections)}
 ${productFold("recall-check", "Recall check", recallsHtml + '<p class="lede"><a href="/' + section + '/">' + card.esc(crumb) + '</a> <a href="/' + entry.hub + '/">' + card.esc(HUB_NAME[entry.hub]) + '</a> <a href="/compare/">Spec comparisons</a> <a href="/black-friday/">Black Friday</a> <a href="/recalls/">Recall checks</a> <a href="/how-we-check/">How we check</a> ' + bestTypesForIds(pair.map((product) => product.id)).map(bestAnchor).join(" ") + " " + pair.map((product) => '<a href="' + card.productPath(product) + '">' + card.esc(product.title) + "</a>").join(" ") + "</p>" + relatedHtml + seeAlsoHtml(entry))}
 ${productFold("stores", "Stores", stores("US", "United States stores") + stores("CA", "Canadian stores"))}
 </div>
@@ -3053,7 +3076,7 @@ function bfModel(product, opts) {
   return '<article class="bf-model" id="' + card.esc(product.id) + '">' +
     art +
     "<h3" + hidden + '><a href="' + card.productPath(product) + '">' + card.visibleTitle(product.title) + "</a></h3>" +
-    '<p class="pick-if">' + card.esc(card.pickLine(product)) + "</p>" +
+    pickParagraph(product) +
     '<a class="hub-more" href="' + card.productPath(product) + '">See the model</a>' +
     '<p class="only-us pick-status">' + bfStatusHtml(card.recallFor(product, "US"), "US") + "</p>" +
     '<p class="only-ca pick-status">' + bfStatusHtml(card.recallFor(product, "CA"), "Canadian") + "</p>" +
@@ -3554,7 +3577,7 @@ function giftPickHtml(product, guide, opts) {
   return '<article class="guide-pick" id="' + card.esc(product.id) + '">' +
     art +
     "<h2" + hidden + '><a href="' + card.productPath(product) + '">' + card.visibleTitle(product.title) + "</a></h2>" +
-    '<p class="pick-if">' + card.esc(card.pickLine(product)) + "</p>" +
+    pickParagraph(product) +
     '<div class="only-us">' + card.amazonButton(product, "US") + "</div>" +
     '<div class="only-ca">' + card.amazonButton(product, "CA") + "</div>" +
     '<p><a class="hub-more" href="' + card.productPath(product) + '">Model page</a></p>' +
@@ -6276,7 +6299,7 @@ function assertBuyerPicks() {
     const html = readFileSync(file, "utf8");
     if (html.includes("Pick it for:")) throw new Error("Spec pick line still on " + where);
     for (const id of ids) {
-      const reason = BUYER_PICK[id];
+      const reason = buyerReason(id);
       if (!reason) throw new Error("No buyer reason for " + id + " on " + where);
       if (!html.includes(card.esc(reason))) throw new Error("Buyer reason missing for " + id + " on " + where);
     }
