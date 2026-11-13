@@ -207,10 +207,11 @@ const GUIDE_END = "<!-- checkedlab:guide end -->";
 const GUIDE_KEYS = ["home", "black-friday", "gifts", "compare", ...HUBS];
 const COPY_BAN = /\$\d|\bwe tested\b|\btested by us\b|\bwe bought\b|\bdoes not test\b|\bdid not test\b|\bnot tested\b|\bnot(?: a)? measured\b|\bfrom this site\b|\bnot tested by\b|\bwe did not\b|\bwe didn['’]t\b|\bwe haven['’]t\b|hands-on|lab-tested|lab tested|out of 5|star rating|best overall|\bwinner\b|\bscore\b/i;
 /* /social/ text and captions use COPY_BAN plus the phrases a shopper post must not use. */
-const SOCIAL_COPY_BAN = new RegExp(
-  COPY_BAN.source + "|not a verdict|catalogue check|stay(?:s)? off (?:this|the) table|has not been recorded|\\bcatalogue\\b|\\bmaker lines\\b|\\bverdict\\b|\\bcell\\b",
-  "i"
-);
+const SOCIAL_PHRASE_BAN = "not a verdict|catalogue check|stay(?:s)? off (?:this|the) table|has not been recorded|\\bcatalogue\\b|\\bmaker lines\\b|\\bverdict\\b|\\bcell\\b|side by side, not a verdict|read the source lines yourself|read the cadr lines carefully|same brand, different lines|same job, different lines|each cell is copied|maker specs|these are maker page lines|#makerspecs|recall lines use the \\d{4}-\\d{2}-\\d{2} \\\\(utc\\\\) cpsc and health canada catalogue check";
+const SOCIAL_COPY_BAN = new RegExp(COPY_BAN.source + "|" + SOCIAL_PHRASE_BAN, "i");
+/* Site HTML uses the same slide phrases. "maker specs" in a sentence stays, because gift and hub lines already say it. The all-caps eyebrow does not. */
+const SITE_ROBOTIC_BAN = /side by side, not a verdict|read the source lines yourself|read the cadr lines carefully|same brand, different lines|same job, different lines|catalogue check|stay(?:s)? off (?:this|the) table|each cell is copied|these are maker page lines|recall lines use the \d{4}-\d{2}-\d{2} \(utc\) cpsc and health canada catalogue check/i;
+const SITE_EYEBROW_BAN = /MAKER SPECS/;
 const READER_VOICE_BAN = /worth matching|in this catalogue|in this catalog|check the model|to match on|on a listing/i;
 const READER_WORDING_BAN = /\bworth matching\b|Pick it for:|The maker lines|\bmaker lines\b/i;
 const VOICE_PAGES = new Set([
@@ -314,6 +315,12 @@ function assertAllPageVoice() {
     assertPageVoice(html, where);
     const banned = html.match(READER_WORDING_BAN);
     if (banned) throw new Error("Reader wording ban on " + where + ": " + banned[0]);
+    const robotic = html.match(SITE_ROBOTIC_BAN) || html.match(SITE_EYEBROW_BAN);
+    if (robotic) {
+      const at = Math.max(0, robotic.index - 40);
+      const snippet = html.slice(at, robotic.index + robotic[0].length + 40).replace(/\s+/g, " ").trim();
+      throw new Error("Robotic phrase ban on " + where + ": " + robotic[0] + " near “" + snippet + "”");
+    }
   }
 }
 
@@ -1768,7 +1775,7 @@ ${entry.verdict ? verdictBlock(entry, pair) + "\n" : ""}<div class="compare-wrap
 </div>
 ${entry.verdict ? "" : pickPair(entry, pair)}
 <nav class="toc" aria-label="Jump to"><p>Jump to</p><a href="#how-to-read">How to read this</a><a href="#recall-check">Recall check</a><a href="#stores">Stores</a></nav>
-${productFold("how-to-read", "How to read this", '<p class="lede">' + card.esc(entry.description) + "</p><p>Each line below is copied from that model’s maker page. The Source link opens that page. A spec that only one card lists is left out of the table. Recall lines use the " + card.esc(recalls.checkedAt) + " (UTC) catalogue check.</p>" + fit + (sections ? "\n" + sections : "") + (entry.verdict ? unmatchedSpecHtml(pair, rows) : "") + (relatedHtml ? "\n" + relatedHtml : ""))}
+${productFold("how-to-read", "How to read this", '<p class="lede">' + card.esc(entry.description) + "</p><p>Each line below is copied from that model’s maker page. The Source link opens that page. A spec that only one card lists is left out of the table. The recall line is the CPSC and Health Canada check dated " + card.esc(recalls.checkedAt) + " (UTC).</p>" + fit + (sections ? "\n" + sections : "") + (entry.verdict ? unmatchedSpecHtml(pair, rows) : "") + (relatedHtml ? "\n" + relatedHtml : ""))}
 ${productFold("recall-check", "Recall check", recallsHtml + '<p class="lede"><a href="/compare/">All comparisons</a> ' + (entry.verdict ? '<a href="/black-friday/">Black Friday</a> ' : "") + '<a href="/recalls/">All recall checks</a> <a href="/' + entry.hub + '/">' + card.esc(HUB_NAME[entry.hub]) + '</a> <a href="/how-we-check/">How we check</a> ' + pair.map(sideAnchor).join(" ") + (crossHtml ? " " + crossHtml : "") + "</p>")}
 ${productFold("stores", "Stores", stores("US", "United States stores") + stores("CA", "Canadian stores"))}
 </div>
@@ -1909,7 +1916,7 @@ ${sceneBlock("compare")}
 <h1>${card.esc(title)}</h1>
 <p class="sub">Open a pair. The table is the specs both product pages share.</p>
 ${sections}
-${productFold("compare-guide", "How to read a comparison", '<p class="lede">' + card.esc(description) + "</p>" + renderHubGuide("compare") + '<p>Each line on a comparison is copied from that model’s product page. A spec that only one card lists is left out of the table. Recall lines use the ' + card.esc(recalls.checkedAt) + ' (UTC) check. Search the model on <a href="' + CPSC_SEARCH + '" target="_blank" rel="noopener">CPSC Recalls</a> and on <a href="' + HC_SEARCH + '" target="_blank" rel="noopener">Health Canada recalls and safety alerts</a>.</p>')}
+${productFold("compare-guide", "How to read a comparison", '<p class="lede">' + card.esc(description) + "</p>" + renderHubGuide("compare") + '<p>Each line on a comparison is copied from that model’s product page. A spec that only one card lists is left out of the table. The recall line is the CPSC and Health Canada check dated ' + card.esc(recalls.checkedAt) + ' (UTC). Search the model on <a href="' + CPSC_SEARCH + '" target="_blank" rel="noopener">CPSC Recalls</a> and on <a href="' + HC_SEARCH + '" target="_blank" rel="noopener">Health Canada recalls and safety alerts</a>.</p>')}
 <p class="lede"><a href="/recalls/">All recall checks</a> <a href="/how-we-check/">How we check</a> <a href="/black-friday/">Black Friday</a> <a href="/gifts/">Gift guides</a> <a href="/alternatives/">Alternatives</a> <a href="/worth-it/">Worth it?</a></p>
 </div>
 </main>
@@ -2182,7 +2189,7 @@ ${sceneBlock("compare")}
 <p class="sub">${card.esc(entry.description.split(/(?<=\.)\s/)[0])}</p>
 ${picks}
 <nav class="toc" aria-label="Jump to"><p>Jump to</p><a href="#read-lines">What the maker says</a><a href="#recall-check">Recall check</a><a href="#stores">Stores</a></nav>
-${productFold("read-lines", "What the maker says", '<p class="lede">' + card.esc(entry.description) + "</p><p>Each spec line is copied from that model’s maker page. The Source link opens that page. Recall lines use the " + card.esc(recalls.checkedAt) + " (UTC) catalogue check.</p>" + pair.map(editorialSpecBlock).join("\n") + sections)}
+${productFold("read-lines", "What the maker says", '<p class="lede">' + card.esc(entry.description) + "</p><p>Each spec line is copied from that model’s maker page. The Source link opens that page. The recall line is the CPSC and Health Canada check dated " + card.esc(recalls.checkedAt) + " (UTC).</p>" + pair.map(editorialSpecBlock).join("\n") + sections)}
 ${productFold("recall-check", "Recall check", recallsHtml + '<p class="lede"><a href="/' + section + '/">' + card.esc(crumb) + '</a> <a href="/' + entry.hub + '/">' + card.esc(HUB_NAME[entry.hub]) + '</a> <a href="/compare/">Spec comparisons</a> <a href="/black-friday/">Black Friday</a> <a href="/recalls/">Recall checks</a> <a href="/how-we-check/">How we check</a> ' + bestTypesForIds(pair.map((product) => product.id)).map(bestAnchor).join(" ") + " " + pair.map((product) => '<a href="' + card.productPath(product) + '">' + card.esc(product.title) + "</a>").join(" ") + "</p>" + relatedHtml + seeAlsoHtml(entry))}
 ${productFold("stores", "Stores", stores("US", "United States stores") + stores("CA", "Canadian stores"))}
 </div>
