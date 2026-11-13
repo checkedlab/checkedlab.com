@@ -199,7 +199,7 @@ const hubWordCounts = {};
 const GUIDE_START = "<!-- checkedlab:guide start -->";
 const GUIDE_END = "<!-- checkedlab:guide end -->";
 const GUIDE_KEYS = ["home", "black-friday", "gifts", "compare", ...HUBS];
-const COPY_BAN = /\$\d|\bwe tested\b|\btested by us\b|\bwe bought\b|\bdoes not test\b|\bdid not test\b|\bnot tested\b|hands-on|lab-tested|lab tested|out of 5|star rating|best overall|\bwinner\b|\bscore\b/i;
+const COPY_BAN = /\$\d|\bwe tested\b|\btested by us\b|\bwe bought\b|\bdoes not test\b|\bdid not test\b|\bnot tested\b|\bnot(?: a)? measured\b|\bfrom this site\b|\bnot tested by\b|\bwe did not\b|\bwe didn['’]t\b|\bwe haven['’]t\b|hands-on|lab-tested|lab tested|out of 5|star rating|best overall|\bwinner\b|\bscore\b/i;
 assertProducts(products);
 assertRenderer();
 

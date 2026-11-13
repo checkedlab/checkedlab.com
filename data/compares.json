@@ -389,23 +389,23 @@
       "for-the-home"
     ],
     "fit": [
-      "The Core 300S-P manual states noise of 22–54.5 dB and a weight of 7.48 lb. The Core 600S-P page states noise of 26 dB and a weight of 13.7 lb / 6.2 kg.",
-      "A lower stated weight is the Core 300S-P line. The 600S-P noise line is a single figure. The 300S-P noise line is a range. Power, size, CADR, and room size use labels that only one card uses."
+      "The Core 300S-P manual states noise of 22–54.5 dB and a weight of 7.48 lb. The Core 600S-P page states noise of 26–55 dB (as low as 26 dB per the maker) and a weight of 13.7 lb / 6.2 kg.",
+      "A lower stated weight is the Core 300S-P line. The 600S-P noise line is 26–55 dB (as low as 26 dB per the maker). The 300S-P noise line is 22–54.5 dB. Power, size, CADR, and room size use labels that only one card uses."
     ],
     "sections": [
       {
         "heading": "Same brand, two cabinets",
         "paragraphs": [
-          "Both cards are Levoit Core models, and the shared labels are noise and weight. The 300S-P manual prints 22–54.5 dB and 7.48 lb, with dimensions of 8.7 × 8.7 × 14.2 in and rated power of 39 W at AC 120 V, 60 Hz. The 600S-P page prints 26 dB and 13.7 lb / 6.2 kg, with a size of 12.3 x 12.3 x 23.6 in and power of 49 W at AC 120 V, 60 Hz.",
+          "Both cards are Levoit Core models, and the shared labels are noise and weight. The 300S-P manual prints 22–54.5 dB and 7.48 lb, with dimensions of 8.7 × 8.7 × 14.2 in and rated power of 39 W at AC 120 V, 60 Hz. The 600S-P page prints 26–55 dB (as low as 26 dB per the maker) and 13.7 lb / 6.2 kg, with a size of 12.3 x 12.3 x 23.6 in and power of 49 W at AC 120 V, 60 Hz.",
           "CADR on the 600S-P page is 391 CFM. Room size on that page is 2,909 sq ft at 1 air change per hour, or 606 sq ft at 4.8. The 300S-P card does not use a CADR label or a room-size label, so those rows stay off the table. Filtration on the 600S-P page says 3-stage. That label is not on the 300S-P card."
         ]
       },
       {
         "heading": "Pick the smaller stated weight or the CADR line",
         "paragraphs": [
-          "Pick the Core 300S-P manual if the weight you are matching is 7.48 lb and the cabinet you are matching is 8.7 × 8.7 × 14.2 in. The power line that goes with that cabinet is 39 W. The noise line is a range, 22–54.5 dB, not a single operating point.",
-          "Pick the Core 600S-P page if the figure you are matching is 391 CFM, the room line that names 606 sq ft at 4.8 air changes, or the taller cabinet of 12.3 x 12.3 x 23.6 in. The stated weight on that page is 13.7 lb, and the noise line is the single figure 26 dB. A lower stated wattage is the 300S-P line, 39 W against 49 W, and those power labels are not identical, so wattage stays on the cards.",
-          "A range and a single decibel figure should not be read as “quieter” without the page saying which speed the number belongs to. The 600S-P page prints 26 dB. The 300S-P manual prints a span. The recall lines below are the catalogue match for each model."
+          "Pick the Core 300S-P manual if the weight you are matching is 7.48 lb and the cabinet you are matching is 8.7 × 8.7 × 14.2 in. The power line that goes with that cabinet is 39 W. The noise line is 22–54.5 dB.",
+          "Pick the Core 600S-P page if the figure you are matching is 391 CFM, the room line that names 606 sq ft at 4.8 air changes, or the taller cabinet of 12.3 x 12.3 x 23.6 in. The stated weight on that page is 13.7 lb, and the noise line is 26–55 dB (as low as 26 dB per the maker). A lower stated wattage is the 300S-P line, 39 W against 49 W, and those power labels are not identical, so wattage stays on the cards.",
+          "Both noise lines are ranges. The 600S-P page prints 26–55 dB (as low as 26 dB per the maker). The 300S-P manual prints 22–54.5 dB. Read the range the page prints before comparing the low ends. The recall lines below are the catalogue match for each model."
         ]
       }
     ]
@@ -509,7 +509,7 @@
         "heading": "Pick by run time, charge time, or the filtration line",
         "paragraphs": [
           "Pick the V15 Detect Absolute page if the run-time figure you are matching is up to 60 min, the suction figure you are matching is 230 AW in Boost mode, or the filtration line you need is whole-machine HEPA. The charge line that goes with that page is 4.5 hrs. The bin line is 0.2 gallon.",
-          "Pick the PURE ONE S15 PRO page if the run-time figure you are matching is 40 min, the charge line is 4 hours, or you need the 2500 mAh battery line and the 0.47 L dust-capacity line. The stated weight, 6.8 lbs, sits next to Dyson’s 6.83 lb. Those are the maker’s figures, not a measured difference from this site.",
+          "Pick the PURE ONE S15 PRO page if the run-time figure you are matching is 40 min, the charge line is 4 hours, or you need the 2500 mAh battery line and the 0.47 L dust-capacity line. The stated weight, 6.8 lbs, sits next to Dyson’s 6.83 lb. Both weights are as the maker pages state them.",
           "A Health Canada notice linked from the Dyson V15 card names a FirstPower replacement battery for Dyson V6 series vacuums. That notice names V6, not the V15 Detect Absolute. Read the model on the notice before applying it here. The recall block is the catalogue match for each cordless vacuum."
         ]
       }
