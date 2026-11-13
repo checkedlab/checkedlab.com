@@ -853,6 +853,23 @@
     return product.title || product.imageShows || "Licensed product photo";
   }
 
+  function genericPhotoAlt(product) {
+    var names = {
+      stickvac: "Cordless stick vacuum",
+      coffee: "Coffee maker",
+      robotvac: "Robot vacuum",
+      purifier: "Air purifier",
+      headphones: "Headphones",
+      bed: "Pillow",
+      heater: "Heater",
+      humidifier: "Humidifier",
+      airfryer: "Air fryer",
+      pet: "Pet fountain",
+      feeder: "Pet feeder"
+    };
+    return names[motifKey(product)] || "Product photo";
+  }
+
   function photoSizes(opts) {
     if (opts.sizes) return opts.sizes;
     if (opts.hero) return "(min-width: 800px) 480px, 100vw";
@@ -877,10 +894,14 @@
       }
     }
     var load = opts.eager ? ' fetchpriority="high" decoding="async"' : ' loading="lazy" decoding="async"';
+    var alt = (opts.genericUnlessExact && product.imageMatch !== "exact")
+      ? genericPhotoAlt(product)
+      : photoAlt(product);
+    var caption = opts.noCredit ? "" : photoCaption(product);
     return '<figure class="p-figure"><img class="p-photo" src="' + esc(src) + '"' + extra +
-      ' alt="' + esc(photoAlt(product)) + '" width="' + width + '" height="' + height + '"' +
+      ' alt="' + esc(alt) + '" width="' + width + '" height="' + height + '"' +
       ' data-brand="' + esc(product.sourceName || "") + '" data-model="' + esc(product.model || "") + '" data-category="' + esc(product.category || "") + '"' +
-      load + ">" + photoCaption(product) + "</figure>";
+      load + ">" + caption + "</figure>";
   }
 
   var SCENES = {
