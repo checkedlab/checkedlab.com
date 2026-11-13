@@ -676,7 +676,12 @@ footer { background: #1A1916; color: #F4F1EA; }
 }
 
 /* Scan-first editorial layout. One accent, cards before the essay. */
-.visually-hidden {
+.visually-hidden,
+.p-title.visually-hidden,
+h1.visually-hidden,
+h2.visually-hidden,
+h3.visually-hidden,
+p.visually-hidden {
   position: absolute;
   width: 1px;
   height: 1px;
