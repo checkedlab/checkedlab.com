@@ -949,3 +949,7 @@ body[data-page="product"] .p-photo {
   }
   .hero h1, body[data-page="home"] h1 { font-size: 3rem; }
 }
+body[data-page="best"] .pick-grid { grid-template-columns: 1fr; }
+@media (min-width: 800px) {
+  body[data-page="best"] .pick-grid { grid-template-columns: 1fr 1fr; }
+}

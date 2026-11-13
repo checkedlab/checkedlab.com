@@ -1,0 +1,772 @@
+{
+  "title": "Best of the catalogue, 2026",
+  "h1": "Best of the catalogue",
+  "description": "Twelve buyer guides for the product types with the most models already in the Checked Lab catalogue. Each card quotes maker specs and the dated CPSC and Health Canada check.",
+  "intro": [
+    "A type page is published when the catalogue already has at least three models of that type. These twelve types are the ones with the most models. Air purifiers have eight. Heaters have six. Robot vacuums and stick vacuums have five each. Air fryers and mattresses have four each. Six more types have three models, and they are listed in alphabetical order: automatic pet feeders, coffee makers, humidifiers, noise-cancelling headphones, pet fountains, and pillows.",
+    "Pet fountains and automatic feeders are separate types. A slow-feed bowl is a third pet type, and it has one model, so it has no page. Reverse osmosis systems, scan tools, and snow tools also have three models. Their names come after pillows, so they are outside this set of twelve. Espresso machines, stand mixers, dash cams, dehumidifiers, automatic litter boxes, and water-filter pitchers have fewer than three models in the catalogue.",
+    "Each label names a sentence already printed on that model’s maker spec list: a room line, a CADR line, a tank, a battery line, a weight. The card order follows those labels. Prices stay on the store sites. The recall line is the catalogue match against CPSC SaferProducts and the Health Canada open dataset."
+  ],
+  "faqs": [
+    {
+      "q": "How does a product type get a page?",
+      "a": "The catalogue is grouped by product type. A type with at least three models can have a page. These twelve types have the most models. Types with the same count are ordered A to Z."
+    },
+    {
+      "q": "What does a Best for label mean?",
+      "a": "The label names the maker sentence that card is matching, such as a stated room size, a CADR, a tank capacity, or a battery line. The sentences are copied from the spec list on the model page."
+    },
+    {
+      "q": "Where do the recall lines come from?",
+      "a": "The US line is the CPSC SaferProducts match. The Canadian line is the Health Canada open dataset match. The date is the day that match was recorded."
+    },
+    {
+      "q": "Why is the price on the store button?",
+      "a": "Prices stay on the store sites. A US button opens Amazon.com, Best Buy, Walmart, Target, or Home Depot. A Canadian button opens Amazon.ca, Best Buy, Canadian Tire, Walmart, or Wayfair."
+    }
+  ],
+  "types": [
+    {
+      "slug": "air-purifiers",
+      "name": "air purifiers",
+      "title": "Best air purifiers, 2026",
+      "h1": "Best air purifiers in this catalogue",
+      "description": "Six air purifiers from the catalogue, chosen so the room sentences are not the same figure twice. Each card quotes the maker room or CADR line and the dated recall check.",
+      "how": [
+        "The label on an air purifier card uses a room sentence, a CADR sentence, or the cabinet weight, because those are the lines the maker pages print. Square feet are compared only inside one sentence. A room at 4.8 air changes per hour, an AHAM verified room, a recommended room, and a room at 1 air change per hour are four different sentences.",
+        "The grid has six cards. The Airmega 250 and the Vital 200S-P stay on the air and water hub and are linked below, because the 465 sq ft figure is already on the HPA300 card and the once-per-hour figures belong in the same note."
+      ],
+      "look": [
+        "Read the room sentence to the end. The AP-1512HH line is 361 ft² at 4.8 air changes per hour. The HPA300 line is 4.8 per hour in a 465 sq ft room. The 211i Max line is 674 sq ft recommended. The 5500-2 line is AHAM verified 360 sq ft. The Core 600S-P line gives both 606 sq ft at 4.8 and 2,909 sq ft at 1 air change per hour.",
+        "Read the CADR unit. Coway and Winix print smoke, dust, and pollen CADR. Honeywell prints a smoke CADR of 300. The Core 600S-P prints 391 CFM. The Core 300S-P card does not print a CADR label.",
+        "Read cabinet weight when the room line is absent. The Core 300S-P page states 7.48 lb and 8.7 × 8.7 × 14.2 in. The HPA300 page states 17 lb. The 211i Max page states 16.2 lb.",
+        "Read the filtration sentence on the model that prints one. The HPA300 page states up to 99.97% of particles that pass through the filter, and a True HEPA filter life of once per year. That sentence is about particles that pass through the filter."
+      ],
+      "faqs": [
+        {
+          "q": "Which air purifier card matches a small cabinet?",
+          "a": "The Core 300S-P card. The manual states 7.48 lb, 8.7 × 8.7 × 14.2 in, and 39 W. That card does not print a CADR or a room size."
+        },
+        {
+          "q": "Why are 360 sq ft and 361 ft² on different cards?",
+          "a": "The Winix 5500-2 line says AHAM verified 360 sq ft. The AP-1512HH line says 361 ft² at 4.8 air changes per hour. The sentences name the figure differently, so each card keeps its own sentence."
+        },
+        {
+          "q": "Where is the Airmega 250?",
+          "a": "It is linked under Also in the catalogue. Its coverage line is 465 sq ft at 4 air changes per hour, and its large-room line is 1,860 sq ft at 1 air change per hour. Smoke CADR on that page is 249."
+        },
+        {
+          "q": "Where does the air purifier recall line come from?",
+          "a": "The US line is the CPSC SaferProducts match for that model. The Canadian line is the Health Canada open dataset match. The date on the card is the day the match was recorded."
+        }
+      ],
+      "picks": [
+        {
+          "id": "levoit-core-300s-p",
+          "bestFor": "Best for a 7.48 lb cabinet",
+          "specs": ["Weight", "Dimensions", "Rated power"],
+          "because": "The Core 300S-P manual states a weight of 7.48 lb, dimensions of 8.7 × 8.7 × 14.2 in, and a rated power of 39 W. The noise line on that page is 22–54.5 dB. The card does not print a CADR label or a room-size label. The label matches the cabinet weight."
+        },
+        {
+          "id": "winix-5500-2",
+          "bestFor": "Best for an AHAM 360 sq ft line",
+          "specs": ["Room", "CADR", "Weight"],
+          "because": "The Winix 5500-2 page states a room of AHAM verified 360 sq ft, CADR of 243 dust / 246 pollen / 232 smoke, and a weight of about 15 lb. Power on that page is 70 W, 120 V / 60 Hz. The label matches the AHAM room sentence."
+        },
+        {
+          "id": "coway-ap-1512hh",
+          "bestFor": "Best for a 361 ft² line at 4.8 air changes",
+          "specs": ["Room coverage", "CADR", "Weight"],
+          "because": "The Airmega Mighty AP-1512HH page states room coverage of 361 ft² at 4.8 air changes per hour, CADR of 233 smoke, 246 dust, 240 pollen, and a weight of 12.3 lb. Power on that page is 77 W. The label matches the 361 ft² sentence."
+        },
+        {
+          "id": "honeywell-hpa300",
+          "bestFor": "Best for a smoke CADR of 300",
+          "specs": ["Smoke CADR", "Air changes", "Weight"],
+          "because": "The HPA300 page states a smoke CADR of 300, air changes of 4.8 per hour in a 465 sq ft room, and a weight of 17 lb. Dust CADR on that page is 320 and pollen CADR is 300. The label matches the smoke CADR line."
+        },
+        {
+          "id": "blueair-211i-max",
+          "bestFor": "Best for a 674 sq ft recommended room",
+          "specs": ["Room", "Weight", "Sound"],
+          "because": "The Blue Pure 211i Max page states a room of 674 sq ft recommended, a weight of 16.2 lb, and sound of 23 to 53 dB. Dimensions on that page are 22.7 x 14.4 x 14.4 in. The label matches the recommended-room sentence."
+        },
+        {
+          "id": "levoit-core-600s",
+          "bestFor": "Best for a 606 sq ft line at 4.8 air changes",
+          "specs": ["Room size", "CADR", "Weight"],
+          "because": "The Core 600S-P page states a room size of 2,909 sq ft at 1 air change per hour, or 606 sq ft at 4.8, CADR of 391 CFM, and a weight of 13.7 lb / 6.2 kg. Power on that page is 49 W, AC 120 V, 60 Hz. The label matches the 606 sq ft half of the room sentence."
+        }
+      ],
+      "also": [
+        {
+          "id": "coway-airmega-250",
+          "note": "The Airmega 250 page states coverage of 465 sq ft at 4 air changes per hour and a large room of 1,860 sq ft at 1 air change per hour. Smoke CADR on that page is 249. The 465 sq ft figure is the same square-foot number as the HPA300 room line, so this card is linked here."
+        },
+        {
+          "id": "levoit-vital-200s",
+          "note": "The Vital 200S-P page states a room rate that changes the air in a 1,862 sq ft room once per hour, noise as low as 23 dB, and 3-stage filtration. That once-per-hour sentence sits next to the Airmega 250 large-room sentence."
+        }
+      ]
+    },
+    {
+      "slug": "heaters",
+      "name": "heaters",
+      "title": "Best heaters, 2026",
+      "h1": "Best heaters in this catalogue",
+      "description": "Six heaters from the catalogue: two Lasko ceramic towers, a Dreo ceramic heater, a Mr. Heater Portable Buddy, a Vornado, and a De’Longhi radiator. Each card quotes the maker heat line.",
+      "how": [
+        "The label uses the line that separates the heater from the others on this list: tower height, a stated coverage, a BTU line, a weight, or a fin count. Watt lines and BTU lines stay in the unit the maker printed.",
+        "Two Lasko towers state the same heat output, 900 W to 1,500 W, and different heights. The CT32150 page states 31.6 in and 5.7 lb. The CT14401 page states 14 in and 3.3 lb. The label is the height, because the watt line is shared."
+      ],
+      "look": [
+        "Read the heat unit before comparing numbers. The CT32150, CT14401, Atom 316, AVH2, and Dragon 4 pages state watts or heat settings on 120 V. The Portable Buddy page states 4,000 or 9,000 BTU per hour.",
+        "Read a coverage line only when the card has one. The Atom 316 page states 200 sq ft. The Portable Buddy page states up to 225 sq ft. The Lasko, Vornado, and De’Longhi cards on this page do not print a square-foot line.",
+        "Read the safety sentence when the maker page prints one. The CT32150 page states ETL listed, tip-over switch, and overheat protection. The CT14401 page states ETL listed and overheat protection. The space-heater guide is at Winter home safety.",
+        "Read the weight if the heater has to be lifted. The CT14401 page states 3.3 lb. The AVH2 page states 4.48 lb. The Dragon 4 page states 25.61 lb and 6 fins."
+      ],
+      "faqs": [
+        {
+          "q": "Which heater card is the short tower?",
+          "a": "The CT14401 card. The page states a height of 14 in, a weight of 3.3 lb, and heat output of 900 W to 1,500 W."
+        },
+        {
+          "q": "Which heater card states BTU?",
+          "a": "The Portable Buddy MH9BX card. The page states 4,000 or 9,000 BTU per hour, an area of up to 225 sq ft, and a run time at max of 3 hours."
+        },
+        {
+          "q": "Do the two Lasko cards state the same watts?",
+          "a": "Yes. Both the CT32150 page and the CT14401 page state heat output of 900 W to 1,500 W at 120 V. The heights differ: 31.6 in and 14 in."
+        },
+        {
+          "q": "Where does the heater recall line come from?",
+          "a": "The US line is the CPSC SaferProducts match for that model. The Canadian line is the Health Canada open dataset match. The date on the card is the day the match was recorded."
+        }
+      ],
+      "picks": [
+        {
+          "id": "lasko-ct32150",
+          "bestFor": "Best for a 31.6 in tower",
+          "specs": ["Height", "Heat output", "Weight"],
+          "because": "The CT32150 page states a height of 31.6 in, heat output of 900 W to 1,500 W, and a weight of 5.7 lb. Voltage is 120 V. The safety line states ETL listed, tip-over switch, and overheat protection. The label matches the height."
+        },
+        {
+          "id": "lasko-ct14401",
+          "bestFor": "Best for a 14 in tower",
+          "specs": ["Height", "Heat output", "Weight"],
+          "because": "The CT14401 page states a height of 14 in, heat output of 900 W to 1,500 W, and a weight of 3.3 lb. Voltage is 120 V. The safety line states ETL listed and overheat protection. The label matches the 14 in height."
+        },
+        {
+          "id": "dreo-atom-316",
+          "bestFor": "Best for a 200 sq ft coverage line",
+          "specs": ["Coverage", "Heat", "Speeds"],
+          "because": "The Atom 316 page states coverage of 200 sq ft, heat of 1500 watts, and 4 speeds. Voltage is 120 volts. The thermostat line is 41 F to 95 F. The label matches the coverage sentence."
+        },
+        {
+          "id": "mr-heater-mh9bx",
+          "bestFor": "Best for a 9,000 BTU line",
+          "specs": ["Heat", "Area", "Run time at max"],
+          "because": "The Portable Buddy page states heat of 4,000 or 9,000 BTU per hour, an area of up to 225 sq ft, and a run time at max of 3 hours. The model line is MH9BX. The label matches the 9,000 BTU setting."
+        },
+        {
+          "id": "vornado-avh2",
+          "bestFor": "Best for a 4.48 lb heater",
+          "specs": ["Weight", "Heat settings", "Dimensions"],
+          "because": "The AVH2 page states a weight of 4.48 lb, heat settings of low and high, and dimensions of 9.21 x 11.65 x 11.89 in. Electrical is 120 V, 60 Hz. The label matches the weight."
+        },
+        {
+          "id": "delonghi-trd40615e",
+          "bestFor": "Best for a 6-fin radiator",
+          "specs": ["Fins", "Heat max", "Weight"],
+          "because": "The Dragon 4 page states 6 fins, a heat max of 1500 W, and a weight of 25.61 lb. Heat min on that page is 700 W. Voltage is 120 V, 60 Hz. The label matches the fin count."
+        }
+      ]
+    },
+    {
+      "slug": "robot-vacuums",
+      "name": "robot vacuums",
+      "title": "Best robot vacuums, 2026",
+      "h1": "Best robot vacuums in this catalogue",
+      "description": "Five robot vacuums from the catalogue: Roomba Combo j9+, two Shark robots, Roborock Qrevo S, and eufy X10 Pro Omni. Each card quotes the maker suction, weight, or runtime line.",
+      "how": [
+        "The label uses the sentence that is actually on that card: robot weight and height, dust-cup size, voltage, pascals, or a runtime. A dock dimension is not the robot dimension. The Roomba page prints both, and they are labeled robot and dock.",
+        "The two Shark cards are different watt lines. The AV2501S page states 650 watts. The AV2820AE page states 35 watts and 14.4 volts. The cleaning path on both pages is 5.7 in. The label does not treat those watt lines as one figure."
+      ],
+      "look": [
+        "Read whether the dimension is the robot or the dock. The Roomba Combo j9+ page states robot dimensions of 3.4 x 13.7 x 13.7 in and dock dimensions of 15.8 in W x 16.4 in D x 16.3 in H. The Qrevo S page states robot dimensions of 13.78 x 13.9 x 3.80 in and a separate dock.",
+        "Read the suction unit the page uses. The Qrevo S page states 7,000 Pa. The X10 Pro Omni page states 8,000 Pa. The Roomba and Shark cards on this page do not print a pascal line.",
+        "Read the runtime sentence with its mode. The X10 Pro Omni page states 173 min vacuum, or 136 min vacuum and mop, on standard. The other four cards on this page do not print that runtime sentence.",
+        "Read the dust capacity in the unit printed. The AV2501S page states a dust cup of 0.1 qt. The X10 Pro Omni page states a dustbin of 330 ml. Those units are different."
+      ],
+      "faqs": [
+        {
+          "q": "Which robot card states 8,000 Pa?",
+          "a": "The eufy X10 Pro Omni card. The page also states a run time of 173 min vacuum, or 136 min vacuum and mop, on standard, and a robot weight of 4,560 g."
+        },
+        {
+          "q": "Which robot card is the 8.9 lb robot?",
+          "a": "The Roomba Combo j9+ card. Robot weight is 8.9 lb and robot dimensions are 3.4 x 13.7 x 13.7 in. Dock weight on that page is 21.9 lb."
+        },
+        {
+          "q": "Why are the two Shark watt lines different?",
+          "a": "The AV2501S page states 650 watts. The AV2820AE page states 35 watts and 14.4 volts. Both pages state a cleaning path of 5.7 in."
+        },
+        {
+          "q": "Where does the robot vacuum recall line come from?",
+          "a": "The US line is the CPSC SaferProducts match for that model. The Canadian line is the Health Canada open dataset match. A notice that names a different model stays on the card as a different model."
+        }
+      ],
+      "picks": [
+        {
+          "id": "irobot-roomba-combo-j9-plus",
+          "bestFor": "Best for an 8.9 lb robot",
+          "specs": ["Robot weight", "Robot dimensions", "Dock weight"],
+          "because": "The Roomba Combo j9+ page states a robot weight of 8.9 lb, robot dimensions of 3.4 x 13.7 x 13.7 in, and a dock weight of 21.9 lb. The battery line is lithium-ion. The label matches the robot weight, not the dock weight."
+        },
+        {
+          "id": "shark-av2501s",
+          "bestFor": "Best for a 0.1 qt dust cup",
+          "specs": ["Dust cup", "Weight", "Wattage"],
+          "because": "The AV2501S page states a dust cup of 0.1 qt, a weight of 14.77 lbs, and wattage of 650 watts. The cleaning path is 5.7 in. The label matches the dust-cup line."
+        },
+        {
+          "id": "shark-av2820ae",
+          "bestFor": "Best for a 14.4 volt robot",
+          "specs": ["Voltage", "Wattage", "Weight"],
+          "because": "The AV2820AE page states voltage of 14.4 volts, wattage of 35 watts, and a weight of 14.55 lbs. The cleaning path is 5.7 in. The label matches the 14.4 volt line."
+        },
+        {
+          "id": "roborock-qrevo-s",
+          "bestFor": "Best for a 7,000 Pa suction line",
+          "specs": ["Suction", "Mop speed", "Robot dimensions"],
+          "because": "The Qrevo S page states suction of 7,000 Pa, a mop speed of 200 RPM, and robot dimensions of 13.78 x 13.9 x 3.80 in. Charge time is approx. 4 hours. The label matches the suction line."
+        },
+        {
+          "id": "eufy-x10-pro-omni",
+          "bestFor": "Best for an 8,000 Pa suction line",
+          "specs": ["Suction", "Run time", "Robot weight"],
+          "because": "The X10 Pro Omni page states suction of 8,000 Pa, a run time of 173 min vacuum, or 136 min vacuum and mop, on standard, and a robot weight of 4,560 g. The dustbin line is 330 ml. The label matches the suction line."
+        }
+      ]
+    },
+    {
+      "slug": "stick-vacuums",
+      "name": "stick vacuums",
+      "title": "Best stick vacuums, 2026",
+      "h1": "Best stick vacuums in this catalogue",
+      "description": "Five cordless stick vacuums from the catalogue: Dyson V15 Detect Absolute, Dyson V8, Shark IP3251, Tineco PURE ONE S15 PRO, and BISSELL ICONpet 2288.",
+      "how": [
+        "The label uses weight, run time, dust capacity, or cleaning path, and it keeps the qualifier the maker printed. The IP3251 run-time line is up to 70 minutes, measured at the hand vacuum in ECO mode. That is the whole sentence.",
+        "Air watts stay on the Dyson cards that print them. The V15 page states 230 AW in Boost mode. The V8 page states 115 AW in MAX mode. The Shark, Tineco, and BISSELL cards on this page do not print an air-watt line."
+      ],
+      "look": [
+        "Read the run-time sentence with its condition. The V15 page states up to 60 min. The V8 page states 40 min maximum. The S15 PRO page states 40 min. The IP3251 page states up to 70 minutes, measured at the hand vacuum in ECO mode.",
+        "Read weight in the unit printed. The V15 page states 6.83 lb. The V8 page states 5.58 lb. The S15 PRO page states 6.8 lbs. The ICONpet page states 7 lbs. The IP3251 page states 18.47 lbs.",
+        "Read the bin in the unit printed. The V15 page states 0.2 gallon. The V8 page states 0.14 gallon. The IP3251 page states 0.7 qt. The S15 PRO page states 0.47 L. The ICONpet page states a dirty tank of 0.4 L.",
+        "Read charge time next to run time. The V15 page states 4.5 hrs. The V8 page states 5 hrs. The S15 PRO page states 4 hours. The IP3251 page states 6 hours."
+      ],
+      "faqs": [
+        {
+          "q": "Which stick vacuum card states 230 AW?",
+          "a": "The V15 Detect Absolute card. The page states 230 AW in Boost mode, a weight of 6.83 lb, and a run time of up to 60 min."
+        },
+        {
+          "q": "Which stick vacuum card is the lighter Dyson?",
+          "a": "The V8 card. The page states a weight of 5.58 lb, a run time of 40 min maximum, and suction of 115 AW in MAX mode."
+        },
+        {
+          "q": "What does the IP3251 70 minute line include?",
+          "a": "The page states up to 70 minutes, measured at the hand vacuum in ECO mode. Weight on that page is 18.47 lbs and charge time is 6 hours."
+        },
+        {
+          "q": "Where does the stick vacuum recall line come from?",
+          "a": "The US line is the CPSC SaferProducts match for that model. The Canadian line is the Health Canada open dataset match. A notice that names a different model stays on the card as a different model."
+        }
+      ],
+      "picks": [
+        {
+          "id": "dyson-v15-detect",
+          "bestFor": "Best for a 60 min run time",
+          "specs": ["Run time", "Suction", "Weight"],
+          "because": "The V15 Detect Absolute page states a run time of up to 60 min, suction of 230 AW in Boost mode, and a weight of 6.83 lb. Charge time is 4.5 hrs and bin volume is 0.2 gallon. The label matches the run-time line."
+        },
+        {
+          "id": "dyson-v8",
+          "bestFor": "Best for a 5.58 lb wand",
+          "specs": ["Weight", "Run time", "Suction"],
+          "because": "The V8 page states a weight of 5.58 lb, a run time of 40 min maximum, and suction of 115 AW in MAX mode. Charge time is 5 hrs and bin volume is 0.14 gallon. The label matches the weight."
+        },
+        {
+          "id": "shark-ip3251",
+          "bestFor": "Best for a 70 minute hand-vacuum line",
+          "specs": ["Run time", "Weight", "Dust cup"],
+          "because": "The IP3251 page states a run time of up to 70 minutes, measured at the hand vacuum in ECO mode, a weight of 18.47 lbs, and a dust cup of 0.7 qt. Charge time is 6 hours. The label matches that run-time sentence, including the hand-vacuum qualifier."
+        },
+        {
+          "id": "tineco-pure-one-s15",
+          "bestFor": "Best for a 0.47 L dust capacity",
+          "specs": ["Dust capacity", "Run time", "Weight"],
+          "because": "The PURE ONE S15 PRO page states a dust capacity of 0.47 L, a run time of 40 min, and a weight of 6.8 lbs. The battery line is 2500 mAh and charge time is 4 hours. The label matches the dust-capacity line."
+        },
+        {
+          "id": "bissell-iconpet-2288",
+          "bestFor": "Best for a 10.5 in cleaning path",
+          "specs": ["Cleaning path", "Dirty tank", "Weight"],
+          "because": "The ICONpet 2288 page states a cleaning path of 10.5 in, a dirty tank of 0.4 L, and a weight of 7 lbs. Power is 22 V and the bag line is bagless. The label matches the cleaning-path line."
+        }
+      ]
+    },
+    {
+      "slug": "air-fryers",
+      "name": "air fryers",
+      "title": "Best air fryers, 2026",
+      "h1": "Best air fryers in this catalogue",
+      "description": "Four air fryers from the catalogue: Ninja Crispi, Ninja Foodi 10-in-1, COSORI Pro II, and Breville Smart Oven Air Fryer Pro. Each card quotes the maker power and capacity line.",
+      "how": [
+        "The label uses the capacity or the power line that is unique on that card. The Crispi page states glass containers of 4-qt and 6-cup. The COSORI page states 5.8 qt. The Foodi page states 1,800 W and ten functions. The BOV900 page states a 1 cubic ft interior.",
+        "A family name such as Foodi or Cosori can point at a different model than the one on the box. The recall block on each card is the catalogue match for the model named in the title. Notices for other models stay marked as other models."
+      ],
+      "look": [
+        "Read capacity in the unit printed. The Crispi page states 4-qt and 6-cup CleanCrisp glass. The COSORI page states 5.8 qt / 5.5 L. The BOV900 page states an interior of 1 cubic ft. The Foodi capacity line names a 5 lb chicken, two 12 in pizzas, or a 12 lb turkey.",
+        "Read watts next to the capacity. The Crispi page states 1,500 W. The COSORI page states 1,700 W. The Foodi page states 1,800 W. The BOV900 page states 6 independent quartz heating elements and does not print a watt line in this spec list.",
+        "Read the function count the page prints. The Crispi page names four modes: Max Crisp, Bake, Air Fry, and Recrisp. The Foodi page names ten functions. The BOV900 page states 13, including Air Fry and Dehydrate.",
+        "Confirm the model token on the box. The Crispi recall match uses FN101. The BOV900 page states model BOV900BSSUSC. The COSORI card is the Pro II 5.8 qt model in this catalogue."
+      ],
+      "faqs": [
+        {
+          "q": "Which air fryer card states glass containers?",
+          "a": "The Ninja Crispi card. The page states 1,500 W and containers of 4-qt and 6-cup CleanCrisp glass. Dimensions are 11.5 × 9.76 × 11.81 in."
+        },
+        {
+          "q": "Which air fryer card states 5.8 qt?",
+          "a": "The COSORI Pro II card. The page states a capacity of 5.8 qt / 5.5 L, a rated power of 1,700 W, and a weight of 12.3 lb."
+        },
+        {
+          "q": "What should I read on the Foodi card before buying?",
+          "a": "The model name Ninja Foodi 10-in-1 XL Pro Air Fry Oven, the 1,800 W line, and the recall block. The block is the catalogue match for that model. Other notices that mention the brand name are labeled as other models."
+        },
+        {
+          "q": "Where does the air fryer recall line come from?",
+          "a": "The US line is the CPSC SaferProducts match for that model. The Canadian line is the Health Canada open dataset match. The date on the card is the day the match was recorded."
+        }
+      ],
+      "picks": [
+        {
+          "id": "ninja-crispi-fn101",
+          "bestFor": "Best for glass 4-qt and 6-cup containers",
+          "specs": ["Containers", "Power", "Modes"],
+          "because": "The Crispi page states containers of 4-qt and 6-cup CleanCrisp glass, power of 1,500 W, and modes Max Crisp, Bake, Air Fry, and Recrisp. Weight is 14.55 lb. The label matches the container line."
+        },
+        {
+          "id": "cosori-pro-5-8",
+          "bestFor": "Best for a 5.8 qt basket",
+          "specs": ["Capacity", "Rated power", "Weight"],
+          "because": "The COSORI Pro II page states a capacity of 5.8 qt / 5.5 L, a rated power of 1,700 W, and a weight of 12.3 lb. Dimensions are 11.8 × 13.8 × 12.6 in. The label matches the 5.8 qt capacity."
+        },
+        {
+          "id": "ninja-foodi-10in1",
+          "bestFor": "Best for a 1,800 W oven line",
+          "specs": ["Power", "Functions", "Capacity"],
+          "because": "The Foodi 10-in-1 page states power of 1,800 W and functions Air Fry, Whole Roast, Air Roast, Bake, Dehydrate, Pizza, Broil, Toast, Bagel, and Reheat. The capacity line says it fits a 5 lb chicken and a sheet pan of vegetables, two 12 in pizzas, or a 12 lb turkey. The label matches the 1,800 W line."
+        },
+        {
+          "id": "breville-bov900",
+          "bestFor": "Best for a 1 cubic ft interior",
+          "specs": ["Interior", "Elements", "Functions"],
+          "because": "The BOV900 page states an interior of 1 cubic ft, 6 independent quartz heating elements, and functions of 13, including Air Fry and Dehydrate. The model line is BOV900BSSUSC. The label matches the interior volume."
+        }
+      ]
+    },
+    {
+      "slug": "mattresses",
+      "name": "mattresses",
+      "title": "Best mattresses, 2026",
+      "h1": "Best mattresses in this catalogue",
+      "description": "Four mattresses from the catalogue: Casper Original, Saatva Classic, Zinus 12-inch Green Tea, and Helix Midnight. Each card quotes the maker height, coil, or foam line.",
+      "how": [
+        "The label uses the construction line the maker page prints: foam height, coil count, or a stated trial. Feel names such as Plush Soft, Luxury Firm, or Firm are the names on the Saatva page. They are quoted as printed.",
+        "Queen dimensions are compared only when both pages state a queen size. The Casper page states 60 in W x 80 in L x 11 in H. The Helix page states 60 in W x 80 in L x 11.5 in H. The Saatva page states height as 11.5 in or 14.5 in and does not print that width-and-length line in this spec list."
+      ],
+      "look": [
+        "Read height with the size it belongs to. Casper queen height is 11 in. Helix queen height is 11.5 in. Zinus height is 12 inch. Saatva height is 11.5 in or 14.5 in.",
+        "Read the construction noun. Casper states a breathable polyurethane foam top and a zoned memory foam core. Zinus states 2.5 in cooling gel memory foam and CertiPUR-US foams. Saatva states 1,300 total queen coils. Helix states a queen size and a limited lifetime warranty.",
+        "Read a trial or warranty line only on the card that prints it. The Helix page states a trial of 365 nights and a limited lifetime warranty. The other three cards on this page do not print that trial line.",
+        "Read weight when you need to move the mattress. The Casper page states a queen weight of 79 lb. The other three cards on this page do not print a queen weight in this spec list."
+      ],
+      "faqs": [
+        {
+          "q": "Which mattress card states 1,300 coils?",
+          "a": "The Saatva Classic card. The page states 1,300 total queen coils, a comfort coil gauge of 14.5, and a height of 11.5 in or 14.5 in."
+        },
+        {
+          "q": "Which mattress card states a 12 inch height?",
+          "a": "The Zinus card. The page states a height of 12 inch, 2.5 in cooling gel memory foam, and CertiPUR-US foams."
+        },
+        {
+          "q": "Which mattress card states a 365 night trial?",
+          "a": "The Helix Midnight card. The page states a trial of 365 nights, a limited lifetime warranty, and a queen size of 60 in W x 80 in L x 11.5 in H."
+        },
+        {
+          "q": "Where does the mattress recall line come from?",
+          "a": "The US line is the CPSC SaferProducts match for that model. The Canadian line is the Health Canada open dataset match. The date on the card is the day the match was recorded."
+        }
+      ],
+      "picks": [
+        {
+          "id": "casper-original",
+          "bestFor": "Best for an 11 in queen",
+          "specs": ["Queen size", "Queen weight", "Core"],
+          "because": "The Casper Original page states a queen size of 60 in W x 80 in L x 11 in H, a queen weight of 79 lb, and a core of zoned memory foam. The top line is breathable polyurethane foam. The label matches the 11 in queen height."
+        },
+        {
+          "id": "saatva-classic",
+          "bestFor": "Best for a 1,300-coil queen",
+          "specs": ["Queen coils", "Height", "Feels"],
+          "because": "The Saatva Classic page states 1,300 total queen coils, a height of 11.5 in or 14.5 in, and feels of Plush Soft, Luxury Firm, or Firm. Comfort coil gauge is 14.5. The label matches the coil count."
+        },
+        {
+          "id": "zinus-green-tea-12",
+          "bestFor": "Best for a 12 inch foam height",
+          "specs": ["Height", "Gel foam", "Certification"],
+          "because": "The Zinus page states a height of 12 inch, gel foam of 2.5 in cooling gel memory foam, and a certification of CertiPUR-US foams. Extra foam on that page is 1/2 in memory foam. The label matches the 12 inch height."
+        },
+        {
+          "id": "helix-midnight",
+          "bestFor": "Best for a 365 night trial line",
+          "specs": ["Trial", "Queen size", "Warranty"],
+          "because": "The Helix Midnight page states a trial of 365 nights, a queen size of 60 in W x 80 in L x 11.5 in H, and a warranty of limited lifetime. The label matches the trial line on that page."
+        }
+      ]
+    },
+    {
+      "slug": "automatic-pet-feeders",
+      "name": "automatic pet feeders",
+      "title": "Best automatic pet feeders, 2026",
+      "h1": "Best automatic pet feeders in this catalogue",
+      "description": "Three automatic pet feeders from the catalogue: PETLIBRO Granary PLAF105, Whisker Feeder-Robot, and PetSafe Simply Feed. Fountains are on a separate page.",
+      "how": [
+        "The label uses the hopper or the schedule line that page prints. The PLAF105 page states a 5 L food tank and a kibble size of 2–15 mm. The Feeder-Robot page states up to 8 scheduled meals a day. The Simply Feed page states 24 cups and up to 12 meals a day.",
+        "Fountains are a different type and have their own page. A slow-feed bowl is a third type with one catalogue model, so it is not on this page."
+      ],
+      "look": [
+        "Read the food capacity unit. PLAF105 states 5 L. Simply Feed states 24 cups. The Feeder-Robot page states portions of 1/8 cup to 1 cup and does not print a hopper volume in this spec list.",
+        "Read meals per day when the card has that line. The Feeder-Robot page states up to 8 scheduled meals a day. The Simply Feed page states up to 12 meals a day. The PLAF105 card does not print a meals line.",
+        "Read the portion range in cups. Feeder-Robot portions are 1/8 cup to 1 cup. Simply Feed portions are 1/8 to 4 cups. Those ranges are different.",
+        "Read the power line when the card has one. The Feeder-Robot page states a backup battery. The Simply Feed page states battery. The PLAF105 spec list on this site does not print a power line. Kibble size on the PLAF105 page is 2–15 mm."
+      ],
+      "faqs": [
+        {
+          "q": "Which feeder card states a 5 L tank?",
+          "a": "The PETLIBRO Granary PLAF105 card. The page states a food tank of 5 L, dimensions of 14.05 × 7.09 × 14.02 in, and a kibble size of 2–15 mm."
+        },
+        {
+          "q": "Which feeder card states 24 cups?",
+          "a": "The PetSafe Simply Feed card. The page states a capacity of 24 cups, up to 12 meals a day, and portions of 1/8 to 4 cups."
+        },
+        {
+          "q": "Which feeder card states a backup battery?",
+          "a": "The Whisker Feeder-Robot card. The page states up to 8 scheduled meals a day, portions of 1/8 cup to 1 cup, and power of backup battery."
+        },
+        {
+          "q": "Where does the feeder recall line come from?",
+          "a": "The US line is the CPSC SaferProducts match for that model. The Canadian line is the Health Canada open dataset match. The date on the card is the day the match was recorded."
+        }
+      ],
+      "picks": [
+        {
+          "id": "petlibro-plaf105",
+          "bestFor": "Best for a 5 L food tank",
+          "specs": ["Food tank", "Kibble size", "Net weight"],
+          "because": "The PLAF105 page states a food tank of 5 L, a kibble size of 2–15 mm, and a net weight of 6.59 lb. Dimensions are 14.05 × 7.09 × 14.02 in. The label matches the 5 L tank."
+        },
+        {
+          "id": "whisker-feeder-robot",
+          "bestFor": "Best for an 8-meal schedule",
+          "specs": ["Meals", "Portions", "Power"],
+          "because": "The Feeder-Robot page states meals of up to 8 scheduled meals a day, portions of 1/8 cup to 1 cup, and power of backup battery. The warranty line is 12 months included. The label matches the meals line."
+        },
+        {
+          "id": "petsafe-simply-feed",
+          "bestFor": "Best for a 24 cup hopper",
+          "specs": ["Capacity", "Schedule", "Portions"],
+          "because": "The Simply Feed page states a capacity of 24 cups, a schedule of up to 12 meals a day, and portions of 1/8 to 4 cups. Power is battery. The label matches the 24 cup capacity."
+        }
+      ]
+    },
+    {
+      "slug": "coffee-makers",
+      "name": "coffee makers",
+      "title": "Best coffee makers, 2026",
+      "h1": "Best coffee makers in this catalogue",
+      "description": "Three coffee makers from the catalogue: Technivorm Moccamaster KBGV Select, AeroPress Original, and Chemex Classic 6-Cup. An espresso machine and a grinder are separate types.",
+      "how": [
+        "The label uses the brewer type the page describes: a 10-cup drip machine, a 10 oz press, or a 30 ounce glass carafe. Capacity units are left as printed. Cups on the Moccamaster line and ounces on the AeroPress and Chemex lines are different units.",
+        "The Barista Express and the Encore ESP are in the kitchen catalogue and are not on this page. This page is the three coffee makers: drip, press, and pour-over carafe."
+      ],
+      "look": [
+        "Read which tool the card is. The KBGV page states a volume of 1.25 L / 40 oz / 10 cups and power of 1475 W at 120 V. The AeroPress page states a capacity of 10 oz (1-2 cups) and a weight of 7.75 oz with scoop and stirrer. The Chemex page states a capacity of 30 ounce and borosilicate glass.",
+        "Read auto-off only on the card that prints it. The KBGV page states auto-off of 100 minutes. The AeroPress and Chemex cards do not print an auto-off line.",
+        "Read materials when the page names them. The AeroPress page states polypropylene, BPA free. The Chemex page states borosilicate glass, item CM-6A, a height of 8 1/2 in, and a diameter of 5 1/8 in.",
+        "Read the footprint if the counter is the constraint. The KBGV page states dimensions of 14.00 in H x 12.75 in W x 6.50 in D and a weight of 6.00 lb. The AeroPress page states 5.25 in H x 4.2 in W."
+      ],
+      "faqs": [
+        {
+          "q": "Which coffee card is the drip machine?",
+          "a": "The Moccamaster KBGV Select card. The page states a volume of 1.25 L / 40 oz / 10 cups, power of 1475 W at 120 V, and auto-off of 100 minutes."
+        },
+        {
+          "q": "Which coffee card is the press?",
+          "a": "The AeroPress Original card. The page states a capacity of 10 oz (1-2 cups), a weight of 7.75 oz with scoop and stirrer, and polypropylene, BPA free."
+        },
+        {
+          "q": "Which coffee card is the glass carafe?",
+          "a": "The Chemex CM-6A card. The page states a capacity of 30 ounce, borosilicate glass, a height of 8 1/2 in, and a diameter of 5 1/8 in."
+        },
+        {
+          "q": "Where does the coffee maker recall line come from?",
+          "a": "The US line is the CPSC SaferProducts match for that model. The Canadian line is the Health Canada open dataset match. The date on the card is the day the match was recorded."
+        }
+      ],
+      "picks": [
+        {
+          "id": "moccamaster-kbgv",
+          "bestFor": "Best for a 10-cup drip line",
+          "specs": ["Volume", "Power", "Auto-off"],
+          "because": "The KBGV Select page states a volume of 1.25 L / 40 oz / 10 cups, power of 1475 W at 120 V, and auto-off of 100 minutes. Weight is 6.00 lb. The label matches the 10-cup volume line."
+        },
+        {
+          "id": "aeropress-original",
+          "bestFor": "Best for a 10 oz press",
+          "specs": ["Capacity", "Weight", "Material"],
+          "because": "The AeroPress Original page states a capacity of 10 oz (1-2 cups), a weight of 7.75 oz with scoop and stirrer, and a material of polypropylene, BPA free. Dimensions are 5.25 in H x 4.2 in W. The label matches the 10 oz capacity."
+        },
+        {
+          "id": "chemex-cm-6a",
+          "bestFor": "Best for a 30 ounce glass carafe",
+          "specs": ["Capacity", "Glass", "Height"],
+          "because": "The Chemex CM-6A page states a capacity of 30 ounce, glass of borosilicate, and a height of 8 1/2 in. Diameter is 5 1/8 in. The item line is CM-6A. The label matches the 30 ounce capacity."
+        }
+      ]
+    },
+    {
+      "slug": "humidifiers",
+      "name": "humidifiers",
+      "title": "Best humidifiers, 2026",
+      "h1": "Best humidifiers in this catalogue",
+      "description": "Three humidifiers from the catalogue: Levoit Classic 300S, Honeywell HEV615W, and Levoit LV600HH. Dehumidifiers are a separate type with two models.",
+      "how": [
+        "The label uses tank size, runtime, or mist type. The Classic 300S and the LV600HH both state a 6 liter tank and different runtimes: up to 60 hours and up to 50 hours. The HEV615W page states the tank in gallons, 1.5 gallons, and a run time of 24 hours on low.",
+        "Coverage lines are read as printed. The Classic 300S page states 505 ft². The LV600HH page states 430 to 753 sq ft. The HEV615W card does not print a square-foot line in this spec list. A gallon line is not converted into liters on this page."
+      ],
+      "look": [
+        "Read the tank unit. Classic 300S states 6 L. LV600HH states 6 liter. HEV615W states 1.5 gallons. The numbers are not in one unit.",
+        "Read runtime with its condition. Classic 300S states up to 60 hours. LV600HH states up to 50 hours. HEV615W states 24 hours on low.",
+        "Read mist type when the page names it. The LV600HH page states warm and cool mist. The Classic 300S page states 4 mist levels. The HEV615W title line is a cool-moisture tower.",
+        "Read the tower size when floor space is the constraint. The HEV615W page states dimensions of 9.84 x 8.66 x 24.72 in and a weight of 9.5 lb. The two Levoit cards print tank and coverage rather than that tower height."
+      ],
+      "faqs": [
+        {
+          "q": "Which humidifier card states 60 hours?",
+          "a": "The Levoit Classic 300S card. The page states a tank of 6 L, a runtime of up to 60 hours, and coverage of 505 ft²."
+        },
+        {
+          "q": "Which humidifier card states warm and cool mist?",
+          "a": "The Levoit LV600HH card. The page states a tank of 6 liter, a runtime of up to 50 hours, coverage of 430 to 753 sq ft, and mist of warm and cool."
+        },
+        {
+          "q": "Which humidifier card states gallons?",
+          "a": "The Honeywell HEV615W card. The page states a tank of 1.5 gallons, a run time of 24 hours on low, and dimensions of 9.84 x 8.66 x 24.72 in."
+        },
+        {
+          "q": "Where does the humidifier recall line come from?",
+          "a": "The US line is the CPSC SaferProducts match for that model. The Canadian line is the Health Canada open dataset match. The date on the card is the day the match was recorded."
+        }
+      ],
+      "picks": [
+        {
+          "id": "levoit-classic-300s",
+          "bestFor": "Best for a 60 hour runtime",
+          "specs": ["Runtime", "Tank", "Coverage"],
+          "because": "The Classic 300S page states a runtime of up to 60 hours, a tank of 6 L, and coverage of 505 ft². Mist levels are 4. The label matches the 60 hour runtime."
+        },
+        {
+          "id": "levoit-lv600hh",
+          "bestFor": "Best for warm and cool mist",
+          "specs": ["Mist", "Tank", "Runtime"],
+          "because": "The LV600HH page states mist of warm and cool, a tank of 6 liter, and a runtime of up to 50 hours. Coverage is 430 to 753 sq ft. The label matches the warm-and-cool mist line."
+        },
+        {
+          "id": "honeywell-hev615w",
+          "bestFor": "Best for a 1.5 gallon tank",
+          "specs": ["Tank", "Run time", "Dimensions"],
+          "because": "The HEV615W page states a tank of 1.5 gallons, a run time of 24 hours on low, and dimensions of 9.84 x 8.66 x 24.72 in. Weight is 9.5 lb. The label matches the 1.5 gallon tank."
+        }
+      ]
+    },
+    {
+      "slug": "noise-cancelling-headphones",
+      "name": "noise-cancelling headphones",
+      "title": "Best noise-cancelling headphones, 2026",
+      "h1": "Best noise-cancelling headphones in this catalogue",
+      "description": "Three headphones from the catalogue whose maker lines name noise cancelling, Active Noise Cancellation, or a Quiet mode: Sony WH-1000XM5, AirPods Pro 3, and Bose QuietComfort Ultra.",
+      "how": [
+        "The label uses the battery sentence on that card. The Sony page states max. 30 hours with noise cancelling on, and max. 40 hours with it off. The AirPods Pro 3 page states up to 8 hours with Active Noise Cancellation. The QuietComfort Ultra page states up to 24 hours and modes of Quiet, Aware, and Immersion.",
+        "Open-ear headphones in the catalogue are a different type. This page is the three cards whose spec list uses those noise-cancelling, Active Noise Cancellation, or Quiet-mode words."
+      ],
+      "look": [
+        "Read the battery sentence with the feature it names. Sony states max. 30 hours with noise cancelling on, max. 40 hours with it off. AirPods Pro 3 states up to 8 hours with Active Noise Cancellation. Bose states up to 24 hours, next to modes Quiet, Aware, and Immersion.",
+        "Read weight in the unit printed. The Sony page states approx. 8.82 oz. The Bose page states 0.56 lb. This page does not convert ounces and pounds.",
+        "Read charge time on the cards that print it. The Sony page states approx. 3.5 hours. The Bose page states 3 hours. The AirPods Pro 3 spec list on this site does not print a charge-time line.",
+        "Read the microphone or mode sentence on its own card. The Sony page states that 2 processors control 8 microphones. The Bose page states Quiet, Aware, and Immersion, plus multipoint for two devices. The AirPods page states a Hearing Aid feature and a heart rate sensor."
+      ],
+      "faqs": [
+        {
+          "q": "Which headphone card states 30 hours with noise cancelling on?",
+          "a": "The Sony WH-1000XM5 card. The page states max. 30 hours with noise cancelling on, max. 40 hours with it off, and a weight of approx. 8.82 oz."
+        },
+        {
+          "q": "Which headphone card states 8 hours with Active Noise Cancellation?",
+          "a": "The AirPods Pro 3 card. The page states up to 8 hours with Active Noise Cancellation, and up to 10 hours with the Hearing Aid feature in the transparency line."
+        },
+        {
+          "q": "Which headphone card states Quiet, Aware, and Immersion?",
+          "a": "The Bose QuietComfort Ultra card. The page states those modes, a battery of up to 24 hours, a weight of 0.56 lb, and a charge time of 3 hours."
+        },
+        {
+          "q": "Where does the headphone recall line come from?",
+          "a": "The US line is the CPSC SaferProducts match for that model. The Canadian line is the Health Canada open dataset match. The date on the card is the day the match was recorded."
+        }
+      ],
+      "picks": [
+        {
+          "id": "sony-wh-1000xm5",
+          "bestFor": "Best for a 30 hour noise-cancelling battery line",
+          "specs": ["Battery", "Noise cancelling", "Weight"],
+          "because": "The WH-1000XM5 page states a battery of max. 30 hours with noise cancelling on, max. 40 hours with it off, noise cancelling of 2 processors control 8 microphones, and a weight of approx. 8.82 oz. Charge time is approx. 3.5 hours. The label matches the 30 hour line."
+        },
+        {
+          "id": "airpods-pro-3",
+          "bestFor": "Best for an 8 hour in-ear ANC line",
+          "specs": ["Listening", "Hearing", "Sensor"],
+          "because": "The AirPods Pro 3 page states listening of up to 8 hours with Active Noise Cancellation, a hearing line of Hearing Aid feature, and a sensor of heart rate. The transparency line is up to 10 hours with the Hearing Aid feature. The label matches the 8 hour listening line."
+        },
+        {
+          "id": "bose-qc-ultra",
+          "bestFor": "Best for a Quiet mode and a 24 hour battery",
+          "specs": ["Battery", "Modes", "Charge time"],
+          "because": "The QuietComfort Ultra page states a battery of up to 24 hours, modes of Quiet, Aware, and Immersion, and a charge time of 3 hours. Weight is 0.56 lb. The label matches the Quiet mode and the 24 hour battery line."
+        }
+      ]
+    },
+    {
+      "slug": "pet-fountains",
+      "name": "pet fountains",
+      "title": "Best pet fountains, 2026",
+      "h1": "Best pet fountains in this catalogue",
+      "description": "Three pet fountains from the catalogue: PetSafe Drinkwell Platinum, Catit Flower Fountain, and Pioneer Pet Raindrop 6023. Automatic feeders are on a separate page.",
+      "how": [
+        "The label uses capacity or height. The Drinkwell page states 168 oz. The Catit page states 3 L (100 fl oz). The Raindrop page states 60 oz and a height inside dimensions of 11.75 x 9.75 x 4.25 in. Ounces and liters stay in the unit printed.",
+        "Automatic feeders have their own page. A fountain card is a water capacity, a material, and a power line, not a meal schedule."
+      ],
+      "look": [
+        "Read capacity in the printed unit. Drinkwell states 168 oz. Catit states 3 L (100 fl oz). Raindrop states 60 oz. This page does not add those figures together.",
+        "Read material and cleaning lines. Drinkwell states BPA-free, top-shelf dishwasher safe. Raindrop states 18/8 stainless steel, dishwasher safe, and a replaceable charcoal filter. Catit states a weight of 1.32 lb and 3 flow settings.",
+        "Read power when the card prints it. The Drinkwell page states plug-in. The Catit and Raindrop spec lists on this site do not print a power line.",
+        "Read height if the fountain sits under a cabinet. The Raindrop dimensions are 11.75 x 9.75 x 4.25 in. The Catit size is 8.3 x 8.3 x 7.3 in. The Drinkwell dimensions are 15.8 × 10.3 × 10.0 in."
+      ],
+      "faqs": [
+        {
+          "q": "Which fountain card states 168 oz?",
+          "a": "The Drinkwell Platinum card. The page states a capacity of 168 oz, dimensions of 15.8 × 10.3 × 10.0 in, and plug-in power."
+        },
+        {
+          "q": "Which fountain card states 3 L?",
+          "a": "The Catit Flower Fountain card. The page states a capacity of 3 L (100 fl oz), a size of 8.3 x 8.3 x 7.3 in, and a weight of 1.32 lb."
+        },
+        {
+          "q": "Which fountain card is stainless steel?",
+          "a": "The Pioneer Pet Raindrop 6023 card. The page states 18/8 stainless steel, a capacity of 60 oz, and dimensions of 11.75 x 9.75 x 4.25 in."
+        },
+        {
+          "q": "Where does the fountain recall line come from?",
+          "a": "The US line is the CPSC SaferProducts match for that model. The Canadian line is the Health Canada open dataset match. The date on the card is the day the match was recorded."
+        }
+      ],
+      "picks": [
+        {
+          "id": "petsafe-drinkwell-platinum",
+          "bestFor": "Best for a 168 oz fountain",
+          "specs": ["Capacity", "Dimensions", "Power"],
+          "because": "The Drinkwell Platinum page states a capacity of 168 oz, dimensions of 15.8 × 10.3 × 10.0 in, and power of plug-in. The material line is BPA-free, top-shelf dishwasher safe. The label matches the 168 oz capacity."
+        },
+        {
+          "id": "catit-flower-fountain",
+          "bestFor": "Best for a 3 L fountain",
+          "specs": ["Capacity", "Weight", "Flow"],
+          "because": "The Catit Flower Fountain page states a capacity of 3 L (100 fl oz), a weight of 1.32 lb, and flow of 3 settings. Size is 8.3 x 8.3 x 7.3 in. The label matches the 3 L capacity."
+        },
+        {
+          "id": "pioneer-raindrop-6023",
+          "bestFor": "Best for a 4.25 in stainless fountain",
+          "specs": ["Dimensions", "Capacity", "Material"],
+          "because": "The Raindrop 6023 page states dimensions of 11.75 x 9.75 x 4.25 in, a capacity of 60 oz, and a material of 18/8 stainless steel, dishwasher safe. Weight is 1.7 lb. The label matches the 4.25 in dimension and the stainless line."
+        }
+      ]
+    },
+    {
+      "slug": "pillows",
+      "name": "pillows",
+      "title": "Best pillows, 2026",
+      "h1": "Best pillows in this catalogue",
+      "description": "Three pillows from the catalogue: Purple Harmony, Tempur-Pedic TEMPUR-Neck, and Coop Original. Each card quotes the maker fill and the stated size.",
+      "how": [
+        "The label uses the fill or the height choice the maker page prints. Purple states a ventilated Talalay latex core. Tempur-Neck states three heights in one size line. Coop states a fill of cross-cut memory foam and microfiber and a feel of medium-firm.",
+        "Feel words are quoted from the maker page. Medium-firm on the Coop card is that page’s word. It is not a measurement added here."
+      ],
+      "look": [
+        "Read the fill noun. Purple states a core of ventilated Talalay latex and a cover of 92% nylon, 8% spandex. Tempur-Neck states a fill of TEMPUR-Material and a cover of 100% polyester knit, hypoallergenic. Coop states a fill of cross-cut memory foam and microfiber.",
+        "Read height. Purple’s standard low size is 26 × 17 × 5.5 in at 4.2 lb. Tempur-Neck states small 20 × 12.5 × 3.5 in, medium 20 × 12.5 × 4 in, and large 20 × 12.5 × 4.75 in. Coop’s spec list on this site does not print a height.",
+        "Read the cover care line when it is present. The Tempur-Neck page states the cover is removable and washable. The Purple and Coop cards print cover fabric and do not print that care line.",
+        "Read listed shell or fabric on the Coop card before assuming a fiber. The Coop page states a cover fabric of Lulltra, polyester and bamboo-derived viscose, and a listed shell of polyester."
+      ],
+      "faqs": [
+        {
+          "q": "Which pillow card states Talalay latex?",
+          "a": "The Purple Harmony card. The page states a core of ventilated Talalay latex and a standard low size of 26 × 17 × 5.5 in, 4.2 lb."
+        },
+        {
+          "q": "Which pillow card states three heights?",
+          "a": "The TEMPUR-Neck card. The page states small 20 × 12.5 × 3.5 in, medium 20 × 12.5 × 4 in, and large 20 × 12.5 × 4.75 in."
+        },
+        {
+          "q": "Which pillow card states cross-cut memory foam?",
+          "a": "The Coop Original card. The page states a fill of cross-cut memory foam and microfiber and a feel of medium-firm."
+        },
+        {
+          "q": "Where does the pillow recall line come from?",
+          "a": "The US line is the CPSC SaferProducts match for that model. The Canadian line is the Health Canada open dataset match. The date on the card is the day the match was recorded."
+        }
+      ],
+      "picks": [
+        {
+          "id": "purple-harmony",
+          "bestFor": "Best for a Talalay latex core",
+          "specs": ["Core", "Cover", "Standard, low"],
+          "because": "The Purple Harmony page states a core of ventilated Talalay latex, a cover of 92% nylon, 8% spandex, and a standard low size of 26 × 17 × 5.5 in, 4.2 lb. King low on that page is 34 × 17 × 5.5 in, 6 lb. The label matches the latex core."
+        },
+        {
+          "id": "tempur-neck",
+          "bestFor": "Best for a stated height choice",
+          "specs": ["Sizes", "Fill", "Cover care"],
+          "because": "The TEMPUR-Neck page states sizes of small 20 × 12.5 × 3.5 in, medium 20 × 12.5 × 4 in, large 20 × 12.5 × 4.75 in, a fill of TEMPUR-Material, and cover care of removable and washable. The label matches the three stated heights."
+        },
+        {
+          "id": "coop-original-pillow",
+          "bestFor": "Best for a foam and microfiber fill",
+          "specs": ["Fill", "Feel", "Cover fabric"],
+          "because": "The Coop Original page states a fill of cross-cut memory foam and microfiber, a feel of medium-firm, and a cover fabric of Lulltra, polyester and bamboo-derived viscose. The listed shell is polyester. The label matches the fill line."
+        }
+      ]
+    }
+  ]
+}
