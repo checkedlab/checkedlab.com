@@ -73,7 +73,10 @@ const BF_PICKS = {
     "honeywell-hev615w",
     "sunbeam-tsl8ws",
     "stanley-classic-1-5",
-    "pendleton-eco-wise"
+    "pendleton-eco-wise",
+    "toro-power-clear-38753",
+    "ego-snt2110",
+    "snowjoe-24v-ss10"
   ],
   "car-garage": [
     "noco-gb40",
@@ -1522,7 +1525,8 @@ function editorialPaths() {
     "/alternatives/",
     ...editorial.alternatives.map((entry) => "/alternatives/" + entry.slug + "/"),
     "/worth-it/",
-    ...editorial.worth.map((entry) => "/worth-it/" + entry.slug + "/")
+    ...editorial.worth.map((entry) => "/worth-it/" + entry.slug + "/"),
+    ...editorial.season.map((entry) => "/black-friday/" + entry.slug + "/")
   ];
 }
 
@@ -1534,12 +1538,15 @@ function editorialHubLinks(hub) {
   for (const entry of alt) links.push('<a href="/alternatives/' + entry.slug + '/">' + card.esc(entry.linkLabel) + "</a>");
   if (worth.length) links.push('<a href="/worth-it/">Worth matching</a>');
   for (const entry of worth) links.push('<a href="/worth-it/' + entry.slug + '/">' + card.esc(entry.linkLabel) + "</a>");
+  for (const entry of editorial.season.filter((item) => item.hub === hub)) {
+    links.push('<a href="/black-friday/' + entry.slug + '/">' + card.esc(entry.linkLabel) + "</a>");
+  }
   return links;
 }
 
 function editorialLinksForProduct(product) {
   const links = [];
-  for (const [section, list] of [["alternatives", editorial.alternatives], ["worth-it", editorial.worth]]) {
+  for (const [section, list] of [["alternatives", editorial.alternatives], ["worth-it", editorial.worth], ["black-friday", editorial.season]]) {
     for (const entry of list) {
       const ids = [entry.subject, ...(entry.others || [])];
       if (!ids.includes(product.id)) continue;
@@ -1559,7 +1566,10 @@ function editorialIndexBlock() {
   return "<h2>Alternatives and spec matches</h2>" +
     "<p>These pages stay inside the catalogue. A pick line cites a maker spec from the card.</p>" +
     '<p class="lede"><a href="/alternatives/">Alternatives</a> ' + alt + "</p>" +
-    '<p class="lede"><a href="/worth-it/">Worth matching</a> ' + worth + "</p>";
+    '<p class="lede"><a href="/worth-it/">Worth matching</a> ' + worth + "</p>" +
+    '<h2>One model at a time</h2><p>Each page is one catalogue model: the maker lines, a pick by those lines, and the dated recall sentence.</p><p class="lede">' +
+    editorial.season.map((entry) => '<a href="/black-friday/' + entry.slug + '/">' + card.esc(entry.linkLabel) + "</a>").join(" ") +
+    "</p>";
 }
 
 function editorialProducts(entry) {
@@ -1646,11 +1656,16 @@ function writeEditorialPage(entry, section, crumb) {
     "<h3>" + card.esc(product.model || product.title) + "</h3>" + card.storeButtons(product, region)
   ).join("");
   const related = compares.filter((item) => item.products.some((id) => pair.some((product) => product.id === id)));
-  const relatedHtml = related.length
+  const noticeLinks = explainers.filter((item) => item.products.some((id) => pair.some((product) => product.id === id)));
+  const relatedHtml = (related.length
     ? '<p class="lede">Spec comparisons: ' + related.map((item) =>
       '<a href="/compare/' + item.slug + '/">' + card.esc(item.linkLabel) + "</a>"
     ).join(" ") + ".</p>"
-    : "";
+    : "") + (noticeLinks.length
+    ? '<p class="lede">Official notices: ' + noticeLinks.map((item) =>
+      '<a href="/recalls/' + item.slug + '/">' + card.esc(item.linkLabel) + "</a>"
+    ).join(" ") + ".</p>"
+    : "");
   const url = ORIGIN + "/" + section + "/" + entry.slug + "/";
   const html = `<!DOCTYPE html>
 <html lang="en" data-region="US">
@@ -1816,8 +1831,10 @@ ${intro.map((paragraph) => "<p>" + paragraph + "</p>").join("\n")}
 function writeEditorial() {
   if (editorial.alternatives.length !== 3) throw new Error("Expected three alternatives pages");
   if (editorial.worth.length !== 3) throw new Error("Expected three worth-it pages");
+  if (editorial.season.length !== 6) throw new Error("Expected six Black Friday model pages");
   for (const entry of editorial.alternatives) writeEditorialPage(entry, "alternatives", "Alternatives");
   for (const entry of editorial.worth) writeEditorialPage(entry, "worth-it", "Worth matching");
+  for (const entry of editorial.season) writeEditorialPage(entry, "black-friday", "Black Friday");
   writeEditorialIndex("alternatives", "Alternatives in this catalogue", "Catalogue models you can read next to a named card. Each page cites maker spec lines and the dated recall check.", [
     "An alternative here is another model already on Checked Lab, not a model from outside the catalogue. The page quotes the maker lines and says which line to read for a given use.",
     "Open the model page for the full card. The recall sentence is the catalogue match dated " + card.esc(recalls.checkedAt) + " (UTC). Search the model on <a href=\"" + CPSC_SEARCH + "\" target=\"_blank\" rel=\"noopener\">CPSC Recalls</a> and on <a href=\"" + HC_SEARCH + "\" target=\"_blank\" rel=\"noopener\">Health Canada recalls and safety alerts</a>."
@@ -1829,7 +1846,7 @@ function writeEditorial() {
 }
 
 function writeExplainers() {
-  if (explainers.length !== 6) throw new Error("Expected six explainer pages");
+  if (explainers.length !== 8) throw new Error("Expected eight explainer pages");
   const slugs = new Set();
   for (const entry of explainers) {
     if (!/^[a-z0-9-]+$/.test(entry.slug) || slugs.has(entry.slug)) throw new Error("Bad explainer slug");

@@ -7,7 +7,11 @@
       "description": "Cordless vacuums in the catalogue whose maker pages can be read next to the V15 Detect Absolute: weight, run time, charge time, and the lines that only one page states.",
       "hub": "cleaning",
       "subject": "dyson-v15-detect",
-      "others": ["tineco-pure-one-s15", "shark-ip3251", "dyson-v8"],
+      "others": [
+        "tineco-pure-one-s15",
+        "shark-ip3251",
+        "dyson-v8"
+      ],
       "sections": [
         {
           "heading": "What the V15 page actually states",
@@ -41,7 +45,11 @@
       "description": "Air purifiers in the catalogue whose maker pages can be read next to the Core 300S-P: weight and cabinet on the small Levoit, CADR and room lines on the other cards.",
       "hub": "air-water",
       "subject": "levoit-core-300s-p",
-      "others": ["coway-ap-1512hh", "levoit-core-600s", "blueair-211i-max"],
+      "others": [
+        "coway-ap-1512hh",
+        "levoit-core-600s",
+        "blueair-211i-max"
+      ],
       "sections": [
         {
           "heading": "The 300S-P card is a small cabinet",
@@ -68,7 +76,9 @@
       "description": "The catalogue’s other self-cleaning litter box is the PetSafe ScoopFree Crystal Plus. This page puts the Whisker lines next to the PetSafe lines.",
       "hub": "pet",
       "subject": "litter-robot-4",
-      "others": ["petsafe-scoopfree-plus"],
+      "others": [
+        "petsafe-scoopfree-plus"
+      ],
       "sections": [
         {
           "heading": "One other self-cleaning box is on the list",
@@ -97,7 +107,9 @@
       "description": "How to read the Litter-Robot 4 maker lines, height, footprint, drawer interval, and cat cap, and when the ScoopFree Crystal Plus lines are the ones that fit instead.",
       "hub": "pet",
       "subject": "litter-robot-4",
-      "others": ["petsafe-scoopfree-plus"],
+      "others": [
+        "petsafe-scoopfree-plus"
+      ],
       "sections": [
         {
           "heading": "The question is which lines fit the room",
@@ -123,7 +135,9 @@
       "description": "The E310 page states a 2 HP motor, a 48 oz container, cabinet size, weight, and a 5-year warranty. The catalogue food processor is a different tool and a US recall match.",
       "hub": "kitchen",
       "subject": "vitamix-e310",
-      "others": ["cuisinart-dfp-14bcny"],
+      "others": [
+        "cuisinart-dfp-14bcny"
+      ],
       "sections": [
         {
           "heading": "Five lines on the E310 card",
@@ -149,7 +163,9 @@
       "description": "The Sony specifications page states weight, charge time, and battery life for the WH-1000XM5. The Bose QuietComfort Ultra page states a shorter battery line and a shorter charge line.",
       "hub": "personal-tech",
       "subject": "sony-wh-1000xm5",
-      "others": ["bose-qc-ultra"],
+      "others": [
+        "bose-qc-ultra"
+      ],
       "sections": [
         {
           "heading": "The lines that answer a headphone match",
@@ -164,6 +180,180 @@
             "Pick the WH-1000XM5 if the battery line you are matching is max. 30 hours with noise cancelling on, or max. 40 hours with it off, and the weight line you are matching is about 8.82 oz. The charge line that goes with that page is about 3.5 hours. Pick it if the microphone sentence, 2 processors and 8 microphones, is the noise-cancelling description you meant.",
             "Pick the QuietComfort Ultra if the battery line you are matching is up to 24 hours, the charge line is 3 hours, and the mode line names Quiet, Aware, and Immersion. A shorter stated charge time is the Bose line. A longer stated playback line with noise cancelling on is the Sony line. Multipoint appears on both cards, with the Bose card adding “two devices.”",
             "Neither card is a US or Canadian recall match on the catalogue date below. Confirm WH-1000XM5 on the box if that is the model you are buying. The Bose card is a different model with its own battery sentence. The comparison page for this pair repeats only the labels both cards share, which are battery, weight, and charge time, and it leaves the microphone line and the mode line on the separate cards."
+          ]
+        }
+      ]
+    }
+  ],
+  "season": [
+    {
+      "slug": "dyson-v15-detect",
+      "linkLabel": "V15 Detect Absolute, model check",
+      "title": "Dyson V15 Detect Absolute: check the model before you buy",
+      "description": "The V15 Detect Absolute maker lines for weight, run time, charge time, bin, filtration, and suction, next to the V8, S15 PRO, and IP3251 cards, with the dated recall check.",
+      "hub": "cleaning",
+      "subject": "dyson-v15-detect",
+      "others": [
+        "dyson-v8",
+        "tineco-pure-one-s15",
+        "shark-ip3251"
+      ],
+      "sections": [
+        {
+          "heading": "Match the model name before the accessory list",
+          "paragraphs": [
+            "The V15 Detect Absolute page states 6.83 lb, up to 60 min of run time, a 4.5 hr charge time, a 0.2 gallon bin, whole-machine HEPA filtration, and 230 AW in Boost mode. A listing that says Detect, or V15, or Absolute, still has to match this model line. The V8 card in the same catalogue is a different vacuum: 5.58 lb, 40 min maximum, a 5 hr charge, a 0.14 gallon bin, and 115 AW in MAX mode.",
+            "Two other cordless cards sit next to it. The PURE ONE S15 PRO page states 6.8 lbs, 40 min, a 4 hour charge, a 2500 mAh battery, and a 0.47 L dust capacity. The IP3251 page states 18.47 lbs, up to 70 minutes measured at the hand vacuum in ECO mode, a 6 hour charge, a 0.7 qt dust cup, dimensions of 10.24 in L x 18.5 in W x 46.46 in H, and 21.6 volts."
+          ]
+        },
+        {
+          "heading": "Pick the card whose sentence is on the listing",
+          "paragraphs": [
+            "Pick the V15 Detect Absolute if the listing names that model and you are matching up to 60 min, 230 AW in Boost mode, and whole-machine HEPA filtration. The weight line to confirm is 6.83 lb. The charge line is 4.5 hrs. The bin line is 0.2 gallon.",
+            "Pick the V8 if the listing is the V8 and you are matching 5.58 lb, 40 min maximum, and 115 AW in MAX mode. Pick the PURE ONE S15 PRO if you are matching 6.8 lbs, 40 min, and a 4 hour charge, or you need the 2500 mAh line. Pick the IP3251 if the sentence you are matching is up to 70 minutes at the hand vacuum in ECO mode, and the stated weight of 18.47 lbs is acceptable.",
+            "A Health Canada notice linked from the V15 and V8 cards names a FirstPower replacement battery for Dyson V6 series vacuums. It names V6, not the V15 Detect Absolute. The IP3251 card links the 2015 Rotator notice, which names NV650W, NV651, NV652, and NV660 on the CPSC page and NV650W and NV652 on the Health Canada page. IP3251 is not those numbers. Read the model on the notice, then read the model on the box."
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "litter-robot-4",
+      "linkLabel": "Litter-Robot 4, model check",
+      "title": "Litter-Robot 4: check the cabinet lines before you buy",
+      "description": "Height, footprint, entry, empty weight, drawer interval, and cat cap as the Whisker page states them, next to the ScoopFree Crystal Plus lines, with the dated recall check.",
+      "hub": "pet",
+      "subject": "litter-robot-4",
+      "others": [
+        "petsafe-scoopfree-plus"
+      ],
+      "sections": [
+        {
+          "heading": "The cabinet is the first match",
+          "paragraphs": [
+            "The Litter-Robot 4 page states 15 V DC, a height of 29.5 in, a footprint of 22 × 27 in, an entryway of 15.75 × 15.75 in, a weight of 24 lb empty, up to 8 days before emptying the waste drawer in a 1-cat household, and up to 4 cats. If the opening in the room is shorter than 29.5 in or narrower than that footprint, the rest of the card does not make the unit fit.",
+            "The other self-cleaning box on the list is the ScoopFree Crystal Plus. Its page states up to 30 days of cleaning, crystal litter, dimensions of 28.2 x 20.4 x 6.6 in, plug-in power, and single or multi-cat households. The height line is 6.6 in. That is a different cabinet."
+          ]
+        },
+        {
+          "heading": "Pick by height and by the interval sentence",
+          "paragraphs": [
+            "Pick the Litter-Robot 4 if the listing is that model and the room accepts 29.5 in of height, a 22 × 27 in footprint, and a 15.75 in entry, and the chore you are matching is up to 8 days before emptying the waste drawer for one cat. The household line is up to 4 cats. The power line is 15 V DC. The empty weight is 24 lb.",
+            "Pick the ScoopFree Crystal Plus if the listing is that box and you are matching a 6.6 in height, up to 30 days of cleaning, and a crystal-litter line. The length on that page is 28.2 in, wider than the Litter-Robot footprint’s 27 in side, and much lower. The household line does not state a cat-count cap.",
+            "The two interval sentences are not interchangeable. One names a waste drawer and a one-cat household. The other names days of cleaning and pairs it with crystal litter. The recall block is the catalogue match for each box on the check date. Confirm the name on the carton against the name on the card."
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "instant-pot-duo-plus",
+      "linkLabel": "Duo Plus, model check",
+      "title": "Instant Pot Duo Plus: check the 6-quart lines before you buy",
+      "description": "Capacity, functions, power, and dimensions as the Duo Plus page states them, next to the Foodi 10-in-1 lines, with the older Instant Pot and Foodi notices that name other models.",
+      "hub": "kitchen",
+      "subject": "instant-pot-duo-plus",
+      "others": [
+        "ninja-foodi-10in1"
+      ],
+      "sections": [
+        {
+          "heading": "Duo Plus is a specific function list",
+          "paragraphs": [
+            "The Duo Plus page states pressure cook, slow cook, sauté, sous vide, steam, sterilize, keep warm, rice, and yogurt, a 6 quart volume, 1,000 W at 120 V and 60 Hz, dishwasher-safe cleanup, and dimensions of 12.2 L x 13.4 W x 12.9 H in. A listing that says Instant Pot, or 6 quart, or Duo, still has to match this function list and this wattage if this is the card you mean.",
+            "The Foodi 10-in-1 page states Air Fry, Whole Roast, Air Roast, Bake, Dehydrate, Pizza, Broil, Toast, Bagel, and Reheat, a capacity line for a 5 lb chicken and a sheet pan of vegetables, two 12 in pizzas, or a 12 lb turkey, 1,800 W, and dimensions of 62.2 × 50.6 × 42.49 cm. Those are different functions and a higher stated wattage. The model line on that card is DT201C."
+          ]
+        },
+        {
+          "heading": "Pick the function list, then read the other model numbers",
+          "paragraphs": [
+            "Pick the Duo Plus if the listing is the 6 quart Duo Plus and you are matching pressure cook among the functions, 1,000 W, and the inch dimensions above. Pick the Foodi 10-in-1 if the listing is the DT201C and you are matching the air-fry and roast function list, 1,800 W, and the centimetre dimensions.",
+            "Official Instant Pot notices on the recall desk name Smart, Smart-60, and Gem 65. They do not name Duo Plus. The Foodi OP300-series notice names pressure-cooker model numbers in the OP300 series, not DT201C and not the FN101 Crispi. Open those explainers and read the model list before treating a family name as this card.",
+            "The recall block below is the catalogue match for the Duo Plus and for the Foodi 10-in-1. A family name on a seasonal listing is not the model number. The wattage row is 1,000 W on the Duo Plus page and 1,800 W on the Foodi page, and the dimension row uses inches on one page and centimetres on the other."
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "sony-wh-1000xm5",
+      "linkLabel": "WH-1000XM5, model check",
+      "title": "Sony WH-1000XM5: check the battery line before you buy",
+      "description": "Weight, charge time, and battery life as the Sony specifications page states them for the WH-1000XM5, next to the QuietComfort Ultra lines, with the dated recall check.",
+      "hub": "personal-tech",
+      "subject": "sony-wh-1000xm5",
+      "others": [
+        "bose-qc-ultra"
+      ],
+      "sections": [
+        {
+          "heading": "The model string is WH-1000XM5",
+          "paragraphs": [
+            "The Sony card states model WH-1000XM5, battery life of max. 30 hours with noise cancelling on or max. 40 hours with it off, a weight of about 8.82 oz, a charge time of about 3.5 hours, multipoint, and that 2 processors control 8 microphones. A listing that says Sony headphones, or 1000X, still has to show WH-1000XM5 if this is the card you are matching.",
+            "The QuietComfort Ultra page states up to 24 hours, 0.56 lb, a 3 hour charge, Quiet, Aware, and Immersion modes, multipoint for two devices, and Bose Immersive Audio. The weight units are ounces on the Sony page and pounds on the Bose page. This page does not convert them."
+          ]
+        },
+        {
+          "heading": "Pick the battery sentence you meant",
+          "paragraphs": [
+            "Pick the WH-1000XM5 if the listing shows that model and you are matching max. 30 hours with noise cancelling on, or max. 40 hours with it off, at about 8.82 oz, with a charge line of about 3.5 hours. The microphone sentence is 2 processors and 8 microphones.",
+            "Pick the QuietComfort Ultra if the listing is that Bose model and you are matching up to 24 hours, a 3 hour charge, and the mode names Quiet, Aware, and Immersion. A shorter stated charge time is the Bose line. A longer stated playback line with noise cancelling on is the Sony line.",
+            "Neither card is a recall match in the catalogue block below. Confirm the model printed on the earcup or the box, not only the brand in the title of the listing. Multipoint is on both cards. The Sony card states the microphone arrangement, 2 processors and 8 microphones, and the Bose card states the mode names. Those lines stay on their own cards because the other page does not use the same label. The charge lines are about 3.5 hours on the Sony page and 3 hours on the Bose page. Read both charge lines on the maker pages."
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "kitchenaid-artisan",
+      "linkLabel": "Artisan KSM150PS, model check",
+      "title": "KitchenAid Artisan: check the 5-quart lines before you buy",
+      "description": "Capacity, speeds, bowl, and model KSM150PSER as the KitchenAid page states them for the Artisan tilt-head, with the dated recall check. The catalogue has no second stand mixer.",
+      "hub": "kitchen",
+      "subject": "kitchenaid-artisan",
+      "others": [
+        "cuisinart-dfp-14bcny"
+      ],
+      "sections": [
+        {
+          "heading": "KSM150PSER is the model line",
+          "paragraphs": [
+            "The Artisan page states a 5 quart capacity, 10 speeds, a 5 quart stainless steel dishwasher-safe bowl, more than 10 optional hub-powered attachments sold separately, and model KSM150PSER. A listing that says KitchenAid, or Artisan, or 5 quart, still has to show KSM150PSER if this is the mixer you mean. Bowl size and a tilt-head description on a different model number are a different card, and this catalogue does not have a second stand mixer.",
+            "The Cuisinart DFP-14BCNY card is a food processor, not a mixer. It states a 14 cup bowl, a 720 W motor, dimensions of 11 in L x 7.9 in W x 14.8 in H, a 5-year motor warranty, and a 3-year limited warranty on the whole unit. It shares a kitchen counter with the Artisan. It does not share a job."
+          ]
+        },
+        {
+          "heading": "Pick the mixer line, and stop on the processor recall",
+          "paragraphs": [
+            "Pick the Artisan if the listing is KSM150PSER and you are matching a 5 quart bowl, 10 speeds, and the attachment sentence that says more than 10 optional hub-powered attachments are sold separately. The match is those lines. There is no second mixer card here to pick instead.",
+            "Do not pick the DFP-14BCNY as the mixer. Pick that card only if you are matching a 14 cup food processor and a 720 W motor line. The US catalogue line for that processor is a recall match. The notice on the model page is the Conair Cuisinart food-processor recall. Read the model numbers there before buying the processor.",
+            "The recall block below repeats the catalogue status for the Artisan and for the processor. Confirm KSM150PSER on the mixer base if the Artisan is the one in the cart. The bowl line says 5 quart stainless steel and dishwasher-safe. The attachment line says the hub-powered tools are sold separately, so a listing that bundles a different model number is not this card."
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "coway-ap-1512hh",
+      "linkLabel": "AP-1512HH, model check",
+      "title": "Coway Airmega Mighty AP-1512HH: check the CADR lines before you buy",
+      "description": "CADR, room coverage, cabinet, weight, and power as the Coway page states them for the AP-1512HH, next to the Core 300S-P, Core 600S-P, and 211i Max cards, with the dated recall check.",
+      "hub": "air-water",
+      "subject": "coway-ap-1512hh",
+      "others": [
+        "levoit-core-300s-p",
+        "levoit-core-600s",
+        "blueair-211i-max"
+      ],
+      "sections": [
+        {
+          "heading": "AP-1512HH is the model with this CADR trio",
+          "paragraphs": [
+            "The Airmega Mighty page states CADR of 233 smoke, 246 dust, and 240 pollen, room coverage of 361 ft² at 4.8 air changes per hour, dimensions of 16.8 × 18.3 × 9.6 in, a weight of 12.3 lb, and 77 W. A listing that says Coway, or Airmega, or Mighty, still has to show AP-1512HH if these are the lines you are matching. The Airmega 250 is a different card, with its own CADR trio and a different cabinet.",
+            "The Core 300S-P manual states 7.48 lb, 8.7 × 8.7 × 14.2 in, and 39 W, with noise of 22–54.5 dB, and no CADR label. The Core 600S-P page states 391 CFM, 13.7 lb, and a room line of 606 sq ft at 4.8 air changes or 2,909 sq ft at 1. The 211i Max page states a recommended room of 674 sq ft, 16.2 lb, and 22.7 x 14.4 x 14.4 in."
+          ]
+        },
+        {
+          "heading": "Pick the CADR trio or a different room sentence",
+          "paragraphs": [
+            "Pick the AP-1512HH if the listing shows that model and you are matching smoke 233, dust 246, pollen 240, and 361 ft² at 4.8 air changes per hour, at 12.3 lb and 77 W. The cabinet line is 16.8 × 18.3 × 9.6 in.",
+            "Pick the Core 300S-P if you are matching the smaller cabinet, 7.48 lb and 39 W, and you do not need a CADR figure from the same page. Pick the Core 600S-P if you are matching 391 CFM and the 606 sq ft line at 4.8 air changes. Pick the 211i Max if you are matching the 674 sq ft recommended line and 16.2 lb. Those room sentences are not the same kind of sentence as the AP-1512HH coverage line.",
+            "The recall block is the catalogue match for each purifier. Confirm AP-1512HH on the rating label if that is the Mighty you are buying. The 300S-P noise line is a range, and the 600S-P noise line is a single decibel figure, so those two are not one shared row with the Mighty card either."
           ]
         }
       ]

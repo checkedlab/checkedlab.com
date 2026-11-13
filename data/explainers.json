@@ -5,7 +5,9 @@
     "linkLabel": "Cosori 2023 model list",
     "description": "The February 23, 2023 CPSC and Health Canada notices name specific Cosori air fryer model numbers. The COSORI Pro II card uses the CS358-AF series, which is not in those lists.",
     "hub": "kitchen",
-    "products": ["cosori-pro-5-8"],
+    "products": [
+      "cosori-pro-5-8"
+    ],
     "catalogue": "The COSORI Pro II card’s model line reads CS358-AF series. CS358-AF is not among the model numbers copied from the notices below.",
     "notices": [
       {
@@ -17,7 +19,29 @@
         "howToCheck": "The notice says to read the model number on the bottom label of the unit and in the user manual.",
         "remedy": "The notice tells owners to stop using the recalled air fryers and contact Cosori for a free replacement air fryer or another Cosori product. It says registration asks for contact information and photos of the unit with the cord cut, and that no receipt is needed.",
         "modelsLabel": "Model numbers in the CPSC notice",
-        "models": ["CP158-AF", "CP158-AF-R19", "CP158-AF-RXW", "CP158-AF-RXR", "CAF-P581-BUSR", "CAF-P581-AUSR", "CAF-P581-RUSR", "CP137-AF", "CP137-AF-RXB", "CP137-AF-RXR", "CP137-AF-RXW", "CS158-AF", "CS158-AF-RXB", "CS158-AF-R19", "CAF-P581S-BUSR", "CAF-P581S-RUSR", "CAF-P581S-AUSR", "CO137-AF", "CO158-AF", "CO158-AF-RXB", "CP258-AF"]
+        "models": [
+          "CP158-AF",
+          "CP158-AF-R19",
+          "CP158-AF-RXW",
+          "CP158-AF-RXR",
+          "CAF-P581-BUSR",
+          "CAF-P581-AUSR",
+          "CAF-P581-RUSR",
+          "CP137-AF",
+          "CP137-AF-RXB",
+          "CP137-AF-RXR",
+          "CP137-AF-RXW",
+          "CS158-AF",
+          "CS158-AF-RXB",
+          "CS158-AF-R19",
+          "CAF-P581S-BUSR",
+          "CAF-P581S-RUSR",
+          "CAF-P581S-AUSR",
+          "CO137-AF",
+          "CO158-AF",
+          "CO158-AF-RXB",
+          "CP258-AF"
+        ]
       },
       {
         "agency": "Health Canada",
@@ -28,7 +52,29 @@
         "howToCheck": "The notice says the model number is on the bottom label and in the user manual, and the batch number is on the bottom of the unit or at the back below the rear exhaust vent.",
         "remedy": "The notice tells owners to stop using the recalled products immediately and contact Cosori for a replacement unit.",
         "modelsLabel": "Model numbers in the Health Canada notice",
-        "models": ["CO137-AF", "CP137-AF", "CP137-AF-RXB", "CP137-AF-RXR", "CP137-AF-RXW", "CO158-AF", "CO158-AF-RXB", "CP158-AF", "CP158-AF-R19", "CP158-AF-RXR", "CP158-AF-RXW", "CP258-AF", "CS158-AF", "CS158-AF-R19", "CS158-AF-RXB", "CAF-P581-AUSR", "CAF-P581-BUSR", "CAF-P581-RUSR", "CAF-P581S-AUSR", "CAF-P581S-BUSR", "CAF-P581S-RUSR"]
+        "models": [
+          "CO137-AF",
+          "CP137-AF",
+          "CP137-AF-RXB",
+          "CP137-AF-RXR",
+          "CP137-AF-RXW",
+          "CO158-AF",
+          "CO158-AF-RXB",
+          "CP158-AF",
+          "CP158-AF-R19",
+          "CP158-AF-RXR",
+          "CP158-AF-RXW",
+          "CP258-AF",
+          "CS158-AF",
+          "CS158-AF-R19",
+          "CS158-AF-RXB",
+          "CAF-P581-AUSR",
+          "CAF-P581-BUSR",
+          "CAF-P581-RUSR",
+          "CAF-P581S-AUSR",
+          "CAF-P581S-BUSR",
+          "CAF-P581S-RUSR"
+        ]
       }
     ]
   },
@@ -38,7 +84,10 @@
     "linkLabel": "Foodi OP300 and TenderCrisp lid",
     "description": "The May 1, 2025 CPSC notice names Ninja Foodi OP300-series pressure cookers. The Health Canada notice names TenderCrisp pressure-cooking lids. The DT201C oven and FN101 Crispi cards are not those model numbers.",
     "hub": "kitchen",
-    "products": ["ninja-foodi-10in1", "ninja-crispi-fn101"],
+    "products": [
+      "ninja-foodi-10in1",
+      "ninja-crispi-fn101"
+    ],
     "catalogue": "The Foodi oven card’s model line reads DT201C. The Crispi card’s model line reads FN101. Neither string is in the model lists copied below.",
     "notices": [
       {
@@ -50,7 +99,20 @@
         "howToCheck": "The notice says the model numbers are printed on a label on the side of the cooker.",
         "remedy": "The notice tells owners to stop using the pressure-cooking function and contact SharkNinja for a free replacement lid. It says the air frying and other functions can still be used.",
         "modelsLabel": "Model numbers in the CPSC notice",
-        "models": ["OP300", "OP301", "OP301A", "OP302", "OP302BRN", "OP302HCN", "OP302HAQ", "OP302HW", "OP302HB", "OP305", "OP305CO", "OP350CO"]
+        "models": [
+          "OP300",
+          "OP301",
+          "OP301A",
+          "OP302",
+          "OP302BRN",
+          "OP302HCN",
+          "OP302HAQ",
+          "OP302HW",
+          "OP302HB",
+          "OP305",
+          "OP305CO",
+          "OP350CO"
+        ]
       },
       {
         "agency": "Health Canada",
@@ -61,7 +123,15 @@
         "howToCheck": "The notice says the model number is on the rating label on the back of the unit, near the power cord.",
         "remedy": "The notice tells owners to stop using the pressure-cooking function, dispose of the pressure-cooking lid so it cannot be used, and contact SharkNinja to confirm that disposal and arrange a replacement lid.",
         "modelsLabel": "Model numbers in the Health Canada notice",
-        "models": ["OP300C", "OP301", "OP301C", "OP302", "OP305", "OP305CCO", "OP305CO"]
+        "models": [
+          "OP300C",
+          "OP301",
+          "OP301C",
+          "OP302",
+          "OP305",
+          "OP305CCO",
+          "OP305CO"
+        ]
       }
     ]
   },
@@ -71,7 +141,9 @@
     "linkLabel": "Anker power bank notices",
     "description": "CPSC and Health Canada power-bank notices name specific Anker model numbers, and some of those notices cover only certain serial numbers. A1289 is not one of those model numbers.",
     "hub": "personal-tech",
-    "products": ["anker-a1289"],
+    "products": [
+      "anker-a1289"
+    ],
     "catalogue": "The catalogue power bank is model A1289, the Anker 737 PowerCore 24K. A1289 is not among the model numbers copied from the notices below.",
     "notices": [
       {
@@ -83,7 +155,9 @@
         "howToCheck": "The notice says to read model A1263 and the serial number on the bottom, then check that serial number at anker.com/product-recalls.",
         "remedy": "The notice tells owners to stop using a recalled power bank and contact Anker for a free replacement. It says the registration asks for a photo showing the model number, serial number, the owner’s name, the date, and the word recalled written on the unit. It also says not to put the lithium-ion battery in household trash or ordinary recycling.",
         "modelsLabel": "Model number in this CPSC notice",
-        "models": ["A1263"]
+        "models": [
+          "A1263"
+        ]
       },
       {
         "agency": "CPSC",
@@ -94,7 +168,11 @@
         "howToCheck": "The notice says the model number is on the back of the power bank.",
         "remedy": "The notice tells owners to stop using the recalled power banks and contact Anker for a free replacement, registering at anker.com/product-recalls. It says to dispose of the lithium-ion batteries under local rules.",
         "modelsLabel": "Model numbers in this CPSC notice",
-        "models": ["A1642", "A1647", "A1652"]
+        "models": [
+          "A1642",
+          "A1647",
+          "A1652"
+        ]
       },
       {
         "agency": "CPSC",
@@ -105,7 +183,9 @@
         "howToCheck": "The notice says the model number A1366 is on the back of the power bank.",
         "remedy": "The notice tells owners to stop using the recalled power banks and contact Fantasia Trading for a full refund and for its instructions on disposing of the lithium-ion batteries.",
         "modelsLabel": "Model number in this CPSC notice",
-        "models": ["A1366"]
+        "models": [
+          "A1366"
+        ]
       },
       {
         "agency": "Health Canada",
@@ -116,7 +196,11 @@
         "howToCheck": "The notice says the serial number is printed on the side or the back, and to compare it with the list at anker.com/ca/rc2506.",
         "remedy": "The notice tells owners to stop using the recalled units and contact Anker for a free replacement or a voucher. It says to dispose of the lithium-ion battery so it cannot be used, using the municipality’s instructions, and not to put it in household garbage.",
         "modelsLabel": "Model numbers in this Health Canada notice",
-        "models": ["A1647", "A1681", "A1689"]
+        "models": [
+          "A1647",
+          "A1681",
+          "A1689"
+        ]
       },
       {
         "agency": "Health Canada",
@@ -127,7 +211,9 @@
         "howToCheck": "The notice says to check the serial number on Anker’s website.",
         "remedy": "The notice tells owners to stop using the product, check the serial number, and if the unit is included, dispose of it so it cannot be used again, following the municipality’s lithium-ion battery instructions.",
         "modelsLabel": "Model number in this Health Canada notice",
-        "models": ["A1642"]
+        "models": [
+          "A1642"
+        ]
       },
       {
         "agency": "Health Canada",
@@ -138,7 +224,9 @@
         "howToCheck": "The notice says the serial number is on the bottom and to check it with Anker at anker.com/ca/a1112-recall-form.",
         "remedy": "The notice tells owners to stop using a recalled unit, dispose of it so it cannot be used, follow municipal lithium-ion battery instructions, and not put it in household garbage. It says Anker sends a new power bank to users verified as part of the recall batch.",
         "modelsLabel": "Model number in this Health Canada notice",
-        "models": ["A1112011"]
+        "models": [
+          "A1112011"
+        ]
       },
       {
         "agency": "Health Canada",
@@ -149,7 +237,9 @@
         "howToCheck": "The notice names model A1366. Use the linked notice for the label details it prints.",
         "remedy": "The notice tells owners to stop using the recalled power bank and contact Anker customer support for a refund.",
         "modelsLabel": "Model number in this Health Canada notice",
-        "models": ["A1366"]
+        "models": [
+          "A1366"
+        ]
       }
     ]
   },
@@ -159,7 +249,9 @@
     "linkLabel": "Vitamix container notices",
     "description": "The June 20, 2024 CPSC notice covers Ascent and Venturist 8-ounce and 20-ounce blending containers and blade bases. The E310 card lists an Explorian blender with a 48 oz container.",
     "hub": "kitchen",
-    "products": ["vitamix-e310"],
+    "products": [
+      "vitamix-e310"
+    ],
     "catalogue": "The E310 card is the Explorian blender. Its maker-sourced spec line says the container is 48 oz. The 2024 CPSC notice names 8-ounce and 20-ounce Ascent and Venturist containers, not an Explorian E310.",
     "notices": [
       {
@@ -171,7 +263,18 @@
         "howToCheck": "The notice identifies the recalled parts as Ascent and Venturist 8-ounce and 20-ounce containers and their blade bases, including units already repaired in 2018.",
         "remedy": "The notice tells owners, including people who took part in the 2018 recall, to stop using the recalled 8-ounce and 20-ounce containers and blade bases and contact Vitamix for a repair kit with a protective plastic shroud and additional labels.",
         "modelsLabel": "Names in the 2024 CPSC notice",
-        "models": ["Ascent Series 8-ounce blending containers", "Ascent Series 20-ounce blending containers", "Venturist Series 8-ounce blending containers", "Venturist Series 20-ounce blending containers", "Blade bases for those containers", "Venturist V1200", "Ascent A2300", "Ascent A2500", "Ascent A3300", "Ascent A3500"]
+        "models": [
+          "Ascent Series 8-ounce blending containers",
+          "Ascent Series 20-ounce blending containers",
+          "Venturist Series 8-ounce blending containers",
+          "Venturist Series 20-ounce blending containers",
+          "Blade bases for those containers",
+          "Venturist V1200",
+          "Ascent A2300",
+          "Ascent A2500",
+          "Ascent A3300",
+          "Ascent A3500"
+        ]
       },
       {
         "agency": "CPSC",
@@ -182,7 +285,13 @@
         "howToCheck": "The notice says the blade date code is laser-etched on the top of the blade in the blade base, in MM-YY form.",
         "remedy": "That notice told owners to stop using the recalled containers and contact Vitamix for a free repair kit. The 2024 notice above is the later instruction, including for people who already received the 2018 repair.",
         "modelsLabel": "Names in the 2018 CPSC notice",
-        "models": ["Ascent 8-ounce containers with blade date code 03-18 or earlier", "Ascent 20-ounce containers with blade date code 03-18 or earlier", "Venturist 8-ounce containers with blade date code 03-18 or earlier", "Venturist 20-ounce containers with blade date code 03-18 or earlier", "Venturist Model 1200"]
+        "models": [
+          "Ascent 8-ounce containers with blade date code 03-18 or earlier",
+          "Ascent 20-ounce containers with blade date code 03-18 or earlier",
+          "Venturist 8-ounce containers with blade date code 03-18 or earlier",
+          "Venturist 20-ounce containers with blade date code 03-18 or earlier",
+          "Venturist Model 1200"
+        ]
       },
       {
         "agency": "CPSC",
@@ -193,7 +302,14 @@
         "howToCheck": "The notice says the blade part number and date code are laser-etched on the top of the blade at the bottom of the container.",
         "remedy": "The notice tells owners to stop using the recalled container and contact Vitamix for a free repair.",
         "modelsLabel": "Names in the 2013 CPSC notice",
-        "models": ["64-ounce Low-Profile container", "Blade part number 103208 A", "Blade date codes 03-12 through 07-13", "Blender model 7500", "Professional Series 300", "Professional Series 750"]
+        "models": [
+          "64-ounce Low-Profile container",
+          "Blade part number 103208 A",
+          "Blade date codes 03-12 through 07-13",
+          "Blender model 7500",
+          "Professional Series 300",
+          "Professional Series 750"
+        ]
       },
       {
         "agency": "Health Canada",
@@ -204,7 +320,9 @@
         "howToCheck": "Use the linked Health Canada notice for the container it describes.",
         "remedy": "Follow the steps printed on the linked Health Canada notice.",
         "modelsLabel": "Name in the Health Canada notice",
-        "models": ["Vitamix 2-litre (64-ounce) Low-Profile blender container"]
+        "models": [
+          "Vitamix 2-litre (64-ounce) Low-Profile blender container"
+        ]
       }
     ]
   },
@@ -214,7 +332,9 @@
     "linkLabel": "Instant Pot official notices",
     "description": "Official CPSC and Health Canada notices name Instant Pot Smart, Smart-60, and Gem 65 multicookers. They do not name the Duo Plus. The Duo Plus card has no matching recall record as of the catalogue check date.",
     "hub": "kitchen",
-    "products": ["instant-pot-duo-plus"],
+    "products": [
+      "instant-pot-duo-plus"
+    ],
     "catalogue": "The catalogue card is the Instant Pot Duo Plus, 6 quart. Duo Plus is not a model name in the notices below.",
     "notices": [
       {
@@ -226,7 +346,12 @@
         "howToCheck": "The notice says the serial number and date are printed on a label on the bottom of the base.",
         "remedy": "The notice tells owners to stop using the recalled cooker and contact Instant Pot for a free replacement base, which is the bottom of the cooker including the control panel.",
         "modelsLabel": "Models in this CPSC notice",
-        "models": ["Instant Pot Smart", "Instant Pot Smart-60", "Serial numbers 1410 through 1503", "Manufacture dates December 1, 2014 through June 1, 2015"]
+        "models": [
+          "Instant Pot Smart",
+          "Instant Pot Smart-60",
+          "Serial numbers 1410 through 1503",
+          "Manufacture dates December 1, 2014 through June 1, 2015"
+        ]
       },
       {
         "agency": "Health Canada",
@@ -237,7 +362,11 @@
         "howToCheck": "The notice says to read the first four digits of the serial number on the bottom, and the Smart-60 name on the back label.",
         "remedy": "The notice tells owners to stop using the product and contact Double Insight for a replacement or refund.",
         "modelsLabel": "Names in this Health Canada notice",
-        "models": ["Instant Pot Smart", "Smart-60", "Date codes 1410 through 1503"]
+        "models": [
+          "Instant Pot Smart",
+          "Smart-60",
+          "Date codes 1410 through 1503"
+        ]
       },
       {
         "agency": "CPSC",
@@ -248,7 +377,14 @@
         "howToCheck": "The notice says to read the underside rating label for Gem 65 8-in-1 and one of those batch codes.",
         "remedy": "The notice tells owners to stop using the recalled multicooker, unplug it, and return it to Walmart for a free replacement.",
         "modelsLabel": "Names in this CPSC notice",
-        "models": ["Gem 65 8-in-1", "Batch code 1728", "Batch code 1730", "Batch code 1731", "Batch code 1734", "Batch code 1746"]
+        "models": [
+          "Gem 65 8-in-1",
+          "Batch code 1728",
+          "Batch code 1730",
+          "Batch code 1731",
+          "Batch code 1734",
+          "Batch code 1746"
+        ]
       }
     ]
   },
@@ -258,7 +394,10 @@
     "linkLabel": "Lasko heater notices",
     "description": "CPSC heater notices name specific older Lasko and Air King model numbers. CT32150 and CT14401 are not those model numbers. The catalogue check found no matching recall for either card on the check date.",
     "hub": "winter",
-    "products": ["lasko-ct32150", "lasko-ct14401"],
+    "products": [
+      "lasko-ct32150",
+      "lasko-ct14401"
+    ],
     "catalogue": "The catalogue heaters are CT32150 and CT14401. Neither model number is in the CPSC lists copied below.",
     "notices": [
       {
@@ -270,7 +409,10 @@
         "howToCheck": "The notice says the date code is a four-digit number on the label on the bottom of the unit, on the bottom left of the label, above the voltage number.",
         "remedy": "The notice tells owners to stop using the heaters and contact Lasko for a free replacement heater.",
         "modelsLabel": "Model numbers in this CPSC notice",
-        "models": ["Lasko 5540", "Air King 8540"]
+        "models": [
+          "Lasko 5540",
+          "Air King 8540"
+        ]
       },
       {
         "agency": "CPSC",
@@ -281,7 +423,16 @@
         "howToCheck": "The notice says the model number is on the bottom of the unit or at the rear of the base.",
         "remedy": "The notice tells owners to stop using the heaters and contact Lasko for a free replacement heater.",
         "modelsLabel": "Model numbers in this CPSC notice",
-        "models": ["5132", "5345", "5362", "5364", "5420", "5532", "5534", "5566"]
+        "models": [
+          "5132",
+          "5345",
+          "5362",
+          "5364",
+          "5420",
+          "5532",
+          "5534",
+          "5566"
+        ]
       },
       {
         "agency": "CPSC",
@@ -292,7 +443,130 @@
         "howToCheck": "The notice says the 5500 model number is on a label under the round base, and the 5700 model number is on a label on the side near the right front wheel.",
         "remedy": "The notice tells owners to stop using the heaters, unplug them, and contact Lasko for instructions on returning the heater for a free replacement or a product of similar value.",
         "modelsLabel": "Model numbers in this CPSC notice",
-        "models": ["5500", "5700"]
+        "models": [
+          "5500",
+          "5700"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "toro-power-clear-snowblowers",
+    "title": "Toro Power Clear snowblower recalls: the model numbers",
+    "linkLabel": "Toro Power Clear notices",
+    "description": "The 2010 and 2011 CPSC and Health Canada notices name Power Clear 180 models 38272 and 38282, and PC-421 models 38588 and 38589. Catalogue model 38753 is not in those lists.",
+    "hub": "winter",
+    "products": [
+      "toro-power-clear-38753",
+      "ego-snt2110",
+      "snowjoe-24v-ss10"
+    ],
+    "catalogue": "The catalogue snow blower is Toro Power Clear 721 E, model 38753. 38753 is not among the model numbers copied below. The EGO SNT2110 and Snow Joe 24V-SS10 cards are different tools and are not named in these Toro notices.",
+    "notices": [
+      {
+        "agency": "CPSC",
+        "date": "2010-07-14",
+        "title": "Snow Blowers Recalled by The Toro Company Due to Fire Hazard",
+        "url": "https://www.cpsc.gov/Recalls/2010/Snow-Blowers-Recalled-by-The-Toro-Company-Due-to-Fire-Hazard",
+        "says": "The CPSC notice says the recall involves Toro Power Clear 180 single-stage snow blowers, model numbers 38272 and 38282, serial numbers 310000001 through 310999999. It says the model and serial number are on a decal on the lower right side of the snow blower. It describes a fire hazard from a corroded carburetor needle that can stick open and leak fuel.",
+        "howToCheck": "The notice says to read the model and serial decal on the lower right side.",
+        "remedy": "The notice tells owners to stop using a unit in the recall and contact an authorized Toro service dealer for a free repair.",
+        "modelsLabel": "Model numbers in this CPSC notice",
+        "models": [
+          "38272",
+          "38282",
+          "Serial numbers 310000001 through 310999999"
+        ]
+      },
+      {
+        "agency": "Health Canada",
+        "date": "2010-07-14",
+        "title": "Toro Power Clear 180 Snow Blower",
+        "url": "https://recalls-rappels.canada.ca/en/alert-recall/toror-power-clear-180-snow-blower",
+        "says": "The Health Canada notice says the recall involves Toro Power Clear 180 single-stage snow blowers, model numbers 38272 and 38282, serial numbers 310000001 through 310999999. It says the model serial decal is on the lower right rear of the machine. It is a joint recall with the CPSC.",
+        "howToCheck": "The notice says the model serial decal is on the lower right rear of the machine.",
+        "remedy": "The notice tells owners to check whether the snow blower is included and contact an authorized Toro service dealer for a free repair.",
+        "modelsLabel": "Model numbers in this Health Canada notice",
+        "models": [
+          "38272",
+          "38282",
+          "Serial numbers 310000001 through 310999999"
+        ]
+      },
+      {
+        "agency": "CPSC",
+        "date": "2011-04-26",
+        "title": "Toro Recalls Power Clear Snowblowers and Recycler Mowers Due to Fire or Burn Hazard",
+        "url": "https://www.cpsc.gov/Recalls/2011/Toro-Recalls-Power-Clear-Snowblowers-and-Recycler-Mowers",
+        "says": "The CPSC notice says the snowblower recall involves Toro PC-421Q models 38588 and 38589. It lists serial ranges for each model and says the model and serial numbers are on a decal on the underside of the rear of the unit. It also names Recycler mower model 20323. It says the carburetors can leak fuel and ignite.",
+        "howToCheck": "The notice says the snowblower model and serial numbers are on a decal on the underside of the rear of the unit.",
+        "remedy": "The notice tells owners to stop using the products and contact a Toro service dealer for a free repair.",
+        "modelsLabel": "Snowblower model numbers in this CPSC notice",
+        "models": [
+          "38588",
+          "38589",
+          "Mower model 20323 is also named"
+        ]
+      },
+      {
+        "agency": "Health Canada",
+        "date": "2011-04-26",
+        "title": "Toro Power Clear Snow Blower and Push Recycler Mower",
+        "url": "https://recalls-rappels.canada.ca/en/alert-recall/toror-power-cleartm-snow-blower-and-push-recycler-mower",
+        "says": "The Health Canada notice says the recall involves 2010 and 2011 Toro Power Clear 421Q snow blowers. It names model 38588 with serials 310000001 to 311003576, and model 38589 with serials 310000001 to 311999999. It also names push mower model 20323. It says the snow blower model and serial numbers are on a decal on the underside of the rear of the unit.",
+        "howToCheck": "The notice says to read the decal on the underside of the rear of the snow blower.",
+        "remedy": "The notice tells owners to stop using the snow blowers and mowers and contact a Toro service dealer for a free repair.",
+        "modelsLabel": "Snowblower model numbers in this Health Canada notice",
+        "models": [
+          "38588",
+          "38589",
+          "Mower model 20323 is also named"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "shark-rotator-lift-away-2015",
+    "title": "Shark Rotator Lift-Away recall: the 2015 model numbers",
+    "linkLabel": "Shark Rotator 2015 notice",
+    "description": "The April 22, 2015 CPSC notice names Shark Rotator Lift-Away models NV650W, NV651, NV652, and NV660. The Health Canada notice names NV650W and NV652. Catalogue models AV2501S, AV2820AE, and IP3251 are not those numbers.",
+    "hub": "cleaning",
+    "products": [
+      "shark-av2501s",
+      "shark-av2820ae",
+      "shark-ip3251"
+    ],
+    "catalogue": "The catalogue Shark cards are AV2501S, AV2820AE, and IP3251. None of those model numbers is in the 2015 lists copied below.",
+    "notices": [
+      {
+        "agency": "CPSC",
+        "date": "2015-04-22",
+        "title": "Shark Vacuum Cleaners Recalled by Euro-Pro",
+        "url": "https://www.cpsc.gov/Recalls/2015/Shark-Vacuum-Cleaners-Recalled-by-Euro-Pro",
+        "says": "The CPSC notice says the recall involves four models of Shark Rotator Powered Lift-Away upright vacuum cleaners: NV650W, NV651, NV652, and NV660. It says the model number is on a silver sticker on the upper right-hand corner of the back of the unit. It says recalled units have a date code on the power-plug prong beginning with 48 or lower and ending with 14, in WWYY form. It says units marked with a dimple or a green circle sticker on the plastic cuff that holds the aluminum wand were inspected and are not included. It describes an electric-shock hazard if the aluminum wand disconnects and stays energized.",
+        "howToCheck": "The notice says to read the model sticker on the back, the date code on the plug prong, and whether the cuff has a dimple or a green circle sticker.",
+        "remedy": "The notice tells owners to stop using the recalled vacuum cleaners and contact Euro-Pro for a free replacement wand.",
+        "modelsLabel": "Model numbers in this CPSC notice",
+        "models": [
+          "NV650W",
+          "NV651",
+          "NV652",
+          "NV660"
+        ]
+      },
+      {
+        "agency": "Health Canada",
+        "date": "2015-04-22",
+        "title": "Euro-Pro Operating LLC recalls Shark brand vacuum cleaners",
+        "url": "https://recalls-rappels.canada.ca/en/alert-recall/euro-pro-operating-llc-recalls-sharkr-brand-vacuum-cleaners",
+        "says": "The Health Canada notice says the recall involves certain Shark Rotator Powered Lift-Away upright vacuum cleaners and names models NV650W and NV652. It says the model number is on a silver sticker on the upper right-hand corner of the back. It uses the same date-code rule, codes beginning with 48 or lower and ending with 14, and the same dimple or green-circle exclusion. It is a joint recall with the CPSC. The CPSC notice also names NV651 and NV660, which this Health Canada model table does not list.",
+        "howToCheck": "The notice says to read the model sticker, the date code on the plug prong, and the cuff mark.",
+        "remedy": "The notice tells owners to stop using the recalled vacuum cleaners and contact Euro-Pro for a free replacement wand.",
+        "modelsLabel": "Model numbers in this Health Canada notice",
+        "models": [
+          "NV650W",
+          "NV652"
+        ]
       }
     ]
   }
