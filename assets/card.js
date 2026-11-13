@@ -283,16 +283,63 @@
     return esc(title).replace(/([A-Za-z0-9])-([A-Za-z0-9])/g, "$1\u2011$2");
   }
 
+  function shortModel(product) {
+    if (product.model && String(product.model).length <= 32) return String(product.model);
+    var meta = String(product.meta || "");
+    var head = meta.split("•")[0].trim();
+    if (head && head.length <= 32) return head;
+    return product.model || head || product.title || "";
+  }
+
+  function pickLine(product) {
+    var specs = (product.specs || []).filter(function (spec) {
+      return spec && spec.label && spec.value && !/\$\d|\d+\s*%/.test(spec.label + " " + spec.value);
+    });
+    var line;
+    if (specs.length) {
+      line = "Pick it if the maker line you need is " + specs[0].label + ": " + specs[0].value + ".";
+    } else if (product.evidence && product.evidence[0] && product.evidence[0].claim) {
+      var claim = String(product.evidence[0].claim).replace(/\s+/g, " ").trim();
+      line = "Pick it if this maker line fits: " + claim.split(/(?<=\.)\s/)[0];
+    } else {
+      line = "Pick it if the model on the box matches " + (product.model || product.title) + ".";
+    }
+    if (line.length > 118) line = line.slice(0, 115).replace(/\s+\S*$/, "") + "…";
+    return line;
+  }
+
+  var CAT_ICON = {
+    winter: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M4 8l16 8M20 8L4 16"/></svg>',
+    "car-garage": '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 14h16v4H4zM6 14l2-4h8l2 4"/><circle cx="7.5" cy="18" r="1.2"/><circle cx="16.5" cy="18" r="1.2"/></svg>',
+    "air-water": '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4c3 3 5 5.5 5 8.5a5 5 0 1 1-10 0C7 9.5 9 7 12 4z"/></svg>',
+    pet: '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="8" cy="8" r="2"/><circle cx="16" cy="8" r="2"/><circle cx="6.5" cy="13" r="1.6"/><circle cx="17.5" cy="13" r="1.6"/><path d="M9 16c.8 2 5.2 2 6 0"/></svg>',
+    kitchen: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 10h12v7a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2zM9 10V7M15 10V7"/></svg>',
+    cleaning: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 16h9a3 3 0 0 0 3-3V8"/><circle cx="17" cy="7" r="2"/><path d="M19 7h2M7 16v3h6"/></svg>',
+    sleep: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 5a7 7 0 1 0 4 12 8 8 0 1 1-4-12z"/></svg>',
+    "personal-tech": '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 0 1 16 0"/><path d="M4 12v3a2 2 0 0 0 2 2h1v-5H4zM20 12v3a2 2 0 0 1-2 2h-1v-5h3z"/></svg>'
+  };
+
+  function tile(product) {
+    var brand = (product && product.sourceName) || String((product && product.title) || "Model").split(" ")[0];
+    var model = shortModel(product || {});
+    var icon = CAT_ICON[(product && product.category) || ""] || CAT_ICON.kitchen;
+    return '<div class="type-tile" aria-hidden="true"><span class="tile-icon">' + icon + "</span>" +
+      '<p class="tile-brand">' + esc(brand) + '</p><p class="tile-model">' + esc(model) + "</p></div>";
+  }
+
+  var pageSeen = Object.create(null);
+  function beginPage() { pageSeen = Object.create(null); }
+
   function card(product, reg, opts) {
     opts = opts || {};
     var recall = recallFor(product, reg);
     var href = esc(productPath(product));
     var title = '<h2 class="p-title"><a href="' + href + '">' + visibleTitle(product.title) + "</a></h2>";
-    var meta = '<p class="p-meta">' + esc(modelLine(product)) + "</p>";
     var more = '<a class="hub-more" href="' + href + '">See specs and stores</a>';
     var id = ' id="' + esc(product.id) + '" data-category="' + esc(product.category || "") + '"';
-    return '<article class="product-grid hub-card"' + id + ">" + photoColumn(product, reg, opts) +
-      '<div class="p-main">' + badgeHtml(recall) + noteBadge(product) + title + meta + hubSpecs(product) + more + "</div></article>";
+    return '<article class="product-grid hub-card"' + id + '><div class="pick-media">' + visual(product, opts) + "</div>" +
+      '<div class="p-main">' + badgeHtml(recall) + noteBadge(product) + title +
+      '<p class="pick-if">' + esc(pickLine(product)) + "</p>" + more + "</div></article>";
   }
 
   var artSeq = 0;
@@ -526,39 +573,21 @@
     stickvac: ["cat-stick.webp", "Photo by Vedat \u00d6ncelik on Pexels", 1600, 2399]
   };
 
-  function photoRecord(product) {
+  function modelPhoto(product) {
+    if (!product || product.imageKind !== "model") return "";
     var src = licensedSrc(product);
-    if (src) {
-      var model = product && product.imageKind === "model";
-      return {
-        src: src,
-        kind: model ? "model" : "category",
-        credit: (product && product.imageCredit) || "",
-        alt: model ? ((product && product.title) || "Product") : "Category photo",
-        width: 1200,
-        height: 900
-      };
-    }
-    var row = CATEGORY_PHOTOS[motifKey(product || {})] || CATEGORY_PHOTOS.box;
-    return {
-      src: "/images/photos/" + row[0],
-      kind: "category",
-      credit: row[1],
-      alt: "Category photo",
-      width: row[2],
-      height: row[3]
-    };
+    if (!src || src.indexOf("/images/photos/") !== 0) return "";
+    return src;
   }
 
   function visual(product, opts) {
     opts = opts || {};
-    var photo = photoRecord(product);
+    var src = modelPhoto(product);
+    if (!src || pageSeen[src]) return tile(product || {});
+    pageSeen[src] = 1;
     var load = opts.eager ? ' fetchpriority="high" decoding="async"' : ' loading="lazy" decoding="async"';
-    var caption = photo.kind === "model"
-      ? (photo.credit || "")
-      : ("Category photo" + (photo.credit ? " · " + photo.credit : ""));
-    return '<img class="p-photo" src="' + esc(photo.src) + '" alt="' + esc(photo.alt) + '" width="' + photo.width + '" height="' + photo.height + '"' + load + ">" +
-      (caption ? '<p class="img-credit">' + esc(caption) + "</p>" : "");
+    var credit = product.imageCredit ? '<p class="img-credit">' + esc(product.imageCredit) + "</p>" : "";
+    return '<img class="p-photo" src="' + esc(src) + '" alt="' + esc(product.title || "Product") + '" width="1200" height="900"' + load + ">" + credit;
   }
 
   var SCENES = {
@@ -581,9 +610,8 @@
     cleaning: ["hub-cleaning.webp", "A robot vacuum on a wood floor", "Photo by Ron Lach on Pexels", 1600, 2400]
   };
 
-  function scene(name) {
-    var row = SCENES[name] || SCENES.home;
-    return '<figure class="scene-photo"><img src="/images/photos/' + row[0] + '" alt="' + esc(row[1]) + '" width="' + row[3] + '" height="' + row[4] + '" loading="lazy" decoding="async"><figcaption>' + esc(row[2]) + "</figcaption></figure>";
+  function scene() {
+    return "";
   }
 
   return {
@@ -598,6 +626,9 @@
     imageHtml: imageHtml,
     imageColumn: imageColumn,
     visual: visual,
+    tile: tile,
+    pickLine: pickLine,
+    beginPage: beginPage,
     scene: scene,
     noteBadge: noteBadge,
     motifKey: motifKey,

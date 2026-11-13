@@ -213,11 +213,12 @@ assertHubGuides();
 for (const hub of HUBS) {
   const file = join(root, hub, "index.html");
   let html = readFileSync(file, "utf8");
+  card.beginPage();
   html = fillMount(html, byHub.get(hub).map((product, index) => card.card(product, "US", index === 0 ? { eager: true } : {})).join("\n"));
   const lead = byHub.get(hub).find((product) => card.schemaImage(product));
   html = ensureImagePreload(html, lead);
   html = pointItemList(html, hub);
-  html = ensureScene(html, hub);
+  html = ensureScene(html);
   html = ensureChrome(ensureFontPreload(ensureCardScript(html)), hub);
   const hubExtra = explainers.filter((entry) => entry.hub === hub).map((entry) =>
     '<a href="/recalls/' + entry.slug + '/">' + card.esc(entry.linkLabel) + "</a>"
@@ -263,11 +264,12 @@ for (const hub of HUBS) {
   const byId = new Map(products.map((product) => [product.id, product]));
   const popular = POPULAR_IDS.map((id) => byId.get(id)).filter(Boolean);
   const recallsOnHome = products.filter(isBin);
+  card.beginPage();
   html = fillMount(html, popular.map((product) => card.card(product, "US")).join("\n"), POP_START, POP_END);
   html = fillMount(html, recallsOnHome.length ? recallsOnHome.map((product) => card.card(product, "US")).join("\n") : '<p class="empty">No official model recall is on the list.</p>', REC_START, REC_END);
   html = fillHomePointer(html, recalls.checkedAt || "");
   html = html.replace(/<section class="hub-tiles"[\s\S]*?<\/section>\n?/g, "");
-  if (!html.includes('class="hero-photo"')) html = ensureScene(html, "home");
+  html = ensureScene(html);
   if (!html.includes('id="is-it-recalled-search"')) {
     html = html.replace('<section class="recall-band"', recallWidget() + "\n" + giftQuiz() + '\n<section class="recall-band"');
   }
@@ -280,8 +282,9 @@ for (const hub of HUBS) {
   const file = join(root, "bin-list", "index.html");
   let html = readFileSync(file, "utf8");
   const shown = products.filter(isBin);
+  card.beginPage();
   html = fillMount(html, shown.length ? shown.map((product) => card.card(product, "US")).join("\n") : BIN_EMPTY);
-  html = ensureScene(html, "bin");
+  html = ensureScene(html);
   html = ensureChrome(ensureFontPreload(ensureCardScript(html)), "bin");
   writeFileSync(file, html);
 }
@@ -360,11 +363,11 @@ function assertRenderer() {
   if (bin.includes("store-btn") || bin.includes("check-title") || bin.includes("evidence")) {
     throw new Error("Hub card includes a product-page block");
   }
-  if (!bin.includes("p-side") || !bin.includes('class="p-photo"') || !bin.includes('alt="Category photo"')) {
-    throw new Error("Hub card is missing a photo slot");
+  if (!bin.includes('class="type-tile"') || !bin.includes('class="pick-if"') || !bin.includes("Pick it if")) {
+    throw new Error("Hub card is missing the scan tile");
   }
-  if (bin.includes('class="illu"') || /amazon\.com/i.test(bin)) {
-    throw new Error("Hub card used an illustration or an Amazon image");
+  if (bin.includes('class="p-photo"') || bin.includes('class="illu"') || /amazon\.com/i.test(bin)) {
+    throw new Error("Hub card used a repeated photo, an illustration, or an Amazon image");
   }
   if (/\$\d/.test(bin) || bin.includes("offers")) throw new Error("Renderer emitted a price");
   const usStores = card.storeButtons(products[0], "US");
@@ -661,7 +664,12 @@ function nav(current) {
   }).join("\n") + "\n" + recallCatsLink(current) + '\n<a class="cats-util" href="/how-we-check/">How we check</a>\n<a class="cats-util" href="/bin-list/">BIN list</a>\n</nav>';
 }
 
+function productFold(id, heading, body) {
+  return '<details class="fold" id="' + id + '"><summary><h2>' + heading + "</h2></summary><div class=\"fold-body\">" + body + "</div></details>";
+}
+
 function productPage(product) {
+  card.beginPage();
   const hub = product.category;
   const name = HUB_NAME[hub];
   const url = ORIGIN + card.productPath(product);
@@ -672,6 +680,7 @@ function productPage(product) {
   const why = (product.evidence || []).length
     ? "Checked Lab lists this model so the recall check and the maker page are in one place. The lines below are what that maker page states."
     : "Checked Lab lists this model so the recall check and the maker page are in one place. No maker spec line is on this page yet.";
+  const pick = card.pickLine(product);
   return `<!DOCTYPE html>
 <html lang="en" data-region="US">
 <head>
@@ -725,7 +734,7 @@ ${DISCLOSURE}
 ${nav(hub)}
 </div>
 
-<main>
+<main id="main">
 <div class="wrap">
 <nav class="crumbs" aria-label="Breadcrumb">
 <a href="/">Home</a>
@@ -735,34 +744,25 @@ ${nav(hub)}
 <span aria-current="page">${card.esc(product.title)}</span>
 </nav>
 <article class="product-grid" id="${card.esc(product.id)}" data-category="${card.esc(hub)}">
+<div class="fold-top">
+<div class="pick-media">${card.visual(product, { eager: true })}</div>
 <div class="p-main">
 <span class="only-us">${card.badgeHtml(us)}</span>
 <span class="only-ca">${card.badgeHtml(ca)}</span>
 <h1 class="p-title">${card.visibleTitle(product.title)}</h1>
-<p class="p-meta">${card.esc(product.meta || "")}</p>
-<h2 class="recall-q" id="is-it-recalled">Is the ${card.esc(product.title)} recalled?</h2>
-${datedParagraph(us, "US")}
-${datedParagraph(ca, "Canadian")}
-${otherSection(product)}
-${modelFindHtml(product)}
-${canadaBlock(product)}
-${faqHtml(product)}
-<p class="p-note only-us">${card.esc(card.honestLine(product, us))}</p>
-<p class="p-note only-ca">${card.esc(card.honestLine(product, ca))}</p>
-<div class="only-us">${card.storeButtons(product, "US")}</div>
-<div class="only-ca">${card.storeButtons(product, "CA")}</div>
-<h2 class="check-title">Why it's listed</h2>
-<p class="why-note">${card.esc(why)}</p>
-${specList(product)}
-${card.evidenceList(product)}
-${card.checkList(product)}
-<p class="price-note">Prices change often, check the current price at the store.</p>
-<p class="affiliate-note">Amazon link is an affiliate link</p>
-<div class="only-us">${card.storeButtons(product, "US")}</div>
-<div class="only-ca">${card.storeButtons(product, "CA")}</div>
+<p class="pick-if">${card.esc(pick)}</p>
+<p class="p-meta">${card.esc(product.model || product.meta || "")}</p>
+<div class="only-us">${card.amazonButton(product, "US")}</div>
+<div class="only-ca">${card.amazonButton(product, "CA")}</div>
 </div>
-${card.imageColumn(product)}
+</div>
 </article>
+<nav class="toc" aria-label="Jump to"><p>Jump to</p><a href="#is-it-recalled">Recall check</a><a href="#specs">Specs</a><a href="#stores">Stores</a><a href="#why-listed">Why it’s listed</a><a href="#questions">Questions</a></nav>
+<details class="fold"><summary><h2 class="recall-q" id="is-it-recalled">Is the ${card.esc(product.title)} recalled?</h2></summary><div class="fold-body">${datedParagraph(us, "US")}${datedParagraph(ca, "Canadian")}${otherSection(product)}${modelFindHtml(product)}</div></details>
+${productFold("specs", "Specs", specList(product) + card.evidenceList(product) + '<p class="price-note">Prices change often, check the current price at the store.</p><p class="affiliate-note">Amazon link is an affiliate link</p>')}
+${productFold("stores", "Stores", '<div class="only-us">' + card.storeButtons(product, "US") + '</div><div class="only-ca">' + card.storeButtons(product, "CA") + "</div>")}
+${productFold("why-listed", "Why it’s listed", '<p class="why-note">' + card.esc(why) + "</p>" + '<p class="p-note only-us">' + card.esc(card.honestLine(product, us)) + '</p><p class="p-note only-ca">' + card.esc(card.honestLine(product, ca)) + "</p>" + card.checkList(product))}
+${productFold("questions", "Questions", faqHtml(product) + canadaBlock(product))}
 ${siblingLinks(product)}
 </div>
 </main>
@@ -814,6 +814,10 @@ function mastheadHtml(current) {
     '<div class="country-switch" role="group" aria-label="Country">\n' +
     '<button type="button" data-region-set="US">US</button>\n' +
     '<button type="button" data-region-set="CA">CA</button>\n</div>\n' +
+    '<form class="head-search" action="/" method="get" role="search">\n' +
+    '<label class="visually-hidden" for="site-q">Search models</label>\n' +
+    '<input id="site-q" name="q" data-model-search type="search" placeholder="Search models" autocomplete="off" enterkeyhint="search">\n' +
+    "</form>\n" +
     '<button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav">Menu</button>\n' +
     "</header>\n</div>";
 }
@@ -860,21 +864,15 @@ function ensureChrome(html) {
   return polish(installChrome(html));
 }
 
-function sceneBlock(name) {
-  return '<div class="hero-art" data-scene="' + name + '">' + card.scene(name) + "</div>\n";
+function sceneBlock() {
+  return "";
 }
 
-function ensureScene(html, name) {
-  const block = sceneBlock(name);
-  if (html.includes('class="hero-art"')) {
-    return html.replace(/<div class="hero-art" data-scene="[^"]*">[\s\S]*?<\/div>\n?/, block);
-  }
-  if (html.includes('<div class="hero-inner">')) {
-    return html.replace('<div class="hero-inner">', '<div class="hero-inner">\n' + block);
-  }
-  const h1 = html.indexOf("<h1");
-  if (h1 < 0) return html;
-  return html.slice(0, h1) + block + html.slice(h1);
+function ensureScene(html) {
+  return html
+    .replace(/<div class="hero-art" data-scene="[^"]*">[\s\S]*?<\/div>\n?/g, "")
+    .replace(/<figure class="hero-photo">[\s\S]*?<\/figure>\n?/g, "")
+    .replace(/\n?<link rel="preload" as="image"[^>]*>/g, "");
 }
 
 function hubTiles() {
@@ -1167,15 +1165,21 @@ function noticeHtml(notice) {
 }
 
 function catalogueHtml(entry) {
-  const rows = entry.products.map((id) => {
+  card.beginPage();
+  const cards = entry.products.map((id) => {
     const product = products.find((item) => item.id === id);
     if (!product) throw new Error("Explainer is missing catalogue id " + id);
+    return card.card(product, "US");
+  }).join("\n");
+  const lines = entry.products.map((id) => {
+    const product = products.find((item) => item.id === id);
     const us = recallSentence(card.recallFor(product, "US"), "US");
     const ca = recallSentence(card.recallFor(product, "CA"), "Canadian");
-    return '<li><a href="' + card.productPath(product) + '">' + card.esc(product.title) + "</a>. " + card.esc(us) + " " + card.esc(ca) + "</li>";
+    return "<li>" + card.esc(us) + " " + card.esc(ca) + " <a href=\"" + card.productPath(product) + "\">" + card.esc(product.title) + "</a>.</li>";
   }).join("");
-  return "<h2>Checked Lab catalogue</h2><p>" + card.esc(entry.catalogue) + "</p><ul>" + rows + "</ul>" +
-    '<p class="lede"><a href="/recalls/">All recall checks</a> <a href="/' + entry.hub + '/">' + card.esc(HUB_NAME[entry.hub]) + "</a> <a href=\"/how-we-check/\">How we check</a></p>";
+  return '<div class="pick-grid">' + cards + "</div>" +
+    productFold("catalogue-lines", "Checked Lab catalogue", "<p>" + card.esc(entry.catalogue) + "</p><ul>" + lines + "</ul>" +
+    '<p class="lede"><a href="/recalls/">All recall checks</a> <a href="/' + entry.hub + '/">' + card.esc(HUB_NAME[entry.hub]) + "</a> <a href=\"/how-we-check/\">How we check</a></p>");
 }
 
 function sharedSpecRows(left, right) {
@@ -1194,6 +1198,33 @@ function sharedSpecRows(left, right) {
 
 function specCell(spec) {
   return card.esc(spec.value) + ' <a href="' + card.esc(spec.url) + '" target="_blank" rel="noopener">Source</a>';
+}
+
+function mentionsModel(text, product) {
+  const hay = String(text).toLowerCase();
+  const model = String(product.model || "").toLowerCase();
+  return Boolean(model && model.length > 1 && hay.includes(model));
+}
+
+function pickBoxText(entry, product) {
+  const paragraphs = [];
+  for (const section of entry.sections || []) {
+    for (const paragraph of section.paragraphs || []) paragraphs.push(paragraph);
+  }
+  const named = paragraphs.find((paragraph) => /^Pick the /i.test(paragraph) && mentionsModel(paragraph.slice(0, 120), product));
+  if (named) return named;
+  const sentence = (entry.fit || []).join(" ").split(/(?<=[.!?])\s+/).find((item) => mentionsModel(item, product));
+  if (sentence) return sentence;
+  const spec = (product.specs || []).find((item) => item && item.label && item.value);
+  if (spec) return "The maker page states " + spec.label + " " + spec.value + ".";
+  return "The model on the listing matches " + (product.model || product.title) + ".";
+}
+
+function pickPair(entry, pair) {
+  return '<div class="pick-pair">' + pair.map((product) =>
+    '<article class="pick-box"><h2>Pick ' + card.esc(product.model || product.title) + " if</h2><p>" +
+    card.esc(pickBoxText(entry, product)) + '</p><a class="hub-more" href="' + card.productPath(product) + '">See the model</a></article>'
+  ).join("") + "</div>";
 }
 
 function compareJsonLd(entry, pair) {
@@ -1250,7 +1281,10 @@ function writeCompares() {
       return product;
     });
     const rows = sharedSpecRows(pair[0], pair[1]);
-    const head = pair.map((product) => "<th>" + card.esc(product.model || product.title) + "</th>").join("");
+    card.beginPage();
+    const head = pair.map((product) =>
+      '<th><div class="compare-who">' + card.visual(product) + "<p>" + card.esc(product.model || product.title) + "</p></div></th>"
+    ).join("");
     const body = rows.map((row) =>
       "<tr><th>" + card.esc(row.label) + "</th><td>" + specCell(row.left) + "</td><td>" + specCell(row.right) + "</td></tr>"
     ).join("");
@@ -1328,9 +1362,8 @@ ${DISCLOSURE}
 </header>
 ${nav(entry.hub)}
 </div>
-<main>
+<main id="main">
 <div class="wrap prose">
-${sceneBlock("compare")}
 <nav class="crumbs" aria-label="Breadcrumb">
 <a href="/">Home</a>
 <span aria-hidden="true">/</span>
@@ -1339,22 +1372,18 @@ ${sceneBlock("compare")}
 <span aria-current="page">${card.esc(entry.title)}</span>
 </nav>
 <h1>${card.esc(entry.title)}</h1>
-<div class="compare-art">${pair.map((product) => card.visual(product)).join("")}</div>
-<p class="lede">${card.esc(entry.description)}</p>
-<p>Each line below is copied from that model’s maker page. The Source link opens that page. A spec that only one card lists is left out of the table. Recall lines use the ${card.esc(recalls.checkedAt)} (UTC) catalogue check.</p>
+<p class="sub">${card.esc(entry.description.split(/(?<=\.)\s/)[0])}</p>
 <div class="compare-wrap">
 <table class="compare">
 <thead><tr><th>Spec</th>${head}</tr></thead>
 <tbody>${body}</tbody>
 </table>
 </div>
-<h2>Which specs to read</h2>
-${fit}${sections ? "\n" + sections : ""}${relatedHtml ? "\n" + relatedHtml : ""}
-<h2>Recall check</h2>
-${recallsHtml}
-<p class="lede"><a href="/compare/">All comparisons</a> <a href="/recalls/">All recall checks</a> <a href="/${entry.hub}/">${card.esc(HUB_NAME[entry.hub])}</a> <a href="/how-we-check/">How we check</a> <a href="${card.productPath(pair[0])}">${card.esc(pair[0].title)}</a> <a href="${card.productPath(pair[1])}">${card.esc(pair[1].title)}</a></p>
-${stores("US", "United States stores")}
-${stores("CA", "Canadian stores")}
+${pickPair(entry, pair)}
+<nav class="toc" aria-label="Jump to"><p>Jump to</p><a href="#how-to-read">How to read this</a><a href="#recall-check">Recall check</a><a href="#stores">Stores</a></nav>
+${productFold("how-to-read", "How to read this", '<p class="lede">' + card.esc(entry.description) + "</p><p>Each line below is copied from that model’s maker page. The Source link opens that page. A spec that only one card lists is left out of the table. Recall lines use the " + card.esc(recalls.checkedAt) + " (UTC) catalogue check.</p>" + fit + (sections ? "\n" + sections : "") + (relatedHtml ? "\n" + relatedHtml : ""))}
+${productFold("recall-check", "Recall check", recallsHtml + '<p class="lede"><a href="/compare/">All comparisons</a> <a href="/recalls/">All recall checks</a> <a href="/' + entry.hub + '/">' + card.esc(HUB_NAME[entry.hub]) + '</a> <a href="/how-we-check/">How we check</a> <a href="' + card.productPath(pair[0]) + '">' + card.esc(pair[0].title) + '</a> <a href="' + card.productPath(pair[1]) + '">' + card.esc(pair[1].title) + "</a></p>")}
+${productFold("stores", "Stores", stores("US", "United States stores") + stores("CA", "Canadian stores"))}
 </div>
 </main>
 <footer>
@@ -1492,10 +1521,9 @@ ${sceneBlock("compare")}
 <span aria-current="page">Spec comparisons</span>
 </nav>
 <h1>${card.esc(title)}</h1>
-<p class="lede">${card.esc(description)}</p>
-${renderHubGuide("compare")}
-<p>Each line on a comparison is copied from that model’s maker page. A spec that only one card lists is left out of the table. Recall lines use the ${card.esc(recalls.checkedAt)} (UTC) catalogue check. Search the model on <a href="${CPSC_SEARCH}" target="_blank" rel="noopener">CPSC Recalls</a> and on <a href="${HC_SEARCH}" target="_blank" rel="noopener">Health Canada recalls and safety alerts</a>.</p>
+<p class="sub">Open a pair. The table is the spec lines both maker pages share.</p>
 ${sections}
+${productFold("compare-guide", "How to read a comparison", '<p class="lede">' + card.esc(description) + "</p>" + renderHubGuide("compare") + '<p>Each line on a comparison is copied from that model’s maker page. A spec that only one card lists is left out of the table. Recall lines use the ' + card.esc(recalls.checkedAt) + ' (UTC) catalogue check. Search the model on <a href="' + CPSC_SEARCH + '" target="_blank" rel="noopener">CPSC Recalls</a> and on <a href="' + HC_SEARCH + '" target="_blank" rel="noopener">Health Canada recalls and safety alerts</a>.</p>')}
 <p class="lede"><a href="/recalls/">All recall checks</a> <a href="/how-we-check/">How we check</a> <a href="/black-friday/">Black Friday</a> <a href="/gifts/">Gift guides</a> <a href="/alternatives/">Alternatives</a> <a href="/worth-it/">Worth matching</a></p>
 </div>
 </main>
@@ -1667,6 +1695,8 @@ function writeEditorialPage(entry, section, crumb) {
     ).join(" ") + ".</p>"
     : "");
   const url = ORIGIN + "/" + section + "/" + entry.slug + "/";
+  card.beginPage();
+  const picks = '<div class="pick-grid">' + pair.map((product) => card.card(product, "US")).join("\n") + "</div>";
   const html = `<!DOCTYPE html>
 <html lang="en" data-region="US">
 <head>
@@ -1708,17 +1738,12 @@ ${sceneBlock("compare")}
 <span aria-current="page">${card.esc(entry.title)}</span>
 </nav>
 <h1>${card.esc(entry.title)}</h1>
-<div class="compare-art">${pair.map((product) => card.visual(product)).join("")}</div>
-<p class="lede">${card.esc(entry.description)}</p>
-<p>Each spec line is copied from that model’s maker page. The Source link opens that page. Recall lines use the ${card.esc(recalls.checkedAt)} (UTC) catalogue check.</p>
-${pair.map(editorialSpecBlock).join("\n")}
-${sections}
-<h2>Recall check</h2>
-${recallsHtml}
-<p class="lede"><a href="/${section}/">${card.esc(crumb)}</a> <a href="/${entry.hub}/">${card.esc(HUB_NAME[entry.hub])}</a> <a href="/compare/">Spec comparisons</a> <a href="/black-friday/">Black Friday</a> <a href="/recalls/">Recall checks</a> <a href="/how-we-check/">How we check</a> ${pair.map((product) => '<a href="' + card.productPath(product) + '">' + card.esc(product.title) + "</a>").join(" ")}</p>
-${relatedHtml}
-${stores("US", "United States stores")}
-${stores("CA", "Canadian stores")}
+<p class="sub">${card.esc(entry.description.split(/(?<=\.)\s/)[0])}</p>
+${picks}
+<nav class="toc" aria-label="Jump to"><p>Jump to</p><a href="#read-lines">The maker lines</a><a href="#recall-check">Recall check</a><a href="#stores">Stores</a></nav>
+${productFold("read-lines", "The maker lines", '<p class="lede">' + card.esc(entry.description) + "</p><p>Each spec line is copied from that model’s maker page. The Source link opens that page. Recall lines use the " + card.esc(recalls.checkedAt) + " (UTC) catalogue check.</p>" + pair.map(editorialSpecBlock).join("\n") + sections)}
+${productFold("recall-check", "Recall check", recallsHtml + '<p class="lede"><a href="/' + section + '/">' + card.esc(crumb) + '</a> <a href="/' + entry.hub + '/">' + card.esc(HUB_NAME[entry.hub]) + '</a> <a href="/compare/">Spec comparisons</a> <a href="/black-friday/">Black Friday</a> <a href="/recalls/">Recall checks</a> <a href="/how-we-check/">How we check</a> ' + pair.map((product) => '<a href="' + card.productPath(product) + '">' + card.esc(product.title) + "</a>").join(" ") + "</p>" + relatedHtml)}
+${productFold("stores", "Stores", stores("US", "United States stores") + stores("CA", "Canadian stores"))}
 </div>
 </main>
 <footer><div class="foot"><p>As an Amazon Associate I earn from qualifying purchases.</p></div></footer>
@@ -1813,9 +1838,9 @@ ${sceneBlock("compare")}
 <span aria-current="page">${card.esc(title)}</span>
 </nav>
 <h1>${card.esc(title)}</h1>
-${intro.map((paragraph) => "<p>" + paragraph + "</p>").join("\n")}
-<ul>${items}</ul>
-<p class="lede"><a href="/compare/">Spec comparisons</a> <a href="/black-friday/">Black Friday</a> <a href="/recalls/">Recall checks</a> <a href="/how-we-check/">How we check</a> <a href="/alternatives/">Alternatives</a> <a href="/worth-it/">Worth matching</a></p>
+<p class="sub">${card.esc(String(description).split(/(?<=\.)\s/)[0])}</p>
+<ul class="scan-list">${items}</ul>
+${productFold("about-list", "How to use this list", intro.map((paragraph) => "<p>" + paragraph + "</p>").join("\n") + '<p class="lede"><a href="/compare/">Spec comparisons</a> <a href="/black-friday/">Black Friday</a> <a href="/recalls/">Recall checks</a> <a href="/how-we-check/">How we check</a> <a href="/alternatives/">Alternatives</a> <a href="/worth-it/">Worth matching</a></p>')}
 </div>
 </main>
 <footer><div class="foot"><p>As an Amazon Associate I earn from qualifying purchases.</p></div></footer>
@@ -1905,9 +1930,9 @@ ${sceneBlock("recalls")}
 <span aria-current="page">${card.esc(entry.title)}</span>
 </nav>
 <h1>${card.esc(entry.title)}</h1>
-<p class="lede">${card.esc(entry.description)} Catalogue lines below use the ${card.esc(recalls.checkedAt)} (UTC) check.</p>
-${entry.notices.map(noticeHtml).join("\n")}
+<p class="sub">${card.esc(entry.description.split(/(?<=\.)\s/)[0])}</p>
 ${catalogueHtml(entry)}
+${productFold("official-notices", "What the notices say", '<p class="lede">' + card.esc(entry.description) + " Catalogue lines below use the " + card.esc(recalls.checkedAt) + " (UTC) check.</p>" + entry.notices.map(noticeHtml).join("\n"))}
 </div>
 </main>
 <footer>
@@ -2092,13 +2117,13 @@ function bfStatusHtml(rec, place) {
 }
 
 function bfModel(product) {
-  const meta = product.meta || product.model || "";
   return '<article class="bf-model" id="' + card.esc(product.id) + '">' +
     card.visual(product) +
     '<h3><a href="' + card.productPath(product) + '">' + card.visibleTitle(product.title) + "</a></h3>" +
-    (meta ? '<p class="p-meta">' + card.esc(meta) + "</p>" : "") +
-    '<p class="only-us">' + bfStatusHtml(card.recallFor(product, "US"), "US") + "</p>" +
-    '<p class="only-ca">' + bfStatusHtml(card.recallFor(product, "CA"), "Canadian") + "</p>" +
+    '<p class="pick-if">' + card.esc(card.pickLine(product)) + "</p>" +
+    '<a class="hub-more" href="' + card.productPath(product) + '">See the model</a>' +
+    '<p class="only-us pick-status">' + bfStatusHtml(card.recallFor(product, "US"), "US") + "</p>" +
+    '<p class="only-ca pick-status">' + bfStatusHtml(card.recallFor(product, "CA"), "Canadian") + "</p>" +
     "</article>";
 }
 
@@ -2153,6 +2178,7 @@ function blackFridayJsonLd(picked) {
 }
 
 function writeBlackFriday() {
+  card.beginPage();
   const picked = blackFridayPicks();
   const url = ORIGIN + BF_PATH;
   const date = recalls.checkedAt || "";
@@ -2164,7 +2190,6 @@ function writeBlackFriday() {
   const sections = HUBS.map((hub) => {
     const group = picked.filter((product) => product.category === hub);
     return '<section class="pick-grid" id="' + hub + '"><h2><a href="/' + hub + '/">' + card.esc(HUB_NAME[hub]) + "</a></h2>" +
-      "<p>Gift and seasonal models from this catalogue. Open the card and match the model number on the listing.</p>" +
       group.map(bfModel).join("\n") +
       '<p class="lede"><a href="/' + hub + '/">All ' + card.esc(HUB_NAME[hub]) + " models</a></p></section>";
   }).join("\n");
@@ -2231,27 +2256,12 @@ ${sceneBlock("black-friday")}
 <span aria-current="page">Black Friday</span>
 </nav>
 <h1>Before you buy on Black Friday, check the model.</h1>
-<p class="lede">Confirm the model number, then read the recall check for that model. The status under each card is the catalogue check dated <time datetime="${card.esc(date)}">${card.esc(date)}</time> (UTC).</p>
-${renderHubGuide("black-friday", { faq: false })}
-<p><a href="/gifts/">Holiday 2026 gift guides</a> group the same catalogue by recipient. Each pick quotes the maker specs and repeats this dated check. <a href="/gifts/for-kids/">Gifts for kids</a> names mainstream kids products and the official check to do. <a href="/winter-safety/">Winter home safety, recall-checked</a> covers heaters, heated bedding, alarms, and outage power. <a href="/toy-safety/">Holiday toy safety, recall-checked</a> covers button batteries, magnets, water beads, and ride-ons.</p>
-<p class="only-us">${card.esc(US_DATES)} <a href="${US_DEALS}" target="_blank" rel="sponsored nofollow noopener">Amazon.com Black Friday</a>.</p>
-<p class="only-ca">${card.esc(CA_DATES)} <a href="${CA_DEALS}" target="_blank" rel="sponsored nofollow noopener">Amazon.ca Black Friday</a>.</p>
-<h2>Before you pay</h2>
-<ol class="checklist">
-<li>Confirm the exact model number on the box, in the manual, and on the listing. A family name such as Foodi or Cosori can point at a different model.</li>
-<li>Check that model on <a href="https://www.cpsc.gov/Recalls" target="_blank" rel="noopener">CPSC Recalls</a> for a US purchase and on <a href="https://recalls-rappels.canada.ca/en" target="_blank" rel="noopener">Health Canada recalls and safety alerts</a> for a Canadian purchase. <a href="/recalls/">Recall checks</a> is the catalogue match. <a href="/how-we-check/">How we check</a> says what the date means.</li>
-<li>Beware look-alike listings and third-party sellers. The brand in the title is not the model number.</li>
-<li>Read the return window on the listing before you pay. The window is printed on the store page.</li>
-</ol>
-<h2>Maker spec comparisons</h2>
-<p>Each page repeats spec lines that both maker pages share. The cell links the maker page. The recall line is the catalogue match. <a href="/compare/">All comparisons</a>.</p>
-<p class="lede">${compares.map((entry) => '<a href="/compare/' + entry.slug + '/">' + card.esc(entry.linkLabel) + "</a>").join(" ")}</p>
-${editorialIndexBlock()}
-<h2>Notices to open before you buy</h2>
-<p>These pages quote the official notice and name the catalogue card.</p>
-<ul>${notices}</ul>
-<p class="recall-filters">${jumps}</p>
+<p class="sub">Confirm the model number, then read the dated recall check.</p>
+<nav class="toc" aria-label="Jump to"><p>Jump to</p>${jumps}</nav>
 ${sections}
+${productFold("before-you-pay", "Before you pay", '<p class="lede">Confirm the model number, then read the recall check for that model. The status under each card is the catalogue check dated <time datetime="' + card.esc(date) + '">' + card.esc(date) + '</time> (UTC).</p>' + renderHubGuide("black-friday", { faq: false }) + '<p><a href="/gifts/">Holiday 2026 gift guides</a> group the same catalogue by recipient. Each pick quotes the maker specs and repeats this dated check. <a href="/gifts/for-kids/">Gifts for kids</a> names mainstream kids products and the official check to do. <a href="/winter-safety/">Winter home safety, recall-checked</a> covers heaters, heated bedding, alarms, and outage power. <a href="/toy-safety/">Holiday toy safety, recall-checked</a> covers button batteries, magnets, water beads, and ride-ons.</p><p class="only-us">' + card.esc(US_DATES) + ' <a href="' + US_DEALS + '" target="_blank" rel="sponsored nofollow noopener">Amazon.com Black Friday</a>.</p><p class="only-ca">' + card.esc(CA_DATES) + ' <a href="' + CA_DEALS + '" target="_blank" rel="sponsored nofollow noopener">Amazon.ca Black Friday</a>.</p><p>Gift and seasonal models from this catalogue. Open the card and match the model number on the listing.</p><ol class="checklist"><li>Confirm the exact model number on the box, in the manual, and on the listing. A family name such as Foodi or Cosori can point at a different model.</li><li>Check that model on <a href="https://www.cpsc.gov/Recalls" target="_blank" rel="noopener">CPSC Recalls</a> for a US purchase and on <a href="https://recalls-rappels.canada.ca/en" target="_blank" rel="noopener">Health Canada recalls and safety alerts</a> for a Canadian purchase. <a href="/recalls/">Recall checks</a> is the catalogue match. <a href="/how-we-check/">How we check</a> says what the date means.</li><li>Beware look-alike listings and third-party sellers. The brand in the title is not the model number.</li><li>Read the return window on the listing before you pay. The window is printed on the store page.</li></ol>')}
+${productFold("comparisons", "Maker spec comparisons", '<p>Each page repeats spec lines that both maker pages share. The cell links the maker page. The recall line is the catalogue match. <a href="/compare/">All comparisons</a>.</p><p class="lede">' + compares.map((entry) => '<a href="/compare/' + entry.slug + '/">' + card.esc(entry.linkLabel) + "</a>").join(" ") + "</p>" + editorialIndexBlock())}
+${productFold("notices", "Notices to open before you buy", "<p>These pages quote the official notice and name the catalogue card.</p><ul>" + notices + "</ul>")}
 <section class="faq" id="questions">
 <h2>Questions</h2>
 ${faqHtml}
@@ -2602,19 +2612,18 @@ function giftOtherNote(product) {
 }
 
 function giftPickHtml(product, guide) {
-  const meta = product.meta || product.model || "";
   return '<article class="guide-pick" id="' + card.esc(product.id) + '">' +
     card.visual(product) +
     '<h2><a href="' + card.productPath(product) + '">' + card.visibleTitle(product.title) + "</a></h2>" +
-    (meta ? '<p class="p-meta">' + card.esc(meta) + "</p>" : "") +
-    '<p class="why">' + card.esc(guide.fit) + " " + card.esc(giftWhy(product, guide)) + "</p>" +
-    '<p class="only-us">' + bfStatusHtml(card.recallFor(product, "US"), "US") + "</p>" +
-    '<p class="only-ca">' + bfStatusHtml(card.recallFor(product, "CA"), "Canadian") + "</p>" +
-    giftOtherNote(product) +
+    '<p class="pick-if">' + card.esc(card.pickLine(product)) + "</p>" +
     '<div class="only-us">' + card.amazonButton(product, "US") + "</div>" +
     '<div class="only-ca">' + card.amazonButton(product, "CA") + "</div>" +
-    '<p><a href="' + card.productPath(product) + '">Model page</a></p>' +
-    "</article>";
+    '<p><a class="hub-more" href="' + card.productPath(product) + '">Model page</a></p>' +
+    '<details class="fold"><summary>Maker line and recall</summary><div class="fold-body"><p class="why">' +
+    card.esc(guide.fit) + " " + card.esc(giftWhy(product, guide)) + "</p>" +
+    '<p class="only-us">' + bfStatusHtml(card.recallFor(product, "US"), "US") + "</p>" +
+    '<p class="only-ca">' + bfStatusHtml(card.recallFor(product, "CA"), "Canadian") + "</p>" +
+    giftOtherNote(product) + "</div></details></article>";
 }
 
 function giftJson(url, name, headline, description, crumbs, listName, items, faqs) {
@@ -2739,13 +2748,15 @@ function giftHubHtml(grouped) {
       "<li><h2><a href=\"" + giftPath(guide) + "\">" + card.esc(guide.h1) + "</a></h2><p>" +
       guide.picks.length + " product lines. " + card.esc(guide.description) + "</p></li>"
     ).join("") + "</ul>";
-  const main = sceneBlock("gifts") + giftCrumbs() +
+  const main = giftCrumbs() +
     "<h1>" + card.esc(giftsDoc.h1) + "</h1>" +
-    '<p class="lede">' + card.esc(giftsDoc.description) + "</p>" +
-    renderHubGuide("gifts", { faq: false }) +
-    giftQuiz() +
-    '<p>A recipient list is published when the catalogue can fill it with at least five models and the recorded US and Canadian checks found no matching recall. The spec line on each model is copied from the maker fields. <a href="/how-we-check/">How we check</a> says what the date means. <a href="' + giftPath(kidsGuide()) + '">Gifts for kids</a> is a recall-check list, not a catalogue list. <a href="/toy-safety/">Toy safety</a> covers button batteries, magnets, water beads, and ride-ons. <a href="' + giftPath(hostGuide()) + '">Gifts for the host</a> is a recall-check list for holiday hosting. <a href="/thanksgiving/">Thanksgiving and holiday hosting</a> covers turkey fryers, pressure cookers, turkey temperatures, and kitchen fires.</p>' +
+    '<p class="sub">' + card.esc(String(giftsDoc.description).split(/(?<=\.)\s/)[0]) + "</p>" +
     list +
+    productFold("gift-notes", "How these lists are built",
+      '<p class="lede">' + card.esc(giftsDoc.description) + "</p>" +
+      renderHubGuide("gifts", { faq: false }) +
+      giftQuiz() +
+      '<p>A recipient list is published when the catalogue can fill it with at least five models and the recorded US and Canadian checks found no matching recall. The spec line on each model is copied from the maker fields. <a href="/how-we-check/">How we check</a> says what the date means. <a href="' + giftPath(kidsGuide()) + '">Gifts for kids</a> is a recall-check list, not a catalogue list. <a href="/toy-safety/">Toy safety</a> covers button batteries, magnets, water beads, and ride-ons. <a href="' + giftPath(hostGuide()) + '">Gifts for the host</a> is a recall-check list for holiday hosting. <a href="/thanksgiving/">Thanksgiving and holiday hosting</a> covers turkey fryers, pressure cookers, turkey temperatures, and kitchen fires.</p>') +
     '<section class="faq" id="questions"><h2>Questions</h2>' +
     faqs.map((item) => "<h3>" + card.esc(item.q) + '</h3><p class="faq-a">' + card.esc(item.a) + "</p>").join("") +
     "</section>";
@@ -2789,14 +2800,17 @@ function compareLinksForGuide(guide) {
 function giftGuideHtml(guide, picks, grouped) {
   const url = ORIGIN + giftPath(guide);
   const guides = grouped.map((item) => item.guide);
-  const main = sceneBlock("gifts") + giftCrumbs(guide.h1) +
+  card.beginPage();
+  const main = giftCrumbs(guide.h1) +
     "<h1>" + card.esc(guide.h1) + "</h1>" +
-    '<p class="lede">' + card.esc(guide.description) + "</p>" +
-    '<p>Each spec line is copied from the maker fields stored for that model. The badge is the recorded CPSC check on the US view and the recorded Health Canada check on the CA view. <a href="/how-we-check/">How we check</a> says what the date means. <a href="/gifts/#gift-finder">Gift finder</a>.</p>' +
-    giftJumps(guides, guide.slug) +
-    compareLinksForGuide(guide) +
+    '<p class="sub">' + card.esc(String(guide.description).split(/(?<=\.)\s/)[0]) + "</p>" +
     '<section class="pick-grid">\n' + picks.map((product) => giftPickHtml(product, guide)).join("\n") + "\n</section>" +
-    '<p class="lede"><a href="/gifts/">All gift guides</a></p>';
+    productFold("gift-notes", "How to read this list",
+      '<p class="lede">' + card.esc(guide.description) + "</p>" +
+      '<p>Each spec line is copied from the maker fields stored for that model. The badge is the recorded CPSC check on the US view and the recorded Health Canada check on the CA view. <a href="/how-we-check/">How we check</a> says what the date means. <a href="/gifts/#gift-finder">Gift finder</a>.</p>' +
+      giftJumps(guides, guide.slug) +
+      compareLinksForGuide(guide) +
+      '<p class="lede"><a href="/gifts/">All gift guides</a></p>');
   const jsonLd = giftJson(
     url,
     guide.title,
@@ -2921,6 +2935,7 @@ function winterCatalogueHtml(guide) {
   if (!Array.isArray(guide.catalogue) || !guide.catalogue.length) {
     return "<p>No catalogue card is listed in this guide. Search the model number on the unit using the official pages above.</p>";
   }
+  card.beginPage();
   return "<ul>" + guide.catalogue.map((item) => {
     const product = products.find((entry) => entry.id === item.id);
     if (!product) throw new Error("Winter guide names a missing card: " + item.id);
@@ -4513,30 +4528,48 @@ function assertHubGuides() {
   }
 }
 
+function sentenceChunks(text) {
+  const parts = String(text).split(/(?<=[.!?])\s+(?=[A-Z0-9“"'])/).filter(Boolean);
+  const chunks = [];
+  for (let i = 0; i < parts.length; i += 3) chunks.push(parts.slice(i, i + 3).join(" "));
+  return chunks.length ? chunks : [String(text)];
+}
+
+function renderParas(paragraph) {
+  return sentenceChunks(paragraph).map((part) => "<p>" + renderInline(part) + "</p>").join("\n");
+}
+
 function renderHubGuide(key, opts = {}) {
   const guide = hubGuides[key];
-  const paras = guide.intro.map((paragraph) => "<p>" + renderInline(paragraph) + "</p>").join("\n");
-  const picks = '<h2>Quick picks by need</h2>\n<div class="need-grid">' + guide.picks.map((pick) =>
-    '<article class="need"><h3>' + card.esc(pick.need) + "</h3><p>" + renderInline(pick.body) + '</p><p class="lede">' +
+  const paras = guide.intro.map((paragraph) => renderParas(paragraph)).join("\n");
+  const picks = '<div class="need-grid">' + guide.picks.map((pick) =>
+    '<article class="need"><h3>' + card.esc(pick.need) + "</h3>" + renderParas(pick.body) + '<p class="lede">' +
     pick.links.map((link) => '<a href="' + card.esc(link.href) + '">' + card.esc(link.label) + "</a>").join(" ") +
     "</p></article>"
   ).join("\n") + "</div>";
   let models = "";
   if (opts.models && opts.models.length) {
-    models = '<h2>Models on this page</h2>\n<ul class="model-index">' + opts.models.map((product) =>
+    models = productFold("models-on-page", "Models on this page", '<ul class="model-index">' + opts.models.map((product) =>
       '<li><a href="' + card.productPath(product) + '">' + card.esc(product.title) + "</a></li>"
-    ).join("") + "</ul>";
+    ).join("") + "</ul>");
   }
   const faqs = opts.faq === false ? "" : guideFaqBlock(guide.faqs || []);
-  const headingId = opts.headingId ? ' id="' + opts.headingId + '"' : "";
-  return '<section class="guide">\n<h2' + headingId + ">" + card.esc(guide.heading) + "</h2>\n" +
-    paras + "\n" + picks + (models ? "\n" + models : "") + (faqs ? "\n" + faqs : "") + "\n</section>";
+  const headingId = opts.headingId || "guide-heading";
+  const toc = '<nav class="toc" aria-label="Jump to"><p>Jump to</p><a href="#' + headingId + '">' + card.esc(guide.heading) +
+    '</a><a href="#quick-picks">Quick picks</a>' + (models ? '<a href="#models-on-page">Models</a>' : "") +
+    (faqs ? '<a href="#questions">Questions</a>' : "") + "</nav>";
+  return '<section class="guide">\n' + toc + "\n" +
+    productFold(headingId, card.esc(guide.heading), paras) + "\n" +
+    productFold("quick-picks", "Quick picks by need", picks) +
+    (models ? "\n" + models : "") + (faqs ? "\n" + faqs : "") + "\n</section>";
 }
 
 function guideFaqBlock(faqs) {
   if (!faqs.length) return "";
-  return '<section class="faq" id="questions"><h2>Questions</h2>' + faqs.map((item) =>
-    "<h3>" + card.esc(item.q) + '</h3><p class="faq-a">' + renderInline(item.a) + "</p>"
+  return '<section class="faq" id="questions"><h2>Questions</h2>' + faqs.map((item, index) =>
+    '<details class="fold" id="q-' + index + '"><summary><h3>' + card.esc(item.q) + "</h3></summary><div class=\"fold-body\">" +
+    sentenceChunks(item.a).map((part) => '<p class="faq-a">' + renderInline(part) + "</p>").join("") +
+    "</div></details>"
   ).join("") + "</section>";
 }
 
@@ -4612,7 +4645,27 @@ function applyCategoryHub(html, hub) {
   }
   html = setMeta(html, guide.title, guide.description);
   html = mountGuideBlock(html, renderHubGuide(hub, { models: byHub.get(hub) }), '<div id="product-mount"');
+  html = hoistCatalogue(html);
   return upsertPageSchema(html, { faqs: guide.faqs, description: guide.description });
+}
+
+function hoistCatalogue(html) {
+  const guideRe = /<!-- checkedlab:guide start -->[\s\S]*?<!-- checkedlab:guide end -->/;
+  const mountRe = /<div id="product-mount"[\s\S]*?\n<\/div>/;
+  const guide = html.match(guideRe);
+  const mount = html.match(mountRe);
+  if (!guide || !mount) return html;
+  const guideAt = html.indexOf(guide[0]);
+  const lede = html.slice(0, guideAt).match(/<p class="lede">[\s\S]*?<\/p>\n?/);
+  let next = html;
+  if (lede) next = next.replace(lede[0], "");
+  next = next.replace(guide[0], "");
+  const related = lede
+    ? '<details class="fold" id="related-checks"><summary><h2>Related checks</h2></summary><div class="fold-body">' + lede[0] + "</div></details>\n"
+    : "";
+  const movedMount = next.match(mountRe);
+  if (!movedMount) return html;
+  return next.replace(movedMount[0], movedMount[0] + "\n" + guide[0] + "\n" + related);
 }
 
 function applyHomeGuide(html) {
@@ -4944,10 +4997,47 @@ function publishDist() {
   assertSocialAssets(dist);
 }
 
+function assertImageUse() {
+  const files = [];
+  const walk = (dir) => {
+    for (const entry of readdirSync(dir)) {
+      if (entry.startsWith(".") || entry === "dist" || entry === "node_modules" || entry === "scripts" || entry === "data" || entry === "social") continue;
+      const full = join(dir, entry);
+      if (statSync(full).isDirectory()) walk(full);
+      else if (entry.endsWith(".html")) files.push(full);
+    }
+  };
+  walk(root);
+  const heroes = new Map();
+  for (const file of files) {
+    const html = readFileSync(file, "utf8");
+    const counts = new Map();
+    for (const match of html.matchAll(/<img\b[^>]*>/gi)) {
+      const src = ((match[0].match(/\bsrc="([^"]+)"/i) || [])[1] || "").split("?")[0];
+      if (!src.startsWith("/images/")) continue;
+      counts.set(src, (counts.get(src) || 0) + 1);
+      const around = html.slice(Math.max(0, match.index - 160), match.index);
+      if (/\bdata-hero\b/.test(match[0]) || /class="[^"]*(?:hero-photo|scene-photo)/.test(around)) {
+        if (!heroes.has(src)) heroes.set(src, new Set());
+        heroes.get(src).add(file);
+      }
+    }
+    for (const [src, count] of counts) {
+      if (count > 1) throw new Error("Image used " + count + " times on one page (" + file + "): " + src);
+    }
+  }
+  for (const [src, pages] of heroes) {
+    if (pages.size > 3) throw new Error("Hero image " + src + " is used on " + pages.size + " pages");
+  }
+  console.log("Image check: no page repeats a file, no hero file exceeds 3 pages.");
+}
+
 function verifyOutput(pages) {
+  assertImageUse();
   for (const hub of HUBS) {
     const html = readFileSync(join(root, hub, "index.html"), "utf8");
     const found = [...html.matchAll(/<article class="(?:product-grid hub-card|product-row)"[\s\S]*?<\/article>/g)].map((match) => match[0]);
+    card.beginPage();
     const expected = byHub.get(hub).map((product, index) => card.card(product, "US", index === 0 ? { eager: true } : {}));
     if (found.length !== expected.length) throw new Error(hub + " card count " + found.length);
     expected.forEach((markup, index) => {

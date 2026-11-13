@@ -51,6 +51,7 @@
 
   function mountProducts(list) {
     if (!window.CheckedLabCard) return;
+    if (window.CheckedLabCard.beginPage) window.CheckedLabCard.beginPage();
     var page = document.body.dataset.page;
     var category = document.body.dataset.category;
     var reg = region();
@@ -80,14 +81,18 @@
     var mount = document.getElementById("product-mount");
     if (!mount) return;
     var shown = list;
+    var query = "";
+    var search = document.querySelector("[data-model-search]");
+    if (search) query = search.value.trim().toLowerCase();
     if (page === "category") {
       shown = list.filter(function (product) { return product.category === category; });
+      if (query) shown = shown.filter(function (product) { return blob(product).indexOf(query) !== -1; });
     } else if (page === "bin") {
       shown = list.filter(isBin);
     } else {
       return;
     }
-    if (mount.querySelector(".product-grid, .product-row") && mount.getAttribute("data-rendered-region") === reg) return;
+    if (!query && mount.querySelector(".product-grid, .product-row") && mount.getAttribute("data-rendered-region") === reg) return;
     if (!shown.length) {
       paint(mount, page === "bin"
         ? '<p class="empty">Nothing is on the BIN list. A product lands here only when a recall record matches its brand and model. An unconfirmed model is not a BIN.</p>'
@@ -128,6 +133,13 @@
   });
 
   reveal(document);
+
+  var preset = "";
+  try { preset = new URLSearchParams(window.location.search).get("q") || ""; } catch (e) {}
+  if (preset) {
+    var boxes = document.querySelectorAll("[data-model-search]");
+    Array.prototype.forEach.call(boxes, function (box) { if (!box.value) box.value = preset; });
+  }
 
   if (document.getElementById("product-mount") || document.getElementById("popular-mount")) {
     fetch("/products.json")
@@ -295,6 +307,7 @@
   document.addEventListener("submit", function (event) {
     var form = event.target;
     if (!form || !form.querySelector || !form.querySelector("[data-model-search]")) return;
+    if (document.body.dataset.page !== "home") return;
     event.preventDefault();
     var dest = document.getElementById("popular");
     if (!dest) return;
