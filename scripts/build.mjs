@@ -5929,11 +5929,15 @@ function headerValue(vercel, source, key) {
   return header && header.value;
 }
 
+// Opt-in. A normal build must not spawn Python or rewrite /social.
+// fontTools without brotli crashes while reading the woff2 files, and a
+// successful run re-encodes every Short.
 function renderSocialAssets() {
-  const probe = spawnSync("python3", ["-c", "import PIL, fontTools"], { encoding: "utf8" });
+  if (process.env.RENDER_SOCIAL !== "1") return;
+  const probe = spawnSync("python3", ["-c", "import PIL, fontTools, brotli"], { encoding: "utf8" });
   if (probe.status !== 0) {
-    console.log("Social renderer skipped (Pillow or fontTools missing). Using the committed /social files.");
-    return;
+    const detail = (probe.stderr || probe.stdout || "").trim();
+    throw new Error("RENDER_SOCIAL=1 but Pillow, fontTools, or brotli is missing. " + detail);
   }
   const run = spawnSync("python3", [join(root, "scripts", "render-social.py")], { stdio: "inherit" });
   if (run.status !== 0) throw new Error("Social renderer failed");

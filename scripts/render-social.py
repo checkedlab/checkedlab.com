@@ -28,10 +28,13 @@ Photo decisions recorded here:
   generation. The crop does not say which pair it is, so it is not kept.
 - Recall steps. Kindel Media's robot vacuum is the category photo
   cat-robot.webp, not a named model. The shopping-bag cover is a person, not
-  a product; it is still reset to type so the 4:5 frame is a card, not a
-  photo over an empty lower half.
+  a product. The cover is the headline only. The three steps are on the
+  steps slide, and the Short shows that list once.
 
-Run: python3 scripts/render-social.py
+The site build does not run this script. A normal `node scripts/build.mjs`
+leaves /social untouched. Regenerate with:
+
+    RENDER_SOCIAL=1 node scripts/build.mjs
 """
 
 from __future__ import annotations
@@ -153,6 +156,14 @@ def wrap(text, font, width):
             cur = word
     if cur:
         lines.append(cur)
+    if len(lines) >= 2 and font.getlength(lines[-1]) < width * 0.22:
+        prev = lines[-2].split()
+        if len(prev) >= 2:
+            moved = prev[-1] + " " + lines[-1]
+            kept = " ".join(prev[:-1])
+            if font.getlength(moved) <= width and font.getlength(kept) >= width * 0.35:
+                lines[-2] = kept
+                lines[-1] = moved
     return lines or [""]
 
 
@@ -222,11 +233,118 @@ def draw_lines(draw, x, y, lines, font, fill, step):
     return y
 
 
-def spec_block_height(fonts, value, width):
-    label_font = fonts.sans(16, 650)
-    value_font = fonts.sans(26, 520)
+def measure_value(value, value_font, width):
     lines = wrap(checked(value), value_font, width)
-    return 22 + len(lines) * leading(value_font, 0.16) + 8, label_font, value_font, lines
+    value_step = leading(value_font, 0.06)
+    return lines, value_step
+
+
+def fit_spec_cards(fonts, sides, text_w, card_h):
+    """Largest phone-readable type that fills the card without a loose gap.
+
+    Labels stay at least 30px and values at least 38px. Brand and type lines
+    stay at least 30px. Leftover space is a few pixels, not a hole between rows.
+    """
+    count = len(sides[0]["specs"])
+    best = None
+    for value_size in range(96, 37, -1):
+        label_size = max(30, min(56, int(round(value_size * 0.78))))
+        brand_size = 32 if value_size >= 48 else 30
+        type_size = 34 if value_size >= 52 else 30
+        # Largest model name that still leaves room for the spec block.
+        # Two lines are fine. Drop toward 36px only when a long name would
+        # push the values under the phone-readable floor.
+        for model_size in range(max(48, value_size), 35, -2):
+            model_font = fonts.news(model_size, 620)
+            wrapped = [wrap(checked(side["model"]), model_font, text_w) for side in sides]
+            if any(len(lines) > 2 for lines in wrapped):
+                continue
+            brand_font = fonts.sans(brand_size, 700)
+            type_font = fonts.sans(type_size, 480)
+            label_font = fonts.sans(label_size, 650)
+            value_font = fonts.sans(value_size, 600)
+            lines_n = max(len(lines) for lines in wrapped)
+            model_step = leading(model_font, 0.04)
+            brand_h = leading(brand_font, 0.0)
+            type_h = leading(type_font, 0.0)
+            label_h = leading(label_font, 0.0)
+            between = max(4, int(label_size * 0.14))
+            top_pad = 22
+            head = top_pad + brand_h + 6 + lines_n * model_step + 6 + type_h + 12
+            blocks = []
+            too_long = False
+            for side, model_lines in zip(sides, wrapped):
+                row = []
+                for label, value in side["specs"]:
+                    lines, value_step = measure_value(value, value_font, text_w)
+                    if len(lines) > 5 or any(value_font.getlength(line) > text_w + 0.5 for line in lines):
+                        too_long = True
+                    height = label_h + between + len(lines) * value_step
+                    row.append({
+                        "label": label,
+                        "lines": lines,
+                        "height": height,
+                        "value_step": value_step,
+                    })
+                blocks.append(row)
+                side["model_lines"] = model_lines
+            if too_long:
+                continue
+            row_h = [max(blocks[side_i][i]["height"] for side_i in range(len(sides))) for i in range(count)]
+            line_counts = [max(len(blocks[side_i][i]["lines"]) for side_i in range(len(sides))) for i in range(count)]
+            gap = max(14, min(26, int(value_size * 0.26)))
+            bottom_pad = 18
+            used = head + sum(row_h) + gap * count + bottom_pad
+            if used <= card_h:
+                best = {
+                    "brand_font": brand_font,
+                    "brand_size": brand_size,
+                    "brand_h": brand_h,
+                    "model_font": model_font,
+                    "model_size": model_size,
+                    "model_step": model_step,
+                    "lines_n": lines_n,
+                    "type_font": type_font,
+                    "type_size": type_size,
+                    "type_h": type_h,
+                    "label_font": label_font,
+                    "label_size": label_size,
+                    "label_h": label_h,
+                    "value_font": value_font,
+                    "value_size": value_size,
+                    "between": between,
+                    "blocks": blocks,
+                    "row_h": row_h,
+                    "line_counts": line_counts,
+                    "gap": gap,
+                    "top_pad": top_pad,
+                    "head": head,
+                    "bottom_pad": bottom_pad,
+                    "used": used,
+                }
+                break
+        if best is not None:
+            break
+    if best is None:
+        raise SystemExit("Spec type does not fit in a %dpx card" % card_h)
+    slack = card_h - best["used"]
+    extra_step = 0
+    step_cap = max(8, int(best["value_size"] * 0.22))
+    while slack > 32 and extra_step < step_cap:
+        grow = sum(best["line_counts"])
+        if grow <= 0 or slack < grow:
+            break
+        extra_step += 1
+        slack -= grow
+        best["row_h"] = [h + best["line_counts"][i] for i, h in enumerate(best["row_h"])]
+    gap = best["gap"]
+    while slack > 40 and gap < 32:
+        gap += 2
+        slack -= 2 * count
+    best["gap"] = gap
+    best["extra_step"] = extra_step
+    best["slack"] = max(0, slack)
+    return best
 
 
 def draw_pair(path, height, fonts, post, entities):
@@ -249,6 +367,8 @@ def draw_pair(path, height, fonts, post, entities):
     card_h = bottom - y
     if card_h < 420:
         raise SystemExit("Card area is too short for " + path.name)
+    pad_x = 30
+    text_w = card_w - pad_x - 26
     sides = []
     for side in post["sides"]:
         entity = entities[side["id"]]
@@ -260,58 +380,58 @@ def draw_pair(path, height, fonts, post, entities):
             "specs": specs,
             "file": "products.json" if side["id"] != "airpods-pro-2" else "data/compares.json",
         })
-    text_w = card_w - 60
-    measured = []
-    for side in sides:
-        blocks = []
-        for label, value in side["specs"]:
-            height, label_font, value_font, lines = spec_block_height(fonts, value, text_w)
-            blocks.append((label, height, label_font, value_font, lines))
-        side["blocks"] = blocks
-        measured.append(blocks)
-    row_h = [max(pair[i][1] for pair in measured) for i in range(len(measured[0]))]
+    layout = fit_spec_cards(fonts, sides, text_w, card_h)
     for index, side in enumerate(sides):
-        box = (64 + index * (card_w + gap), y, 64 + index * (card_w + gap) + card_w, y + card_h)
-        draw_spec_card(draw, fonts, box, side, row_h)
+        left = 64 + index * (card_w + gap)
+        box = (left, y, left + card_w, y + card_h)
+        draw_spec_card(draw, box, side, layout, index)
     image.save(path, "PNG", optimize=True)
+    print(
+        path.name,
+        "label", layout["label_size"],
+        "value", layout["value_size"],
+        "brand", layout["brand_size"],
+        "type", layout["type_size"],
+        "model", layout["model_size"],
+        "gap", layout["gap"],
+        "slack", layout["slack"],
+    )
     return sides
 
 
-def draw_spec_card(draw, fonts, box, side, row_h):
+def draw_spec_card(draw, box, side, layout, index):
     x0, y0, x1, y1 = box
     draw.rounded_rectangle(box, radius=20, fill=CARD, outline=HAIR, width=2)
     draw.rectangle((x0 + 2, y0 + 22, x0 + 8, y1 - 22), fill=GREEN)
-    pad_x = 32
-    text_w = (x1 - x0) - pad_x - 28
-    tx = x0 + pad_x
-    brand_font = fonts.sans(16, 700)
-    model_font = fonts.news(44, 620)
-    type_font = fonts.sans(22, 450)
-    model_lines = wrap(checked(side["model"]), model_font, text_w)
-    blocks = side["blocks"]
-    model_step = leading(model_font, 0.08)
-    model_h = 2 * model_step
-    type_h = 36
-    head = 36 + 28 + 10 + model_h + 8 + type_h + 28
-    specs_h = sum(row_h)
-    extra = max(0, (y1 - y0) - head - specs_h - 36)
-    gap = extra // (len(blocks) + 1)
-    y = y0 + 32
-    draw_tracked(draw, (tx, y), side["brand"].upper(), brand_font, GREEN, 2.4)
-    y += 36
-    y = draw_lines(draw, tx, y, model_lines, model_font, INK, model_step)
-    y += (2 - len(model_lines)) * model_step
-    y += 8
-    draw.text((tx, y), side["type"], font=type_font, fill=MUTED)
-    y += type_h
-    draw.line((tx, y, x1 - 28, y), fill=HAIR, width=2)
-    y += 8 + gap
-    for index, (label, height, label_font, value_font, lines) in enumerate(blocks):
+    tx = x0 + 30
+    blocks = layout["blocks"][index]
+    y = y0 + layout["top_pad"]
+    draw_tracked(draw, (tx, y), checked(side["brand"]).upper(), layout["brand_font"], GREEN, 2.2)
+    y += layout["brand_h"] + 6
+    y = draw_lines(draw, tx, y, side["model_lines"], layout["model_font"], INK, layout["model_step"])
+    y += (layout["lines_n"] - len(side["model_lines"])) * layout["model_step"]
+    y += 6
+    draw.text((tx, y), checked(side["type"]), font=layout["type_font"], fill=MUTED)
+    y += layout["type_h"] + 12
+    draw.line((tx, y, x1 - 26, y), fill=HAIR, width=2)
+    y += layout["gap"]
+    value_step = blocks[0]["value_step"] + layout["extra_step"]
+    for row_index, block in enumerate(blocks):
         start = y
-        draw.text((tx, y), label, font=label_font, fill=MUTED)
-        draw_lines(draw, tx, y + 24, lines, value_font, INK, leading(value_font, 0.16))
-        y = start + row_h[index] + gap
-    if y > y1 + 4:
+        draw.text((tx, y), block["label"], font=layout["label_font"], fill=MUTED)
+        draw_lines(
+            draw,
+            tx,
+            y + layout["label_h"] + layout["between"],
+            block["lines"],
+            layout["value_font"],
+            INK,
+            value_step,
+        )
+        y = start + layout["row_h"][row_index]
+        if row_index != len(blocks) - 1:
+            y += layout["gap"]
+    if y > y1 + 8:
         raise SystemExit("Spec card overflow for " + side["model"])
 
 
@@ -349,6 +469,95 @@ def draw_steps(path, height, fonts, post):
     image.save(path, "PNG", optimize=True)
 
 
+def poster_lines(text, font, width, preferred):
+    text = checked(text)
+    if preferred and " ".join(preferred) == text and all(font.getlength(line) <= width for line in preferred):
+        return list(preferred)
+    return wrap(text, font, width)
+
+
+def largest_poster_size(fonts, lines, width, weight, start, floor):
+    size = start
+    font = fonts.news(size, weight)
+    while size > floor and any(font.getlength(line) > width for line in lines):
+        size -= 2
+        font = fonts.news(size, weight)
+    if any(font.getlength(line) > width for line in lines):
+        return None, None
+    return size, font
+
+
+def draw_headline(path, height, fonts, post):
+    """Headline, kicker, and subline. No step list."""
+    if post.get("steps"):
+        raise SystemExit("Headline card must not repeat the steps")
+    image, draw = new_canvas(height)
+    top, bottom = chrome(draw, fonts, height, post["url"])
+    x = 64
+    inner_w = W - 128
+    tall = height >= 1600
+    well_h = bottom - top
+    kicker_size = 34 if tall else 30
+    kicker_font = fonts.sans(kicker_size, 700)
+    kicker = checked(post["eyebrow"])
+    kicker_h = leading(kicker_font, 0.02)
+
+    title_pref = ["A sale listing", "is not a", "recall check."]
+    title_size, title_font = largest_poster_size(fonts, title_pref, inner_w, 620, 170, 96)
+    if title_font is None:
+        title_font, title_lines, _ = fit_block(post["title"], fonts, inner_w, 96, 620, 4)
+        title_size = title_font.size
+    else:
+        title_lines = poster_lines(post["title"], title_font, inner_w, title_pref)
+
+    # One full line on the 4:5 card. On the tall Short, two lines so the
+    # subline has the same weight as the headline.
+    if tall:
+        sub_pref = ["Match the model number", "before you pay."]
+        sub_size, sub_font = largest_poster_size(fonts, sub_pref, inner_w, 520, 96, 56)
+    else:
+        sub_pref = ["Match the model number before you pay."]
+        sub_size, sub_font = largest_poster_size(fonts, sub_pref, inner_w, 520, 64, 40)
+    if sub_font is None:
+        sub_font, sub_lines, _ = fit_block(post["deck"], fonts, inner_w, 44, 500, 3)
+        sub_size = sub_font.size
+    else:
+        sub_lines = poster_lines(post["deck"], sub_font, inner_w, sub_pref)
+    sub_step = leading(sub_font, 0.06)
+    sub_block = sub_step * len(sub_lines)
+
+    # Open the headline leading until the lockup fills the well, and stop
+    # before the lines drift apart. The quiet gap under the headline stays
+    # a pause, not an empty field.
+    lead = 0.05
+    lead_cap = 0.28 if tall else 0.12
+    rule_h = 6
+    while True:
+        title_step = leading(title_font, lead)
+        title_block = title_step * len(title_lines)
+        gap_kicker = int(kicker_size * 0.9)
+        gap_rule = int(max(28, title_size * 0.22))
+        gap_sub = int(max(22, sub_size * 0.42))
+        stack = kicker_h + gap_kicker + title_block + gap_rule + rule_h + gap_sub + sub_block
+        spare = well_h - stack
+        if spare <= well_h * (0.22 if tall else 0.16) or lead >= lead_cap:
+            break
+        lead += 0.02
+    if spare < 20:
+        raise SystemExit("Headline does not fit " + path.name)
+    top_air = int(spare * 0.48)
+    y = top + top_air
+    draw_tracked(draw, (x, y), kicker, kicker_font, GREEN, 3.4)
+    y += kicker_h + gap_kicker
+    y = draw_lines(draw, x, y, title_lines, title_font, INK, title_step)
+    y += gap_rule
+    draw.rounded_rectangle((x, y, x + 88, y + rule_h), radius=3, fill=GREEN)
+    y += rule_h + gap_sub
+    draw_lines(draw, x, y, sub_lines, sub_font, INK, sub_step)
+    image.save(path, "PNG", optimize=True)
+    print(path.name, "headline", title_size, "sub", sub_size, "lead", round(lead, 2), "spare", spare)
+
+
 RECALL_STEPS = [
     "Confirm the model number on the box, in the manual, and on the listing. A family name is not the model number.",
     "Search that model on CPSC Recalls and on Health Canada recalls and safety alerts.",
@@ -373,7 +582,7 @@ def posts():
             ],
         },
         {
-            "kind": "steps",
+            "kind": "headline",
             "ig": "2026-11/ig/02-recall-cover.png",
             "short": "2026-11/shorts/black-friday-recall-check.mp4",
             "short_i": 0,
@@ -381,7 +590,6 @@ def posts():
             "title": "A sale listing is not a recall check.",
             "deck": "Match the model number before you pay.",
             "url": "checkedlab.com/black-friday/",
-            "steps": RECALL_STEPS,
         },
         {
             "kind": "steps",
@@ -511,6 +719,8 @@ def render_shorts(fonts, jobs, work):
             vertical = work / f"{src.stem}-new-{job['short_i']}.png"
             if job["kind"] == "pair":
                 draw_pair(vertical, H_SHORT, fonts, job, job["_entities"])
+            elif job["kind"] == "headline":
+                draw_headline(vertical, H_SHORT, fonts, job)
             else:
                 draw_steps(vertical, H_SHORT, fonts, job)
             frames[job["short_i"]] = vertical
@@ -531,11 +741,12 @@ def main():
         ig = SOCIAL / job["ig"]
         if job["kind"] == "pair":
             sides = draw_pair(ig, H_IG, fonts, job, entities)
-            print(ig.name)
             for side in sides:
                 print(" ", side["brand"], side["model"], side["type"], "from", side["file"])
                 for label, value in side["specs"]:
                     print("   ", label + ":", value)
+        elif job["kind"] == "headline":
+            draw_headline(ig, H_IG, fonts, job)
         else:
             draw_steps(ig, H_IG, fonts, job)
             print(ig.name, "steps, no photo")
