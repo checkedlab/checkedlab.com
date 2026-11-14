@@ -716,6 +716,13 @@ p.visually-hidden {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+.answer {
+  margin: 0 0 16px;
+  max-width: 40rem;
+  color: var(--ink);
+  font-size: 1.08rem;
+  line-height: 1.45;
+}
 .hero-photo, .hero-art { display: none; }
 .type-tile {
   display: grid;
