@@ -16,8 +16,6 @@ Water resistance is IP57 on the Pro 3 and IP54 on the Pro 2.
 
 Hearing features: Hearing Aid feature on the Pro 3. Hearing Test, Hearing Aid, and Hearing Protection on the Pro 2.
 
-Photo: Burkhard Mücke, CC BY-SA 4.0, Wikimedia Commons
-
 https://www.checkedlab.com/compare/airpods-pro-3-vs-airpods-pro-2/
 
 #CheckedLab #PersonalTech
@@ -34,8 +32,6 @@ Battery: up to 8 hours with Active Noise Cancellation on the Pro 3. Up to 6 hour
 Water resistance is IP57 on the Pro 3 and IP54 on the Pro 2.
 
 Hearing features: Hearing Aid feature on the Pro 3. Hearing Test, Hearing Aid, and Hearing Protection on the Pro 2.
-
-Photo: Burkhard Mücke, CC BY-SA 4.0, Wikimedia Commons
 
 https://www.checkedlab.com/compare/airpods-pro-3-vs-airpods-pro-2/
 
