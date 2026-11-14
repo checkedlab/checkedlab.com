@@ -1,6 +1,7 @@
 import { createHash } from "node:crypto";
 import { createRequire } from "node:module";
 import { readFileSync, writeFileSync, mkdirSync, readdirSync, rmSync, statSync, cpSync, existsSync } from "node:fs";
+import { spawnSync } from "node:child_process";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -510,6 +511,7 @@ writeThanksgiving();
 writePhotoCredits();
 const lastmods = stampPages(ordered);
 writeSitemap(pages, lastmods);
+renderSocialAssets();
 verifyOutput(pages);
 publishDist();
 console.log(`Wrote ${pages.length} product pages, ${HUBS.length} hub card lists, /recalls/, /black-friday/, ${giftPaths().length} gift pages, ${winterPaths().length} winter safety pages, ${toyPaths().length} toy safety pages, and ${thanksPaths().length} Thanksgiving pages.`);
@@ -5925,6 +5927,20 @@ function headerValue(vercel, source, key) {
   const rule = (vercel.headers || []).find((item) => item.source === source);
   const header = rule && (rule.headers || []).find((item) => item.key.toLowerCase() === key.toLowerCase());
   return header && header.value;
+}
+
+// Opt-in. A normal build must not spawn Python or rewrite /social.
+// fontTools without brotli crashes while reading the woff2 files, and a
+// successful run re-encodes every Short.
+function renderSocialAssets() {
+  if (process.env.RENDER_SOCIAL !== "1") return;
+  const probe = spawnSync("python3", ["-c", "import PIL, fontTools, brotli"], { encoding: "utf8" });
+  if (probe.status !== 0) {
+    const detail = (probe.stderr || probe.stdout || "").trim();
+    throw new Error("RENDER_SOCIAL=1 but Pillow, fontTools, or brotli is missing. " + detail);
+  }
+  const run = spawnSync("python3", [join(root, "scripts", "render-social.py")], { stdio: "inherit" });
+  if (run.status !== 0) throw new Error("Social renderer failed");
 }
 
 function assertSocialCopy() {
