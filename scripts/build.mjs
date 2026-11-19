@@ -1420,7 +1420,7 @@ function affectedHtml(entry) {
     }).join(" ");
     return "<li><strong>" + card.esc(item.label) + ".</strong> " + card.esc(item.text) + (anchors ? " " + anchors : "") + "</li>";
   }).join("");
-  return '<section id="is-mine-affected"><h2>Is mine affected?</h2><ul class="evidence checklist">' + items + "</ul></section>";
+  return '<section id="is-mine-affected"><h2>Is mine affected?</h2><ul class="evidence">' + items + "</ul></section>";
 }
 
 function noticeHtml(notice) {
