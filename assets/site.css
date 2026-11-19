@@ -716,6 +716,13 @@ p.visually-hidden {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+.answer {
+  margin: 0 0 16px;
+  max-width: 40rem;
+  color: var(--ink);
+  font-size: 1.08rem;
+  line-height: 1.45;
+}
 .hero-photo, .hero-art { display: none; }
 .type-tile {
   display: grid;
@@ -927,6 +934,19 @@ body[data-page="product"] .p-photo {
   .compare-who .spec-tile {
     height: auto;
     min-height: 132px;
+  }
+  .compare-who:has(.p-photo) {
+    height: auto;
+    min-height: 132px;
+  }
+  .compare-who .p-photo {
+    width: 100%;
+    height: 168px;
+    min-height: 168px;
+    aspect-ratio: auto;
+    object-fit: contain;
+    object-position: center;
+    background: var(--slot);
   }
   .compare-who .img-credit {
     white-space: nowrap;

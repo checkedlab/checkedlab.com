@@ -212,6 +212,16 @@ const SOCIAL_PHRASE_BAN = "not a verdict|catalogue check|stay(?:s)? off (?:this|
 const SOCIAL_COPY_BAN = new RegExp(COPY_BAN.source + "|" + SOCIAL_PHRASE_BAN, "i");
 /* Site HTML uses the same slide phrases. "maker specs" in a sentence stays, because gift and hub lines already say it. The all-caps eyebrow does not. */
 const SITE_ROBOTIC_BAN = /side by side, not a verdict|read the source lines yourself|read the cadr lines carefully|same brand, different lines|same job, different lines|catalogue check|stay(?:s)? off (?:this|the) table|each cell is copied|these are maker page lines|recall lines use the \d{4}-\d{2}-\d{2} \(utc\) cpsc and health canada catalogue check/i;
+/* The six long model-vs-model pages. Older pages still use some of these words. */
+const LONG_COMPARE_SLUGS = [
+  "dyson-v8-vs-dyson-v10",
+  "sony-wh-1000xm5-vs-xm6",
+  "kitchenaid-artisan-vs-classic",
+  "allclad-d3-vs-d5",
+  "zojirushi-vs-tiger-rice-cooker",
+  "mr-heater-buddy-vs-big-buddy"
+];
+const LONG_COMPARE_BAN = /a figure only one maker prints|those sentences are the catalogue match|recall check has not been recorded|\bnot a verdict\b|stays? off (?:this|the) table|\bmaker specs\b|\bcatalogue\b|\bunit not named\b/i;
 const SITE_EYEBROW_BAN = /MAKER SPECS/;
 const READER_VOICE_BAN = /worth matching|in this catalogue|in this catalog|check the model|to match on|on a listing/i;
 const READER_WORDING_BAN = /\bworth matching\b|Pick it for:|The maker lines|\bmaker lines\b/i;
@@ -321,6 +331,14 @@ function assertAllPageVoice() {
       const at = Math.max(0, robotic.index - 40);
       const snippet = html.slice(at, robotic.index + robotic[0].length + 40).replace(/\s+/g, " ").trim();
       throw new Error("Robotic phrase ban on " + where + ": " + robotic[0] + " near “" + snippet + "”");
+    }
+    if (LONG_COMPARE_SLUGS.some((slug) => where.includes("/compare/" + slug + "/"))) {
+      const shopper = html.match(LONG_COMPARE_BAN);
+      if (shopper) {
+        const at = Math.max(0, shopper.index - 40);
+        const snippet = html.slice(at, shopper.index + shopper[0].length + 40).replace(/\s+/g, " ").trim();
+        throw new Error("Compare phrase ban on " + where + ": " + shopper[0] + " near “" + snippet + "”");
+      }
     }
   }
 }
@@ -1553,7 +1571,9 @@ function resolveCompareSide(entry, id) {
   if (!base) throw new Error("Compare is missing " + id);
   const adds = (entry.specAdds && entry.specAdds[id]) || [];
   const addLabels = new Set(adds.map((spec) => spec.label));
-  const specs = [...(base.specs || []).filter((spec) => spec && !addLabels.has(spec.label)), ...adds];
+  const omit = new Set(entry.omitSpecs || []);
+  const specs = [...(base.specs || []).filter((spec) => spec && !addLabels.has(spec.label)), ...adds]
+    .filter((spec) => spec && spec.label && !omit.has(spec.label));
   return { ...base, specs, catalog: Boolean(catalog) };
 }
 
@@ -1610,6 +1630,47 @@ function unmatchedSpecHtml(pair, rows) {
   }).join("");
 }
 
+function compareLead(entry) {
+  if (!Array.isArray(entry.answer) || !entry.answer.length) {
+    return '<p class="sub">' + card.esc(entry.description.split(/(?<=\.)\s/)[0]) + "</p>";
+  }
+  if (entry.answer.length < 2 || entry.answer.length > 3) {
+    throw new Error("Short answer needs two or three sentences: " + entry.slug);
+  }
+  return '<p class="answer">' + entry.answer.map((sentence) => card.esc(sentence)).join(" ") + "</p>";
+}
+
+function compareFaqs(entry) {
+  const faqs = entry.faqs || [];
+  if (!faqs.length) return "";
+  if (faqs.length < 4 || faqs.length > 6) throw new Error("Compare FAQs must be 4 to 6: " + entry.slug);
+  const body = faqs.map((item) => {
+    if (!item.q || !item.a) throw new Error("FAQ missing text: " + entry.slug);
+    return "<h3>" + card.esc(item.q) + "</h3><p>" + card.esc(item.a) + "</p>";
+  }).join("");
+  return productFold("questions", "Questions", body);
+}
+
+function compareSources(pair, entry) {
+  if (!entry.answer) return "";
+  const seen = new Set();
+  const items = [];
+  const add = (url, label) => {
+    if (!url || seen.has(url)) return;
+    if (!/^https:\/\//.test(url)) throw new Error("Source is not https on " + entry.slug);
+    seen.add(url);
+    items.push('<li><a href="' + card.esc(url) + '" target="_blank" rel="noopener">' + card.esc(label) + "</a></li>");
+  };
+  for (const product of pair) {
+    for (const spec of product.specs || []) {
+      if (spec && spec.url) add(spec.url, (spec.source || product.sourceName || "Source") + ", " + spec.label);
+    }
+  }
+  for (const item of entry.sources || []) add(item.url, item.label);
+  if (!items.length) throw new Error("Compare is missing sources: " + entry.slug);
+  return "<h2>Sources</h2><ul>" + items.join("") + "</ul>";
+}
+
 function compareJsonLd(entry, pair) {
   const url = ORIGIN + "/compare/" + entry.slug + "/";
   const graph = {
@@ -1644,6 +1705,16 @@ function compareJsonLd(entry, pair) {
       }
     ]
   };
+  if (Array.isArray(entry.faqs) && entry.faqs.length) {
+    graph["@graph"].push({
+      "@type": "FAQPage",
+      mainEntity: entry.faqs.map((item) => ({
+        "@type": "Question",
+        name: item.q,
+        acceptedAnswer: { "@type": "Answer", text: item.a }
+      }))
+    });
+  }
   assertNoCommerce(graph);
   return JSON.stringify(graph, null, 2).replace(/</g, "\\u003c");
 }
@@ -1656,11 +1727,25 @@ function compareBodyWords(entry) {
 
 function assertBuyerVerdict(entry) {
   assertHeadline(entry.title, entry.description, "compare/" + entry.slug, false);
-  if (!entry.verdict) return;
   const siteVoice = /\b(cards?|catalogues?|catalogs?|pages?|matching)\b/i;
   const intro = String(entry.description || "").split(/(?<=\.)\s/)[0];
-  if (siteVoice.test(intro)) throw new Error("Compare intro talks about the site: " + entry.slug);
-  assertReaderVoice(intro, "compare/" + entry.slug + " intro");
+  if (entry.verdict || entry.answer) {
+    if (siteVoice.test(intro)) throw new Error("Compare intro talks about the site: " + entry.slug);
+    assertReaderVoice(intro, "compare/" + entry.slug + " intro");
+  }
+  if (entry.answer) {
+    for (const sentence of entry.answer) {
+      assertReaderVoice(sentence, "compare/" + entry.slug + " answer");
+      if (siteVoice.test(sentence)) throw new Error("Short answer talks about the site: " + entry.slug);
+    }
+    const fullTitle = entry.title + " — Checked Lab";
+    if (fullTitle.length > 60) throw new Error("Title tag is " + fullTitle.length + " characters on " + entry.slug + ": " + fullTitle);
+    if (String(entry.description).length > 155) throw new Error("Description is " + entry.description.length + " characters on " + entry.slug);
+    const faqText = (entry.faqs || []).map((item) => item.q + " " + item.a).join(" ");
+    const total = (entry.answer.join(" ") + " " + compareBodyWordsText(entry) + " " + faqText).split(/\s+/).filter(Boolean).length;
+    if (total < 700 || total > 1200) throw new Error("Compare length is " + total + " words: " + entry.slug);
+  }
+  if (!entry.verdict) return;
   for (const item of entry.verdict) {
     const text = [item.heading, ...(item.bullets || [])].join(" ");
     if (siteVoice.test(text)) throw new Error("Verdict talks about the site: " + entry.slug);
@@ -1668,8 +1753,33 @@ function assertBuyerVerdict(entry) {
   }
 }
 
+function compareBodyWordsText(entry) {
+  const chunks = [...(entry.fit || [])];
+  for (const section of entry.sections || []) chunks.push(section.heading, ...(section.paragraphs || []));
+  return chunks.join(" ");
+}
+
+function shopperRecallHtml(pair) {
+  const lines = pair.map((product) => {
+    const bits = [];
+    const keep = (rec, place) => {
+      if (rec.status === "bin" || (rec.status === "none" && rec.checkedAt)) bits.push(recallSentence(rec, place));
+    };
+    keep(card.recallFor(product, "US"), "US");
+    keep(card.recallFor(product, "CA"), "Canadian");
+    const name = product.catalog
+      ? sideAnchor(product)
+      : (product.sourceUrl
+        ? '<a href="' + card.esc(product.sourceUrl) + '" target="_blank" rel="noopener">' + card.esc(product.title) + "</a>"
+        : card.esc(product.title));
+    return "<p>" + name + (bits.length ? ". " + card.esc(bits.join(" ")) : "") + "</p>";
+  }).join("");
+  return lines +
+    '<p>Check the model number on <a href="' + CPSC_SEARCH + '" target="_blank" rel="noopener">CPSC (US)</a> and <a href="' + HC_SEARCH + '" target="_blank" rel="noopener">Health Canada (CA)</a> recalls before buying.</p>';
+}
+
 function writeCompares() {
-  if (compares.length !== 35) throw new Error("Expected thirty-five compare pages");
+  if (compares.length !== 41) throw new Error("Expected forty-one compare pages");
   for (const entry of compares) {
     if (!/^[a-z0-9-]+$/.test(entry.slug)) throw new Error("Bad compare slug");
     assertBuyerVerdict(entry);
@@ -1685,12 +1795,14 @@ function writeCompares() {
     const body = rows.map((row) =>
       "<tr><th>" + card.esc(row.label) + "</th><td>" + specCell(row.left) + "</td><td>" + specCell(row.right) + "</td></tr>"
     ).join("");
-    const recallsHtml = pair.map((product) => {
-      const us = recallSentence(card.recallFor(product, "US"), "US");
-      const ca = recallSentence(card.recallFor(product, "CA"), "Canadian");
-      return "<p>" + sideAnchor(product) + ". " + card.esc(us) + " " + card.esc(ca) + "</p>";
-    }).join("") +
-      '<p>Those sentences are the catalogue match dated ' + card.esc(recalls.checkedAt) + ' (UTC), from the <a href="' + CPSC_SEARCH + '" target="_blank" rel="noopener">CPSC Recalls</a> search and the <a href="' + HC_SEARCH + '" target="_blank" rel="noopener">Health Canada recalls and safety alerts</a> search. Open the model page for the feed link.</p>';
+    const recallsHtml = entry.answer
+      ? shopperRecallHtml(pair)
+      : pair.map((product) => {
+        const us = recallSentence(card.recallFor(product, "US"), "US");
+        const ca = recallSentence(card.recallFor(product, "CA"), "Canadian");
+        return "<p>" + sideAnchor(product) + ". " + card.esc(us) + " " + card.esc(ca) + "</p>";
+      }).join("") +
+        '<p>Those sentences are the catalogue match dated ' + card.esc(recalls.checkedAt) + ' (UTC), from the <a href="' + CPSC_SEARCH + '" target="_blank" rel="noopener">CPSC Recalls</a> search and the <a href="' + HC_SEARCH + '" target="_blank" rel="noopener">Health Canada recalls and safety alerts</a> search. Open the model page for the feed link.</p>';
     const stores = (region, heading) => "<h2>" + heading + "</h2>" + pair.map((product) =>
       "<h3>" + card.esc(product.model || product.title) + "</h3>" + card.storeButtons(product, region)
     ).join("");
@@ -1768,7 +1880,7 @@ ${nav(entry.hub)}
 <span aria-current="page">${card.esc(entry.title)}</span>
 </nav>
 <h1>${card.esc(entry.title)}</h1>
-<p class="sub">${card.esc(entry.description.split(/(?<=\.)\s/)[0])}</p>
+${compareLead(entry)}
 ${entry.verdict ? verdictBlock(entry, pair) + "\n" : ""}<div class="compare-wrap">
 <table class="compare">
 <thead><tr><th>Spec</th>${head}</tr></thead>
@@ -1776,9 +1888,9 @@ ${entry.verdict ? verdictBlock(entry, pair) + "\n" : ""}<div class="compare-wrap
 </table>
 </div>
 ${entry.verdict ? "" : pickPair(entry, pair)}
-<nav class="toc" aria-label="Jump to"><p>Jump to</p><a href="#how-to-read">How to read this</a><a href="#recall-check">Recall check</a><a href="#stores">Stores</a></nav>
-${productFold("how-to-read", "How to read this", '<p class="lede">' + card.esc(entry.description) + "</p><p>Each line below is copied from that model’s maker page. The Source link opens that page. A spec that only one card lists is left out of the table. The recall line is the CPSC and Health Canada check dated " + card.esc(recalls.checkedAt) + " (UTC).</p>" + fit + (sections ? "\n" + sections : "") + (entry.verdict ? unmatchedSpecHtml(pair, rows) : "") + (relatedHtml ? "\n" + relatedHtml : ""))}
-${productFold("recall-check", "Recall check", recallsHtml + '<p class="lede"><a href="/compare/">All comparisons</a> ' + (entry.verdict ? '<a href="/black-friday/">Black Friday</a> ' : "") + '<a href="/recalls/">All recall checks</a> <a href="/' + entry.hub + '/">' + card.esc(HUB_NAME[entry.hub]) + '</a> <a href="/how-we-check/">How we check</a> ' + pair.map(sideAnchor).join(" ") + (crossHtml ? " " + crossHtml : "") + "</p>")}
+<nav class="toc" aria-label="Jump to"><p>Jump to</p><a href="#how-to-read">How to read this</a>${entry.faqs ? '<a href="#questions">Questions</a>' : ""}<a href="#recall-check">Recall check</a><a href="#stores">Stores</a></nav>
+${productFold("how-to-read", "How to read this", (entry.answer ? "" : '<p class="lede">' + card.esc(entry.description) + "</p>") + (entry.answer ? "<p>A row is shown when both makers print that label. Source opens the sentence the figure came from. Details only one of them prints are listed under that name below.</p><p>Check the model number on <a href=\"" + CPSC_SEARCH + "\" target=\"_blank\" rel=\"noopener\">CPSC (US)</a> and <a href=\"" + HC_SEARCH + "\" target=\"_blank\" rel=\"noopener\">Health Canada (CA)</a> recalls before buying.</p>" : "<p>Each line below is copied from that model’s maker page. The Source link opens that page. A spec that only one card lists is left out of the table. The recall line is the CPSC and Health Canada check dated " + card.esc(recalls.checkedAt) + " (UTC).</p>") + fit + (sections ? "\n" + sections : "") + (entry.verdict ? unmatchedSpecHtml(pair, rows) : "") + compareSources(pair, entry) + (relatedHtml ? "\n" + relatedHtml : ""))}
+${entry.faqs ? compareFaqs(entry) + "\n" : ""}${productFold("recall-check", "Recall check", recallsHtml + '<p class="lede"><a href="/compare/">All comparisons</a> ' + (entry.verdict ? '<a href="/black-friday/">Black Friday</a> ' : "") + '<a href="/recalls/">All recall checks</a> <a href="/' + entry.hub + '/">' + card.esc(HUB_NAME[entry.hub]) + '</a> <a href="/how-we-check/">How we check</a> ' + pair.map(sideAnchor).join(" ") + (crossHtml ? " " + crossHtml : "") + "</p>")}
 ${productFold("stores", "Stores", stores("US", "United States stores") + stores("CA", "Canadian stores"))}
 </div>
 </main>
@@ -1801,7 +1913,8 @@ ${DISCLOSURE}
     }
     const ld = JSON.parse(html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]);
     const types = ld["@graph"].map((node) => node["@type"]).sort().join(",");
-    if (types !== "Article,BreadcrumbList,ItemList") throw new Error("Compare schema on " + entry.slug);
+    const expectedTypes = entry.faqs ? "Article,BreadcrumbList,FAQPage,ItemList" : "Article,BreadcrumbList,ItemList";
+    if (types !== expectedTypes) throw new Error("Compare schema on " + entry.slug + ": " + types);
     mkdirSync(join(root, "compare", entry.slug), { recursive: true });
     writeFileSync(join(root, "compare", entry.slug, "index.html"), polish(html));
   }

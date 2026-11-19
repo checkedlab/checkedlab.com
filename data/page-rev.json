@@ -1,7 +1,7 @@
 {
   "/": {
-    "hash": "601c3c4771e3ad2ab44f743d5f816592fdeea7c8bc7ee042db3b234695ba0070",
-    "lastmod": "2026-11-18"
+    "hash": "b7e40fcf91f326304207af23de4e6a530ba3997dd97af081733ffd6d0a127322",
+    "lastmod": "2026-11-19"
   },
   "/air-water/": {
     "hash": "aa43e347c62b375a6e0a3eb89a9b1cd077d80a87e4c9659b1bef688a5d718a2f",
@@ -80,8 +80,8 @@
     "lastmod": "2026-11-18"
   },
   "/alternatives/dyson-v15-detect/": {
-    "hash": "b66cf413c96b0c345e3b4c55079ed4911730aa7933e359878de5fa4ade8044d2",
-    "lastmod": "2026-11-18"
+    "hash": "7aa29662e1d279e4773531bfb211209c0b412211365a566f39f52e4be9b9c258",
+    "lastmod": "2026-11-19"
   },
   "/alternatives/irobot-roomba-combo-j9-plus/": {
     "hash": "7ce00ad9567867990a69b25894088f98dfa5658f5839ded77430f72a3d5a47a7",
@@ -96,8 +96,8 @@
     "lastmod": "2026-11-18"
   },
   "/alternatives/sony-wh-1000xm5/": {
-    "hash": "3283e9073fc6ed823e69fb42be62ab0052f6a2d3abe4087af8f593045c1c5665",
-    "lastmod": "2026-11-18"
+    "hash": "7b8526097a14e2d705debcf87889ebc345d56d484d24b6872f0768a5a6fc6055",
+    "lastmod": "2026-11-19"
   },
   "/best/": {
     "hash": "d2556ddcd8e8af7d1a5261d434466ad0d11af32d7eba521f4320c6176ba15930",
@@ -120,8 +120,8 @@
     "lastmod": "2026-11-18"
   },
   "/best/heaters/": {
-    "hash": "9cf4098a99016c5b5bbae4dfa5cfc4d4da1870487db8d3b1263fbe0975c6924d",
-    "lastmod": "2026-11-18"
+    "hash": "efe95dca019139b5303d41c63f2dd37d41df9b46f929a329424f3ed9ffaa7699",
+    "lastmod": "2026-11-19"
   },
   "/best/humidifiers/": {
     "hash": "7d35cd1d86d76e0519754c79041a66605cc0390b5c2a40d6d1e79e24567e027d",
@@ -132,8 +132,8 @@
     "lastmod": "2026-11-18"
   },
   "/best/noise-cancelling-headphones/": {
-    "hash": "5bc95b7ae981e43b26ad01daf83733a1cb980b9b927b0abcc3fd5d0fb85ad9d9",
-    "lastmod": "2026-11-18"
+    "hash": "8f7897e65bc3f1b9238bdc23fa20603af17f5578df72570d2ce816d44883e8b7",
+    "lastmod": "2026-11-19"
   },
   "/best/pet-fountains/": {
     "hash": "ab5f6ff9c092060d94c710f9732866af91b84faf49ecc1505df95e8a6de7dc7c",
@@ -148,36 +148,36 @@
     "lastmod": "2026-11-18"
   },
   "/best/stick-vacuums/": {
-    "hash": "13eaacffc2f30cdea73e09b7309db95e13d695571b31a341074e1a4bdaea7199",
-    "lastmod": "2026-11-18"
+    "hash": "7adc56af04d1faf6964d285405d7971956e59e9bdd58fdb7c8edd58b70c93be2",
+    "lastmod": "2026-11-19"
   },
   "/bin-list/": {
     "hash": "675a67caf725ace68f9f70992a9ed66edcbf7b3a95955bb52f5156003614e4af",
     "lastmod": "2026-11-13"
   },
   "/black-friday/": {
-    "hash": "50ed6123ad27e57aabf7c3ac5537b2458a7f709616aef7bac1aa9e5d7d6db5f4",
-    "lastmod": "2026-11-18"
+    "hash": "251e7f0769fadadb3ffce10f240cf48c03e8445c8ab88fdb289d87ee63be548c",
+    "lastmod": "2026-11-19"
   },
   "/black-friday/airpods-pro-3/": {
-    "hash": "96fbec61d8c7ac747f26710fe30e02d20be05b81d82ef9a74fb0c3834f859b80",
-    "lastmod": "2026-11-18"
+    "hash": "6efed96fc06fd6e3b277b837a9ed9694618bc57f300215c8e9531439a987c53d",
+    "lastmod": "2026-11-19"
   },
   "/black-friday/coway-ap-1512hh/": {
     "hash": "a8b80799c29c346caaa809d6bc221a830f6a44f36bd412a20e2a2c0553d1b0cb",
     "lastmod": "2026-11-18"
   },
   "/black-friday/dyson-v15-detect/": {
-    "hash": "0394bc2bd8dd92a17c5ca9ece8f42e1a3c6834b9bc3d3c79a4cdea9a9eb66a03",
-    "lastmod": "2026-11-18"
+    "hash": "179a3e65b3b0e0d3251ed1a663ee4de86c010f8b37fabefaaaf7a8bc7d5dc8bc",
+    "lastmod": "2026-11-19"
   },
   "/black-friday/instant-pot-duo-plus/": {
     "hash": "2df8aff54079a6bf0b25870b52be6bf60fb25ac2215f640230f73a32d7d3e3f9",
     "lastmod": "2026-11-18"
   },
   "/black-friday/kitchenaid-artisan/": {
-    "hash": "333210646b83dc7296ca8b3b9385b18b01ea64f2b460cf456d1a3c3a4c58eea2",
-    "lastmod": "2026-11-18"
+    "hash": "a5483bbb1450eaaa7253e53876ab2bbca0db376b6954af413635577d9fce702c",
+    "lastmod": "2026-11-19"
   },
   "/black-friday/levoit-air-purifiers/": {
     "hash": "d1bc0c461fa3150b20e6fa3189e3c1f008e224d1e3070a7bab41d4654d80b348",
@@ -192,8 +192,8 @@
     "lastmod": "2026-11-18"
   },
   "/black-friday/sony-wh-1000xm5/": {
-    "hash": "b6779c129476a829e82db2713e3f320927b225e254090b038f071bcc0651bd1f",
-    "lastmod": "2026-11-18"
+    "hash": "50a3da640075a46c8d50efae0dc7a7f8991145586d9aea4ed3fdb8911f17d538",
+    "lastmod": "2026-11-19"
   },
   "/car-garage/": {
     "hash": "ad2c09fa9e20ec0b9653669791b01fcb05e330ebecba968751b3ba89788206fa",
@@ -264,8 +264,8 @@
     "lastmod": "2026-11-18"
   },
   "/cleaning/": {
-    "hash": "e0af648b0b2e5046e209de36b7e68b882cb0dd38ecd381a8125adddd56714bd8",
-    "lastmod": "2026-11-13"
+    "hash": "ca79835e3ef663faaf2fe9e33d5e71d701e9a8b3d778684d1ef01cb7f0c7f50f",
+    "lastmod": "2026-11-19"
   },
   "/cleaning/bissell-iconpet-2288/": {
     "hash": "1d598073336bd73debf131a973fb435e0263e02b0394795573bdfeaa03514f9d",
@@ -276,8 +276,8 @@
     "lastmod": "2026-11-18"
   },
   "/cleaning/dyson-v8/": {
-    "hash": "3a6aa8c7bff4aaceae87c5ecdfee701873a55043cc3a0567bd1db6dfad3f19f8",
-    "lastmod": "2026-11-18"
+    "hash": "2c2250164720bc7b3f58b5fac86730e6f27bf9131a22de40e6ff074c61533135",
+    "lastmod": "2026-11-19"
   },
   "/cleaning/eufy-x10-pro-omni/": {
     "hash": "783e56a855c98e1e8bbacae57d59598738b855cd151656f618b12c3719dd93d5",
@@ -308,8 +308,8 @@
     "lastmod": "2026-11-18"
   },
   "/compare/": {
-    "hash": "50840ec1569e6c788d646d95c627c6a94ea10c1d7e59f9cc9ea402d5718283df",
-    "lastmod": "2026-11-18"
+    "hash": "f4a5df78f1507ddb872b9086835dd7b0dfa04610aa2a69ea4fd0b2c3cc2ad70a",
+    "lastmod": "2026-11-19"
   },
   "/compare/airpods-pro-3-vs-airpods-pro-2/": {
     "hash": "517377f4b4168cd9a520bcf78389f8d3d40542e35cbe426cb46ce644363820b5",
@@ -318,6 +318,10 @@
   "/compare/airpods-pro-3-vs-shokz-openrun-pro-2/": {
     "hash": "bab050bc27ebfae2ab5148dfbc1d4a44f1eeb6d642b5369f01a2de62500e833e",
     "lastmod": "2026-11-18"
+  },
+  "/compare/allclad-d3-vs-d5/": {
+    "hash": "688c4151d0434af3ca941f3f56e95d21e16e8beef787da960062073489694702",
+    "lastmod": "2026-11-19"
   },
   "/compare/blueair-211i-max-vs-coway-airmega-250/": {
     "hash": "eb558b639ad4f888a17228085fe8ada0b32c263bb0830406530de403c88dfb52",
@@ -336,8 +340,8 @@
     "lastmod": "2026-11-18"
   },
   "/compare/dyson-v15-detect-vs-dyson-v8/": {
-    "hash": "c2c56e8e36731670690960289367c8cf8137cf93096d88cf1192d26253df5962",
-    "lastmod": "2026-11-18"
+    "hash": "3ce2f046ab50e685699f8205d8857862d0646c5aed9a4eb023a65181886c162c",
+    "lastmod": "2026-11-19"
   },
   "/compare/dyson-v15-detect-vs-shark-ip3251/": {
     "hash": "78526b75aae43cfdfe792276b2aa6cfb10e21d16db306cd24de9124449944bd7",
@@ -346,6 +350,10 @@
   "/compare/dyson-v15-detect-vs-tineco-pure-one-s15/": {
     "hash": "312832c3b9bed3a8e83c8563a730e840c5f6ff24b48adfadc259d77acef31586",
     "lastmod": "2026-11-18"
+  },
+  "/compare/dyson-v8-vs-dyson-v10/": {
+    "hash": "229c10c1b8a33796d6daf134435a1be89398f6571202932720f010f21c74050a",
+    "lastmod": "2026-11-19"
   },
   "/compare/ego-snt2110-vs-toro-power-clear-38753/": {
     "hash": "4fd34f51ccc50a8f42cb8b2b781c45d5ffecdde2e2b90ce0be7e3a674dd019a9",
@@ -379,6 +387,10 @@
     "hash": "a0b68e276ce63826b5f9f8bd7dce626d40a4000cd36411d1cf4f6ae6a1b6d23c",
     "lastmod": "2026-11-18"
   },
+  "/compare/kitchenaid-artisan-vs-classic/": {
+    "hash": "7b8cdd48d8e8694cd56b1ca30afce9a42ab8e18ed7345e3c95951f43e0ba333e",
+    "lastmod": "2026-11-19"
+  },
   "/compare/lasko-ct32150-vs-ct14401/": {
     "hash": "d8673ff851366cf14c7c0976cfa3068b7aadb0810fcfc43d4b897eb5c7dd5f6e",
     "lastmod": "2026-11-18"
@@ -402,6 +414,10 @@
   "/compare/litter-robot-4-vs-petsafe-scoopfree-plus/": {
     "hash": "0e9c5a9d899cfce28c0f8beac8209b3430d03f405c1a2128d9b9f21cd6c6970c",
     "lastmod": "2026-11-18"
+  },
+  "/compare/mr-heater-buddy-vs-big-buddy/": {
+    "hash": "21197164b1cc7c33e26c79c878f623de0efafcd1490221a625db29cccc923e2e",
+    "lastmod": "2026-11-19"
   },
   "/compare/ninja-creami-nc301-vs-deluxe-nc501/": {
     "hash": "58c69fb147d3b4178d92c6338cc6d3befb4d0cccbd87c5be42db9fe05b66acb3",
@@ -436,8 +452,12 @@
     "lastmod": "2026-11-18"
   },
   "/compare/sony-wh-1000xm5-vs-bose-qc-ultra/": {
-    "hash": "5ba505901e8811bd82d89c3afbd7d5d80060c333f898cc3b37a42784261c89af",
-    "lastmod": "2026-11-18"
+    "hash": "df32228c245acc42a02ed22133965baccd0e934bb91c8f5aed70e8cca9368944",
+    "lastmod": "2026-11-19"
+  },
+  "/compare/sony-wh-1000xm5-vs-xm6/": {
+    "hash": "06fe2431e7e5a38303a827fc3141b4b41177d811b7d13ffaf893c2173609e26e",
+    "lastmod": "2026-11-19"
   },
   "/compare/vitamix-e310-vs-e320/": {
     "hash": "ce79547969113ea8140af702f2b7aee974591f8fdf0be6a16022c7d46f9c83ac",
@@ -451,13 +471,17 @@
     "hash": "b029d112919b33a5d7657c3737310929c8b9f21965ba4b8248272f776a737153",
     "lastmod": "2026-11-18"
   },
+  "/compare/zojirushi-vs-tiger-rice-cooker/": {
+    "hash": "542dd2473fecf35a202745838e74770cab2ffdbb39db25f9aa0fccfc0c052f74",
+    "lastmod": "2026-11-19"
+  },
   "/gifts/": {
     "hash": "7d245688e388443fdb52b65419abb78e9ed36390511b124bad1587abb42fc6eb",
     "lastmod": "2026-11-18"
   },
   "/gifts/for-better-sleep/": {
-    "hash": "6596ab4d0c6989d7471e92f2eef8591cc5b52abd45c5e5a96c2ec9f9256bd3c3",
-    "lastmod": "2026-11-18"
+    "hash": "1b0babad067004a6fadc20ab1e6c265fae4c1c6c97c6727b6ccc81e30afb24bb",
+    "lastmod": "2026-11-19"
   },
   "/gifts/for-coffee-lovers/": {
     "hash": "4813ef5fe4ecd119740fe58273336c5e5b80f7e1232892abad67ab183334b6ad",
@@ -476,8 +500,8 @@
     "lastmod": "2026-11-18"
   },
   "/gifts/for-the-home-cook/": {
-    "hash": "12a3a55b3cdce9daa55f2e1e82ee21130f1648fd960f678edb8e9e4e729d49c4",
-    "lastmod": "2026-11-18"
+    "hash": "23d47e776b5345ed2dabd1908e579cba7ce31c821dfd198f501259218c14ccba",
+    "lastmod": "2026-11-19"
   },
   "/gifts/for-the-home/": {
     "hash": "ebf86eb31dd8c253c77d3e942154c67682f0ee2229892e6cb05fff68cfad9beb",
@@ -488,24 +512,24 @@
     "lastmod": "2026-11-18"
   },
   "/gifts/tech-and-gadgets/": {
-    "hash": "f300fecf88bde2693c2aa9cdaa9188456f9e67629811e8ec86c814a8fc7e96a8",
-    "lastmod": "2026-11-18"
+    "hash": "f96a0594451b756dbb14c444d30186ed334d5d3325608f278b8e9125179d078b",
+    "lastmod": "2026-11-19"
   },
   "/how-we-check/": {
     "hash": "4f3c06baf546eb6239382d9f0ecfd6b27207ce19e5373c441a416e0e312b74f8",
     "lastmod": "2026-11-13"
   },
   "/kitchen/": {
-    "hash": "40c4e0c21220cf5167d9213d4be7ce0eb1ad19546706e8b4172dc4b327da7d7e",
-    "lastmod": "2026-11-13"
+    "hash": "b92e08fd882d604acd140a33d1694b4699d171f6c6c6fbafe07a784adfc1b383",
+    "lastmod": "2026-11-19"
   },
   "/kitchen/aeropress-original/": {
     "hash": "ba36feb50bcfd63c1bfb9c7eab465a97fa08a04486b42b2bcfae8545755d5784",
     "lastmod": "2026-11-18"
   },
   "/kitchen/allclad-d3-4112/": {
-    "hash": "59655350a7f299f1a4246b9deda03d979da1278f21b8ad596a84d8daa2ec2812",
-    "lastmod": "2026-11-18"
+    "hash": "c3201554195322957ba539b7cf7bd01c9483015cf7b5dbcf0b4c741d9d7a7805",
+    "lastmod": "2026-11-19"
   },
   "/kitchen/anova-precision-nano/": {
     "hash": "b704e5433692d887d45fee8dbe984a38324ab1e932d7f76487231da0e40e26d1",
@@ -544,8 +568,8 @@
     "lastmod": "2026-11-18"
   },
   "/kitchen/kitchenaid-artisan/": {
-    "hash": "fe054671b9a4632d8c7b2af37496e845f6291fc883b8f7073df1560a925da17e",
-    "lastmod": "2026-11-18"
+    "hash": "9364a70fec69aa57e007fb9aba73efdc23c387384c27a51946324f3cec1f8b25",
+    "lastmod": "2026-11-19"
   },
   "/kitchen/lecreuset-signature-5-5/": {
     "hash": "d4a71f94e457a477adc4c42e06d1ef22cf46e981ead1ca0e00c06967a013ebf9",
@@ -584,12 +608,12 @@
     "lastmod": "2026-11-18"
   },
   "/kitchen/zojirushi-ns-zcc10/": {
-    "hash": "3b3bdbd6079c3c7f5bac20bf6e2d574709ab5febbf7fddf74421637ef17f1527",
-    "lastmod": "2026-11-18"
+    "hash": "9dc46eec89a12cd0a143b3bde4254462de7e702422e310164e08ad22edc6165a",
+    "lastmod": "2026-11-19"
   },
   "/personal-tech/": {
-    "hash": "130e4e4fba292b01eafa80be8d64c72f9078830f24dad50d1b3b22c5dff0bb3e",
-    "lastmod": "2026-11-13"
+    "hash": "f14d1259a39e7fc31f2ee321696b10b599a408af73ed5081d686a04f41f0dcad",
+    "lastmod": "2026-11-19"
   },
   "/personal-tech/airpods-pro-3/": {
     "hash": "a6d93f34789e9941ac359eb7c82946bb7fcc056f7a6feb85c05e271f62c1d3be",
@@ -648,8 +672,8 @@
     "lastmod": "2026-11-18"
   },
   "/personal-tech/sony-wh-1000xm5/": {
-    "hash": "38e50cb39e5d2c03897ef66fed3c4460f758465f0e65d7fb30c62407f1d617ca",
-    "lastmod": "2026-11-18"
+    "hash": "94866d51749072c71ab3f6545ec412ac6c93fd03c91ae80803cf6865ea63ca21",
+    "lastmod": "2026-11-19"
   },
   "/personal-tech/theragun-prime/": {
     "hash": "a9b08a588d9a6630c806b4aeae5badab1c50d066b290c85f349a727f4d2be173",
@@ -768,8 +792,8 @@
     "lastmod": "2026-11-18"
   },
   "/recalls/space-heater-recalls/": {
-    "hash": "7acf9245079603b64d6481a4411f01108c66dbf9d29faacf919abad1538188ae",
-    "lastmod": "2026-11-18"
+    "hash": "3cd8c52f024c40e010782e2e8c8243cd1c7ffa44a24166ce5901eca59ace1467",
+    "lastmod": "2026-11-19"
   },
   "/recalls/toro-power-clear-snowblowers/": {
     "hash": "720df7496ed56d04882c6186acecd9624fb35ff24af526e9fc75cf7548a262ea",
@@ -780,8 +804,8 @@
     "lastmod": "2026-11-18"
   },
   "/sleep/": {
-    "hash": "1b299d9dceeaf3e52b0a87b8a6e54784ae1b4b9158b8de4765dce88cc27c68b2",
-    "lastmod": "2026-11-13"
+    "hash": "ef96be23d2deca667bc5c88d00159ed1daf08b7bb62d4346f6ab15c70ed79536",
+    "lastmod": "2026-11-19"
   },
   "/sleep/brooklinen-luxe-core/": {
     "hash": "234da97556ebaaff738d8a474949cecbff4d76f29476259a4bfad164fc0f1d34",
@@ -800,8 +824,8 @@
     "lastmod": "2026-11-18"
   },
   "/sleep/hatch-restore-3/": {
-    "hash": "669dc8daf4ed4b52aad2d8190a3d4c9ad6a1de7f092ada8a6a6842619da6d985",
-    "lastmod": "2026-11-18"
+    "hash": "98839d79784ca7d3c9fbb3e637eb7f7c739874cbb175bf6a733cc64edbd77b0b",
+    "lastmod": "2026-11-19"
   },
   "/sleep/helix-midnight/": {
     "hash": "be6f88a5044e2696b23a05a8622717f8b27ab96dd202a224e23f7c04f1a120bd",
@@ -900,12 +924,12 @@
     "lastmod": "2026-11-18"
   },
   "/winter-safety/space-heaters/": {
-    "hash": "a39913c1f0b0cc0870e658c2e6aac39814940c170c09b115920d6fd3469b54b0",
-    "lastmod": "2026-11-18"
+    "hash": "aef3195a33d12dbf5f0ff30716283861f750e1945ff704670730acbcc50829b8",
+    "lastmod": "2026-11-19"
   },
   "/winter/": {
-    "hash": "136d34d051abb92ccdc6f6486a07566a4439a3df14475e49c024fecfb6ae52db",
-    "lastmod": "2026-11-13"
+    "hash": "9559a6207e0546cdf8e60a027abf26da7ed95582dfe8cf807d68855af6845c22",
+    "lastmod": "2026-11-19"
   },
   "/winter/delonghi-trd40615e/": {
     "hash": "d6557a711a7f68f1443a7d3a2bb030212bc2797c935c125b312c263cecd750d1",
@@ -936,8 +960,8 @@
     "lastmod": "2026-11-18"
   },
   "/winter/mr-heater-mh9bx/": {
-    "hash": "6fac3e5a63ee4cc9b50fc35dab839df507d1ef3f165f08390d5b7c4757650106",
-    "lastmod": "2026-11-18"
+    "hash": "5a7a9ba04242db0760101558ed0bebf3270659414f0c20c9444d7ddeca3c14e5",
+    "lastmod": "2026-11-19"
   },
   "/winter/peet-original/": {
     "hash": "b3a7e698f6d3939e5effe7ef0b981b657d9a4f4da206cdeb80a4b816147391bd",
@@ -976,15 +1000,15 @@
     "lastmod": "2026-11-18"
   },
   "/worth-it/sony-wh-1000xm5/": {
-    "hash": "f70f501c189a77d50652247a2a50bca817794fa8c643eb0ef93af036a9f89bd0",
-    "lastmod": "2026-11-18"
+    "hash": "d8f881b88fb0ec8cd0a4f4486c987d0142f98fc25ab43b67d6c8abaaae7548eb",
+    "lastmod": "2026-11-19"
   },
   "/worth-it/vitamix-e310/": {
     "hash": "a08f17e14df308403c0f5a9e213a96878097f183f863092bacd783adf75f97cc",
     "lastmod": "2026-11-18"
   },
   "/worth-it/zojirushi-ns-zcc10/": {
-    "hash": "1033fccbb9c9d5c1ce7f98ac53bbb7635a551ad5daa629e0e5e859658eccc612",
-    "lastmod": "2026-11-18"
+    "hash": "9f921e0bec0530655a9ebc7ac6bb994efe265afdec9f46c743f71e72320dd3f5",
+    "lastmod": "2026-11-19"
   }
 }

@@ -301,10 +301,12 @@
     return false;
   }
 
-  function specRank(label) {
-    var order = ["battery", "run time", "runtime", "suction", "capacity", "motor", "heat output", "cadr", "room coverage", "peak current", "speeds", "container", "containers", "bowl", "functions", "modes", "programs", "power", "rated power", "noise cancelling", "weight", "filtration", "bin volume", "tank"];
+  function specRank(label, value) {
+    var text = String(label || "") + " " + String(value || "");
+    if (/\b\d-ply\b/i.test(text)) return 1;
+    var order = ["battery", "run time", "runtime", "suction", "capacity", "motor", "heat output", "heat", "cadr", "room coverage", "peak current", "speeds", "container", "containers", "bowl", "functions", "modes", "programs", "power", "rated power", "noise cancelling", "weight", "filtration", "bin volume", "tank"];
     var index = order.indexOf(String(label || "").toLowerCase());
-    if (index >= 0) return index;
+    if (index >= 0) return index + 2;
     if (/dimension|warranty|voltage|power supply|enclosure|cleanup|connection|charge time|safety/.test(String(label || "").toLowerCase())) return 80;
     return 40;
   }
@@ -442,11 +444,25 @@
     return v.trim();
   }
 
+  function btuTile(value) {
+    if (!/btu/i.test(value)) return "";
+    var nums = String(value).match(/\d{1,3}(?:,\d{3})+/g);
+    if (!nums || !nums.length) return "";
+    if (nums.length === 1) return nums[0] + " BTU";
+    return nums[0] + "\u2013" + nums[nums.length - 1] + " BTU";
+  }
+
   function factBit(spec) {
     var label = String(spec.label || "").replace(/\s+/g, " ").trim();
     var value = String(spec.value || "").replace(/\s+/g, " ").trim();
     var ll = label.toLowerCase();
     if (/%/.test(value)) return "";
+    if (/unit not named/i.test(value)) return "";
+    if (/^(weight|dimensions?)$/.test(ll) && !/\b(oz|lb|lbs|kg|g|mm|cm|in|inch|inches|ft|feet)\b/i.test(value)) return "";
+    var btu = btuTile(value);
+    if (btu && (/^heat\b/.test(ll) || /btu/i.test(ll) || /btu/i.test(value))) return btu;
+    if (ll === "settings" && value.length <= 42) return value;
+    if (ll === "noise cancelling" && value.length <= 48) return value;
     if (/^(functions|modes|programs)$/.test(ll)) {
       var parts = value.split(/,\s+/).map(function (part) {
         return part.replace(/^and\s+/i, "").trim();
@@ -455,6 +471,7 @@
     }
     var first = tidyMeasure(value.split(/;\s+|,\s+/)[0]);
     if (!first || first.length > 42) return "";
+    if (/\d-ply\b/i.test(first)) return first;
     if (/^\d+(?:\.\d+)?$/.test(first) && ll && ll.length <= 22) return first + " " + ll;
     if (/^(weight|capacity|power|peak current|suction|cadr)$/.test(ll)) return first;
     if (ll === "battery" || ll === "run time" || ll === "runtime") {
@@ -472,7 +489,7 @@
     var specs = ((product && product.specs) || []).filter(function (spec) {
       return spec && spec.label && spec.value && !isIdSpec(spec, product) &&
         !/\$\d|\bscore\b|\bwinner\b|\bbest overall\b|\bstar rating\b/i.test(String(spec.label) + " " + String(spec.value));
-    }).sort(function (a, b) { return specRank(a.label) - specRank(b.label); });
+    }).sort(function (a, b) { return specRank(a.label, a.value) - specRank(b.label, b.value); });
     var out = [];
     for (var i = 0; i < specs.length && out.length < 3; i++) {
       var bit = factBit(specs[i]);
