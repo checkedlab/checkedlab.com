@@ -212,6 +212,16 @@ const SOCIAL_PHRASE_BAN = "not a verdict|catalogue check|stay(?:s)? off (?:this|
 const SOCIAL_COPY_BAN = new RegExp(COPY_BAN.source + "|" + SOCIAL_PHRASE_BAN, "i");
 /* Site HTML uses the same slide phrases. "maker specs" in a sentence stays, because gift and hub lines already say it. The all-caps eyebrow does not. */
 const SITE_ROBOTIC_BAN = /side by side, not a verdict|read the source lines yourself|read the cadr lines carefully|same brand, different lines|same job, different lines|catalogue check|stay(?:s)? off (?:this|the) table|each cell is copied|these are maker page lines|recall lines use the \d{4}-\d{2}-\d{2} \(utc\) cpsc and health canada catalogue check/i;
+/* The six long model-vs-model pages. Older pages still use some of these words. */
+const LONG_COMPARE_SLUGS = [
+  "dyson-v8-vs-dyson-v10",
+  "sony-wh-1000xm5-vs-xm6",
+  "kitchenaid-artisan-vs-classic",
+  "allclad-d3-vs-d5",
+  "zojirushi-vs-tiger-rice-cooker",
+  "mr-heater-buddy-vs-big-buddy"
+];
+const LONG_COMPARE_BAN = /a figure only one maker prints|those sentences are the catalogue match|recall check has not been recorded|\bnot a verdict\b|stays? off (?:this|the) table|\bmaker specs\b|\bcatalogue\b|\bunit not named\b/i;
 const SITE_EYEBROW_BAN = /MAKER SPECS/;
 const READER_VOICE_BAN = /worth matching|in this catalogue|in this catalog|check the model|to match on|on a listing/i;
 const READER_WORDING_BAN = /\bworth matching\b|Pick it for:|The maker lines|\bmaker lines\b/i;
@@ -321,6 +331,14 @@ function assertAllPageVoice() {
       const at = Math.max(0, robotic.index - 40);
       const snippet = html.slice(at, robotic.index + robotic[0].length + 40).replace(/\s+/g, " ").trim();
       throw new Error("Robotic phrase ban on " + where + ": " + robotic[0] + " near “" + snippet + "”");
+    }
+    if (LONG_COMPARE_SLUGS.some((slug) => where.includes("/compare/" + slug + "/"))) {
+      const shopper = html.match(LONG_COMPARE_BAN);
+      if (shopper) {
+        const at = Math.max(0, shopper.index - 40);
+        const snippet = html.slice(at, shopper.index + shopper[0].length + 40).replace(/\s+/g, " ").trim();
+        throw new Error("Compare phrase ban on " + where + ": " + shopper[0] + " near “" + snippet + "”");
+      }
     }
   }
 }
@@ -1553,7 +1571,9 @@ function resolveCompareSide(entry, id) {
   if (!base) throw new Error("Compare is missing " + id);
   const adds = (entry.specAdds && entry.specAdds[id]) || [];
   const addLabels = new Set(adds.map((spec) => spec.label));
-  const specs = [...(base.specs || []).filter((spec) => spec && !addLabels.has(spec.label)), ...adds];
+  const omit = new Set(entry.omitSpecs || []);
+  const specs = [...(base.specs || []).filter((spec) => spec && !addLabels.has(spec.label)), ...adds]
+    .filter((spec) => spec && spec.label && !omit.has(spec.label));
   return { ...base, specs, catalog: Boolean(catalog) };
 }
 
@@ -1739,6 +1759,25 @@ function compareBodyWordsText(entry) {
   return chunks.join(" ");
 }
 
+function shopperRecallHtml(pair) {
+  const lines = pair.map((product) => {
+    const bits = [];
+    const keep = (rec, place) => {
+      if (rec.status === "bin" || (rec.status === "none" && rec.checkedAt)) bits.push(recallSentence(rec, place));
+    };
+    keep(card.recallFor(product, "US"), "US");
+    keep(card.recallFor(product, "CA"), "Canadian");
+    const name = product.catalog
+      ? sideAnchor(product)
+      : (product.sourceUrl
+        ? '<a href="' + card.esc(product.sourceUrl) + '" target="_blank" rel="noopener">' + card.esc(product.title) + "</a>"
+        : card.esc(product.title));
+    return "<p>" + name + (bits.length ? ". " + card.esc(bits.join(" ")) : "") + "</p>";
+  }).join("");
+  return lines +
+    '<p>Check the model number on <a href="' + CPSC_SEARCH + '" target="_blank" rel="noopener">CPSC (US)</a> and <a href="' + HC_SEARCH + '" target="_blank" rel="noopener">Health Canada (CA)</a> recalls before buying.</p>';
+}
+
 function writeCompares() {
   if (compares.length !== 41) throw new Error("Expected forty-one compare pages");
   for (const entry of compares) {
@@ -1756,12 +1795,14 @@ function writeCompares() {
     const body = rows.map((row) =>
       "<tr><th>" + card.esc(row.label) + "</th><td>" + specCell(row.left) + "</td><td>" + specCell(row.right) + "</td></tr>"
     ).join("");
-    const recallsHtml = pair.map((product) => {
-      const us = recallSentence(card.recallFor(product, "US"), "US");
-      const ca = recallSentence(card.recallFor(product, "CA"), "Canadian");
-      return "<p>" + sideAnchor(product) + ". " + card.esc(us) + " " + card.esc(ca) + "</p>";
-    }).join("") +
-      '<p>Those sentences are the catalogue match dated ' + card.esc(recalls.checkedAt) + ' (UTC), from the <a href="' + CPSC_SEARCH + '" target="_blank" rel="noopener">CPSC Recalls</a> search and the <a href="' + HC_SEARCH + '" target="_blank" rel="noopener">Health Canada recalls and safety alerts</a> search. Open the model page for the feed link.</p>';
+    const recallsHtml = entry.answer
+      ? shopperRecallHtml(pair)
+      : pair.map((product) => {
+        const us = recallSentence(card.recallFor(product, "US"), "US");
+        const ca = recallSentence(card.recallFor(product, "CA"), "Canadian");
+        return "<p>" + sideAnchor(product) + ". " + card.esc(us) + " " + card.esc(ca) + "</p>";
+      }).join("") +
+        '<p>Those sentences are the catalogue match dated ' + card.esc(recalls.checkedAt) + ' (UTC), from the <a href="' + CPSC_SEARCH + '" target="_blank" rel="noopener">CPSC Recalls</a> search and the <a href="' + HC_SEARCH + '" target="_blank" rel="noopener">Health Canada recalls and safety alerts</a> search. Open the model page for the feed link.</p>';
     const stores = (region, heading) => "<h2>" + heading + "</h2>" + pair.map((product) =>
       "<h3>" + card.esc(product.model || product.title) + "</h3>" + card.storeButtons(product, region)
     ).join("");
@@ -1848,7 +1889,7 @@ ${entry.verdict ? verdictBlock(entry, pair) + "\n" : ""}<div class="compare-wrap
 </div>
 ${entry.verdict ? "" : pickPair(entry, pair)}
 <nav class="toc" aria-label="Jump to"><p>Jump to</p><a href="#how-to-read">How to read this</a>${entry.faqs ? '<a href="#questions">Questions</a>' : ""}<a href="#recall-check">Recall check</a><a href="#stores">Stores</a></nav>
-${productFold("how-to-read", "How to read this", (entry.answer ? "" : '<p class="lede">' + card.esc(entry.description) + "</p>") + (entry.answer ? "<p>The table keeps a row only when both makers print that label. The Source link opens the sentence the number came from. A figure only one maker prints sits under this fold. The recall line is the CPSC and Health Canada check dated " + card.esc(recalls.checkedAt) + " (UTC).</p>" : "<p>Each line below is copied from that model’s maker page. The Source link opens that page. A spec that only one card lists is left out of the table. The recall line is the CPSC and Health Canada check dated " + card.esc(recalls.checkedAt) + " (UTC).</p>") + fit + (sections ? "\n" + sections : "") + (entry.verdict ? unmatchedSpecHtml(pair, rows) : "") + compareSources(pair, entry) + (relatedHtml ? "\n" + relatedHtml : ""))}
+${productFold("how-to-read", "How to read this", (entry.answer ? "" : '<p class="lede">' + card.esc(entry.description) + "</p>") + (entry.answer ? "<p>A row is shown when both makers print that label. Source opens the sentence the figure came from. Details only one of them prints are listed under that name below.</p><p>Check the model number on <a href=\"" + CPSC_SEARCH + "\" target=\"_blank\" rel=\"noopener\">CPSC (US)</a> and <a href=\"" + HC_SEARCH + "\" target=\"_blank\" rel=\"noopener\">Health Canada (CA)</a> recalls before buying.</p>" : "<p>Each line below is copied from that model’s maker page. The Source link opens that page. A spec that only one card lists is left out of the table. The recall line is the CPSC and Health Canada check dated " + card.esc(recalls.checkedAt) + " (UTC).</p>") + fit + (sections ? "\n" + sections : "") + (entry.verdict ? unmatchedSpecHtml(pair, rows) : "") + compareSources(pair, entry) + (relatedHtml ? "\n" + relatedHtml : ""))}
 ${entry.faqs ? compareFaqs(entry) + "\n" : ""}${productFold("recall-check", "Recall check", recallsHtml + '<p class="lede"><a href="/compare/">All comparisons</a> ' + (entry.verdict ? '<a href="/black-friday/">Black Friday</a> ' : "") + '<a href="/recalls/">All recall checks</a> <a href="/' + entry.hub + '/">' + card.esc(HUB_NAME[entry.hub]) + '</a> <a href="/how-we-check/">How we check</a> ' + pair.map(sideAnchor).join(" ") + (crossHtml ? " " + crossHtml : "") + "</p>")}
 ${productFold("stores", "Stores", stores("US", "United States stores") + stores("CA", "Canadian stores"))}
 </div>

@@ -935,6 +935,19 @@ body[data-page="product"] .p-photo {
     height: auto;
     min-height: 132px;
   }
+  .compare-who:has(.p-photo) {
+    height: auto;
+    min-height: 132px;
+  }
+  .compare-who .p-photo {
+    width: 100%;
+    height: 168px;
+    min-height: 168px;
+    aspect-ratio: auto;
+    object-fit: contain;
+    object-position: center;
+    background: var(--slot);
+  }
   .compare-who .img-credit {
     white-space: nowrap;
     overflow: hidden;

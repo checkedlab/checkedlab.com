@@ -1880,9 +1880,9 @@
         },
         {
           "label": "Noise cancelling",
-          "value": "QN1 processor, named on the XM6 product notes",
+          "value": "QN1 processor, 8 microphones",
           "source": "Sony",
-          "url": "https://electronics.sony.com/audio/headphones/headband/p/wh1000xm6-b"
+          "url": "https://electronics.sony.com/audio/headphones/headband/p/wh1000xm5-b"
         },
         {
           "label": "Bluetooth",
@@ -1986,7 +1986,7 @@
       {
         "heading": "The processor, the codecs, and a driver line to read twice",
         "paragraphs": [
-          "Sony’s XM6 product page says the HD Noise Canceling Processor QN3 is 7 times faster than the QN1 in the WH-1000XM5, and that it optimizes 12 microphones in real time. The same page says an Adaptive NC Optimizer adjusts to outside noise, air pressure, and how you wear the headphones, including with a hat or glasses. The XM5 specifications page does not print a microphone count. The 12-microphone sentence and the QN1 comparison live on the XM6 page.",
+          "Sony’s XM5 product page says two processors control 8 microphones, and names the HD Noise Canceling Processor QN1. Sony’s XM6 product page says the QN3 processor is 7 times faster than the QN1 in the WH-1000XM5, and that it optimizes 12 microphones in real time. The same page says an Adaptive NC Optimizer adjusts to outside noise, air pressure, and how you wear the headphones, including with a hat or glasses. The 12-microphone sentence lives on the XM6 page.",
           "Bluetooth is version 5.2 on the XM5 spec page and version 5.3 on the XM6 spec page. Codecs are SBC, AAC, and LDAC for the XM5. The XM6 list adds LC3. Frequency response on the XM6 page is 4–40,000 Hz (JEITA) for both the general line and active operation. The XM5 page says 4 Hz–40,000 Hz (JEITA). Effective range is about 32.81 ft on the XM6 page and 32.81 ft on the XM5 page.",
           "Do not treat the driver line as a clean size comparison. The XM5 specifications page prints a driver unit of 11.82 in. The XM6 specifications page prints 1.18 in. Those two official lines are not a sensible pair of measurements for the same kind of driver, so this table leaves driver size out. Impedance is the same shape on both lists: 48 ohm at 1 kHz with the cable and the unit on, and 16 ohm at 1 kHz with the unit off. Sensitivity is 102 dB and 100 dB on the XM5 list, and 103 dB/mW and 102 dB/mW on the XM6 list, each with the unit on and then off."
         ]
@@ -2010,7 +2010,7 @@
       },
       {
         "q": "What is the noise-cancelling difference Sony states?",
-        "a": "The XM6 product page says the QN3 processor is 7 times faster than the QN1 in the WH-1000XM5 and that it optimizes 12 microphones. The XM5 specifications page does not print a microphone count."
+        "a": "Sony’s XM5 product page says the QN1 processor and 8 microphones. The XM6 product page says the QN3 processor is 7 times faster than that QN1 and that it optimizes 12 microphones."
       },
       {
         "q": "Do both charge in the same time?",
@@ -2256,11 +2256,15 @@
     "slug": "allclad-d3-vs-d5",
     "title": "All-Clad D3 vs D5: which to buy",
     "linkLabel": "D3 and D5 specs",
-    "description": "Both are 12-inch stainless fry pans, oven safe to 600 F, with a limited lifetime warranty. The D3 is 3-ply. The D5 is 5-ply.",
+    "description": "Both are 12-inch stainless fry pans, oven safe to 600 F. The D3 is 3-ply with fast heat-up. The D5 is 5-ply, All-Clad’s premier range.",
     "hub": "kitchen",
     "products": [
       "allclad-d3-4112",
       "allclad-d5-sd55112"
+    ],
+    "omitSpecs": [
+      "Dimensions",
+      "Weight"
     ],
     "related": [
       "kitchenaid-artisan-vs-classic",
@@ -2268,26 +2272,26 @@
     ],
     "answer": [
       "Both are 12-inch stainless fry pans that All-Clad rates for the oven and broiler up to 600 F, on any stovetop including induction, with a limited lifetime warranty and hand washing.",
-      "The D3, model 4112, is the 3-ply pan. The D5, model SD55112, is the 5-ply pan.",
-      "Choose the D3 for the 3-ply construction. Choose the D5 if you want the extra ply All-Clad calls its premier stainless line."
+      "The D3, model 4112, is 3-ply. All-Clad describes fast heat-up and even heating from tri-ply bonding to the rim.",
+      "The D5, model SD55112, is 5-ply. All-Clad calls it the premier range, at a higher price, with heat that spreads more evenly and slowly."
     ],
     "verdict": [
       {
         "id": "allclad-d3-4112",
         "heading": "Choose the D3 if",
         "bullets": [
-          "You want the 3-ply 12-inch fry pan, model 4112.",
-          "You want the spec-table weight that prints as 3, with no unit named.",
-          "You want the dimension line 20.1 x 12.5 x 4.4 inches."
+          "You want the 3-ply fry pan, model 4112.",
+          "You want fast heat-up and even heating from tri-ply bonding to the rim.",
+          "You want the lower price All-Clad lists for this 12-inch pan."
         ]
       },
       {
         "id": "allclad-d5-sd55112",
         "heading": "Choose the D5 if",
         "bullets": [
-          "You want the 5-ply 12-inch fry pan, model SD55112.",
-          "You want the polished pan All-Clad describes as its premier stainless line.",
-          "You can live with a dimension line that prints 15.0 x 8.6 x 2.9 inches on a pan titled 12 inch."
+          "You want the 5-ply fry pan, model SD55112.",
+          "You want supremely even heating from the extra layers, with fewer hot spots.",
+          "You want the pan All-Clad calls its premier range."
         ]
       }
     ],
@@ -2326,12 +2330,6 @@
         {
           "label": "Made in",
           "value": "USA with global components",
-          "source": "All-Clad",
-          "url": "https://www.all-clad.com/d3-stainless-3-ply-bonded-cookware-fry-pan-12-inch.html"
-        },
-        {
-          "label": "Weight",
-          "value": "3.000000, unit not named",
           "source": "All-Clad",
           "url": "https://www.all-clad.com/d3-stainless-3-ply-bonded-cookware-fry-pan-12-inch.html"
         }
@@ -2400,19 +2398,13 @@
             "value": "USA with global components",
             "source": "All-Clad",
             "url": "https://www.all-clad.com/d5-stainless-polished-5-ply-bonded-cookware-fry-pan-12-inch.html"
-          },
-          {
-            "label": "Weight",
-            "value": "4.000000, unit not named",
-            "source": "All-Clad",
-            "url": "https://www.all-clad.com/d5-stainless-polished-5-ply-bonded-cookware-fry-pan-12-inch.html"
           }
         ]
       }
     ],
     "fit": [
       "All-Clad’s D3 12-inch fry pan is model 4112. The D5 12-inch polished fry pan is model SD55112. Both pages say stainless steel, a polished finish, oven and broiler safe up to 600 F, any stovetop including induction, hand washing, and a limited lifetime warranty.",
-      "Construction is the split. The D3 page says tri-ply construction that combines five metal layers into three functional layers. The D5 page says 5-ply bonded construction. The spec tables print Weight 3.000000 for the D3 and 4.000000 for the D5, and neither line names a unit."
+      "Construction is the split. The D3 page says tri-ply construction that combines five metal layers into three functional layers, for fast heat-up and even heating. The D5 page says 5-ply bonded construction, and calls D5 the premier range for supremely even heating. All-Clad lists the D5 12-inch fry pan at a higher price than the D3."
     ],
     "sections": [
       {
@@ -2424,17 +2416,17 @@
         ]
       },
       {
-        "heading": "The dimension lines do not describe the same footprint",
+        "heading": "Heat, the premier range, and two lines to ignore",
         "paragraphs": [
-          "The D3 12-inch spec table prints Dimensions 20.1 x 12.5 x 4.4 inches. That is the line on the D3 spec table. The D5 12-inch spec table prints Dimensions 15.0 x 8.6 x 2.9 inches. A pan whose title says 12 inch and whose dimension line says 8.6 inches across is not a line to trust without measuring. This table leaves dimensions off the shared rows for that reason. The D3 figure stays with the D3 notes under the fold.",
-          "Weight has a similar problem of a missing unit. The D3 table prints 3.000000. The D5 table prints 4.000000. All-Clad does not write lb, kg, or ounces next to those numbers on the pages opened here. A higher printed number is the D5 line. It is not, by itself, a finished weight you can put on a shelf drawing.",
-          "Both pages were in stock when opened. That can change. Match model 4112 or SD55112 on the box, then match 3-ply or 5-ply in the description. UPC on the D3 page is 011644502201. UPC on the D5 page is 011644010089."
+          "All-Clad’s D3 cooking notes say tri-ply bonding all the way to the rim gives fast heat-up and even heating. The aluminum in the core is there for heat conductivity, and the stainless layers are there for durability. The D5 notes go further. Patented five-ply bonding to the rim is described as supremely even heating, with fewer hot spots. A question on the D5 page says the stainless and aluminum layers distribute heat more evenly and slowly. All-Clad calls D5 its premier range for that even heating, thanks to the extra layers.",
+          "Price follows the same split. On the day these pages were opened, the D3 12-inch fry pan was the lower price and the D5 12-inch fry pan was the higher price. All-Clad can change either number. The tier is the one on the two product pages, with D5 named as the premier range. Care, oven temperature, and induction are not a reason to pick one. Both say oven and broiler safe up to 600 F, any stovetop including induction, and hand washing.",
+          "Two printed fields are poor reasons to choose. The D3 spec table prints Dimensions 20.1 x 12.5 x 4.4 inches. The D5 spec table prints Dimensions 15.0 x 8.6 x 2.9 inches on a pan titled 12 inch. Those lines do not describe the same footprint. The weight fields print 3.000000 on the D3 and 4.000000 on the D5, and neither line names pounds or kilograms. Use the ply, the heat sentences, and the price instead. Both pages were in stock when opened. That can change. Match model 4112 or SD55112 on the box. UPC on the D3 page is 011644502201. UPC on the D5 page is 011644010089."
         ]
       },
       {
         "heading": "How to choose, then what to confirm",
         "paragraphs": [
-          "Pick the D3 if you want model 4112, the 3-ply sentence, the 20.1 x 12.5 x 4.4 inch dimension line, and the weight number 3.000000. Pick the D5 if you want model SD55112, the 5-ply sentence, and the weight number 4.000000, and you have decided what to do about the 15.0 x 8.6 x 2.9 inch line on a 12-inch title.",
+          "Pick the D3 if you want model 4112, the 3-ply construction, and the fast heat-up All-Clad describes, at the lower of the two prices. Pick the D5 if you want model SD55112, the 5-ply construction, the slower even heat, and the premier range.",
           "Care is not a reason to pick one. Both tell you to preheat on low to moderate heat, dry food before it goes in, and let stainless release before you turn it. Both warn that salt in a cold pan can pit the inside, and that a hot pan should not go under cold water. The limited lifetime warranty covers All-Clad cookware on both pages. Read that warranty text on the pan you order. The D3 model page is the 12-inch fry pan already listed here, not a saucepan and not an 8-inch skillet."
         ]
       }
@@ -2453,12 +2445,12 @@
         "a": "Yes. Both pages say the pan is compatible with any stovetop, including induction."
       },
       {
-        "q": "Why are the dimension lines not in the table?",
-        "a": "The D3 12-inch page prints 20.1 x 12.5 x 4.4 inches. The D5 12-inch page prints 15.0 x 8.6 x 2.9 inches. Those official lines do not describe the same footprint, so they are not set side by side as if they were."
+        "q": "Why do the dimension lines look different?",
+        "a": "The D3 12-inch page prints 20.1 x 12.5 x 4.4 inches. The D5 12-inch page prints 15.0 x 8.6 x 2.9 inches. A 12-inch title with an 8.6-inch dimension line needs a tape measure. Those lines are not a reason to pick one pan."
       },
       {
         "q": "What models and warranties are these?",
-        "a": "D3 is model 4112. D5 is model SD55112. Both pages say a limited lifetime warranty, hand washing, and a polished stainless finish. The weight lines print 3.000000 and 4.000000 with no unit named."
+        "a": "D3 is model 4112. D5 is model SD55112. Both pages say a limited lifetime warranty, hand washing, and a polished stainless finish. All-Clad calls D5 its premier range and lists it at the higher price."
       }
     ],
     "sources": [
@@ -2660,6 +2652,9 @@
       "mr-heater-mh9bx",
       "mr-heater-mh18b"
     ],
+    "omitSpecs": [
+      "Weight"
+    ],
     "related": [
       "zojirushi-vs-tiger-rice-cooker",
       "dyson-v8-vs-dyson-v10"
@@ -2676,7 +2671,7 @@
         "bullets": [
           "You want 4,000 or 9,000 BTU and up to 225 sq ft.",
           "You want one 1 lb cylinder and a 3-hour run at the maximum setting.",
-          "You want the smaller heater, with a spec-table weight of 10.6 and no unit named."
+          "You want hi and low on the heater marked indoor safe, with the Massachusetts and Canada limits."
         ]
       },
       {
@@ -2730,12 +2725,6 @@
         {
           "label": "Indoor",
           "value": "Yes. Restricted in Massachusetts and Canada",
-          "source": "Mr. Heater",
-          "url": "https://mrheater.com/products/portable-buddy-heater"
-        },
-        {
-          "label": "Weight",
-          "value": "10.6, unit not named",
           "source": "Mr. Heater",
           "url": "https://mrheater.com/products/portable-buddy-heater"
         },
@@ -2820,12 +2809,6 @@
           {
             "label": "Indoor",
             "value": "Yes on this listing. Restricted in Massachusetts and Canada",
-            "source": "Mr. Heater",
-            "url": "https://mrheater.com/products/big-buddy-portable-heater-nf"
-          },
-          {
-            "label": "Weight",
-            "value": "17.1, unit not named",
             "source": "Mr. Heater",
             "url": "https://mrheater.com/products/big-buddy-portable-heater-nf"
           },
