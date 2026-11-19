@@ -1406,6 +1406,23 @@ function explainerJsonLd(entry) {
   return JSON.stringify(graph, null, 2).replace(/</g, "\\u003c");
 }
 
+function affectedHtml(entry) {
+  if (!Array.isArray(entry.check) || !entry.check.length) return "";
+  const items = entry.check.map((item) => {
+    if (!item || !item.label || !item.text) throw new Error("Check block needs a label and text: " + entry.slug);
+    assertReaderVoice(item.label + " " + item.text, entry.slug + " check");
+    const links = Array.isArray(item.links) ? item.links : [];
+    const anchors = links.map((link) => {
+      if (!link || !/^https:\/\/(www\.cpsc\.gov|recalls-rappels\.canada\.ca)\//.test(link.url || "")) {
+        throw new Error("Check link must be a CPSC or Health Canada notice: " + entry.slug);
+      }
+      return '<a href="' + href(link.url) + '" target="_blank" rel="noopener">' + card.esc(link.label || "Official notice") + "</a>";
+    }).join(" ");
+    return "<li><strong>" + card.esc(item.label) + ".</strong> " + card.esc(item.text) + (anchors ? " " + anchors : "") + "</li>";
+  }).join("");
+  return '<section id="is-mine-affected"><h2>Is mine affected?</h2><ul class="evidence checklist">' + items + "</ul></section>";
+}
+
 function noticeHtml(notice) {
   if (!notice.url || !/^https:\/\//.test(notice.url)) throw new Error("Explainer notice needs an https URL");
   if (!Array.isArray(notice.models) || !notice.models.length) throw new Error("Explainer notice needs model text");
@@ -1425,6 +1442,7 @@ function catalogueHtml(entry) {
     const product = products.find((item) => item.id === id);
     if (!product) throw new Error("Explainer is missing catalogue id " + id);
     const opts = index === 0 ? { eager: true } : {};
+    if (entry.tiles) opts.tileUnlessExact = true;
     if (voice) opts.pick = buyerReason(product.id);
     return card.card(product, "US", opts);
   }).join("\n");
@@ -2990,7 +3008,7 @@ function roundupTable(entry) {
 }
 
 function writeExplainers() {
-  if (explainers.length !== 10) throw new Error("Expected ten explainer pages");
+  if (explainers.length !== 11) throw new Error("Expected eleven explainer pages");
   const slugs = new Set();
   for (const entry of explainers) {
     if (!/^[a-z0-9-]+$/.test(entry.slug) || slugs.has(entry.slug)) throw new Error("Bad explainer slug");
@@ -2998,6 +3016,7 @@ function writeExplainers() {
     if (entry.roundup && entry.notices.length < 2) throw new Error("Roundup has fewer than two notices: " + entry.slug);
     assertHeadline(entry.title, entry.description, "recalls/" + entry.slug, VOICE_PAGES.has("recalls/" + entry.slug));
     const url = ORIGIN + "/recalls/" + entry.slug + "/";
+    const lead = [affectedHtml(entry), entry.roundup ? roundupTable(entry) : ""].filter(Boolean).join("\n");
     const html = `<!DOCTYPE html>
 <html lang="en" data-region="US">
 <head>
@@ -3051,8 +3070,7 @@ ${sceneBlock("recalls")}
 </nav>
 <h1>${card.esc(entry.title)}</h1>
 <p class="sub">${card.esc(entry.description.split(/(?<=\.)\s/)[0])}</p>
-${entry.roundup ? roundupTable(entry) : ""}
-${catalogueHtml(entry)}
+${lead ? lead + "\n" : "\n"}${catalogueHtml(entry)}
 ${productFold("official-notices", "What the notices say", '<p class="lede">' + card.esc(entry.description) + " Catalogue lines below use the " + card.esc(recalls.checkedAt) + " (UTC) check.</p>" + entry.notices.map(noticeHtml).join("\n"))}
 </div>
 </main>
@@ -4256,7 +4274,7 @@ function winterHubHtml() {
   const main = sceneBlock("winter-safety") + winterCrumbs() +
     "<h1>" + card.esc(winterDoc.h1) + "</h1>" +
     '<p class="lede">' + card.esc(winterDoc.description) + "</p>" +
-    '<p>Read the label, then search the model on <a href="' + CPSC_SEARCH + '" target="_blank" rel="noopener">CPSC Recalls</a> or <a href="' + HC_SEARCH + '" target="_blank" rel="noopener">Health Canada recalls and safety alerts</a>. <a href="/how-we-check/">How we check</a> says what a dated catalogue line means. <a href="/winter/">Winter</a> is the catalogue. <a href="/recalls/">Recall checks</a> lists every catalogue model. <a href="/thanksgiving/">Thanksgiving and holiday hosting</a> covers turkey fryers, pressure cookers, turkey temperatures, and kitchen fires.</p>' +
+    '<p>Read the label, then search the model on <a href="' + CPSC_SEARCH + '" target="_blank" rel="noopener">CPSC Recalls</a> or <a href="' + HC_SEARCH + '" target="_blank" rel="noopener">Health Canada recalls and safety alerts</a>. <a href="/how-we-check/">How we check</a> says what a dated catalogue line means. <a href="/winter/">Winter</a> is the catalogue. <a href="/recalls/">Recall checks</a> lists every catalogue model. <a href="/recalls/heated-blanket-recalls/">Heated blanket and throw recalls</a> lists the official notices. <a href="/thanksgiving/">Thanksgiving and holiday hosting</a> covers turkey fryers, pressure cookers, turkey temperatures, and kitchen fires.</p>' +
     list +
     winterFaqsHtml(faqs);
   const jsonLd = winterJsonLd(
