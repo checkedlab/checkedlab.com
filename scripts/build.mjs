@@ -167,6 +167,8 @@ const CPSC_SEARCH = "https://www.cpsc.gov/Recalls";
 const HC_SEARCH = "https://recalls-rappels.canada.ca/en";
 const WINTER_CHECK = "How we check describes the dated CPSC and Health Canada match on a catalogue card. The date is the day that match was recorded. These guides add the label lines to read and the official search to open, including for a model that is not on a card. A clear line on one card does not cover a different model number.";
 const GIFT_BAN = /\$\d|\bwe tested\b|\btested by us\b|\bwe bought\b|\bdoes not test\b|\bdid not test\b|\bnot tested\b|hands-on|lab-tested|lab tested|out of 5|star rating|review count|\bdiscount\b|\bstars?\b|\d+\s*%\s*off\b/i;
+/* A digit before %20 or %2C is a search URL, not a discount. A real percent is 20% or 20 %. */
+const PERCENT_CLAIM = /\d+\s*%(?![0-9A-Fa-f]{2})/;
 const BF_TITLE = "Black Friday and Cyber Monday 2026: what to check";
 const BF_H1 = "What to know before Black Friday and Cyber Monday 2026";
 const BF_DESC = "Before Black Friday or Cyber Monday 2026, confirm the model number and read the dated CPSC or Health Canada check.";
@@ -186,6 +188,74 @@ const COMMERCE = /^(offers|price|priceCurrency|lowPrice|highPrice|aggregateRatin
 const FONT_PRELOAD = '<link rel="preload" href="/assets/fonts/source-sans-3-latin.woff2" as="font" type="font/woff2" crossorigin fetchpriority="low">';
 const HOME_START = "<!-- checkedlab:recall-home start -->";
 const HOME_END = "<!-- checkedlab:recall-home end -->";
+const HOME_BF_START = "<!-- checkedlab:bf-home start -->";
+const HOME_BF_END = "<!-- checkedlab:bf-home end -->";
+/* Models that already have a Black Friday model page or a compare page. Who-lines are rewritten from each product's pick and specs. */
+const BF_SHORTLIST = [
+  { id: "instant-pot-duo-plus", who: "A 6-quart cooker that pressure cooks, slow cooks, and has a rice setting." },
+  { id: "kitchenaid-artisan", who: "A tilt-head stand mixer with 10 speeds and a 5-quart bowl." },
+  { id: "ninja-creami-nc301", who: "Seven ice cream programs, with two 16 oz pints in the box." },
+  { id: "sony-wh-1000xm5", who: "Over-ear noise cancelling, with up to 30 hours of playback." },
+  { id: "airpods-pro-3", who: "Earbuds with noise cancelling, a Hearing Aid feature, and an IP57 rating." },
+  { id: "coway-ap-1512hh", who: "A purifier rated for 361 square feet at 4.8 air changes an hour." },
+  { id: "dyson-v15-detect", who: "A cordless vacuum with whole-machine HEPA filtration and up to 60 minutes of run time." },
+  { id: "litter-robot-4", who: "Up to 4 cats, and up to 8 days between drawer empties for one cat." }
+];
+const HOME_BF = [
+  { id: "instant-pot-duo-plus", who: "Pressure, slow cook, and rice in one 6-quart pot." },
+  { id: "sony-wh-1000xm5", who: "Up to 30 hours with noise cancelling on." },
+  { id: "coway-ap-1512hh", who: "Room coverage of 361 square feet at 4.8 air changes an hour." }
+];
+const REPLACE_LINKS = {
+  "lasko-heaters": {
+    text: "The notices name older Lasko heaters, including 5540, 5500, and 5700. CT32150 and CT14401 are not in those lists. CT32150 is the tall tower with a tip-over switch. CT14401 is 14 inches tall.",
+    links: [
+      ["/best/heaters/", "Heaters"],
+      ["/compare/lasko-ct32150-vs-ct14401/", "CT32150 and CT14401"],
+      ["/winter-safety/space-heaters/", "Space heaters"]
+    ]
+  },
+  "anker-power-banks": {
+    text: "The notices name specific banks, including A1263, A1642, A1647, and A1652. A1289, the 737 PowerCore 24K, is not one of those numbers. It is a 24,000 mAh bank with up to 140 W from USB-C.",
+    links: [
+      ["/personal-tech/anker-a1289/", "Anker 737 PowerCore 24K"],
+      ["/personal-tech/", "Personal tech"],
+      ["/gifts/tech-and-gadgets/", "Tech and gadgets"]
+    ]
+  },
+  "instant-pot-official-notices": {
+    text: "Duo Plus is not a model name in these notices. It is a 6-quart cooker that pressure cooks, slow cooks, and has a rice setting. The Foodi 10-in-1 beside it is an oven, not that pot. Air fryers are a separate set of cards.",
+    links: [
+      ["/compare/instant-pot-duo-plus-vs-ninja-foodi-10in1/", "Duo Plus and Foodi 10-in-1"],
+      ["/best/air-fryers/", "Air fryers"],
+      ["/kitchen/", "Kitchen"]
+    ]
+  },
+  "cosori-air-fryer-2023": {
+    text: "The 2023 notices name CP158-AF and the other numbers listed above. The Pro II card uses the CS358-AF series, which is not in that list, and the capacity line is 5.8 quarts. The Crispi next to it cooks in glass containers.",
+    links: [
+      ["/best/air-fryers/", "Air fryers"],
+      ["/compare/ninja-crispi-fn101-vs-cosori-pro-5-8/", "Crispi and Cosori Pro II"],
+      ["/kitchen/", "Kitchen"]
+    ]
+  },
+  "ninja-foodi-op300": {
+    text: "The notices name OP300-series cookers, including OP301 and OP302. The two Ninja cards here are different strings: DT201C, the 10-in-1 oven, and FN101, the Crispi, which cooks in glass containers. Neither string is in those notices.",
+    links: [
+      ["/best/air-fryers/", "Air fryers"],
+      ["/compare/ninja-crispi-fn101-vs-cosori-pro-5-8/", "Crispi and Cosori Pro II"],
+      ["/compare/instant-pot-duo-plus-vs-ninja-foodi-10in1/", "Duo Plus and Foodi 10-in-1"]
+    ]
+  },
+  "heated-blanket-recalls": {
+    text: "Match the model on the wash label before you retire a blanket. The Sunbeam queen-size notice names 32810027. The Sunbeam throw on the winter pages is TSL8WS, a different model.",
+    links: [
+      ["/winter-safety/electric-blankets/", "Electric blankets"],
+      ["/winter/", "Winter"],
+      ["/winter/sunbeam-tsl8ws/", "Sunbeam LoftTec throw"]
+    ]
+  }
+};
 const RECALL_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3h8v4H8zM7 7h10v14H7z"/><path d="M9 12h6M9 16h4"/></svg>';
 const REV_PATH = join(root, "data", "page-rev.json");
 const FEED_LOG_PATH = join(root, "data", "recall-feed.json");
@@ -469,6 +539,7 @@ for (const hub of HUBS) {
   html = fillMount(html, popular.map((product, index) => card.card(product, "US", index === 0 ? { eager: true } : {})).join("\n"), POP_START, POP_END);
   html = fillMount(html, recallsOnHome.length ? recallsOnHome.map((product) => card.card(product, "US")).join("\n") : '<p class="empty">No official model recall is on the list.</p>', REC_START, REC_END);
   html = fillHomePointer(html, recalls.checkedAt || "");
+  html = fillMount(html, homeBlackFridayModule(), HOME_BF_START, HOME_BF_END);
   html = html.replace(/<section class="hub-tiles"[\s\S]*?<\/section>\n?/g, "");
   html = ensureScene(html);
   if (!html.includes('id="is-it-recalled-search"')) {
@@ -1421,6 +1492,118 @@ function affectedHtml(entry) {
     return "<li><strong>" + card.esc(item.label) + ".</strong> " + card.esc(item.text) + (anchors ? " " + anchors : "") + "</li>";
   }).join("");
   return '<section id="is-mine-affected"><h2>Is mine affected?</h2><ul class="evidence">' + items + "</ul></section>";
+}
+
+function assertSitePath(href, where) {
+  if (typeof href !== "string" || !/^\/[a-z0-9/-]+\/$/.test(href)) {
+    throw new Error("Internal link must be a site path: " + href + " on " + where);
+  }
+  const parts = href.split("/").filter(Boolean);
+  if (parts[0] === "best" && parts.length === 2 && bestTypes().some((type) => type.slug === parts[1])) return;
+  if (parts[0] === "compare" && parts.length === 2 && compares.some((entry) => entry.slug === parts[1])) return;
+  if (parts[0] === "winter-safety" && parts.length === 2 && winterGuides().some((guide) => guide.slug === parts[1])) return;
+  if (parts[0] === "gifts" && parts.length === 2 && giftGuides().concat(checksGuides()).some((guide) => guide.slug === parts[1])) return;
+  if (parts.length === 1 && HUBS.includes(parts[0])) return;
+  if (parts.length === 2 && HUBS.includes(parts[0]) && products.some((product) => product.category === parts[0] && product.id === parts[1])) return;
+  throw new Error("Internal link is not a page on this site: " + href + " on " + where);
+}
+
+function assertShopperLine(product, line, where) {
+  if (!line || line.length > 180) throw new Error("Shopper line on " + where);
+  if (COPY_BAN.test(line) || READER_WORDING_BAN.test(line) || READER_VOICE_BAN.test(line)) {
+    throw new Error("Shopper line banned wording on " + where);
+  }
+  if (/\$\d|\d+\s*%|\bdeal\b|\bdiscount\b|\bwe used\b|\bwe tested\b|\bwe bought\b/i.test(line)) {
+    throw new Error("Shopper line has a price, a deal, or a use claim on " + where);
+  }
+  for (const [label, re] of HUB_TEXT_BAN) {
+    if (re.test(line)) throw new Error("Shopper line hits " + label + " on " + where);
+  }
+  const known = factNumbers(product);
+  for (const match of line.replace(/,/g, "").matchAll(/\d+(?:\.\d+)?/g)) {
+    const value = Number(match[0]);
+    if (![...known].some((item) => item === value)) {
+      throw new Error("Shopper line number " + match[0] + " is not in the facts on " + where);
+    }
+  }
+}
+
+function onBfOrCompare(id) {
+  const season = editorial.season.some((entry) => entry.subject === id || (entry.others || []).includes(id));
+  const compare = compares.some((entry) => (entry.products || []).includes(id) || (entry.alsoFrom || []).includes(id));
+  if (!season && !compare) throw new Error("Shortlist model is not on a Black Friday or compare page: " + id);
+}
+
+function amazonTextLink(product, region) {
+  const button = card.amazonButton(product, region);
+  const url = (button.match(/href="([^"]+)"/) || [])[1];
+  if (!url) throw new Error("Amazon link missing for " + product.id);
+  const host = region === "CA" ? "https://www.amazon.ca/" : "https://www.amazon.com/";
+  const tag = region === "CA" ? "tag=checkedlab-20" : "tag=checkedlab01-20";
+  if (!url.includes(host) || !url.includes(tag)) throw new Error("Amazon tag drifted for " + product.id + " " + region);
+  const other = region === "CA" ? "checkedlab01-20" : "checkedlab-20";
+  if (url.includes(other)) throw new Error("Amazon tag crossed for " + product.id + " " + region);
+  return '<a href="' + url + '" target="_blank" rel="sponsored nofollow noopener">Amazon</a>';
+}
+
+function replacingHtml(entry) {
+  const block = REPLACE_LINKS[entry.slug];
+  if (!block) return "";
+  if (!Array.isArray(entry.check) || !entry.check.length) throw new Error("Replace block needs the affected section: " + entry.slug);
+  assertReaderVoice(block.text, entry.slug + " replace");
+  if (COPY_BAN.test(block.text) || /\$\d|\d+\s*%|\bdeal\b|\bdiscount\b|\bwe used\b|amazon\.com|tag=checkedlab/i.test(block.text)) {
+    throw new Error("Replace block has a disallowed claim: " + entry.slug);
+  }
+  if (!block.links || block.links.length < 2 || block.links.length > 3) {
+    throw new Error("Replace block needs 2 or 3 links: " + entry.slug);
+  }
+  const anchors = block.links.map(([href, label]) => {
+    if (!label) throw new Error("Replace link needs a label: " + entry.slug);
+    assertSitePath(href, entry.slug);
+    return '<a href="' + card.esc(href) + '">' + card.esc(label) + "</a>";
+  }).join(" ");
+  return '<section class="replacing" id="if-youre-replacing-it"><h2>If you\'re replacing it</h2><p>' +
+    card.esc(block.text) + '</p><p class="lede">' + anchors + "</p></section>";
+}
+
+function blackFridayShortlist() {
+  if (BF_SHORTLIST.length < 6 || BF_SHORTLIST.length > 8) throw new Error("Black Friday shortlist count");
+  const seen = new Set();
+  const lines = new Set();
+  const items = BF_SHORTLIST.map((item) => {
+    if (seen.has(item.id)) throw new Error("Duplicate shortlist id " + item.id);
+    seen.add(item.id);
+    if (lines.has(item.who)) throw new Error("Repeated shortlist line: " + item.id);
+    lines.add(item.who);
+    onBfOrCompare(item.id);
+    const product = products.find((entry) => entry.id === item.id);
+    if (!product) throw new Error("Shortlist model missing: " + item.id);
+    assertShopperLine(product, item.who, item.id);
+    return '<li id="short-' + card.esc(product.id) + '"><p class="bf-short-name"><a href="' + card.productPath(product) + '">' +
+      card.visibleTitle(product.title) + "</a></p><p class=\"bf-short-who\">" + card.esc(item.who) + "</p>" +
+      '<div class="only-us">' + card.amazonButton(product, "US") + "</div>" +
+      '<div class="only-ca">' + card.amazonButton(product, "CA") + "</div></li>";
+  }).join("");
+  return '<section class="bf-short" id="worth-checking"><h2>Worth checking this Black Friday</h2>' +
+    "<p>Picks that already have a page here. Each line says who it is for. Specs and the dated recall check are on the model page.</p>" +
+    '<ol class="bf-short-list">' + items + "</ol></section>";
+}
+
+function homeBlackFridayModule() {
+  const ids = new Set(BF_SHORTLIST.map((item) => item.id));
+  const used = new Set(BF_SHORTLIST.map((item) => item.who));
+  if (HOME_BF.length !== 3) throw new Error("Home Black Friday module needs 3 picks");
+  const items = HOME_BF.map((item) => {
+    if (!ids.has(item.id)) throw new Error("Home pick is not on the Black Friday shortlist: " + item.id);
+    if (used.has(item.who)) throw new Error("Home line repeats the shortlist: " + item.id);
+    const product = products.find((entry) => entry.id === item.id);
+    if (!product) throw new Error("Home pick missing: " + item.id);
+    assertShopperLine(product, item.who, "home " + item.id);
+    return "<li><p class=\"home-bf-line\"><a href=\"" + card.productPath(product) + "\">" + card.visibleTitle(product.title) +
+      '</a><span class="only-us"> · ' + amazonTextLink(product, "US") + '</span><span class="only-ca"> · ' +
+      amazonTextLink(product, "CA") + "</span></p><p class=\"home-bf-who\">" + card.esc(item.who) + "</p></li>";
+  }).join("");
+  return '<ul class="home-bf-list">' + items + '</ul><p class="home-bf-more"><a href="/black-friday/#worth-checking">The full Black Friday list</a></p>';
 }
 
 function noticeHtml(notice) {
@@ -3009,6 +3192,15 @@ function roundupTable(entry) {
 
 function writeExplainers() {
   if (explainers.length !== 11) throw new Error("Expected eleven explainer pages");
+  const replaceSlugs = ["lasko-heaters", "anker-power-banks", "instant-pot-official-notices", "cosori-air-fryer-2023", "ninja-foodi-op300", "heated-blanket-recalls"];
+  if (replaceSlugs.some((slug) => !REPLACE_LINKS[slug])) throw new Error("A recall replace block is missing");
+  const replaceSentences = new Set();
+  for (const slug of replaceSlugs) {
+    for (const sentence of REPLACE_LINKS[slug].text.split(/(?<=\.)\s+/)) {
+      if (replaceSentences.has(sentence)) throw new Error("Repeated replace sentence on " + slug);
+      replaceSentences.add(sentence);
+    }
+  }
   const slugs = new Set();
   for (const entry of explainers) {
     if (!/^[a-z0-9-]+$/.test(entry.slug) || slugs.has(entry.slug)) throw new Error("Bad explainer slug");
@@ -3016,7 +3208,7 @@ function writeExplainers() {
     if (entry.roundup && entry.notices.length < 2) throw new Error("Roundup has fewer than two notices: " + entry.slug);
     assertHeadline(entry.title, entry.description, "recalls/" + entry.slug, VOICE_PAGES.has("recalls/" + entry.slug));
     const url = ORIGIN + "/recalls/" + entry.slug + "/";
-    const lead = [affectedHtml(entry), entry.roundup ? roundupTable(entry) : ""].filter(Boolean).join("\n");
+    const lead = [affectedHtml(entry), replacingHtml(entry), entry.roundup ? roundupTable(entry) : ""].filter(Boolean).join("\n");
     const html = `<!DOCTYPE html>
 <html lang="en" data-region="US">
 <head>
@@ -3087,6 +3279,14 @@ ${DISCLOSURE}
 `;
     if (/\$\d/.test(html) || /we tested|we bought|does not test/i.test(html)) {
       throw new Error("Explainer has a disallowed claim: " + entry.slug);
+    }
+    if (REPLACE_LINKS[entry.slug]) {
+      const affectedAt = html.indexOf('id="is-mine-affected"');
+      const replaceAt = html.indexOf('id="if-youre-replacing-it"');
+      if (affectedAt < 0 || replaceAt < affectedAt) throw new Error("Replace section is not under the affected block: " + entry.slug);
+      const slice = html.slice(replaceAt, html.indexOf("</section>", replaceAt));
+      if (/amazon\.com|tag=checkedlab|\$\d|\bdeal\b/i.test(slice)) throw new Error("Replace section has an Amazon or price claim: " + entry.slug);
+      if (!slice.includes("<h2>If you're replacing it</h2>")) throw new Error("Replace heading missing: " + entry.slug);
     }
     mkdirSync(join(root, "recalls", entry.slug), { recursive: true });
     writeFileSync(join(root, "recalls", entry.slug, "index.html"), polish(html));
@@ -3331,7 +3531,7 @@ function writeBlackFriday() {
   const url = ORIGIN + BF_PATH;
   const date = recalls.checkedAt || "";
   const faqs = blackFridayFaqs();
-  const jumps = HUBS.map((hub) => '<a href="#' + hub + '">' + card.esc(HUB_NAME[hub]) + "</a>").join("");
+  const jumps = '<a href="#worth-checking">Worth checking</a>' + HUBS.map((hub) => '<a href="#' + hub + '">' + card.esc(HUB_NAME[hub]) + "</a>").join("");
   const notices = explainers.map((entry) =>
     '<li><a href="/recalls/' + entry.slug + '/">' + card.esc(entry.title) + "</a>. " + card.esc(entry.description) + "</li>"
   ).join("");
@@ -3406,6 +3606,7 @@ ${sceneBlock("black-friday")}
 <h1>${card.esc(BF_H1)}</h1>
 <p class="sub">Confirm the model number before Black Friday and Cyber Monday 2026, then read the dated recall check.</p>
 <nav class="toc" aria-label="Jump to"><p>Jump to</p>${jumps}</nav>
+${blackFridayShortlist()}
 ${sections}
 ${productFold("before-you-pay", "Before you pay", '<p class="lede">Confirm the model number before Black Friday and before Cyber Monday, Monday, November 30, 2026. The status under each card is the recall check dated <time datetime="' + card.esc(date) + '">' + card.esc(date) + '</time> (UTC).</p>' + renderHubGuide("black-friday", { faq: false }) + '<p><a href="/gifts/">Holiday 2026 gift guides</a> group the same models by recipient. Each pick quotes the maker specs and repeats this dated check. <a href="/gifts/for-kids/">Gifts for kids</a> names mainstream kids products and the official check to do. <a href="/winter-safety/">Winter home safety, recall-checked</a> covers heaters, heated bedding, alarms, and outage power. <a href="/toy-safety/">Holiday toy safety, recall-checked</a> covers button batteries, magnets, water beads, and ride-ons.</p><p class="only-us">' + card.esc(US_DATES) + ' <a href="' + US_DEALS + '" target="_blank" rel="sponsored nofollow noopener">Amazon.com Black Friday</a>.</p><p class="only-ca">' + card.esc(CA_DATES) + ' <a href="' + CA_DEALS + '" target="_blank" rel="sponsored nofollow noopener">Amazon.ca Black Friday</a>.</p><p>Gift and seasonal models from this list. Open the card and match the model number on the listing. The same check applies on Cyber Monday.</p><ol class="checklist"><li>Confirm the exact model number on the box, in the manual, and on the listing. A family name such as Foodi or Cosori can point at a different model.</li><li>Check that model on <a href="https://www.cpsc.gov/Recalls" target="_blank" rel="noopener">CPSC Recalls</a> for a US purchase and on <a href="https://recalls-rappels.canada.ca/en" target="_blank" rel="noopener">Health Canada recalls and safety alerts</a> for a Canadian purchase. <a href="/recalls/">Recall checks</a> is the full list. <a href="/how-we-check/">How we check</a> says what the date means.</li><li>Beware look-alike listings and third-party sellers. The brand in the title is not the model number.</li><li>Read what is in the box, and read the return window on the listing before you pay. The window is printed on the store page. Cyber Monday does not change either line.</li></ol>')}
 ${productFold("comparisons", "Maker spec comparisons", '<p>Each page repeats the specs both product pages share. The cell links the product page. The recall line is the dated check. <a href="/compare/">All comparisons</a>.</p><p class="lede">' + compares.map((entry) => '<a href="/compare/' + entry.slug + '/">' + card.esc(entry.linkLabel) + "</a>").join(" ") + "</p>" + editorialIndexBlock())}
@@ -3427,7 +3628,7 @@ ${SEASON_FOOT}
 </body>
 </html>
 `;
-  if (/\$\d/.test(html) || /\d+\s*%/.test(html)) throw new Error("Black Friday page has a price or a percent");
+  if (/\$\d/.test(html) || PERCENT_CLAIM.test(html)) throw new Error("Black Friday page has a price or a percent");
   if (/we tested|we bought|does not test|did not test/i.test(html)) throw new Error("Black Friday page has a test claim");
   mkdirSync(join(root, "black-friday"), { recursive: true });
   writeFileSync(join(root, "black-friday", "index.html"), polish(html));
@@ -3440,13 +3641,28 @@ function assertBlackFriday(html) {
   if (!html.includes('name="description" content="' + BF_DESC + '"')) throw new Error("Black Friday description");
   if (!html.includes("<h1>" + BF_H1 + "</h1>")) throw new Error("Black Friday H1");
   if (!html.includes('data-region-set="US"') || !html.includes('data-region-set="CA"')) throw new Error("Black Friday region switch");
-  if (/\$\d/.test(html) || /\d+\s*%/.test(html)) throw new Error("Black Friday page has a price or a percent");
+  if (/\$\d/.test(html) || PERCENT_CLAIM.test(html)) throw new Error("Black Friday page has a price or a percent");
   if (/we tested|we bought|does not test|did not test|lab-tested|lab tested/i.test(html)) {
     throw new Error("Black Friday page has a test claim");
   }
   const visible = html.replace(/<script[\s\S]*?<\/script>/gi, "");
   const dealHits = visible.match(/deal/gi) || [];
   if (dealHits.length !== 2) throw new Error("Black Friday page uses deal " + dealHits.length + " times");
+  const shortStart = html.indexOf('id="worth-checking"');
+  const shortEnd = html.indexOf('id="winter"', shortStart);
+  if (shortStart < 0 || shortEnd < 0) throw new Error("Black Friday shortlist missing");
+  const short = html.slice(shortStart, shortEnd);
+  if (!short.includes(">Worth checking this Black Friday</h2>")) throw new Error("Black Friday shortlist heading");
+  const shortUs = [...short.matchAll(/<div class="only-us">([\s\S]*?)<\/div>/g)].map((match) => match[1]).join("\n");
+  const shortCa = [...short.matchAll(/<div class="only-ca">([\s\S]*?)<\/div>/g)].map((match) => match[1]).join("\n");
+  if ((shortUs.match(/tag=checkedlab01-20/g) || []).length !== BF_SHORTLIST.length) throw new Error("Shortlist US Amazon tags");
+  if ((shortCa.match(/tag=checkedlab-20/g) || []).length !== BF_SHORTLIST.length) throw new Error("Shortlist CA Amazon tags");
+  if (shortUs.includes("checkedlab-20") || shortCa.includes("checkedlab01-20")) throw new Error("Shortlist Amazon tags crossed");
+  for (const item of BF_SHORTLIST) {
+    const product = products.find((entry) => entry.id === item.id);
+    if (!short.includes('href="' + card.productPath(product) + '"')) throw new Error("Shortlist misses " + item.id);
+    if (!short.includes(card.esc(item.who))) throw new Error("Shortlist line missing for " + item.id);
+  }
   if (/discount|percent off|stars|out of 5/i.test(visible)) throw new Error("Black Friday page has a rating or discount claim");
   const picked = blackFridayPicks();
   for (const product of picked) {
@@ -6461,6 +6677,15 @@ function verifyOutput(pages) {
     throw new Error("Homepage is missing the recall check pointer");
   }
   if (!home.includes('href="/black-friday/"')) throw new Error("Homepage is missing the Black Friday link");
+  if (!home.includes('id="home-bf"') || !home.includes('href="/black-friday/#worth-checking"')) {
+    throw new Error("Homepage is missing the Black Friday shortlist");
+  }
+  for (const item of HOME_BF) {
+    const product = products.find((entry) => entry.id === item.id);
+    if (!home.includes(card.esc(item.who)) || !home.includes('href="' + card.productPath(product) + '"')) {
+      throw new Error("Homepage shortlist misses " + item.id);
+    }
+  }
   if (!home.includes('href="/gifts/"')) throw new Error("Homepage is missing the gift guides link");
   if (!home.includes('href="/winter-safety/"')) throw new Error("Homepage is missing the winter safety link");
   if (!home.includes('href="/toy-safety/"')) throw new Error("Homepage is missing the toy safety link");
