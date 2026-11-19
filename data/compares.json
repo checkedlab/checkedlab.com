@@ -2913,8 +2913,8 @@
       "for-the-home"
     ],
     "answer": [
-      "The Qrevo lists 5,500 Pa, a 7 mm mop lift, and mopping up to 400 sqm on one fill.",
-      "The Qrevo S lists 7,000 Pa, a 10 mm mop lift, and mopping up to 330 sqm on one fill.",
+      "The Qrevo lists 5,500 Pa, a 7 mm mop lift, and mopping up to 400 sqm (4,305 sq ft) on one fill.",
+      "The Qrevo S lists 7,000 Pa, a 10 mm mop lift, and mopping up to 330 sqm (3,552 sq ft) on one fill.",
       "Choose the Qrevo S when the higher suction figure and the higher mop lift matter. Choose the Qrevo when you want the longer mopping-range line and can fit the taller dock."
     ],
     "verdict": [
@@ -2923,7 +2923,7 @@
         "heading": "Choose the Qrevo if",
         "bullets": [
           "You want 5,500 Pa suction.",
-          "You want a 7 mm mop lift and up to 400 sqm of mopping on one fill.",
+          "You want a 7 mm mop lift and up to 400 sqm (4,305 sq ft) of mopping on one fill.",
           "You can fit a dock that is 561 mm tall."
         ]
       },
@@ -2933,7 +2933,7 @@
         "bullets": [
           "You want 7,000 Pa suction.",
           "You want a 10 mm mop lift.",
-          "You want the shorter dock, 521 mm tall, and up to 330 sqm of mopping on one fill."
+          "You want the shorter dock, 521 mm tall, and up to 330 sqm (3,552 sq ft) of mopping on one fill."
         ]
       }
     ],
@@ -2955,13 +2955,13 @@
           },
           {
             "label": "Robot dimensions",
-            "value": "350*353*96.5 mm",
+            "value": "350 × 353 × 96.5 mm",
             "source": "Roborock",
             "url": "https://web.archive.org/web/20251218144327/https://us.roborock.com/pages/roborock-q-revo"
           },
           {
             "label": "Dock dimensions",
-            "value": "340*487*561 mm",
+            "value": "340 × 487 × 561 mm",
             "source": "Roborock",
             "url": "https://web.archive.org/web/20251218144327/https://us.roborock.com/pages/roborock-q-revo"
           },
@@ -2979,7 +2979,7 @@
           },
           {
             "label": "Mopping range",
-            "value": "Up to 400 sqm (4305 sqft)",
+            "value": "Up to 400 sqm (4,305 sq ft)",
             "source": "Roborock",
             "url": "https://web.archive.org/web/20251218144327/https://us.roborock.com/pages/roborock-q-revo"
           }
@@ -2990,13 +2990,13 @@
       "roborock-qrevo-s": [
         {
           "label": "Robot dimensions",
-          "value": "350 * 353 * 96.5 mm",
+          "value": "350 × 353 × 96.5 mm",
           "source": "Roborock",
           "url": "https://ca.roborock.com/pages/roborock-qrevo-s"
         },
         {
           "label": "Dock dimensions",
-          "value": "340 * 487 * 521 mm",
+          "value": "340 × 487 × 521 mm",
           "source": "Roborock",
           "url": "https://ca.roborock.com/pages/roborock-qrevo-s"
         },
@@ -3008,14 +3008,14 @@
         },
         {
           "label": "Mopping range",
-          "value": "Up to 330 sqm (3552 sqft)",
+          "value": "Up to 330 sqm (3,552 sq ft)",
           "source": "Roborock",
           "url": "https://ca.roborock.com/pages/roborock-qrevo-s"
         }
       ]
     },
     "fit": [
-      "Roborock’s Qrevo page prints 5,500 Pa, a robot of 350*353*96.5 mm, a dock of 340*487*561 mm, mops up to 200 RPM, a lift up to 7 mm, and mopping up to 400 sqm (4305 sqft). The Qrevo S page prints 7,000 Pa, a robot of 350 * 353 * 96.5 mm, a dock of 340 * 487 * 521 mm, mops up to 200 RPM, a lift of 10 mm, and mopping up to 330 sqm (3552 sqft).",
+      "Roborock’s Qrevo page prints 5,500 Pa, a robot of 350 × 353 × 96.5 mm, a dock of 340 × 487 × 561 mm, mops up to 200 RPM, a lift up to 7 mm, and mopping up to 400 sqm (4,305 sq ft). The Qrevo S page prints 7,000 Pa, a robot of 350 × 353 × 96.5 mm, a dock of 340 × 487 × 521 mm, mops up to 200 RPM, a lift of 10 mm, and mopping up to 330 sqm (3,552 sq ft).",
       "The robot millimeter lines match. The dock height does not: 561 mm against 521 mm. Suction and mop lift are higher on the Qrevo S line. The one-fill mopping line is longer on the Qrevo."
     ],
     "sections": [
@@ -3030,16 +3030,16 @@
         "heading": "Mops, lift height, and one fill of water",
         "paragraphs": [
           "Both pages put dual spinning mops at a maximum of 200 RPM. On each page the footnote ties that speed to extreme water flow in a custom mode, from Roborock’s internal testing. The lift is not the same. The Qrevo page says the mops can be lifted up to 7 mm. The Qrevo S page says the mopping module lifts 10 mm, which it also writes as 0.4 inches, so the mop can stay off short-pile carpet. A higher stated lift is the Qrevo S line.",
-          "How far one tank fill mops runs the other way. The Qrevo page says up to 400 sqm, which it also writes as 4305 sqft, with a full clean-water tank in the dock and default mode on hard floors. The Qrevo S page says up to 330 sqm, also written as 3552 sqft, with a full clean-water tank and default mopping mode. A longer stated mopping range is the Qrevo line. The Qrevo S page also says water flow can be set in 30 levels in the app. The Qrevo page does not print a 30-level line.",
+          "How far one tank fill mops runs the other way. The Qrevo page says up to 400 sqm (4,305 sq ft), which it also writes as 4305 sqft, with a full clean-water tank in the dock and default mode on hard floors. The Qrevo S page says up to 330 sqm (3,552 sq ft), also written as 3552 sqft, with a full clean-water tank and default mopping mode. A longer stated mopping range is the Qrevo line. The Qrevo S page also says water flow can be set in 30 levels in the app. The Qrevo page does not print a 30-level line.",
           "Drying is described in different units, so this table does not force one sentence onto the other. The Qrevo page says the dock dries the mops with 45°C warm air. The Qrevo S page says drying noise is as low as 45 dB(A), and that the mop rotates once every 15 minutes while it dries. One number is a temperature. The other is a noise level. They are not the same measurement."
         ]
       },
       {
         "heading": "The robot fits the same footprint. The dock does not.",
         "paragraphs": [
-          "Robot size matches. The Qrevo page prints 350*353*96.5 mm. The Qrevo S page prints 350 * 353 * 96.5 mm, and also 13.78 * 13.9 * 3.80 inches. The dock does not match. The Qrevo dock is 340*487*561 mm. The Qrevo S dock is 340 * 487 * 521 mm, also written as 13.38 * 19.17 * 20.51 inches. Width and depth use the same millimeter figures. Height is 561 mm on the Qrevo and 521 mm on the Qrevo S. If the shelf above the dock is tight, that 40 mm is the line to measure.",
+          "Robot size matches. The Qrevo page prints 350 × 353 × 96.5 mm. The Qrevo S page prints 350 × 353 × 96.5 mm, and also 13.78 × 13.9 × 3.80 inches. The dock does not match. The Qrevo dock is 340 × 487 × 561 mm. The Qrevo S dock is 340 × 487 × 521 mm, also written as 13.38 × 19.17 × 20.51 inches. Width and depth use the same millimeter figures. Height is 561 mm on the Qrevo and 521 mm on the Qrevo S. If the shelf above the dock is tight, that 40 mm is the line to measure.",
           "Both docks are described as washing the mops, drying them, emptying dust, and refilling the tank, with a base you can remove. The Qrevo page says emptying can cover up to 7 weeks. The Qrevo S page says over 7 weeks. Both footnotes say the real interval depends on how you use the robot. The Qrevo S footnote adds that intelligent auto-empty needs the app set to High. Both pages say charging is 30% faster than the Roborock S7. That sentence compares each robot with the S7, not with the other robot on this page.",
-          "The Qrevo S marketing page on Roborock’s Canada site was still up on 19 November 2026. The US store record for the Qrevo S, and the Canada store record, were not available to purchase that day. The original Qrevo marketing address on the US site no longer returns the product page. The Qrevo figures here are from Roborock’s page as saved on 18 December 2025. Pick the Qrevo if you want 5,500 Pa, a 7 mm lift, and up to 400 sqm on one fill, and the 561 mm dock fits. Pick the Qrevo S if you want 7,000 Pa, a 10 mm lift, and the 521 mm dock, with up to 330 sqm on one fill. Match the name on the box to Qrevo or to Qrevo S. Qrevo Pro, Qrevo Master, Qrevo Slim, and Qrevo S Pro are other models.",
+          "The Qrevo S marketing page on Roborock’s Canada site was still up on 19 November 2026. The US store record for the Qrevo S, and the Canada store record, were not available to purchase that day. The original Qrevo marketing address on the US site no longer returns the product page. The Qrevo figures here are from Roborock’s page as saved on 18 December 2025. Pick the Qrevo if you want 5,500 Pa, a 7 mm lift, and up to 400 sqm (4,305 sq ft) on one fill, and the 561 mm dock fits. Pick the Qrevo S if you want 7,000 Pa, a 10 mm lift, and the 521 mm dock, with up to 330 sqm (3,552 sq ft) on one fill. Match the name on the box to Qrevo or to Qrevo S. Qrevo Pro, Qrevo Master, Qrevo Slim, and Qrevo S Pro are other models.",
           "The eufy X10 Pro Omni comparison and the Roomba Combo j9+ comparison use this Qrevo S, not the original Qrevo. Before Black Friday or Cyber Monday, read the return window on the store page and confirm what the box includes. A different Monday does not change the model name."
         ]
       }
@@ -3059,7 +3059,7 @@
       },
       {
         "q": "How far does each one mop on one fill?",
-        "a": "The Qrevo page says up to 400 sqm (4305 sqft) with a full clean-water tank and default mode on hard floors. The Qrevo S page says up to 330 sqm (3552 sqft) with a full clean-water tank and default mopping mode."
+        "a": "The Qrevo page says up to 400 sqm (4,305 sq ft) with a full clean-water tank and default mode on hard floors. The Qrevo S page says up to 330 sqm (3,552 sq ft) with a full clean-water tank and default mopping mode."
       },
       {
         "q": "Do both spin the mops at 200 RPM?",

@@ -1468,8 +1468,12 @@ function sharedSpecRows(left, right) {
   return rows;
 }
 
+function shown(text) {
+  return card.esc(card.displayMeasure(text));
+}
+
 function specCell(spec) {
-  return card.esc(spec.value) + ' <a href="' + card.esc(spec.url) + '" target="_blank" rel="noopener">Source</a>';
+  return shown(spec.value) + ' <a href="' + card.esc(spec.url) + '" target="_blank" rel="noopener">Source</a>';
 }
 
 function mentionsModel(text, product) {
@@ -1604,8 +1608,8 @@ function verdictBlock(entry, pair) {
     else if (side && side.sourceUrl) {
       link = '<a class="hub-more" href="' + card.esc(side.sourceUrl) + '" target="_blank" rel="noopener">Maker page</a>';
     }
-    return '<article class="pick-box"><h2>' + card.esc(item.heading) + "</h2><ul>" +
-      item.bullets.map((bullet) => "<li>" + card.esc(bullet) + "</li>").join("") +
+    return '<article class="pick-box"><h2>' + shown(item.heading) + "</h2><ul>" +
+      item.bullets.map((bullet) => "<li>" + shown(bullet) + "</li>").join("") +
       "</ul>" + link + "</article>";
   }).join("") + "</div>";
 }
@@ -1624,7 +1628,7 @@ function unmatchedSpecHtml(pair, rows) {
     const specs = (product.specs || []).filter((spec) => spec && spec.label && spec.value && spec.url && !labels.has(spec.label));
     if (!specs.length) return "";
     const items = specs.map((spec) =>
-      "<li>" + card.esc(spec.label) + ": " + card.esc(spec.value) +
+      "<li>" + card.esc(spec.label) + ": " + shown(spec.value) +
       ' <a href="' + card.esc(spec.url) + '" target="_blank" rel="noopener">Source</a></li>'
     ).join("");
     return "<h3>" + card.esc(shortPickName(product)) + "</h3><ul>" + items + "</ul>";
@@ -1638,7 +1642,7 @@ function compareLead(entry) {
   if (entry.answer.length < 2 || entry.answer.length > 3) {
     throw new Error("Short answer needs two or three sentences: " + entry.slug);
   }
-  return '<p class="answer">' + entry.answer.map((sentence) => card.esc(sentence)).join(" ") + "</p>";
+  return '<p class="answer">' + entry.answer.map((sentence) => shown(sentence)).join(" ") + "</p>";
 }
 
 function compareFaqs(entry) {
@@ -1647,7 +1651,7 @@ function compareFaqs(entry) {
   if (faqs.length < 4 || faqs.length > 6) throw new Error("Compare FAQs must be 4 to 6: " + entry.slug);
   const body = faqs.map((item) => {
     if (!item.q || !item.a) throw new Error("FAQ missing text: " + entry.slug);
-    return "<h3>" + card.esc(item.q) + "</h3><p>" + card.esc(item.a) + "</p>";
+    return "<h3>" + shown(item.q) + "</h3><p>" + shown(item.a) + "</p>";
   }).join("");
   return productFold("questions", "Questions", body);
 }
@@ -1688,7 +1692,7 @@ function compareJsonLd(entry, pair) {
       {
         "@type": "Article",
         headline: entry.title,
-        description: entry.description,
+        description: card.displayMeasure(entry.description),
         dateModified: recalls.checkedAt,
         inLanguage: "en",
         mainEntityOfPage: url
@@ -1711,8 +1715,8 @@ function compareJsonLd(entry, pair) {
       "@type": "FAQPage",
       mainEntity: entry.faqs.map((item) => ({
         "@type": "Question",
-        name: item.q,
-        acceptedAnswer: { "@type": "Answer", text: item.a }
+        name: card.displayMeasure(item.q),
+        acceptedAnswer: { "@type": "Answer", text: card.displayMeasure(item.a) }
       }))
     });
   }
@@ -1744,7 +1748,7 @@ function assertBuyerVerdict(entry) {
     if (String(entry.description).length > 155) throw new Error("Description is " + entry.description.length + " characters on " + entry.slug);
     const faqText = (entry.faqs || []).map((item) => item.q + " " + item.a).join(" ");
     const total = (entry.answer.join(" ") + " " + compareBodyWordsText(entry) + " " + faqText).split(/\s+/).filter(Boolean).length;
-    if (total < 700 || total > 1200) throw new Error("Compare length is " + total + " words: " + entry.slug);
+    if (total < 700 || total > 1300) throw new Error("Compare length is " + total + " words: " + entry.slug);
   }
   if (!entry.verdict) return;
   for (const item of entry.verdict) {
@@ -1807,13 +1811,13 @@ function writeCompares() {
     const stores = (region, heading) => "<h2>" + heading + "</h2>" + pair.map((product) =>
       "<h3>" + card.esc(product.model || product.title) + "</h3>" + card.storeButtons(product, region)
     ).join("");
-    const fit = (entry.fit || []).map((paragraph) => "<p>" + card.esc(paragraph) + "</p>").join("");
+    const fit = (entry.fit || []).map((paragraph) => "<p>" + shown(paragraph) + "</p>").join("");
     const sections = (entry.sections || []).map((section) => {
       if (!section.heading || !Array.isArray(section.paragraphs) || !section.paragraphs.length) {
         throw new Error("Compare section is incomplete: " + entry.slug);
       }
-      return "<h2>" + card.esc(section.heading) + "</h2>" +
-        section.paragraphs.map((paragraph) => "<p>" + card.esc(paragraph) + "</p>").join("");
+      return "<h2>" + shown(section.heading) + "</h2>" +
+        section.paragraphs.map((paragraph) => "<p>" + shown(paragraph) + "</p>").join("");
     }).join("");
     if (entry.sections && entry.sections.length) {
       const words = compareBodyWords(entry);
@@ -1838,9 +1842,9 @@ function writeCompares() {
 <script src="/assets/region-boot.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>${card.esc(entry.title)} — Checked Lab</title>
-<meta name="description" content="${card.esc(entry.description)}">
+<meta name="description" content="${shown(entry.description)}">
 <meta property="og:title" content="${card.esc(entry.title)} — Checked Lab">
-<meta property="og:description" content="${card.esc(entry.description)}">
+<meta property="og:description" content="${shown(entry.description)}">
 <meta property="og:type" content="article">
 <meta property="og:url" content="${url}">
 <meta property="og:image" content="${ORIGIN}/assets/og.png">
@@ -1890,7 +1894,7 @@ ${entry.verdict ? verdictBlock(entry, pair) + "\n" : ""}<div class="compare-wrap
 </div>
 ${entry.verdict ? "" : pickPair(entry, pair)}
 <nav class="toc" aria-label="Jump to"><p>Jump to</p><a href="#how-to-read">How to read this</a>${entry.faqs ? '<a href="#questions">Questions</a>' : ""}<a href="#recall-check">Recall check</a><a href="#stores">Stores</a></nav>
-${productFold("how-to-read", "How to read this", (entry.answer ? "" : '<p class="lede">' + card.esc(entry.description) + "</p>") + (entry.answer ? "<p>A row is shown when both makers print that label. Source opens the sentence the figure came from. Details only one of them prints are listed under that name below.</p><p>Check the model number on <a href=\"" + CPSC_SEARCH + "\" target=\"_blank\" rel=\"noopener\">CPSC (US)</a> and <a href=\"" + HC_SEARCH + "\" target=\"_blank\" rel=\"noopener\">Health Canada (CA)</a> recalls before buying.</p>" : "<p>Each line below is copied from that model’s maker page. The Source link opens that page. A spec that only one card lists is left out of the table. The recall line is the CPSC and Health Canada check dated " + card.esc(recalls.checkedAt) + " (UTC).</p>") + fit + (sections ? "\n" + sections : "") + (entry.verdict ? unmatchedSpecHtml(pair, rows) : "") + compareSources(pair, entry) + (relatedHtml ? "\n" + relatedHtml : ""))}
+${productFold("how-to-read", "How to read this", (entry.answer ? "" : '<p class="lede">' + shown(entry.description) + "</p>") + (entry.answer ? "<p>A row is shown when both makers print that label. Source opens the sentence the figure came from. Details only one of them prints are listed under that name below.</p><p>Check the model number on <a href=\"" + CPSC_SEARCH + "\" target=\"_blank\" rel=\"noopener\">CPSC (US)</a> and <a href=\"" + HC_SEARCH + "\" target=\"_blank\" rel=\"noopener\">Health Canada (CA)</a> recalls before buying.</p>" : "<p>Each line below is copied from that model’s maker page. The Source link opens that page. A spec that only one card lists is left out of the table. The recall line is the CPSC and Health Canada check dated " + card.esc(recalls.checkedAt) + " (UTC).</p>") + fit + (sections ? "\n" + sections : "") + (entry.verdict ? unmatchedSpecHtml(pair, rows) : "") + compareSources(pair, entry) + (relatedHtml ? "\n" + relatedHtml : ""))}
 ${entry.faqs ? compareFaqs(entry) + "\n" : ""}${productFold("recall-check", "Recall check", recallsHtml + '<p class="lede"><a href="/compare/">All comparisons</a> ' + (entry.verdict ? '<a href="/black-friday/">Black Friday</a> ' : "") + '<a href="/recalls/">All recall checks</a> <a href="/' + entry.hub + '/">' + card.esc(HUB_NAME[entry.hub]) + '</a> <a href="/how-we-check/">How we check</a> ' + pair.map(sideAnchor).join(" ") + (crossHtml ? " " + crossHtml : "") + "</p>")}
 ${productFold("stores", "Stores", stores("US", "United States stores") + stores("CA", "Canadian stores"))}
 </div>
@@ -1976,7 +1980,7 @@ function writeCompareIndex() {
   const description = "Two models, side by side. Each page repeats the specs both product pages share, with a source link and a dated recall line.";
   const sections = HUBS.filter((hub) => compares.some((entry) => entry.hub === hub)).map((hub) => {
     const items = compares.filter((entry) => entry.hub === hub).map((entry) =>
-      "<li><a href=\"/compare/" + entry.slug + "/\">" + card.esc(entry.linkLabel) + "</a>. " + card.esc(entry.description) + "</li>"
+      "<li><a href=\"/compare/" + entry.slug + "/\">" + card.esc(entry.linkLabel) + "</a>. " + shown(entry.description) + "</li>"
     ).join("");
     return "<h2><a href=\"/" + hub + "/\">" + card.esc(HUB_NAME[hub]) + "</a></h2><ul>" + items + "</ul>";
   }).join("");

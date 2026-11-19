@@ -434,6 +434,27 @@
     return name || String((product && product.model) || title || "Model");
   }
 
+  /* 1 sqm is about 10.7639 sq ft. Floor matches the figures Roborock prints: 400 sqm is 4,305 sq ft. */
+  function sqFtFromSqm(num) {
+    return Math.floor(Number(num) * 10.7639 + 1e-6);
+  }
+
+  function groupThousands(num) {
+    return String(num).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
+
+  function displayMeasure(text) {
+    var out = String(text == null ? "" : text);
+    out = out.replace(/(\d+(?:\.\d+)?)\s*\*\s*(\d+(?:\.\d+)?)\s*\*\s*(\d+(?:\.\d+)?)/g, "$1 \u00d7 $2 \u00d7 $3");
+    out = out.replace(/\((\d+)\s*sqft\)/gi, function (_match, num) {
+      return "(" + groupThousands(Number(num)) + " sq ft)";
+    });
+    out = out.replace(/(\d+(?:\.\d+)?)\s*sqm\b(?!\s*\()/gi, function (_match, num) {
+      return num + " sqm (" + groupThousands(sqFtFromSqm(num)) + " sq ft)";
+    });
+    return out;
+  }
+
   function tidyMeasure(value) {
     var v = String(value || "").replace(/\s+/g, " ").trim();
     v = v.split(/\s+with\s+/i)[0].trim();
@@ -441,7 +462,7 @@
     v = v.replace(/^(approx\.?|about|max\.?)\s+/i, "");
     v = v.replace(/(\d+(?:\.\d+)?)\s+hours?\b/gi, "$1 h");
     v = v.replace(/(\d+(?:\.\d+)?)\s+minutes?\b/gi, "$1 min");
-    return v.trim();
+    return displayMeasure(v.trim());
   }
 
   function btuTile(value) {
@@ -930,6 +951,7 @@
     recallFor: recallFor,
     productPath: productPath,
     visibleTitle: visibleTitle,
-    esc: esc
+    esc: esc,
+    displayMeasure: displayMeasure
   };
 });
