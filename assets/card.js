@@ -850,6 +850,7 @@
 
   function visual(product, opts) {
     opts = opts || {};
+    if (opts.tileUnlessExact && (!product || product.imageMatch !== "exact")) return specTile(product || {});
     var src = modelPhoto(product);
     if (!src || pageSeen[src]) return specTile(product || {});
     pageSeen[src] = 1;

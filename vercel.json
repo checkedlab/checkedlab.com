@@ -44,6 +44,16 @@
       "source": "/pets/",
       "destination": "/pet/",
       "permanent": true
+    },
+    {
+      "source": "/cyber-monday",
+      "destination": "/black-friday/",
+      "permanent": true
+    },
+    {
+      "source": "/cyber-monday/",
+      "destination": "/black-friday/",
+      "permanent": true
     }
   ]
 }

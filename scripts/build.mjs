@@ -167,9 +167,9 @@ const CPSC_SEARCH = "https://www.cpsc.gov/Recalls";
 const HC_SEARCH = "https://recalls-rappels.canada.ca/en";
 const WINTER_CHECK = "How we check describes the dated CPSC and Health Canada match on a catalogue card. The date is the day that match was recorded. These guides add the label lines to read and the official search to open, including for a model that is not on a card. A clear line on one card does not cover a different model number.";
 const GIFT_BAN = /\$\d|\bwe tested\b|\btested by us\b|\bwe bought\b|\bdoes not test\b|\bdid not test\b|\bnot tested\b|hands-on|lab-tested|lab tested|out of 5|star rating|review count|\bdiscount\b|\bstars?\b|\d+\s*%\s*off\b/i;
-const BF_TITLE = "Black Friday 2026: what to know before you buy";
-const BF_H1 = "What to know before you buy on Black Friday";
-const BF_DESC = "Before you buy on Black Friday, confirm the model number and read the dated CPSC or Health Canada check. Listed models for gifts and seasonal buys.";
+const BF_TITLE = "Black Friday and Cyber Monday 2026: what to check";
+const BF_H1 = "What to know before Black Friday and Cyber Monday 2026";
+const BF_DESC = "Before Black Friday or Cyber Monday 2026, confirm the model number and read the dated CPSC or Health Canada check.";
 const US_DATES = "Amazon announced that Black Friday Week and Cyber Monday deals on Amazon.com run November 19–30, 2026.";
 const CA_DATES = "Amazon.ca’s Black Friday page, titled 2026 Black Friday, describes Black Friday Week as November 19–27.";
 const US_DEALS = "https://www.amazon.com/blackfriday?tag=checkedlab01-20";
@@ -219,7 +219,8 @@ const LONG_COMPARE_SLUGS = [
   "kitchenaid-artisan-vs-classic",
   "allclad-d3-vs-d5",
   "zojirushi-vs-tiger-rice-cooker",
-  "mr-heater-buddy-vs-big-buddy"
+  "mr-heater-buddy-vs-big-buddy",
+  "roborock-qrevo-vs-roborock-qrevo-s"
 ];
 const LONG_COMPARE_BAN = /a figure only one maker prints|those sentences are the catalogue match|recall check has not been recorded|\bnot a verdict\b|stays? off (?:this|the) table|\bmaker specs\b|\bcatalogue\b|\bunit not named\b/i;
 const SITE_EYEBROW_BAN = /MAKER SPECS/;
@@ -1779,7 +1780,7 @@ function shopperRecallHtml(pair) {
 }
 
 function writeCompares() {
-  if (compares.length !== 41) throw new Error("Expected forty-one compare pages");
+  if (compares.length !== 42) throw new Error("Expected forty-two compare pages");
   for (const entry of compares) {
     if (!/^[a-z0-9-]+$/.test(entry.slug)) throw new Error("Bad compare slug");
     assertBuyerVerdict(entry);
@@ -2216,8 +2217,28 @@ function editorialArticle(entry, section, crumb, pair) {
       }
     ]
   };
+  if (Array.isArray(entry.faqs) && entry.faqs.length) {
+    graph["@graph"].push({
+      "@type": "FAQPage",
+      mainEntity: entry.faqs.map((item) => ({
+        "@type": "Question",
+        name: item.q,
+        acceptedAnswer: { "@type": "Answer", text: item.a }
+      }))
+    });
+  }
   assertNoCommerce(graph);
   return JSON.stringify(graph, null, 2).replace(/</g, "\\u003c");
+}
+
+function editorialFaqs(entry) {
+  const faqs = entry.faqs || [];
+  if (!faqs.length) return "";
+  const body = faqs.map((item) => {
+    if (!item.q || !item.a) throw new Error("FAQ missing text: " + entry.slug);
+    return "<h3>" + card.esc(item.q) + "</h3><p>" + card.esc(item.a) + "</p>";
+  }).join("");
+  return productFold("questions", "Questions", body) + "\n";
 }
 
 function writeEditorialPage(entry, section, crumb) {
@@ -2259,6 +2280,7 @@ function writeEditorialPage(entry, section, crumb) {
   card.beginPage();
   const picks = '<div class="pick-grid">' + pair.map((product) => {
     const opts = voice ? { pick: buyerReason(product.id) } : {};
+    if (section === "black-friday") opts.tileUnlessExact = true;
     return card.card(product, "US", opts);
   }).join("\n") + "</div>";
   const html = `<!DOCTYPE html>
@@ -2303,9 +2325,9 @@ ${sceneBlock("compare")}
 <h1>${card.esc(entry.title)}</h1>
 <p class="sub">${card.esc(entry.description.split(/(?<=\.)\s/)[0])}</p>
 ${picks}
-<nav class="toc" aria-label="Jump to"><p>Jump to</p><a href="#read-lines">What the maker says</a><a href="#recall-check">Recall check</a><a href="#stores">Stores</a></nav>
+<nav class="toc" aria-label="Jump to"><p>Jump to</p><a href="#read-lines">What the maker says</a>${entry.faqs && entry.faqs.length ? '<a href="#questions">Questions</a>' : ""}<a href="#recall-check">Recall check</a><a href="#stores">Stores</a></nav>
 ${productFold("read-lines", "What the maker says", '<p class="lede">' + card.esc(entry.description) + "</p><p>Each spec line is copied from that model’s maker page. The Source link opens that page. The recall line is the CPSC and Health Canada check dated " + card.esc(recalls.checkedAt) + " (UTC).</p>" + pair.map(editorialSpecBlock).join("\n") + sections)}
-${productFold("recall-check", "Recall check", recallsHtml + '<p class="lede"><a href="/' + section + '/">' + card.esc(crumb) + '</a> <a href="/' + entry.hub + '/">' + card.esc(HUB_NAME[entry.hub]) + '</a> <a href="/compare/">Spec comparisons</a> <a href="/black-friday/">Black Friday</a> <a href="/recalls/">Recall checks</a> <a href="/how-we-check/">How we check</a> ' + bestTypesForIds(pair.map((product) => product.id)).map(bestAnchor).join(" ") + " " + pair.map((product) => '<a href="' + card.productPath(product) + '">' + card.esc(product.title) + "</a>").join(" ") + "</p>" + relatedHtml + seeAlsoHtml(entry))}
+${editorialFaqs(entry)}${productFold("recall-check", "Recall check", recallsHtml + '<p class="lede"><a href="/' + section + '/">' + card.esc(crumb) + '</a> <a href="/' + entry.hub + '/">' + card.esc(HUB_NAME[entry.hub]) + '</a> <a href="/compare/">Spec comparisons</a> <a href="/black-friday/">Black Friday</a> <a href="/recalls/">Recall checks</a> <a href="/how-we-check/">How we check</a> ' + bestTypesForIds(pair.map((product) => product.id)).map(bestAnchor).join(" ") + " " + pair.map((product) => '<a href="' + card.productPath(product) + '">' + card.esc(product.title) + "</a>").join(" ") + "</p>" + relatedHtml + seeAlsoHtml(entry))}
 ${productFold("stores", "Stores", stores("US", "United States stores") + stores("CA", "Canadian stores"))}
 </div>
 </main>
@@ -2921,6 +2943,19 @@ function writeEditorial() {
   if (editorial.alternatives.length !== 5) throw new Error("Expected five alternatives pages");
   if (editorial.worth.length !== 5) throw new Error("Expected five worth-it pages");
   if (editorial.season.length !== 9) throw new Error("Expected nine Black Friday model pages");
+  for (const entry of editorial.season) {
+    if (!/Black Friday/.test(entry.title) || !/Cyber Monday/.test(entry.title)) {
+      throw new Error("Black Friday title needs both days: " + entry.slug);
+    }
+    const intro = String(entry.description || "").split(/(?<=\.)\s/)[0];
+    if (!/Black Friday/.test(intro) || !/Cyber Monday/.test(intro)) {
+      throw new Error("Black Friday intro needs both days: " + entry.slug);
+    }
+    const faqs = entry.faqs || [];
+    if (!faqs.some((item) => /Cyber Monday/i.test(item.q) && /Cyber Monday/i.test(item.a))) {
+      throw new Error("Black Friday model page needs a Cyber Monday FAQ: " + entry.slug);
+    }
+  }
   for (const entry of editorial.alternatives) writeEditorialPage(entry, "alternatives", "Alternatives");
   for (const entry of editorial.worth) writeEditorialPage(entry, "worth-it", "Worth it?");
   for (const entry of editorial.season) writeEditorialPage(entry, "black-friday", "Black Friday");
@@ -3164,8 +3199,8 @@ function blackFridayPicks() {
 function blackFridayFaqs() {
   return [
     {
-      q: "What should I check before buying on Black Friday?",
-      a: "Confirm the exact model number on the box and on the listing. Check that model with CPSC for a US purchase and with Health Canada for a Canadian purchase. A look-alike listing or a third-party seller can use the brand name for a different model. Read the return window on the store page before you pay."
+      q: "What should I check before buying on Black Friday or Cyber Monday?",
+      a: "Confirm the exact model number on the box and on the listing. Check that model with CPSC for a US purchase and with Health Canada for a Canadian purchase. A look-alike listing or a third-party seller can use the brand name for a different model. Read what is in the box, and read the return window on the store page before you pay."
     },
     {
       q: "When is Black Friday 2026 on Amazon?",
@@ -3182,6 +3217,10 @@ function blackFridayFaqs() {
     {
       q: "Where is the price?",
       a: "Prices stay on the store. This page links the Checked Lab card for the model."
+    },
+    {
+      q: "Is Cyber Monday different from Black Friday?",
+      a: "Cyber Monday 2026 is Monday, November 30. The model check is the same as on Black Friday: confirm the exact model number, read what is in the box, and read the return window on the store page. Then compare that model with the alternatives linked from its card."
     }
   ];
 }
@@ -3198,7 +3237,7 @@ function bfStatusHtml(rec, place) {
 }
 
 function bfModel(product, opts) {
-  const art = card.mediaWithSpecs(product, opts);
+  const art = card.mediaWithSpecs(product, Object.assign({ tileUnlessExact: true }, opts || {}));
   const hidden = art.includes("spec-tile") ? ' class="visually-hidden"' : "";
   return '<article class="bf-model" id="' + card.esc(product.id) + '">' +
     art +
@@ -3343,10 +3382,10 @@ ${sceneBlock("black-friday")}
 <span aria-current="page">Black Friday</span>
 </nav>
 <h1>${card.esc(BF_H1)}</h1>
-<p class="sub">Confirm the model number, then read the dated recall check.</p>
+<p class="sub">Confirm the model number before Black Friday and Cyber Monday 2026, then read the dated recall check.</p>
 <nav class="toc" aria-label="Jump to"><p>Jump to</p>${jumps}</nav>
 ${sections}
-${productFold("before-you-pay", "Before you pay", '<p class="lede">Confirm the model number, then read the recall check for that model. The status under each card is the recall check dated <time datetime="' + card.esc(date) + '">' + card.esc(date) + '</time> (UTC).</p>' + renderHubGuide("black-friday", { faq: false }) + '<p><a href="/gifts/">Holiday 2026 gift guides</a> group the same models by recipient. Each pick quotes the maker specs and repeats this dated check. <a href="/gifts/for-kids/">Gifts for kids</a> names mainstream kids products and the official check to do. <a href="/winter-safety/">Winter home safety, recall-checked</a> covers heaters, heated bedding, alarms, and outage power. <a href="/toy-safety/">Holiday toy safety, recall-checked</a> covers button batteries, magnets, water beads, and ride-ons.</p><p class="only-us">' + card.esc(US_DATES) + ' <a href="' + US_DEALS + '" target="_blank" rel="sponsored nofollow noopener">Amazon.com Black Friday</a>.</p><p class="only-ca">' + card.esc(CA_DATES) + ' <a href="' + CA_DEALS + '" target="_blank" rel="sponsored nofollow noopener">Amazon.ca Black Friday</a>.</p><p>Gift and seasonal models from this list. Open the card and match the model number on the listing.</p><ol class="checklist"><li>Confirm the exact model number on the box, in the manual, and on the listing. A family name such as Foodi or Cosori can point at a different model.</li><li>Check that model on <a href="https://www.cpsc.gov/Recalls" target="_blank" rel="noopener">CPSC Recalls</a> for a US purchase and on <a href="https://recalls-rappels.canada.ca/en" target="_blank" rel="noopener">Health Canada recalls and safety alerts</a> for a Canadian purchase. <a href="/recalls/">Recall checks</a> is the full list. <a href="/how-we-check/">How we check</a> says what the date means.</li><li>Beware look-alike listings and third-party sellers. The brand in the title is not the model number.</li><li>Read the return window on the listing before you pay. The window is printed on the store page.</li></ol>')}
+${productFold("before-you-pay", "Before you pay", '<p class="lede">Confirm the model number before Black Friday and before Cyber Monday, Monday, November 30, 2026. The status under each card is the recall check dated <time datetime="' + card.esc(date) + '">' + card.esc(date) + '</time> (UTC).</p>' + renderHubGuide("black-friday", { faq: false }) + '<p><a href="/gifts/">Holiday 2026 gift guides</a> group the same models by recipient. Each pick quotes the maker specs and repeats this dated check. <a href="/gifts/for-kids/">Gifts for kids</a> names mainstream kids products and the official check to do. <a href="/winter-safety/">Winter home safety, recall-checked</a> covers heaters, heated bedding, alarms, and outage power. <a href="/toy-safety/">Holiday toy safety, recall-checked</a> covers button batteries, magnets, water beads, and ride-ons.</p><p class="only-us">' + card.esc(US_DATES) + ' <a href="' + US_DEALS + '" target="_blank" rel="sponsored nofollow noopener">Amazon.com Black Friday</a>.</p><p class="only-ca">' + card.esc(CA_DATES) + ' <a href="' + CA_DEALS + '" target="_blank" rel="sponsored nofollow noopener">Amazon.ca Black Friday</a>.</p><p>Gift and seasonal models from this list. Open the card and match the model number on the listing. The same check applies on Cyber Monday.</p><ol class="checklist"><li>Confirm the exact model number on the box, in the manual, and on the listing. A family name such as Foodi or Cosori can point at a different model.</li><li>Check that model on <a href="https://www.cpsc.gov/Recalls" target="_blank" rel="noopener">CPSC Recalls</a> for a US purchase and on <a href="https://recalls-rappels.canada.ca/en" target="_blank" rel="noopener">Health Canada recalls and safety alerts</a> for a Canadian purchase. <a href="/recalls/">Recall checks</a> is the full list. <a href="/how-we-check/">How we check</a> says what the date means.</li><li>Beware look-alike listings and third-party sellers. The brand in the title is not the model number.</li><li>Read what is in the box, and read the return window on the listing before you pay. The window is printed on the store page. Cyber Monday does not change either line.</li></ol>')}
 ${productFold("comparisons", "Maker spec comparisons", '<p>Each page repeats the specs both product pages share. The cell links the product page. The recall line is the dated check. <a href="/compare/">All comparisons</a>.</p><p class="lede">' + compares.map((entry) => '<a href="/compare/' + entry.slug + '/">' + card.esc(entry.linkLabel) + "</a>").join(" ") + "</p>" + editorialIndexBlock())}
 ${productFold("notices", "Notices to open before you buy", "<p>These pages quote the official notice and name the model card.</p><ul>" + notices + "</ul>")}
 <section class="faq" id="questions">
@@ -3416,7 +3455,7 @@ function assertBlackFriday(html) {
   if (!usBits.includes("November 19–30, 2026")) throw new Error("Amazon.com dates missing");
   if (!caBits.includes("November 19–27")) throw new Error("Amazon.ca dates missing");
   const faqs = blackFridayFaqs();
-  if (faqs.length < 3 || faqs.length > 5) throw new Error("Black Friday FAQ count");
+  if (faqs.length < 3 || faqs.length > 6) throw new Error("Black Friday FAQ count");
   for (const item of faqs) {
     if (!html.includes("<h3>" + card.esc(item.q) + "</h3>")) throw new Error("Black Friday FAQ question");
     if (!html.includes('<p class="faq-a">' + card.esc(item.a) + "</p>")) throw new Error("Black Friday FAQ answer");
