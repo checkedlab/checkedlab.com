@@ -31,10 +31,19 @@ Photo decisions recorded here:
   a product. The cover is the headline only. The three steps are on the
   steps slide, and the Short shows that list once.
 
+Week 3 (cards 08-13, one Short each, captions-week3.md) is typographic for
+the same reason. Dyson V8 and the KitchenAid Artisan have an exact licensed
+photo. The other model in each of those pairs does not, so a photo is not
+used. Every number is copied from that compare page's HTML table.
+
 The site build does not run this script. A normal `node scripts/build.mjs`
 leaves /social untouched. Regenerate with:
 
     RENDER_SOCIAL=1 node scripts/build.mjs
+
+Week 3 only, without rewriting the earlier cards:
+
+    SOCIAL_WEEK=3 python3 scripts/render-social.py
 """
 
 from __future__ import annotations
@@ -65,7 +74,8 @@ PILL = (232, 241, 234)
 
 BAN = re.compile(
     r"not a verdict|catalogue check|stay(?:s)? off (?:this|the) table|"
-    r"maker specs|we didn't test|we did not test|MAKER SPECS",
+    r"maker specs|we didn't test|we did not test|MAKER SPECS|"
+    r"\bwe tested\b|\bverdict\b|\bcatalogue\b|\bmaker lines\b|\$\d",
     re.I,
 )
 
@@ -76,6 +86,10 @@ TYPE_RULES = [
     (re.compile(r"headphone|airpod|bose|wh-1000", re.I), "Headphones"),
     (re.compile(r"blender|vitamix", re.I), "Blender"),
     (re.compile(r"litter", re.I), "Litter box"),
+    (re.compile(r"stand mixer|kitchenaid|artisan", re.I), "Stand mixer"),
+    (re.compile(r"rice cooker|zojirushi", re.I), "Rice cooker"),
+    (re.compile(r"fry pan|all-clad|allclad", re.I), "Fry pan"),
+    (re.compile(r"heater|mh9bx|mh18b", re.I), "Heater"),
 ]
 
 
@@ -341,6 +355,12 @@ def fit_spec_cards(fonts, sides, text_w, card_h):
     while slack > 40 and gap < 32:
         gap += 2
         slack -= 2 * count
+    # Tall Short frames can still have a hole under short spec lists.
+    # The 4:5 cards already leave this loop with little slack, so they stay put.
+    if slack > 64:
+        room = int(slack // count)
+        gap += room
+        slack -= room * count
     best["gap"] = gap
     best["extra_step"] = extra_step
     best["slack"] = max(0, slack)
@@ -369,17 +389,20 @@ def draw_pair(path, height, fonts, post, entities):
         raise SystemExit("Card area is too short for " + path.name)
     pad_x = 30
     text_w = card_w - pad_x - 26
-    sides = []
-    for side in post["sides"]:
-        entity = entities[side["id"]]
-        specs = [(label, spec_value(entity, label)) for label in side["labels"]]
-        sides.append({
-            "brand": entity["sourceName"],
-            "model": model_name(entity, side.get("model")),
-            "type": product_type(entity),
-            "specs": specs,
-            "file": "products.json" if side["id"] != "airpods-pro-2" else "data/compares.json",
-        })
+    if post.get("sides_ready"):
+        sides = post["sides_ready"]
+    else:
+        sides = []
+        for side in post["sides"]:
+            entity = entities[side["id"]]
+            specs = [(label, spec_value(entity, label)) for label in side["labels"]]
+            sides.append({
+                "brand": entity["sourceName"],
+                "model": model_name(entity, side.get("model")),
+                "type": product_type(entity),
+                "specs": specs,
+                "file": "products.json" if side["id"] != "airpods-pro-2" else "data/compares.json",
+            })
     layout = fit_spec_cards(fonts, sides, text_w, card_h)
     for index, side in enumerate(sides):
         left = 64 + index * (card_w + gap)
@@ -565,6 +588,626 @@ RECALL_STEPS = [
 ]
 
 
+STRIPE = (239, 231, 218)
+NUM_TOKEN = re.compile(r"\d{1,3}(?:,\d{3})+(?:\.\d+)?|\d+-\d+/\d+|\d+\.\d+|\d+")
+
+
+def unescape(text):
+    return (
+        text.replace("&amp;", "&")
+        .replace("&quot;", '"')
+        .replace("&#39;", "'")
+        .replace("&lt;", "<")
+        .replace("&gt;", ">")
+    )
+
+
+def parse_compare_table(slug):
+    html = (ROOT / "compare" / slug / "index.html").read_text()
+    body = re.search(r"<tbody>(.*?)</tbody>", html, re.S)
+    if not body:
+        raise SystemExit("Compare page has no spec table: " + slug)
+    rows = {}
+    for label, left, right in re.findall(r"<tr><th>(.*?)</th><td>(.*?)</td><td>(.*?)</td></tr>", body.group(1)):
+        rows[label] = (html_cell(left), html_cell(right))
+    if not rows:
+        raise SystemExit("Compare table is empty: " + slug)
+    return rows, html
+
+
+def html_cell(raw):
+    url = ""
+    found = re.search(r'href="([^"]+)"', raw)
+    if found:
+        url = unescape(found.group(1))
+    text = re.sub(r"<a\b[^>]*>.*?</a>", " ", raw, flags=re.S)
+    text = unescape(re.sub(r"<[^>]+>", " ", text))
+    text = re.sub(r"\s+", " ", text).strip()
+    if not text or not url:
+        raise SystemExit("Spec cell is missing text or a source link: " + raw[:80])
+    return text, url
+
+
+def repeats(token, blob):
+    token = " ".join(token.lower().split())
+    if not token or token not in blob:
+        return False
+    if any(ch.isdigit() for ch in token):
+        return len(token) >= 3
+    return len(token) >= 12
+
+
+def assert_distinct(slug, cover_values, table_values, deck, table_title):
+    table_blob = " ".join(table_values + [table_title]).lower()
+    cover_blob = " ".join(cover_values + [deck]).lower()
+    for value in cover_values + [deck]:
+        if repeats(value, table_blob):
+            raise SystemExit(slug + " repeats cover text on the table: " + value)
+    for value in table_values:
+        if repeats(value, cover_blob):
+            raise SystemExit(slug + " repeats table text on the cover: " + value)
+
+
+def assert_caption_numbers(slug, caption, html):
+    checked(caption)
+    body = re.sub(r"https://\S+", "", caption)
+    for token in NUM_TOKEN.findall(body):
+        if token not in html:
+            raise SystemExit(slug + " caption uses a number that is not on the page: " + token)
+
+
+def assert_filled(path, rule_y):
+    image = Image.open(path).convert("RGB")
+    pixels = image.load()
+    last = 0
+    for y in range(rule_y - 8, 80, -1):
+        hits = 0
+        for x in range(72, W - 72, 7):
+            if pixels[x, y] != BG:
+                hits += 1
+                if hits > 12:
+                    last = y
+                    break
+        if last:
+            break
+    if rule_y - last > 56:
+        raise SystemExit("Empty lower half on " + path.name + " (" + str(rule_y - last) + "px)")
+
+
+def load_named():
+    products = json.loads((ROOT / "products.json").read_text())
+    compares = json.loads((ROOT / "data" / "compares.json").read_text())
+    by_id = {item["id"]: item for item in products}
+    for entry in compares:
+        for guest in entry.get("guests") or []:
+            by_id.setdefault(guest["id"], guest)
+    return by_id
+
+
+def display_model(entity, name):
+    title = entity.get("title") or ""
+    if entity.get("model") == name or name in title:
+        return name
+    raise SystemExit("Display name is not on the model: " + name)
+
+
+def ready_sides(named, post, rows, labels):
+    sides = []
+    for index, pid in enumerate(post["ids"]):
+        entity = named[pid]
+        specs = []
+        for label in labels:
+            if label not in rows:
+                raise SystemExit(post["slug"] + " has no shared row " + label)
+            value, url = rows[label][index]
+            specs.append((label, value, url))
+        sides.append({
+            "brand": entity["sourceName"],
+            "model": display_model(entity, post["models"][index]),
+            "type": product_type(entity),
+            "specs": [(label, value) for label, value, _url in specs],
+            "sources": specs,
+            "file": "compare/" + post["slug"] + "/index.html",
+        })
+    return sides
+
+
+def draw_centered_lines(draw, center, y, lines, font, fill, step):
+    for line in lines:
+        width = font.getlength(line)
+        draw.text((center - width / 2, y), checked(line), font=font, fill=fill)
+        y += step
+    return y
+
+
+def fit_table(fonts, rows, heads, inner_w, area):
+    """Largest phone-readable table type that fills the band down to the footer."""
+    best = None
+    for value_size in range(78, 35, -1):
+        label_size = max(34, min(46, int(round(value_size * 0.72))))
+        head_size = max(36, min(52, int(round(value_size * 0.78))))
+        label_font = fonts.sans(label_size, 650)
+        value_font = fonts.sans(value_size, 650)
+        head_font = fonts.sans(head_size, 700)
+        label_w = max(label_font.getlength(row["label"]) for row in rows) + 28
+        if label_w > inner_w * 0.42:
+            continue
+        col_w = (inner_w - label_w - 20) / 2
+        if col_w < 240:
+            continue
+        if any(head_font.getlength(checked(head)) > col_w - 12 for head in heads):
+            continue
+        value_step = leading(value_font, 0.08)
+        too_wide = False
+        measured = []
+        for row in rows:
+            cells = []
+            height = 0
+            for value in row["values"]:
+                # Keep a real gutter between the two centered columns.
+                lines = wrap(checked(value), value_font, col_w - 72)
+                if any(value_font.getlength(line) > col_w - 68 for line in lines) or len(lines) > 8:
+                    too_wide = True
+                height = max(height, len(lines) * value_step)
+                cells.append(lines)
+            label_lines = wrap(checked(row["label"]), label_font, label_w - 8)
+            if any(label_font.getlength(line) > label_w - 4 for line in label_lines):
+                too_wide = True
+            height = max(height, len(label_lines) * leading(label_font, 0.06))
+            measured.append({"lines": cells, "label_lines": label_lines, "height": height})
+        if too_wide:
+            continue
+        pad = 22
+        natural = sum(item["height"] + pad * 2 for item in measured)
+        gaps = 12 * (len(rows) - 1)
+        header_h = leading(head_font, 0.2) + 18
+        used = header_h + natural + gaps
+        if used <= area:
+            best = {
+                "label_font": label_font,
+                "label_size": label_size,
+                "value_font": value_font,
+                "value_size": value_size,
+                "head_font": head_font,
+                "head_size": head_size,
+                "label_w": label_w,
+                "col_w": col_w,
+                "value_step": value_step,
+                "label_step": leading(label_font, 0.06),
+                "measured": measured,
+                "pad": pad,
+                "header_h": header_h,
+                "gaps": gaps,
+                "used": used,
+            }
+            break
+    if best is None:
+        raise SystemExit("Table type does not fit")
+    slack = area - best["used"]
+    weights = [max(1, item["height"]) for item in best["measured"]]
+    share = sum(weights)
+    extra = [0] * len(weights)
+    left = slack
+    if share:
+        for index, weight in enumerate(weights):
+            give = int(slack * weight / share)
+            extra[index] = give
+            left -= give
+        extra[-1] += max(0, left)
+    for item, give in zip(best["measured"], extra):
+        item["box"] = item["height"] + best["pad"] * 2 + give
+    best["slack"] = 0
+    return best
+
+
+def draw_table(path, height, fonts, post):
+    image, draw = new_canvas(height)
+    top, bottom = chrome(draw, fonts, height, post["url"])
+    inner_w = W - 128
+    y = top + (8 if height < 1600 else 16)
+    eye = fonts.sans(18, 700)
+    draw_tracked(draw, (64, y), post["eyebrow"], eye, GREEN, 3.2)
+    y += 40
+    title_size = 68 if height < 1600 else 78
+    title_font, title_lines, title_step = fit_block(post["table_title"], fonts, inner_w, title_size, 620, 2)
+    y = draw_lines(draw, 64, y, title_lines, title_font, INK, title_step)
+    y += 18
+    note_font = fonts.sans(30 if height < 1600 else 34, 500)
+    note = checked(post["source_line"])
+    note_h = leading(note_font, 0.08)
+    area_bottom = bottom - note_h - 8
+    layout = fit_table(fonts, post["rows"], post["heads"], inner_w, area_bottom - y - 14)
+    head_y = y + 4
+    for index, head in enumerate(post["heads"]):
+        center = 64 + layout["label_w"] + 10 + layout["col_w"] * index + layout["col_w"] / 2
+        width = layout["head_font"].getlength(checked(head))
+        draw.text((center - width / 2, head_y), checked(head), font=layout["head_font"], fill=GREEN)
+    rule = y + layout["header_h"] - 10
+    draw.line((64, rule, W - 64, rule), fill=HAIR, width=2)
+    y = y + layout["header_h"]
+    for index, item in enumerate(layout["measured"]):
+        box_h = item["box"]
+        fill = CARD if index % 2 == 0 else STRIPE
+        draw.rounded_rectangle((64, y, W - 64, y + box_h), radius=18, fill=fill)
+        label_h = len(item["label_lines"]) * layout["label_step"]
+        label_y = y + (box_h - label_h) / 2
+        draw_lines(draw, 64 + 22, label_y, item["label_lines"], layout["label_font"], MUTED, layout["label_step"])
+        for col, lines in enumerate(item["lines"]):
+            block_h = len(lines) * layout["value_step"]
+            text_y = y + (box_h - block_h) / 2
+            center = 64 + layout["label_w"] + 10 + layout["col_w"] * col + layout["col_w"] / 2
+            draw_centered_lines(draw, center, text_y, lines, layout["value_font"], INK, layout["value_step"])
+        y += box_h
+        if index != len(layout["measured"]) - 1:
+            y += 12
+    draw.text((64, area_bottom), note, font=note_font, fill=MUTED)
+    image.save(path, "PNG", optimize=True)
+    print(
+        path.name,
+        "table value", layout["value_size"],
+        "label", layout["label_size"],
+        "head", layout["head_size"],
+    )
+    assert_filled(path, bottom + 28)
+    return layout
+
+
+def fit_explicit(fonts, lines, width, start, floor, weight=620):
+    size = start
+    while size >= floor:
+        font = fonts.news(size, weight)
+        if all(font.getlength(checked(line)) <= width for line in lines):
+            return font, leading(font, 0.08)
+        size -= 2
+    raise SystemExit("CTA line does not fit: " + " / ".join(lines))
+
+
+def draw_cta(path, height, fonts, post):
+    image, draw = new_canvas(height)
+    top, bottom = chrome(draw, fonts, height, "checkedlab.com")
+    inner_w = W - 128
+    tall = height >= 1600
+    claim_font, claim_step = fit_explicit(
+        fonts, post["claim"], inner_w, 108 if tall else 84, 60, 620
+    )
+    claim_h = claim_step * len(post["claim"])
+    sub_font = fonts.sans(36 if tall else 32, 500)
+    sub = checked(post["sub"])
+    sub_h = leading(sub_font, 0.1)
+    link_label = fonts.sans(28, 700)
+    url_size = 34 if tall else 30
+    url_font = fonts.sans(url_size, 600)
+    while url_size > 26 and url_font.getlength(post["path"]) > inner_w - 80:
+        url_size -= 1
+        url_font = fonts.sans(url_size, 600)
+    if url_font.getlength(post["path"]) > inner_w - 80:
+        raise SystemExit("CTA url does not fit " + post["path"])
+    pill_h = leading(link_label, 0.05) + leading(url_font, 0.05) + 36
+    rule_h = 6
+    stack = claim_h + 28 + rule_h + 28 + sub_h + 32 + pill_h
+    spare = (bottom - top) - stack
+    if spare < 16:
+        raise SystemExit("CTA does not fit " + path.name)
+    top_air = int(spare * (0.18 if tall else 0.08))
+    y = top + top_air
+    y = draw_lines(draw, 64, y, [checked(line) for line in post["claim"]], claim_font, INK, claim_step)
+    y += 28
+    draw.rounded_rectangle((64, y, 64 + 88, y + rule_h), radius=3, fill=GREEN)
+    y += rule_h + 28
+    draw.text((64, y), sub, font=sub_font, fill=INK)
+    y += sub_h + 32
+    pill = (64, y, W - 64, y + pill_h)
+    draw.rounded_rectangle(pill, radius=22, fill=PILL)
+    draw.text((92, y + 16), "Link in bio", font=link_label, fill=GREEN)
+    draw.text((92, y + 16 + leading(link_label, 0.05)), post["path"], font=url_font, fill=INK)
+    image.save(path, "PNG", optimize=True)
+    print(path.name, "cta", claim_font.size, "url", url_size)
+
+
+def encode_silent(frames, durations, dest):
+    total = sum(durations)
+    cmd = ["ffmpeg", "-y"]
+    for frame, length in zip(frames, durations):
+        cmd += ["-loop", "1", "-t", f"{length:.3f}", "-i", str(frame)]
+    cmd += ["-f", "lavfi", "-t", f"{total:.3f}", "-i", "anullsrc=channel_layout=stereo:sample_rate=48000"]
+    parts = "".join(f"[{i}:v]" for i in range(len(frames)))
+    cmd += [
+        "-filter_complex",
+        parts + f"concat=n={len(frames)}:v=1:a=0,format=yuv420p,fps=30[v]",
+        "-map", "[v]",
+        "-map", f"{len(frames)}:a:0",
+        "-c:v", "libx264",
+        "-preset", "medium",
+        "-crf", "20",
+        "-c:a", "aac",
+        "-b:a", "64k",
+        "-movflags", "+faststart",
+        "-shortest",
+        str(dest),
+    ]
+    subprocess.check_call(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+
+
+def week3_posts():
+    """Cover and table use different rows from the same compare table.
+
+    The caption may restate both, because it is the post text rather than a
+    second copy of one slide.
+    """
+    common_sub = "Full side-by-side and recall check at checkedlab.com"
+    return [
+        {
+            "slug": "dyson-v8-vs-dyson-v10",
+            "stem": "08-dyson-v8-v10",
+            "short": "dyson-v8-vs-v10.mp4",
+            "ids": ["dyson-v8", "dyson-v10-absolute"],
+            "models": ["V8", "V10 Absolute"],
+            "heads": ["V8", "V10"],
+            "title": "Dyson V8 or V10?",
+            "deck": "The V8 is the lighter one.",
+            "table_title": "Charge, bin, and cyclones",
+            "source_line": "By Dyson's own numbers.",
+            "cover_labels": ["Weight", "Run time", "Suction"],
+            "table_labels": ["Charge time", "Bin volume", "Power modes", "Cyclones", "Height"],
+            "claim": ["V8: 5.58 lb.", "V10: up to 60 minutes."],
+            "hashtag": "#Cleaning",
+            "heading": "Dyson V8 vs V10",
+            "yt": "Dyson V8 or V10? Weight and run time",
+            "caption": (
+                "Dyson V8 or V10? The V8 is the lighter one.\n\n"
+                "By Dyson's own numbers, the V8 is 5.58 lb, with 115 air watts in MAX mode and a 40-minute maximum. "
+                "The Cyclone V10 Absolute is 5.71 lb, with 150 air watts in Boost mode and up to 60 minutes.\n\n"
+                "The charge is 5 hours on the V8 and 3.5 hours on the V10 Absolute. Bins are 0.14 gallon and 0.2 gallon. "
+                "Power modes are two and three. Cyclones are 15 and 14.\n\n"
+                "The same V10 page also says up to 35 minutes with a Torque drive head in Suction mode I and up to 40 minutes with a Soft roller head in Suction mode I."
+            ),
+        },
+        {
+            "slug": "sony-wh-1000xm5-vs-xm6",
+            "stem": "09-sony-xm",
+            "short": "sony-xm5-vs-xm6.mp4",
+            "ids": ["sony-wh-1000xm5", "sony-wh-1000xm6"],
+            "models": ["XM5", "XM6"],
+            "heads": ["XM5", "XM6"],
+            "title": "Sony XM5 or XM6?",
+            "deck": "The music-hour line matches.",
+            "table_title": "Battery and call time",
+            "source_line": "By Sony's own numbers.",
+            "cover_labels": ["Weight", "Bluetooth", "Noise cancelling"],
+            "table_labels": ["Battery", "Charge time", "Call time", "Audio formats"],
+            "claim": ["XM5: about 8.82 oz.", "XM6: 12 microphones."],
+            "hashtag": "#PersonalTech",
+            "heading": "Sony XM5 vs XM6",
+            "yt": "Sony XM5 or XM6? The hours match",
+            "caption": (
+                "Sony XM5 or XM6? The music-hour line matches.\n\n"
+                "By Sony's own numbers, both list max 30 hours with noise cancelling on and max 40 hours with it off. "
+                "Both charge in about 3.5 hours.\n\n"
+                "The XM5 is about 8.82 oz, with Bluetooth 5.2 and a QN1 processor with 8 microphones. "
+                "The XM6 is about 8.96 oz, with Bluetooth 5.3 and a QN3 processor with 12 microphones.\n\n"
+                "Call time with noise cancelling off is max 32 hours on the XM5 and max 28 hours on the XM6. "
+                "The XM6 codec list adds LC3."
+            ),
+        },
+        {
+            "slug": "kitchenaid-artisan-vs-classic",
+            "stem": "10-kitchenaid",
+            "short": "kitchenaid-artisan-vs-classic.mp4",
+            "ids": ["kitchenaid-artisan", "kitchenaid-classic-k45ss"],
+            "models": ["Artisan", "Classic"],
+            "heads": ["Artisan", "Classic"],
+            "title": "Artisan or Classic?",
+            "deck": "A larger bowl and a stronger motor.",
+            "table_title": "Colors, cookies, warranty",
+            "source_line": "By KitchenAid's own numbers.",
+            "cover_labels": ["Capacity", "Motor", "Model"],
+            "table_labels": ["Colors", "Cookies", "Speeds", "Warranty"],
+            "claim": ["Artisan: 5 quart, 325 watts.", "Classic: 4.5 quart, 275 watts."],
+            "hashtag": "#Kitchen",
+            "heading": "KitchenAid Artisan vs Classic",
+            "yt": "Artisan or Classic? 5 quart or 4.5",
+            "caption": (
+                "KitchenAid Artisan or Classic? A larger bowl and a stronger motor.\n\n"
+                "By KitchenAid's own numbers, the Artisan is a 5 quart mixer at 325 watts. "
+                "The Classic is a 4.5 quart mixer at 275 watts.\n\n"
+                "The Artisan comes in more than 20 colors. The Classic comes in white and onyx black. "
+                "Cookies are up to 9 dozen on the Artisan and up to 8 dozen on the Classic, using the flat beater and 28g of dough each. "
+                "Both list 10 speeds and a one-year limited warranty. Model codes are KSM150PSER and K45SS."
+            ),
+        },
+        {
+            "slug": "allclad-d3-vs-d5",
+            "stem": "11-allclad",
+            "short": "allclad-d3-vs-d5.mp4",
+            "ids": ["allclad-d3-4112", "allclad-d5-sd55112"],
+            "models": ["D3", "D5"],
+            "heads": ["D3", "D5"],
+            "title": "All-Clad D3 or D5?",
+            "deck": "The ply count is the split.",
+            "table_title": "What both pans share",
+            "source_line": "By All-Clad's own numbers.",
+            "cover_labels": ["Model", "Construction", "Made in"],
+            "table_labels": ["Size", "Oven", "Stovetop", "Care", "Warranty"],
+            "claim": ["D3 is 3-ply.", "D5 is 5-ply. Both to 600 F."],
+            "hashtag": "#Kitchen",
+            "heading": "All-Clad D3 vs D5",
+            "yt": "All-Clad D3 or D5? 3-ply or 5-ply",
+            "caption": (
+                "All-Clad D3 or D5? The ply count is the split.\n\n"
+                "By All-Clad's own numbers, model 4112 is 3-ply: five metal layers in three functional layers. "
+                "Model SD55112 is 5-ply bonded. All-Clad calls the D5 its premier range.\n\n"
+                "Both are 12 inch stainless pans, oven and broiler safe up to 600 F, for any stovetop including induction. "
+                "Both say handwash only and a limited lifetime warranty. Both say made in the USA with global components."
+            ),
+        },
+        {
+            "slug": "zojirushi-vs-tiger-rice-cooker",
+            "stem": "12-rice",
+            "short": "zojirushi-vs-tiger.mp4",
+            "ids": ["zojirushi-ns-zcc10", "tiger-jbv-a10u"],
+            "models": ["NS-ZCC10", "JBV-A10U"],
+            "heads": ["Zojirushi", "Tiger"],
+            "title": "Zojirushi or Tiger?",
+            "deck": "Two cookers, two watt figures.",
+            "table_title": "Cabinet and menus",
+            "source_line": "By each maker's own numbers.",
+            "cover_labels": ["Electrical", "Origin", "Capacity"],
+            "table_labels": ["Dimensions", "Menus"],
+            "claim": ["680 watts, made in Japan.", "672 watts, made in China."],
+            "hashtag": "#Kitchen",
+            "heading": "Zojirushi vs Tiger",
+            "yt": "Zojirushi or Tiger? 680 watts or 672",
+            "caption": (
+                "Zojirushi or Tiger? Two cookers in the 5.5-cup class.\n\n"
+                "By Zojirushi's own numbers, the NS-ZCC10 is up to 5.5 cups / 1.0 liter, at 120 volts / 680 watts, made in Japan. "
+                "By Tiger's own numbers, the JBV-A10U is a 5.5-cup cooker at 120 V, 60 Hz, 672 W, and the producing country is China. "
+                "Tiger's volume line is 1 L (34 oz).\n\n"
+                "Cabinets are 10-1/8 x 13 x 8-1/8 inches and 10.6 x 13.9 x 8.4 inches.\n\n"
+                "Zojirushi's menus are white, sushi, softer or harder, mixed, porridge, sweet, semi-brown, brown, rinse-free, and quick. "
+                "Tiger's menus are plain, brown, slow cooking, and synchro-cooking."
+            ),
+        },
+        {
+            "slug": "mr-heater-buddy-vs-big-buddy",
+            "stem": "13-buddy",
+            "short": "mr-heater-buddy-vs-big-buddy.mp4",
+            "ids": ["mr-heater-mh9bx", "mr-heater-mh18b"],
+            "models": ["Buddy", "Big Buddy"],
+            "heads": ["Buddy", "Big Buddy"],
+            "title": "Buddy or Big Buddy?",
+            "deck": "One bottle, or two.",
+            "table_title": "Settings and the indoor line",
+            "source_line": "By Mr. Heater's own numbers.",
+            "cover_labels": ["Heat", "Area", "Cylinders"],
+            "table_labels": ["Model", "Settings", "Indoor", "Tip-over", "Oxygen sensor"],
+            "claim": ["Buddy: up to 225 sq ft.", "Big Buddy: up to 450 sq ft."],
+            "hashtag": "#Winter",
+            "heading": "Mr Heater Buddy vs Big Buddy",
+            "yt": "Buddy or Big Buddy? 225 or 450 sq ft",
+            "caption": (
+                "Buddy or Big Buddy? One bottle, or two.\n\n"
+                "By Mr. Heater's own numbers, the Portable Buddy MH9BX is 4,000 or 9,000 BTU per hour, up to 225 sq ft, on one 1 lb propane cylinder. "
+                "The Big Buddy MH18B is 4,000, 9,000, or 18,000 BTU per hour, up to 450 sq ft, on two 1 lb propane cylinders.\n\n"
+                "The Buddy settings are hi and low. The Big Buddy settings are hi, med, and low. "
+                "Both standard listings mark indoor safe as yes, and both list Massachusetts and Canada restrictions. "
+                "The separate Massachusetts and Canada Big Buddy listing marks indoor safe as no.\n\n"
+                "The Buddy page says 3 hours at the maximum BTU and 6 hours at the minimum. "
+                "A bullet on that page also says up to 5.4 hours. The Big Buddy page says up to 11 hours with dual tanks. "
+                "Elevation is 7000 ft on the Buddy and 7,000 feet on the Big Buddy. "
+                "Both list a tip-over shutoff and an oxygen depletion sensor."
+            ),
+            "sub": common_sub,
+        },
+    ]
+
+
+def write_week3_captions(posts, html_by_slug):
+    parts = [
+        "# Week 3 captions",
+        "",
+        "Paste the block under each heading. The specs are the maker's own words.",
+        "",
+    ]
+    for post in posts:
+        url = "https://www.checkedlab.com/compare/" + post["slug"] + "/"
+        if len(post["yt"]) > 60:
+            raise SystemExit("Social title is " + str(len(post["yt"])) + " characters: " + post["yt"])
+        block = (
+            post["caption"].rstrip()
+            + "\n\n"
+            + url
+            + "\n\n"
+            + "#CheckedLab "
+            + post["hashtag"]
+        )
+        assert_caption_numbers(post["slug"], block, html_by_slug[post["slug"]])
+        parts.append("## " + post["heading"])
+        parts.append("")
+        parts.append("Page: " + url)
+        parts.append("")
+        parts.append("### Instagram")
+        parts.append("")
+        parts.append(block)
+        parts.append("")
+        parts.append("### YouTube Short")
+        parts.append("")
+        parts.append("Title: " + post["yt"])
+        parts.append("")
+        parts.append("Description:")
+        parts.append(block)
+        parts.append("")
+    text = "\n".join(parts).rstrip() + "\n"
+    checked(text)
+    dest = SOCIAL / "2026-11" / "captions-week3.md"
+    dest.write_text(text)
+    print("captions", dest.relative_to(ROOT))
+
+
+def render_week3(fonts):
+    named = load_named()
+    html_by_slug = {}
+    jobs = []
+    for post in week3_posts():
+        rows, html = parse_compare_table(post["slug"])
+        html_by_slug[post["slug"]] = html
+        post["sub"] = post.get("sub") or "Full side-by-side and recall check at checkedlab.com"
+        post["eyebrow"] = "SIDE BY SIDE"
+        post["url"] = "checkedlab.com"
+        post["path"] = "checkedlab.com/compare/" + post["slug"] + "/"
+        cover = ready_sides(named, post, rows, post["cover_labels"])
+        table = ready_sides(named, post, rows, post["table_labels"])
+        cover_values = [value for side in cover for _label, value in side["specs"]]
+        table_values = [value for side in table for _label, value in side["specs"]]
+        assert_distinct(post["slug"], cover_values, table_values, post["deck"], post["table_title"])
+        post["sides_ready"] = cover
+        post["rows"] = []
+        for label in post["table_labels"]:
+            post["rows"].append({
+                "label": label,
+                "values": [rows[label][0][0], rows[label][1][0]],
+            })
+        print(post["stem"], post["slug"])
+        for side in cover + table:
+            print(" ", side["brand"], side["model"], side["type"], "from", side["file"])
+            for label, value, url in side["sources"]:
+                print("   ", label + ":", value)
+                print("     ", url)
+        jobs.append(post)
+    ig_dir = SOCIAL / "2026-11" / "ig"
+    short_dir = SOCIAL / "2026-11" / "shorts"
+    durations = [7.0, 7.0, 6.0]
+    for post in jobs:
+        cover_path = ig_dir / (post["stem"] + "-cover.png")
+        table_path = ig_dir / (post["stem"] + "-table.png")
+        cta_path = ig_dir / (post["stem"] + "-cta.png")
+        draw_pair(cover_path, H_IG, fonts, post, None)
+        assert_filled(cover_path, H_IG - 112)
+        draw_table(table_path, H_IG, fonts, post)
+        draw_cta(cta_path, H_IG, fonts, post)
+        with tempfile.TemporaryDirectory(prefix="checkedlab-week3-") as tmp:
+            work = Path(tmp)
+            frames = []
+            for index, kind in enumerate(("cover", "table", "cta")):
+                frame = work / f"{kind}.png"
+                tall = dict(post)
+                if kind == "cover":
+                    draw_pair(frame, H_SHORT, fonts, tall, None)
+                    assert_filled(frame, H_SHORT - 112)
+                elif kind == "table":
+                    draw_table(frame, H_SHORT, fonts, tall)
+                else:
+                    draw_cta(frame, H_SHORT, fonts, tall)
+                frames.append(frame)
+            dest = short_dir / post["short"]
+            encode_silent(frames, durations, dest)
+        length = duration_of(dest)
+        if abs(length - 20.0) > 0.05:
+            raise SystemExit(post["short"] + " is " + str(length) + "s, not 20s")
+        print("short", post["short"], round(length, 3))
+    write_week3_captions(jobs, html_by_slug)
+    print("Week 3 cards rendered.")
+
+
 def posts():
     return [
         {
@@ -733,29 +1376,33 @@ def render_shorts(fonts, jobs, work):
 def main():
     if shutil.which("ffmpeg") is None or shutil.which("ffprobe") is None:
         raise SystemExit("ffmpeg and ffprobe are required")
-    entities = load_entities()
+    week = os.environ.get("SOCIAL_WEEK", "")
     fonts = Fonts()
-    jobs = posts()
-    for job in jobs:
-        job["_entities"] = entities
-        ig = SOCIAL / job["ig"]
-        if job["kind"] == "pair":
-            sides = draw_pair(ig, H_IG, fonts, job, entities)
-            for side in sides:
-                print(" ", side["brand"], side["model"], side["type"], "from", side["file"])
-                for label, value in side["specs"]:
-                    print("   ", label + ":", value)
-        elif job["kind"] == "headline":
-            draw_headline(ig, H_IG, fonts, job)
+    if week in ("", "1"):
+        entities = load_entities()
+        jobs = posts()
+        for job in jobs:
+            job["_entities"] = entities
+            ig = SOCIAL / job["ig"]
+            if job["kind"] == "pair":
+                sides = draw_pair(ig, H_IG, fonts, job, entities)
+                for side in sides:
+                    print(" ", side["brand"], side["model"], side["type"], "from", side["file"])
+                    for label, value in side["specs"]:
+                        print("   ", label + ":", value)
+            elif job["kind"] == "headline":
+                draw_headline(ig, H_IG, fonts, job)
+            else:
+                draw_steps(ig, H_IG, fonts, job)
+                print(ig.name, "steps, no photo")
+        if os.environ.get("SOCIAL_STILLS_ONLY"):
+            print("Stills only.")
         else:
-            draw_steps(ig, H_IG, fonts, job)
-            print(ig.name, "steps, no photo")
-    if os.environ.get("SOCIAL_STILLS_ONLY"):
-        print("Stills only.")
-        return
-    with tempfile.TemporaryDirectory(prefix="checkedlab-shorts-") as tmp:
-        render_shorts(fonts, jobs, Path(tmp))
-    print("Social cards rendered.")
+            with tempfile.TemporaryDirectory(prefix="checkedlab-shorts-") as tmp:
+                render_shorts(fonts, jobs, Path(tmp))
+            print("Social cards rendered.")
+    if week in ("", "3"):
+        render_week3(fonts)
 
 
 if __name__ == "__main__":
