@@ -232,11 +232,12 @@ const REPLACE_LINKS = {
     ]
   },
   "cosori-air-fryer-2023": {
+    heading: "Replacement options if yours was recalled",
     text: "The 2023 notices name CP158-AF and the other numbers listed above. The Pro II card uses the CS358-AF series, which is not in that list, and the capacity line is 5.8 quarts. The Crispi next to it cooks in glass containers.",
     links: [
       ["/best/air-fryers/", "Air fryers"],
-      ["/compare/ninja-crispi-fn101-vs-cosori-pro-5-8/", "Crispi and Cosori Pro II"],
-      ["/kitchen/", "Kitchen"]
+      ["/kitchen/cosori-pro-5-8/", "COSORI Pro II"],
+      ["/kitchen/ninja-crispi-fn101/", "Ninja Crispi"]
     ]
   },
   "ninja-foodi-op300": {
@@ -1562,7 +1563,9 @@ function replacingHtml(entry) {
     assertSitePath(href, entry.slug);
     return '<a href="' + card.esc(href) + '">' + card.esc(label) + "</a>";
   }).join(" ");
-  return '<section class="replacing" id="if-youre-replacing-it"><h2>If you\'re replacing it</h2><p>' +
+  const heading = block.heading || "If you're replacing it";
+  if (/[<>]/.test(heading)) throw new Error("Replace heading: " + entry.slug);
+  return '<section class="replacing" id="if-youre-replacing-it"><h2>' + heading + "</h2><p>" +
     card.esc(block.text) + '</p><p class="lede">' + anchors + "</p></section>";
 }
 
@@ -3286,7 +3289,11 @@ ${DISCLOSURE}
       if (affectedAt < 0 || replaceAt < affectedAt) throw new Error("Replace section is not under the affected block: " + entry.slug);
       const slice = html.slice(replaceAt, html.indexOf("</section>", replaceAt));
       if (/amazon\.com|tag=checkedlab|\$\d|\bdeal\b/i.test(slice)) throw new Error("Replace section has an Amazon or price claim: " + entry.slug);
-      if (!slice.includes("<h2>If you're replacing it</h2>")) throw new Error("Replace heading missing: " + entry.slug);
+      const heading = REPLACE_LINKS[entry.slug].heading || "If you're replacing it";
+      if (!slice.includes("<h2>" + heading + "</h2>")) throw new Error("Replace heading missing: " + entry.slug);
+      if (entry.slug === "cosori-air-fryer-2023" && !/replacement options/i.test(slice)) {
+        throw new Error("Cosori page misses replacement options");
+      }
     }
     mkdirSync(join(root, "recalls", entry.slug), { recursive: true });
     writeFileSync(join(root, "recalls", entry.slug, "index.html"), polish(html));
@@ -3608,7 +3615,7 @@ ${sceneBlock("black-friday")}
 <nav class="toc" aria-label="Jump to"><p>Jump to</p>${jumps}</nav>
 ${blackFridayShortlist()}
 ${sections}
-${productFold("before-you-pay", "Before you pay", '<p class="lede">Confirm the model number before Black Friday and before Cyber Monday, Monday, November 30, 2026. The status under each card is the recall check dated <time datetime="' + card.esc(date) + '">' + card.esc(date) + '</time> (UTC).</p>' + renderHubGuide("black-friday", { faq: false }) + '<p><a href="/gifts/">Holiday 2026 gift guides</a> group the same models by recipient. Each pick quotes the maker specs and repeats this dated check. <a href="/gifts/for-kids/">Gifts for kids</a> names mainstream kids products and the official check to do. <a href="/winter-safety/">Winter home safety, recall-checked</a> covers heaters, heated bedding, alarms, and outage power. <a href="/toy-safety/">Holiday toy safety, recall-checked</a> covers button batteries, magnets, water beads, and ride-ons.</p><p class="only-us">' + card.esc(US_DATES) + ' <a href="' + US_DEALS + '" target="_blank" rel="sponsored nofollow noopener">Amazon.com Black Friday</a>.</p><p class="only-ca">' + card.esc(CA_DATES) + ' <a href="' + CA_DEALS + '" target="_blank" rel="sponsored nofollow noopener">Amazon.ca Black Friday</a>.</p><p>Gift and seasonal models from this list. Open the card and match the model number on the listing. The same check applies on Cyber Monday.</p><ol class="checklist"><li>Confirm the exact model number on the box, in the manual, and on the listing. A family name such as Foodi or Cosori can point at a different model.</li><li>Check that model on <a href="https://www.cpsc.gov/Recalls" target="_blank" rel="noopener">CPSC Recalls</a> for a US purchase and on <a href="https://recalls-rappels.canada.ca/en" target="_blank" rel="noopener">Health Canada recalls and safety alerts</a> for a Canadian purchase. <a href="/recalls/">Recall checks</a> is the full list. <a href="/how-we-check/">How we check</a> says what the date means.</li><li>Beware look-alike listings and third-party sellers. The brand in the title is not the model number.</li><li>Read what is in the box, and read the return window on the listing before you pay. The window is printed on the store page. Cyber Monday does not change either line.</li></ol>')}
+${productFold("before-you-pay", "Before you pay", '<p class="lede">Confirm the model number before Black Friday and before Cyber Monday, Monday, November 30, 2026. The status under each card is the recall check dated <time datetime="' + card.esc(date) + '">' + card.esc(date) + '</time> (UTC).</p>' + renderHubGuide("black-friday", { faq: false }) + '<p><a href="/gifts/">Holiday 2026 gift guides</a> group the same models by recipient. Each pick quotes the maker specs and repeats this dated check. <a href="/gifts/for-kids/">Gifts for kids</a> names mainstream kids products and the official check to do. <a href="/winter-safety/">Winter home safety, recall-checked</a> covers heaters, heated bedding, alarms, and outage power. <a href="/toy-safety/">Holiday toy safety, recall-checked</a> covers button batteries, magnets, water beads, and ride-ons. <a href="/thanksgiving/">Thanksgiving</a> is Thursday, November 26, 2026. Those guides cover <a href="/thanksgiving/turkey-temperatures/">the safe turkey temperature</a>, <a href="/thanksgiving/turkey-fryers/">turkey fryer safety</a>, <a href="/thanksgiving/pressure-cookers/">pressure cooker lids</a>, and <a href="/thanksgiving/kitchen-fires/">kitchen fires</a>.</p><p class="only-us">' + card.esc(US_DATES) + ' <a href="' + US_DEALS + '" target="_blank" rel="sponsored nofollow noopener">Amazon.com Black Friday</a>.</p><p class="only-ca">' + card.esc(CA_DATES) + ' <a href="' + CA_DEALS + '" target="_blank" rel="sponsored nofollow noopener">Amazon.ca Black Friday</a>.</p><p>Gift and seasonal models from this list. Open the card and match the model number on the listing. The same check applies on Cyber Monday.</p><ol class="checklist"><li>Confirm the exact model number on the box, in the manual, and on the listing. A family name such as Foodi or Cosori can point at a different model.</li><li>Check that model on <a href="https://www.cpsc.gov/Recalls" target="_blank" rel="noopener">CPSC Recalls</a> for a US purchase and on <a href="https://recalls-rappels.canada.ca/en" target="_blank" rel="noopener">Health Canada recalls and safety alerts</a> for a Canadian purchase. <a href="/recalls/">Recall checks</a> is the full list. <a href="/how-we-check/">How we check</a> says what the date means.</li><li>Beware look-alike listings and third-party sellers. The brand in the title is not the model number.</li><li>Read what is in the box, and read the return window on the listing before you pay. The window is printed on the store page. Cyber Monday does not change either line.</li></ol>')}
 ${productFold("comparisons", "Maker spec comparisons", '<p>Each page repeats the specs both product pages share. The cell links the product page. The recall line is the dated check. <a href="/compare/">All comparisons</a>.</p><p class="lede">' + compares.map((entry) => '<a href="/compare/' + entry.slug + '/">' + card.esc(entry.linkLabel) + "</a>").join(" ") + "</p>" + editorialIndexBlock())}
 ${productFold("notices", "Notices to open before you buy", "<p>These pages quote the official notice and name the model card.</p><ul>" + notices + "</ul>")}
 <section class="faq" id="questions">
@@ -5117,7 +5124,7 @@ function thanksPatternsHtml(guide) {
   const need = {
     "turkey-fryers": ["cpsc.gov", "recalls-rappels.canada.ca", "nfpa.org"],
     "pressure-cookers": ["cpsc.gov", "recalls-rappels.canada.ca"],
-    "turkey-temperatures": ["fsis.usda.gov", "cpsc.gov"],
+    "turkey-temperatures": ["fsis.usda.gov", "cpsc.gov", "canada.ca"],
     "kitchen-fires": ["cpsc.gov", "nfpa.org", "usfa.fema.gov"]
   }[guide.slug];
   if (!need) throw new Error("Thanksgiving host rule missing: " + guide.slug);
@@ -5228,7 +5235,7 @@ function thanksHubHtml() {
   const main = sceneBlock("thanksgiving") + thanksCrumbs() +
     "<h1>" + card.esc(thanksDoc.h1) + "</h1>" +
     '<p class="lede">' + card.esc(thanksDoc.description) + "</p>" +
-    '<p>Read the label, then search the product on <a href="' + CPSC_SEARCH + '" target="_blank" rel="noopener">CPSC Recalls</a> or <a href="' + HC_SEARCH + '" target="_blank" rel="noopener">Health Canada recalls and safety alerts</a>. Turkey temperatures on this page come from <a href="https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/poultry/turkey-basics-safe-cooking" target="_blank" rel="noopener">USDA FSIS</a>. Cooking-fire guidance comes from <a href="https://www.nfpa.org/-/media/project/storefront/catalog/files/home-fire-safety/emac/educationalmessagesdeskreference.pdf" target="_blank" rel="noopener">NFPA</a> and <a href="https://www.usfa.fema.gov/prevention/home-fires/prepare-for-fire/fire-extinguishers/" target="_blank" rel="noopener">USFA</a>. <a href="/how-we-check/">How we check</a> says what a dated catalogue line means. These guides are not catalogue cards. <a href="/recalls/">Recall checks</a> lists every catalogue model. <a href="/gifts/for-the-host/">Gifts for the host</a> names widely sold hosting tools and the check to do. <a href="/winter-safety/">Winter home safety</a> covers heaters, heated bedding, alarms, and outage power.</p>' +
+    '<p>Read the label, then search the product on <a href="' + CPSC_SEARCH + '" target="_blank" rel="noopener">CPSC Recalls</a> or <a href="' + HC_SEARCH + '" target="_blank" rel="noopener">Health Canada recalls and safety alerts</a>. Turkey temperatures on this page come from <a href="https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/poultry/turkey-basics-safe-cooking" target="_blank" rel="noopener">USDA FSIS</a> and <a href="https://www.canada.ca/en/health-canada/services/general-food-safety-tips/safe-internal-cooking-temperatures.html" target="_blank" rel="noopener">Health Canada’s safe cooking temperatures</a>. Cooking-fire guidance comes from <a href="https://www.nfpa.org/-/media/project/storefront/catalog/files/home-fire-safety/emac/educationalmessagesdeskreference.pdf" target="_blank" rel="noopener">NFPA</a> and <a href="https://www.usfa.fema.gov/prevention/home-fires/prepare-for-fire/fire-extinguishers/" target="_blank" rel="noopener">USFA</a>. <a href="/how-we-check/">How we check</a> says what a dated catalogue line means. These guides are not catalogue cards. <a href="/recalls/">Recall checks</a> lists every catalogue model. <a href="/gifts/for-the-host/">Gifts for the host</a> names widely sold hosting tools and the check to do. <a href="/winter-safety/">Winter home safety</a> covers heaters, heated bedding, alarms, and outage power.</p>' +
     list +
     winterFaqsHtml(faqs);
   const jsonLd = winterJsonLd(
@@ -5250,23 +5257,70 @@ function thanksHubHtml() {
   return thanksShell(url, thanksDoc.title, thanksDoc.description, main, jsonLd);
 }
 
+function thanksPageExists(href, where) {
+  if (typeof href !== "string" || !href.startsWith("/")) throw new Error("Buying link: " + href + " on " + where);
+  const hashAt = href.indexOf("#");
+  const path = hashAt >= 0 ? href.slice(0, hashAt) : href;
+  const id = hashAt >= 0 ? href.slice(hashAt + 1) : "";
+  if (!/^\/(?:[a-z0-9-]+\/)+$/.test(path)) throw new Error("Buying link: " + href + " on " + where);
+  if (id && !/^[a-z0-9-]+$/.test(id)) throw new Error("Buying anchor: " + href + " on " + where);
+  const file = join(root, path.slice(1), "index.html");
+  if (!existsSync(file)) throw new Error("Buying page missing: " + path + " on " + where);
+  if (id && !readFileSync(file, "utf8").includes('id="' + id + '"')) {
+    throw new Error("Buying anchor missing: " + href + " on " + where);
+  }
+}
+
+function thanksAnswer(guide) {
+  if (!guide.answer) return "";
+  if (!Array.isArray(guide.answer) || guide.answer.length < 2) throw new Error("Thanksgiving answer cards: " + guide.slug);
+  const cards = guide.answer.map((item, index) => {
+    if (!item || !item.place || !item.num) throw new Error("Answer card: " + guide.slug);
+    assertWinterCopy(item.place + " " + item.num, guide.slug + " answer");
+    const body = officialSpans(item.body, guide.slug + " answer " + index);
+    return '<article class="answer-card"><p class="answer-place">' + card.esc(item.place) +
+      '</p><p class="answer-num">' + card.esc(item.num) + "</p><p>" + body + "</p></article>";
+  }).join("");
+  return '<div class="answer-split">' + cards + "</div>";
+}
+
+function thanksBuying(guide) {
+  const block = guide.buying;
+  if (!block || !Array.isArray(block.text) || !Array.isArray(block.links)) {
+    throw new Error("Thanksgiving buying section: " + guide.slug);
+  }
+  if (block.links.length < 1 || block.links.length > 4) throw new Error("Thanksgiving buying links: " + guide.slug);
+  const intro = officialSpans(block.text, guide.slug + " buying");
+  const items = block.links.map((link) => {
+    if (!link || !link.href || !link.label) throw new Error("Buying link: " + guide.slug);
+    thanksPageExists(link.href, guide.slug);
+    assertWinterCopy(link.label + " " + (link.note || ""), guide.slug + " buying link");
+    const note = link.note ? "<p>" + card.esc(link.note) + "</p>" : "";
+    return '<li><a href="' + card.esc(link.href) + '">' + card.esc(link.label) + "</a>" + note + "</li>";
+  }).join("");
+  return '<section class="buying" id="if-youre-buying-one"><h2>If you\'re buying one</h2><p>' +
+    intro + '</p><ul class="buy-list">' + items + "</ul></section>";
+}
+
 function thanksGuideHtml(guide) {
   const url = ORIGIN + thanksPath(guide);
+  const folds =
+    productFold("what-to-read", "What to read on the label", thanksLook(guide)) +
+    productFold("how-to-search", "How to search a recall", winterMethod(guide)) +
+    productFold("official-notices", "Patterns in official notices",
+      "<p>Each pattern below is one official page. The sentence is what that page says.</p>" + thanksPatternsHtml(guide)) +
+    productFold("how-we-check-notes", "How we check",
+      "<p>" + card.esc(WINTER_CHECK) + ' <a href="/how-we-check/">How we check</a>.</p>') +
+    productFold("catalogue-cards", "Catalogue cards", winterCatalogueHtml(guide) + thanksMoreLinks(guide)) +
+    productFold("amazon-search", "Amazon search",
+      "<p>The button opens the Amazon search for the words under it. It is not a product page.</p>" + winterSearchButtons(guide));
   const main = sceneBlock("thanksgiving") + thanksCrumbs(guide.h1) +
     "<h1>" + card.esc(guide.h1) + "</h1>" +
     '<p class="lede">' + card.esc(guide.description) + "</p>" +
+    thanksAnswer(guide) +
     thanksJumps(guide.slug) +
-    "<h2>What to read on the label</h2>" + thanksLook(guide) +
-    "<h2>How to search a recall</h2>" + winterMethod(guide) +
-    "<h2>Patterns in official notices</h2>" +
-    "<p>Each pattern below is one official page. The sentence is what that page says.</p>" +
-    thanksPatternsHtml(guide) +
-    "<h2>How we check</h2><p>" + card.esc(WINTER_CHECK) + ' <a href="/how-we-check/">How we check</a>.</p>' +
-    "<h2>Catalogue cards</h2>" + winterCatalogueHtml(guide) +
-    thanksMoreLinks(guide) +
-    "<h2>Amazon search</h2>" +
-    "<p>The button opens the Amazon search for the words under it. It is not a product page.</p>" +
-    winterSearchButtons(guide) +
+    thanksBuying(guide) +
+    folds +
     winterFaqsHtml(guide.faqs);
   const jsonLd = winterJsonLd(
     url,
@@ -5321,6 +5375,8 @@ function writeThanksgiving() {
       guide.methodExtra.forEach((spans, index) => officialSpans(spans, guide.slug + " method " + index));
     }
     thanksLook(guide);
+    thanksAnswer(guide);
+    thanksBuying(guide);
     thanksPatternsHtml(guide);
     winterCatalogueHtml(guide);
     winterSearchButtons(guide);
@@ -5443,6 +5499,25 @@ function assertThanksgivingPages() {
       throw new Error("Thanksgiving OG title " + guide.slug);
     }
     if (!html.includes("<h2>What to read on the label</h2>")) throw new Error("Thanksgiving look heading " + guide.slug);
+    if (!html.includes('<h2>If you\'re buying one</h2>') || !html.includes('id="if-youre-buying-one"')) {
+      throw new Error("Thanksgiving buying section " + guide.slug);
+    }
+    for (const other of thanksGuides()) {
+      if (other.slug !== guide.slug && !html.includes('href="' + thanksPath(other) + '"')) {
+        throw new Error("Thanksgiving guide misses " + other.slug + " on " + guide.slug);
+      }
+    }
+    if (guide.slug === "turkey-temperatures") {
+      for (const bit of ["165°F", "82°C", "74°C", 'class="answer-split"']) {
+        if (!html.includes(bit)) throw new Error("Turkey temperature answer missing " + bit);
+      }
+      if (!html.includes("https://www.canada.ca/en/health-canada/services/general-food-safety-tips/safe-internal-cooking-temperatures.html")) {
+        throw new Error("Turkey temperatures miss the Health Canada chart");
+      }
+      if (!html.includes("https://www.canada.ca/en/health-canada/services/meat-poultry-fish-seafood-safety/poultry-safety.html")) {
+        throw new Error("Turkey temperatures miss the Health Canada poultry page");
+      }
+    }
     if (!html.includes("<h2>How to search a recall</h2>") || !html.includes(CPSC_SEARCH) || !html.includes(HC_SEARCH)) {
       throw new Error("Thanksgiving search method " + guide.slug);
     }
