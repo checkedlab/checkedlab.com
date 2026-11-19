@@ -19,10 +19,42 @@
   "guides": [
     {
       "slug": "turkey-fryers",
-      "title": "Turkey fryers: what to read, then check the recall",
-      "h1": "Turkey fryers",
+      "title": "Turkey fryer safety: outdoor oil vs an air fryer",
+      "h1": "Turkey fryer safety",
       "label": "Turkey fryers",
-      "description": "What CPSC, Health Canada, and NFPA say about outdoor oil turkey fryers, indoor oil fryers, and air fryers, and which notices name a model or item number.",
+      "description": "NFPA says oil turkey fryers are not suitable for safe home use. CPSC says keep a propane fryer outdoors and away from the house. An air fryer is a different product.",
+      "answer": [
+        {
+          "place": "Outdoor oil fryer",
+          "num": "Not suitable for safe use",
+          "body": [
+            {"text": "The "},
+            {"text": "NFPA desk reference", "href": "https://www.nfpa.org/-/media/project/storefront/catalog/files/home-fire-safety/emac/educationalmessagesdeskreference.pdf"},
+            {"text": " says turkey fryers that use cooking oil, as currently designed, are not suitable for safe use by even a well-informed and careful consumer. The "},
+            {"text": "November 19, 2025 CPSC release", "href": "https://www.cpsc.gov/Newsroom/News-Releases/2026/Put-Safety-on-the-Menu-Consumer-Product-Safety-Commission-Offers-Safe-Cooking-Tips-for-a-Joyful-Holiday-Season"},
+            {"text": " says to keep a turkey fryer out of the garage, off the deck, and away from the house."}
+          ]
+        },
+        {
+          "place": "Air fryer",
+          "num": "A different product",
+          "body": [
+            {"text": "NFPA names an air fryer listed by a nationally recognized testing laboratory as one alternative, along with an infrared fryer or a listed electric turkey fryer. An indoor oil fryer is a different notice. Read the model on the unit, then open the "},
+            {"text": "air fryer recall list", "href": "/recalls/air-fryer-recalls/"},
+            {"text": "."}
+          ]
+        }
+      ],
+      "buying": {
+        "text": [
+          {"text": "These are the air fryer pages already on this site. NFPA names a listed air fryer as one alternative to an oil turkey fryer. Read the model on the unit."}
+        ],
+        "links": [
+          {"href": "/best/air-fryers/", "label": "Air fryers", "note": "Glass batches, a 5.8 qt basket, and counter ovens."},
+          {"href": "/kitchen/breville-bov900/", "label": "Breville Smart Oven Air Fryer Pro", "note": "Breville’s capacity note says room for a 14 lb turkey."},
+          {"href": "/kitchen/cosori-pro-5-8/", "label": "COSORI Pro II", "note": "5.8 qt basket. The model line is CS358-AF, which is not on the 2023 recall list."}
+        ]
+      },
       "searches": ["turkey fryer", "air fryer"],
       "look": [
         [
@@ -138,10 +170,44 @@
     },
     {
       "slug": "pressure-cookers",
-      "title": "Pressure cookers: what to read, then check the recall",
-      "h1": "Pressure cookers and multicookers",
+      "title": "Pressure cooker safety: which lids the notices name",
+      "h1": "Pressure cooker safety",
       "label": "Pressure cookers",
-      "description": "Lid-lock notices for Crock-Pot and Ninja Foodi multicookers, including the model and date-code lines that differ between the CPSC and Health Canada pages.",
+      "description": "Crock-Pot and Ninja Foodi notices say a lid can detach or open under pressure. The model numbers and date codes differ on the CPSC and Health Canada pages.",
+      "answer": [
+        {
+          "place": "Crock-Pot Express Crock",
+          "num": "Lid can detach",
+          "body": [
+            {"text": "Both notices say the cooker can pressurize when the lid is not fully locked, and the lid can suddenly detach. The "},
+            {"text": "CPSC notice", "href": "https://www.cpsc.gov/Recalls/2021/Crock-Pot-6-Quart-Express-Crock-Multi-Cookers-Recalled-by-Sunbeam-Products-Due-to-Burn-Hazard"},
+            {"text": " names SCCPPC600-V1. The "},
+            {"text": "Health Canada notice", "href": "https://recalls-rappels.canada.ca/en/alert-recall/crock-potr-6-quart-express-crock-multi-cookers-recalled-due-burn-hazard"},
+            {"text": " also names SCCPPC600-V1-033, and its date codes are a shorter range."}
+          ]
+        },
+        {
+          "place": "Ninja Foodi",
+          "num": "Lid can open during use",
+          "body": [
+            {"text": "The "},
+            {"text": "CPSC Foodi notice", "href": "https://www.cpsc.gov/Recalls/2025/SharkNinja-Recalls-1-8-Million-Foodi-Multi-Function-Pressure-Cookers-Due-to-Burn-Hazard-Serious-Burn-Injuries-Reported"},
+            {"text": " says the OP300-series pressure-cooking lid can be opened during use. The "},
+            {"text": "Health Canada TenderCrisp notice", "href": "https://recalls-rappels.canada.ca/en/alert-recall/ninja-foodi-tendercrisp-multi-cookers-pressure-cooking-lid-recalled-due-potential-burn"},
+            {"text": " says the same and prints a different model list. Match the label to the notice for the country where it was bought."}
+          ]
+        }
+      ],
+      "buying": {
+        "text": [
+          {"text": "The Duo Plus card is a 6-quart cooker. Duo Plus is not a model name on the Instant Pot notices on this site. The Foodi 10-in-1 is an oven, not an OP300 pot."}
+        ],
+        "links": [
+          {"href": "/kitchen/instant-pot-duo-plus/", "label": "Instant Pot Duo Plus", "note": "6-quart cooker. Pressure, slow cook, and a rice setting."},
+          {"href": "/compare/instant-pot-duo-plus-vs-ninja-foodi-10in1/", "label": "Duo Plus and Foodi 10-in-1", "note": "The cooker and the air fry oven, on one page."},
+          {"href": "/black-friday/instant-pot-duo-plus/", "label": "Duo Plus on Black Friday", "note": "The same model, with the dated recall line."}
+        ]
+      },
       "searches": ["electric pressure cooker"],
       "look": [
         [
@@ -228,10 +294,40 @@
     },
     {
       "slug": "turkey-temperatures",
-      "title": "Turkey temperatures: what to read, then check the recall",
-      "h1": "Turkey temperatures and thermometers",
+      "title": "Safe turkey temperature: 165°F, or 82°C in Canada",
+      "h1": "Safe temperature for turkey",
       "label": "Turkey temperatures",
-      "description": "USDA FSIS temperatures for turkey, stuffing, thawing, and leftovers, plus the CPSC notice for specific iDevices thermometer probes.",
+      "description": "USDA: 165°F in the thickest part of the breast, innermost thigh, and wing. Stuffing 165°F. Canada: 82°C (180°F) for a whole turkey, 74°C (165°F) for pieces.",
+      "answer": [
+        {
+          "place": "United States",
+          "num": "165°F",
+          "body": [
+            {"text": "USDA FSIS "},
+            {"text": "Turkey Basics: Safe Cooking", "href": "https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/poultry/turkey-basics-safe-cooking"},
+            {"text": " says 165 °F in the thickest part of the breast and the innermost part of the thigh and wing. The center of the stuffing must reach 165 °F too."}
+          ]
+        },
+        {
+          "place": "Canada",
+          "num": "82°C whole, 74°C pieces",
+          "body": [
+            {"text": "The "},
+            {"text": "safe cooking temperatures chart", "href": "https://www.canada.ca/en/health-canada/services/general-food-safety-tips/safe-internal-cooking-temperatures.html"},
+            {"text": " lists whole poultry, including turkey, at 82°C (180°F), pieces such as breasts, legs, thighs, and wings at 74°C (165°F), and stuffing at 74°C (165°F). The "},
+            {"text": "poultry safety page", "href": "https://www.canada.ca/en/health-canada/services/meat-poultry-fish-seafood-safety/poultry-safety.html"},
+            {"text": " says to check the thickest part of the breast, and not to touch bone."}
+          ]
+        }
+      ],
+      "buying": {
+        "text": [
+          {"text": "USDA says to use a food thermometer in the breast, thigh, and wing. A pop-up indicator is not a substitute. The host list names a ThermoWorks Thermapen."}
+        ],
+        "links": [
+          {"href": "/gifts/for-the-host/#thermoworks-thermapen", "label": "ThermoWorks Thermapen", "note": "Instant-read thermometer on the host list."}
+        ]
+      },
       "searches": ["food thermometer"],
       "look": [
         [
@@ -246,6 +342,13 @@
         ],
         [
           {"text": "The same USDA page says to discard turkey, stuffing, and gravy left out longer than 2 hours, or 1 hour when the temperature is above 90 °F. It says to divide leftovers into smaller portions and refrigerate or freeze them in covered shallow containers. It says to use refrigerated turkey, stuffing, and gravy within 3 to 4 days. It says to reheat turkey to 165 °F, checked with a food thermometer, and to set the oven no lower than 325 °F when reheating in the oven. It says a turkey cooked from the frozen state takes at least 50 percent longer than the time for a fully thawed turkey, and that the giblet packages are removed during cooking."}
+        ],
+        [
+          {"text": "Health Canada’s "},
+          {"text": "safe cooking temperatures chart", "href": "https://www.canada.ca/en/health-canada/services/general-food-safety-tips/safe-internal-cooking-temperatures.html"},
+          {"text": ", published June 4, 2024, lists whole poultry, including turkey, at 82°C (180°F). It lists pieces, for example breasts, legs, thighs, and wings, at 74°C (165°F). It lists stuffing, cooked alone or in poultry, at 74°C (165°F). It says to insert the thermometer through the thickest part of the meat, all the way to the middle, not touching any bone. The "},
+          {"text": "poultry safety page", "href": "https://www.canada.ca/en/health-canada/services/meat-poultry-fish-seafood-safety/poultry-safety.html"},
+          {"text": " says to check the thickest part of the breast: 82°C (180°F) for a whole bird and 74°C (165°F) for pieces. It says stuffing cooked on its own should reach at least 74°C (165°F), and to take the stuffing out as soon as a whole bird reaches 82°C (180°F)."}
         ]
       ],
       "methodExtra": [
@@ -271,6 +374,18 @@
           "says": "The page says to thaw only in the refrigerator, in cold water, or in the microwave, with the times and the cook-immediately rules printed there. It says not to thaw a frozen pre-stuffed turkey that bears a USDA or state inspection mark; cook it from the frozen state and follow the package. It says leftovers of turkey, stuffing, and gravy left out longer than 2 hours, or 1 hour above 90 °F, should be discarded. It says refrigerated leftovers of those foods are used within 3 to 4 days. It says reheated turkey should reach 165 °F on a food thermometer. The page was last updated November 17, 2023."
         },
         {
+          "agency": "Health Canada",
+          "title": "Safe cooking temperatures",
+          "url": "https://www.canada.ca/en/health-canada/services/general-food-safety-tips/safe-internal-cooking-temperatures.html",
+          "says": "The chart, published June 4, 2024, lists whole poultry, including turkey, at 82°C (180°F). It lists pieces, for example breasts, legs, thighs, and wings, at 74°C (165°F). It lists stuffing, cooked alone or in poultry, at 74°C (165°F). It says to insert the thermometer through the thickest part of the meat, all the way to the middle, not touching any bone."
+        },
+        {
+          "agency": "Health Canada",
+          "title": "Poultry safety",
+          "url": "https://www.canada.ca/en/health-canada/services/meat-poultry-fish-seafood-safety/poultry-safety.html",
+          "says": "The page says to check that the temperature of the thickest part of the breast is 82°C (180°F) for whole birds and 74°C (165°F) for pieces, with a digital food thermometer that does not touch bone. It says stuffing cooked separately should reach at least 74°C (165°F), and to take the stuffing out as soon as a whole bird reaches 82°C (180°F)."
+        },
+        {
           "agency": "CPSC",
           "title": "iDevices recalls temperature probes",
           "url": "https://www.cpsc.gov/Recalls/2014/iDevices-Recalls-Temperature-Probes",
@@ -285,8 +400,8 @@
       ],
       "faqs": [
         {
-          "q": "What temperature does USDA FSIS name for turkey?",
-          "a": "Turkey Basics: Safe Cooking says 165 °F in the innermost part of the thigh and wing and the thickest part of the breast, and 165 °F in the center of the stuffing. Let’s Talk Turkey says a pop-up indicator is still checked with a food thermometer in those same places. The oven temperature on both pages is no lower than 325 °F."
+          "q": "What is the safe temperature for turkey?",
+          "a": "USDA FSIS Turkey Basics: Safe Cooking says 165 °F in the thickest part of the breast and the innermost part of the thigh and wing, and 165 °F in the center of the stuffing. Health Canada’s June 4, 2024 chart lists a whole turkey at 82°C (180°F), pieces such as breasts, legs, thighs, and wings at 74°C (165°F), and stuffing at 74°C (165°F). The poultry safety page says to check the thickest part of the breast and not to touch bone."
         },
         {
           "q": "How does USDA say to thaw a turkey?",
@@ -304,6 +419,16 @@
       "h1": "Kitchen fires",
       "label": "Kitchen fires",
       "description": "CPSC, NFPA, and USFA guidance for Thanksgiving cooking fires and fire extinguishers, plus the CPSC notice for Kidde plastic-handle extinguishers.",
+      "buying": {
+        "text": [
+          {"text": "The host list names a Kidde kitchen extinguisher. "},
+          {"text": "USFA", "href": "https://www.usfa.fema.gov/prevention/home-fires/prepare-for-fire/fire-extinguishers/"},
+          {"text": " says to read the classification and look for a UL Listed or ULC Listed mark. The Kidde notice names plastic-handle models, not every extinguisher."}
+        ],
+        "links": [
+          {"href": "/gifts/for-the-host/#kidde-kitchen-extinguisher", "label": "Kidde kitchen extinguisher", "note": "On the host list. Match the model and date code to the Kidde notice."}
+        ]
+      },
       "searches": ["kitchen fire extinguisher"],
       "look": [
         [
