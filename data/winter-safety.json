@@ -145,6 +145,11 @@
       "methodExtra": [
         [
           {"text": "A heated throw and a queen blanket from the same brand can be different model numbers. Search the number on the wash label."}
+        ],
+        [
+          {"text": "The "},
+          {"text": "heated blanket recall list", "href": "/recalls/heated-blanket-recalls/"},
+          {"text": " quotes each CPSC and Health Canada notice on that page, with the model or tracker number, the hazard, and what the notice tells owners to do."}
         ]
       ],
       "patterns": [
@@ -177,7 +182,8 @@
       ],
       "links": [
         {"href": "/winter/", "label": "Winter catalogue"},
-        {"href": "/winter/sunbeam-tsl8ws/", "label": "Sunbeam LoftTec throw TSL8WS"}
+        {"href": "/winter/sunbeam-tsl8ws/", "label": "Sunbeam LoftTec throw TSL8WS"},
+        {"href": "/recalls/heated-blanket-recalls/", "label": "Heated blanket recall list"}
       ],
       "faqs": [
         {
@@ -191,6 +197,10 @@
         {
           "q": "Is the Sunbeam TSL8WS the queen blanket in the Health Canada notice?",
           "a": "No. The catalogue card is the LoftTec heated throw TSL8WS. The Health Canada notice names queen-size model 32810027, printed on the wash label."
+        },
+        {
+          "q": "Where are the heated blanket model numbers listed?",
+          "a": "The heated blanket recall list quotes each CPSC and Health Canada notice, including the Bedsure model numbers, the Berkshire tracker ranges, and Sunbeam queen model 32810027, with the hazard and what the notice tells owners to do."
         }
       ]
     },
