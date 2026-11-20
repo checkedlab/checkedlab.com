@@ -130,7 +130,7 @@
           "id": "cosori-pro-5-8",
           "note": [
             {"text": "The Cosori notices above name listed model numbers. The "},
-            {"text": "Cosori 2023 model list", "href": "/recalls/cosori-air-fryer-2023/"},
+            {"text": "Cosori air fryer recall", "href": "/recalls/cosori-air-fryer-2023/"},
             {"text": " says this card’s model line reads CS358-AF series, which is not among the numbers copied from those notices. Read the bottom label."}
           ]
         },
@@ -149,8 +149,8 @@
         {"href": "/thanksgiving/kitchen-fires/", "label": "Kitchen fires"},
         {"href": "/thanksgiving/pressure-cookers/", "label": "Pressure cookers"},
         {"href": "/gifts/for-the-host/", "label": "Gifts for the host"},
-        {"href": "/recalls/air-fryer-recalls/", "label": "Air fryer recall list"},
-        {"href": "/recalls/cosori-air-fryer-2023/", "label": "Cosori 2023 model list"},
+        {"href": "/recalls/air-fryer-recalls/", "label": "Air fryer recalls by brand"},
+        {"href": "/recalls/cosori-air-fryer-2023/", "label": "Cosori air fryer recall"},
         {"href": "/kitchen/", "label": "Kitchen catalogue"}
       ],
       "faqs": [
@@ -164,7 +164,7 @@
         },
         {
           "q": "Is the COSORI Pro II card one of the recalled Cosori models?",
-          "a": "The catalogue page says the Pro II card’s model line reads CS358-AF series and that CS358-AF is not among the model numbers copied from the February 23, 2023 notices. Read the bottom label and compare it with the Cosori 2023 model list."
+          "a": "The catalogue page says the Pro II card’s model line reads CS358-AF series and that CS358-AF is not among the model numbers copied from the February 23, 2023 notices. Read the bottom label and compare it with the Cosori air fryer recall."
         }
       ]
     },
@@ -490,7 +490,7 @@
         {"href": "/winter-safety/space-heaters/", "label": "Space heaters"},
         {"href": "/winter-safety/", "label": "Winter home safety"},
         {"href": "/gifts/for-the-host/", "label": "Gifts for the host"},
-        {"href": "/recalls/air-fryer-recalls/", "label": "Air fryer recall list"}
+        {"href": "/recalls/air-fryer-recalls/", "label": "Air fryer recalls by brand"}
       ],
       "faqs": [
         {
