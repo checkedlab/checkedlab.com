@@ -410,6 +410,16 @@
       "title": "Best Air Fryers 2026 (US & Canada)",
       "h1": "The Best Air Fryers for 2026",
       "description": "Four air fryers for 2026, from glass batches to a full-size counter oven. Each card quotes the maker’s power and capacity line and the dated recall check.",
+      "recallLinks": [
+        {
+          "href": "/recalls/air-fryer-recalls/",
+          "label": "Air fryer recalls by brand"
+        },
+        {
+          "href": "/recalls/cosori-air-fryer-2023/",
+          "label": "Cosori air fryer recall"
+        }
+      ],
       "how": [
         "The Best for line uses the job the capacity describes: glass batches, a 5.8 qt basket, a chicken or a pizza, or an oven cavity with more than air fry. The Crispi page states glass containers of 4-qt and 6-cup. The COSORI page states 5.8 qt. The Foodi page names a chicken, pizzas, or a turkey. The BOV900 page states a 1 cubic ft interior and 13 functions.",
         "A family name such as Foodi or Cosori can point at a different model than the one on the box. The recall block on each card is the recorded match for the model named in the title. Notices for other models stay marked as other models."

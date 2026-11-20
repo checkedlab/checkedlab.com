@@ -240,12 +240,12 @@ const REPLACE_LINKS = {
     ]
   },
   "cosori-air-fryer-2023": {
-    heading: "Replacement options if yours was recalled",
-    text: "The 2023 notices name CP158-AF and the other numbers listed above. The Pro II card uses the CS358-AF series, which is not in that list, and the capacity line is 5.8 quarts. The Crispi next to it cooks in glass containers.",
+    heading: "Replacement options",
+    text: "Cosori's remedy comes first. The CPSC notice says to stop using a listed fryer and register for a free replacement air fryer or another Cosori product. That registration asks for photos of the unit with the cord cut, and no receipt is needed. The Health Canada notice says to stop using it and request a replacement unit at the Cosori recall page or 1-888-216-5974. The Pro II card is the CS358-AF series, which is not in either model list, and its capacity line is 5.8 quarts. The comparison beside it is the Crispi, which cooks in glass containers.",
     links: [
       ["/best/air-fryers/", "Air fryers"],
       ["/kitchen/cosori-pro-5-8/", "COSORI Pro II"],
-      ["/kitchen/ninja-crispi-fn101/", "Ninja Crispi"]
+      ["/compare/ninja-crispi-fn101-vs-cosori-pro-5-8/", "Crispi and Pro II"]
     ]
   },
   "ninja-foodi-op300": {
@@ -1488,9 +1488,20 @@ function explainerJsonLd(entry) {
       }
     ]
   };
+  if (Array.isArray(entry.faqs) && entry.faqs.length) {
+    graph["@graph"].push({
+      "@type": "FAQPage",
+      mainEntity: entry.faqs.map((item) => ({
+        "@type": "Question",
+        name: item.q,
+        acceptedAnswer: { "@type": "Answer", text: item.a }
+      }))
+    });
+  }
   assertNoCommerce(graph);
   const types = graph["@graph"].map((node) => node["@type"]);
-  if (types.join(",") !== "BreadcrumbList,Article") throw new Error("Explainer schema on " + entry.slug);
+  const expected = entry.faqs && entry.faqs.length ? "BreadcrumbList,Article,FAQPage" : "BreadcrumbList,Article";
+  if (types.join(",") !== expected) throw new Error("Explainer schema on " + entry.slug);
   return JSON.stringify(graph, null, 2).replace(/</g, "\\u003c");
 }
 
@@ -1622,7 +1633,33 @@ function topLinkHtml(entry) {
   return '<p class="lede"><a href="' + card.esc(link.href) + '">' + card.esc(link.label) + "</a>. " + card.esc(link.text) + "</p>";
 }
 
+function recallCardHtml(entry) {
+  const block = entry.recallCard;
+  if (!block || !block.heading || !block.intro || !Array.isArray(block.agencies) || block.agencies.length < 2) {
+    throw new Error("Recall card needs a heading, intro, and agencies: " + entry.slug);
+  }
+  assertReaderVoice(block.heading + " " + block.intro + " " + (block.note || ""), entry.slug + " recall card");
+  const agencies = block.agencies.map((agency, index) => {
+    if (!agency || !agency.name || !agency.date || !agency.remedy || !Array.isArray(agency.models) || agency.models.length < 2) {
+      throw new Error("Recall card agency is incomplete: " + entry.slug);
+    }
+    assertReaderVoice(agency.name + " " + agency.date + " " + agency.remedy, entry.slug + " recall card " + index);
+    agency.models.forEach((model) => assertReaderVoice(model, entry.slug + " model"));
+    const links = (agency.links || []).map((link) => officialNoticeLink(link, entry.slug)).join(" ");
+    if (!links) throw new Error("Recall card agency needs a notice link: " + entry.slug);
+    const models = '<ul class="model-list">' + agency.models.map((model) => "<li>" + card.esc(model) + "</li>").join("") + "</ul>";
+    return "<article><h3>" + card.esc(agency.name) + " · " + card.esc(agency.date) + "</h3><p>" +
+      card.esc(agency.remedy) + "</p>" + models + "<p>" + links + "</p></article>";
+  }).join("");
+  const note = block.note ? "<p>" + card.esc(block.note) + "</p>" : "";
+  const extra = checkItemsHtml(entry);
+  const more = extra ? '<details><summary>Where to look and what to do</summary><ul class="evidence">' + extra + "</ul></details>" : "";
+  return '<section class="model-card" id="is-mine-affected"><h2>' + card.esc(block.heading) + "</h2><p>" +
+    card.esc(block.intro) + '</p><div class="model-stack is-open">' + agencies + "</div>" + note + more + "</section>";
+}
+
 function affectedHtml(entry) {
+  if (entry.recallCard) return recallCardHtml(entry);
   if (entry.modelTable) return modelTableHtml(entry);
   if (!Array.isArray(entry.check) || !entry.check.length) return "";
   return '<section id="is-mine-affected"><h2>Is mine affected?</h2><ul class="evidence">' + checkItemsHtml(entry) + "</ul></section>";
@@ -3165,7 +3202,11 @@ ${bestJsonLd(type, picks.map((item) => item.product))}
 </nav>
 <h1>${card.esc(type.h1)}</h1>
 <p class="sub">${card.esc(type.description)}</p>
-${cards}
+${(type.recallLinks || []).map((link) => {
+    if (!link || !link.href || !link.label) throw new Error("Best recall link on " + type.slug);
+    assertSitePath(link.href, "best " + type.slug);
+    return '<a href="' + card.esc(link.href) + '">' + card.esc(link.label) + "</a>";
+  }).join(" ") ? '<p class="lede">' + (type.recallLinks || []).map((link) => '<a href="' + card.esc(link.href) + '">' + card.esc(link.label) + "</a>").join(" ") + "</p>\n" : ""}${cards}
 <nav class="toc" aria-label="Jump to"><p>Jump to</p><a href="#how-we-picked">How we picked</a><a href="#what-to-look-for">What to look for</a><a href="#questions">Questions</a></nav>
 ${productFold("how-we-picked", "How we picked", bestMethodHtml() + type.how.map((paragraph) => "<p>" + card.esc(paragraph) + "</p>").join("") + why + (also ? "<h3>Also listed</h3>" + also : "") + bestRelatedHtml(ids))}
 ${productFold("what-to-look-for", "What to look for", checklist)}
@@ -3363,16 +3404,65 @@ function roundupTable(entry) {
   if (!entry.tableHeading) throw new Error("Roundup needs a table heading: " + entry.slug);
   const rows = [];
   const blocks = [];
+  const brandScan = entry.layout === "brand";
   for (const notice of entry.notices) {
     if (!notice.hazard || !notice.product || !notice.remedy) {
       throw new Error("Roundup notice needs product, hazard, and remedy: " + entry.slug);
     }
     const link = '<a href="' + href(notice.url) + '" target="_blank" rel="noopener">' + card.esc(notice.agency) + " notice</a>";
-    rows.push("<tr><td>" + card.esc(notice.date) + "</td><td>" + card.esc(notice.product) + "</td><td>" + card.esc(notice.models.join(", ")) + "</td><td>" + card.esc(notice.hazard) + "</td><td>" + card.esc(notice.remedy) + "</td><td>" + link + "</td></tr>");
     const models = "<ul>" + notice.models.map((model) => "<li>" + card.esc(model) + "</li>").join("") + "</ul>";
-    blocks.push('<article class="recall-block"><h3><time datetime="' + card.esc(notice.date) + '">' + card.esc(notice.date) + "</time> · " + card.esc(notice.product) + "</h3><p>" + card.esc(notice.hazard) + "</p><p>" + card.esc(notice.remedy) + "</p><p>" + link + '</p><details><summary>Model numbers</summary>' + models + "</details></article>");
+    if (brandScan) {
+      if (!notice.brand || !notice.remedyLine) throw new Error("Brand row needs a brand and a remedy line: " + entry.slug);
+      assertReaderVoice(notice.brand + " " + notice.remedyLine, entry.slug + " brand row");
+      if (notice.page) assertSitePath(notice.page, entry.slug);
+      const brand = notice.page
+        ? '<a href="' + card.esc(notice.page) + '">' + card.esc(notice.brand) + "</a>"
+        : card.esc(notice.brand);
+      const modelText = card.esc(notice.models.join(", "));
+      rows.push("<tr><td>" + brand + "</td><td>" + modelText + "</td><td>" + card.esc(notice.date) + "</td><td>" + card.esc(notice.remedyLine) + "</td><td>" + link + "</td></tr>");
+      blocks.push('<article class="recall-block"><h3>' + brand + '</h3><p><time datetime="' + card.esc(notice.date) + '">' +
+        card.esc(notice.date) + "</time></p><p>" + card.esc(notice.remedyLine) + "</p><p>" + link +
+        '</p><details><summary>Model numbers</summary>' + models + "</details></article>");
+    } else {
+      rows.push("<tr><td>" + card.esc(notice.date) + "</td><td>" + card.esc(notice.product) + "</td><td>" + card.esc(notice.models.join(", ")) + "</td><td>" + card.esc(notice.hazard) + "</td><td>" + card.esc(notice.remedy) + "</td><td>" + link + "</td></tr>");
+      blocks.push('<article class="recall-block"><h3><time datetime="' + card.esc(notice.date) + '">' + card.esc(notice.date) + "</time> · " + card.esc(notice.product) + "</h3><p>" + card.esc(notice.hazard) + "</p><p>" + card.esc(notice.remedy) + "</p><p>" + link + '</p><details><summary>Model numbers</summary>' + models + "</details></article>");
+    }
   }
-  return "<h2>" + card.esc(entry.tableHeading) + '</h2><div class="recall-roundup"><div class="compare-wrap recall-table"><table class="compare"><thead><tr><th>Date</th><th>Product</th><th>Model numbers</th><th>Hazard</th><th>What the notice tells owners</th><th>Notice</th></tr></thead><tbody>' + rows.join("") + '</tbody></table></div><div class="recall-stack">' + blocks.join("") + "</div></div>";
+  const head = brandScan
+    ? "<tr><th>Brand</th><th>Models</th><th>Date</th><th>Remedy</th><th>Source</th></tr>"
+    : "<tr><th>Date</th><th>Product</th><th>Model numbers</th><th>Hazard</th><th>What the notice tells owners</th><th>Notice</th></tr>";
+  const note = entry.tableNote ? "<p>" + card.esc(entry.tableNote) + "</p>" : "";
+  if (entry.tableNote) assertReaderVoice(entry.tableNote, entry.slug + " table note");
+  return "<h2>" + card.esc(entry.tableHeading) + '</h2>' + note + '<div class="recall-roundup"><div class="compare-wrap recall-table"><table class="compare"><thead>' + head + "</thead><tbody>" + rows.join("") + '</tbody></table></div><div class="recall-stack">' + blocks.join("") + "</div></div>";
+}
+
+function shopHtml(entry) {
+  const shop = entry.shop;
+  if (!shop) return "";
+  if (!shop.heading || !shop.text || !Array.isArray(shop.links) || shop.links.length < 2) {
+    throw new Error("Shop block needs a heading, text, and links: " + entry.slug);
+  }
+  assertReaderVoice(shop.heading + " " + shop.text, entry.slug + " shop");
+  const items = shop.links.map((link) => {
+    if (!link || !link.href || !link.label) throw new Error("Shop link is incomplete: " + entry.slug);
+    assertSitePath(link.href, entry.slug);
+    const note = link.text ? "<p>" + card.esc(link.text) + "</p>" : "";
+    if (link.text) assertReaderVoice(link.text, entry.slug + " shop link");
+    return "<li><a href=\"" + card.esc(link.href) + "\">" + card.esc(link.label) + "</a>" + note + "</li>";
+  }).join("");
+  return '<section class="buying" id="shopping"><h2>' + card.esc(shop.heading) + "</h2><p>" +
+    card.esc(shop.text) + '</p><ul class="buy-list">' + items + "</ul></section>";
+}
+
+function explainerFaqHtml(entry) {
+  const faqs = entry.faqs || [];
+  if (!faqs.length) return "";
+  if (faqs.length < 2 || faqs.length > 4) throw new Error("Explainer FAQs must be 2 to 4: " + entry.slug);
+  return '<section class="faq" id="questions"><h2>Questions</h2>' + faqs.map((item) => {
+    if (!item || !item.q || !item.a) throw new Error("Explainer FAQ is incomplete: " + entry.slug);
+    assertReaderVoice(item.q + " " + item.a, entry.slug + " faq");
+    return "<h3>" + card.esc(item.q) + '</h3><p class="faq-a">' + card.esc(item.a) + "</p>";
+  }).join("") + "</section>";
 }
 
 function writeExplainers() {
@@ -3398,9 +3488,12 @@ function writeExplainers() {
     const noticesLede = entry.noticesLede || entry.description;
     assertReaderVoice(noticesLede, "recalls/" + entry.slug + " notices");
     const roundup = entry.roundup ? roundupTable(entry) : "";
-    const lead = (entry.modelTable
-      ? [topLinkHtml(entry), affectedHtml(entry), listCardHtml(entry), answersHtml(entry), replacingHtml(entry), roundup]
-      : [topLinkHtml(entry), answersHtml(entry), affectedHtml(entry), listCardHtml(entry), replacingHtml(entry), roundup]
+    const shop = shopHtml(entry);
+    const faqs = explainerFaqHtml(entry);
+    const cardFirst = entry.modelTable || entry.recallCard;
+    const lead = (cardFirst
+      ? [topLinkHtml(entry), affectedHtml(entry), listCardHtml(entry), answersHtml(entry), replacingHtml(entry), roundup, shop, faqs]
+      : [topLinkHtml(entry), roundup, shop, faqs, answersHtml(entry), affectedHtml(entry), listCardHtml(entry), replacingHtml(entry)]
     ).filter(Boolean).join("\n");
     const html = `<!DOCTYPE html>
 <html lang="en" data-region="US">
@@ -3483,6 +3576,32 @@ ${DISCLOSURE}
       if (!slice.includes("<h2>" + heading + "</h2>")) throw new Error("Replace heading missing: " + entry.slug);
       if (entry.slug === "cosori-air-fryer-2023" && !/replacement options/i.test(slice)) {
         throw new Error("Cosori page misses replacement options");
+      }
+    }
+    if (entry.faqs && entry.faqs.length) {
+      const data = JSON.parse(html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]);
+      const faq = data["@graph"].find((node) => node["@type"] === "FAQPage");
+      if (!faq || faq.mainEntity.length !== entry.faqs.length) throw new Error("Explainer FAQPage " + entry.slug);
+      entry.faqs.forEach((item, index) => {
+        if (!html.includes("<h3>" + card.esc(item.q) + "</h3>") || !html.includes('<p class="faq-a">' + card.esc(item.a) + "</p>")) {
+          throw new Error("Explainer FAQ is not on the page: " + entry.slug);
+        }
+        if (faq.mainEntity[index].name !== item.q || faq.mainEntity[index].acceptedAnswer.text !== item.a) {
+          throw new Error("Explainer FAQ JSON-LD mismatch " + entry.slug);
+        }
+      });
+    }
+    if (entry.slug === "air-fryer-recalls") {
+      if (!html.includes('id="shopping"') || !html.includes(">Shopping for a new one?</h2>")) {
+        throw new Error("Air fryer page is missing the shopping block");
+      }
+      if (!html.includes("<th>Brand</th>") || !html.includes("<th>Remedy</th>") || !html.includes("<th>Source</th>")) {
+        throw new Error("Air fryer page is missing the brand table");
+      }
+    }
+    if (entry.slug === "cosori-air-fryer-2023") {
+      if (!html.includes(">Is my Cosori recalled?</h2>") || !html.includes("CP158-AF")) {
+        throw new Error("Cosori page is missing the model card");
       }
     }
     if (entry.slug === "anker-power-banks") {
@@ -3592,6 +3711,7 @@ ${sceneBlock("recalls")}
 <span aria-current="page">Recall checks</span>
 </nav>
 <h1>Recall checks</h1>
+<p class="lede"><a href="/recalls/air-fryer-recalls/">Air fryer recalls by brand</a>. <a href="/recalls/cosori-air-fryer-2023/">Cosori air fryer recall</a>.</p>
 ${recallWidget()}
 <p class="lede">Checked <time datetime="${card.esc(date)}">${card.esc(date)}</time> (UTC). Every listed model has a United States line from the <a href="${href(usSource)}" target="_blank" rel="noopener">CPSC SaferProducts</a> source and a Canada line from the <a href="${CA_DATASET_PAGE}" target="_blank" rel="noopener">Health Canada open dataset</a>.</p>
 <p>A date is the day that check ran. Open a model for the maker specs. Read <a href="/how-we-check/">how we check</a> and the <a href="/bin-list/">BIN list</a>. <a href="/black-friday/">${card.esc(BF_TITLE)}</a>. <a href="/thanksgiving/">Thanksgiving and holiday hosting, recall-checked</a>. <a href="/winter-safety/">Winter home safety, recall-checked</a>. <a href="/toy-safety/">Holiday toy safety, recall-checked</a>. <a href="/recalls/feed.xml">RSS</a> updates when a recall record changes.</p>
