@@ -1490,9 +1490,9 @@
   },
   {
     "slug": "airpods-pro-3-vs-airpods-pro-2",
-    "title": "AirPods Pro 3 vs AirPods Pro 2: which to buy",
-    "linkLabel": "AirPods Pro 3 and Pro 2 specs",
-    "description": "The Pro 3 listens for up to 8 hours and tracks heart rate, and the Pro 2 listens for up to 6 hours.",
+    "title": "AirPods Pro 3 vs AirPods Pro 2: what changed",
+    "linkLabel": "AirPods Pro 3 vs Pro 2",
+    "description": "AirPods Pro 3 vs AirPods Pro 2: up to 8 hours with noise cancellation, versus up to 6.",
     "hub": "personal-tech",
     "products": [
       "airpods-pro-3",
@@ -1501,26 +1501,124 @@
     "related": [
       "sony-wh-1000xm5-vs-bose-qc-ultra"
     ],
+    "faqLabel": "Also asked",
+    "omitSpecs": [
+      "Transparency",
+      "Sensor",
+      "Play time",
+      "Rating",
+      "Case listening",
+      "Where sold"
+    ],
+    "changed": [
+      "Listening with Active Noise Cancellation is up to 8 hours on Pro 3 and up to 6 hours on one charge on Pro 2. With the case, Pro 3 lists up to 24 hours with Active Noise Cancellation and Pro 2 lists up to 30 hours.",
+      "Apple says Pro 3 has up to 2x more Active Noise Cancellation than AirPods Pro 2.",
+      "The water rating is IP57 on Pro 3 and IP54 on Pro 2. Both use the H2 chip and Bluetooth 5.3.",
+      "Pro 3 adds a heart-rate sensor for workouts and lists up to 10 hours in Transparency with the Hearing Aid feature.",
+      "Pro 3 includes five ear-tip sizes, XXS through L, and the USB-C cable is sold separately. Pro 2 includes four sizes, XS through L, and a USB-C cable."
+    ],
     "verdict": [
       {
         "id": "airpods-pro-3",
         "heading": "Get the Pro 3 if",
         "bullets": [
-          "You want heart-rate tracking and up to 8 hours with Active Noise Cancellation.",
-          "You want an IP57 rating.",
-          "You want up to 10 hours with the Hearing Aid feature."
+          "You want up to 8 hours with Active Noise Cancellation and an IP57 rating.",
+          "You want a heart-rate sensor for workouts and up to 10 hours in Transparency with the Hearing Aid feature.",
+          "You want five ear-tip sizes, including XXS."
         ]
       },
       {
         "id": "airpods-pro-2",
         "heading": "Get the Pro 2 if",
         "bullets": [
-          "You want up to 6 hours on a charge and up to 30 hours with the case.",
-          "You want the H2 chip and an IP54 rating.",
-          "You want a refurbished USB-C pair from Apple."
+          "You want up to 30 hours with the case.",
+          "You want the USB-C cable in the box and four ear-tip sizes.",
+          "You want up to 6 hours on one charge and an IP54 rating."
         ]
       }
     ],
+    "specAdds": {
+      "airpods-pro-3": [
+        {
+          "label": "Listening",
+          "value": "Up to 8 hours of listening time on a single charge with Active Noise Cancellation enabled (up to 7.5 hours with Spatial Audio and Head Tracking enabled)",
+          "source": "Apple",
+          "url": "https://www.apple.com/airpods-pro/specs/"
+        },
+        {
+          "label": "With case",
+          "value": "Up to 24 hours of listening time with Active Noise Cancellation enabled",
+          "source": "Apple",
+          "url": "https://www.apple.com/airpods-pro/specs/"
+        },
+        {
+          "label": "Water resistance",
+          "value": "Dust, sweat, and water resistant (IP57)",
+          "source": "Apple",
+          "url": "https://www.apple.com/airpods-pro/specs/"
+        },
+        {
+          "label": "Chip",
+          "value": "Apple H2 headphone chip",
+          "source": "Apple",
+          "url": "https://www.apple.com/airpods-pro/specs/"
+        },
+        {
+          "label": "Ear tips",
+          "value": "Silicone ear tips (five sizes: XXS, XS, S, M, L)",
+          "source": "Apple",
+          "url": "https://www.apple.com/airpods-pro/specs/"
+        },
+        {
+          "label": "Charge cable",
+          "value": "USB-C charge cable sold separately",
+          "source": "Apple",
+          "url": "https://www.apple.com/airpods-pro/specs/"
+        },
+        {
+          "label": "Case chip",
+          "value": "Second-generation Ultra Wideband chip in the MagSafe Charging Case",
+          "source": "Apple",
+          "url": "https://www.apple.com/airpods-pro/specs/"
+        },
+        {
+          "label": "Weight",
+          "value": "0.20 ounce (5.55 grams) each",
+          "source": "Apple",
+          "url": "https://www.apple.com/airpods-pro/specs/"
+        },
+        {
+          "label": "Hearing",
+          "value": "Hearing Test, Hearing Aid, and Hearing Protection",
+          "source": "Apple",
+          "url": "https://www.apple.com/airpods-pro/specs/"
+        },
+        {
+          "label": "Bluetooth",
+          "value": "Bluetooth 5.3",
+          "source": "Apple",
+          "url": "https://www.apple.com/airpods-pro/specs/"
+        },
+        {
+          "label": "Heart rate",
+          "value": "Heart rate sensor for workouts",
+          "source": "Apple",
+          "url": "https://www.apple.com/airpods-pro/specs/"
+        },
+        {
+          "label": "Hearing Aid time",
+          "value": "Up to 10 hours in Transparency with the Hearing Aid feature",
+          "source": "Apple",
+          "url": "https://www.apple.com/airpods-pro/specs/"
+        },
+        {
+          "label": "Noise cancellation",
+          "value": "Up to 2x more Active Noise Cancellation than AirPods Pro 2",
+          "source": "Apple",
+          "url": "https://www.apple.com/airpods-pro/"
+        }
+      ]
+    },
     "guests": [
       {
         "id": "airpods-pro-2",
@@ -1533,25 +1631,19 @@
         "specs": [
           {
             "label": "Listening",
-            "value": "Up to 6 hours of listening time on a single charge",
+            "value": "Up to 6 hours of listening time on a single charge (up to 5.5 hours with Spatial Audio and Head Tracking enabled)",
             "source": "Apple",
             "url": "https://support.apple.com/en-us/111834"
           },
           {
-            "label": "Hearing",
-            "value": "Hearing Test, Hearing Aid, and Hearing Protection",
+            "label": "With case",
+            "value": "Up to 30 hours of listening time",
             "source": "Apple",
             "url": "https://support.apple.com/en-us/111834"
           },
           {
-            "label": "Rating",
-            "value": "IP54",
-            "source": "Apple",
-            "url": "https://support.apple.com/en-us/111834"
-          },
-          {
-            "label": "Case listening",
-            "value": "Up to 30 hours of listening time with the case",
+            "label": "Water resistance",
+            "value": "Dust, sweat, and water resistant (IP54)",
             "source": "Apple",
             "url": "https://support.apple.com/en-us/111834"
           },
@@ -1562,40 +1654,112 @@
             "url": "https://support.apple.com/en-us/111834"
           },
           {
-            "label": "Where sold",
-            "value": "Apple’s US store lists a refurbished USB-C pair",
+            "label": "Ear tips",
+            "value": "Silicone ear tips (four sizes: XS, S, M, L)",
             "source": "Apple",
-            "url": "https://www.apple.com/shop/product/ftjv3ll/a/Refurbished-AirPods-Pro-2-with-MagSafe-Charging-Case-USB-C"
+            "url": "https://support.apple.com/en-us/111834"
+          },
+          {
+            "label": "Charge cable",
+            "value": "USB-C charge cable",
+            "source": "Apple",
+            "url": "https://support.apple.com/en-us/111834"
+          },
+          {
+            "label": "Case chip",
+            "value": "U1 chip in the MagSafe Charging Case (USB-C)",
+            "source": "Apple",
+            "url": "https://support.apple.com/en-us/111834"
+          },
+          {
+            "label": "Weight",
+            "value": "0.19 ounce (5.3 grams) each",
+            "source": "Apple",
+            "url": "https://support.apple.com/en-us/111834"
+          },
+          {
+            "label": "Hearing",
+            "value": "Hearing Test, Hearing Aid, and Hearing Protection",
+            "source": "Apple",
+            "url": "https://support.apple.com/en-us/111834"
+          },
+          {
+            "label": "Bluetooth",
+            "value": "Bluetooth 5.3",
+            "source": "Apple",
+            "url": "https://support.apple.com/en-us/111834"
           }
         ]
       }
     ],
     "fit": [
-      "Apple’s AirPods Pro 3 card says up to 8 hours of listening with Active Noise Cancellation, a heart-rate sensor, a Hearing Aid feature, and an IP57 mark. The USB-C AirPods Pro 2 tech specs say up to 6 hours of listening on a single charge, IP54, and an H2 chip.",
-      "The US shop path that used to name AirPods Pro 2 now opens the AirPods Pro 3 buy page. Apple still lists a refurbished AirPods Pro 2 with a MagSafe charging case (USB-C) on the US store. The specs below are the USB-C tech specs, not the older Lightning sheet."
+      "Apple lists up to 8 hours of listening with Active Noise Cancellation on one charge for AirPods Pro 3, up to 7.5 hours with Spatial Audio and head tracking, and up to 24 hours with the case and Active Noise Cancellation. The AirPods Pro 2 USB-C tech specs list up to 6 hours on one charge, up to 5.5 hours with Spatial Audio and head tracking, and up to 30 hours with the case.",
+      "Apple’s compare table lists IP57 for Pro 3 and IP54 for Pro 2, an H2 chip on both, and an H1 chip on AirPods (2nd generation). Pro 3 adds a heart-rate sensor for workouts. The Pro 2 sensor list does not name one."
     ],
     "sections": [
       {
-        "heading": "What Apple still prints for Pro 2",
+        "heading": "Listening time, and what the noise-cancellation line compares",
         "paragraphs": [
-          "The support page titled AirPods Pro 2 with MagSafe Charging Case (USB-C) says the year introduced is 2023. Listening is up to 6 hours on a single charge, and up to 5.5 hours with Spatial Audio and head tracking. Apple’s test note for that 6-hour figure says Active Noise Cancellation was enabled, volume was at 50 percent, and the playlist was AAC. The Pro 3 card states the 8-hour line with Active Noise Cancellation in the spec itself. The Pro 2 bullet does not put those words in the bullet. The test note does.",
-          "With the case, the Pro 2 page says up to 30 hours of listening. The Pro 3 card on this site does not carry a case-hours line, so that row is left out. Resistance is IP54 for the Pro 2 earbuds and case. The Pro 3 card says IP57. Hearing health on the Pro 2 page lists a Hearing Test, a Hearing Aid feature, and Hearing Protection. The Pro 3 card’s hearing line names the Hearing Aid feature. The heart-rate sensor is on the Pro 3 card and is not in the Pro 2 sensor list."
+          "The Pro 3 spec sheet prints the 8-hour line with Active Noise Cancellation in the sentence. The same sheet prints up to 6.5 hours on one charge while sensing heart rate during workouts, and up to 10 hours on one charge in Transparency with the Hearing Aid feature. The Pro 2 spec sheet prints up to 6 hours on a single charge, and up to 5.5 hours with Spatial Audio and head tracking. Apple’s test note for that 6-hour figure says Active Noise Cancellation was enabled, the volume was 50 percent, and the playlist was AAC. The 6-hour bullet does not repeat those words. The test note does.",
+          "With the case, the Pro 3 sheet says up to 24 hours of listening with Active Noise Cancellation enabled. The Pro 2 sheet says up to 30 hours of listening time, and the test note for that total also says Active Noise Cancellation was enabled. On Apple’s compare table, the Pro 2 case cell says up to 30 hours of listening time with the charging case and Active Noise Cancellation. Five minutes in the case is around 1 hour of listening on both sheets.",
+          "The Pro 3 overview says up to 2x more Active Noise Cancellation than AirPods Pro 2. The footnote says that comparison was tested in July 2025 under IEC 60268-24. The Pro 2 spec sheet’s noise-cancellation footnote is a different comparison: up to 2x more than AirPods Pro (1st generation) and AirPods 4 with Active Noise Cancellation. Apple’s compare table also gives Pro 3 a separate line, up to 3x more Active Noise Cancellation than AirPods 5. That is a third baseline, not a restatement of the Pro 2 comparison."
         ]
       },
       {
-        "heading": "Which listing is actually on the US shop",
+        "heading": "Water rating, tips, the cable, and the chip",
         "paragraphs": [
-          "Opening Apple’s US address for buying AirPods Pro 2 currently shows the AirPods Pro 3 buy page, including the 8-hour line and the IP57 description. The refurbished product page for AirPods Pro 2 with the USB-C MagSafe case is a separate Apple listing, and it repeats up to 6 hours on one charge and up to 30 hours with the case. If you want a new pair from that US shop path, the page in front of you is the Pro 3. If you want the Pro 2, use the refurbished listing or another Apple storefront that still names it, and match the USB-C case in the title.",
-          "The Pro 2 box list on the tech specs includes four silicone tip sizes, XS through L, and a USB-C charge cable. The Pro 3 buy page says five tip sizes, XXS through L, and says a USB-C charge cable is not in the box. Tip count and the cable are not shared labels on the cards, so they stay in this note."
+          "Both Pro models use the Apple H2 headphone chip and Bluetooth 5.3. The Pro 3 case uses a second-generation Ultra Wideband chip. The Pro 2 case uses the U1 chip. Each Pro 3 earbud weighs 0.20 ounce (5.55 grams). Each Pro 2 earbud weighs 0.19 ounce (5.3 grams). The Pro 3 case weighs 1.55 ounces. The Pro 2 case weighs 1.79 ounces.",
+          "Water resistance on the Pro 3 sheet is dust, sweat, and water resistant (IP57) for the earbuds and the case, under IEC 60529. The Pro 2 sheet uses the same kind of sentence with IP54. Apple says the resistance is not permanent on either sheet. In the box, Pro 3 includes silicone ear tips in five sizes, XXS, XS, S, M, and L, and says the USB-C charge cable is sold separately. Pro 2 includes four sizes, XS, S, M, and L, and includes a USB-C charge cable.",
+          "Hearing health on both sheets lists a Hearing Test, a Hearing Aid feature, and Hearing Protection. The Pro 3 sheet also names automatic Conversation Boost with the Hearing Aid feature. The compare table lists automatic Conversation Boost for both Pro models. The heart-rate sensor is the line that only Pro 3 carries."
         ]
       },
       {
-        "heading": "Pick the hour line and the listing type",
+        "heading": "Which line to pick",
         "paragraphs": [
-          "Pick the Pro 3 if the listening line you are matching is up to 8 hours with Active Noise Cancellation, you want the heart-rate sensor, and the resistance mark you are matching is IP57. That is the model with a page in this catalogue, and it is the model the US new-buy path shows.",
-          "Pick the Pro 2 if the listening line you are matching is up to 6 hours on a single charge, the case line is up to 30 hours, and the resistance mark is IP54, on the USB-C tech specs. Then confirm the listing is the refurbished USB-C pair, or another current Apple listing that still uses the Pro 2 name. The H2 chip is on that tech specs page.",
-          "The Sony and Bose comparison is a different kind of headphone. The Shokz comparison uses the Pro 3 card. Neither of those pages describes the Pro 2."
+          "Pick the Pro 3 if the lines you want are up to 8 hours with Active Noise Cancellation, up to 24 hours with the case, IP57, heart-rate sensing during workouts, five tip sizes, and up to 10 hours in Transparency with the Hearing Aid feature.",
+          "Pick the Pro 2 if the lines you want are up to 6 hours on one charge, up to 30 hours with the case, IP54, four tip sizes, and a USB-C cable in the box. The H2 chip is on both spec sheets, so the chip is not the split between them.",
+          "AirPods (2nd generation) are on the same compare table, and they are a different product. Apple lists up to 5 hours on one charge, more than 24 hours with the Lightning Charging Case, an H1 chip, and Bluetooth 5.0. That column does not list Active Noise Cancellation or an IP rating. It lists double-tap controls and Hey Siri, and it does not list the just-Siri control that both Pro models have. Each 2nd-generation earbud weighs 0.14 ounce (4 grams), and the case in that column is a Lightning Charging Case with a Lightning to USB-A cable."
         ]
+      }
+    ],
+    "faqs": [
+      {
+        "q": "What changed from AirPods Pro 2 to AirPods Pro 3?",
+        "a": "Apple lists up to 8 hours with Active Noise Cancellation on Pro 3 and up to 6 hours on one charge on Pro 2. With the case, the lines are up to 24 hours with Active Noise Cancellation on Pro 3 and up to 30 hours on Pro 2. Pro 3 is IP57 and Pro 2 is IP54. Pro 3 adds a heart-rate sensor for workouts, five ear-tip sizes including XXS, and a USB-C cable sold separately. Both use the H2 chip and Bluetooth 5.3, and both list Hearing Test, Hearing Aid, and Hearing Protection."
+      },
+      {
+        "q": "How do AirPods (2nd generation) compare with AirPods Pro 3?",
+        "a": "On Apple’s compare table, AirPods (2nd generation) list up to 5 hours on one charge, more than 24 hours with the Lightning Charging Case, an H1 chip, and Bluetooth 5.0. AirPods Pro 3 list up to 8 hours with Active Noise Cancellation, up to 24 hours with the case and Active Noise Cancellation, an H2 chip, Bluetooth 5.3, and IP57. The 2nd-generation column does not list Active Noise Cancellation or an IP rating."
+      },
+      {
+        "q": "Should I upgrade from AirPods Pro 2?",
+        "a": "The differences that change the choice are the ones Apple prints as different. Pro 3 lists up to 8 hours with Active Noise Cancellation instead of up to 6, IP57 instead of IP54, a heart-rate sensor for workouts, five tip sizes including XXS, and up to 2x more Active Noise Cancellation than AirPods Pro 2. Pro 2 lists up to 30 hours with the case, against up to 24 hours on Pro 3, and it includes a USB-C cable. The H2 chip, Bluetooth 5.3, Hearing Test, Hearing Aid, and Hearing Protection are on both spec sheets."
+      },
+      {
+        "q": "Do both AirPods Pro models have Active Noise Cancellation?",
+        "a": "Yes. Apple lists Active Noise Cancellation on Pro 3 and on Pro 2. The Pro 3 overview says up to 2x more Active Noise Cancellation than AirPods Pro 2, from a July 2025 test under IEC 60268-24. The Pro 2 spec sheet’s footnote compares its cancellation with AirPods Pro (1st generation) and AirPods 4 with Active Noise Cancellation, not with Pro 3."
+      },
+      {
+        "q": "What battery life does Apple list for AirPods Pro 3 and Pro 2?",
+        "a": "Pro 3: up to 8 hours with Active Noise Cancellation, up to 7.5 hours with Spatial Audio and head tracking, up to 6.5 hours with heart-rate sensing during workouts, up to 10 hours in Transparency with the Hearing Aid feature, and up to 24 hours with the case and Active Noise Cancellation. Pro 2: up to 6 hours on one charge, up to 5.5 hours with Spatial Audio and head tracking, and up to 30 hours with the case. Five minutes in the case is around 1 hour on both sheets."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Apple, AirPods compare",
+        "url": "https://www.apple.com/airpods/compare/"
+      },
+      {
+        "label": "Apple, AirPods Pro 3 tech specs",
+        "url": "https://www.apple.com/airpods-pro/specs/"
+      },
+      {
+        "label": "Apple, AirPods Pro 2 tech specs",
+        "url": "https://support.apple.com/en-us/111834"
+      },
+      {
+        "label": "Apple, AirPods Pro 3 overview",
+        "url": "https://www.apple.com/airpods-pro/"
       }
     ]
   },
