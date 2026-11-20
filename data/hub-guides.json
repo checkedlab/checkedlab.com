@@ -164,7 +164,7 @@
       },
       {
         "need": "Headphones, from the stated battery lines",
-        "body": "Sony states a maximum of 30 hours with noise cancelling on and 40 hours with it off, and about 8.82 oz. Bose states up to 24 hours and 0.56 lb. The comparison keeps the labels both pages use.",
+        "body": "Sony states a maximum of 30 hours with noise cancelling on and 40 hours with it off, and about 8.82 oz. Bose states up to 24 hours and 0.56 lb. AirPods Pro 3 lists up to 8 hours with Active Noise Cancellation. AirPods Pro 2 lists up to 6 hours on one charge.",
         "links": [
           {
             "href": "/personal-tech/sony-wh-1000xm5/",
@@ -177,6 +177,10 @@
           {
             "href": "/compare/sony-wh-1000xm5-vs-bose-qc-ultra/",
             "label": "WH-1000XM5 and QC Ultra specs"
+          },
+          {
+            "href": "/compare/airpods-pro-3-vs-airpods-pro-2/",
+            "label": "AirPods Pro 3 vs Pro 2"
           }
         ]
       },
@@ -348,7 +352,7 @@
       },
       {
         "need": "A pitcher, a litter box, or headphones",
-        "body": "Brita Tahoe and ZeroWater ZP-010 share a 10 cup line and differ on the other stated fields. Litter-Robot 4 and ScoopFree Plus are the litter pair. Sony and Bose are the headphone pair.",
+        "body": "Brita Tahoe and ZeroWater ZP-010 share a 10 cup line and differ on the other stated fields. Litter-Robot 4 and ScoopFree Plus are the litter pair. Sony and Bose are the over-ear pair. AirPods Pro 3 lists up to 8 hours with Active Noise Cancellation and IP57. AirPods Pro 2 lists up to 6 hours on one charge and IP54.",
         "links": [
           {
             "href": "/compare/brita-tahoe-elite-vs-zerowater-zp010/",
@@ -361,6 +365,10 @@
           {
             "href": "/compare/sony-wh-1000xm5-vs-bose-qc-ultra/",
             "label": "WH-1000XM5 and QC Ultra"
+          },
+          {
+            "href": "/compare/airpods-pro-3-vs-airpods-pro-2/",
+            "label": "AirPods Pro 3 vs Pro 2"
           }
         ]
       }
@@ -1172,7 +1180,7 @@
       },
       {
         "need": "Earbuds or an open-ear headset",
-        "body": "AirPods Pro 3 states up to 8 hours with Active Noise Cancellation and IP57. OpenRun Pro 2 states up to 12 hours and IP55. The comparison is that pair.",
+        "body": "AirPods Pro 3 states up to 8 hours with Active Noise Cancellation and IP57. OpenRun Pro 2 states up to 12 hours and IP55. Against AirPods Pro 2, Apple lists up to 6 hours on one charge and IP54.",
         "links": [
           {
             "href": "/personal-tech/airpods-pro-3/",
@@ -1185,6 +1193,10 @@
           {
             "href": "/compare/airpods-pro-3-vs-shokz-openrun-pro-2/",
             "label": "AirPods Pro 3 and OpenRun Pro 2"
+          },
+          {
+            "href": "/compare/airpods-pro-3-vs-airpods-pro-2/",
+            "label": "AirPods Pro 3 vs Pro 2"
           }
         ]
       },

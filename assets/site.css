@@ -1034,7 +1034,11 @@ body[data-page="product"] .p-photo {
   letter-spacing: -0.02em;
   line-height: 1.2;
 }
+.answer-card h2 { margin: 0 0 8px; font-size: 1.25rem; }
+.answer-card ul { margin: 0; padding-left: 1.15rem; }
+.answer-card li { margin: 0 0 6px; }
 .answer-card p:last-child { margin-bottom: 0; }
+.faq .fold > summary { overflow-wrap: anywhere; }
 .buying { margin: 4px 0 22px; max-width: 42rem; }
 .buying h2 { font-size: 1.45rem; }
 .buy-list {

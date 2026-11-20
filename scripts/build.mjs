@@ -1904,19 +1904,37 @@ function compareLead(entry) {
   return '<p class="answer">' + entry.answer.map((sentence) => shown(sentence)).join(" ") + "</p>";
 }
 
+function changedCard(entry) {
+  const items = entry.changed;
+  if (!items) return "";
+  if (!Array.isArray(items) || items.length < 3 || items.length > 5) {
+    throw new Error("What changed needs 3 to 5 bullets: " + entry.slug);
+  }
+  return '<article class="answer-card" id="what-changed"><h2>What changed</h2><ul>' +
+    items.map((bullet) => "<li>" + shown(bullet) + "</li>").join("") +
+    "</ul></article>\n";
+}
+
 function compareFaqs(entry) {
   const faqs = entry.faqs || [];
   if (!faqs.length) return "";
   if (faqs.length < 4 || faqs.length > 6) throw new Error("Compare FAQs must be 4 to 6: " + entry.slug);
-  const body = faqs.map((item) => {
+  for (const item of faqs) {
     if (!item.q || !item.a) throw new Error("FAQ missing text: " + entry.slug);
-    return "<h3>" + shown(item.q) + "</h3><p>" + shown(item.a) + "</p>";
-  }).join("");
+  }
+  if (entry.faqLabel) {
+    const items = faqs.map((item) =>
+      '<details class="fold"><summary><h3>' + shown(item.q) + "</h3></summary><div class=\"fold-body\"><p>" +
+      shown(item.a) + "</p></div></details>"
+    ).join("");
+    return '<section class="faq" id="questions"><h2>' + card.esc(entry.faqLabel) + "</h2>" + items + "</section>";
+  }
+  const body = faqs.map((item) => "<h3>" + shown(item.q) + "</h3><p>" + shown(item.a) + "</p>").join("");
   return productFold("questions", "Questions", body);
 }
 
 function compareSources(pair, entry) {
-  if (!entry.answer) return "";
+  if (!entry.answer && !entry.changed) return "";
   const seen = new Set();
   const items = [];
   const add = (url, label) => {
@@ -2009,6 +2027,18 @@ function assertBuyerVerdict(entry) {
     const total = (entry.answer.join(" ") + " " + compareBodyWordsText(entry) + " " + faqText).split(/\s+/).filter(Boolean).length;
     if (total < 700 || total > 1300) throw new Error("Compare length is " + total + " words: " + entry.slug);
   }
+  if (entry.changed) {
+    const fullTitle = entry.title + " — Checked Lab";
+    if (fullTitle.length > 60) throw new Error("Title tag is " + fullTitle.length + " characters on " + entry.slug + ": " + fullTitle);
+    if (String(entry.description).length > 155) throw new Error("Description is " + entry.description.length + " characters on " + entry.slug);
+    if (!Array.isArray(entry.changed) || entry.changed.length < 3 || entry.changed.length > 5) {
+      throw new Error("What changed needs 3 to 5 bullets: " + entry.slug);
+    }
+    for (const bullet of entry.changed) {
+      assertReaderVoice(bullet, "compare/" + entry.slug + " changed");
+      if (siteVoice.test(bullet)) throw new Error("What changed talks about the site: " + entry.slug);
+    }
+  }
   if (!entry.verdict) return;
   for (const item of entry.verdict) {
     const text = [item.heading, ...(item.bullets || [])].join(" ");
@@ -2092,6 +2122,13 @@ function writeCompares() {
       ).join(" ") + ".</p>"
       : "";
     const crossHtml = anchorsForIds(entry.products).join(" ");
+    const readHeading = entry.changed ? "The details" : "How to read this";
+    const readBlurb = entry.changed
+      ? "<p>A row is shown when Apple prints that label for both models. Source opens the sentence the figure came from. A figure only one model lists is under that name below.</p>"
+      : (entry.answer ? "" : '<p class="lede">' + shown(entry.description) + "</p>") +
+        (entry.answer
+          ? "<p>A row is shown when both makers print that label. Source opens the sentence the figure came from. Details only one of them prints are listed under that name below.</p><p>Check the model number on <a href=\"" + CPSC_SEARCH + "\" target=\"_blank\" rel=\"noopener\">CPSC (US)</a> and <a href=\"" + HC_SEARCH + "\" target=\"_blank\" rel=\"noopener\">Health Canada (CA)</a> recalls before buying.</p>"
+          : "<p>Each line below is copied from that model’s maker page. The Source link opens that page. A spec that only one card lists is left out of the table. The recall line is the CPSC and Health Canada check dated " + card.esc(recalls.checkedAt) + " (UTC).</p>");
     const url = ORIGIN + "/compare/" + entry.slug + "/";
     const html = `<!DOCTYPE html>
 <html lang="en" data-region="US">
@@ -2145,16 +2182,16 @@ ${nav(entry.hub)}
 </nav>
 <h1>${card.esc(entry.title)}</h1>
 ${compareLead(entry)}
-${entry.verdict ? verdictBlock(entry, pair) + "\n" : ""}<div class="compare-wrap">
+${changedCard(entry)}${entry.changed ? "" : (entry.verdict ? verdictBlock(entry, pair) + "\n" : "")}<div class="compare-wrap">
 <table class="compare">
 <thead><tr><th>Spec</th>${head}</tr></thead>
 <tbody>${body}</tbody>
 </table>
 </div>
-${entry.verdict ? "" : pickPair(entry, pair)}
-<nav class="toc" aria-label="Jump to"><p>Jump to</p><a href="#how-to-read">How to read this</a>${entry.faqs ? '<a href="#questions">Questions</a>' : ""}<a href="#recall-check">Recall check</a><a href="#stores">Stores</a></nav>
-${productFold("how-to-read", "How to read this", (entry.answer ? "" : '<p class="lede">' + shown(entry.description) + "</p>") + (entry.answer ? "<p>A row is shown when both makers print that label. Source opens the sentence the figure came from. Details only one of them prints are listed under that name below.</p><p>Check the model number on <a href=\"" + CPSC_SEARCH + "\" target=\"_blank\" rel=\"noopener\">CPSC (US)</a> and <a href=\"" + HC_SEARCH + "\" target=\"_blank\" rel=\"noopener\">Health Canada (CA)</a> recalls before buying.</p>" : "<p>Each line below is copied from that model’s maker page. The Source link opens that page. A spec that only one card lists is left out of the table. The recall line is the CPSC and Health Canada check dated " + card.esc(recalls.checkedAt) + " (UTC).</p>") + fit + (sections ? "\n" + sections : "") + (entry.verdict ? unmatchedSpecHtml(pair, rows) : "") + compareSources(pair, entry) + (relatedHtml ? "\n" + relatedHtml : ""))}
-${entry.faqs ? compareFaqs(entry) + "\n" : ""}${productFold("recall-check", "Recall check", recallsHtml + '<p class="lede"><a href="/compare/">All comparisons</a> ' + (entry.verdict ? '<a href="/black-friday/">Black Friday</a> ' : "") + '<a href="/recalls/">All recall checks</a> <a href="/' + entry.hub + '/">' + card.esc(HUB_NAME[entry.hub]) + '</a> <a href="/how-we-check/">How we check</a> ' + pair.map(sideAnchor).join(" ") + (crossHtml ? " " + crossHtml : "") + "</p>")}
+${entry.changed && entry.verdict ? verdictBlock(entry, pair) + "\n" : ""}${entry.verdict ? "" : pickPair(entry, pair)}
+${entry.faqLabel ? compareFaqs(entry) + "\n" : ""}<nav class="toc" aria-label="Jump to"><p>Jump to</p>${entry.changed ? '<a href="#what-changed">What changed</a>' : ""}<a href="#how-to-read">${card.esc(readHeading)}</a>${entry.faqs ? '<a href="#questions">' + card.esc(entry.faqLabel || "Questions") + "</a>" : ""}<a href="#recall-check">Recall check</a><a href="#stores">Stores</a></nav>
+${productFold("how-to-read", readHeading, readBlurb + fit + (sections ? "\n" + sections : "") + (entry.verdict ? unmatchedSpecHtml(pair, rows) : "") + compareSources(pair, entry) + (relatedHtml ? "\n" + relatedHtml : ""))}
+${entry.faqs && !entry.faqLabel ? compareFaqs(entry) + "\n" : ""}${productFold("recall-check", "Recall check", recallsHtml + '<p class="lede"><a href="/compare/">All comparisons</a> ' + (entry.verdict ? '<a href="/black-friday/">Black Friday</a> ' : "") + '<a href="/recalls/">All recall checks</a> <a href="/' + entry.hub + '/">' + card.esc(HUB_NAME[entry.hub]) + '</a> <a href="/how-we-check/">How we check</a> ' + pair.map(sideAnchor).join(" ") + (crossHtml ? " " + crossHtml : "") + "</p>")}
 ${productFold("stores", "Stores", stores("US", "United States stores") + stores("CA", "Canadian stores"))}
 </div>
 </main>
@@ -2179,6 +2216,17 @@ ${DISCLOSURE}
     const types = ld["@graph"].map((node) => node["@type"]).sort().join(",");
     const expectedTypes = entry.faqs ? "Article,BreadcrumbList,FAQPage,ItemList" : "Article,BreadcrumbList,ItemList";
     if (types !== expectedTypes) throw new Error("Compare schema on " + entry.slug + ": " + types);
+    if (entry.faqs) {
+      const faq = ld["@graph"].find((node) => node["@type"] === "FAQPage");
+      if (!faq || faq.mainEntity.length !== entry.faqs.length) throw new Error("Compare FAQPage " + entry.slug);
+      entry.faqs.forEach((item, index) => {
+        const node = faq.mainEntity[index];
+        if (node.name !== card.displayMeasure(item.q) || !node.acceptedAnswer || node.acceptedAnswer.text !== card.displayMeasure(item.a)) {
+          throw new Error("Compare FAQ JSON-LD mismatch " + entry.slug);
+        }
+        if (!html.includes("<p>" + shown(item.a) + "</p>")) throw new Error("Compare FAQ visible mismatch " + entry.slug);
+      });
+    }
     mkdirSync(join(root, "compare", entry.slug), { recursive: true });
     writeFileSync(join(root, "compare", entry.slug, "index.html"), polish(html));
   }
