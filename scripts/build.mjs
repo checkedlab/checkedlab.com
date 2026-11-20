@@ -162,10 +162,11 @@ const TOY_PATH = "/toy-safety/";
 const THANKS_PATH = "/thanksgiving/";
 const SEASON_FOOT = '<p class="foot-mail"><a href="/thanksgiving/">Thanksgiving</a><a href="/toy-safety/">Toy safety</a><a href="/winter-safety/">Winter safety</a><a href="/gifts/">Gift guides</a><a href="/best/">Best of</a><a href="/black-friday/">Black Friday</a><a href="/compare/">Spec comparisons</a><a href="/recalls/">Recall checks</a><a href="/how-we-check/">How we check</a><a href="/bin-list/">BIN list</a><a href="mailto:hello@checkedlab.com">hello@</a><a href="mailto:support@checkedlab.com">support@</a><a href="mailto:press@checkedlab.com">press@</a><a href="mailto:legal@checkedlab.com">legal@</a></p>';
 const TOY_HOSTS = new Set(["cpsc.gov", "saferproducts.gov", "recalls-rappels.canada.ca", "canada.ca", "shopulstandards.com"]);
-const THANKS_HOSTS = new Set(["fsis.usda.gov", "usda.gov", "nfpa.org", "usfa.fema.gov"]);
+const THANKS_HOSTS = new Set(["fsis.usda.gov", "usda.gov", "foodsafety.gov", "nfpa.org", "usfa.fema.gov"]);
 const ANSWER_HOSTS = new Set(["cpsc.gov", "recalls-rappels.canada.ca", "anker.com"]);
 const CITE_HOSTS = new Set([
   ...TOY_HOSTS,
+  ...THANKS_HOSTS,
   "ecfr.gov",
   "federalregister.gov",
   "data.energizer.com",
@@ -3714,7 +3715,7 @@ ${sceneBlock("recalls")}
 <p class="lede"><a href="/recalls/air-fryer-recalls/">Air fryer recalls by brand</a>. <a href="/recalls/cosori-air-fryer-2023/">Cosori air fryer recall</a>.</p>
 ${recallWidget()}
 <p class="lede">Checked <time datetime="${card.esc(date)}">${card.esc(date)}</time> (UTC). Every listed model has a United States line from the <a href="${href(usSource)}" target="_blank" rel="noopener">CPSC SaferProducts</a> source and a Canada line from the <a href="${CA_DATASET_PAGE}" target="_blank" rel="noopener">Health Canada open dataset</a>.</p>
-<p>A date is the day that check ran. Open a model for the maker specs. Read <a href="/how-we-check/">how we check</a> and the <a href="/bin-list/">BIN list</a>. <a href="/black-friday/">${card.esc(BF_TITLE)}</a>. <a href="/thanksgiving/">Thanksgiving and holiday hosting, recall-checked</a>. <a href="/winter-safety/">Winter home safety, recall-checked</a>. <a href="/toy-safety/">Holiday toy safety, recall-checked</a>. <a href="/recalls/feed.xml">RSS</a> updates when a recall record changes.</p>
+<p>A date is the day that check ran. Open a model for the maker specs. Read <a href="/how-we-check/">how we check</a> and the <a href="/bin-list/">BIN list</a>. <a href="/black-friday/">${card.esc(BF_TITLE)}</a>. <a href="/thanksgiving/">Thanksgiving and holiday hosting, recall-checked</a> includes <a href="/thanksgiving/turkey-temperatures/">the safe turkey temperature</a> and <a href="/thanksgiving/turkey-fryers/">turkey fryer recalls</a>. <a href="/winter-safety/">Winter home safety, recall-checked</a>. <a href="/toy-safety/">Holiday toy safety, recall-checked</a>. <a href="/recalls/feed.xml">RSS</a> updates when a recall record changes.</p>
 <p class="recall-filters"><a href="#united-states">United States</a><a href="#canada">Canada</a></p>
 ${binSection(ordered, date)}
 <div class="recall-columns">
@@ -4728,10 +4729,14 @@ function expectedFaqAnswer(item, where) {
   return '<p class="faq-a">' + card.esc(item.a) + "</p>";
 }
 
-function winterFaqsHtml(faqs, where) {
-  return '<section class="faq" id="questions"><h2>Questions</h2>' +
-    faqs.map((item, index) => "<h3>" + card.esc(item.q) + "</h3>" + expectedFaqAnswer(item, (where || "faq") + " " + index)).join("") +
-    "</section>";
+function winterFaqsHtml(faqs, where, accordion) {
+  const items = faqs.map((item, index) => {
+    const answer = expectedFaqAnswer(item, (where || "faq") + " " + index);
+    if (!accordion) return "<h3>" + card.esc(item.q) + "</h3>" + answer;
+    return '<details class="fold"><summary><h3>' + card.esc(item.q) + "</h3></summary><div class=\"fold-body\">" +
+      answer + "</div></details>";
+  }).join("");
+  return '<section class="faq" id="questions"><h2>Questions</h2>' + items + "</section>";
 }
 
 function winterJsonLd(url, name, description, crumbs, faqs, list) {
@@ -5648,17 +5653,65 @@ function thanksPageExists(href, where) {
   }
 }
 
+function thanksNum(item, where) {
+  if (Array.isArray(item.numLinks) && item.numLinks.length) {
+    return item.numLinks.map((part, index) => {
+      if (!part || typeof part.text !== "string" || !part.text) throw new Error("Answer number: " + where);
+      if (!part.href) return card.esc(part.text);
+      assertOfficialHref(part.href, where + " num " + index);
+      const extra = part.href.startsWith("/") ? "" : ' target="_blank" rel="noopener"';
+      return '<a href="' + card.esc(part.href) + '"' + extra + ">" + card.esc(part.text) + "</a>";
+    }).join("");
+  }
+  if (!item.num) throw new Error("Answer card: " + where);
+  return card.esc(item.num);
+}
+
 function thanksAnswer(guide) {
   if (!guide.answer) return "";
   if (!Array.isArray(guide.answer) || guide.answer.length < 2) throw new Error("Thanksgiving answer cards: " + guide.slug);
   const cards = guide.answer.map((item, index) => {
     if (!item || !item.place || !item.num) throw new Error("Answer card: " + guide.slug);
     assertWinterCopy(item.place + " " + item.num, guide.slug + " answer");
-    const body = officialSpans(item.body, guide.slug + " answer " + index);
+    const where = guide.slug + " answer " + index;
+    let body = "";
+    if (Array.isArray(item.points) && item.points.length) {
+      body = "<ul>" + item.points.map((spans, point) =>
+        "<li>" + officialSpans(spans, where + " point " + point) + "</li>"
+      ).join("") + "</ul>";
+    } else if (Array.isArray(item.body) && item.body.length) {
+      body = "<p>" + officialSpans(item.body, where) + "</p>";
+    } else {
+      throw new Error("Answer card body: " + guide.slug);
+    }
     return '<article class="answer-card"><p class="answer-place">' + card.esc(item.place) +
-      '</p><p class="answer-num">' + card.esc(item.num) + "</p><p>" + body + "</p></article>";
+      '</p><p class="answer-num">' + thanksNum(item, where) + "</p>" + body + "</article>";
   }).join("");
   return '<div class="answer-split">' + cards + "</div>";
+}
+
+function thanksRecallCard(guide) {
+  const block = guide.recallCard;
+  if (!block) return "";
+  if (!block.heading || !Array.isArray(block.intro) || !Array.isArray(block.rows) || block.rows.length < 2) {
+    throw new Error("Recall card: " + guide.slug);
+  }
+  assertWinterCopy(block.heading, guide.slug + " recall");
+  const intro = officialSpans(block.intro, guide.slug + " recall intro");
+  const rows = "<ul>" + block.rows.map((row, index) => {
+    if (!Array.isArray(row)) throw new Error("Recall row: " + guide.slug);
+    return "<li>" + officialSpans(row, guide.slug + " recall " + index) + "</li>";
+  }).join("") + "</ul>";
+  return '<div class="answer-stack"><article class="answer-card" id="is-my-turkey-fryer-recalled"><h2>' +
+    card.esc(block.heading) + "</h2><p>" + intro + "</p>" + rows + "</article></div>";
+}
+
+function thanksSpecTile(tile, where) {
+  if (!tile || !tile.brand || !tile.model) throw new Error("Gear tile: " + where);
+  assertWinterCopy(tile.brand + " " + tile.model + " " + (tile.facts || ""), where);
+  return '<div class="spec-tile" data-cat="kitchen"><p class="spec-brand">' + card.esc(tile.brand) +
+    '</p><p class="spec-model">' + card.esc(tile.model) + "</p>" +
+    (tile.facts ? '<p class="spec-facts">' + card.esc(tile.facts) + "</p>" : "") + "</div>";
 }
 
 function thanksBuying(guide) {
@@ -5668,15 +5721,47 @@ function thanksBuying(guide) {
   }
   if (block.links.length < 1 || block.links.length > 4) throw new Error("Thanksgiving buying links: " + guide.slug);
   const intro = officialSpans(block.text, guide.slug + " buying");
-  const items = block.links.map((link) => {
+  const heading = block.heading || "If you're buying one";
+  assertWinterCopy(heading, guide.slug + " buying heading");
+  const headingHtml = block.heading ? card.esc(block.heading) : "If you're buying one";
+  const tiled = new Set((block.tiles || []).map((tile) => tile && tile.href).filter(Boolean));
+  const items = block.links.filter((link) => !tiled.has(link.href)).map((link) => {
     if (!link || !link.href || !link.label) throw new Error("Buying link: " + guide.slug);
     thanksPageExists(link.href, guide.slug);
     assertWinterCopy(link.label + " " + (link.note || ""), guide.slug + " buying link");
+    const tile = link.tile ? thanksSpecTile(link.tile, guide.slug + " " + link.label) : "";
     const note = link.note ? "<p>" + card.esc(link.note) + "</p>" : "";
-    return '<li><a href="' + card.esc(link.href) + '">' + card.esc(link.label) + "</a>" + note + "</li>";
+    return "<li>" + tile + '<a href="' + card.esc(link.href) + '">' + card.esc(link.label) + "</a>" + note + "</li>";
   }).join("");
-  return '<section class="buying" id="if-youre-buying-one"><h2>If you\'re buying one</h2><p>' +
-    intro + '</p><ul class="buy-list">' + items + "</ul></section>";
+  for (const link of block.links) {
+    if (!link || !link.href || !link.label) throw new Error("Buying link: " + guide.slug);
+    thanksPageExists(link.href, guide.slug);
+    assertWinterCopy(link.label + " " + (link.note || ""), guide.slug + " buying link");
+  }
+  const gear = block.includeSearches ? thanksGear(guide) : "";
+  const id = block.id || "if-youre-buying-one";
+  if (!/^[a-z0-9-]+$/.test(id)) throw new Error("Buying id: " + guide.slug);
+  const list = items ? '<ul class="buy-list">' + items + "</ul>" : "";
+  return '<section class="buying" id="' + id + '"><h2>' + headingHtml + "</h2><p>" +
+    intro + "</p>" + list + gear + "</section>";
+}
+
+function thanksGear(guide) {
+  const tiles = guide.buying.tiles || [];
+  if (tiles.length !== guide.searches.length) throw new Error("Gear tiles: " + guide.slug);
+  return guide.searches.map((query, index) => {
+    const tile = tiles[index];
+    let link = "";
+    if (tile.href) {
+      if (!tile.label) throw new Error("Gear link: " + guide.slug);
+      thanksPageExists(tile.href, guide.slug);
+      assertWinterCopy(tile.label + " " + (tile.note || ""), guide.slug + " gear link");
+      link = '<p><a href="' + card.esc(tile.href) + '">' + card.esc(tile.label) + "</a></p>";
+    }
+    const note = tile.note ? "<p>" + card.esc(tile.note) + "</p>" : "";
+    return '<div class="gear-item">' + thanksSpecTile(tile, guide.slug + " gear " + index) + link + note +
+      winterSearchButtons({ slug: guide.slug, searches: [query] }) + "</div>";
+  }).join("");
 }
 
 function thanksGuideHtml(guide) {
@@ -5689,16 +5774,22 @@ function thanksGuideHtml(guide) {
     productFold("how-we-check-notes", "How we check",
       "<p>" + card.esc(WINTER_CHECK) + ' <a href="/how-we-check/">How we check</a>.</p>') +
     productFold("catalogue-cards", "Catalogue cards", winterCatalogueHtml(guide) + thanksMoreLinks(guide)) +
-    productFold("amazon-search", "Amazon search",
-      "<p>The button opens the Amazon search for the words under it. It is not a product page.</p>" + winterSearchButtons(guide));
+    (guide.buying && guide.buying.includeSearches ? "" : productFold("amazon-search", "Amazon search",
+      "<p>The button opens the Amazon search for the words under it. It is not a product page.</p>" + winterSearchButtons(guide)));
+  const lead = '<p class="lede">' + card.esc(guide.description) + "</p>";
+  const answer = thanksAnswer(guide);
+  const recall = thanksRecallCard(guide);
+  const note = Array.isArray(guide.note) ? "<p>" + officialSpans(guide.note, guide.slug + " note") + "</p>" : "";
+  const top = guide.answerFirst
+    ? (guide.recallFirst ? recall + answer : answer + recall) + note
+    : lead + answer + recall + note;
   const main = sceneBlock("thanksgiving") + thanksCrumbs(guide.h1) +
     "<h1>" + card.esc(guide.h1) + "</h1>" +
-    '<p class="lede">' + card.esc(guide.description) + "</p>" +
-    thanksAnswer(guide) +
+    top +
     thanksJumps(guide.slug) +
     thanksBuying(guide) +
     folds +
-    winterFaqsHtml(guide.faqs);
+    winterFaqsHtml(guide.faqs, guide.slug, Boolean(guide.faqFold));
   const jsonLd = winterJsonLd(
     url,
     guide.title,
@@ -5876,8 +5967,15 @@ function assertThanksgivingPages() {
       throw new Error("Thanksgiving OG title " + guide.slug);
     }
     if (!html.includes("<h2>What to read on the label</h2>")) throw new Error("Thanksgiving look heading " + guide.slug);
-    if (!html.includes('<h2>If you\'re buying one</h2>') || !html.includes('id="if-youre-buying-one"')) {
+    const buyHeading = (guide.buying && guide.buying.heading) ? card.esc(guide.buying.heading) : "If you're buying one";
+    const buyId = (guide.buying && guide.buying.id) || "if-youre-buying-one";
+    if (!html.includes("<h2>" + buyHeading + "</h2>") || !html.includes('id="' + buyId + '"')) {
       throw new Error("Thanksgiving buying section " + guide.slug);
+    }
+    if (guide.answerFirst) {
+      const answerAt = html.indexOf('class="answer-split"');
+      const foldAt = html.indexOf('<details class="fold"');
+      if (answerAt < 0 || foldAt < 0 || answerAt > foldAt) throw new Error("Answer card is not before the folds: " + guide.slug);
     }
     for (const other of thanksGuides()) {
       if (other.slug !== guide.slug && !html.includes('href="' + thanksPath(other) + '"')) {
@@ -5885,14 +5983,29 @@ function assertThanksgivingPages() {
       }
     }
     if (guide.slug === "turkey-temperatures") {
-      for (const bit of ["165°F", "82°C", "74°C", 'class="answer-split"']) {
+      for (const bit of ["165°F", "82°C", "74°C", "73.9°C", "71.1°C", 'class="answer-split"', "Gear that helps", "Is 160°F safe for turkey?", "Safe turkey temp in Celsius", "Where to put the thermometer", "instant-read meat thermometer", "leave-in meat thermometer"]) {
         if (!html.includes(bit)) throw new Error("Turkey temperature answer missing " + bit);
       }
-      if (!html.includes("https://www.canada.ca/en/health-canada/services/general-food-safety-tips/safe-internal-cooking-temperatures.html")) {
-        throw new Error("Turkey temperatures miss the Health Canada chart");
+      for (const url of [
+        "https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/poultry/turkey-basics-safe-cooking",
+        "https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/safe-temperature-chart",
+        "https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/poultry/lets-talk-turkey-roasting",
+        "https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures",
+        "https://www.canada.ca/en/health-canada/services/general-food-safety-tips/safe-internal-cooking-temperatures.html",
+        "https://www.canada.ca/en/health-canada/services/meat-poultry-fish-seafood-safety/poultry-safety.html"
+      ]) {
+        if (!html.includes(url)) throw new Error("Turkey temperatures miss " + url);
       }
-      if (!html.includes("https://www.canada.ca/en/health-canada/services/meat-poultry-fish-seafood-safety/poultry-safety.html")) {
-        throw new Error("Turkey temperatures miss the Health Canada poultry page");
+      if ((html.match(/As an Amazon Associate/g) || []).length !== 1) {
+        throw new Error("Turkey temperatures disclosure count");
+      }
+    }
+    if (guide.slug === "turkey-fryers") {
+      for (const bit of ["Is my turkey fryer recalled?", "157826", "19-067", "February 19, 2019", "November 20, 2026", "Masterbuilt", "Char-Broil", "Bayou Classic", "Outdoor Gourmet Turkey Keg"]) {
+        if (!html.includes(bit)) throw new Error("Turkey fryer recall card missing " + bit);
+      }
+      if ((html.match(/As an Amazon Associate/g) || []).length !== 1) {
+        throw new Error("Turkey fryers disclosure count");
       }
     }
     if (!html.includes("<h2>How to search a recall</h2>") || !html.includes(CPSC_SEARCH) || !html.includes(HC_SEARCH)) {

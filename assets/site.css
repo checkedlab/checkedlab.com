@@ -1053,11 +1053,20 @@ body[data-page="product"] .p-photo {
   }
   .hero h1, body[data-page="home"] h1 { font-size: 3rem; }
 }
-.answer-split {
+.answer-split, .answer-stack {
   display: grid;
   grid-template-columns: 1fr;
   gap: 12px;
   margin: 4px 0 18px;
+  max-width: 42rem;
+}
+.gear-item { margin-top: 12px; max-width: 42rem; min-width: 0; }
+.gear-item .spec-tile { border-radius: 12px; min-height: 132px; }
+.season-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 14px;
+  margin: 12px 22px 0;
   max-width: 42rem;
 }
 .answer-card, .buy-list li {

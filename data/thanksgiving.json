@@ -19,10 +19,43 @@
   "guides": [
     {
       "slug": "turkey-fryers",
-      "title": "Turkey fryer safety: outdoor oil vs an air fryer",
-      "h1": "Turkey fryer safety",
+      "title": "Outdoor Gourmet Turkey Keg recall: is my turkey fryer recalled?",
+      "h1": "Outdoor Gourmet Turkey Keg recall",
       "label": "Turkey fryers",
-      "description": "NFPA says oil turkey fryers are not suitable for safe home use. CPSC says keep a propane fryer outdoors and away from the house. An air fryer is a different product.",
+      "description": "CPSC recall 19-067, February 19, 2019, covers the Outdoor Gourmet Turkey Keg, item 157826. No turkey fryer recall for Masterbuilt, Char-Broil, or Bayou Classic was in the CPSC or Health Canada feeds on November 20, 2026.",
+      "answerFirst": true,
+      "recallFirst": true,
+      "faqFold": true,
+      "note": [
+        {"text": "The safe internal temperature, in Fahrenheit and Celsius, is on the "},
+        {"text": "turkey temperatures", "href": "/thanksgiving/turkey-temperatures/"},
+        {"text": " page."}
+      ],
+      "recallCard": {
+        "heading": "Is my turkey fryer recalled?",
+        "intro": [
+          {"text": "Checked November 20, 2026 in the "},
+          {"text": "CPSC SaferProducts recall feed", "href": "https://www.saferproducts.gov/RestWebServices/Recall"},
+          {"text": " (title and description) and the "},
+          {"text": "Health Canada open recall dataset", "href": "https://recalls-rappels.canada.ca/sites/default/files/opendata-donneesouvertes/HCRSAMOpenData.json"},
+          {"text": ". A smoker or a grill notice is not listed here."}
+        ],
+        "rows": [
+          [
+            {"text": "Outdoor Gourmet Turkey Keg", "href": "https://www.cpsc.gov/Recalls/2019/Academy-Sports-Outdoors-Recalls-Turkey-Fryer-Due-to-Fire-Hazard"},
+            {"text": ". CPSC recall 19-067, February 19, 2019. Item 157826, on a label on one of the four legs. The spout can leak oil. Stop using it and return it to an Academy Sports + Outdoors store. No notice for this fryer was in the Health Canada dataset on that date."}
+          ],
+          [
+            {"text": "Masterbuilt: no turkey fryer recall found in either source on November 20, 2026."}
+          ],
+          [
+            {"text": "Char-Broil: no turkey fryer recall found in either source on November 20, 2026."}
+          ],
+          [
+            {"text": "Bayou Classic: no recall naming Bayou Classic was in either source on November 20, 2026."}
+          ]
+        ]
+      },
       "answer": [
         {
           "place": "Outdoor oil fryer",
@@ -32,7 +65,9 @@
             {"text": "NFPA desk reference", "href": "https://www.nfpa.org/-/media/project/storefront/catalog/files/home-fire-safety/emac/educationalmessagesdeskreference.pdf"},
             {"text": " says turkey fryers that use cooking oil, as currently designed, are not suitable for safe use by even a well-informed and careful consumer. The "},
             {"text": "November 19, 2025 CPSC release", "href": "https://www.cpsc.gov/Newsroom/News-Releases/2026/Put-Safety-on-the-Menu-Consumer-Product-Safety-Commission-Offers-Safe-Cooking-Tips-for-a-Joyful-Holiday-Season"},
-            {"text": " says to keep a turkey fryer out of the garage, off the deck, and away from the house."}
+            {"text": " says to keep a turkey fryer out of the garage, off the deck, and away from the house. The "},
+            {"text": "November 26, 2003 CPSC release", "href": "https://www.cpsc.gov/Newsroom/News-Releases/2004/CPSC-Issues-Safety-Tips-for-Turkey-Fryers"},
+            {"text": " says to thaw and dry the turkey. Partially frozen or wet poultry can splatter hot oil."}
           ]
         },
         {
@@ -294,41 +329,137 @@
     },
     {
       "slug": "turkey-temperatures",
-      "title": "Safe turkey temperature: 165°F, or 82°C in Canada",
-      "h1": "Safe temperature for turkey",
+      "title": "Safe turkey temperature: 165°F (US) and Canada's guidance",
+      "h1": "Safe turkey temperature: 165°F (US) and Canada's guidance",
       "label": "Turkey temperatures",
-      "description": "USDA: 165°F in the thickest part of the breast, innermost thigh, and wing. Stuffing 165°F. Canada: 82°C (180°F) for a whole turkey, 74°C (165°F) for pieces.",
+      "description": "USDA and FoodSafety.gov list turkey at 165°F. Health Canada’s June 4, 2024 chart lists a whole turkey at 82°C (180°F) and pieces at 74°C (165°F).",
+      "answerFirst": true,
+      "faqFold": true,
+      "note": [
+        {"text": "The Outdoor Gourmet Turkey Keg recall, and the fryer brands with no recall found, are on the "},
+        {"text": "turkey fryers", "href": "/thanksgiving/turkey-fryers/"},
+        {"text": " page."}
+      ],
       "answer": [
         {
           "place": "United States",
           "num": "165°F",
-          "body": [
-            {"text": "USDA FSIS "},
-            {"text": "Turkey Basics: Safe Cooking", "href": "https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/poultry/turkey-basics-safe-cooking"},
-            {"text": " says 165 °F in the thickest part of the breast and the innermost part of the thigh and wing. The center of the stuffing must reach 165 °F too."}
+          "numLinks": [
+            {"text": "165°F", "href": "https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/poultry/turkey-basics-safe-cooking"}
+          ],
+          "points": [
+            [
+              {"text": "Safe minimum internal temperature: "},
+              {"text": "165°F", "href": "https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/poultry/turkey-basics-safe-cooking"},
+              {"text": " in the innermost part of the thigh and wing and the thickest part of the breast. The "},
+              {"text": "USDA chart", "href": "https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/safe-temperature-chart"},
+              {"text": " lists all poultry (breasts, whole bird, legs, thighs, wings, ground poultry, giblets, and stuffing) at "},
+              {"text": "165°F (73.9°C)", "href": "https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/safe-temperature-chart"},
+              {"text": ". "},
+              {"text": "FoodSafety.gov", "href": "https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures"},
+              {"text": " lists the same foods, including stuffing inside poultry, at "},
+              {"text": "165°F (74°C)", "href": "https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures"},
+              {"text": "."}
+            ],
+            [
+              {"text": "Where to measure: those three places on "},
+              {"text": "Turkey Basics", "href": "https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/poultry/turkey-basics-safe-cooking"},
+              {"text": ". "},
+              {"text": "Let’s Talk Turkey", "href": "https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/poultry/lets-talk-turkey-roasting"},
+              {"text": " says an oven-proof thermometer starts in the thickest part of the inner thigh on a whole turkey, or the thickest part of a breast. Once the thigh reaches 165°F, check the wing and the thickest part of the breast."}
+            ],
+            [
+              {"text": "Stuffing: the center must reach "},
+              {"text": "165°F", "href": "https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/poultry/turkey-basics-safe-cooking"},
+              {"text": ". For optimum safety, cook stuffing in a casserole."}
+            ],
+            [
+              {"text": "Rest: let the bird stand "},
+              {"text": "20 minutes", "href": "https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/poultry/turkey-basics-safe-cooking"},
+              {"text": " before removing the stuffing and carving. Turkey Basics says that standing time is for quality, so the juices set."}
+            ],
+            [
+              {"text": "Thaw in the refrigerator, about "},
+              {"text": "24 hours for every 4 to 5 pounds", "href": "https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/poultry/lets-talk-turkey-roasting"},
+              {"text": ", at 40°F or below. Cold water is about "},
+              {"text": "30 minutes per pound", "href": "https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/poultry/lets-talk-turkey-roasting"},
+              {"text": ", with the water changed every 30 minutes, and the turkey is cooked immediately."}
+            ]
           ]
         },
         {
           "place": "Canada",
           "num": "82°C whole, 74°C pieces",
-          "body": [
-            {"text": "The "},
-            {"text": "safe cooking temperatures chart", "href": "https://www.canada.ca/en/health-canada/services/general-food-safety-tips/safe-internal-cooking-temperatures.html"},
-            {"text": " lists whole poultry, including turkey, at 82°C (180°F), pieces such as breasts, legs, thighs, and wings at 74°C (165°F), and stuffing at 74°C (165°F). The "},
-            {"text": "poultry safety page", "href": "https://www.canada.ca/en/health-canada/services/meat-poultry-fish-seafood-safety/poultry-safety.html"},
-            {"text": " says to check the thickest part of the breast, and not to touch bone."}
+          "numLinks": [
+            {"text": "82°C", "href": "https://www.canada.ca/en/health-canada/services/general-food-safety-tips/safe-internal-cooking-temperatures.html"},
+            {"text": " whole, "},
+            {"text": "74°C", "href": "https://www.canada.ca/en/health-canada/services/general-food-safety-tips/safe-internal-cooking-temperatures.html"},
+            {"text": " pieces"}
+          ],
+          "points": [
+            [
+              {"text": "Whole poultry, including turkey: "},
+              {"text": "82°C (180°F)", "href": "https://www.canada.ca/en/health-canada/services/general-food-safety-tips/safe-internal-cooking-temperatures.html"},
+              {"text": " on the safe cooking temperatures chart, published June 4, 2024."}
+            ],
+            [
+              {"text": "Pieces, for example breasts, legs, thighs, and wings: "},
+              {"text": "74°C (165°F)", "href": "https://www.canada.ca/en/health-canada/services/general-food-safety-tips/safe-internal-cooking-temperatures.html"},
+              {"text": "."}
+            ],
+            [
+              {"text": "Stuffing, cooked alone or in poultry: "},
+              {"text": "74°C (165°F)", "href": "https://www.canada.ca/en/health-canada/services/general-food-safety-tips/safe-internal-cooking-temperatures.html"},
+              {"text": ". "},
+              {"text": "Poultry safety", "href": "https://www.canada.ca/en/health-canada/services/meat-poultry-fish-seafood-safety/poultry-safety.html"},
+              {"text": " says stuffing cooked on its own should reach at least "},
+              {"text": "74°C (165°F)", "href": "https://www.canada.ca/en/health-canada/services/meat-poultry-fish-seafood-safety/poultry-safety.html"},
+              {"text": ", and to take the stuffing out as soon as a whole bird reaches "},
+              {"text": "82°C (180°F)", "href": "https://www.canada.ca/en/health-canada/services/meat-poultry-fish-seafood-safety/poultry-safety.html"},
+              {"text": "."}
+            ],
+            [
+              {"text": "Thermometer: through the thickest part of the meat, all the way to the middle, not touching any bone ("},
+              {"text": "chart", "href": "https://www.canada.ca/en/health-canada/services/general-food-safety-tips/safe-internal-cooking-temperatures.html"},
+              {"text": "). Poultry safety says to check the thickest part of the breast with a digital food thermometer that does not touch bone."}
+            ],
+            [
+              {"text": "Fridge thaw: "},
+              {"text": "24 hours for each 2.5 kg (5 pounds)", "href": "https://www.canada.ca/en/health-canada/services/meat-poultry-fish-seafood-safety/poultry-safety.html"},
+              {"text": "."}
+            ]
           ]
         }
       ],
       "buying": {
+        "heading": "Gear that helps",
+        "id": "gear-that-helps",
+        "includeSearches": true,
         "text": [
-          {"text": "USDA says to use a food thermometer in the breast, thigh, and wing. A pop-up indicator is not a substitute. The host list names a ThermoWorks Thermapen."}
+          {"text": "Turkey Basics", "href": "https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/poultry/turkey-basics-safe-cooking"},
+          {"text": " says to use a food thermometer. "},
+          {"text": "Let’s Talk Turkey", "href": "https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/poultry/lets-talk-turkey-roasting"},
+          {"text": " says a pop-up indicator is still checked with a food thermometer in the thigh, wing, and thickest part of the breast, and it describes an oven-proof thermometer left in while the turkey cooks. The button opens an Amazon search for that category. It is not a product page."}
         ],
         "links": [
           {"href": "/gifts/for-the-host/#thermoworks-thermapen", "label": "ThermoWorks Thermapen", "note": "Instant-read thermometer on the host list."}
+        ],
+        "tiles": [
+          {
+            "brand": "Instant-read",
+            "model": "Food thermometer",
+            "facts": "Named on the host list",
+            "href": "/gifts/for-the-host/#thermoworks-thermapen",
+            "label": "ThermoWorks Thermapen"
+          },
+          {
+            "brand": "Leave-in",
+            "model": "Oven-proof thermometer",
+            "facts": "No catalogue card on this site"
+          }
         ]
       },
-      "searches": ["food thermometer"],
+      "searches": ["instant-read meat thermometer", "leave-in meat thermometer"],
       "look": [
         [
           {"text": "USDA’s "},
@@ -400,16 +531,70 @@
       ],
       "faqs": [
         {
-          "q": "What is the safe temperature for turkey?",
-          "a": "USDA FSIS Turkey Basics: Safe Cooking says 165 °F in the thickest part of the breast and the innermost part of the thigh and wing, and 165 °F in the center of the stuffing. Health Canada’s June 4, 2024 chart lists a whole turkey at 82°C (180°F), pieces such as breasts, legs, thighs, and wings at 74°C (165°F), and stuffing at 74°C (165°F). The poultry safety page says to check the thickest part of the breast and not to touch bone."
+          "q": "Is 160°F safe for turkey?",
+          "a": "The USDA safe temperature chart lists ground meats at 160°F (71.1°C) and all poultry, including a whole bird, pieces, ground poultry, giblets, and stuffing, at 165°F (73.9°C). FoodSafety.gov lists ground meat and sausage at 160°F (71°C) and all chicken, turkey, and other poultry at 165°F (74°C). Health Canada’s June 4, 2024 chart lists ground beef, veal, and lamb at 71°C (160°F), and pork pieces and whole cuts at 71°C (160°F). It lists whole poultry, including turkey, at 82°C (180°F) and pieces at 74°C (165°F). Those poultry rows are not 160°F.",
+          "body": [
+            {"text": "The "},
+            {"text": "USDA safe temperature chart", "href": "https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/safe-temperature-chart"},
+            {"text": " lists ground meats at "},
+            {"text": "160°F (71.1°C)", "href": "https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/safe-temperature-chart"},
+            {"text": " and all poultry, including a whole bird, pieces, ground poultry, giblets, and stuffing, at "},
+            {"text": "165°F (73.9°C)", "href": "https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/safe-temperature-chart"},
+            {"text": ". "},
+            {"text": "FoodSafety.gov", "href": "https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures"},
+            {"text": " lists ground meat and sausage at "},
+            {"text": "160°F (71°C)", "href": "https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures"},
+            {"text": " and all chicken, turkey, and other poultry at "},
+            {"text": "165°F (74°C)", "href": "https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures"},
+            {"text": ". "},
+            {"text": "Health Canada’s June 4, 2024 chart", "href": "https://www.canada.ca/en/health-canada/services/general-food-safety-tips/safe-internal-cooking-temperatures.html"},
+            {"text": " lists ground beef, veal, and lamb at "},
+            {"text": "71°C (160°F)", "href": "https://www.canada.ca/en/health-canada/services/general-food-safety-tips/safe-internal-cooking-temperatures.html"},
+            {"text": ", and pork pieces and whole cuts at "},
+            {"text": "71°C (160°F)", "href": "https://www.canada.ca/en/health-canada/services/general-food-safety-tips/safe-internal-cooking-temperatures.html"},
+            {"text": ". It lists whole poultry, including turkey, at "},
+            {"text": "82°C (180°F)", "href": "https://www.canada.ca/en/health-canada/services/general-food-safety-tips/safe-internal-cooking-temperatures.html"},
+            {"text": " and pieces at "},
+            {"text": "74°C (165°F)", "href": "https://www.canada.ca/en/health-canada/services/general-food-safety-tips/safe-internal-cooking-temperatures.html"},
+            {"text": ". Those poultry rows are not 160°F."}
+          ]
         },
         {
-          "q": "How does USDA say to thaw a turkey?",
-          "a": "Let’s Talk Turkey says the refrigerator, cold water, or the microwave. Refrigerator thawing is about 24 hours for every 4 to 5 pounds. Cold-water thawing is about 30 minutes per pound, with the water changed every 30 minutes, and the turkey is cooked immediately. A microwave-thawed turkey is cooked immediately and is not refrigerated after thawing."
+          "q": "Safe turkey temp in Celsius",
+          "a": "The USDA safe temperature chart lists all poultry at 165°F (73.9°C). FoodSafety.gov lists all chicken, turkey, and other poultry, including stuffing inside poultry, at 165°F (74°C). Health Canada’s June 4, 2024 chart lists a whole turkey at 82°C (180°F) and pieces and stuffing at 74°C (165°F).",
+          "body": [
+            {"text": "The "},
+            {"text": "USDA safe temperature chart", "href": "https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/safe-temperature-chart"},
+            {"text": " lists all poultry at "},
+            {"text": "165°F (73.9°C)", "href": "https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/safe-temperature-chart"},
+            {"text": ". "},
+            {"text": "FoodSafety.gov", "href": "https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures"},
+            {"text": " lists all chicken, turkey, and other poultry, including stuffing inside poultry, at "},
+            {"text": "165°F (74°C)", "href": "https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures"},
+            {"text": ". "},
+            {"text": "Health Canada’s June 4, 2024 chart", "href": "https://www.canada.ca/en/health-canada/services/general-food-safety-tips/safe-internal-cooking-temperatures.html"},
+            {"text": " lists a whole turkey at "},
+            {"text": "82°C (180°F)", "href": "https://www.canada.ca/en/health-canada/services/general-food-safety-tips/safe-internal-cooking-temperatures.html"},
+            {"text": " and pieces and stuffing at "},
+            {"text": "74°C (165°F)", "href": "https://www.canada.ca/en/health-canada/services/general-food-safety-tips/safe-internal-cooking-temperatures.html"},
+            {"text": "."}
+          ]
         },
         {
-          "q": "Does the iDevices notice cover every meat thermometer?",
-          "a": "No. The September 3, 2014 CPSC notice names Pro Ambient Temperature Probes and Pro Meat Probes made from May 2014 through June 2014, and it describes two crimps at the cable. Search the brand and model of the thermometer you have on CPSC Recalls and on Health Canada recalls and safety alerts."
+          "q": "Where to put the thermometer",
+          "a": "Turkey Basics says to check the innermost part of the thigh and wing and the thickest part of the breast. Let’s Talk Turkey says an oven-proof thermometer goes in the thickest part of the inner thigh for a whole turkey, and in the thickest part of a breast, and that the wing and the thickest part of the breast are checked once the thigh reaches 165°F. Health Canada’s chart says to insert the thermometer through the thickest part of the meat, all the way to the middle, not touching any bone. The poultry safety page says to check the thickest part of the breast with a digital food thermometer that does not touch bone.",
+          "body": [
+            {"text": "Turkey Basics", "href": "https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/poultry/turkey-basics-safe-cooking"},
+            {"text": " says to check the innermost part of the thigh and wing and the thickest part of the breast. "},
+            {"text": "Let’s Talk Turkey", "href": "https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/poultry/lets-talk-turkey-roasting"},
+            {"text": " says an oven-proof thermometer goes in the thickest part of the inner thigh for a whole turkey, and in the thickest part of a breast, and that the wing and the thickest part of the breast are checked once the thigh reaches "},
+            {"text": "165°F", "href": "https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/poultry/lets-talk-turkey-roasting"},
+            {"text": ". "},
+            {"text": "Health Canada’s chart", "href": "https://www.canada.ca/en/health-canada/services/general-food-safety-tips/safe-internal-cooking-temperatures.html"},
+            {"text": " says to insert the thermometer through the thickest part of the meat, all the way to the middle, not touching any bone. The "},
+            {"text": "poultry safety page", "href": "https://www.canada.ca/en/health-canada/services/meat-poultry-fish-seafood-safety/poultry-safety.html"},
+            {"text": " says to check the thickest part of the breast with a digital food thermometer that does not touch bone."}
+          ]
         }
       ]
     },
