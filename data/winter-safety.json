@@ -134,34 +134,57 @@
     },
     {
       "slug": "electric-blankets",
-      "title": "Electric blankets and heated throws: what to read, then check the recall",
-      "h1": "Electric blankets and heated throws",
+      "title": "Electric & heated blanket recalls 2026 (by brand) + safety warnings",
+      "h1": "Electric & heated blanket recalls 2026 (by brand) + safety warnings",
       "label": "Electric blankets",
-      "description": "What to read on a heated blanket label and controller, where to search CPSC and Health Canada, and official notices for overheating and a controller fault.",
+      "description": "Heated blanket and throw recalls by brand, with the CPSC or Health Canada notice, plus what to read on the label and controller.",
       "intro": [
         [
-          {"text": "Check the brand on the "},
-          {"text": "heated blanket brand check", "href": "/recalls/heated-blanket-recalls/#brand-check"},
-          {"text": ", including Bedsure, Better Homes & Gardens, Cosi Home, and OHS."}
+          {
+            "text": "Check the brand on the "
+          },
+          {
+            "text": "heated blanket brand check",
+            "href": "/recalls/heated-blanket-recalls/#brand-check"
+          },
+          {
+            "text": ", including Bedsure, Better Homes & Gardens, Cosi Home, and OHS."
+          }
         ]
       ],
-      "searches": ["electric blanket", "heated throw"],
+      "searches": [
+        "electric blanket",
+        "heated throw"
+      ],
       "look": [
         [
-          {"text": "Read the controller for an auto-off timer, and read the label for a certification mark such as UL, ETL, or CSA."}
+          {
+            "text": "Read the controller for an auto-off timer, and read the label for a certification mark such as UL, ETL, or CSA."
+          }
         ],
         [
-          {"text": "Read the model number on the wash label and on the controller. The notices below tell owners to match that number, not the size or the color alone."}
+          {
+            "text": "Read the model number on the wash label and on the controller. The notices below tell owners to match that number, not the size or the color alone."
+          }
         ]
       ],
       "methodExtra": [
         [
-          {"text": "A heated throw and a queen blanket from the same brand can be different model numbers. Search the number on the wash label."}
+          {
+            "text": "A heated throw and a queen blanket from the same brand can be different model numbers. Search the number on the wash label."
+          }
         ],
         [
-          {"text": "The "},
-          {"text": "heated blanket recall list", "href": "/recalls/heated-blanket-recalls/"},
-          {"text": " quotes each CPSC and Health Canada notice on that page, with the model or tracker number, the hazard, and what the notice tells owners to do."}
+          {
+            "text": "The "
+          },
+          {
+            "text": "heated blanket recall list",
+            "href": "/recalls/heated-blanket-recalls/"
+          },
+          {
+            "text": " quotes each CPSC and Health Canada notice on that page, with the model or tracker number, the hazard, and what the notice tells owners to do."
+          }
         ]
       ],
       "patterns": [
@@ -182,20 +205,43 @@
           "title": "Sunbeam Queen Size Heated Blankets recalled due to potential fire hazard",
           "url": "https://recalls-rappels.canada.ca/en/alert-recall/sunbeamr-queen-size-heated-blankets-recalled-due-potential-fire-hazard",
           "says": "The notice says model 32810027 can potentially overheat, posing possible burn or fire hazards. It says that model number is printed on the wash label."
+        },
+        {
+          "agency": "CPSC",
+          "title": "JKMAX Recalls Heated Blankets and Heating Pads Due to Fire and Burn Hazards",
+          "url": "https://www.cpsc.gov/Recalls/2026/JKMAX-Recalls-Heated-Blankets-and-Heating-Pads-Due-to-Fire-and-Burn-Hazards",
+          "says": "The notice says the internal wire heating elements of the blankets and pads can overheat, posing fire and burn hazards. It names models JKMAX-002, JKMAX-7284B, JKMAX-6284B, JKMAX-10090B, and JKMAX-8490B."
+        },
+        {
+          "agency": "CPSC",
+          "title": "Heated Sherpa Throws and Blankets Recalled Due to Risk of Serious Injury or Death from Fire and Burn Hazards; Sold on Amazon by OCTROT",
+          "url": "https://www.cpsc.gov/Recalls/2026/Heated-Sherpa-Throws-and-Blankets-Recalled-Due-to-Risk-of-Serious-Injury-or-Death-from-Fire-and-Burn-Hazards-Sold-on-Amazon-by-OCTROT",
+          "says": "The notice says the electrical cord can detach and ignite, posing a risk of serious injury or death from fire, burn and shock hazards. It names models OCT-5060, OCT-5062, OCT-6248, OCT-7284, and OCT-8490, printed on the packaging."
         }
       ],
       "catalogue": [
         {
           "id": "sunbeam-tsl8ws",
           "note": [
-            {"text": "The Health Canada notice above names queen-size model 32810027. This card is the LoftTec heated throw TSL8WS. Read the wash label before treating them as the same unit."}
+            {
+              "text": "The Health Canada notice above names queen-size model 32810027. This card is the LoftTec heated throw TSL8WS. Read the wash label before treating them as the same unit."
+            }
           ]
         }
       ],
       "links": [
-        {"href": "/winter/", "label": "Winter catalogue"},
-        {"href": "/winter/sunbeam-tsl8ws/", "label": "Sunbeam LoftTec throw TSL8WS"},
-        {"href": "/recalls/heated-blanket-recalls/", "label": "Heated blanket recall list"}
+        {
+          "href": "/winter/",
+          "label": "Winter catalogue"
+        },
+        {
+          "href": "/winter/sunbeam-tsl8ws/",
+          "label": "Sunbeam LoftTec throw TSL8WS"
+        },
+        {
+          "href": "/recalls/heated-blanket-recalls/",
+          "label": "Heated blanket recall list"
+        }
       ],
       "faqs": [
         {
@@ -213,8 +259,108 @@
         {
           "q": "Where are the heated blanket model numbers listed?",
           "a": "The heated blanket recall list quotes each CPSC and Health Canada notice, including the Bedsure model numbers, the Berkshire tracker ranges, and Sunbeam queen model 32810027, with the hazard and what the notice tells owners to do."
+        },
+        {
+          "q": "Is there a Better Homes & Gardens or Cosi Home heated blanket recall?",
+          "a": "No CPSC or Health Canada recall found as of Nov 2026 for a Better Homes & Gardens heated blanket, a Cosi Home heated throw, or an OHS heated blanket."
         }
-      ]
+      ],
+      "faqFold": true,
+      "brandTable": {
+        "heading": "Heated blanket recalls by brand",
+        "intro": "A row with a link is the official notice for that product. Match the model on the wash label or the controller to the notice. A row without a link had no heated blanket or heated throw recall on CPSC or Health Canada as of November 2026.",
+        "rows": [
+          {
+            "brand": "Bedsure",
+            "product": "Electric heating blankets and pads, models BS-HB5060, BS-HB6284, BS-HB7284, BS-LV0A, BS-HP2422, BS-HP1224, and BS-HP2433",
+            "date": "2023-03-09",
+            "links": [
+              {
+                "url": "https://www.cpsc.gov/Recalls/2023/Bedshe-International-Recalls-Bedsure-Electric-Heating-Blankets-and-Pads-Due-to-Fire-and-Thermal-Burn-Hazards-Recall-Alert",
+                "label": "CPSC"
+              }
+            ]
+          },
+          {
+            "brand": "Better Homes & Gardens",
+            "product": "Heated blanket or throw",
+            "note": "No CPSC or Health Canada recall found as of Nov 2026"
+          },
+          {
+            "brand": "Cosi Home",
+            "product": "Heated throw",
+            "note": "No CPSC or Health Canada recall found as of Nov 2026"
+          },
+          {
+            "brand": "OHS",
+            "product": "Heated blanket",
+            "note": "No CPSC or Health Canada recall found as of Nov 2026"
+          },
+          {
+            "brand": "JKMAX",
+            "product": "Heated blankets and heating pads, models JKMAX-002, JKMAX-7284B, JKMAX-6284B, JKMAX-10090B, and JKMAX-8490B",
+            "date": "CPSC 2026-09-17. Health Canada 2026-10-22.",
+            "links": [
+              {
+                "url": "https://www.cpsc.gov/Recalls/2026/JKMAX-Recalls-Heated-Blankets-and-Heating-Pads-Due-to-Fire-and-Burn-Hazards",
+                "label": "CPSC"
+              },
+              {
+                "url": "https://recalls-rappels.canada.ca/en/alert-recall/health-canada-warns-jkmax-heated-blankets-and-heating-pads-previously-available",
+                "label": "Health Canada"
+              }
+            ]
+          },
+          {
+            "brand": "OCTROT",
+            "product": "Sherpa heated throws and blankets, models OCT-5060, OCT-5062, OCT-6248, OCT-7284, and OCT-8490",
+            "date": "2026-07-30",
+            "links": [
+              {
+                "url": "https://www.cpsc.gov/Recalls/2026/Heated-Sherpa-Throws-and-Blankets-Recalled-Due-to-Risk-of-Serious-Injury-or-Death-from-Fire-and-Burn-Hazards-Sold-on-Amazon-by-OCTROT",
+                "label": "CPSC"
+              }
+            ]
+          },
+          {
+            "brand": "MaxKare",
+            "product": "Electric blankets, models HB18A-7284-1, HB18A-8490-2, and HB18A-6284-1",
+            "date": "2025-06-18",
+            "links": [
+              {
+                "url": "https://www.cpsc.gov/Recalls/2025/MaxKare-Electric-Blankets-Recalled-Due-to-Burn-and-Fire-Hazards-Manufactured-by-Yumo-and-Sold-Exclusively-on-Walmart-com",
+                "label": "CPSC"
+              }
+            ]
+          },
+          {
+            "brand": "Berkshire",
+            "product": "Heated throws and blankets, including units sold as L.L. Bean",
+            "date": "2023-11-30",
+            "links": [
+              {
+                "url": "https://www.cpsc.gov/Recalls/2024/Berkshire-Blanket-Home-Company-Recalls-Heated-Throws-and-Blankets-Due-to-Fire-and-Thermal-Burn-Hazards",
+                "label": "CPSC"
+              }
+            ]
+          },
+          {
+            "brand": "Sunbeam",
+            "product": "Queen-size heated blanket, model 32810027",
+            "date": "2023-03-16",
+            "links": [
+              {
+                "url": "https://www.cpsc.gov/Recalls/2023/Sunbeam-Heated-Blankets-Recalled-Due-to-Burn-and-Fire-Hazards-Distributed-by-Star-Elite",
+                "label": "CPSC"
+              },
+              {
+                "url": "https://recalls-rappels.canada.ca/en/alert-recall/sunbeamr-queen-size-heated-blankets-recalled-due-potential-fire-hazard",
+                "label": "Health Canada"
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "slug": "carbon-monoxide-smoke-alarms",

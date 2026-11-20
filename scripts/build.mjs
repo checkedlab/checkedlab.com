@@ -175,7 +175,8 @@ const CITE_HOSTS = new Set([
 const CPSC_SEARCH = "https://www.cpsc.gov/Recalls";
 const HC_SEARCH = "https://recalls-rappels.canada.ca/en";
 const WINTER_CHECK = "How we check describes the dated CPSC and Health Canada match on a catalogue card. The date is the day that match was recorded. These guides add the label lines to read and the official search to open, including for a model that is not on a card. A clear line on one card does not cover a different model number.";
-const GIFT_BAN = /\$\d|\bwe tested\b|\btested by us\b|\bwe bought\b|\bdoes not test\b|\bdid not test\b|\bnot tested\b|hands-on|lab-tested|lab tested|out of 5|star rating|review count|\bdiscount\b|\bstars?\b|\d+\s*%\s*off\b/i;
+/* "Star-Elite" is the Sunbeam recall distributor in a CPSC URL, not a star rating. */
+const GIFT_BAN = /\$\d|\bwe tested\b|\btested by us\b|\bwe bought\b|\bdoes not test\b|\bdid not test\b|\bnot tested\b|hands-on|lab-tested|lab tested|out of 5|star rating|review count|\bdiscount\b|\bstars?\b(?!-Elite)|\d+\s*%\s*off\b/i;
 /* A digit before %20 or %2C is a search URL, not a discount. A real percent is 20% or 20 %. */
 const PERCENT_CLAIM = /\d+\s*%(?![0-9A-Fa-f]{2})/;
 const BF_TITLE = "Black Friday and Cyber Monday 2026: what to check";
@@ -225,11 +226,11 @@ const REPLACE_LINKS = {
     ]
   },
   "anker-power-banks": {
-    text: "The notices name specific banks, including A1263, A1642, A1647, and A1652. A1289, the 737 PowerCore 24K, is not one of those numbers. It is a 24,000 mAh bank with up to 140 W from USB-C.",
+    text: "The notices name specific banks, including A1263, A1642, A1647, and A1652. A1289, the 737 PowerCore 24K, is not one of those numbers. It is a 24,000 mAh bank with up to 140 W from USB-C. A portable power station is a different product.",
     links: [
       ["/personal-tech/anker-a1289/", "Anker 737 PowerCore 24K"],
-      ["/personal-tech/", "Personal tech"],
-      ["/gifts/tech-and-gadgets/", "Tech and gadgets"]
+      ["/winter-safety/portable-power/", "Portable power stations"],
+      ["/personal-tech/", "Personal tech"]
     ]
   },
   "instant-pot-official-notices": {
@@ -3462,7 +3463,10 @@ function explainerFaqHtml(entry) {
   return '<section class="faq" id="questions"><h2>Questions</h2>' + faqs.map((item) => {
     if (!item || !item.q || !item.a) throw new Error("Explainer FAQ is incomplete: " + entry.slug);
     assertReaderVoice(item.q + " " + item.a, entry.slug + " faq");
-    return "<h3>" + card.esc(item.q) + '</h3><p class="faq-a">' + card.esc(item.a) + "</p>";
+    const answer = '<p class="faq-a">' + card.esc(item.a) + "</p>";
+    if (!entry.faqFold) return "<h3>" + card.esc(item.q) + "</h3>" + answer;
+    return '<details class="fold"><summary><h3>' + card.esc(item.q) + "</h3></summary><div class=\"fold-body\">" +
+      answer + "</div></details>";
   }).join("") + "</section>";
 }
 
@@ -3608,6 +3612,12 @@ ${DISCLOSURE}
     if (entry.slug === "anker-power-banks") {
       if (!html.includes('id="serial-check"') || !html.includes(">A1257</p>")) {
         throw new Error("Anker page is missing the serial check for A1257");
+      }
+      if (!html.includes(">Is my Anker recalled?</h2>") || !html.includes(">A1112011</td>")) {
+        throw new Error("Anker page is missing the model card");
+      }
+      if (!html.includes('<details class="fold"><summary><h3>Which Anker power banks were recalled?</h3></summary>')) {
+        throw new Error("Anker page is missing the FAQ accordion");
       }
     }
     if (entry.slug === "heated-blanket-recalls") {
@@ -4900,12 +4910,51 @@ function winterIntro(guide) {
   ).join("");
 }
 
+function winterBrandTable(guide) {
+  const table = guide.brandTable;
+  if (!table) return "";
+  const none = "No CPSC or Health Canada recall found as of Nov 2026";
+  if (table.heading !== "Heated blanket recalls by brand" || !table.intro || !Array.isArray(table.rows) || table.rows.length < 4) {
+    throw new Error("Brand table is incomplete: " + guide.slug);
+  }
+  assertWinterCopy(table.heading + " " + table.intro, guide.slug + " brand table");
+  const columns = ["Brand", "Product", "Date", "Notice"];
+  const head = "<tr>" + columns.map((column) => "<th scope=\"col\">" + column + "</th>").join("") + "</tr>";
+  const body = [];
+  const stack = [];
+  for (const row of table.rows) {
+    if (!row || !row.brand || !row.product) throw new Error("Brand row: " + guide.slug);
+    assertWinterCopy(row.brand + " " + row.product + " " + (row.date || "") + " " + (row.note || ""), guide.slug + " brand " + row.brand);
+    const links = Array.isArray(row.links) ? row.links : [];
+    let notice = "";
+    if (row.note) {
+      if (row.note !== none || links.length) throw new Error("No-recall row: " + row.brand);
+      notice = card.esc(row.note);
+    } else {
+      if (!row.date || !links.length) throw new Error("Recall row needs a date and a notice: " + row.brand);
+      notice = links.map((link) => {
+        assertWinterPatternUrl(link.url);
+        if (!link.label) throw new Error("Notice label: " + row.brand);
+        return '<a href="' + card.esc(link.url) + '" target="_blank" rel="noopener">' + card.esc(link.label) + "</a>";
+      }).join(" ");
+    }
+    const date = row.date ? card.esc(row.date) : "";
+    body.push("<tr><td>" + card.esc(row.brand) + "</td><td>" + card.esc(row.product) + "</td><td>" + date + "</td><td>" + notice + "</td></tr>");
+    const dateLine = date ? "<p><strong>Date.</strong> " + date + "</p>" : "";
+    stack.push("<article><h3>" + card.esc(row.brand) + "</h3><p><strong>Product.</strong> " + card.esc(row.product) + "</p>" + dateLine + "<p>" + notice + "</p></article>");
+  }
+  return '<section class="model-card" id="recalls-by-brand"><h2>' + card.esc(table.heading) + "</h2><p>" +
+    card.esc(table.intro) + '</p><div class="model-scroll"><table class="model-table"><thead>' + head +
+    "</thead><tbody>" + body.join("") + '</tbody></table></div><div class="model-stack">' + stack.join("") + "</div></section>";
+}
+
 function winterGuideHtml(guide) {
   const url = ORIGIN + winterPath(guide);
   const main = sceneBlock("winter-safety") + winterCrumbs(guide.h1) +
     "<h1>" + card.esc(guide.h1) + "</h1>" +
     '<p class="lede">' + card.esc(guide.description) + "</p>" +
     winterIntro(guide) +
+    winterBrandTable(guide) +
     winterJumps(guide.slug) +
     "<h2>What to read on the label</h2>" + winterLook(guide) +
     "<h2>How to search a recall</h2>" + winterMethod(guide) +
@@ -4918,7 +4967,7 @@ function winterGuideHtml(guide) {
     "<h2>Amazon search</h2>" +
     "<p>The button opens the Amazon search for the words under it. It is not a product page.</p>" +
     winterSearchButtons(guide) +
-    winterFaqsHtml(guide.faqs);
+    winterFaqsHtml(guide.faqs, guide.slug, Boolean(guide.faqFold));
   const jsonLd = winterJsonLd(
     url,
     guide.title,
@@ -4972,6 +5021,7 @@ function writeWinterSafety() {
     winterLook(guide);
     winterMethod(guide);
     winterPatternsHtml(guide);
+    winterBrandTable(guide);
     winterCatalogueHtml(guide);
     winterSearchButtons(guide);
   }
@@ -6271,6 +6321,14 @@ function assertWinterPages() {
       if (!html.includes(expectedFaqAnswer(item, guide.slug))) throw new Error("Winter FAQ answer " + guide.slug);
       if (guide.slug === "electric-blankets" && !html.includes('href="/recalls/heated-blanket-recalls/#brand-check"')) {
         throw new Error("Electric blankets page misses the brand check");
+      }
+      if (guide.slug === "electric-blankets") {
+        if (!html.includes(">Heated blanket recalls by brand</h2>")) throw new Error("Electric blankets page misses the brand table");
+        const none = html.match(/No CPSC or Health Canada recall found as of Nov 2026/g) || [];
+        if (none.length < 3) throw new Error("Electric blankets page misses a no-recall line");
+        if (!html.includes('href="https://www.cpsc.gov/Recalls/2023/Bedshe-International-Recalls-Bedsure-Electric-Heating-Blankets-and-Pads-Due-to-Fire-and-Thermal-Burn-Hazards-Recall-Alert"')) {
+          throw new Error("Electric blankets page misses the Bedsure notice");
+        }
       }
     }
     const data = JSON.parse(html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]);

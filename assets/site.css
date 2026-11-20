@@ -973,6 +973,7 @@ body[data-page="product"] .p-photo {
   vertical-align: top;
   padding: 10px 8px;
   border-top: 1px solid var(--line);
+  overflow-wrap: anywhere;
 }
 .model-table th { font-size: 0.82rem; letter-spacing: 0.04em; text-transform: uppercase; }
 .model-stack { display: none; }
