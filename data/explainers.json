@@ -189,13 +189,30 @@
     "slug": "anker-power-banks",
     "title": "Anker power bank recall: serial numbers",
     "linkLabel": "Anker power bank notices",
-    "description": "A1263, A1681, A1689 and A1112011 need a serial match. A1642, A1647, A1652 and A1366 are named by model. Stop use and contact Anker.",
+    "description": "Where the serial is printed on recalled Anker power banks, the model numbers on the CPSC, Health Canada, and Anker notices, and the official serial-check pages.",
     "hub": "personal-tech",
     "products": [
       "anker-a1289"
     ],
     "catalogue": "The catalogue power bank is model A1289, the Anker 737 PowerCore 24K. A1289 is not among the model numbers copied from the notices below.",
     "notices": [
+      {
+        "agency": "CPSC",
+        "date": "2025-09-18",
+        "title": "Anker Power Banks Recalled Due to Fire and Burn Hazards",
+        "url": "https://www.cpsc.gov/Recalls/2025/Anker-Power-Banks-Recalled-Due-to-Fire-and-Burn-Hazards-Manufactured-by-Anker-Innovations-1",
+        "says": "The CPSC notice says this recall involves Anker power banks with model numbers A1647, A1652, A1257, A1681, and A1689. It says Anker is engraved on the front, the model number is on the back or side, and the serial number is next to SN Code on the back or side.",
+        "howToCheck": "The notice says to read the model number and the serial number next to SN Code on the back or side, then verify the serial at anker.com/rc2506.",
+        "remedy": "The notice tells owners to stop using the recalled power banks and visit anker.com/rc2506 to verify the serial and register. It says an impacted product qualifies for a full cash refund or an Anker gift card. It says to submit a photo showing the model number, serial number, the owner’s name, the date, and the word recalled written on the unit.",
+        "modelsLabel": "Model numbers in this CPSC notice",
+        "models": [
+          "A1647",
+          "A1652",
+          "A1257",
+          "A1681",
+          "A1689"
+        ]
+      },
       {
         "agency": "CPSC",
         "date": "2025-06-12",
@@ -295,7 +312,7 @@
     "check": [
       {
         "label": "Serial numbers",
-        "text": "A1263: the model and serial are on the bottom, and only qualifying U.S. serials are included. A1647, A1681 and A1689: the serial is on the side or the back, and the Health Canada notice says affected serials do not contain the letters O or I. A1112011: a 16-digit serial on the bottom. A1642: the Health Canada notice says to use Anker's site to see whether the serial is included.",
+        "text": "A1263: the model and serial are on the bottom, and only qualifying U.S. serials are included. A1647, A1681 and A1689: the serial is on the side or the back, and the Health Canada notice says affected serials do not contain the letters O or I. A1112011: a 16-digit serial on the bottom. A1257, A1647, A1652, A1681 and A1689: the September 18, 2025 CPSC notice says the serial is next to SN Code on the back or side. A1642: the Health Canada notice says to use Anker's site to see whether the serial is included.",
         "links": [
           {
             "url": "https://www.cpsc.gov/Recalls/2025/More-than-One-Million-Anker-Power-Banks-Recalled-Due-to-Fire-and-Burn-Hazards-Manufactured-by-Anker-Innovations",
@@ -317,7 +334,7 @@
       },
       {
         "label": "Models",
-        "text": "A1642, A1647 and A1652 are on the back. A1366 is on the back. A1289 is not a model number in these notices.",
+        "text": "A1642, A1647 and A1652 are on the back in the October 17, 2024 CPSC notice. A1647, A1652, A1257, A1681 and A1689 are on the back or side in the September 18, 2025 CPSC notice. A1366 is on the back. A1289 is not a model number in these notices.",
         "links": [
           {
             "url": "https://www.cpsc.gov/Recalls/2025/Anker-Power-Banks-Recalled-Due-to-Fire-and-Burn-Hazards-Manufactured-by-Anker-Innovations",
@@ -333,7 +350,174 @@
         "label": "What to do",
         "text": "Stop using a recalled unit. The CPSC notices for A1263, A1642, A1647 and A1652 say to contact Anker for a free replacement. A1366 is a refund. The Health Canada notice for A1647, A1681 and A1689 says a free replacement or a voucher. Do not put the lithium-ion battery in household trash."
       }
-    ]
+    ],
+    "sub": "Read the serial, then open the Anker page named on that notice.",
+    "noticesLede": "A1263, A1642, A1112011, A1647, A1652, A1257, A1681, A1689, and A1366 are the model numbers in the notices below. The serial check at the top says where each serial is printed.",
+    "answers": {
+      "id": "serial-check",
+      "heading": "How to check your serial number",
+      "intro": "Match the model number first. A qualifying serial is not every unit of that model. Each card uses the location printed on that notice.",
+      "cards": [
+        {
+          "place": "On the bottom",
+          "num": "A1263",
+          "paragraphs": [
+            [
+              {
+                "text": "The "
+              },
+              {
+                "text": "June 12, 2025 CPSC notice",
+                "href": "https://www.cpsc.gov/Recalls/2025/More-than-One-Million-Anker-Power-Banks-Recalled-Due-to-Fire-and-Burn-Hazards-Manufactured-by-Anker-Innovations"
+              },
+              {
+                "text": " says model A1263 and the serial number SN are printed on the bottom. Only A1263 units sold in the U.S. with qualifying serials are included. Check the serial at "
+              },
+              {
+                "text": "anker.com/product-recalls",
+                "href": "https://www.anker.com/product-recalls"
+              },
+              {
+                "text": "."
+              }
+            ]
+          ]
+        },
+        {
+          "place": "On the bottom",
+          "num": "A1642",
+          "paragraphs": [
+            [
+              {
+                "text": "The "
+              },
+              {
+                "text": "October 17, 2024 CPSC notice",
+                "href": "https://www.cpsc.gov/Recalls/2025/Anker-Power-Banks-Recalled-Due-to-Fire-and-Burn-Hazards-Manufactured-by-Anker-Innovations"
+              },
+              {
+                "text": " names A1642, A1647, and A1652, and says those model numbers are on the back. It does not say where the serial is printed. The "
+              },
+              {
+                "text": "Health Canada A1642 notice",
+                "href": "https://recalls-rappels.canada.ca/en/alert-recall/anker-334-maggo-battery-powercore-10k-model-a1642-recalled-due-potential-fire-hazard"
+              },
+              {
+                "text": " says the serial is on the bottom. Check it at "
+              },
+              {
+                "text": "anker.com/ca/a1642-recall",
+                "href": "https://www.anker.com/ca/a1642-recall"
+              },
+              {
+                "text": ". Anker’s "
+              },
+              {
+                "text": "A1642, A1647, and A1652 page",
+                "href": "https://www.anker.com/a1642-a1647-a1652-recall"
+              },
+              {
+                "text": " says the serial is 16 digits on the bottom and does not contain the letters O or I."
+              }
+            ]
+          ]
+        },
+        {
+          "place": "Back or side",
+          "num": "A1257",
+          "paragraphs": [
+            [
+              {
+                "text": "The "
+              },
+              {
+                "text": "September 18, 2025 CPSC notice",
+                "href": "https://www.cpsc.gov/Recalls/2025/Anker-Power-Banks-Recalled-Due-to-Fire-and-Burn-Hazards-Manufactured-by-Anker-Innovations-1"
+              },
+              {
+                "text": " names A1647, A1652, A1257, A1681, and A1689. It says the model number is on the back or side, and the serial is next to SN Code on the back or side. Check it at "
+              },
+              {
+                "text": "anker.com/rc2506",
+                "href": "https://www.anker.com/rc2506"
+              },
+              {
+                "text": ". Anker’s page for that recall says affected serials do not contain the letters O or I."
+              }
+            ]
+          ]
+        },
+        {
+          "place": "Side or back",
+          "num": "A1681",
+          "paragraphs": [
+            [
+              {
+                "text": "The "
+              },
+              {
+                "text": "June 27, 2025 Health Canada notice",
+                "href": "https://recalls-rappels.canada.ca/en/alert-recall/anker-power-bank-a1647-and-anker-zolo-power-banks-a1681-and-a1689-sold-amazonca"
+              },
+              {
+                "text": " names A1647, A1681, and A1689. It says the serial is on the side or the back, and that serials of affected products do not contain the letters O or I. Check it at "
+              },
+              {
+                "text": "anker.com/ca/rc2506",
+                "href": "https://www.anker.com/ca/rc2506"
+              },
+              {
+                "text": ". A1681 and A1689 are also on the September 18, 2025 CPSC notice above."
+              }
+            ]
+          ]
+        },
+        {
+          "place": "On the bottom",
+          "num": "A1112011",
+          "paragraphs": [
+            [
+              {
+                "text": "The "
+              },
+              {
+                "text": "July 5, 2024 Health Canada notice",
+                "href": "https://recalls-rappels.canada.ca/en/alert-recall/anker-321-power-banks-powercore-5k-recalled-due-potential-fire-hazard"
+              },
+              {
+                "text": " names Anker 321 PowerCore 5K, black, model A1112011. It says affected units have specific 16-digit serial numbers on the bottom. Check the serial at "
+              },
+              {
+                "text": "anker.com/ca/a1112-recall-form",
+                "href": "https://www.anker.com/ca/a1112-recall-form"
+              },
+              {
+                "text": "."
+              }
+            ]
+          ]
+        },
+        {
+          "place": "Model on the back",
+          "num": "A1366",
+          "paragraphs": [
+            [
+              {
+                "text": "The "
+              },
+              {
+                "text": "March 9, 2023 CPSC notice",
+                "href": "https://www.cpsc.gov/Recalls/2023/Fantasia-Trading-Recalls-Anker-Power-Banks-Due-to-Fire-Hazard"
+              },
+              {
+                "text": " names Anker 535 PowerCore 20K, model A1366, and says A1366 is on the back. It does not use a serial list. Stop using a recalled unit and contact Fantasia Trading for a full refund. The Health Canada notice for the same model is linked in the notices below."
+              }
+            ]
+          ]
+        }
+      ],
+      "note": "The model numbers in these cards are A1263, A1642, A1647, A1652, A1257, A1681, A1689, A1112011, and A1366. A1289 is not one of them."
+    }
   },
   {
     "slug": "vitamix-ascent-venturist-containers",
@@ -1118,9 +1302,9 @@
   },
   {
     "slug": "heated-blanket-recalls",
-    "title": "Heated blanket recalls: models to match",
+    "title": "Heated blanket recalls: Bedsure brand check",
     "linkLabel": "Heated blanket recall list",
-    "description": "CPSC and Health Canada notices for Bedsure, Berkshire, Sunbeam, JKMAX, OCTROT and other heated blankets and throws, with the model or tracker and remedy.",
+    "description": "Bedsure, Sunbeam, Berkshire, JKMAX and OCTROT heated blanket notices, with the product, hazard, and remedy. No CPSC or Health Canada recall found for Better Homes & Gardens, Cosi Home, or OHS heated blankets as of Nov 2026.",
     "hub": "winter",
     "roundup": true,
     "tiles": true,
@@ -1487,6 +1671,836 @@
           "Serial numbers A001A to C210C"
         ]
       }
-    ]
+    ],
+    "sub": "Brand check for Bedsure, Better Homes & Gardens, Cosi Home, and OHS.",
+    "noticesLede": "CPSC and Health Canada notices for Bedsure, Berkshire, Sunbeam, JKMAX, OCTROT and other heated blankets and throws, with the model or tracker and remedy.",
+    "answers": {
+      "id": "brand-check",
+      "heading": "Brand check",
+      "intro": "One card is one brand. A recall card states the product, date, hazard, and remedy from the official notice. A card with no notice uses the search pages opened on November 20, 2026.",
+      "cards": [
+        {
+          "place": "Bedsure",
+          "num": "CPSC recall",
+          "paragraphs": [
+            [
+              {
+                "text": "Product.",
+                "strong": true
+              },
+              {
+                "text": " Bedsure electric heating blankets and pads. Models BS-HB5060, BS-HB6284, BS-HB7284, BS-LV0A, BS-HP2422, BS-HP1224, and BS-HP2433."
+              }
+            ],
+            [
+              {
+                "text": "Date.",
+                "strong": true
+              },
+              {
+                "text": " 2023-03-09. "
+              },
+              {
+                "text": "Hazard.",
+                "strong": true
+              },
+              {
+                "text": " The controller can malfunction, posing fire and thermal burn hazards. "
+              },
+              {
+                "text": "Remedy.",
+                "strong": true
+              },
+              {
+                "text": " Stop using them and contact Bedsure for a full refund. The notice says the owner must have the unit and submit photos."
+              }
+            ],
+            [
+              {
+                "text": "CPSC notice",
+                "href": "https://www.cpsc.gov/Recalls/2023/Bedshe-International-Recalls-Bedsure-Electric-Heating-Blankets-and-Pads-Due-to-Fire-and-Thermal-Burn-Hazards-Recall-Alert"
+              }
+            ]
+          ],
+          "id": "brand-bedsure"
+        },
+        {
+          "place": "Better Homes & Gardens",
+          "num": "No recall found",
+          "paragraphs": [
+            [
+              {
+                "text": "No CPSC or Health Canada recall found for Better Homes & Gardens heated blankets as of Nov 2026."
+              }
+            ],
+            [
+              {
+                "text": "The CPSC "
+              },
+              {
+                "text": "Better Homes and Gardens room spray notice",
+                "href": "https://www.cpsc.gov/Recalls/2022/Walmart-Recalls-Better-Homes-and-Gardens-Essential-Oil-Infused-Aromatherapy-Room-Spray-with-Gemstones-Due-to-Rare-and-Dangerous-Bacteria-Bacteria-Identified-in-this-Outbreak-Linked-to-Two-Deaths"
+              },
+              {
+                "text": " is not a heated blanket. The Health Canada search also returns a torch notice, not a heated blanket."
+              }
+            ],
+            [
+              {
+                "text": "CPSC Recalls search",
+                "href": "https://www.cpsc.gov/Recalls?search_api_fulltext=Better%20Homes%20and%20Gardens%20blanket"
+              },
+              {
+                "text": " "
+              },
+              {
+                "text": "Health Canada search",
+                "href": "https://recalls-rappels.canada.ca/en/search/site?search_api_fulltext=%22Better%20Homes%22%20blanket"
+              }
+            ]
+          ],
+          "id": "brand-bhg"
+        },
+        {
+          "place": "Cosi Home",
+          "num": "No recall found",
+          "paragraphs": [
+            [
+              {
+                "text": "No CPSC or Health Canada recall found for Cosi Home heated blankets as of Nov 2026."
+              }
+            ],
+            [
+              {
+                "text": "CPSC Recalls search",
+                "href": "https://www.cpsc.gov/Recalls?search_api_fulltext=Cosi%20Home%20heated%20blanket"
+              },
+              {
+                "text": " "
+              },
+              {
+                "text": "Health Canada search",
+                "href": "https://recalls-rappels.canada.ca/en/search/site?search_api_fulltext=Cosi%20Home%20heated%20blanket"
+              }
+            ]
+          ],
+          "id": "brand-cosi"
+        },
+        {
+          "place": "OHS",
+          "num": "No recall found",
+          "paragraphs": [
+            [
+              {
+                "text": "No CPSC or Health Canada recall found for OHS heated blankets as of Nov 2026."
+              }
+            ],
+            [
+              {
+                "text": "CPSC Recalls search",
+                "href": "https://www.cpsc.gov/Recalls?search_api_fulltext=OHS%20electric%20blanket"
+              },
+              {
+                "text": " "
+              },
+              {
+                "text": "Health Canada search",
+                "href": "https://recalls-rappels.canada.ca/en/search/site?search_api_fulltext=OHS%20electric%20blanket"
+              }
+            ]
+          ],
+          "id": "brand-ohs"
+        },
+        {
+          "place": "JKMAX",
+          "num": "Two notices",
+          "paragraphs": [
+            [
+              {
+                "text": "Product.",
+                "strong": true
+              },
+              {
+                "text": " JKMAX heated blankets and heating pads. Models JKMAX-002, JKMAX-7284B, JKMAX-6284B, JKMAX-10090B, and JKMAX-8490B."
+              }
+            ],
+            [
+              {
+                "text": "Date.",
+                "strong": true
+              },
+              {
+                "text": " CPSC 2026-09-17. Health Canada updated 2026-10-22. "
+              },
+              {
+                "text": "Hazard.",
+                "strong": true
+              },
+              {
+                "text": " Both notices say the internal wire heating elements can overheat, posing fire and burn hazards. "
+              },
+              {
+                "text": "Remedy.",
+                "strong": true
+              },
+              {
+                "text": " The CPSC notice says stop using them and contact JKMAX for a full refund. The Health Canada notice says stop using them and dispose of them so they cannot be used again."
+              }
+            ],
+            [
+              {
+                "text": "CPSC notice",
+                "href": "https://www.cpsc.gov/Recalls/2026/JKMAX-Recalls-Heated-Blankets-and-Heating-Pads-Due-to-Fire-and-Burn-Hazards"
+              },
+              {
+                "text": " "
+              },
+              {
+                "text": "Health Canada notice",
+                "href": "https://recalls-rappels.canada.ca/en/alert-recall/health-canada-warns-jkmax-heated-blankets-and-heating-pads-previously-available"
+              }
+            ]
+          ],
+          "id": "brand-jkmax"
+        },
+        {
+          "place": "OCTROT",
+          "num": "CPSC recall",
+          "paragraphs": [
+            [
+              {
+                "text": "Product.",
+                "strong": true
+              },
+              {
+                "text": " OCTROT heated throws and blankets. Models OCT-5060, OCT-5062, OCT-6248, OCT-7284, and OCT-8490, printed on the packaging."
+              }
+            ],
+            [
+              {
+                "text": "Date.",
+                "strong": true
+              },
+              {
+                "text": " 2026-07-30. "
+              },
+              {
+                "text": "Hazard.",
+                "strong": true
+              },
+              {
+                "text": " The electrical cord can detach and ignite, posing a risk of serious injury or death from fire, burn, and shock. "
+              },
+              {
+                "text": "Remedy.",
+                "strong": true
+              },
+              {
+                "text": " Stop using them and contact OCTROT for a full refund. The notice says to unplug the cord, cut it in half, and send a photo of the cut cord."
+              }
+            ],
+            [
+              {
+                "text": "CPSC notice",
+                "href": "https://www.cpsc.gov/Recalls/2026/Heated-Sherpa-Throws-and-Blankets-Recalled-Due-to-Risk-of-Serious-Injury-or-Death-from-Fire-and-Burn-Hazards-Sold-on-Amazon-by-OCTROT"
+              }
+            ]
+          ],
+          "id": "brand-octrot"
+        },
+        {
+          "place": "MaxKare",
+          "num": "CPSC recall",
+          "paragraphs": [
+            [
+              {
+                "text": "Product.",
+                "strong": true
+              },
+              {
+                "text": " MaxKare electric blankets. Models HB18A-7284-1, HB18A-8490-2, and HB18A-6284-1, on the tag."
+              }
+            ],
+            [
+              {
+                "text": "Date.",
+                "strong": true
+              },
+              {
+                "text": " 2025-06-18. "
+              },
+              {
+                "text": "Hazard.",
+                "strong": true
+              },
+              {
+                "text": " The blankets can overheat and ignite, posing burn and fire hazards. "
+              },
+              {
+                "text": "Remedy.",
+                "strong": true
+              },
+              {
+                "text": " Stop using them and contact Yumo for disposal instructions. The notice says a photo and confirmation of disposal are required for a full refund."
+              }
+            ],
+            [
+              {
+                "text": "CPSC notice",
+                "href": "https://www.cpsc.gov/Recalls/2025/MaxKare-Electric-Blankets-Recalled-Due-to-Burn-and-Fire-Hazards-Manufactured-by-Yumo-and-Sold-Exclusively-on-Walmart-com"
+              }
+            ]
+          ],
+          "id": "brand-maxkare"
+        },
+        {
+          "place": "Berkshire",
+          "num": "CPSC recall",
+          "paragraphs": [
+            [
+              {
+                "text": "Product.",
+                "strong": true
+              },
+              {
+                "text": " Berkshire heated throws and blankets. Throws and blankets sold at L.L. Bean are L.L. Bean and Berkshire branded. The notice identifies them by tracker ranges on the wash label."
+              }
+            ],
+            [
+              {
+                "text": "Date.",
+                "strong": true
+              },
+              {
+                "text": " 2023-11-30. "
+              },
+              {
+                "text": "Hazard.",
+                "strong": true
+              },
+              {
+                "text": " The electric throws and blankets may overheat, posing fire and burn hazards. "
+              },
+              {
+                "text": "Remedy.",
+                "strong": true
+              },
+              {
+                "text": " Stop using them and contact Berkshire Blanket & Home Co. for a full refund. The notice says to submit a photo of the destroyed blanket showing the cut cord, and a photo of the wash label after writing Refund and an assigned refund code on it."
+              }
+            ],
+            [
+              {
+                "text": "CPSC notice",
+                "href": "https://www.cpsc.gov/Recalls/2024/Berkshire-Blanket-Home-Company-Recalls-Heated-Throws-and-Blankets-Due-to-Fire-and-Thermal-Burn-Hazards"
+              }
+            ]
+          ],
+          "id": "brand-berkshire"
+        },
+        {
+          "place": "Sunbeam",
+          "num": "Two notices",
+          "paragraphs": [
+            [
+              {
+                "text": "Product.",
+                "strong": true
+              },
+              {
+                "text": " Sunbeam queen-size heated blanket, model 32810027, printed on the wash label."
+              }
+            ],
+            [
+              {
+                "text": "Date.",
+                "strong": true
+              },
+              {
+                "text": " 2023-03-16 on both notices. "
+              },
+              {
+                "text": "Hazard.",
+                "strong": true
+              },
+              {
+                "text": " The CPSC notice says the heated blankets can overheat, posing fire and burn hazards. The Health Canada notice says model 32810027 can potentially overheat, posing possible burn or fire hazards. "
+              },
+              {
+                "text": "Remedy.",
+                "strong": true
+              },
+              {
+                "text": " Both notices say stop using and unplug the blanket and contact Star Elite for a full refund. Both say to cut the power cord at the plug, mark an X on the wash label, and send a photo."
+              }
+            ],
+            [
+              {
+                "text": "CPSC notice",
+                "href": "https://www.cpsc.gov/Recalls/2023/Sunbeam-Heated-Blankets-Recalled-Due-to-Burn-and-Fire-Hazards-Distributed-by-Star-Elite"
+              },
+              {
+                "text": " "
+              },
+              {
+                "text": "Health Canada notice",
+                "href": "https://recalls-rappels.canada.ca/en/alert-recall/sunbeamr-queen-size-heated-blankets-recalled-due-potential-fire-hazard"
+              }
+            ]
+          ],
+          "id": "brand-sunbeam"
+        },
+        {
+          "place": "InvoSpa",
+          "num": "CPSC recall",
+          "paragraphs": [
+            [
+              {
+                "text": "Product.",
+                "strong": true
+              },
+              {
+                "text": " InvoSpa electric throw heated blankets, model ML-G03, printed on a tag."
+              }
+            ],
+            [
+              {
+                "text": "Date.",
+                "strong": true
+              },
+              {
+                "text": " 2020-11-12. "
+              },
+              {
+                "text": "Hazard.",
+                "strong": true
+              },
+              {
+                "text": " The blankets can overheat, posing fire and burn hazards. "
+              },
+              {
+                "text": "Remedy.",
+                "strong": true
+              },
+              {
+                "text": " Stop using them and contact InvoSpa for instructions on a full refund."
+              }
+            ],
+            [
+              {
+                "text": "CPSC notice",
+                "href": "https://www.cpsc.gov/Recalls/2021/InvoSpa-Recalls-Heated-Blankets-Due-to-Fire-and-Burn-Hazards-Sold-Exclusively-at-Amazon-com-Recall-Alert"
+              }
+            ]
+          ],
+          "id": "brand-invospa"
+        },
+        {
+          "place": "Shop LC",
+          "num": "CPSC recall",
+          "paragraphs": [
+            [
+              {
+                "text": "Product.",
+                "strong": true
+              },
+              {
+                "text": " Shop LC Homesmart heated throw, model OB205B2, date code 22217."
+              }
+            ],
+            [
+              {
+                "text": "Date.",
+                "strong": true
+              },
+              {
+                "text": " 2018-03-28. "
+              },
+              {
+                "text": "Hazard.",
+                "strong": true
+              },
+              {
+                "text": " The heating coils can overheat, posing fire and burn hazards. "
+              },
+              {
+                "text": "Remedy.",
+                "strong": true
+              },
+              {
+                "text": " Stop using the blankets and contact Shop LC for a full refund."
+              }
+            ],
+            [
+              {
+                "text": "CPSC notice",
+                "href": "https://www.cpsc.gov/Recalls/2018/Shop-LC-Recalls-Electric-Blankets-Due-to-Fire-and-Burn-Hazards-Recall-Alert"
+              }
+            ]
+          ],
+          "id": "brand-shoplc"
+        },
+        {
+          "place": "Rural King",
+          "num": "CPSC recall",
+          "paragraphs": [
+            [
+              {
+                "text": "Product.",
+                "strong": true
+              },
+              {
+                "text": " Rural King electric heated blankets and throws. Model numbers start with BLV-OB and end in the suffixes listed on the notice."
+              }
+            ],
+            [
+              {
+                "text": "Date.",
+                "strong": true
+              },
+              {
+                "text": " 2018-02-15. "
+              },
+              {
+                "text": "Hazard.",
+                "strong": true
+              },
+              {
+                "text": " The electric cord can overheat and catch on fire, posing fire and burn hazards. "
+              },
+              {
+                "text": "Remedy.",
+                "strong": true
+              },
+              {
+                "text": " Stop using them and contact Rural King for a full refund."
+              }
+            ],
+            [
+              {
+                "text": "CPSC notice",
+                "href": "https://www.cpsc.gov/Recalls/2018/Rural-King-Recalls-Electric-Blankets-and-Throws-Due-to-Fire-and-Burn-Hazards"
+              }
+            ]
+          ],
+          "id": "brand-rural-king"
+        },
+        {
+          "place": "LUXE+WILLOW",
+          "num": "CPSC recall",
+          "paragraphs": [
+            [
+              {
+                "text": "Product.",
+                "strong": true
+              },
+              {
+                "text": " LUXE+WILLOW heated blankets. The notice also prints L & W BIO on the label."
+              }
+            ],
+            [
+              {
+                "text": "Date.",
+                "strong": true
+              },
+              {
+                "text": " 2022-04-21. "
+              },
+              {
+                "text": "Hazard.",
+                "strong": true
+              },
+              {
+                "text": " The blanket can overheat if left plugged in and powered on for an extended period, posing fire and burn hazards. "
+              },
+              {
+                "text": "Remedy.",
+                "strong": true
+              },
+              {
+                "text": " Stop using it and contact MWA for a full refund or a voucher. The notice says to cut the cord and send a photo of the cut cord and the label. The voucher amount is printed on the notice."
+              }
+            ],
+            [
+              {
+                "text": "CPSC notice",
+                "href": "https://www.cpsc.gov/Recalls/2022/MWA-Recalls-LUXE-WILLOW-Heated-Blankets-Due-to-Burn-and-Fire-Hazards"
+              }
+            ]
+          ],
+          "id": "brand-luxe-willow"
+        },
+        {
+          "place": "Classic Beautyrest",
+          "num": "CPSC recall",
+          "paragraphs": [
+            [
+              {
+                "text": "Product.",
+                "strong": true
+              },
+              {
+                "text": " Classic Beautyrest electric throw, model BST-06-THR, date codes B00106 through B36506."
+              }
+            ],
+            [
+              {
+                "text": "Date.",
+                "strong": true
+              },
+              {
+                "text": " 2007-08-15. "
+              },
+              {
+                "text": "Hazard.",
+                "strong": true
+              },
+              {
+                "text": " Bunching, folding, or tucking can cause the throws to overheat, resulting in smoldering, melting, fire, and burn hazards. "
+              },
+              {
+                "text": "Remedy.",
+                "strong": true
+              },
+              {
+                "text": " Stop using the throws. The notice says the firm is out of business, a remedy is no longer available, and to destroy or discard the throw."
+              }
+            ],
+            [
+              {
+                "text": "CPSC notice",
+                "href": "https://www.cpsc.gov/Recalls/2007/International-Home-Fashions-and-Bilt-Safe-Technologies-Recall-Classic-Beautyrest-Electric-Throws-Due-to-Fire-Hazard"
+              }
+            ]
+          ],
+          "id": "brand-beautyrest"
+        },
+        {
+          "place": "Bilt-Safe",
+          "num": "CPSC recall",
+          "paragraphs": [
+            [
+              {
+                "text": "Product.",
+                "strong": true
+              },
+              {
+                "text": " Bilt-Safe and Comfort Max electric blankets, models BST-03-A-F, BST-03-A-K, BST-03-A-Q, and BST-03-A-T."
+              }
+            ],
+            [
+              {
+                "text": "Date.",
+                "strong": true
+              },
+              {
+                "text": " 2004-11-09. "
+              },
+              {
+                "text": "Hazard.",
+                "strong": true
+              },
+              {
+                "text": " The blanket can overheat when the controller is reset multiple times or the blanket is folded or covered, which can result in smoldering, melting, and a burn hazard. "
+              },
+              {
+                "text": "Remedy.",
+                "strong": true
+              },
+              {
+                "text": " Stop using the blankets and destroy the controller and the blanket. The notice says the firm is out of business and a remedy is no longer available."
+              }
+            ],
+            [
+              {
+                "text": "CPSC notice",
+                "href": "https://www.cpsc.gov/Recalls/2005/CPSC-Bilt-Safe-Technologies-Announce-Recall-of-Electric-Blankets-"
+              }
+            ]
+          ],
+          "id": "brand-bilt-safe"
+        },
+        {
+          "place": "Perfect Fit",
+          "num": "CPSC recall",
+          "paragraphs": [
+            [
+              {
+                "text": "Product.",
+                "strong": true
+              },
+              {
+                "text": " SOIREE blankets sold at Belk, and Soft n' Warm blankets sold at K-mart. The Soft n' Warm date codes on the notice run from 02228 through 02305."
+              }
+            ],
+            [
+              {
+                "text": "Date.",
+                "strong": true
+              },
+              {
+                "text": " 2003-07-02. "
+              },
+              {
+                "text": "Hazard.",
+                "strong": true
+              },
+              {
+                "text": " These blankets can overheat, posing a risk of burn injuries, especially when the blanket is folded or bunched. "
+              },
+              {
+                "text": "Remedy.",
+                "strong": true
+              },
+              {
+                "text": " Unplug the recalled blankets. The notice says the firm is providing a free replacement blanket."
+              }
+            ],
+            [
+              {
+                "text": "CPSC notice",
+                "href": "https://www.cpsc.gov/Recalls/2003/CPSC-Perfect-Fit-Industries-Announce-Recall-of-Electric-Blankets-"
+              }
+            ]
+          ],
+          "id": "brand-perfect-fit"
+        },
+        {
+          "place": "Vellux",
+          "num": "CPSC recall",
+          "paragraphs": [
+            [
+              {
+                "text": "Product.",
+                "strong": true
+              },
+              {
+                "text": " Vellux fahrenheit heated blankets manufactured July 2002 through January 2003."
+              }
+            ],
+            [
+              {
+                "text": "Date.",
+                "strong": true
+              },
+              {
+                "text": " 2003-04-24. "
+              },
+              {
+                "text": "Hazard.",
+                "strong": true
+              },
+              {
+                "text": " The heating element can overheat when the blanket is folded, causing the element and the blanket to melt and posing a risk of thermal burns. "
+              },
+              {
+                "text": "Remedy.",
+                "strong": true
+              },
+              {
+                "text": " The notice says the firm is no longer in business and gives a WestPoint Home number to call for information."
+              }
+            ],
+            [
+              {
+                "text": "CPSC notice",
+                "href": "https://www.cpsc.gov/Recalls/2003/CPSC-WestPoint-Stevens-Inc-Announce-Recall-of-Electric-Blankets"
+              }
+            ]
+          ],
+          "id": "brand-vellux"
+        },
+        {
+          "place": "Lands' End",
+          "num": "CPSC recall",
+          "paragraphs": [
+            [
+              {
+                "text": "Product.",
+                "strong": true
+              },
+              {
+                "text": " Lands' End Polartec Heat blankets, style numbers 73176, 73197, and 73198."
+              }
+            ],
+            [
+              {
+                "text": "Date.",
+                "strong": true
+              },
+              {
+                "text": " 2002-01-28. "
+              },
+              {
+                "text": "Hazard.",
+                "strong": true
+              },
+              {
+                "text": " Some blankets may contain a loose connection that can keep the unit from working or cause a short circuit, posing a risk of fire. "
+              },
+              {
+                "text": "Remedy.",
+                "strong": true
+              },
+              {
+                "text": " Stop using the blanket and contact Lands' End for a full refund and a gift certificate. The certificate amount is printed on the notice."
+              }
+            ],
+            [
+              {
+                "text": "CPSC notice",
+                "href": "https://www.cpsc.gov/Recalls/2002/CPSC-Lands-End-Inc-Announce-Recall-of-Electric-Blankets"
+              }
+            ]
+          ],
+          "id": "brand-lands-end"
+        },
+        {
+          "place": "Biddeford",
+          "num": "CPSC recall",
+          "paragraphs": [
+            [
+              {
+                "text": "Product.",
+                "strong": true
+              },
+              {
+                "text": " Biddeford electric blankets sold as Controlled Comfort, EH 2000, Starbright, Staywarm, Supreme 21, and Warm Comfort, serial numbers A001A to C210C."
+              }
+            ],
+            [
+              {
+                "text": "Date.",
+                "strong": true
+              },
+              {
+                "text": " 2001-10-05. "
+              },
+              {
+                "text": "Hazard.",
+                "strong": true
+              },
+              {
+                "text": " The plug that connects the detachable control to the blanket can become loose, and the poor contact can overheat, posing a fire hazard. "
+              },
+              {
+                "text": "Remedy.",
+                "strong": true
+              },
+              {
+                "text": " The notice says the firm is no longer in business, the remedy is no longer available, and to discard the blanket and not donate or resell it."
+              }
+            ],
+            [
+              {
+                "text": "CPSC notice",
+                "href": "https://www.cpsc.gov/Recalls/2002/CPSC-Biddeford-Textile-Corp-Announce-Recall-of-Electric-Blankets"
+              }
+            ]
+          ],
+          "id": "brand-biddeford"
+        }
+      ]
+    }
   }
 ]

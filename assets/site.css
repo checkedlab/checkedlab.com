@@ -506,6 +506,7 @@ body[data-page="product"] .p-side { order: -1; }
 .checklist { margin: 8px 0 0; padding-left: 0; list-style: none; }
 .checklist li { margin: 10px 0; }
 .check-row { display: flex; gap: 10px; align-items: flex-start; }
+.check-copy { flex: 1 1 auto; min-width: 0; }
 .check-box { width: 20px; height: 20px; margin-top: 4px; flex: 0 0 auto; accent-color: var(--accent); }
 .check-row.is-done { background: var(--accent-soft); border-radius: 8px; }
 .faq { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 8px 16px 16px; margin-top: 20px; }

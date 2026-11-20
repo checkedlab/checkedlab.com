@@ -317,8 +317,16 @@
         li.classList.toggle("is-done", input.checked);
         try { localStorage.setItem(key, input.checked ? "1" : "0"); } catch (e) {}
       });
+      var copy = null;
+      if (li.children.length === 1 && li.children[0].classList.contains("check-copy")) copy = li.children[0];
+      if (!copy) {
+        copy = document.createElement("span");
+        copy.className = "check-copy";
+        while (li.firstChild) copy.appendChild(li.firstChild);
+        li.appendChild(copy);
+      }
       li.classList.add("check-row");
-      li.insertBefore(input, li.firstChild);
+      li.insertBefore(input, copy);
     });
   });
 

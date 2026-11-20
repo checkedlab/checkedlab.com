@@ -163,6 +163,14 @@ const THANKS_PATH = "/thanksgiving/";
 const SEASON_FOOT = '<p class="foot-mail"><a href="/thanksgiving/">Thanksgiving</a><a href="/toy-safety/">Toy safety</a><a href="/winter-safety/">Winter safety</a><a href="/gifts/">Gift guides</a><a href="/best/">Best of</a><a href="/black-friday/">Black Friday</a><a href="/compare/">Spec comparisons</a><a href="/recalls/">Recall checks</a><a href="/how-we-check/">How we check</a><a href="/bin-list/">BIN list</a><a href="mailto:hello@checkedlab.com">hello@</a><a href="mailto:support@checkedlab.com">support@</a><a href="mailto:press@checkedlab.com">press@</a><a href="mailto:legal@checkedlab.com">legal@</a></p>';
 const TOY_HOSTS = new Set(["cpsc.gov", "saferproducts.gov", "recalls-rappels.canada.ca", "canada.ca", "shopulstandards.com"]);
 const THANKS_HOSTS = new Set(["fsis.usda.gov", "usda.gov", "nfpa.org", "usfa.fema.gov"]);
+const ANSWER_HOSTS = new Set(["cpsc.gov", "recalls-rappels.canada.ca", "anker.com"]);
+const CITE_HOSTS = new Set([
+  ...TOY_HOSTS,
+  "ecfr.gov",
+  "federalregister.gov",
+  "data.energizer.com",
+  "duracell.com"
+]);
 const CPSC_SEARCH = "https://www.cpsc.gov/Recalls";
 const HC_SEARCH = "https://recalls-rappels.canada.ca/en";
 const WINTER_CHECK = "How we check describes the dated CPSC and Health Canada match on a catalogue card. The date is the day that match was recorded. These guides add the label lines to read and the official search to open, including for a model that is not on a card. A clear line on one card does not cover a different model number.";
@@ -1476,6 +1484,53 @@ function explainerJsonLd(entry) {
   const types = graph["@graph"].map((node) => node["@type"]);
   if (types.join(",") !== "BreadcrumbList,Article") throw new Error("Explainer schema on " + entry.slug);
   return JSON.stringify(graph, null, 2).replace(/</g, "\\u003c");
+}
+
+function answerSpans(spans, where) {
+  if (!Array.isArray(spans) || !spans.length) throw new Error("Answer copy missing: " + where);
+  return spans.map((span) => {
+    if (!span || typeof span.text !== "string" || span.text === "") throw new Error("Answer span missing text: " + where);
+    assertReaderVoice(span.text, where);
+    if (/\$\d/.test(span.text) || /we tested|we bought|does not test/i.test(span.text)) {
+      throw new Error("Answer copy has a disallowed claim: " + where);
+    }
+    if (span.strong) return "<strong>" + card.esc(span.text) + "</strong>";
+    if (!span.href) return card.esc(span.text);
+    let host = "";
+    try {
+      host = new URL(span.href).hostname.replace(/^www\./, "");
+    } catch {
+      throw new Error("Answer href: " + where);
+    }
+    if (!ANSWER_HOSTS.has(host)) throw new Error("Answer href is not an allowed source: " + span.href);
+    return '<a href="' + href(span.href) + '" target="_blank" rel="noopener">' + card.esc(span.text) + "</a>";
+  }).join("");
+}
+
+function answersHtml(entry) {
+  const block = entry.answers;
+  if (!block) return "";
+  if (!block.id || !/^[a-z0-9-]+$/.test(block.id) || !block.heading || !block.intro) {
+    throw new Error("Answer block needs an id, heading, and intro: " + entry.slug);
+  }
+  if (!Array.isArray(block.cards) || block.cards.length < 2) throw new Error("Answer block needs cards: " + entry.slug);
+  assertReaderVoice(block.heading + " " + block.intro + " " + (block.note || ""), entry.slug + " answers");
+  const cards = block.cards.map((item, index) => {
+    if (!item || !item.place || !item.num || !Array.isArray(item.paragraphs) || !item.paragraphs.length) {
+      throw new Error("Answer card needs a place, a number, and paragraphs: " + entry.slug);
+    }
+    if (item.id && !/^[a-z0-9-]+$/.test(item.id)) throw new Error("Answer card id: " + entry.slug);
+    assertReaderVoice(item.place + " " + item.num, entry.slug + " answer");
+    const id = item.id ? ' id="' + item.id + '"' : "";
+    const paras = item.paragraphs.map((spans, paragraph) =>
+      "<p>" + answerSpans(spans, entry.slug + " answer " + index + " " + paragraph) + "</p>"
+    ).join("");
+    return '<article class="answer-card"' + id + '><p class="answer-place">' + card.esc(item.place) +
+      '</p><p class="answer-num">' + card.esc(item.num) + "</p>" + paras + "</article>";
+  }).join("");
+  const note = block.note ? "<p>" + card.esc(block.note) + "</p>" : "";
+  return '<section id="' + block.id + '"><h2>' + card.esc(block.heading) + "</h2><p>" + card.esc(block.intro) +
+    '</p><div class="answer-split">' + cards + "</div>" + note + "</section>";
 }
 
 function affectedHtml(entry) {
@@ -3211,7 +3266,11 @@ function writeExplainers() {
     if (entry.roundup && entry.notices.length < 2) throw new Error("Roundup has fewer than two notices: " + entry.slug);
     assertHeadline(entry.title, entry.description, "recalls/" + entry.slug, VOICE_PAGES.has("recalls/" + entry.slug));
     const url = ORIGIN + "/recalls/" + entry.slug + "/";
-    const lead = [affectedHtml(entry), replacingHtml(entry), entry.roundup ? roundupTable(entry) : ""].filter(Boolean).join("\n");
+    const sub = entry.sub || entry.description.split(/(?<=\.)\s/)[0];
+    assertReaderVoice(sub, "recalls/" + entry.slug + " intro");
+    const noticesLede = entry.noticesLede || entry.description;
+    assertReaderVoice(noticesLede, "recalls/" + entry.slug + " notices");
+    const lead = [answersHtml(entry), affectedHtml(entry), replacingHtml(entry), entry.roundup ? roundupTable(entry) : ""].filter(Boolean).join("\n");
     const html = `<!DOCTYPE html>
 <html lang="en" data-region="US">
 <head>
@@ -3264,9 +3323,9 @@ ${sceneBlock("recalls")}
 <span aria-current="page">${card.esc(entry.title)}</span>
 </nav>
 <h1>${card.esc(entry.title)}</h1>
-<p class="sub">${card.esc(entry.description.split(/(?<=\.)\s/)[0])}</p>
+<p class="sub">${card.esc(sub)}</p>
 ${lead ? lead + "\n" : "\n"}${catalogueHtml(entry)}
-${productFold("official-notices", "What the notices say", '<p class="lede">' + card.esc(entry.description) + " Catalogue lines below use the " + card.esc(recalls.checkedAt) + " (UTC) check.</p>" + entry.notices.map(noticeHtml).join("\n"))}
+${productFold("official-notices", "What the notices say", '<p class="lede">' + card.esc(noticesLede) + " Catalogue lines below use the " + card.esc(recalls.checkedAt) + " (UTC) check.</p>" + entry.notices.map(noticeHtml).join("\n"))}
 </div>
 </main>
 <footer>
@@ -3293,6 +3352,16 @@ ${DISCLOSURE}
       if (!slice.includes("<h2>" + heading + "</h2>")) throw new Error("Replace heading missing: " + entry.slug);
       if (entry.slug === "cosori-air-fryer-2023" && !/replacement options/i.test(slice)) {
         throw new Error("Cosori page misses replacement options");
+      }
+    }
+    if (entry.slug === "anker-power-banks") {
+      if (!html.includes('id="serial-check"') || !html.includes(">A1257</p>")) {
+        throw new Error("Anker page is missing the serial check for A1257");
+      }
+    }
+    if (entry.slug === "heated-blanket-recalls") {
+      if (!html.includes('id="brand-check"') || !html.includes('id="brand-bedsure"') || !html.includes('id="brand-bhg"') || !html.includes('id="brand-cosi"') || !html.includes('id="brand-ohs"')) {
+        throw new Error("Heated blanket page is missing the brand check");
       }
     }
     mkdirSync(join(root, "recalls", entry.slug), { recursive: true });
@@ -4359,9 +4428,31 @@ function winterMoreLinks(guide) {
   return '<p class="lede">' + base.concat(more).join(" ") + "</p>";
 }
 
-function winterFaqsHtml(faqs) {
+function citeSpans(spans, where) {
+  if (!Array.isArray(spans) || !spans.length) throw new Error("Cited copy missing: " + where);
+  for (const span of spans) {
+    if (!span || !span.href || span.href.startsWith("/")) continue;
+    let host = "";
+    try {
+      host = new URL(span.href).hostname.replace(/^www\./, "");
+    } catch {
+      throw new Error("Cited href: " + where);
+    }
+    if (!CITE_HOSTS.has(host)) throw new Error("Cited href is not an allowed source: " + span.href);
+  }
+  return winterSpans(spans, where);
+}
+
+function expectedFaqAnswer(item, where) {
+  if (Array.isArray(item.body) && item.body.length) {
+    return '<p class="faq-a">' + citeSpans(item.body, where || "faq") + "</p>";
+  }
+  return '<p class="faq-a">' + card.esc(item.a) + "</p>";
+}
+
+function winterFaqsHtml(faqs, where) {
   return '<section class="faq" id="questions"><h2>Questions</h2>' +
-    faqs.map((item) => "<h3>" + card.esc(item.q) + '</h3><p class="faq-a">' + card.esc(item.a) + "</p>").join("") +
+    faqs.map((item, index) => "<h3>" + card.esc(item.q) + "</h3>" + expectedFaqAnswer(item, (where || "faq") + " " + index)).join("") +
     "</section>";
 }
 
@@ -4519,11 +4610,19 @@ function winterHubHtml() {
   return winterShell(url, winterDoc.title, winterDoc.description, main, jsonLd);
 }
 
+function winterIntro(guide) {
+  if (!Array.isArray(guide.intro) || !guide.intro.length) return "";
+  return guide.intro.map((spans, index) =>
+    "<p>" + officialSpans(spans, guide.slug + " intro " + index) + "</p>"
+  ).join("");
+}
+
 function winterGuideHtml(guide) {
   const url = ORIGIN + winterPath(guide);
   const main = sceneBlock("winter-safety") + winterCrumbs(guide.h1) +
     "<h1>" + card.esc(guide.h1) + "</h1>" +
     '<p class="lede">' + card.esc(guide.description) + "</p>" +
+    winterIntro(guide) +
     winterJumps(guide.slug) +
     "<h2>What to read on the label</h2>" + winterLook(guide) +
     "<h2>How to search a recall</h2>" + winterMethod(guide) +
@@ -5449,7 +5548,7 @@ function assertToyPages() {
     }
     for (const item of guide.faqs) {
       if (!html.includes("<h3>" + card.esc(item.q) + "</h3>")) throw new Error("Toy FAQ question " + guide.slug);
-      if (!html.includes('<p class="faq-a">' + card.esc(item.a) + "</p>")) throw new Error("Toy FAQ answer " + guide.slug);
+      if (!html.includes(expectedFaqAnswer(item, guide.slug))) throw new Error("Toy FAQ answer " + guide.slug);
     }
     const data = JSON.parse(html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]);
     assertNoCommerce(data);
@@ -5548,7 +5647,7 @@ function assertThanksgivingPages() {
     }
     for (const item of guide.faqs) {
       if (!html.includes("<h3>" + card.esc(item.q) + "</h3>")) throw new Error("Thanksgiving FAQ question " + guide.slug);
-      if (!html.includes('<p class="faq-a">' + card.esc(item.a) + "</p>")) throw new Error("Thanksgiving FAQ answer " + guide.slug);
+      if (!html.includes(expectedFaqAnswer(item, guide.slug))) throw new Error("Thanksgiving FAQ answer " + guide.slug);
     }
     const data = JSON.parse(html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]);
     assertNoCommerce(data);
@@ -5778,7 +5877,10 @@ function assertWinterPages() {
     }
     for (const item of guide.faqs) {
       if (!html.includes("<h3>" + card.esc(item.q) + "</h3>")) throw new Error("Winter FAQ question " + guide.slug);
-      if (!html.includes('<p class="faq-a">' + card.esc(item.a) + "</p>")) throw new Error("Winter FAQ answer " + guide.slug);
+      if (!html.includes(expectedFaqAnswer(item, guide.slug))) throw new Error("Winter FAQ answer " + guide.slug);
+      if (guide.slug === "electric-blankets" && !html.includes('href="/recalls/heated-blanket-recalls/#brand-check"')) {
+        throw new Error("Electric blankets page misses the brand check");
+      }
     }
     const data = JSON.parse(html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]);
     assertNoCommerce(data);
@@ -6263,6 +6365,22 @@ function assertNoOrphans() {
   console.log("Orphan check: 0 orphans across " + paths.length + " sitemap URLs.");
 }
 
+function winnipegDate(when = new Date()) {
+  const parts = new Intl.DateTimeFormat("en-CA", {
+    timeZone: "America/Winnipeg",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit"
+  }).formatToParts(when);
+  const pick = (type) => {
+    const part = parts.find((item) => item.type === type);
+    return part ? part.value : "";
+  };
+  const date = pick("year") + "-" + pick("month") + "-" + pick("day");
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) throw new Error("Winnipeg date is not a calendar day: " + date);
+  return date;
+}
+
 function stampPages(ordered) {
   const rev = loadJson(REV_PATH, {});
   const paths = [
@@ -6284,7 +6402,7 @@ function stampPages(ordered) {
     ...bestPaths().map((path) => [path, join(root, path.slice(1), "index.html")]),
     ...ordered.filter(indexable).map((product) => [card.productPath(product), join(root, product.category, product.id, "index.html")])
   ];
-  const today = new Date().toISOString().slice(0, 10);
+  const today = winnipegDate();
   const next = {};
   const lastmods = {};
   for (const [path, file] of paths) {
