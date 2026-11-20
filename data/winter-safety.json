@@ -133,6 +133,13 @@
       "h1": "Electric blankets and heated throws",
       "label": "Electric blankets",
       "description": "What to read on a heated blanket label and controller, where to search CPSC and Health Canada, and official notices for overheating and a controller fault.",
+      "intro": [
+        [
+          {"text": "Check the brand on the "},
+          {"text": "heated blanket brand check", "href": "/recalls/heated-blanket-recalls/#brand-check"},
+          {"text": ", including Bedsure, Better Homes & Gardens, Cosi Home, and OHS."}
+        ]
+      ],
       "searches": ["electric blanket", "heated throw"],
       "look": [
         [
