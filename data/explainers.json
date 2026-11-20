@@ -313,9 +313,9 @@
   },
   {
     "slug": "anker-power-banks",
-    "title": "Anker power bank recall: serial numbers",
+    "title": "Anker power bank recall: full model list and how to check your serial number",
     "linkLabel": "Anker power bank notices",
-    "description": "Where the serial is printed on recalled Anker power banks, the model numbers on the CPSC, Health Canada, and Anker notices, and the official serial-check pages.",
+    "description": "Recalled Anker power bank model numbers, the date on each CPSC or Health Canada notice, and where the serial number is printed.",
     "hub": "personal-tech",
     "products": [
       "anker-a1289"
@@ -438,7 +438,7 @@
     "check": [
       {
         "label": "Serial numbers",
-        "text": "A1263: the model and serial are on the bottom, and only qualifying U.S. serials are included. A1647, A1681 and A1689: the serial is on the side or the back, and the Health Canada notice says affected serials do not contain the letters O or I. A1112011: a 16-digit serial on the bottom. A1257, A1647, A1652, A1681 and A1689: the September 18, 2025 CPSC notice says the serial is next to SN Code on the back or side. A1642: the Health Canada notice says to use Anker's site to see whether the serial is included.",
+        "text": "A1263: the model and the serial marked SN are on the bottom, then anker.com/product-recalls. A1112011: a 16-digit serial on the bottom, then anker.com/ca/a1112-recall-form. A1642: the Health Canada notice says the serial is on the bottom. A1647, A1652, A1257, A1681, and A1689: the September 18, 2025 CPSC notice says the serial is next to SN Code on the back or side.",
         "links": [
           {
             "url": "https://www.cpsc.gov/Recalls/2025/More-than-One-Million-Anker-Power-Banks-Recalled-Due-to-Fire-and-Burn-Hazards-Manufactured-by-Anker-Innovations",
@@ -474,11 +474,11 @@
       },
       {
         "label": "What to do",
-        "text": "Stop using a recalled unit. The CPSC notices for A1263, A1642, A1647 and A1652 say to contact Anker for a free replacement. A1366 is a refund. The Health Canada notice for A1647, A1681 and A1689 says a free replacement or a voucher. Do not put the lithium-ion battery in household trash."
+        "text": "Stop using a unit the notice includes. The June 12, 2025 CPSC notice for A1263 says a free replacement. The October 17, 2024 CPSC notice for A1642, A1647, and A1652 says a free replacement. The September 18, 2025 CPSC notice for A1647, A1652, A1257, A1681, and A1689 says a full cash refund or an Anker gift card. A1366 is a refund on the CPSC and Health Canada notices. The Health Canada notice for A1647, A1681, and A1689 says a free replacement or a voucher. The Health Canada notice for A1112011 says a new power bank for a verified unit. Do not put the lithium-ion battery in household trash."
       }
     ],
-    "sub": "Read the serial, then open the Anker page named on that notice.",
-    "noticesLede": "A1263, A1642, A1112011, A1647, A1652, A1257, A1681, A1689, and A1366 are the model numbers in the notices below. The serial check at the top says where each serial is printed.",
+    "sub": "Match the model, then open the Anker page named on that notice.",
+    "noticesLede": "A1112011, A1257, A1263, A1366, A1642, A1647, A1652, A1681, and A1689 are the model numbers in the card above. The serial section says where each serial is printed.",
     "answers": {
       "id": "serial-check",
       "heading": "How to check your serial number",
@@ -502,6 +502,31 @@
               {
                 "text": "anker.com/product-recalls",
                 "href": "https://www.anker.com/product-recalls"
+              },
+              {
+                "text": "."
+              }
+            ]
+          ]
+        },
+        {
+          "place": "On the bottom",
+          "num": "A1112011",
+          "paragraphs": [
+            [
+              {
+                "text": "The "
+              },
+              {
+                "text": "July 5, 2024 Health Canada notice",
+                "href": "https://recalls-rappels.canada.ca/en/alert-recall/anker-321-power-banks-powercore-5k-recalled-due-potential-fire-hazard"
+              },
+              {
+                "text": " names Anker 321 PowerCore 5K, black, model A1112011. It says affected units have specific 16-digit serial numbers on the bottom. Check the serial at "
+              },
+              {
+                "text": "anker.com/ca/a1112-recall-form",
+                "href": "https://www.anker.com/ca/a1112-recall-form"
               },
               {
                 "text": "."
@@ -543,7 +568,46 @@
                 "href": "https://www.anker.com/a1642-a1647-a1652-recall"
               },
               {
-                "text": " says the serial is 16 digits on the bottom and does not contain the letters O or I."
+                "text": " says the serial is 16 digits on the bottom and does not contain the letter O or the letter I."
+              }
+            ]
+          ]
+        },
+        {
+          "place": "Back, side, or bottom",
+          "num": "A1652",
+          "paragraphs": [
+            [
+              {
+                "text": "The "
+              },
+              {
+                "text": "October 17, 2024 CPSC notice",
+                "href": "https://www.cpsc.gov/Recalls/2025/Anker-Power-Banks-Recalled-Due-to-Fire-and-Burn-Hazards-Manufactured-by-Anker-Innovations"
+              },
+              {
+                "text": " says A1652 is on the back. The "
+              },
+              {
+                "text": "September 18, 2025 CPSC notice",
+                "href": "https://www.cpsc.gov/Recalls/2025/Anker-Power-Banks-Recalled-Due-to-Fire-and-Burn-Hazards-Manufactured-by-Anker-Innovations-1"
+              },
+              {
+                "text": " says the model number is on the back or side, and the serial is next to SN Code on the back or side. Check that serial at "
+              },
+              {
+                "text": "anker.com/rc2506",
+                "href": "https://www.anker.com/rc2506"
+              },
+              {
+                "text": ". Anker’s "
+              },
+              {
+                "text": "A1642, A1647, and A1652 page",
+                "href": "https://www.anker.com/a1642-a1647-a1652-recall"
+              },
+              {
+                "text": " says the serial is 16 digits on the bottom and does not contain the letter O or the letter I. Anker’s rc2506 page says the serial is usually printed on the side or back, and that affected serial numbers do not contain the letters O or I."
               }
             ]
           ]
@@ -561,21 +625,21 @@
                 "href": "https://www.cpsc.gov/Recalls/2025/Anker-Power-Banks-Recalled-Due-to-Fire-and-Burn-Hazards-Manufactured-by-Anker-Innovations-1"
               },
               {
-                "text": " names A1647, A1652, A1257, A1681, and A1689. It says the model number is on the back or side, and the serial is next to SN Code on the back or side. Check it at "
+                "text": " names A1257 with A1647, A1652, A1681, and A1689. It says the model number is on the back or side, and the serial is next to SN Code on the back or side. Check it at "
               },
               {
                 "text": "anker.com/rc2506",
                 "href": "https://www.anker.com/rc2506"
               },
               {
-                "text": ". Anker’s page for that recall says affected serials do not contain the letters O or I."
+                "text": ". Anker’s page for that recall says affected serial numbers do not contain the letters O or I. No Health Canada notice names A1257."
               }
             ]
           ]
         },
         {
           "place": "Side or back",
-          "num": "A1681",
+          "num": "A1647",
           "paragraphs": [
             [
               {
@@ -593,29 +657,11 @@
                 "href": "https://www.anker.com/ca/rc2506"
               },
               {
-                "text": ". A1681 and A1689 are also on the September 18, 2025 CPSC notice above."
-              }
-            ]
-          ]
-        },
-        {
-          "place": "On the bottom",
-          "num": "A1112011",
-          "paragraphs": [
-            [
-              {
-                "text": "The "
+                "text": ". The same model is also on the October 17, 2024 and September 18, 2025 CPSC notices. The September notice says the serial is next to SN Code on the back or side, checked at "
               },
               {
-                "text": "July 5, 2024 Health Canada notice",
-                "href": "https://recalls-rappels.canada.ca/en/alert-recall/anker-321-power-banks-powercore-5k-recalled-due-potential-fire-hazard"
-              },
-              {
-                "text": " names Anker 321 PowerCore 5K, black, model A1112011. It says affected units have specific 16-digit serial numbers on the bottom. Check the serial at "
-              },
-              {
-                "text": "anker.com/ca/a1112-recall-form",
-                "href": "https://www.anker.com/ca/a1112-recall-form"
+                "text": "anker.com/rc2506",
+                "href": "https://www.anker.com/rc2506"
               },
               {
                 "text": "."
@@ -624,7 +670,85 @@
           ]
         },
         {
-          "place": "Model on the back",
+          "place": "Side or back",
+          "num": "A1681",
+          "paragraphs": [
+            [
+              {
+                "text": "The "
+              },
+              {
+                "text": "June 27, 2025 Health Canada notice",
+                "href": "https://recalls-rappels.canada.ca/en/alert-recall/anker-power-bank-a1647-and-anker-zolo-power-banks-a1681-and-a1689-sold-amazonca"
+              },
+              {
+                "text": " says the serial for A1681 and A1689 is on the side or the back. Check it at "
+              },
+              {
+                "text": "anker.com/ca/rc2506",
+                "href": "https://www.anker.com/ca/rc2506"
+              },
+              {
+                "text": ". The "
+              },
+              {
+                "text": "September 18, 2025 CPSC notice",
+                "href": "https://www.cpsc.gov/Recalls/2025/Anker-Power-Banks-Recalled-Due-to-Fire-and-Burn-Hazards-Manufactured-by-Anker-Innovations-1"
+              },
+              {
+                "text": " says the serial is next to SN Code on the back or side, checked at "
+              },
+              {
+                "text": "anker.com/rc2506",
+                "href": "https://www.anker.com/rc2506"
+              },
+              {
+                "text": "."
+              }
+            ]
+          ]
+        },
+        {
+          "place": "Side or back",
+          "num": "A1689",
+          "paragraphs": [
+            [
+              {
+                "text": "A1689 is named with A1681 on the "
+              },
+              {
+                "text": "June 27, 2025 Health Canada notice",
+                "href": "https://recalls-rappels.canada.ca/en/alert-recall/anker-power-bank-a1647-and-anker-zolo-power-banks-a1681-and-a1689-sold-amazonca"
+              },
+              {
+                "text": " and the "
+              },
+              {
+                "text": "September 18, 2025 CPSC notice",
+                "href": "https://www.cpsc.gov/Recalls/2025/Anker-Power-Banks-Recalled-Due-to-Fire-and-Burn-Hazards-Manufactured-by-Anker-Innovations-1"
+              },
+              {
+                "text": ". Use the same serial location and the same two check pages as A1681: "
+              },
+              {
+                "text": "anker.com/ca/rc2506",
+                "href": "https://www.anker.com/ca/rc2506"
+              },
+              {
+                "text": " and "
+              },
+              {
+                "text": "anker.com/rc2506",
+                "href": "https://www.anker.com/rc2506"
+              },
+              {
+                "text": "."
+              }
+            ]
+          ]
+        },
+        {
+          "place": "Back or bottom",
           "num": "A1366",
           "paragraphs": [
             [
@@ -636,14 +760,191 @@
                 "href": "https://www.cpsc.gov/Recalls/2023/Fantasia-Trading-Recalls-Anker-Power-Banks-Due-to-Fire-Hazard"
               },
               {
-                "text": " names Anker 535 PowerCore 20K, model A1366, and says A1366 is on the back. It does not use a serial list. Stop using a recalled unit and contact Fantasia Trading for a full refund. The Health Canada notice for the same model is linked in the notices below."
+                "text": " names Anker 535 PowerCore 20K, model A1366, and says A1366 is on the back. It does not use a serial list. Stop using a recalled unit and contact Fantasia Trading for a full refund. Anker’s "
+              },
+              {
+                "text": "A1366 page",
+                "href": "https://www.anker.com/a1366-recall"
+              },
+              {
+                "text": " says to read the bottom of the battery for 535 Power Bank (PowerCore 20K) and Model A1366. The "
+              },
+              {
+                "text": "Health Canada notice",
+                "href": "https://recalls-rappels.canada.ca/en/alert-recall/anker-535-power-bank-powercore-20k-a1366-recalled-due-fire-hazard"
+              },
+              {
+                "text": " for the same model says all serial numbers and a refund."
               }
             ]
           ]
         }
       ],
-      "note": "The model numbers in these cards are A1263, A1642, A1647, A1652, A1257, A1681, A1689, A1112011, and A1366. A1289 is not one of them."
-    }
+      "note": "The model numbers in these cards and the table are A1112011, A1257, A1263, A1366, A1642, A1647, A1652, A1681, and A1689. A1289 is not one of them."
+    },
+    "faqFold": true,
+    "modelTable": {
+      "heading": "Is my Anker recalled?",
+      "intro": "Each row is one model number named on a CPSC or Health Canada notice, with the date on that notice. A qualifying serial is not every unit of that model.",
+      "note": "A1289 is not a model number in these notices.",
+      "columns": [
+        "Model",
+        "Recall date",
+        "Notice"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "A1112011",
+            "Health Canada 2024-07-05"
+          ],
+          "links": [
+            {
+              "url": "https://recalls-rappels.canada.ca/en/alert-recall/anker-321-power-banks-powercore-5k-recalled-due-potential-fire-hazard",
+              "label": "Health Canada"
+            }
+          ]
+        },
+        {
+          "cells": [
+            "A1257",
+            "CPSC 2025-09-18"
+          ],
+          "links": [
+            {
+              "url": "https://www.cpsc.gov/Recalls/2025/Anker-Power-Banks-Recalled-Due-to-Fire-and-Burn-Hazards-Manufactured-by-Anker-Innovations-1",
+              "label": "CPSC"
+            }
+          ]
+        },
+        {
+          "cells": [
+            "A1263",
+            "CPSC 2025-06-12"
+          ],
+          "links": [
+            {
+              "url": "https://www.cpsc.gov/Recalls/2025/More-than-One-Million-Anker-Power-Banks-Recalled-Due-to-Fire-and-Burn-Hazards-Manufactured-by-Anker-Innovations",
+              "label": "CPSC"
+            }
+          ]
+        },
+        {
+          "cells": [
+            "A1366",
+            "CPSC 2023-03-09. Health Canada 2023-02-23."
+          ],
+          "links": [
+            {
+              "url": "https://www.cpsc.gov/Recalls/2023/Fantasia-Trading-Recalls-Anker-Power-Banks-Due-to-Fire-Hazard",
+              "label": "CPSC"
+            },
+            {
+              "url": "https://recalls-rappels.canada.ca/en/alert-recall/anker-535-power-bank-powercore-20k-a1366-recalled-due-fire-hazard",
+              "label": "Health Canada"
+            }
+          ]
+        },
+        {
+          "cells": [
+            "A1642",
+            "CPSC 2024-10-17. Health Canada 2024-09-24."
+          ],
+          "links": [
+            {
+              "url": "https://www.cpsc.gov/Recalls/2025/Anker-Power-Banks-Recalled-Due-to-Fire-and-Burn-Hazards-Manufactured-by-Anker-Innovations",
+              "label": "CPSC"
+            },
+            {
+              "url": "https://recalls-rappels.canada.ca/en/alert-recall/anker-334-maggo-battery-powercore-10k-model-a1642-recalled-due-potential-fire-hazard",
+              "label": "Health Canada"
+            }
+          ]
+        },
+        {
+          "cells": [
+            "A1647",
+            "CPSC 2024-10-17 and 2025-09-18. Health Canada 2025-06-27."
+          ],
+          "links": [
+            {
+              "url": "https://www.cpsc.gov/Recalls/2025/Anker-Power-Banks-Recalled-Due-to-Fire-and-Burn-Hazards-Manufactured-by-Anker-Innovations",
+              "label": "CPSC, 2024-10-17"
+            },
+            {
+              "url": "https://www.cpsc.gov/Recalls/2025/Anker-Power-Banks-Recalled-Due-to-Fire-and-Burn-Hazards-Manufactured-by-Anker-Innovations-1",
+              "label": "CPSC, 2025-09-18"
+            },
+            {
+              "url": "https://recalls-rappels.canada.ca/en/alert-recall/anker-power-bank-a1647-and-anker-zolo-power-banks-a1681-and-a1689-sold-amazonca",
+              "label": "Health Canada"
+            }
+          ]
+        },
+        {
+          "cells": [
+            "A1652",
+            "CPSC 2024-10-17 and 2025-09-18."
+          ],
+          "links": [
+            {
+              "url": "https://www.cpsc.gov/Recalls/2025/Anker-Power-Banks-Recalled-Due-to-Fire-and-Burn-Hazards-Manufactured-by-Anker-Innovations",
+              "label": "CPSC, 2024-10-17"
+            },
+            {
+              "url": "https://www.cpsc.gov/Recalls/2025/Anker-Power-Banks-Recalled-Due-to-Fire-and-Burn-Hazards-Manufactured-by-Anker-Innovations-1",
+              "label": "CPSC, 2025-09-18"
+            }
+          ]
+        },
+        {
+          "cells": [
+            "A1681",
+            "CPSC 2025-09-18. Health Canada 2025-06-27."
+          ],
+          "links": [
+            {
+              "url": "https://www.cpsc.gov/Recalls/2025/Anker-Power-Banks-Recalled-Due-to-Fire-and-Burn-Hazards-Manufactured-by-Anker-Innovations-1",
+              "label": "CPSC"
+            },
+            {
+              "url": "https://recalls-rappels.canada.ca/en/alert-recall/anker-power-bank-a1647-and-anker-zolo-power-banks-a1681-and-a1689-sold-amazonca",
+              "label": "Health Canada"
+            }
+          ]
+        },
+        {
+          "cells": [
+            "A1689",
+            "CPSC 2025-09-18. Health Canada 2025-06-27."
+          ],
+          "links": [
+            {
+              "url": "https://www.cpsc.gov/Recalls/2025/Anker-Power-Banks-Recalled-Due-to-Fire-and-Burn-Hazards-Manufactured-by-Anker-Innovations-1",
+              "label": "CPSC"
+            },
+            {
+              "url": "https://recalls-rappels.canada.ca/en/alert-recall/anker-power-bank-a1647-and-anker-zolo-power-banks-a1681-and-a1689-sold-amazonca",
+              "label": "Health Canada"
+            }
+          ]
+        }
+      ]
+    },
+    "faqs": [
+      {
+        "q": "Which Anker power banks were recalled?",
+        "a": "The notices name A1112011, A1257, A1263, A1366, A1642, A1647, A1652, A1681, and A1689. A qualifying serial is not every unit of a model. A1257, A1263, and A1652 are on CPSC notices. A1112011 is on a Health Canada notice. A1366, A1642, A1647, A1681, and A1689 are on both."
+      },
+      {
+        "q": "How do I check an Anker recall serial number?",
+        "a": "A1263: the model and the serial marked SN are printed on the bottom. Check it at anker.com/product-recalls. A1112011: a 16-digit serial on the bottom, checked at anker.com/ca/a1112-recall-form. A1642: Health Canada says the serial is on the bottom and to use anker.com/ca/a1642-recall. Anker’s page for A1642, A1647, and A1652 says the serial is 16 digits on the bottom and does not contain the letter O or the letter I. A1647, A1652, A1257, A1681, and A1689: the September 18, 2025 CPSC notice says the serial is next to SN Code on the back or side. Check it at anker.com/rc2506. The Health Canada notice for A1647, A1681, and A1689 says the serial is on the side or the back, affected serials do not contain the letters O or I, and the check page is anker.com/ca/rc2506. A1366: the CPSC notice says the model number is on the back and does not use a serial list."
+      },
+      {
+        "q": "What is the remedy for a recalled Anker power bank?",
+        "a": "Stop using a unit the notice includes. The June 12, 2025 CPSC notice for A1263 says a free replacement. The October 17, 2024 CPSC notice for A1642, A1647, and A1652 says a free replacement. The September 18, 2025 CPSC notice for A1647, A1652, A1257, A1681, and A1689 says a full cash refund or an Anker gift card. The March 9, 2023 CPSC notice for A1366 says a full refund, and the Health Canada notice for A1366 says a refund. The Health Canada notice for A1647, A1681, and A1689 says a free replacement or a voucher. The Health Canada notice for A1112011 says Anker sends a new power bank to users verified as part of the recall batch. Do not put the lithium-ion battery in household trash."
+      }
+    ]
   },
   {
     "slug": "vitamix-ascent-venturist-containers",
