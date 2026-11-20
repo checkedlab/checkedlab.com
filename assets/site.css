@@ -956,6 +956,32 @@ body[data-page="product"] .p-photo {
     max-width: 100%;
   }
 }
+.model-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 16px 16px 8px;
+  margin: 4px 0 18px;
+  max-width: 48rem;
+}
+.model-card h2 { margin-top: 0; }
+.model-card > p:last-child { margin-bottom: 12px; }
+.model-scroll { overflow-x: auto; max-width: 100%; margin: 8px 0 12px; }
+.model-table { width: 100%; border-collapse: collapse; background: #fff; }
+.model-table th, .model-table td {
+  text-align: left;
+  vertical-align: top;
+  padding: 10px 8px;
+  border-top: 1px solid var(--line);
+}
+.model-table th { font-size: 0.82rem; letter-spacing: 0.04em; text-transform: uppercase; }
+.model-stack { display: none; }
+.model-stack.is-open { display: grid; gap: 12px; margin: 8px 0 12px; }
+.model-stack article { min-width: 0; border-top: 1px solid var(--line); padding-top: 10px; }
+.model-stack h3 { margin: 0 0 6px; font-size: 1.05rem; line-height: 1.35; }
+.model-stack p { margin: 0 0 6px; }
+.model-card details { margin: 4px 0 12px; }
+.model-card summary { cursor: pointer; font-weight: 650; }
 .recall-stack { display: none; }
 .recall-block {
   background: #fff;
@@ -971,6 +997,8 @@ body[data-page="product"] .p-photo {
 @media (max-width: 640px) {
   .recall-roundup .recall-table { display: none; }
   .recall-roundup .recall-stack { display: grid; gap: 12px; margin: 8px 0 16px; }
+  .model-scroll { display: none; }
+  .model-stack { display: grid; gap: 12px; margin: 8px 0 12px; }
 }
 .fold-top { display: grid; gap: 0; }
 .guide-list, .scan-list { list-style: none; padding: 0; margin: 8px 0 20px; display: grid; gap: 12px; }

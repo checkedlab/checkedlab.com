@@ -107,15 +107,49 @@
   },
   {
     "slug": "ninja-foodi-op300",
-    "title": "Ninja Foodi OP300 recall: replacement lid",
+    "title": "Ninja Foodi OP300 recall: is yours affected?",
     "linkLabel": "Foodi OP300 and TenderCrisp lid",
-    "description": "The May 1, 2025 notices cover Foodi OP300-series lids, including OP301 and OP302. Stop pressure cooking and contact SharkNinja for a free replacement lid.",
+    "description": "The May 1, 2025 notices cover the pressure-cooking lid on Foodi OP300-series cookers. The CPSC and Health Canada model lists are not the same.",
     "hub": "kitchen",
     "products": [
       "ninja-foodi-10in1",
       "ninja-crispi-fn101"
     ],
     "catalogue": "The Foodi oven card’s model line reads DT201C. The Crispi card’s model line reads FN101. Neither string is in the model lists copied below.",
+    "modelTable": {
+      "heading": "Is mine affected?",
+      "intro": "The May 1, 2025 notices cover the pressure-cooking lid. The model lists below are copied from each notice. They are not the same list.",
+      "note": "A code after the model number is not part of the model. The CPSC notice uses OP301 I07 as the example of a model OP301. Both notices include replacement pressure-cooking lids bought separately. The CPSC notice says air frying and the other functions can still be used. The Health Canada notice says to dispose of the pressure-cooking lid so it cannot be used.",
+      "columns": ["Source", "Models", "Where the number is printed", "Notice"],
+      "rows": [
+        {
+          "cells": [
+            "CPSC, May 1, 2025",
+            "OP300, OP301, OP301A, OP302, OP302BRN, OP302HCN, OP302HAQ, OP302HW, OP302HB, OP305, OP305CO, and OP350CO",
+            "On a label on the side of the cooker."
+          ],
+          "links": [
+            {
+              "url": "https://www.cpsc.gov/Recalls/2025/SharkNinja-Recalls-1-8-Million-Foodi-Multi-Function-Pressure-Cookers-Due-to-Burn-Hazard-Serious-Burn-Injuries-Reported",
+              "label": "2025 CPSC notice"
+            }
+          ]
+        },
+        {
+          "cells": [
+            "Health Canada, May 1, 2025",
+            "OP300C, OP301, OP301C, OP302, OP305, OP305CCO, and OP305CO",
+            "On the rating label on the back, near the power cord."
+          ],
+          "links": [
+            {
+              "url": "https://recalls-rappels.canada.ca/en/alert-recall/ninja-foodi-tendercrisp-multi-cookers-pressure-cooking-lid-recalled-due-potential-burn",
+              "label": "2025 Health Canada notice"
+            }
+          ]
+        }
+      ]
+    },
     "notices": [
       {
         "agency": "CPSC",
@@ -604,14 +638,61 @@
   },
   {
     "slug": "instant-pot-official-notices",
-    "title": "Instant Pot recall: serial numbers",
+    "title": "Instant Pot recall 2026: official notices",
     "linkLabel": "Instant Pot official notices",
-    "description": "Smart and Smart-60 serials 1410 through 1503 get a replacement base. Gem 65 batch codes 1728, 1730, 1731, 1734 and 1746 go back to Walmart.",
+    "description": "No 2026 Instant Pot recall is in the CPSC database or the Health Canada open data as of 2026-11-20. The official notices are from 2015 and 2018.",
     "hub": "kitchen",
     "products": [
       "instant-pot-duo-plus"
     ],
     "catalogue": "The catalogue card is the Instant Pot Duo Plus, 6 quart. Duo Plus is not a model name in the notices below.",
+    "modelTable": {
+      "heading": "Instant Pot recall 2026",
+      "intro": "No 2026 Instant Pot recall is in the CPSC recall API or the Health Canada recalls open data as of 2026-11-20. The newest Last updated date in that Health Canada download is 2026-11-18. These are the Instant Pot notices in those sources.",
+      "note": "Duo Plus is not a model name in these notices. A model that is not named here is not included in these notices.",
+      "columns": ["Date", "What the notice covers", "Where to read it", "Notice"],
+      "rows": [
+        {
+          "cells": [
+            "2015-07-15",
+            "Instant Pot Smart and Smart-60. Serial numbers 1410 through 1503. Manufacture dates December 1, 2014 through June 1, 2015.",
+            "Serial number and date on a label on the bottom of the base."
+          ],
+          "links": [
+            {
+              "url": "https://www.cpsc.gov/Recalls/2015/Instant-Pot-Pressure-Cookers-Recalled-by-Double-Insight",
+              "label": "2015 CPSC notice"
+            }
+          ]
+        },
+        {
+          "cells": [
+            "2015-07-15",
+            "Instant Pot Smart pressure cooker. The description names Smart-60, UPC 853084004132, and date codes 1410 through 1503. Those four digits start a longer serial.",
+            "Date code on the bottom of the base. Smart-60 is on a label on the back."
+          ],
+          "links": [
+            {
+              "url": "https://recalls-rappels.canada.ca/en/alert-recall/double-insight-inc-recalls-instant-pot-smart-pressure-cooker",
+              "label": "2015 Health Canada notice"
+            }
+          ]
+        },
+        {
+          "cells": [
+            "2018-03-01",
+            "Gem 65 8-in-1 multicookers sold at Walmart, with batch code 1728, 1730, 1731, 1734, or 1746. No Gem 65 notice was in the Health Canada open data download.",
+            "Gem 65 8-in-1 and the batch code are on the rating label on the underside."
+          ],
+          "links": [
+            {
+              "url": "https://www.cpsc.gov/Recalls/2018/Double-Insight-Recalls-Multicookers-Due-to-Fire-Hazard-Sold-Exclusively-at-Walmart",
+              "label": "2018 CPSC notice"
+            }
+          ]
+        }
+      ]
+    },
     "notices": [
       {
         "agency": "CPSC",
@@ -696,15 +777,88 @@
   },
   {
     "slug": "lasko-heaters",
-    "title": "Lasko space heater recall: model numbers",
-    "linkLabel": "Lasko heater notices",
-    "description": "CPSC notices name Lasko 5540, 5500, 5700, 5132, 5345, 5362, 5364, 5420, 5532, 5534 and 5566, plus Air King 8540. Stop use and ask Lasko for a replacement.",
+    "title": "Lasko space heater recall: check your model number",
+    "linkLabel": "Lasko space heater recall",
+    "description": "CPSC notices list the recalled Lasko model numbers and date codes. 481646 and 5309 are not in those notices.",
     "hub": "winter",
     "products": [
       "lasko-ct32150",
       "lasko-ct14401"
     ],
     "catalogue": "The catalogue heaters are CT32150 and CT14401. Neither model number is in the CPSC lists copied below.",
+    "modelTable": {
+      "heading": "Is my model recalled?",
+      "intro": "These are the Lasko and Air King heater model numbers and date codes copied from the CPSC notices. Read the number on the heater, then find that row.",
+      "note": "481646 and 5309 are not model numbers in these notices. A CPSC recall search for 481646 on 2026-11-20 returned no notice. A search for 5309 did not return a Lasko heater. If the model printed on the heater is not in this table, that model is not included in these notices. The Health Canada recalls open data downloaded the same day, with records updated through 2026-11-18, has no Lasko heater notice.",
+      "columns": ["Model", "Date code", "Where it is printed", "Notice"],
+      "rows": [
+        {
+          "cells": [
+            "Lasko 5540",
+            "Four-digit date codes that begin with 2. Codes that begin with 3, 4, or 5 are not included. Manufactured in 2002.",
+            "Bottom label, lower left, above the voltage number."
+          ],
+          "links": [
+            {
+              "url": "https://www.cpsc.gov/Recalls/2011/Lasko-Recalls-Portable-Electric-Heaters-Due-To-Fire-Hazard",
+              "label": "2011 CPSC notice"
+            }
+          ]
+        },
+        {
+          "cells": [
+            "Air King 8540",
+            "Four-digit date codes that begin with 2. Codes that begin with 3, 4, or 5 are not included. Manufactured in 2002.",
+            "Bottom label, lower left, above the voltage number."
+          ],
+          "links": [
+            {
+              "url": "https://www.cpsc.gov/Recalls/2011/Lasko-Recalls-Portable-Electric-Heaters-Due-To-Fire-Hazard",
+              "label": "2011 CPSC notice"
+            }
+          ]
+        },
+        {
+          "cells": [
+            "5132, 5345, 5362, 5364, 5420, 5532, 5534, 5566",
+            "Manufactured in 2005. The notice does not list a date code.",
+            "On the bottom of the unit or at the rear of the base."
+          ],
+          "links": [
+            {
+              "url": "https://www.cpsc.gov/Recalls/2007/Ceramic-Heaters-Recalled-By-Lasko-Heaters-Could-Pose-A-Fire-Hazard",
+              "label": "2007 CPSC notice"
+            }
+          ]
+        },
+        {
+          "cells": [
+            "5500",
+            "The notice does not list a date code. Oscillating ceramic heater.",
+            "On a label under the round base."
+          ],
+          "links": [
+            {
+              "url": "https://www.cpsc.gov/Recalls/2004/CPSC-Lasko-Products-Inc-Announce-Recall-of-Space-Heaters-",
+              "label": "2004 CPSC notice"
+            }
+          ]
+        },
+        {
+          "cells": [
+            "5700",
+            "The notice does not list a date code. Oil-filled radiator.",
+            "On a label on the side, near the right front wheel."
+          ],
+          "links": [
+            {
+              "url": "https://www.cpsc.gov/Recalls/2004/CPSC-Lasko-Products-Inc-Announce-Recall-of-Space-Heaters-",
+              "label": "2004 CPSC notice"
+            }
+          ]
+        }
+      ]
+    },
     "notices": [
       {
         "agency": "CPSC",
@@ -789,17 +943,219 @@
   },
   {
     "slug": "toro-power-clear-snowblowers",
-    "title": "Toro Power Clear snowblower recalls: the model numbers",
-    "linkLabel": "Toro Power Clear notices",
-    "description": "The 2010 and 2011 CPSC and Health Canada notices name Power Clear 180 models 38272 and 38282, and PC-421 models 38588 and 38589. Model 38753 is not in those lists.",
+    "title": "Which snow blowers have had safety recalls?",
+    "linkLabel": "Snow blower recall list",
+    "description": "CPSC and Health Canada notices name Toro Power Clear models 38272, 38282, 38588 and 38589, plus other snow blowers. Model 38753 is not in the Power Clear lists.",
     "hub": "winter",
     "products": [
       "toro-power-clear-38753",
       "ego-snt2110",
       "snowjoe-24v-ss10"
     ],
-    "catalogue": "The catalogue snow blower is Toro Power Clear 721 E, model 38753. 38753 is not among the model numbers listed above. The EGO SNT2110 and Snow Joe 24V-SS10 cards are different tools and are not named in these Toro notices.",
+    "catalogue": "The catalogue snow blower is Toro Power Clear 721 E, model 38753. 38753 is not among the model numbers in the notices below. 37802 is the Power Max model in the 2021 notice. The EGO SNT2110 and Snow Joe 24V-SS10 cards are different tools and are not named in these Toro notices.",
+    "modelTable": {
+      "heading": "Is mine affected?",
+      "intro": "Model 38753 is not in the Power Clear notices. Power Max 826 OHAE model 37802 is a separate 2021 notice. Read the decal on the machine, then use the row that matches.",
+      "note": "A CPSC description search for 38753 on 2026-11-20 did not return a Toro snow blower notice. If the model on the decal is not in this table, that model is not included in these Toro notices.",
+      "columns": ["Model", "What the notice includes", "Where to read it", "Notice"],
+      "rows": [
+        {
+          "cells": [
+            "38272 and 38282",
+            "Power Clear 180 single-stage snow blowers. Serial numbers 310000001 through 310999999.",
+            "CPSC: decal on the lower right side. Health Canada: model serial decal on the lower right rear."
+          ],
+          "links": [
+            {
+              "url": "https://www.cpsc.gov/Recalls/2010/Snow-Blowers-Recalled-by-The-Toro-Company-Due-to-Fire-Hazard",
+              "label": "2010 CPSC notice"
+            },
+            {
+              "url": "https://recalls-rappels.canada.ca/en/alert-recall/toror-power-clear-180-snow-blower",
+              "label": "2010 Health Canada notice"
+            }
+          ]
+        },
+        {
+          "cells": [
+            "38588 and 38589",
+            "Power Clear 421Q snow blowers from 2010 and 2011. CPSC lists 38588 serials 310000001 to 310999999 and 311000001 to 311003576, and 38589 serials 310000001 to 310999999 and 311000001 to 311999999. Health Canada prints 38588 as 310 000001 to 311 003576 and 38589 as 310 000001 to 311 999999.",
+            "Decal on the underside of the rear of the unit."
+          ],
+          "links": [
+            {
+              "url": "https://www.cpsc.gov/Recalls/2011/Toro-Recalls-Power-Clear-Snowblowers-and-Recycler-Mowers",
+              "label": "2011 CPSC notice"
+            },
+            {
+              "url": "https://recalls-rappels.canada.ca/en/alert-recall/toror-power-cleartm-snow-blower-and-push-recycler-mower",
+              "label": "2011 Health Canada notice"
+            }
+          ]
+        },
+        {
+          "cells": [
+            "37802",
+            "Model year 2021 Power Max 826 OHAE. The serial numbers included in the recall are on the Toro recall page named by both notices, not in the notice text.",
+            "CPSC: on the back of the snowthrower. Health Canada: on a sticker at the rear. UPC 021038378022 is also on that sticker."
+          ],
+          "links": [
+            {
+              "url": "https://www.cpsc.gov/Recalls/2021/Toro-Recalls-Power-Max-Snowthrowers-Due-to-Amputation-Hazard",
+              "label": "2021 CPSC notice"
+            },
+            {
+              "url": "https://recalls-rappels.canada.ca/en/alert-recall/certain-toro-power-max-snow-throwers-recalled-due-injury-hazard",
+              "label": "2021 Health Canada notice"
+            }
+          ]
+        }
+      ]
+    },
+    "listCard": {
+      "id": "snow-blowers-with-official-recalls",
+      "heading": "Snow blowers with official recalls",
+      "intro": "Each line is a snow blower notice whose model numbers were read from the CPSC or Health Canada page on 2026-11-20. The Toro rows above are repeated here with the other brands.",
+      "note": "This is not every snow blower record in either database. Notices whose model numbers were not read from the page are left off this list.",
+      "items": [
+        {
+          "name": "Toro Power Clear 180",
+          "text": "July 14, 2010. Models 38272 and 38282. Serial numbers 310000001 through 310999999.",
+          "links": [
+            {"url": "https://www.cpsc.gov/Recalls/2010/Snow-Blowers-Recalled-by-The-Toro-Company-Due-to-Fire-Hazard", "label": "2010 CPSC notice"},
+            {"url": "https://recalls-rappels.canada.ca/en/alert-recall/toror-power-clear-180-snow-blower", "label": "2010 Health Canada notice"}
+          ]
+        },
+        {
+          "name": "Toro Power Clear 421Q",
+          "text": "April 26, 2011. Models 38588 and 38589. The CPSC and Health Canada notices print the serial ranges separately. The same CPSC notice also names mower model 20323.",
+          "links": [
+            {"url": "https://www.cpsc.gov/Recalls/2011/Toro-Recalls-Power-Clear-Snowblowers-and-Recycler-Mowers", "label": "2011 CPSC notice"},
+            {"url": "https://recalls-rappels.canada.ca/en/alert-recall/toror-power-cleartm-snow-blower-and-push-recycler-mower", "label": "2011 Health Canada notice"}
+          ]
+        },
+        {
+          "name": "Toro Power Max 826 OHAE",
+          "text": "February 17, 2021. Model year 2021, model 37802. Both notices say the included serial numbers are listed on Toro's recall page.",
+          "links": [
+            {"url": "https://www.cpsc.gov/Recalls/2021/Toro-Recalls-Power-Max-Snowthrowers-Due-to-Amputation-Hazard", "label": "2021 CPSC notice"},
+            {"url": "https://recalls-rappels.canada.ca/en/alert-recall/certain-toro-power-max-snow-throwers-recalled-due-injury-hazard", "label": "2021 Health Canada notice"}
+          ]
+        },
+        {
+          "name": "Honda snow blowers",
+          "text": "The December 29, 2010 CPSC notice names HS724, HS928, and HS1132. The January 5, 2011 Health Canada notice also names HS622, HS1336i, and HSM1336i. The serial ranges are different on each notice.",
+          "links": [
+            {"url": "https://www.cpsc.gov/Recalls/2010/American-Honda-Recalls-Snowblowers-Due-to-Fire-Hazard", "label": "2010 CPSC notice"},
+            {"url": "https://recalls-rappels.canada.ca/en/alert-recall/certain-honda-snow-blowers", "label": "2011 Health Canada notice"}
+          ]
+        },
+        {
+          "name": "Husqvarna 300 series",
+          "text": "July 6, 2023. Models ST 324, ST 327, and ST 330. Product numbers 970528901, 970528902, 970529001, 970529002, 970529101, and 970529102 are on both notices.",
+          "links": [
+            {"url": "https://www.cpsc.gov/Recalls/2023/Husqvarna-Recalls-Residential-300-Series-Snow-Blowers-Due-to-Injury-Hazard", "label": "2023 CPSC notice"},
+            {"url": "https://recalls-rappels.canada.ca/en/alert-recall/husqvarna-300-series-snow-throwers-recalled-due-potential-injury-hazard", "label": "2023 Health Canada notice"}
+          ]
+        },
+        {
+          "name": "Ariens Deluxe, Platinum, and Professional",
+          "text": "February 6, 2025. Both notices say certain DELUXE, PLATINUM, and PROFESSIONAL Sno-Thro snow throwers. Neither notice prints the model-number list. The model and serial are on the white ID tag on the frame.",
+          "links": [
+            {"url": "https://www.cpsc.gov/Recalls/2025/Ariens-Recalls-Snow-Throwers-Due-to-Laceration-Hazard", "label": "2025 CPSC notice"},
+            {"url": "https://recalls-rappels.canada.ca/en/alert-recall/ariens-deluxe-platinum-and-professional-series-snow-throwers-recalled-due-injury", "label": "2025 Health Canada notice"}
+          ]
+        },
+        {
+          "name": "Ryobi 40-volt brushless",
+          "text": "April 26, 2016. The CPSC notice names RY40802, RY40802A, and RY40822. The Health Canada notice names RY40822 and RY40802A.",
+          "links": [
+            {"url": "https://www.cpsc.gov/Recalls/2016/One-World-Technologies-Recalls-Snow-Blowers", "label": "2016 CPSC notice"},
+            {"url": "https://recalls-rappels.canada.ca/en/alert-recall/one-world-technologies-inc-recalls-ryobir-40-volt-brushless-snow-blower", "label": "2016 Health Canada notice"}
+          ]
+        },
+        {
+          "name": "Benchmark 22-inch",
+          "text": "Health Canada, updated October 26, 2026. Model YF6022, a 22-inch, 15-amp electric snow thrower. The model number is on a label on the back of the base. No Benchmark snow thrower notice came back from the CPSC recall API on 2026-11-20.",
+          "links": [
+            {"url": "https://recalls-rappels.canada.ca/en/alert-recall/benchmark-branded-22-inch-15-amp-electric-snow-thrower-recalled-due-electric-shock", "label": "2026 Health Canada notice"}
+          ]
+        },
+        {
+          "name": "Yardworks 22-inch",
+          "text": "Health Canada expanded recall, March 11, 2025. Model 060-0583, the 15-amp, 22-inch electric corded snowblower. No Yardworks snow blower notice came back from the CPSC recall API on 2026-11-20.",
+          "links": [
+            {"url": "https://recalls-rappels.canada.ca/en/alert-recall/expanded-recall-yardworks-15-amp-22-inch-electric-corded-snowblower-recalled-due", "label": "2025 Health Canada notice"}
+          ]
+        },
+        {
+          "name": "Poulan Pro PP265E27",
+          "text": "Health Canada, October 13, 2010. Model PP265E27. The data plate on the right side frame also shows PNC 961980028. A CPSC description search for PP265E27 on 2026-11-20 returned no notice.",
+          "links": [
+            {"url": "https://recalls-rappels.canada.ca/en/alert-recall/poulan-pro-snow-throwers-model-number-pp265e27", "label": "2010 Health Canada notice"}
+          ]
+        }
+      ]
+    },
+    "check": [
+      {
+        "label": "Power Clear",
+        "text": "Models 38272 and 38282 are the 2010 Power Clear 180 notice. Models 38588 and 38589 are the 2011 Power Clear 421Q notice. Model 38753 is not in either list.",
+        "links": [
+          {
+            "url": "https://www.cpsc.gov/Recalls/2010/Snow-Blowers-Recalled-by-The-Toro-Company-Due-to-Fire-Hazard",
+            "label": "2010 CPSC notice"
+          },
+          {
+            "url": "https://www.cpsc.gov/Recalls/2011/Toro-Recalls-Power-Clear-Snowblowers-and-Recycler-Mowers",
+            "label": "2011 CPSC notice"
+          }
+        ]
+      },
+      {
+        "label": "Power Max",
+        "text": "Model year 2021 Power Max 826 OHAE is model 37802. Stop using a recalled unit and contact a Toro authorized dealer for a free repair. The included serial numbers are on the Toro page named in the notice.",
+        "links": [
+          {
+            "url": "https://www.cpsc.gov/Recalls/2021/Toro-Recalls-Power-Max-Snowthrowers-Due-to-Amputation-Hazard",
+            "label": "2021 CPSC notice"
+          },
+          {
+            "url": "https://recalls-rappels.canada.ca/en/alert-recall/certain-toro-power-max-snow-throwers-recalled-due-injury-hazard",
+            "label": "2021 Health Canada notice"
+          }
+        ]
+      }
+    ],
     "notices": [
+      {
+        "agency": "CPSC",
+        "date": "2021-02-17",
+        "title": "Toro Recalls Power Max Snowthrowers Due to Amputation Hazard",
+        "url": "https://www.cpsc.gov/Recalls/2021/Toro-Recalls-Power-Max-Snowthrowers-Due-to-Amputation-Hazard",
+        "says": "The CPSC notice says the recall involves model year 2021 Toro Power Max 826 OHAE snowthrowers with model number 37802. It says the model and serial number are on the back of the snowthrower. It says the serial numbers included in the recall are listed on Toro's recall page. It says the auger can fail to disengage when the control lever is released, posing an amputation hazard.",
+        "howToCheck": "The notice says the model and serial number are on the back of the snowthrower, and that the included serial numbers are listed on Toro's recall page.",
+        "remedy": "The notice tells owners to stop using the recalled snowthrower immediately and contact a Toro authorized dealer for a free repair.",
+        "modelsLabel": "Model number in this CPSC notice",
+        "models": [
+          "37802",
+          "Model year 2021 Power Max 826 OHAE"
+        ]
+      },
+      {
+        "agency": "Health Canada",
+        "date": "2021-02-17",
+        "title": "Certain Toro Power Max snow throwers recalled due to injury hazard",
+        "url": "https://recalls-rappels.canada.ca/en/alert-recall/certain-toro-power-max-snow-throwers-recalled-due-injury-hazard",
+        "says": "The Health Canada notice says the recall involves the model year 2021 Toro Power Max 826 OHAE snow thrower, model 37802, UPC 021038378022. It says the model number and UPC are on a sticker at the rear. It says affected products were manufactured in Juarez, Mexico between September 21, 2020 and December 29, 2020. It says the included serial numbers are on Toro's recall page.",
+        "howToCheck": "The notice says the model number and UPC are on a sticker at the rear, and that the serial list is on Toro's recall page.",
+        "remedy": "The notice tells owners to stop using the machine and contact a Toro authorized service dealer.",
+        "modelsLabel": "Model number in this Health Canada notice",
+        "models": [
+          "37802",
+          "UPC 021038378022"
+        ]
+      },
       {
         "agency": "CPSC",
         "date": "2010-07-14",
@@ -1132,6 +1488,11 @@
       "vornado-avh2"
     ],
     "catalogue": "The catalogue heaters on this page are CT32150, CT14401, the Dreo Atom 316, and the Vornado AVH2. CT32150 and CT14401 are not in the Lasko model lists below. The Atom 316 is not DR-HSH015. The AVH2 is not TYPE SRTH, TYPE VH2, or the VH110 serial pattern. Read the model on the unit before applying a notice.",
+    "topLink": {
+      "href": "/recalls/lasko-heaters/",
+      "label": "Lasko space heater recall",
+      "text": "Model numbers and date codes from the CPSC Lasko heater notices are on that page."
+    },
     "also": [
       "lasko-heaters",
       "air-fryer-recalls"

@@ -232,10 +232,10 @@ const REPLACE_LINKS = {
     ]
   },
   "instant-pot-official-notices": {
-    text: "Duo Plus is not a model name in these notices. It is a 6-quart cooker that pressure cooks, slow cooks, and has a rice setting. The Foodi 10-in-1 beside it is an oven, not that pot. Air fryers are a separate set of cards.",
+    text: "Duo Plus is not a model name in the 2015 or 2018 notices. The Duo Plus page is the 6-quart cooker. The comparison next to it is the Foodi 10-in-1 oven.",
     links: [
+      ["/kitchen/instant-pot-duo-plus/", "Instant Pot Duo Plus"],
       ["/compare/instant-pot-duo-plus-vs-ninja-foodi-10in1/", "Duo Plus and Foodi 10-in-1"],
-      ["/best/air-fryers/", "Air fryers"],
       ["/kitchen/", "Kitchen"]
     ]
   },
@@ -252,8 +252,16 @@ const REPLACE_LINKS = {
     text: "The notices name OP300-series cookers, including OP301 and OP302. The two Ninja cards here are different strings: DT201C, the 10-in-1 oven, and FN101, the Crispi, which cooks in glass containers. Neither string is in those notices.",
     links: [
       ["/best/air-fryers/", "Air fryers"],
-      ["/compare/ninja-crispi-fn101-vs-cosori-pro-5-8/", "Crispi and Cosori Pro II"],
+      ["/kitchen/ninja-crispi-fn101/", "Ninja Crispi"],
       ["/compare/instant-pot-duo-plus-vs-ninja-foodi-10in1/", "Duo Plus and Foodi 10-in-1"]
+    ]
+  },
+  "toro-power-clear-snowblowers": {
+    text: "Model 38753 is not in the Power Clear lists. The Power Clear 721 E page is that model. The comparison beside it is the EGO snow blower.",
+    links: [
+      ["/winter/toro-power-clear-38753/", "Toro Power Clear 721 E"],
+      ["/compare/ego-snt2110-vs-toro-power-clear-38753/", "EGO and Toro"],
+      ["/winter/", "Winter"]
     ]
   },
   "heated-blanket-recalls": {
@@ -1533,21 +1541,91 @@ function answersHtml(entry) {
     '</p><div class="answer-split">' + cards + "</div>" + note + "</section>";
 }
 
-function affectedHtml(entry) {
+function officialNoticeLink(link, where) {
+  if (!link || !/^https:\/\/(www\.cpsc\.gov|recalls-rappels\.canada\.ca)\//.test(link.url || "")) {
+    throw new Error("Notice link must be a CPSC or Health Canada page: " + where);
+  }
+  return '<a href="' + href(link.url) + '" target="_blank" rel="noopener">' + card.esc(link.label || "Official notice") + "</a>";
+}
+
+function checkItemsHtml(entry) {
   if (!Array.isArray(entry.check) || !entry.check.length) return "";
-  const items = entry.check.map((item) => {
+  return entry.check.map((item) => {
     if (!item || !item.label || !item.text) throw new Error("Check block needs a label and text: " + entry.slug);
     assertReaderVoice(item.label + " " + item.text, entry.slug + " check");
     const links = Array.isArray(item.links) ? item.links : [];
-    const anchors = links.map((link) => {
-      if (!link || !/^https:\/\/(www\.cpsc\.gov|recalls-rappels\.canada\.ca)\//.test(link.url || "")) {
-        throw new Error("Check link must be a CPSC or Health Canada notice: " + entry.slug);
-      }
-      return '<a href="' + href(link.url) + '" target="_blank" rel="noopener">' + card.esc(link.label || "Official notice") + "</a>";
-    }).join(" ");
+    const anchors = links.map((link) => officialNoticeLink(link, entry.slug)).join(" ");
     return "<li><strong>" + card.esc(item.label) + ".</strong> " + card.esc(item.text) + (anchors ? " " + anchors : "") + "</li>";
   }).join("");
-  return '<section id="is-mine-affected"><h2>Is mine affected?</h2><ul class="evidence">' + items + "</ul></section>";
+}
+
+function modelTableHtml(entry) {
+  const table = entry.modelTable;
+  if (!table) return "";
+  if (!table.heading || !table.intro || !Array.isArray(table.columns) || table.columns.length < 2) {
+    throw new Error("Model table needs a heading, intro, and columns: " + entry.slug);
+  }
+  if (!Array.isArray(table.rows) || !table.rows.length) throw new Error("Model table needs rows: " + entry.slug);
+  assertReaderVoice(table.heading + " " + table.intro + " " + (table.note || ""), entry.slug + " model table");
+  const head = "<tr>" + table.columns.map((column) => "<th>" + card.esc(column) + "</th>").join("") + "</tr>";
+  const body = table.rows.map((row, index) => {
+    if (!row || !Array.isArray(row.cells) || row.cells.length !== table.columns.length - 1) {
+      throw new Error("Model row width on " + entry.slug + " row " + index);
+    }
+    row.cells.forEach((cell) => assertReaderVoice(cell, entry.slug + " model row"));
+    const links = (row.links || []).map((link) => officialNoticeLink(link, entry.slug)).join(" ");
+    if (!links) throw new Error("Model row needs a notice link: " + entry.slug);
+    const cells = row.cells.map((cell) => "<td>" + card.esc(cell) + "</td>").join("");
+    return "<tr>" + cells + "<td>" + links + "</td></tr>";
+  }).join("");
+  const stack = table.rows.map((row) => {
+    const links = (row.links || []).map((link) => officialNoticeLink(link, entry.slug)).join(" ");
+    const facts = row.cells.slice(1).map((cell, index) =>
+      "<p><strong>" + card.esc(table.columns[index + 1]) + ".</strong> " + card.esc(cell) + "</p>"
+    ).join("");
+    return "<article><h3>" + card.esc(row.cells[0]) + "</h3>" + facts + "<p>" + links + "</p></article>";
+  }).join("");
+  const note = table.note ? "<p>" + card.esc(table.note) + "</p>" : "";
+  const extra = checkItemsHtml(entry);
+  const more = extra ? '<details><summary>Where to look and what to do</summary><ul class="evidence">' + extra + "</ul></details>" : "";
+  return '<section class="model-card" id="is-mine-affected"><h2>' + card.esc(table.heading) + "</h2><p>" +
+    card.esc(table.intro) + '</p><div class="model-scroll"><table class="model-table"><thead>' + head +
+    "</thead><tbody>" + body + '</tbody></table></div><div class="model-stack">' + stack + "</div>" + note + more + "</section>";
+}
+
+function listCardHtml(entry) {
+  const block = entry.listCard;
+  if (!block) return "";
+  if (!block.id || !/^[a-z0-9-]+$/.test(block.id) || !block.heading || !block.intro) {
+    throw new Error("List card needs an id, heading, and intro: " + entry.slug);
+  }
+  if (!Array.isArray(block.items) || block.items.length < 2) throw new Error("List card needs items: " + entry.slug);
+  assertReaderVoice(block.heading + " " + block.intro + " " + (block.note || ""), entry.slug + " list");
+  const items = block.items.map((item, index) => {
+    if (!item || !item.name || !item.text) throw new Error("List item needs a name and text: " + entry.slug);
+    assertReaderVoice(item.name + " " + item.text, entry.slug + " list " + index);
+    const links = (item.links || []).map((link) => officialNoticeLink(link, entry.slug)).join(" ");
+    if (!links) throw new Error("List item needs a notice link: " + entry.slug);
+    return "<article><h3>" + card.esc(item.name) + "</h3><p>" + card.esc(item.text) + "</p><p>" + links + "</p></article>";
+  }).join("");
+  const note = block.note ? "<p>" + card.esc(block.note) + "</p>" : "";
+  return '<section class="model-card" id="' + block.id + '"><h2>' + card.esc(block.heading) + "</h2><p>" +
+    card.esc(block.intro) + '</p><div class="model-stack is-open">' + items + "</div>" + note + "</section>";
+}
+
+function topLinkHtml(entry) {
+  const link = entry.topLink;
+  if (!link) return "";
+  if (!link.href || !link.label || !link.text) throw new Error("Top link needs an href, label, and text: " + entry.slug);
+  assertSitePath(link.href, entry.slug);
+  assertReaderVoice(link.label + " " + link.text, entry.slug + " top link");
+  return '<p class="lede"><a href="' + card.esc(link.href) + '">' + card.esc(link.label) + "</a>. " + card.esc(link.text) + "</p>";
+}
+
+function affectedHtml(entry) {
+  if (entry.modelTable) return modelTableHtml(entry);
+  if (!Array.isArray(entry.check) || !entry.check.length) return "";
+  return '<section id="is-mine-affected"><h2>Is mine affected?</h2><ul class="evidence">' + checkItemsHtml(entry) + "</ul></section>";
 }
 
 function assertSitePath(href, where) {
@@ -1556,6 +1634,7 @@ function assertSitePath(href, where) {
   }
   const parts = href.split("/").filter(Boolean);
   if (parts[0] === "best" && parts.length === 2 && bestTypes().some((type) => type.slug === parts[1])) return;
+  if (parts[0] === "recalls" && parts.length === 2 && explainers.some((entry) => entry.slug === parts[1])) return;
   if (parts[0] === "compare" && parts.length === 2 && compares.some((entry) => entry.slug === parts[1])) return;
   if (parts[0] === "winter-safety" && parts.length === 2 && winterGuides().some((guide) => guide.slug === parts[1])) return;
   if (parts[0] === "gifts" && parts.length === 2 && giftGuides().concat(checksGuides()).some((guide) => guide.slug === parts[1])) return;
@@ -3298,7 +3377,7 @@ function roundupTable(entry) {
 
 function writeExplainers() {
   if (explainers.length !== 11) throw new Error("Expected eleven explainer pages");
-  const replaceSlugs = ["lasko-heaters", "anker-power-banks", "instant-pot-official-notices", "cosori-air-fryer-2023", "ninja-foodi-op300", "heated-blanket-recalls"];
+  const replaceSlugs = ["lasko-heaters", "anker-power-banks", "instant-pot-official-notices", "cosori-air-fryer-2023", "ninja-foodi-op300", "toro-power-clear-snowblowers", "heated-blanket-recalls"];
   if (replaceSlugs.some((slug) => !REPLACE_LINKS[slug])) throw new Error("A recall replace block is missing");
   const replaceSentences = new Set();
   for (const slug of replaceSlugs) {
@@ -3318,7 +3397,11 @@ function writeExplainers() {
     assertReaderVoice(sub, "recalls/" + entry.slug + " intro");
     const noticesLede = entry.noticesLede || entry.description;
     assertReaderVoice(noticesLede, "recalls/" + entry.slug + " notices");
-    const lead = [answersHtml(entry), affectedHtml(entry), replacingHtml(entry), entry.roundup ? roundupTable(entry) : ""].filter(Boolean).join("\n");
+    const roundup = entry.roundup ? roundupTable(entry) : "";
+    const lead = (entry.modelTable
+      ? [topLinkHtml(entry), affectedHtml(entry), listCardHtml(entry), answersHtml(entry), replacingHtml(entry), roundup]
+      : [topLinkHtml(entry), answersHtml(entry), affectedHtml(entry), listCardHtml(entry), replacingHtml(entry), roundup]
+    ).filter(Boolean).join("\n");
     const html = `<!DOCTYPE html>
 <html lang="en" data-region="US">
 <head>
@@ -3411,6 +3494,33 @@ ${DISCLOSURE}
       if (!html.includes('id="brand-check"') || !html.includes('id="brand-bedsure"') || !html.includes('id="brand-bhg"') || !html.includes('id="brand-cosi"') || !html.includes('id="brand-ohs"')) {
         throw new Error("Heated blanket page is missing the brand check");
       }
+    }
+    if (entry.slug === "lasko-heaters") {
+      if (!html.includes("Is my model recalled?") || !html.includes("481646 and 5309 are not")) {
+        throw new Error("Lasko page is missing the model card");
+      }
+      if (/481646 is recalled|5309 is recalled/i.test(html)) throw new Error("Lasko page claims an unverified model");
+    }
+    if (entry.slug === "instant-pot-official-notices") {
+      if (!html.includes("Instant Pot recall 2026") || !html.includes("No 2026 Instant Pot recall")) {
+        throw new Error("Instant Pot page is missing the 2026 answer");
+      }
+    }
+    if (entry.slug === "ninja-foodi-op300") {
+      if (!html.includes('id="is-mine-affected"') || !html.includes("OP301") || !html.includes("OP300C")) {
+        throw new Error("Foodi page is missing the model card");
+      }
+    }
+    if (entry.slug === "toro-power-clear-snowblowers") {
+      if (!html.includes("Which snow blowers have had safety recalls?") || !html.includes('id="snow-blowers-with-official-recalls"') || !html.includes("38753")) {
+        throw new Error("Snow blower page is missing the recall list");
+      }
+    }
+    if (entry.slug === "space-heater-recalls") {
+      const main = html.slice(html.indexOf("<main"));
+      const linkAt = main.indexOf('href="/recalls/lasko-heaters/"');
+      const foldAt = main.indexOf('id="catalogue-lines"');
+      if (linkAt < 0 || foldAt < 0 || linkAt > foldAt) throw new Error("Lasko link is not above the catalogue fold");
     }
     mkdirSync(join(root, "recalls", entry.slug), { recursive: true });
     writeFileSync(join(root, "recalls", entry.slug, "index.html"), polish(html));

@@ -35,6 +35,11 @@
       "methodExtra": [
         [
           {"text": "Heater notices in this guide put the model number on the underside, on the bottom decal, or on the item number for a tank-top propane heater. Match that string, not the brand alone."}
+        ],
+        [
+          {"text": "Lasko model numbers and date codes from the CPSC heater notices are on the "},
+          {"text": "Lasko space heater recall", "href": "/recalls/lasko-heaters/"},
+          {"text": " page. A model that is not on that list is not included in those notices."}
         ]
       ],
       "patterns": [
