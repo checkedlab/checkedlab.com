@@ -1101,7 +1101,7 @@ ${nav(hub)}
 <div class="fold-top">
 <div class="pick-media">${media}</div>
 <div class="p-main">
-${card.badgeHtml(card.worstRecall(product))}
+${card.badgeFor(product)}
 ${titleHtml}
 ${pickHtml}
 ${heroSpecStrip(product)}
@@ -1408,7 +1408,23 @@ function otherLines(rec) {
   }).join("");
 }
 
-function regionBody(rec, place) {
+function crossRegionLine(product, region) {
+  const local = recallRecord(product, region);
+  const other = recallRecord(product, region === "ca" ? "us" : "ca");
+  if (local.status === "bin" || other.status !== "bin") return "";
+  return region === "ca"
+    ? "No Health Canada notice · US recall (CPSC)."
+    : "No CPSC notice · Canadian recall.";
+}
+
+function regionBody(product, region, place) {
+  const rec = recallRecord(product, region);
+  const crossed = crossRegionLine(product, region);
+  if (crossed) {
+    const other = recallRecord(product, region === "ca" ? "us" : "ca");
+    const link = other.url ? ' <a href="' + href(other.url) + '" target="_blank" rel="noopener">Official notice</a>' : "";
+    return '<p class="recall recall-bin">' + card.esc(crossed) + link + "</p>" + otherLines(rec);
+  }
   if (rec.status === "bin") {
     const link = rec.url ? ' <a href="' + href(rec.url) + '" target="_blank" rel="noopener">Official notice</a>' : "";
     return '<p class="recall recall-bin"><strong>Official recall found.</strong> ' + card.esc(rec.detail || "A recall matches this model.") + link + "</p>";
@@ -1420,10 +1436,11 @@ function regionBody(rec, place) {
 function modelArticle(product, region, place) {
   const rec = recallRecord(product, region);
   const model = product.model ? '<p class="p-meta">' + card.esc(product.model) + "</p>" : "";
+  const key = region === "ca" ? "CA" : "US";
   return '<article class="recall-model" id="' + card.esc(product.id) + "-" + region + '">' +
-    card.badgeHtml(rec) +
+    card.badgeFor(product, key) +
     '<h3><a href="' + card.productPath(product) + '">' + card.visibleTitle(product.title) + "</a></h3>" +
-    model + regionBody(rec, place) + "</article>";
+    model + regionBody(product, region, place) + "</article>";
 }
 
 function regionColumn(ordered, region, place) {
@@ -1604,7 +1621,7 @@ function recallKind(text, place) {
 }
 
 function verdictBadge(kind) {
-  if (kind === "clear") return card.badgeHtml({ status: "none" });
+  if (kind === "clear") return card.badgeHtml({ kind: "clear" });
   if (kind === "serial") return card.badgeHtml({ kind: "serial" });
   if (kind === "partial") return card.badgeHtml({ kind: "partial" });
   return card.badgeHtml({ status: "bin" });
@@ -3083,7 +3100,7 @@ function bestCard(product, pick, opts) {
     media +
     '<div class="p-main prod-body">' +
     label +
-    card.badgeHtml(card.worstRecall(product)) +
+    card.badgeFor(product) +
     card.noteBadge(product) +
     '<h2 class="p-title prod-title"><a href="' + href + '">' + card.visibleTitle(product.title) + "</a></h2>" +
     bestSpecItems(product, pick.specs) +
@@ -3940,15 +3957,22 @@ function blackFridayFaqs() {
   ];
 }
 
-function bfStatusHtml(rec, place) {
-  let sentence = recallSentence(rec, place);
-  if (rec.checkedAt && !sentence.includes(rec.checkedAt)) {
+function bfStatusHtml(product, region) {
+  const key = region === "CA" ? "ca" : "us";
+  const place = region === "CA" ? "Canadian" : "US";
+  const rec = card.recallFor(product, region === "CA" ? "CA" : "US");
+  const other = card.recallFor(product, region === "CA" ? "US" : "CA");
+  let sentence = recallRecord(product, key).status !== "bin" && other.status === "bin"
+    ? (region === "CA" ? "No Health Canada notice · US recall (CPSC)." : "No CPSC notice · Canadian recall.")
+    : recallSentence(rec, place);
+  if (rec.checkedAt && rec.status === "bin" && !sentence.includes(rec.checkedAt)) {
     sentence = sentence.replace(/\.$/, "") + ". Checked " + rec.checkedAt + ".";
   }
-  const notice = rec.status === "bin" && rec.url && /^https:\/\//.test(rec.url)
-    ? ' <a href="' + href(rec.url) + '" target="_blank" rel="noopener">Official notice</a>'
+  const source = rec.status === "bin" ? rec : (other.status === "bin" ? other : null);
+  const notice = source && source.url && /^https:\/\//.test(source.url)
+    ? ' <a href="' + href(source.url) + '" target="_blank" rel="noopener">Official notice</a>'
     : "";
-  return card.badgeHtml(rec) + " " + card.esc(sentence) + notice;
+  return card.badgeFor(product, region === "CA" ? "CA" : "US") + " " + card.esc(sentence) + notice;
 }
 
 function bfModel(product, opts) {
@@ -3959,8 +3983,8 @@ function bfModel(product, opts) {
     "<h3" + hidden + '><a href="' + card.productPath(product) + '">' + card.visibleTitle(product.title) + "</a></h3>" +
     pickParagraph(product) +
     '<a class="hub-more" href="' + card.productPath(product) + '">See the model</a>' +
-    '<p class="only-us pick-status">' + bfStatusHtml(card.recallFor(product, "US"), "US") + "</p>" +
-    '<p class="only-ca pick-status">' + bfStatusHtml(card.recallFor(product, "CA"), "Canadian") + "</p>" +
+    '<p class="only-us pick-status">' + bfStatusHtml(product, "US") + "</p>" +
+    '<p class="only-ca pick-status">' + bfStatusHtml(product, "CA") + "</p>" +
     "</article>";
 }
 
@@ -4480,8 +4504,8 @@ function giftPickHtml(product, guide, opts) {
     '<p><a class="hub-more" href="' + card.productPath(product) + '">Model page</a></p>' +
     '<details class="fold"><summary>Maker line and recall</summary><div class="fold-body"><p class="why">' +
     card.esc(guide.fit) + " " + card.esc(giftWhy(product, guide)) + "</p>" +
-    '<p class="only-us">' + bfStatusHtml(card.recallFor(product, "US"), "US") + "</p>" +
-    '<p class="only-ca">' + bfStatusHtml(card.recallFor(product, "CA"), "Canadian") + "</p>" +
+    '<p class="only-us pick-status">' + bfStatusHtml(product, "US") + "</p>" +
+    '<p class="only-ca pick-status">' + bfStatusHtml(product, "CA") + "</p>" +
     giftOtherNote(product) + "</div></details></article>";
 }
 
@@ -7532,6 +7556,40 @@ function assertFooterDisclosure(html, message) {
   if (/Affiliate disclosure\.|I earn from qualifying|earn us nothing/.test(html)) throw new Error(message);
 }
 
+function assertNoFalseClear() {
+  const risky = products.filter((product) => {
+    const us = product.recall && product.recall.us && product.recall.us.status;
+    const ca = product.recall && product.recall.ca && product.recall.ca.status;
+    return us === "bin" || ca === "bin" || us === "partial" || ca === "partial";
+  });
+  if (!risky.length) throw new Error("Expected at least one binned model");
+  const files = [];
+  const walk = (dir) => {
+    for (const entry of readdirSync(dir)) {
+      if (entry.startsWith(".") || entry === "dist" || entry === "node_modules" || entry === "scripts" || entry === "data" || entry === "social") continue;
+      const full = join(dir, entry);
+      if (statSync(full).isDirectory()) walk(full);
+      else if (entry.endsWith(".html")) files.push(full);
+    }
+  };
+  walk(root);
+  for (const file of files) {
+    const html = readFileSync(file, "utf8");
+    for (const product of risky) {
+      for (const id of [product.id, product.id + "-us", product.id + "-ca"]) {
+        const at = html.indexOf('id="' + id + '"');
+        if (at < 0) continue;
+        const start = html.lastIndexOf("<article", at);
+        const end = html.indexOf("</article>", at);
+        const slice = start >= 0 && end > at ? html.slice(start, end) : html.slice(at, at + 900);
+        if (slice.includes("badge-clear") || slice.includes("Clear · CPSC + HC")) {
+          throw new Error("Clear badge on " + id + " in " + file.slice(root.length));
+        }
+      }
+    }
+  }
+}
+
 function assertReviewFixes() {
   const cuisinart = readFileSync(join(root, "kitchen", "cuisinart-dfp-14bcny", "index.html"), "utf8");
   if (cuisinart.includes("badge-clear") || cuisinart.includes("Clear · CPSC + HC")) {
@@ -7802,6 +7860,7 @@ function verifyOutput(pages) {
   assertBestPages();
   assertEveryPageDisclosure();
   assertReviewFixes();
+  assertNoFalseClear();
   assertBuyerPicks();
   assertAllPageVoice();
   assertHubReaderText();

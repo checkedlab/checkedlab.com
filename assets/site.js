@@ -229,6 +229,11 @@
   }
 
   function recallStatus(product) {
+    if (window.CheckedLabCard && window.CheckedLabCard.badgeFor) {
+      var html = window.CheckedLabCard.badgeFor(product, region());
+      var match = html.match(/>([^<]+)</);
+      return match ? match[1] : "Check model";
+    }
     var recall = product.recall || {};
     var us = (recall.us || {}).status;
     var ca = (recall.ca || {}).status;

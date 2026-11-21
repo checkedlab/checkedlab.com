@@ -169,18 +169,34 @@
     var us = recallFor(product, "US");
     var ca = recallFor(product, "CA");
     if (us.status === "bin" || ca.status === "bin") return { status: "bin", us: us, ca: ca };
-    if (us.status === "none" && ca.status === "none") return { status: "none", us: us, ca: ca };
+    if (us.status === "none" && ca.status === "none") return { status: "none", clearedBoth: true, us: us, ca: ca };
     var other = us.status && us.status !== "none" ? us : ca;
     return { status: other.status || "not_recorded", us: us, ca: ca };
   }
 
+  /* Clear is allowed only when both countries are clear, or for a non-product explainer card. */
   function badgeHtml(recall) {
     recall = recall || {};
     if (recall.kind === "serial" || recall.serial) return '<span class="badge badge-warn">Check serial</span>';
     if (recall.kind === "partial" || recall.partial) return '<span class="badge badge-warn">Partial · Check model</span>';
     if (recall.status === "bin" || recall.kind === "bin") return '<span class="badge badge-bin">BIN · Recalled</span>';
-    if (recall.status === "none" || recall.kind === "clear") return '<span class="badge badge-clear">Clear · CPSC + HC</span>';
+    if (recall.kind === "clear" || recall.clearedBoth) return '<span class="badge badge-clear">Clear · CPSC + HC</span>';
     return '<span class="badge badge-warn">Check model</span>';
+  }
+
+  function badgeFor(product, region) {
+    var us = recallFor(product, "US");
+    var ca = recallFor(product, "CA");
+    if (us.status === "bin" || ca.status === "bin") {
+      if (region === "CA" && us.status === "bin" && ca.status !== "bin") {
+        return '<span class="badge badge-bin">Recalled in US</span>';
+      }
+      if (region === "US" && ca.status === "bin" && us.status !== "bin") {
+        return '<span class="badge badge-bin">Recalled in CA</span>';
+      }
+      return '<span class="badge badge-bin">BIN · Recalled</span>';
+    }
+    return badgeHtml(worstRecall(product));
   }
 
   function honestLine(product, recall) {
@@ -601,7 +617,6 @@
 
   function card(product, reg, opts) {
     opts = opts || {};
-    var recall = worstRecall(product);
     var href = productPath(product);
     var photo = product && product.imageMatch === "exact" ? visual(product, opts) : "";
     var media = photo && photo.indexOf("p-photo") !== -1
@@ -617,7 +632,7 @@
     var meta = modelMeta(product, reg);
     var id = ' id="' + esc(product.id) + '" data-category="' + esc(product.category || "") + '"';
     return '<article class="product-grid hub-card prod-card"' + id + ">" + media +
-      '<div class="p-main prod-body"><div class="prod-top">' + badgeHtml(recall) + noteBadge(product) +
+      '<div class="p-main prod-body"><div class="prod-top">' + badgeFor(product) + noteBadge(product) +
       (meta ? '<span class="prod-model">' + esc(meta) + "</span>" : "") + "</div>" +
       title + pick + specStrip(product) +
       '<div class="prod-actions">' + amazon + maker + "</div></div></article>";
@@ -995,6 +1010,7 @@
     evidenceList: evidenceList,
     checkList: checkList,
     badgeHtml: badgeHtml,
+    badgeFor: badgeFor,
     honestLine: honestLine,
     imageHtml: imageHtml,
     imageColumn: imageColumn,
