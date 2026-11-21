@@ -934,7 +934,7 @@ function siblingLinks(product) {
     ...thanksGuideLinks(product),
     ...picks.map((item) => '<a href="' + card.productPath(item) + '">' + card.esc(item.title) + "</a>")
   ];
-  return '<p class="lede">' + links.join(" ") + "</p>";
+  return '<nav class="related-links" aria-label="Related">' + links.join("") + "</nav>";
 }
 
 function jsonLd(product) {
@@ -1010,7 +1010,15 @@ function nav(current) {
 }
 
 function productFold(id, heading, body, open) {
-  return '<details class="fold"' + (open ? " open" : "") + ' id="' + id + '"><summary><h2>' + heading + "</h2></summary><div class=\"fold-body\">" + body + "</div></details>";
+  return '<details class="fold"' + (open ? " open" : "") + ' id="' + id + '"><summary><span class="fold-caret" aria-hidden="true">▸</span><h2>' + heading + '</h2><span class="fold-state"></span></summary><div class="fold-body">' + body + "</div></details>";
+}
+
+function heroSpecStrip(product) {
+  const specs = (product.specs || []).filter((spec) => spec && spec.label && spec.value && !/^(model|asin|sku|item)$/i.test(String(spec.label).trim())).slice(0, 4);
+  if (!specs.length) return "";
+  return '<div class="spec-strip hero-specs">' + specs.map((spec) =>
+    '<div class="spec-item"><strong>' + card.esc(spec.label) + "</strong><span>" + card.esc(spec.value) + "</span></div>"
+  ).join("") + "</div>";
 }
 
 function productPage(product) {
@@ -1096,13 +1104,14 @@ ${nav(hub)}
 ${card.badgeHtml(card.worstRecall(product))}
 ${titleHtml}
 ${pickHtml}
+${heroSpecStrip(product)}
 <div class="only-us">${card.amazonButton(product, "US")}</div>
 <div class="only-ca">${card.amazonButton(product, "CA")}</div>
 </div>
 </div>
 </article>
 <nav class="toc" aria-label="Jump to"><p>Jump to</p><a href="#is-it-recalled">Recall check</a><a href="#specs">Specs</a><a href="#stores">Stores</a><a href="#why-listed">Why it’s listed</a><a href="#questions">Questions</a></nav>
-<details class="fold" open><summary><h2 class="recall-q" id="is-it-recalled">Is the ${card.esc(product.title)} recalled?</h2></summary><div class="fold-body">${datedParagraph(us, "US")}${datedParagraph(ca, "Canadian")}${otherSection(product)}${modelFindHtml(product)}</div></details>
+<details class="fold" open><summary><span class="fold-caret" aria-hidden="true">▸</span><h2 class="recall-q" id="is-it-recalled">Is the ${card.esc(product.title)} recalled?</h2><span class="fold-state"></span></summary><div class="fold-body">${datedParagraph(us, "US")}${datedParagraph(ca, "Canadian")}${otherSection(product)}${modelFindHtml(product)}</div></details>
 ${productFold("specs", "Specs", specList(product) + card.evidenceList(product) + '<p class="price-note">Prices change often, check the current price at the store.</p><p class="affiliate-note">Amazon link is an affiliate link</p>', true)}
 ${productFold("stores", "Stores", '<div class="only-us">' + card.storeButtons(product, "US") + '</div><div class="only-ca">' + card.storeButtons(product, "CA") + "</div>")}
 ${productFold("why-listed", "Why it’s listed", '<p class="why-note">' + card.esc(why) + "</p>" + '<p class="p-note only-us">' + card.esc(card.honestLine(product, us)) + '</p><p class="p-note only-ca">' + card.esc(card.honestLine(product, ca)) + "</p>" + card.checkList(product))}
@@ -1601,6 +1610,36 @@ function verdictBadge(kind) {
   return card.badgeHtml({ status: "bin" });
 }
 
+function answerModelGroup(item) {
+  const ids = [];
+  const seen = new Set();
+  const blob = item.num + " " + answerText(item);
+  for (const match of blob.matchAll(/\bA\d{4,}\b/g)) {
+    if (!seen.has(match[0])) {
+      seen.add(match[0]);
+      ids.push(match[0]);
+    }
+  }
+  const group = (ids.length ? ids : [item.num]).slice(0, 3).join(", ");
+  return group + " serial";
+}
+
+function renderAnswerParagraph(spans, where) {
+  const links = (spans || []).filter((span) => span && span.href);
+  const words = (spans || []).filter((span) => span && !span.href && String(span.text || "").trim());
+  if (links.length && !words.length) {
+    return '<ul class="notice-chips">' + links.map((span, index) =>
+      "<li>" + answerSpans([span], where + " link " + index) + "</li>"
+    ).join("") + "</ul>";
+  }
+  return "<p>" + answerSpans(spans, where) + "</p>";
+}
+
+function chipLinks(links, where) {
+  if (!links || !links.length) return "";
+  return '<ul class="notice-chips">' + links.map((link) => "<li>" + officialNoticeLink(link, where) + "</li>").join("") + "</ul>";
+}
+
 function noticeKind(notice) {
   const text = [notice.product, notice.hazard, notice.remedy, notice.says, notice.howToCheck, notice.modelsLabel, ...(notice.models || [])].filter(Boolean).join(" ");
   return recallKind(text, notice.product || "");
@@ -1624,13 +1663,13 @@ function answersHtml(entry) {
     if (item.id && !/^[a-z0-9-]+$/.test(item.id)) throw new Error("Answer card id: " + entry.slug);
     assertReaderVoice(item.place + " " + item.num, entry.slug + " answer");
     const id = item.id ? ' id="' + item.id + '"' : "";
-    const title = placeCount.get(item.place) > 1 ? item.num + " · " + item.place : item.place;
+    const title = placeCount.get(item.place) > 1 ? answerModelGroup(item) : item.place;
     const kind = recallKind(item.num + " " + answerText(item), item.place);
     const tone = kind === "clear" ? "is-clear" : kind === "bin" ? "is-bin" : "is-warn";
-    const line = "<p>" + answerSpans(item.paragraphs[0], entry.slug + " answer " + index + " 0") + "</p>";
+    const line = renderAnswerParagraph(item.paragraphs[0], entry.slug + " answer " + index + " 0");
     if (item.paragraphs.length > 1) {
       const rest = item.paragraphs.slice(1).map((spans, paragraph) =>
-        "<p>" + answerSpans(spans, entry.slug + " answer " + index + " " + (paragraph + 1)) + "</p>"
+        renderAnswerParagraph(spans, entry.slug + " answer " + index + " " + (paragraph + 1))
       ).join("");
       details.push("<article><h3>" + card.esc(title) + "</h3>" + rest + "</article>");
     }
@@ -1679,17 +1718,17 @@ function modelTableHtml(entry) {
       throw new Error("Model row width on " + entry.slug + " row " + index);
     }
     row.cells.forEach((cell) => assertReaderVoice(cell, entry.slug + " model row"));
-    const links = (row.links || []).map((link) => officialNoticeLink(link, entry.slug)).join(" ");
+    const links = chipLinks(row.links || [], entry.slug);
     if (!links) throw new Error("Model row needs a notice link: " + entry.slug);
     const cells = row.cells.map((cell) => "<td>" + card.esc(cell) + "</td>").join("");
     return "<tr>" + cells + "<td>" + links + "</td></tr>";
   }).join("");
   const stack = table.rows.map((row) => {
-    const links = (row.links || []).map((link) => officialNoticeLink(link, entry.slug)).join(" ");
+    const links = chipLinks(row.links || [], entry.slug);
     const facts = row.cells.slice(1).map((cell, index) =>
       "<p><strong>" + card.esc(table.columns[index + 1]) + ".</strong> " + card.esc(cell) + "</p>"
     ).join("");
-    return "<article><h3>" + card.esc(row.cells[0]) + "</h3>" + facts + "<p>" + links + "</p></article>";
+    return "<article><h3>" + card.esc(row.cells[0]) + "</h3>" + facts + links + "</article>";
   }).join("");
   const note = table.note ? "<p>" + card.esc(table.note) + "</p>" : "";
   const extra = checkItemsHtml(entry);
@@ -1710,9 +1749,9 @@ function listCardHtml(entry) {
   const items = block.items.map((item, index) => {
     if (!item || !item.name || !item.text) throw new Error("List item needs a name and text: " + entry.slug);
     assertReaderVoice(item.name + " " + item.text, entry.slug + " list " + index);
-    const links = (item.links || []).map((link) => officialNoticeLink(link, entry.slug)).join(" ");
+    const links = chipLinks(item.links || [], entry.slug);
     if (!links) throw new Error("List item needs a notice link: " + entry.slug);
-    return "<article><h3>" + card.esc(item.name) + "</h3><p>" + card.esc(item.text) + "</p><p>" + links + "</p></article>";
+    return "<article><h3>" + card.esc(item.name) + "</h3><p>" + card.esc(item.text) + "</p>" + links + "</article>";
   }).join("");
   const note = block.note ? "<p>" + card.esc(block.note) + "</p>" : "";
   return '<section class="model-card" id="' + block.id + '"><h2>' + card.esc(block.heading) + "</h2><p>" +
@@ -1740,11 +1779,11 @@ function recallCardHtml(entry) {
     }
     assertReaderVoice(agency.name + " " + agency.date + " " + agency.remedy, entry.slug + " recall card " + index);
     agency.models.forEach((model) => assertReaderVoice(model, entry.slug + " model"));
-    const links = (agency.links || []).map((link) => officialNoticeLink(link, entry.slug)).join(" ");
+    const links = chipLinks(agency.links || [], entry.slug);
     if (!links) throw new Error("Recall card agency needs a notice link: " + entry.slug);
     const models = '<ul class="model-list">' + agency.models.map((model) => "<li>" + card.esc(model) + "</li>").join("") + "</ul>";
     return "<article><h3>" + card.esc(agency.name) + " · " + card.esc(agency.date) + "</h3><p>" +
-      card.esc(agency.remedy) + "</p>" + models + "<p>" + links + "</p></article>";
+      card.esc(agency.remedy) + "</p>" + models + links + "</article>";
   }).join("");
   const note = block.note ? "<p>" + card.esc(block.note) + "</p>" : "";
   const extra = checkItemsHtml(entry);
@@ -6543,7 +6582,7 @@ function extLink(href, label) {
 function writePhotoCredits() {
   const photos = JSON.parse(readFileSync(join(root, "data", "photos.json"), "utf8"));
   const lifestyle = photos.map((photo) =>
-    '<li class="credit-line"><span class="credit-author">' + extLink(photo.source, photo.credit) + "</span> " +
+    '<li class="credit-line"><span class="credit-author">' + extLink(photo.source, tidyAuthor(photo.credit)) + '</span><span class="credit-sep" aria-hidden="true"> · </span>' +
     '<span class="credit-license">' + card.esc(photo.license) + "</span> · " + card.esc(photo.use) + "</li>"
   ).join("\n");
   const catalogue = products.filter((product) => product.imageKind === "model" && product.imageSource).map((product) => {
@@ -6554,7 +6593,7 @@ function writePhotoCredits() {
     const who = extLink(product.imageSource, author);
     const terms = licenseHref ? extLink(licenseHref, license || "License") : card.esc(license);
     const source = extLink(product.imageSource, "Source page");
-    return '<li class="credit-line"><span class="credit-author">' + who + "</span> " +
+    return '<li class="credit-line"><span class="credit-author">' + who + '</span><span class="credit-sep" aria-hidden="true"> · </span>' +
       '<span class="credit-license">' + terms + "</span> · " + source + " · Shows: " + card.esc(shows) +
       " · " + card.esc(product.title) + "</li>";
   }).join("\n");
@@ -7493,6 +7532,44 @@ function assertFooterDisclosure(html, message) {
   if (/Affiliate disclosure\.|I earn from qualifying|earn us nothing/.test(html)) throw new Error(message);
 }
 
+function assertReviewFixes() {
+  const cuisinart = readFileSync(join(root, "kitchen", "cuisinart-dfp-14bcny", "index.html"), "utf8");
+  if (cuisinart.includes("badge-clear") || cuisinart.includes("Clear · CPSC + HC")) {
+    throw new Error("Cuisinart page still shows a clear badge");
+  }
+  if (!cuisinart.includes("BIN · Recalled")) throw new Error("Cuisinart page is missing the BIN badge");
+  if (!cuisinart.includes('<details class="fold" open>') || !cuisinart.includes('id="specs"')) {
+    throw new Error("Product folds are not open");
+  }
+  if (!cuisinart.includes('class="fold-caret"') || !cuisinart.includes("hero-specs")) {
+    throw new Error("Product page is missing the caret or the spec strip");
+  }
+  if (cuisinart.includes("data-dock")) throw new Error("Sticky dock is still on the product page");
+  const blankets = readFileSync(join(root, "recalls", "heated-blanket-recalls", "index.html"), "utf8");
+  for (const id of ["brand-jkmax", "brand-octrot"]) {
+    const at = blankets.indexOf('id="' + id + '"');
+    const slice = blankets.slice(at, at + 400);
+    if (!slice.includes("BIN · Recalled")) throw new Error(id + " is not BIN · Recalled");
+  }
+  if (blankets.indexOf('id="brand-check"') > blankets.indexOf('id="full-list"')) {
+    throw new Error("Brand cards are below the full list");
+  }
+  if (!blankets.includes('class="notice-chips"')) throw new Error("Notice links are not chips");
+  const anker = readFileSync(join(root, "recalls", "anker-power-banks", "index.html"), "utf8");
+  if (anker.includes("<h3>On the bottom</h3>")) throw new Error("Anker cards still share the On the bottom title");
+  if (!anker.includes("<h3>A1263 serial</h3>") || !anker.includes("<h3>A1112011 serial</h3>")) {
+    throw new Error("Anker serial cards are missing distinct titles");
+  }
+  const credits = readFileSync(join(root, "photo-credits", "index.html"), "utf8");
+  if (credits.includes("Unknown author Unknown author") || credits.includes("SureshCC")) {
+    throw new Error("Photo credits still run the author into the licence");
+  }
+  if (!credits.includes('class="credit-sep"')) throw new Error("Photo credits are missing the author separator");
+  const coway = readFileSync(join(root, "air-water", "coway-ap-1512hh", "index.html"), "utf8");
+  const tile = coway.slice(coway.indexOf("spec-model"), coway.indexOf("spec-model") + 80);
+  if (!tile.includes("AP-1512HH") || tile.includes("Airmega")) throw new Error("Coway spec tile repeats the product name");
+}
+
 function assertEveryPageDisclosure() {
   const files = [];
   const walk = (dir) => {
@@ -7724,6 +7801,7 @@ function verifyOutput(pages) {
   assertNoOrphans();
   assertBestPages();
   assertEveryPageDisclosure();
+  assertReviewFixes();
   assertBuyerPicks();
   assertAllPageVoice();
   assertHubReaderText();

@@ -814,15 +814,23 @@ body[data-page="product"] .pick-media img { max-height: 320px; }
 .fold > summary::-webkit-details-marker { display: none; }
 .fold > summary::before {
   content: "";
-  width: 8px;
-  height: 8px;
+  width: 9px;
+  height: 9px;
   border-right: 2px solid var(--ink);
   border-bottom: 2px solid var(--ink);
   transform: rotate(-45deg);
   flex: 0 0 auto;
-  margin-top: -4px;
 }
-.fold[open] > summary::before { transform: rotate(45deg); margin-top: 2px; }
+.fold[open] > summary::before { transform: rotate(45deg); }
+.fold > summary:has(.fold-caret)::before { content: none; }
+.fold-caret {
+  display: inline-block;
+  font-size: 14px;
+  line-height: 1;
+  color: var(--ink);
+  transform: rotate(0deg);
+}
+.fold[open] > summary .fold-caret { transform: rotate(90deg); }
 .fold > summary::after {
   content: "Show";
   margin-left: auto;
@@ -834,6 +842,22 @@ body[data-page="product"] .pick-media img { max-height: 320px; }
   color: var(--muted);
 }
 .fold[open] > summary::after { content: "Hide"; }
+.fold > summary:has(.fold-state)::after { content: none; }
+.fold-state { margin-left: auto; font-family: var(--mono); font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.fold-state::before { content: "Show"; }
+.fold[open] > summary .fold-state::before { content: "Hide"; }
+body[data-page="product"] main { padding-bottom: 88px; }
+.related-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  margin: 20px 0 0;
+  padding: 0 0 8px;
+}
+.related-links a { font-weight: 600; }
+.hero-specs { margin: 4px 0 8px; }
+.credit-line { display: flex; flex-wrap: wrap; gap: 0 4px; align-items: baseline; margin: 0 0 12px; }
+.credit-sep { color: var(--muted); }
 .fold > summary h2, .fold > summary h3 { display: inline; margin: 0; font-size: 1.25rem; }
 .notice-chips {
   display: flex;
