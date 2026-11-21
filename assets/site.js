@@ -33,6 +33,17 @@
   }
 
   var POPULAR = ["vitamix-e310", "kitchenaid-artisan", "instant-pot-duo-plus", "coway-ap-1512hh", "sony-wh-1000xm5", "gopro-hero13", "ninja-crispi-fn101", "breville-bes870xl"];
+  var HUB_ORDER = ["winter", "car-garage", "air-water", "pet", "kitchen", "cleaning", "sleep", "personal-tech"];
+
+  function photoFirst(list) {
+    if (!window.CheckedLabCard || !window.CheckedLabCard.showablePhoto) return list.slice();
+    var photos = [];
+    var rest = [];
+    list.forEach(function (product) {
+      (window.CheckedLabCard.showablePhoto(product) ? photos : rest).push(product);
+    });
+    return photos.concat(rest);
+  }
 
   function isBin(product) {
     var recall = product.recall || {};
@@ -87,20 +98,42 @@
         var value = input.value.trim().toLowerCase();
         if (value) q = value;
       });
-      var title = document.getElementById("popular-title");
+      var recentTitle = document.getElementById("recent-title");
+      var alsoTitle = document.getElementById("popular-title");
       var empty = document.getElementById("search-empty");
-      var popular = q
-        ? list.filter(function (product) { return blob(product).indexOf(q) !== -1; })
+      var matches = q ? list.filter(function (product) { return blob(product).indexOf(q) !== -1; }) : null;
+      var photoProducts = matches
+        ? matches.filter(function (product) { return window.CheckedLabCard.showablePhoto(product); })
+        : window.CheckedLabCard.recentChecked(list, POPULAR, HUB_ORDER, 12);
+      var photoIds = {};
+      photoProducts.forEach(function (product) { photoIds[product.id] = 1; });
+      var compactProducts = matches
+        ? matches.filter(function (product) { return !photoIds[product.id]; })
         : POPULAR.map(function (id) {
           return list.find(function (product) { return product.id === id; });
-        }).filter(Boolean);
+        }).filter(function (product) { return product && !photoIds[product.id]; });
+      var photoHtml = [];
+      var spilled = [];
+      photoProducts.forEach(function (product, index) {
+        var html = window.CheckedLabCard.photoCard(product, reg, index === 0 ? { eager: true } : {});
+        if (html) photoHtml.push(html);
+        else spilled.push(product);
+      });
+      compactProducts = spilled.concat(compactProducts);
       var recalls = list.filter(isBin).filter(function (product) {
         return !q || blob(product).indexOf(q) !== -1;
       });
-      if (title) title.textContent = q ? "Matches" : "Recently recall-checked";
-      if (empty) empty.hidden = popular.length !== 0;
-      paint(document.getElementById("popular-mount"), popular.map(function (product, index) {
-        return window.CheckedLabCard.card(product, reg, index === 0 ? { eager: true } : {});
+      if (recentTitle) recentTitle.textContent = q ? "Matches" : "Recently checked";
+      if (alsoTitle) {
+        alsoTitle.textContent = q ? "Other matches" : "Also checked";
+        alsoTitle.hidden = compactProducts.length === 0;
+      }
+      if (empty) empty.hidden = photoHtml.length + compactProducts.length !== 0;
+      var recentMount = document.getElementById("recent-mount");
+      if (recentMount) recentMount.hidden = photoHtml.length === 0;
+      paint(recentMount, photoHtml.join(""), reg);
+      paint(document.getElementById("popular-mount"), compactProducts.map(function (product) {
+        return window.CheckedLabCard.compactRow(product, reg);
       }).join(""), reg);
       paint(document.getElementById("recall-mount"), recalls.length
         ? recalls.map(function (product) { return window.CheckedLabCard.card(product, reg); }).join("")
@@ -119,6 +152,7 @@
     if (page === "category") {
       shown = list.filter(function (product) { return product.category === category; });
       if (query) shown = shown.filter(function (product) { return blob(product).indexOf(query) !== -1; });
+      shown = photoFirst(shown);
     } else if (page === "bin") {
       shown = list.filter(isBin);
     } else {

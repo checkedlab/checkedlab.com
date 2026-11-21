@@ -495,7 +495,7 @@ for (const hub of HUBS) {
   const file = join(root, hub, "index.html");
   let html = readFileSync(file, "utf8");
   card.beginPage();
-  html = fillMount(html, byHub.get(hub).map((product, index) => card.card(product, "US", index === 0 ? { eager: true } : {})).join("\n"));
+  html = fillMount(html, photoFirst(byHub.get(hub)).map((product, index) => card.card(product, "US", index === 0 ? { eager: true } : {})).join("\n"));
   const lead = byHub.get(hub).find((product) => card.schemaImage(product));
   html = ensureImagePreload(html, lead);
   html = pointItemList(html, hub);
@@ -2119,8 +2119,15 @@ function relatedCompares(entry) {
 }
 
 function compareArt(product, index, strict) {
-  if (strict && product.imageMatch !== "exact") return card.tile(product);
+  if (strict && !card.showablePhoto(product)) return card.tile(product);
   return card.visual(product, { eager: index === 0, sizes: "(max-width: 640px) 46vw, 180px" });
+}
+
+function photoFirst(list) {
+  const photos = [];
+  const rest = [];
+  for (const product of list) (card.showablePhoto(product) ? photos : rest).push(product);
+  return photos.concat(rest);
 }
 
 function verdictBlock(entry, pair) {
@@ -6976,15 +6983,19 @@ ${deskHtml()}
 <div class="wrap">
 <div class="section-head">
 <div>
-<h2 id="popular-title">Recently recall-checked</h2>
-<p class="section-sub">Model records checked against CPSC and Health Canada on ${card.esc(when)}.</p>
+<h2 id="recent-title">Recently checked</h2>
+<p class="section-sub" id="recent-sub">Model photos from the check on ${card.esc(when)}. A different model stays a spec card.</p>
 </div>
 <a href="/recalls/">All recall checks →</a>
 </div>
 <p id="search-empty" class="empty" hidden>No model matches that.</p>
-<div id="popular-mount" class="prod-grid" data-rendered-region="US">
-${parts.popular}
+<div id="recent-mount" class="photo-grid" data-rendered-region="US">
+${parts.recent}
 </div>
+<h3 id="popular-title" class="also-head">Also checked</h3>
+<ul id="popular-mount" class="compact-list">
+${parts.compact}
+</ul>
 </div>
 </section>
 <section class="section" id="categories">
@@ -7024,7 +7035,7 @@ ${parts.popular}
 <div class="method-strip">
 <div class="method-step"><strong>01 · Model match</strong><h3>Exact model number first</h3><p>The brand and model are matched to the CPSC SaferProducts feed and the Health Canada open dataset. The date on the card is the day that match was recorded.</p></div>
 <div class="method-step"><strong>02 · Official databases</strong><h3>CPSC &amp; Health Canada</h3><p>The numbers come from the brand’s product page, with the source link beside them. Search the same model on CPSC Recalls and on Health Canada recalls and safety alerts.</p></div>
-<div class="method-step"><strong>03 · Honest visuals</strong><h3>Real photos or spec cards</h3><p>An exact model photo stays on the card. Anything else is a typographic spec card. The buttons open the store. Prices stay on the store.</p></div>
+<div class="method-step"><strong>03 · Honest visuals</strong><h3>Real photos or spec cards</h3><p>An exact model photo stays on the card, and so does the same model in another color or size. A different model is a typographic spec card. The buttons open the store. Prices stay on the store.</p></div>
 </div>
 <p class="method-more"><a href="/how-we-check/">Read the full method</a></p>
 </div>
@@ -7087,11 +7098,16 @@ function reshapeHome(html) {
   const quiz = take(/<section class="quiz"[\s\S]*?<\/section>/);
   if (!guide || !popular || !bf || !pointer) throw new Error("Home reshape is missing a mount");
   card.beginPage();
+  const recent = card.recentChecked(products, POPULAR_IDS, HUBS, 12);
+  const recentIds = new Set(recent.map((product) => product.id));
+  const recentHtml = recent.map((product, index) => card.photoCard(product, "US", index === 0 ? { eager: true } : {})).join("\n");
+  const compact = POPULAR_IDS.map((id) => products.find((product) => product.id === id)).filter((product) => product && !recentIds.has(product.id));
+  const compactHtml = compact.map((product) => card.compactRow(product, "US")).join("\n");
   const recalled = products.filter(isBin);
   const recalls = REC_START + "\n" + (recalled.length
     ? recalled.map((product) => card.card(product, "US")).join("\n")
     : '<p class="empty">No official model recall is on the list.</p>') + "\n" + REC_END;
-  const main = homeMain({ guide, popular, bf, pointer, widget, quiz, recalls });
+  const main = homeMain({ guide, recent: recentHtml, compact: compactHtml, bf, pointer, widget, quiz, recalls });
   if (!html.includes('<main id="main">')) throw new Error("Homepage main is missing");
   html = html.replace(/<main id="main">[\s\S]*?<\/main>/, main);
   html = html.replace(/<section class="recall-band"[\s\S]*?<\/section>\s*/g, "");
@@ -7590,6 +7606,39 @@ function assertNoFalseClear() {
   }
 }
 
+function assertPhotoRule() {
+  const home = readFileSync(join(root, "index.html"), "utf8");
+  if (!home.includes(">Recently checked</h2>")) throw new Error("Home photo band is missing");
+  const recentStart = home.indexOf('id="recent-mount"');
+  const recentEnd = home.indexOf('id="popular-title"');
+  const recent = home.slice(recentStart, recentEnd);
+  const imgs = recent.match(/<img\b/g) || [];
+  if (imgs.length < 8 || imgs.length > 12) throw new Error("Home photo band has " + imgs.length + " images");
+  const srcs = [...recent.matchAll(/\bsrc="([^"]+)"/g)].map((match) => match[1]);
+  if (new Set(srcs).size !== srcs.length) throw new Error("Home photo band repeats a photo");
+  for (const id of ["dyson-v15-detect", "levoit-core-600s", "levoit-core-300s-p", "instant-pot-duo-plus", "baratza-encore-esp", "lasko-ct14401", "vitamix-e310"]) {
+    const product = products.find((item) => item.id === id);
+    const html = readFileSync(join(root, product.category, id, "index.html"), "utf8");
+    const heroEnd = html.indexOf('class="toc"');
+    const hero = html.slice(html.indexOf('class="fold-top"'), heroEnd);
+    if (hero.includes('class="p-photo"')) throw new Error("Lookalike photo rendered on " + id);
+  }
+  for (const id of ["kong-classic", "dewalt-dcd771", "lodge-classic-skillet", "lecreuset-signature-5-5", "kitchenaid-artisan"]) {
+    const product = products.find((item) => item.id === id);
+    const html = readFileSync(join(root, product.category, id, "index.html"), "utf8");
+    if (!html.includes('class="p-photo"')) throw new Error("Showable photo missing on " + id);
+  }
+  const kitchen = readFileSync(join(root, "kitchen", "index.html"), "utf8");
+  const firstKitchen = (kitchen.match(/<article class="product-grid[\s\S]*?<\/article>/) || [])[0] || "";
+  if (!firstKitchen.includes('class="p-photo"')) throw new Error("Kitchen hub does not lead with a photo");
+  const purifiers = readFileSync(join(root, "best", "air-purifiers", "index.html"), "utf8");
+  const firstPurifier = (purifiers.match(/<article class="product-grid[\s\S]*?<\/article>/) || [])[0] || "";
+  if (!firstPurifier.includes('id="levoit-core-300s-p"') || firstPurifier.includes('class="p-photo"')) {
+    throw new Error("Air purifier guide lost its editorial order or showed a lookalike");
+  }
+  if (!purifiers.includes('src="/images/products/winix-5500-2.webp"')) throw new Error("Winix photo missing from the air purifier guide");
+}
+
 function assertReviewFixes() {
   const cuisinart = readFileSync(join(root, "kitchen", "cuisinart-dfp-14bcny", "index.html"), "utf8");
   if (cuisinart.includes("badge-clear") || cuisinart.includes("Clear · CPSC + HC")) {
@@ -7650,7 +7699,7 @@ function verifyOutput(pages) {
     const html = readFileSync(join(root, hub, "index.html"), "utf8");
     const found = [...html.matchAll(/<article class="(?:product-grid hub-card|product-row)[^"]*"[\s\S]*?<\/article>/g)].map((match) => match[0]);
     card.beginPage();
-    const expected = byHub.get(hub).map((product, index) => card.card(product, "US", index === 0 ? { eager: true } : {}));
+    const expected = photoFirst(byHub.get(hub)).map((product, index) => card.card(product, "US", index === 0 ? { eager: true } : {}));
     if (found.length !== expected.length) throw new Error(hub + " card count " + found.length);
     expected.forEach((markup, index) => {
       if (found[index] !== markup) throw new Error(hub + " card " + index + " does not match card()");
@@ -7861,6 +7910,7 @@ function verifyOutput(pages) {
   assertEveryPageDisclosure();
   assertReviewFixes();
   assertNoFalseClear();
+  assertPhotoRule();
   assertBuyerPicks();
   assertAllPageVoice();
   assertHubReaderText();
