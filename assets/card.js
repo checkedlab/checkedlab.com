@@ -165,12 +165,22 @@
     return (product.recall || {})[regionKey(reg)] || { status: "not_recorded" };
   }
 
+  function worstRecall(product) {
+    var us = recallFor(product, "US");
+    var ca = recallFor(product, "CA");
+    if (us.status === "bin" || ca.status === "bin") return { status: "bin", us: us, ca: ca };
+    if (us.status === "none" && ca.status === "none") return { status: "none", us: us, ca: ca };
+    var other = us.status && us.status !== "none" ? us : ca;
+    return { status: other.status || "not_recorded", us: us, ca: ca };
+  }
+
   function badgeHtml(recall) {
     recall = recall || {};
-    if (recall.status === "bin") return '<span class="badge badge-bin">BIN · Recalled</span>';
-    if (recall.status === "none") return '<span class="badge badge-clear">Clear · CPSC + HC</span>';
-    if (recall.partial) return '<span class="badge badge-warn">Partial Recall · Check Model</span>';
-    return '<span class="badge badge-warn">Check Serial · Check Model</span>';
+    if (recall.kind === "serial" || recall.serial) return '<span class="badge badge-warn">Check serial</span>';
+    if (recall.kind === "partial" || recall.partial) return '<span class="badge badge-warn">Partial · Check model</span>';
+    if (recall.status === "bin" || recall.kind === "bin") return '<span class="badge badge-bin">BIN · Recalled</span>';
+    if (recall.status === "none" || recall.kind === "clear") return '<span class="badge badge-clear">Clear · CPSC + HC</span>';
+    return '<span class="badge badge-warn">Check model</span>';
   }
 
   function honestLine(product, recall) {
@@ -525,20 +535,37 @@
     return String(model).toLowerCase().indexOf(String(type).toLowerCase()) !== -1;
   }
 
+  function modelCode(product) {
+    var title = String((product && product.title) || "").trim().toLowerCase();
+    var brand = String((product && product.sourceName) || "").trim().toLowerCase();
+    function usable(bit) {
+      var value = String(bit || "").replace(/\s+/g, " ").trim();
+      if (!value || value.length > 22) return "";
+      if (value.toLowerCase() === title || value.toLowerCase() === brand) return "";
+      if (/specs|model page|sourced|manual|list|linked|cooker|blender|heater|blanket|processor|machine|purifier|headphone/i.test(value)) return "";
+      var words = value.split(" ");
+      if (words.length > 3) return "";
+      if (!/[A-Za-z]/.test(value) || !/\d/.test(value)) return "";
+      return value;
+    }
+    var explicit = usable(product && product.model);
+    if (explicit) return explicit;
+    var bits = String((product && product.meta) || "").split(/\s*[•·]\s*/);
+    for (var i = 0; i < bits.length; i++) {
+      var found = usable(bits[i]);
+      if (found) return found;
+    }
+    return "";
+  }
+
   function specTile(product, opts) {
     product = product || {};
     opts = opts || {};
     var brand = String(product.sourceName || "").trim();
-    var model = displayModel(product);
-    var type = productType(product);
-    if (typeRepeatsModel(type, model)) type = "";
-    var facts = specFacts(product);
-    var cat = String(product.category || "").replace(/-/g, " ");
+    var code = modelCode(product);
     var html = '<div class="spec-tile spec-card-visual' + (opts.under ? " spec-under" : "") + '" data-cat="' + esc(product.category || "") + '">';
-    html += '<span class="spec-card-tag">' + esc(type || cat || "Spec card") + "</span>";
     if (brand) html += '<p class="spec-brand">' + esc(brand) + "</p>";
-    html += '<p class="spec-model spec-card-model">' + esc(model) + "</p>";
-    if (facts) html += '<p class="spec-facts spec-card-note">' + esc(facts) + "</p>";
+    html += '<p class="spec-model spec-card-model">' + esc(code || brand || "Model") + "</p>";
     return html + "</div>";
   }
 
@@ -574,7 +601,7 @@
 
   function card(product, reg, opts) {
     opts = opts || {};
-    var recall = recallFor(product, reg);
+    var recall = worstRecall(product);
     var href = productPath(product);
     var photo = product && product.imageMatch === "exact" ? visual(product, opts) : "";
     var media = photo && photo.indexOf("p-photo") !== -1
@@ -981,6 +1008,7 @@
     motifKey: motifKey,
     schemaImage: imageSrc,
     recallFor: recallFor,
+    worstRecall: worstRecall,
     productPath: productPath,
     visibleTitle: visibleTitle,
     esc: esc,

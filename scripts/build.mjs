@@ -1009,8 +1009,8 @@ function nav(current) {
   }).join("\n") + "\n" + recallCatsLink(current) + '\n<a class="cats-util" href="/how-we-check/">How we check</a>\n<a class="cats-util" href="/bin-list/">BIN list</a>\n</nav>';
 }
 
-function productFold(id, heading, body) {
-  return '<details class="fold" id="' + id + '"><summary><h2>' + heading + "</h2></summary><div class=\"fold-body\">" + body + "</div></details>";
+function productFold(id, heading, body, open) {
+  return '<details class="fold"' + (open ? " open" : "") + ' id="' + id + '"><summary><h2>' + heading + "</h2></summary><div class=\"fold-body\">" + body + "</div></details>";
 }
 
 function productPage(product) {
@@ -1093,8 +1093,7 @@ ${nav(hub)}
 <div class="fold-top">
 <div class="pick-media">${media}</div>
 <div class="p-main">
-<span class="only-us">${card.badgeHtml(us)}</span>
-<span class="only-ca">${card.badgeHtml(ca)}</span>
+${card.badgeHtml(card.worstRecall(product))}
 ${titleHtml}
 ${pickHtml}
 <div class="only-us">${card.amazonButton(product, "US")}</div>
@@ -1103,8 +1102,8 @@ ${pickHtml}
 </div>
 </article>
 <nav class="toc" aria-label="Jump to"><p>Jump to</p><a href="#is-it-recalled">Recall check</a><a href="#specs">Specs</a><a href="#stores">Stores</a><a href="#why-listed">Why it’s listed</a><a href="#questions">Questions</a></nav>
-<details class="fold"><summary><h2 class="recall-q" id="is-it-recalled">Is the ${card.esc(product.title)} recalled?</h2></summary><div class="fold-body">${datedParagraph(us, "US")}${datedParagraph(ca, "Canadian")}${otherSection(product)}${modelFindHtml(product)}</div></details>
-${productFold("specs", "Specs", specList(product) + card.evidenceList(product) + '<p class="price-note">Prices change often, check the current price at the store.</p><p class="affiliate-note">Amazon link is an affiliate link</p>')}
+<details class="fold" open><summary><h2 class="recall-q" id="is-it-recalled">Is the ${card.esc(product.title)} recalled?</h2></summary><div class="fold-body">${datedParagraph(us, "US")}${datedParagraph(ca, "Canadian")}${otherSection(product)}${modelFindHtml(product)}</div></details>
+${productFold("specs", "Specs", specList(product) + card.evidenceList(product) + '<p class="price-note">Prices change often, check the current price at the store.</p><p class="affiliate-note">Amazon link is an affiliate link</p>', true)}
 ${productFold("stores", "Stores", '<div class="only-us">' + card.storeButtons(product, "US") + '</div><div class="only-ca">' + card.storeButtons(product, "CA") + "</div>")}
 ${productFold("why-listed", "Why it’s listed", '<p class="why-note">' + card.esc(why) + "</p>" + '<p class="p-note only-us">' + card.esc(card.honestLine(product, us)) + '</p><p class="p-note only-ca">' + card.esc(card.honestLine(product, ca)) + "</p>" + card.checkList(product))}
 ${productFold("questions", "Questions", faqHtml(product) + canadaBlock(product))}
@@ -1292,10 +1291,7 @@ function giftQuiz() {
 }
 
 function ensureDock(html) {
-  html = html.replace(/\n?<div class="dock" data-dock>[\s\S]*?<\/div>\n?/g, "\n");
-  if (!html.includes('data-page="product"')) return html;
-  const dock = '<div class="dock" data-dock><a class="dock-cta" href="#is-it-recalled">Is it recalled?</a></div>\n';
-  return html.replace("</body>", dock + "</body>");
+  return html.replace(/\n?<div class="dock" data-dock>[\s\S]*?<\/div>\n?/g, "\n");
 }
 
 function trustBarHtml(jump) {
@@ -1578,6 +1574,38 @@ function answerSpans(spans, where) {
   }).join("");
 }
 
+function answerText(item) {
+  return (item.paragraphs || []).map((spans) => spans.map((span) => span.text || "").join("")).join(" ");
+}
+
+function recallKind(text, place) {
+  const blob = String(text || "");
+  if (/no recall found/i.test(blob)) return "clear";
+  if (/serial numbers?\b|\bdate codes?\b|tracker ranges?\b|manufactured\b.{0,80}\bthrough\b|manufactured from\b|codes \d+ to \d+/i.test(blob)) {
+    return "serial";
+  }
+  const codes = blob.match(/\b[A-Z]{2,}[A-Z0-9]*-[A-Z0-9-]+\b/g) || [];
+  const brand = String(place || "").split(/[\s+]/)[0].toUpperCase().replace(/[^A-Z]/g, "");
+  const prefix = brand.slice(0, 3);
+  if (codes.length && prefix.length === 3 && codes.every((code) => code.startsWith(prefix))) return "bin";
+  if (/\bmodel\s+[A-Z0-9][A-Z0-9-]{2,}\b/.test(blob) && !/\bmodels\b/i.test(blob)) return "bin";
+  if (codes.length) return "partial";
+  if (/stop using/i.test(blob)) return "bin";
+  return "partial";
+}
+
+function verdictBadge(kind) {
+  if (kind === "clear") return card.badgeHtml({ status: "none" });
+  if (kind === "serial") return card.badgeHtml({ kind: "serial" });
+  if (kind === "partial") return card.badgeHtml({ kind: "partial" });
+  return card.badgeHtml({ status: "bin" });
+}
+
+function noticeKind(notice) {
+  const text = [notice.product, notice.hazard, notice.remedy, notice.says, notice.howToCheck, notice.modelsLabel, ...(notice.models || [])].filter(Boolean).join(" ");
+  return recallKind(text, notice.product || "");
+}
+
 function answersHtml(entry) {
   const block = entry.answers;
   if (!block) return "";
@@ -1586,6 +1614,9 @@ function answersHtml(entry) {
   }
   if (!Array.isArray(block.cards) || block.cards.length < 2) throw new Error("Answer block needs cards: " + entry.slug);
   assertReaderVoice(block.heading + " " + block.intro + " " + (block.note || ""), entry.slug + " answers");
+  const placeCount = new Map();
+  for (const item of block.cards) placeCount.set(item.place, (placeCount.get(item.place) || 0) + 1);
+  const details = [];
   const cards = block.cards.map((item, index) => {
     if (!item || !item.place || !item.num || !Array.isArray(item.paragraphs) || !item.paragraphs.length) {
       throw new Error("Answer card needs a place, a number, and paragraphs: " + entry.slug);
@@ -1593,23 +1624,25 @@ function answersHtml(entry) {
     if (item.id && !/^[a-z0-9-]+$/.test(item.id)) throw new Error("Answer card id: " + entry.slug);
     assertReaderVoice(item.place + " " + item.num, entry.slug + " answer");
     const id = item.id ? ' id="' + item.id + '"' : "";
-    const paras = item.paragraphs.map((spans, paragraph) =>
-      "<p>" + answerSpans(spans, entry.slug + " answer " + index + " " + paragraph) + "</p>"
-    ).join("");
-    const tone = /no recall/i.test(item.num) ? "is-clear" : /recall/i.test(item.num) ? "is-warn" : "is-warn";
-    const verdict = /no recall/i.test(item.num)
-      ? card.badgeHtml({ status: "none" })
-      : /serial/i.test(item.num)
-        ? card.badgeHtml({ status: "unconfirmed", serial: true })
-        : /recall/i.test(item.num)
-          ? card.badgeHtml({ status: "unconfirmed", partial: true })
-          : card.badgeHtml({ status: "unconfirmed" });
-    return '<article class="answer-card brand-card ' + tone + '"' + id + '><div class="brand-card-head"><h3>' + card.esc(item.place) +
-      "</h3>" + verdict + '</div><p class="answer-num">' + card.esc(item.num) + "</p>" + paras + "</article>";
+    const title = placeCount.get(item.place) > 1 ? item.num + " · " + item.place : item.place;
+    const kind = recallKind(item.num + " " + answerText(item), item.place);
+    const tone = kind === "clear" ? "is-clear" : kind === "bin" ? "is-bin" : "is-warn";
+    const line = "<p>" + answerSpans(item.paragraphs[0], entry.slug + " answer " + index + " 0") + "</p>";
+    if (item.paragraphs.length > 1) {
+      const rest = item.paragraphs.slice(1).map((spans, paragraph) =>
+        "<p>" + answerSpans(spans, entry.slug + " answer " + index + " " + (paragraph + 1)) + "</p>"
+      ).join("");
+      details.push("<article><h3>" + card.esc(title) + "</h3>" + rest + "</article>");
+    }
+    return '<article class="answer-card brand-card ' + tone + '"' + id + '><div class="brand-card-head"><h3>' + card.esc(title) +
+      "</h3>" + verdictBadge(kind) + '</div><p class="answer-num">' + card.esc(item.num) + "</p>" + line + "</article>";
   }).join("");
   const note = block.note ? "<p>" + card.esc(block.note) + "</p>" : "";
+  const detail = details.length
+    ? '<div class="brand-detail"><h2>Detail</h2><div class="model-stack is-open">' + details.join("") + "</div></div>"
+    : "";
   return '<section id="' + block.id + '"><h2>' + card.esc(block.heading) + "</h2><p>" + card.esc(block.intro) +
-    '</p><div class="answer-split">' + cards + "</div>" + note + "</section>";
+    '</p><div class="answer-split brand-grid">' + cards + "</div>" + detail + note + "</section>";
 }
 
 function officialNoticeLink(link, where) {
@@ -1625,8 +1658,10 @@ function checkItemsHtml(entry) {
     if (!item || !item.label || !item.text) throw new Error("Check block needs a label and text: " + entry.slug);
     assertReaderVoice(item.label + " " + item.text, entry.slug + " check");
     const links = Array.isArray(item.links) ? item.links : [];
-    const anchors = links.map((link) => officialNoticeLink(link, entry.slug)).join(" ");
-    return "<li><strong>" + card.esc(item.label) + ".</strong> " + card.esc(item.text) + (anchors ? " " + anchors : "") + "</li>";
+    const anchors = links.length
+      ? '<ul class="notice-chips">' + links.map((link) => "<li>" + officialNoticeLink(link, entry.slug) + "</li>").join("") + "</ul>"
+      : "";
+    return "<li><strong>" + card.esc(item.label) + ".</strong> " + card.esc(item.text) + anchors + "</li>";
   }).join("");
 }
 
@@ -3009,8 +3044,7 @@ function bestCard(product, pick, opts) {
     media +
     '<div class="p-main prod-body">' +
     label +
-    '<span class="only-us">' + card.badgeHtml(card.recallFor(product, "US")) + "</span>" +
-    '<span class="only-ca">' + card.badgeHtml(card.recallFor(product, "CA")) + "</span>" +
+    card.badgeHtml(card.worstRecall(product)) +
     card.noteBadge(product) +
     '<h2 class="p-title prod-title"><a href="' + href + '">' + card.visibleTitle(product.title) + "</a></h2>" +
     bestSpecItems(product, pick.specs) +
@@ -3553,7 +3587,7 @@ function writeExplainers() {
     const roundup = entry.roundup ? roundupTable(entry) : "";
     const shop = shopHtml(entry);
     const faqs = explainerFaqHtml(entry);
-    const lead = [topLinkHtml(entry), affectedHtml(entry), listCardHtml(entry), answersHtml(entry), replacingHtml(entry), roundup, shop, faqs]
+    const lead = [topLinkHtml(entry), answersHtml(entry), affectedHtml(entry), listCardHtml(entry), replacingHtml(entry), roundup, shop, faqs]
       .filter(Boolean).join("\n");
     const html = `<!DOCTYPE html>
 <html lang="en" data-region="US">
@@ -6490,6 +6524,18 @@ function creditAuthor(credit) {
   return match ? match[1].trim() : "";
 }
 
+function tidyAuthor(name) {
+  const text = String(name || "").replace(/\s+/g, " ").trim();
+  const words = text.split(" ").filter(Boolean);
+  if (words.length >= 2 && words.length % 2 === 0) {
+    const mid = words.length / 2;
+    const left = words.slice(0, mid).join(" ");
+    const right = words.slice(mid).join(" ");
+    if (left.toLowerCase() === right.toLowerCase()) return left;
+  }
+  return text || "Photographer";
+}
+
 function extLink(href, label) {
   return '<a href="' + card.esc(href) + '" target="_blank" rel="noopener">' + card.esc(label) + "</a>";
 }
@@ -6497,20 +6543,20 @@ function extLink(href, label) {
 function writePhotoCredits() {
   const photos = JSON.parse(readFileSync(join(root, "data", "photos.json"), "utf8"));
   const lifestyle = photos.map((photo) =>
-    "<li>" + extLink(photo.source, photo.credit) +
-    "<small>" + card.esc(photo.license) + " · " + card.esc(photo.use) + "</small></li>"
+    '<li class="credit-line"><span class="credit-author">' + extLink(photo.source, photo.credit) + "</span> " +
+    '<span class="credit-license">' + card.esc(photo.license) + "</span> · " + card.esc(photo.use) + "</li>"
   ).join("\n");
   const catalogue = products.filter((product) => product.imageKind === "model" && product.imageSource).map((product) => {
-    const author = product.imageAuthor || creditAuthor(product.imageCredit) || "Photographer";
+    const author = tidyAuthor(product.imageAuthor || creditAuthor(product.imageCredit) || "Photographer");
     const license = product.imageLicense || "";
     const licenseHref = product.imageLicenseUrl || licenseUrlFor(license);
     const shows = product.imageShows || product.title;
     const who = extLink(product.imageSource, author);
     const terms = licenseHref ? extLink(licenseHref, license || "License") : card.esc(license);
     const source = extLink(product.imageSource, "Source page");
-    return "<li>" + who +
-      "<small>" + terms + " · " + source + " · Shows: " + card.esc(shows) +
-      " · " + card.esc(product.title) + "</small></li>";
+    return '<li class="credit-line"><span class="credit-author">' + who + "</span> " +
+      '<span class="credit-license">' + terms + "</span> · " + source + " · Shows: " + card.esc(shows) +
+      " · " + card.esc(product.title) + "</li>";
   }).join("\n");
   const html = `<!DOCTYPE html>
 <html lang="en" data-region="US">
@@ -6955,7 +7001,7 @@ function deskHtml() {
   const body = picked.map(({ entry, notice }) => {
     const models = (notice.models || []).slice(0, 3).join(", ");
     const meta = [models, notice.agency, notice.date].filter(Boolean).join(" · ");
-    return '<div class="desk-row">' + card.badgeHtml({ status: "bin" }) +
+    return '<div class="desk-row">' + verdictBadge(noticeKind(notice)) +
       '<div><a class="desk-row-title" href="/recalls/' + entry.slug + '/">' + card.esc(notice.product || entry.title) + "</a>" +
       '<div class="desk-row-meta">' + card.esc(meta) + "</div></div></div>";
   }).join("");
@@ -7750,7 +7796,12 @@ function assertProductSeo(html, product) {
   const heading = "Official recalls for other models in this brand";
   if (others && !html.includes("<h3>" + heading + "</h3>")) throw new Error("Other-model heading missing on " + product.id);
   if (!others && html.includes(heading)) throw new Error("Other-model heading without notices on " + product.id);
-  if (/we tested|we bought|does not test/i.test(html)) throw new Error("Disallowed claim on " + product.id);
+    if (/we tested|we bought|does not test/i.test(html)) throw new Error("Disallowed claim on " + product.id);
+    const usStatus = product.recall && product.recall.us && product.recall.us.status;
+    const caStatus = product.recall && product.recall.ca && product.recall.ca.status;
+    if ((usStatus === "bin" || caStatus === "bin") && (html.includes("badge-clear") || html.includes("Clear · CPSC + HC"))) {
+      throw new Error("Clear badge on a recalled model: " + product.id);
+    }
 }
 
 function indexable(product) {

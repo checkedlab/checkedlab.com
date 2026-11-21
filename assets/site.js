@@ -229,10 +229,12 @@
   }
 
   function recallStatus(product) {
-    var rec = (product.recall || {})[region() === "CA" ? "ca" : "us"] || {};
-    if (rec.status === "bin") return "BIN · Recalled";
-    if (rec.status === "none") return "Clear · CPSC + HC";
-    return "Check Serial · Check Model";
+    var recall = product.recall || {};
+    var us = (recall.us || {}).status;
+    var ca = (recall.ca || {}).status;
+    if (us === "bin" || ca === "bin") return "BIN · Recalled";
+    if (us === "none" && ca === "none") return "Clear · CPSC + HC";
+    return "Check model";
   }
 
   function searchRecall(list) {
@@ -254,7 +256,7 @@
     out.innerHTML = '<ul class="recall-hits">' + hits.map(function (product) {
       var href = "/" + product.category + "/" + product.id + "/";
       var label = recallStatus(product);
-      var tone = label === "BIN · Recalled" ? "badge-bin" : label === "Clear · CPSC + HC" ? "badge-clear" : "badge-warn";
+      var tone = label.indexOf("BIN") === 0 ? "badge-bin" : label.indexOf("Clear") === 0 ? "badge-clear" : "badge-warn";
       return '<li><a href="' + esc(href) + '">' + esc(product.title) + '</a> <span class="badge ' + tone + '">' + esc(label) + "</span></li>";
     }).join("") + "</ul>";
   }
