@@ -13,11 +13,15 @@ const ORIGIN = "https://www.checkedlab.com";
 const START = "<!-- checkedlab:cards start -->";
 const END = "<!-- checkedlab:cards end -->";
 const DISCLOSURE = '<p class="foot-disclosure">As an Amazon Associate, Checked Lab earns from qualifying purchases.</p>';
-const FOOTER = `<footer>
-<div class="foot">
+const FOOTER = `<footer class="site-footer">
+<div class="wrap">
+<div class="foot-grid">
+<div class="foot-brand-block"><strong class="foot-brand">Checked Lab</strong><span class="foot-tag">We buy. We test. We bin the BS.</span></div>
+<nav class="foot-links" aria-label="Footer">
+<a href="/recalls/">Recall checks</a><a href="/best/">Best guides</a><a href="/kitchen/">Kitchen</a><a href="/air-water/">Air &amp; water</a><a href="/personal-tech/">Personal tech</a><a href="/how-we-check/">How we check</a><a href="/bin-list/">BIN list</a><a href="/photo-credits/">Photo credits</a><a href="/gifts/">Gift guides</a><a href="/compare/">Spec comparisons</a><a href="/black-friday/">Black Friday</a><a href="/thanksgiving/">Thanksgiving</a><a href="/toy-safety/">Toy safety</a><a href="/winter-safety/">Winter safety</a><a href="mailto:hello@checkedlab.com">hello@</a>
+</nav>
+</div>
 ${DISCLOSURE}
-<p>© 2026 Checked Lab<br>Winnipeg, MB</p>
-<p class="foot-mail"><a href="/thanksgiving/">Thanksgiving</a><a href="/toy-safety/">Toy safety</a><a href="/winter-safety/">Winter safety</a><a href="/gifts/">Gift guides</a><a href="/best/">Best of</a><a href="/black-friday/">Black Friday</a><a href="/compare/">Spec comparisons</a><a href="/recalls/">Recall checks</a><a href="/how-we-check/">How we check</a><a href="/bin-list/">BIN list</a><a href="/photo-credits/">Photo credits</a><a href="mailto:hello@checkedlab.com">hello@</a><a href="mailto:support@checkedlab.com">support@</a><a href="mailto:press@checkedlab.com">press@</a><a href="mailto:legal@checkedlab.com">legal@</a></p>
 </div>
 </footer>`;
 const BIN_EMPTY = '<p class="empty">Nothing is on the BIN list. A product lands here only when a recall record matches its brand and model. An unconfirmed model is not a BIN.</p>';
@@ -195,7 +199,7 @@ const SOURCE_LABELS = {
   "https://open.canada.ca/data/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3": "Health Canada open dataset"
 };
 const COMMERCE = /^(offers|price|priceCurrency|lowPrice|highPrice|aggregateRating|review|reviewRating|ratingValue|ratingCount|reviewCount)$/i;
-const FONT_PRELOAD = '<link rel="preload" href="/assets/fonts/source-sans-3-latin.woff2" as="font" type="font/woff2" crossorigin fetchpriority="low">';
+const FONT_PRELOAD = '<link rel="preload" href="/assets/fonts/source-sans-3-latin.woff2" as="font" type="font/woff2" crossorigin fetchpriority="low">\n<link rel="preconnect" href="https://fonts.googleapis.com">\n<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&amp;family=Inter:wght@400;500;600;700&amp;family=Newsreader:opsz,wght@6..72,500;6..72,600&amp;display=swap">';
 const HOME_START = "<!-- checkedlab:recall-home start -->";
 const HOME_END = "<!-- checkedlab:recall-home end -->";
 const HOME_BF_START = "<!-- checkedlab:bf-home start -->";
@@ -556,7 +560,9 @@ for (const hub of HUBS) {
   const recallsOnHome = products.filter(isBin);
   card.beginPage();
   html = fillMount(html, popular.map((product, index) => card.card(product, "US", index === 0 ? { eager: true } : {})).join("\n"), POP_START, POP_END);
-  html = fillMount(html, recallsOnHome.length ? recallsOnHome.map((product) => card.card(product, "US")).join("\n") : '<p class="empty">No official model recall is on the list.</p>', REC_START, REC_END);
+  if (html.includes(REC_START)) {
+    html = fillMount(html, recallsOnHome.length ? recallsOnHome.map((product) => card.card(product, "US")).join("\n") : '<p class="empty">No official model recall is on the list.</p>', REC_START, REC_END);
+  }
   html = fillHomePointer(html, recalls.checkedAt || "");
   html = fillMount(html, homeBlackFridayModule(), HOME_BF_START, HOME_BF_END);
   html = html.replace(/<section class="hub-tiles"[\s\S]*?<\/section>\n?/g, "");
@@ -566,6 +572,7 @@ for (const hub of HUBS) {
   }
   html = ensureChrome(ensureFontPreload(ensureCardScript(html)), "home");
   html = applyHomeGuide(html);
+  html = reshapeHome(html);
   writeFileSync(file, html);
 }
 
@@ -672,13 +679,14 @@ function assertRenderer() {
       us: { status: "bin", detail: "A recall matches this model.", url: "https://www.cpsc.gov/Recalls/example" }
     }
   }, "US");
-  for (const bit of ['data-category="kitchen"', "badge-bin", "Official recall found", "See specs and stores"]) {
+  for (const bit of ['data-category="kitchen"', "badge-bin", "BIN · Recalled", "Check on Amazon"]) {
     if (!bin.includes(bit)) throw new Error("BIN card missing " + bit);
   }
-  if (bin.includes("store-btn") || bin.includes("check-title") || bin.includes("evidence")) {
+  if (!bin.includes("checkedlab01-20")) throw new Error("Hub card is missing the US Amazon tag");
+  if (bin.includes("check-title") || bin.includes("evidence") || /\$\d/.test(bin)) {
     throw new Error("Hub card includes a product-page block");
   }
-  if (!bin.includes('class="spec-tile"') || !bin.includes('class="spec-model"')) {
+  if (!/\bspec-tile\b/.test(bin) || !/\bspec-model\b/.test(bin)) {
     throw new Error("Hub card is missing the spec tile");
   }
   if (bin.includes('class="pick-if"') || bin.includes("Pick it for:")) {
@@ -698,7 +706,7 @@ function assertRenderer() {
   if (!voiced.includes("Pick it if you want one machine that grinds the beans and pulls the espresso.") || voiced.includes("Pick it for:")) {
     throw new Error("Hub card dropped the buyer line");
   }
-  if (bin.includes('class="p-photo"') || bin.includes('class="type-tile"') || bin.includes('class="illu"') || /amazon\.com/i.test(bin)) {
+  if (bin.includes('class="p-photo"') || bin.includes('class="type-tile"') || bin.includes('class="illu"') || /media-amazon|images-amazon/i.test(bin)) {
     throw new Error("Hub card used a photo, an icon tile, or an Amazon image");
   }
   if (/\$\d/.test(bin) || bin.includes("offers")) throw new Error("Renderer emitted a price");
@@ -926,7 +934,7 @@ function siblingLinks(product) {
     ...thanksGuideLinks(product),
     ...picks.map((item) => '<a href="' + card.productPath(item) + '">' + card.esc(item.title) + "</a>")
   ];
-  return '<p class="lede">' + links.join(" ") + "</p>";
+  return '<nav class="related-links" aria-label="Related">' + links.join("") + "</nav>";
 }
 
 function jsonLd(product) {
@@ -1001,8 +1009,16 @@ function nav(current) {
   }).join("\n") + "\n" + recallCatsLink(current) + '\n<a class="cats-util" href="/how-we-check/">How we check</a>\n<a class="cats-util" href="/bin-list/">BIN list</a>\n</nav>';
 }
 
-function productFold(id, heading, body) {
-  return '<details class="fold" id="' + id + '"><summary><h2>' + heading + "</h2></summary><div class=\"fold-body\">" + body + "</div></details>";
+function productFold(id, heading, body, open) {
+  return '<details class="fold"' + (open ? " open" : "") + ' id="' + id + '"><summary><span class="fold-caret" aria-hidden="true">▸</span><h2>' + heading + '</h2><span class="fold-state"></span></summary><div class="fold-body">' + body + "</div></details>";
+}
+
+function heroSpecStrip(product) {
+  const specs = (product.specs || []).filter((spec) => spec && spec.label && spec.value && !/^(model|asin|sku|item)$/i.test(String(spec.label).trim())).slice(0, 4);
+  if (!specs.length) return "";
+  return '<div class="spec-strip hero-specs">' + specs.map((spec) =>
+    '<div class="spec-item"><strong>' + card.esc(spec.label) + "</strong><span>" + card.esc(spec.value) + "</span></div>"
+  ).join("") + "</div>";
 }
 
 function productPage(product) {
@@ -1019,9 +1035,7 @@ function productPage(product) {
     : "Checked Lab lists this model so the recall check and the maker page are in one place. No maker spec line is on this page yet.";
   const pickHtml = pickParagraph(product);
   const media = card.visual(product, { eager: true, hero: true });
-  const titleHtml = media.includes("spec-tile")
-    ? '<div class="visually-hidden"><h1 class="p-title">' + card.visibleTitle(product.title) + "</h1></div>"
-    : '<h1 class="p-title">' + card.visibleTitle(product.title) + "</h1>";
+  const titleHtml = '<h1 class="p-title">' + card.visibleTitle(product.title) + "</h1>";
   return `<!DOCTYPE html>
 <html lang="en" data-region="US">
 <head>
@@ -1087,18 +1101,18 @@ ${nav(hub)}
 <div class="fold-top">
 <div class="pick-media">${media}</div>
 <div class="p-main">
-<span class="only-us">${card.badgeHtml(us)}</span>
-<span class="only-ca">${card.badgeHtml(ca)}</span>
+${card.badgeFor(product)}
 ${titleHtml}
 ${pickHtml}
+${heroSpecStrip(product)}
 <div class="only-us">${card.amazonButton(product, "US")}</div>
 <div class="only-ca">${card.amazonButton(product, "CA")}</div>
 </div>
 </div>
 </article>
 <nav class="toc" aria-label="Jump to"><p>Jump to</p><a href="#is-it-recalled">Recall check</a><a href="#specs">Specs</a><a href="#stores">Stores</a><a href="#why-listed">Why it’s listed</a><a href="#questions">Questions</a></nav>
-<details class="fold"><summary><h2 class="recall-q" id="is-it-recalled">Is the ${card.esc(product.title)} recalled?</h2></summary><div class="fold-body">${datedParagraph(us, "US")}${datedParagraph(ca, "Canadian")}${otherSection(product)}${modelFindHtml(product)}</div></details>
-${productFold("specs", "Specs", specList(product) + card.evidenceList(product) + '<p class="price-note">Prices change often, check the current price at the store.</p><p class="affiliate-note">Amazon link is an affiliate link</p>')}
+<details class="fold" open><summary><span class="fold-caret" aria-hidden="true">▸</span><h2 class="recall-q" id="is-it-recalled">Is the ${card.esc(product.title)} recalled?</h2><span class="fold-state"></span></summary><div class="fold-body">${datedParagraph(us, "US")}${datedParagraph(ca, "Canadian")}${otherSection(product)}${modelFindHtml(product)}</div></details>
+${productFold("specs", "Specs", specList(product) + card.evidenceList(product) + '<p class="price-note">Prices change often, check the current price at the store.</p><p class="affiliate-note">Amazon link is an affiliate link</p>', true)}
 ${productFold("stores", "Stores", '<div class="only-us">' + card.storeButtons(product, "US") + '</div><div class="only-ca">' + card.storeButtons(product, "CA") + "</div>")}
 ${productFold("why-listed", "Why it’s listed", '<p class="why-note">' + card.esc(why) + "</p>" + '<p class="p-note only-us">' + card.esc(card.honestLine(product, us)) + '</p><p class="p-note only-ca">' + card.esc(card.honestLine(product, ca)) + "</p>" + card.checkList(product))}
 ${productFold("questions", "Questions", faqHtml(product) + canadaBlock(product))}
@@ -1132,34 +1146,42 @@ function recallCatsLink(current) {
   return '<a href="/recalls/"' + currentAttr + ">" + RECALL_ICON + "<span>Recall checks</span></a>";
 }
 
+function checkedLabel(date) {
+  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  const parts = String(date || "").split("-");
+  if (parts.length !== 3 || months[Number(parts[1]) - 1] == null) return "CPSC & Health Canada checked";
+  return "CPSC & Health Canada checked · " + months[Number(parts[1]) - 1] + " " + Number(parts[2]) + ", " + parts[0];
+}
+
 function mastheadHtml(current) {
-  const mark = (key) => current === key ? ' aria-current="page"' : "";
-  const cats = NAV.map(([hub, label]) =>
-    '<a href="/' + hub + '/"' + mark(hub) + ">" + ICONS[hub] + "<span>" + label + "</span></a>"
-  ).join("") +
-    '<a href="/thanksgiving/"' + mark("thanksgiving") + "><span>Thanksgiving</span></a>" +
-    '<a href="/toy-safety/"' + mark("toy-safety") + "><span>Toy safety</span></a>" +
-    '<a href="/winter-safety/"' + mark("winter-safety") + "><span>Winter safety</span></a>";
-  return '<div class="masthead">\n<header class="bar">\n' +
-    '<a class="logo" href="/"><span class="logo-mark" aria-hidden="true"></span>Checked Lab</a>\n' +
-    '<div class="nav-panel" id="site-nav" data-nav-panel>\n<nav class="primary-nav" aria-label="Primary">\n' +
-    '<a href="/recalls/"' + mark("recalls") + ">Recall checks</a>\n" +
-    '<a href="/gifts/"' + mark("gifts") + ">Gift guides</a>\n" +
-    '<a href="/best/"' + mark("best") + ">Best of</a>\n" +
-    '<a href="/black-friday/"' + mark("black-friday") + ">Black Friday</a>\n" +
-    '<details class="cat-menu">\n<summary>Categories</summary>\n<div class="cat-panel">' + cats + "</div>\n</details>\n" +
-    '<a href="/how-we-check/"' + mark("how") + ">How we check</a>\n" +
-    '<a href="/bin-list/"' + mark("bin") + ">BIN list</a>\n" +
-    "</nav>\n</div>\n" +
-    '<div class="country-switch" role="group" aria-label="Country">\n' +
-    '<button type="button" data-region-set="US">US</button>\n' +
-    '<button type="button" data-region-set="CA">CA</button>\n</div>\n' +
-    '<form class="head-search" action="/" method="get" role="search">\n' +
-    '<label class="visually-hidden" for="site-q">Search models</label>\n' +
-    '<input id="site-q" name="q" data-model-search type="search" placeholder="Search models" autocomplete="off" enterkeyhint="search">\n' +
-    "</form>\n" +
-    '<button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav">Menu</button>\n' +
-    "</header>\n</div>";
+  const mark = (key) => current === key ? ' class="is-current" aria-current="page"' : "";
+  const links = [
+    ["/recalls/", "Recalls", "recalls"],
+    ["/best/", "Best Guides", "best"],
+    ["/kitchen/", "Kitchen", "kitchen"],
+    ["/air-water/", "Air & Water", "air-water"],
+    ["/personal-tech/", "Personal Tech", "personal-tech"],
+    ["/how-we-check/", "How We Check", "how"]
+  ];
+  const stamp = '<span class="brand-stamp" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="square" stroke-linejoin="miter"><path d="M4.5 12.5L9.5 17.5L19.5 6.5"/></svg></span>';
+  return '<div class="site-chrome">\n<div class="util-bar"><div class="wrap util-inner">' +
+    '<div class="manifesto"><span class="manifesto-dot" aria-hidden="true"></span><span>We buy. We test. We bin the BS.</span></div>' +
+    '<div class="util-meta"><span class="hide-mob">' + card.esc(checkedLabel(recalls.checkedAt)) + "</span>" +
+    '<div class="region-seg country-switch" role="group" aria-label="Country">' +
+    '<button type="button" data-region-set="US">US</button>' +
+    '<button type="button" data-region-set="CA">CA</button></div></div></div></div>\n' +
+    '<header class="site-header"><div class="wrap head-inner">' +
+    '<a class="brand-lockup" href="/">' + stamp +
+    '<span class="brand-words"><span class="brand-name">Checked Lab</span><span class="brand-sub">Recall &amp; Spec Desk</span></span></a>' +
+    '<div class="nav-panel" id="site-nav" data-nav-panel><nav class="main-nav" aria-label="Primary">' +
+    links.map(([href, label, key]) => '<a href="' + href + '"' + mark(key) + ">" + label + "</a>").join("") +
+    "</nav></div>" +
+    '<form class="head-search" action="/" method="get" role="search">' +
+    '<label class="visually-hidden" for="site-q">Search model or brand</label>' +
+    '<input id="site-q" name="q" data-model-search type="search" placeholder="Search model or brand..." autocomplete="off" enterkeyhint="search">' +
+    '<button type="submit">GO</button></form>' +
+    '<button class="mob-menu-btn nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav">Menu</button>' +
+    "</div></header>\n</div>";
 }
 
 function inferCurrent(html) {
@@ -1192,13 +1214,20 @@ function blockEnd(html, start) {
 }
 
 function installChrome(html) {
+  const fresh = mastheadHtml(inferCurrent(html));
+  const chrome = html.indexOf('<div class="site-chrome"');
+  if (chrome >= 0) {
+    const end = blockEnd(html, chrome);
+    if (end < 0) throw new Error("Site chrome did not close");
+    return html.slice(0, chrome) + fresh + html.slice(end);
+  }
   const mast = html.indexOf('<div class="masthead"');
   if (mast < 0) return html;
   const end = blockEnd(html, mast);
   if (end < 0) throw new Error("Masthead did not close");
   const top = html.lastIndexOf('<div class="topbar"', mast);
   const from = top >= 0 && mast - top < 400 ? top : mast;
-  return html.slice(0, from) + mastheadHtml(inferCurrent(html)) + html.slice(end);
+  return html.slice(0, from) + fresh + html.slice(end);
 }
 
 function ensureChrome(html) {
@@ -1271,17 +1300,43 @@ function giftQuiz() {
 }
 
 function ensureDock(html) {
-  html = html.replace(/\n?<div class="dock" data-dock>[\s\S]*?<\/div>\n?/g, "\n");
-  if (!html.includes('data-page="product"')) return html;
-  const dock = '<div class="dock" data-dock><a class="dock-cta" href="#is-it-recalled">Is it recalled?</a></div>\n';
-  return html.replace("</body>", dock + "</body>");
+  return html.replace(/\n?<div class="dock" data-dock>[\s\S]*?<\/div>\n?/g, "\n");
+}
+
+function trustBarHtml(jump) {
+  const when = checkedLabel(recalls.checkedAt).replace(/^CPSC & Health Canada checked · /, "");
+  const link = jump
+    ? '<a class="btn-outline trust-jump" href="' + jump + '">↓ Jump to full list</a>'
+    : "";
+  return '<div class="trust-bar"><div class="trust-meta"><strong>Sources: CPSC &amp; Health Canada</strong><span>Checked: ' +
+    card.esc(when) + "</span></div>" + link + "</div>";
+}
+
+function ensureTrustBar(html) {
+  const path = (html.match(/rel="canonical" href="https:\/\/www\.checkedlab\.com([^"]*)"/) || [])[1] || "";
+  if (!/^\/(recalls|best|winter-safety|toy-safety|thanksgiving|gifts)\//.test(path)) return html;
+  const start = html.indexOf('<div class="trust-bar"');
+  if (start >= 0) {
+    const end = blockEnd(html, start);
+    if (end > start) html = html.slice(0, start) + html.slice(end);
+  }
+  let jump = "";
+  if (html.includes('id="full-list"')) jump = "#full-list";
+  else if (html.includes('id="recalls-by-brand"')) jump = "#recalls-by-brand";
+  else if (html.includes('id="is-mine-affected"')) jump = "#is-mine-affected";
+  else if (html.includes('id="united-states"')) jump = "#united-states";
+  const bar = trustBarHtml(jump);
+  const lead = /(<h1\b[^>]*>[\s\S]*?<\/h1>\s*(?:<p class="(?:sub|lede|deck)">[\s\S]*?<\/p>\s*)?)/;
+  if (!lead.test(html)) return html;
+  return html.replace(lead, "$1" + bar + "\n");
 }
 
 function polish(html) {
   html = installChrome(html);
   html = html.replace(/<div class="disclosure">[\s\S]*?<\/div>\s*/g, "");
-  if (html.includes("<footer>")) html = html.replace(/<footer>[\s\S]*?<\/footer>/, FOOTER);
-  html = html.replace(/name="theme-color" content="#[0-9A-Fa-f]{3,8}"/g, 'name="theme-color" content="#1F4D3A"');
+  if (html.includes("<footer")) html = html.replace(/<footer\b[^>]*>[\s\S]*?<\/footer>/, FOOTER);
+  html = html.replace(/name="theme-color" content="#[0-9A-Fa-f]{3,8}"/g, 'name="theme-color" content="#111315"');
+  html = ensureTrustBar(html);
   if (!html.includes('class="skip"')) {
     html = html.replace(/<body([^>]*)>/, '<body$1>\n<a class="skip" href="#main">Skip to content</a>');
   }
@@ -1353,7 +1408,23 @@ function otherLines(rec) {
   }).join("");
 }
 
-function regionBody(rec, place) {
+function crossRegionLine(product, region) {
+  const local = recallRecord(product, region);
+  const other = recallRecord(product, region === "ca" ? "us" : "ca");
+  if (local.status === "bin" || other.status !== "bin") return "";
+  return region === "ca"
+    ? "No Health Canada notice · US recall (CPSC)."
+    : "No CPSC notice · Canadian recall.";
+}
+
+function regionBody(product, region, place) {
+  const rec = recallRecord(product, region);
+  const crossed = crossRegionLine(product, region);
+  if (crossed) {
+    const other = recallRecord(product, region === "ca" ? "us" : "ca");
+    const link = other.url ? ' <a href="' + href(other.url) + '" target="_blank" rel="noopener">Official notice</a>' : "";
+    return '<p class="recall recall-bin">' + card.esc(crossed) + link + "</p>" + otherLines(rec);
+  }
   if (rec.status === "bin") {
     const link = rec.url ? ' <a href="' + href(rec.url) + '" target="_blank" rel="noopener">Official notice</a>' : "";
     return '<p class="recall recall-bin"><strong>Official recall found.</strong> ' + card.esc(rec.detail || "A recall matches this model.") + link + "</p>";
@@ -1365,10 +1436,11 @@ function regionBody(rec, place) {
 function modelArticle(product, region, place) {
   const rec = recallRecord(product, region);
   const model = product.model ? '<p class="p-meta">' + card.esc(product.model) + "</p>" : "";
+  const key = region === "ca" ? "CA" : "US";
   return '<article class="recall-model" id="' + card.esc(product.id) + "-" + region + '">' +
-    card.badgeHtml(rec) +
+    card.badgeFor(product, key) +
     '<h3><a href="' + card.productPath(product) + '">' + card.visibleTitle(product.title) + "</a></h3>" +
-    model + regionBody(rec, place) + "</article>";
+    model + regionBody(product, region, place) + "</article>";
 }
 
 function regionColumn(ordered, region, place) {
@@ -1528,6 +1600,68 @@ function answerSpans(spans, where) {
   }).join("");
 }
 
+function answerText(item) {
+  return (item.paragraphs || []).map((spans) => spans.map((span) => span.text || "").join("")).join(" ");
+}
+
+function recallKind(text, place) {
+  const blob = String(text || "");
+  if (/no recall found/i.test(blob)) return "clear";
+  if (/serial numbers?\b|\bdate codes?\b|tracker ranges?\b|manufactured\b.{0,80}\bthrough\b|manufactured from\b|codes \d+ to \d+/i.test(blob)) {
+    return "serial";
+  }
+  const codes = blob.match(/\b[A-Z]{2,}[A-Z0-9]*-[A-Z0-9-]+\b/g) || [];
+  const brand = String(place || "").split(/[\s+]/)[0].toUpperCase().replace(/[^A-Z]/g, "");
+  const prefix = brand.slice(0, 3);
+  if (codes.length && prefix.length === 3 && codes.every((code) => code.startsWith(prefix))) return "bin";
+  if (/\bmodel\s+[A-Z0-9][A-Z0-9-]{2,}\b/.test(blob) && !/\bmodels\b/i.test(blob)) return "bin";
+  if (codes.length) return "partial";
+  if (/stop using/i.test(blob)) return "bin";
+  return "partial";
+}
+
+function verdictBadge(kind) {
+  if (kind === "clear") return card.badgeHtml({ kind: "clear" });
+  if (kind === "serial") return card.badgeHtml({ kind: "serial" });
+  if (kind === "partial") return card.badgeHtml({ kind: "partial" });
+  return card.badgeHtml({ status: "bin" });
+}
+
+function answerModelGroup(item) {
+  const ids = [];
+  const seen = new Set();
+  const blob = item.num + " " + answerText(item);
+  for (const match of blob.matchAll(/\bA\d{4,}\b/g)) {
+    if (!seen.has(match[0])) {
+      seen.add(match[0]);
+      ids.push(match[0]);
+    }
+  }
+  const group = (ids.length ? ids : [item.num]).slice(0, 3).join(", ");
+  return group + " serial";
+}
+
+function renderAnswerParagraph(spans, where) {
+  const links = (spans || []).filter((span) => span && span.href);
+  const words = (spans || []).filter((span) => span && !span.href && String(span.text || "").trim());
+  if (links.length && !words.length) {
+    return '<ul class="notice-chips">' + links.map((span, index) =>
+      "<li>" + answerSpans([span], where + " link " + index) + "</li>"
+    ).join("") + "</ul>";
+  }
+  return "<p>" + answerSpans(spans, where) + "</p>";
+}
+
+function chipLinks(links, where) {
+  if (!links || !links.length) return "";
+  return '<ul class="notice-chips">' + links.map((link) => "<li>" + officialNoticeLink(link, where) + "</li>").join("") + "</ul>";
+}
+
+function noticeKind(notice) {
+  const text = [notice.product, notice.hazard, notice.remedy, notice.says, notice.howToCheck, notice.modelsLabel, ...(notice.models || [])].filter(Boolean).join(" ");
+  return recallKind(text, notice.product || "");
+}
+
 function answersHtml(entry) {
   const block = entry.answers;
   if (!block) return "";
@@ -1536,6 +1670,9 @@ function answersHtml(entry) {
   }
   if (!Array.isArray(block.cards) || block.cards.length < 2) throw new Error("Answer block needs cards: " + entry.slug);
   assertReaderVoice(block.heading + " " + block.intro + " " + (block.note || ""), entry.slug + " answers");
+  const placeCount = new Map();
+  for (const item of block.cards) placeCount.set(item.place, (placeCount.get(item.place) || 0) + 1);
+  const details = [];
   const cards = block.cards.map((item, index) => {
     if (!item || !item.place || !item.num || !Array.isArray(item.paragraphs) || !item.paragraphs.length) {
       throw new Error("Answer card needs a place, a number, and paragraphs: " + entry.slug);
@@ -1543,15 +1680,25 @@ function answersHtml(entry) {
     if (item.id && !/^[a-z0-9-]+$/.test(item.id)) throw new Error("Answer card id: " + entry.slug);
     assertReaderVoice(item.place + " " + item.num, entry.slug + " answer");
     const id = item.id ? ' id="' + item.id + '"' : "";
-    const paras = item.paragraphs.map((spans, paragraph) =>
-      "<p>" + answerSpans(spans, entry.slug + " answer " + index + " " + paragraph) + "</p>"
-    ).join("");
-    return '<article class="answer-card"' + id + '><p class="answer-place">' + card.esc(item.place) +
-      '</p><p class="answer-num">' + card.esc(item.num) + "</p>" + paras + "</article>";
+    const title = placeCount.get(item.place) > 1 ? answerModelGroup(item) : item.place;
+    const kind = recallKind(item.num + " " + answerText(item), item.place);
+    const tone = kind === "clear" ? "is-clear" : kind === "bin" ? "is-bin" : "is-warn";
+    const line = renderAnswerParagraph(item.paragraphs[0], entry.slug + " answer " + index + " 0");
+    if (item.paragraphs.length > 1) {
+      const rest = item.paragraphs.slice(1).map((spans, paragraph) =>
+        renderAnswerParagraph(spans, entry.slug + " answer " + index + " " + (paragraph + 1))
+      ).join("");
+      details.push("<article><h3>" + card.esc(title) + "</h3>" + rest + "</article>");
+    }
+    return '<article class="answer-card brand-card ' + tone + '"' + id + '><div class="brand-card-head"><h3>' + card.esc(title) +
+      "</h3>" + verdictBadge(kind) + '</div><p class="answer-num">' + card.esc(item.num) + "</p>" + line + "</article>";
   }).join("");
   const note = block.note ? "<p>" + card.esc(block.note) + "</p>" : "";
+  const detail = details.length
+    ? '<div class="brand-detail"><h2>Detail</h2><div class="model-stack is-open">' + details.join("") + "</div></div>"
+    : "";
   return '<section id="' + block.id + '"><h2>' + card.esc(block.heading) + "</h2><p>" + card.esc(block.intro) +
-    '</p><div class="answer-split">' + cards + "</div>" + note + "</section>";
+    '</p><div class="answer-split brand-grid">' + cards + "</div>" + detail + note + "</section>";
 }
 
 function officialNoticeLink(link, where) {
@@ -1567,8 +1714,10 @@ function checkItemsHtml(entry) {
     if (!item || !item.label || !item.text) throw new Error("Check block needs a label and text: " + entry.slug);
     assertReaderVoice(item.label + " " + item.text, entry.slug + " check");
     const links = Array.isArray(item.links) ? item.links : [];
-    const anchors = links.map((link) => officialNoticeLink(link, entry.slug)).join(" ");
-    return "<li><strong>" + card.esc(item.label) + ".</strong> " + card.esc(item.text) + (anchors ? " " + anchors : "") + "</li>";
+    const anchors = links.length
+      ? '<ul class="notice-chips">' + links.map((link) => "<li>" + officialNoticeLink(link, entry.slug) + "</li>").join("") + "</ul>"
+      : "";
+    return "<li><strong>" + card.esc(item.label) + ".</strong> " + card.esc(item.text) + anchors + "</li>";
   }).join("");
 }
 
@@ -1586,17 +1735,17 @@ function modelTableHtml(entry) {
       throw new Error("Model row width on " + entry.slug + " row " + index);
     }
     row.cells.forEach((cell) => assertReaderVoice(cell, entry.slug + " model row"));
-    const links = (row.links || []).map((link) => officialNoticeLink(link, entry.slug)).join(" ");
+    const links = chipLinks(row.links || [], entry.slug);
     if (!links) throw new Error("Model row needs a notice link: " + entry.slug);
     const cells = row.cells.map((cell) => "<td>" + card.esc(cell) + "</td>").join("");
     return "<tr>" + cells + "<td>" + links + "</td></tr>";
   }).join("");
   const stack = table.rows.map((row) => {
-    const links = (row.links || []).map((link) => officialNoticeLink(link, entry.slug)).join(" ");
+    const links = chipLinks(row.links || [], entry.slug);
     const facts = row.cells.slice(1).map((cell, index) =>
       "<p><strong>" + card.esc(table.columns[index + 1]) + ".</strong> " + card.esc(cell) + "</p>"
     ).join("");
-    return "<article><h3>" + card.esc(row.cells[0]) + "</h3>" + facts + "<p>" + links + "</p></article>";
+    return "<article><h3>" + card.esc(row.cells[0]) + "</h3>" + facts + links + "</article>";
   }).join("");
   const note = table.note ? "<p>" + card.esc(table.note) + "</p>" : "";
   const extra = checkItemsHtml(entry);
@@ -1617,9 +1766,9 @@ function listCardHtml(entry) {
   const items = block.items.map((item, index) => {
     if (!item || !item.name || !item.text) throw new Error("List item needs a name and text: " + entry.slug);
     assertReaderVoice(item.name + " " + item.text, entry.slug + " list " + index);
-    const links = (item.links || []).map((link) => officialNoticeLink(link, entry.slug)).join(" ");
+    const links = chipLinks(item.links || [], entry.slug);
     if (!links) throw new Error("List item needs a notice link: " + entry.slug);
-    return "<article><h3>" + card.esc(item.name) + "</h3><p>" + card.esc(item.text) + "</p><p>" + links + "</p></article>";
+    return "<article><h3>" + card.esc(item.name) + "</h3><p>" + card.esc(item.text) + "</p>" + links + "</article>";
   }).join("");
   const note = block.note ? "<p>" + card.esc(block.note) + "</p>" : "";
   return '<section class="model-card" id="' + block.id + '"><h2>' + card.esc(block.heading) + "</h2><p>" +
@@ -1647,11 +1796,11 @@ function recallCardHtml(entry) {
     }
     assertReaderVoice(agency.name + " " + agency.date + " " + agency.remedy, entry.slug + " recall card " + index);
     agency.models.forEach((model) => assertReaderVoice(model, entry.slug + " model"));
-    const links = (agency.links || []).map((link) => officialNoticeLink(link, entry.slug)).join(" ");
+    const links = chipLinks(agency.links || [], entry.slug);
     if (!links) throw new Error("Recall card agency needs a notice link: " + entry.slug);
     const models = '<ul class="model-list">' + agency.models.map((model) => "<li>" + card.esc(model) + "</li>").join("") + "</ul>";
     return "<article><h3>" + card.esc(agency.name) + " · " + card.esc(agency.date) + "</h3><p>" +
-      card.esc(agency.remedy) + "</p>" + models + "<p>" + links + "</p></article>";
+      card.esc(agency.remedy) + "</p>" + models + links + "</article>";
   }).join("");
   const note = block.note ? "<p>" + card.esc(block.note) + "</p>" : "";
   const extra = checkItemsHtml(entry);
@@ -2944,17 +3093,16 @@ function bestStores(product) {
 
 function bestCard(product, pick, opts) {
   const href = card.productPath(product);
-  const media = card.visual(product, Object.assign({ noCredit: true, genericUnlessExact: true }, opts || {}));
-  const tiled = media.includes('class="spec-tile"');
-  const label = pick.bestFor ? '<p class="pick-if">' + card.esc(pick.bestFor) + "</p>" : "";
-  return '<article class="product-grid hub-card" id="' + card.esc(product.id) + '">' +
-    '<div class="pick-media">' + media + "</div>" +
-    '<div class="p-main">' +
+  const art = card.visual(product, Object.assign({ noCredit: true, genericUnlessExact: true }, opts || {}));
+  const media = art.includes("p-photo") ? '<div class="prod-media">' + art + "</div>" : art;
+  const label = pick.bestFor ? '<p class="pick-if prod-why">' + card.esc(pick.bestFor) + "</p>" : "";
+  return '<article class="product-grid hub-card prod-card" id="' + card.esc(product.id) + '">' +
+    media +
+    '<div class="p-main prod-body">' +
     label +
-    '<span class="only-us">' + card.badgeHtml(card.recallFor(product, "US")) + "</span>" +
-    '<span class="only-ca">' + card.badgeHtml(card.recallFor(product, "CA")) + "</span>" +
+    card.badgeFor(product) +
     card.noteBadge(product) +
-    '<h2 class="p-title' + (tiled ? " visually-hidden" : "") + '"><a href="' + href + '">' + card.visibleTitle(product.title) + "</a></h2>" +
+    '<h2 class="p-title prod-title"><a href="' + href + '">' + card.visibleTitle(product.title) + "</a></h2>" +
     bestSpecItems(product, pick.specs) +
     bestRecall(product) +
     '<p><a class="hub-more" href="' + href + '">Model page</a></p>' +
@@ -3345,7 +3493,7 @@ function assertBestPages() {
       const product = products.find((item) => item.id === id);
       if (!product) continue;
       if (article.includes('class="spec-tile"')) {
-        if (!article.includes('class="p-title visually-hidden"')) throw new Error("Spec tile repeats the title on " + id);
+        if (!article.includes('class="p-title prod-title"')) throw new Error("Spec card is missing the title on " + id);
       } else if (article.includes('class="p-photo"')) {
         if (article.includes("visually-hidden")) throw new Error("Photo card hid the title on " + id);
         const alt = (article.match(/\balt="([^"]*)"/) || [])[1] || "";
@@ -3435,7 +3583,7 @@ function roundupTable(entry) {
     : "<tr><th>Date</th><th>Product</th><th>Model numbers</th><th>Hazard</th><th>What the notice tells owners</th><th>Notice</th></tr>";
   const note = entry.tableNote ? "<p>" + card.esc(entry.tableNote) + "</p>" : "";
   if (entry.tableNote) assertReaderVoice(entry.tableNote, entry.slug + " table note");
-  return "<h2>" + card.esc(entry.tableHeading) + '</h2>' + note + '<div class="recall-roundup"><div class="compare-wrap recall-table"><table class="compare"><thead>' + head + "</thead><tbody>" + rows.join("") + '</tbody></table></div><div class="recall-stack">' + blocks.join("") + "</div></div>";
+  return '<h2 id="full-list">' + card.esc(entry.tableHeading) + '</h2>' + note + '<div class="recall-roundup" id="full-list-table"><div class="compare-wrap recall-table"><table class="compare"><thead>' + head + "</thead><tbody>" + rows.join("") + '</tbody></table></div><div class="recall-stack">' + blocks.join("") + "</div></div>";
 }
 
 function shopHtml(entry) {
@@ -3495,11 +3643,8 @@ function writeExplainers() {
     const roundup = entry.roundup ? roundupTable(entry) : "";
     const shop = shopHtml(entry);
     const faqs = explainerFaqHtml(entry);
-    const cardFirst = entry.modelTable || entry.recallCard;
-    const lead = (cardFirst
-      ? [topLinkHtml(entry), affectedHtml(entry), listCardHtml(entry), answersHtml(entry), replacingHtml(entry), roundup, shop, faqs]
-      : [topLinkHtml(entry), roundup, shop, faqs, answersHtml(entry), affectedHtml(entry), listCardHtml(entry), replacingHtml(entry)]
-    ).filter(Boolean).join("\n");
+    const lead = [topLinkHtml(entry), answersHtml(entry), affectedHtml(entry), listCardHtml(entry), replacingHtml(entry), roundup, shop, faqs]
+      .filter(Boolean).join("\n");
     const html = `<!DOCTYPE html>
 <html lang="en" data-region="US">
 <head>
@@ -3812,15 +3957,22 @@ function blackFridayFaqs() {
   ];
 }
 
-function bfStatusHtml(rec, place) {
-  let sentence = recallSentence(rec, place);
-  if (rec.checkedAt && !sentence.includes(rec.checkedAt)) {
+function bfStatusHtml(product, region) {
+  const key = region === "CA" ? "ca" : "us";
+  const place = region === "CA" ? "Canadian" : "US";
+  const rec = card.recallFor(product, region === "CA" ? "CA" : "US");
+  const other = card.recallFor(product, region === "CA" ? "US" : "CA");
+  let sentence = recallRecord(product, key).status !== "bin" && other.status === "bin"
+    ? (region === "CA" ? "No Health Canada notice · US recall (CPSC)." : "No CPSC notice · Canadian recall.")
+    : recallSentence(rec, place);
+  if (rec.checkedAt && rec.status === "bin" && !sentence.includes(rec.checkedAt)) {
     sentence = sentence.replace(/\.$/, "") + ". Checked " + rec.checkedAt + ".";
   }
-  const notice = rec.status === "bin" && rec.url && /^https:\/\//.test(rec.url)
-    ? ' <a href="' + href(rec.url) + '" target="_blank" rel="noopener">Official notice</a>'
+  const source = rec.status === "bin" ? rec : (other.status === "bin" ? other : null);
+  const notice = source && source.url && /^https:\/\//.test(source.url)
+    ? ' <a href="' + href(source.url) + '" target="_blank" rel="noopener">Official notice</a>'
     : "";
-  return card.badgeHtml(rec) + " " + card.esc(sentence) + notice;
+  return card.badgeFor(product, region === "CA" ? "CA" : "US") + " " + card.esc(sentence) + notice;
 }
 
 function bfModel(product, opts) {
@@ -3831,8 +3983,8 @@ function bfModel(product, opts) {
     "<h3" + hidden + '><a href="' + card.productPath(product) + '">' + card.visibleTitle(product.title) + "</a></h3>" +
     pickParagraph(product) +
     '<a class="hub-more" href="' + card.productPath(product) + '">See the model</a>' +
-    '<p class="only-us pick-status">' + bfStatusHtml(card.recallFor(product, "US"), "US") + "</p>" +
-    '<p class="only-ca pick-status">' + bfStatusHtml(card.recallFor(product, "CA"), "Canadian") + "</p>" +
+    '<p class="only-us pick-status">' + bfStatusHtml(product, "US") + "</p>" +
+    '<p class="only-ca pick-status">' + bfStatusHtml(product, "CA") + "</p>" +
     "</article>";
 }
 
@@ -4352,8 +4504,8 @@ function giftPickHtml(product, guide, opts) {
     '<p><a class="hub-more" href="' + card.productPath(product) + '">Model page</a></p>' +
     '<details class="fold"><summary>Maker line and recall</summary><div class="fold-body"><p class="why">' +
     card.esc(guide.fit) + " " + card.esc(giftWhy(product, guide)) + "</p>" +
-    '<p class="only-us">' + bfStatusHtml(card.recallFor(product, "US"), "US") + "</p>" +
-    '<p class="only-ca">' + bfStatusHtml(card.recallFor(product, "CA"), "Canadian") + "</p>" +
+    '<p class="only-us pick-status">' + bfStatusHtml(product, "US") + "</p>" +
+    '<p class="only-ca pick-status">' + bfStatusHtml(product, "CA") + "</p>" +
     giftOtherNote(product) + "</div></details></article>";
 }
 
@@ -6435,6 +6587,18 @@ function creditAuthor(credit) {
   return match ? match[1].trim() : "";
 }
 
+function tidyAuthor(name) {
+  const text = String(name || "").replace(/\s+/g, " ").trim();
+  const words = text.split(" ").filter(Boolean);
+  if (words.length >= 2 && words.length % 2 === 0) {
+    const mid = words.length / 2;
+    const left = words.slice(0, mid).join(" ");
+    const right = words.slice(mid).join(" ");
+    if (left.toLowerCase() === right.toLowerCase()) return left;
+  }
+  return text || "Photographer";
+}
+
 function extLink(href, label) {
   return '<a href="' + card.esc(href) + '" target="_blank" rel="noopener">' + card.esc(label) + "</a>";
 }
@@ -6442,20 +6606,20 @@ function extLink(href, label) {
 function writePhotoCredits() {
   const photos = JSON.parse(readFileSync(join(root, "data", "photos.json"), "utf8"));
   const lifestyle = photos.map((photo) =>
-    "<li>" + extLink(photo.source, photo.credit) +
-    "<small>" + card.esc(photo.license) + " · " + card.esc(photo.use) + "</small></li>"
+    '<li class="credit-line"><span class="credit-author">' + extLink(photo.source, tidyAuthor(photo.credit)) + '</span><span class="credit-sep" aria-hidden="true"> · </span>' +
+    '<span class="credit-license">' + card.esc(photo.license) + "</span> · " + card.esc(photo.use) + "</li>"
   ).join("\n");
   const catalogue = products.filter((product) => product.imageKind === "model" && product.imageSource).map((product) => {
-    const author = product.imageAuthor || creditAuthor(product.imageCredit) || "Photographer";
+    const author = tidyAuthor(product.imageAuthor || creditAuthor(product.imageCredit) || "Photographer");
     const license = product.imageLicense || "";
     const licenseHref = product.imageLicenseUrl || licenseUrlFor(license);
     const shows = product.imageShows || product.title;
     const who = extLink(product.imageSource, author);
     const terms = licenseHref ? extLink(licenseHref, license || "License") : card.esc(license);
     const source = extLink(product.imageSource, "Source page");
-    return "<li>" + who +
-      "<small>" + terms + " · " + source + " · Shows: " + card.esc(shows) +
-      " · " + card.esc(product.title) + "</small></li>";
+    return '<li class="credit-line"><span class="credit-author">' + who + '</span><span class="credit-sep" aria-hidden="true"> · </span>' +
+      '<span class="credit-license">' + terms + "</span> · " + source + " · Shows: " + card.esc(shows) +
+      " · " + card.esc(product.title) + "</li>";
   }).join("\n");
   const html = `<!DOCTYPE html>
 <html lang="en" data-region="US">
@@ -6779,6 +6943,159 @@ function hoistCatalogue(html) {
   const movedMount = next.match(mountRe);
   if (!movedMount) return html;
   return next.replace(movedMount[0], movedMount[0] + "\n" + guide[0] + "\n" + related);
+}
+
+function homeMain(parts) {
+  const date = recalls.checkedAt || "";
+  const when = checkedLabel(date).replace(/^CPSC & Health Canada checked · /, "");
+  return `<main id="main">
+<section class="hero-band">
+<div class="wrap hero-grid">
+<div>
+<p class="kicker">Independent Recall &amp; Model Verification · US &amp; Canada</p>
+<h1>Check any product for recalls before you buy.</h1>
+<p class="deck">Confirm the model, the recall record, and the maker specs before you buy.</p>
+<form class="lookup-box" action="/" method="get" role="search">
+<label class="visually-hidden" for="home-q">Model or brand</label>
+<input id="home-q" name="q" data-model-search type="search" placeholder="Model, brand, or product" autocomplete="off" enterkeyhint="search">
+<button type="submit">Check record</button>
+</form>
+<div class="quick-links">
+<span>Jump to</span>
+<a href="/recalls/heated-blanket-recalls/">Heated blanket recalls</a>
+<a href="/best/air-purifiers/">Air purifiers</a>
+<a href="/recalls/anker-power-banks/">Power banks</a>
+<a href="/kitchen/">Kitchen</a>
+<a href="#categories">All 8 categories</a>
+</div>
+</div>
+${deskHtml()}
+</div>
+</section>
+<section class="section" id="popular">
+<div class="wrap">
+<div class="section-head">
+<div>
+<h2 id="popular-title">Recently recall-checked</h2>
+<p class="section-sub">Model records checked against CPSC and Health Canada on ${card.esc(when)}.</p>
+</div>
+<a href="/recalls/">All recall checks →</a>
+</div>
+<p id="search-empty" class="empty" hidden>No model matches that.</p>
+<div id="popular-mount" class="prod-grid" data-rendered-region="US">
+${parts.popular}
+</div>
+</div>
+</section>
+<section class="section" id="categories">
+<div class="wrap">
+<div class="section-head"><div><h2>Browse by category</h2><p class="section-sub">Guides organized by room and the recall check. No sponsored placements.</p></div></div>
+<div class="cat-grid">
+<div class="cat-box"><h3>Kitchen</h3><ul>
+<li><a href="/kitchen/">Kitchen models</a></li>
+<li><a href="/best/">Best guides</a></li>
+<li><a href="/recalls/air-fryer-recalls/">Air fryer recalls</a></li>
+<li><a href="/thanksgiving/">Thanksgiving</a></li>
+</ul></div>
+<div class="cat-box"><h3>Air &amp; water</h3><ul>
+<li><a href="/air-water/">Air &amp; water models</a></li>
+<li><a href="/best/air-purifiers/">Air purifiers</a></li>
+<li><a href="/winter-safety/carbon-monoxide-smoke-alarms/">Smoke and CO alarms</a></li>
+<li><a href="/compare/">Spec comparisons</a></li>
+</ul></div>
+<div class="cat-box"><h3>Winter &amp; sleep</h3><ul>
+<li><a href="/recalls/heated-blanket-recalls/">Heated blanket recalls</a></li>
+<li><a href="/winter-safety/">Winter safety</a></li>
+<li><a href="/winter/">Winter models</a></li>
+<li><a href="/sleep/">Sleep</a></li>
+</ul></div>
+<div class="cat-box"><h3>Personal tech &amp; home</h3><ul>
+<li><a href="/recalls/anker-power-banks/">Anker power banks</a></li>
+<li><a href="/personal-tech/">Personal tech</a></li>
+<li><a href="/cleaning/">Cleaning</a></li>
+<li><a href="/toy-safety/">Toy safety</a></li>
+</ul></div>
+</div>
+<p class="quick-links"><span>Also</span><a href="/gifts/">Gift guides</a><a href="/black-friday/">Black Friday</a><a href="/pet/">Pet</a><a href="/car-garage/">Car &amp; garage</a></p>
+</div>
+</section>
+<section class="section" id="how">
+<div class="wrap">
+<div class="method-strip">
+<div class="method-step"><strong>01 · Model match</strong><h3>Exact model number first</h3><p>The brand and model are matched to the CPSC SaferProducts feed and the Health Canada open dataset. The date on the card is the day that match was recorded.</p></div>
+<div class="method-step"><strong>02 · Official databases</strong><h3>CPSC &amp; Health Canada</h3><p>The numbers come from the brand’s product page, with the source link beside them. Search the same model on CPSC Recalls and on Health Canada recalls and safety alerts.</p></div>
+<div class="method-step"><strong>03 · Honest visuals</strong><h3>Real photos or spec cards</h3><p>An exact model photo stays on the card. Anything else is a typographic spec card. The buttons open the store. Prices stay on the store.</p></div>
+</div>
+<p class="method-more"><a href="/how-we-check/">Read the full method</a></p>
+</div>
+</section>
+<section class="section guide-band" id="home-bf">
+<div class="wrap">
+<h2 id="home-bf-title">Worth checking this Black Friday</h2>
+${parts.bf}
+${parts.pointer}
+<details class="fold" id="latest-recalls"><summary><h2>Latest official recalls</h2></summary><div class="fold-body"><div id="recall-mount" class="prod-grid">${parts.recalls}</div></div></details>
+${parts.guide}
+${parts.widget || ""}
+${parts.quiz || ""}
+</div>
+</section>
+</main>`;
+}
+
+function deskHtml() {
+  const rows = [];
+  for (const entry of explainers) {
+    for (const notice of entry.notices || []) {
+      if (!notice || !notice.date) continue;
+      rows.push({ entry, notice });
+    }
+  }
+  rows.sort((a, b) => String(b.notice.date).localeCompare(String(a.notice.date)));
+  const seen = new Set();
+  const picked = [];
+  for (const row of rows) {
+    const key = row.notice.product || row.notice.title || row.entry.slug;
+    if (seen.has(key)) continue;
+    seen.add(key);
+    picked.push(row);
+    if (picked.length === 4) break;
+  }
+  const body = picked.map(({ entry, notice }) => {
+    const models = (notice.models || []).slice(0, 3).join(", ");
+    const meta = [models, notice.agency, notice.date].filter(Boolean).join(" · ");
+    return '<div class="desk-row">' + verdictBadge(noticeKind(notice)) +
+      '<div><a class="desk-row-title" href="/recalls/' + entry.slug + '/">' + card.esc(notice.product || entry.title) + "</a>" +
+      '<div class="desk-row-meta">' + card.esc(meta) + "</div></div></div>";
+  }).join("");
+  return '<aside class="desk-box" id="desk" aria-label="Latest recall checks"><div class="desk-head"><h2 class="desk-title">Recall Desk · Latest Checks</h2><a class="desk-more" href="/recalls/">All notices →</a></div>' + body + "</aside>";
+}
+
+function reshapeHome(html) {
+  const take = (re) => {
+    const match = html.match(re);
+    if (!match) return "";
+    html = html.replace(match[0], "");
+    return match[0];
+  };
+  const guide = take(/<!-- checkedlab:guide start -->[\s\S]*?<!-- checkedlab:guide end -->/);
+  const popular = take(/<!-- checkedlab:popular start -->[\s\S]*?<!-- checkedlab:popular end -->/);
+  const bf = take(/<!-- checkedlab:bf-home start -->[\s\S]*?<!-- checkedlab:bf-home end -->/);
+  const pointer = take(/<!-- checkedlab:recall-home start -->[\s\S]*?<!-- checkedlab:recall-home end -->/);
+  take(/<!-- checkedlab:recalls start -->[\s\S]*?<!-- checkedlab:recalls end -->/);
+  const widget = take(/<section class="recall-widget"[\s\S]*?<\/section>/);
+  const quiz = take(/<section class="quiz"[\s\S]*?<\/section>/);
+  if (!guide || !popular || !bf || !pointer) throw new Error("Home reshape is missing a mount");
+  card.beginPage();
+  const recalled = products.filter(isBin);
+  const recalls = REC_START + "\n" + (recalled.length
+    ? recalled.map((product) => card.card(product, "US")).join("\n")
+    : '<p class="empty">No official model recall is on the list.</p>') + "\n" + REC_END;
+  const main = homeMain({ guide, popular, bf, pointer, widget, quiz, recalls });
+  if (!html.includes('<main id="main">')) throw new Error("Homepage main is missing");
+  html = html.replace(/<main id="main">[\s\S]*?<\/main>/, main);
+  html = html.replace(/<section class="recall-band"[\s\S]*?<\/section>\s*/g, "");
+  return html;
 }
 
 function applyHomeGuide(html) {
@@ -7234,9 +7551,81 @@ function assertImageUse() {
 
 function assertFooterDisclosure(html, message) {
   const count = html.split(DISCLOSURE).length - 1;
-  const footer = html.match(/<footer>[\s\S]*?<\/footer>/);
+  const footer = html.match(/<footer\b[^>]*>[\s\S]*?<\/footer>/);
   if (count !== 1 || !footer || !footer[0].includes(DISCLOSURE)) throw new Error(message);
   if (/Affiliate disclosure\.|I earn from qualifying|earn us nothing/.test(html)) throw new Error(message);
+}
+
+function assertNoFalseClear() {
+  const risky = products.filter((product) => {
+    const us = product.recall && product.recall.us && product.recall.us.status;
+    const ca = product.recall && product.recall.ca && product.recall.ca.status;
+    return us === "bin" || ca === "bin" || us === "partial" || ca === "partial";
+  });
+  if (!risky.length) throw new Error("Expected at least one binned model");
+  const files = [];
+  const walk = (dir) => {
+    for (const entry of readdirSync(dir)) {
+      if (entry.startsWith(".") || entry === "dist" || entry === "node_modules" || entry === "scripts" || entry === "data" || entry === "social") continue;
+      const full = join(dir, entry);
+      if (statSync(full).isDirectory()) walk(full);
+      else if (entry.endsWith(".html")) files.push(full);
+    }
+  };
+  walk(root);
+  for (const file of files) {
+    const html = readFileSync(file, "utf8");
+    for (const product of risky) {
+      for (const id of [product.id, product.id + "-us", product.id + "-ca"]) {
+        const at = html.indexOf('id="' + id + '"');
+        if (at < 0) continue;
+        const start = html.lastIndexOf("<article", at);
+        const end = html.indexOf("</article>", at);
+        const slice = start >= 0 && end > at ? html.slice(start, end) : html.slice(at, at + 900);
+        if (slice.includes("badge-clear") || slice.includes("Clear · CPSC + HC")) {
+          throw new Error("Clear badge on " + id + " in " + file.slice(root.length));
+        }
+      }
+    }
+  }
+}
+
+function assertReviewFixes() {
+  const cuisinart = readFileSync(join(root, "kitchen", "cuisinart-dfp-14bcny", "index.html"), "utf8");
+  if (cuisinart.includes("badge-clear") || cuisinart.includes("Clear · CPSC + HC")) {
+    throw new Error("Cuisinart page still shows a clear badge");
+  }
+  if (!cuisinart.includes("BIN · Recalled")) throw new Error("Cuisinart page is missing the BIN badge");
+  if (!cuisinart.includes('<details class="fold" open>') || !cuisinart.includes('id="specs"')) {
+    throw new Error("Product folds are not open");
+  }
+  if (!cuisinart.includes('class="fold-caret"') || !cuisinart.includes("hero-specs")) {
+    throw new Error("Product page is missing the caret or the spec strip");
+  }
+  if (cuisinart.includes("data-dock")) throw new Error("Sticky dock is still on the product page");
+  const blankets = readFileSync(join(root, "recalls", "heated-blanket-recalls", "index.html"), "utf8");
+  for (const id of ["brand-jkmax", "brand-octrot"]) {
+    const at = blankets.indexOf('id="' + id + '"');
+    const slice = blankets.slice(at, at + 400);
+    if (!slice.includes("BIN · Recalled")) throw new Error(id + " is not BIN · Recalled");
+  }
+  if (blankets.indexOf('id="brand-check"') > blankets.indexOf('id="full-list"')) {
+    throw new Error("Brand cards are below the full list");
+  }
+  if (!blankets.includes('class="notice-chips"')) throw new Error("Notice links are not chips");
+  const anker = readFileSync(join(root, "recalls", "anker-power-banks", "index.html"), "utf8");
+  if (anker.includes("<h3>On the bottom</h3>")) throw new Error("Anker cards still share the On the bottom title");
+  if (!anker.includes("<h3>A1263 serial</h3>") || !anker.includes("<h3>A1112011 serial</h3>")) {
+    throw new Error("Anker serial cards are missing distinct titles");
+  }
+  const credits = readFileSync(join(root, "photo-credits", "index.html"), "utf8");
+  if (credits.includes("Unknown author Unknown author") || credits.includes("SureshCC")) {
+    throw new Error("Photo credits still run the author into the licence");
+  }
+  if (!credits.includes('class="credit-sep"')) throw new Error("Photo credits are missing the author separator");
+  const coway = readFileSync(join(root, "air-water", "coway-ap-1512hh", "index.html"), "utf8");
+  const tile = coway.slice(coway.indexOf("spec-model"), coway.indexOf("spec-model") + 80);
+  if (!tile.includes("AP-1512HH") || tile.includes("Airmega")) throw new Error("Coway spec tile repeats the product name");
 }
 
 function assertEveryPageDisclosure() {
@@ -7259,7 +7648,7 @@ function verifyOutput(pages) {
   assertImageUse();
   for (const hub of HUBS) {
     const html = readFileSync(join(root, hub, "index.html"), "utf8");
-    const found = [...html.matchAll(/<article class="(?:product-grid hub-card|product-row)"[\s\S]*?<\/article>/g)].map((match) => match[0]);
+    const found = [...html.matchAll(/<article class="(?:product-grid hub-card|product-row)[^"]*"[\s\S]*?<\/article>/g)].map((match) => match[0]);
     card.beginPage();
     const expected = byHub.get(hub).map((product, index) => card.card(product, "US", index === 0 ? { eager: true } : {}));
     if (found.length !== expected.length) throw new Error(hub + " card count " + found.length);
@@ -7470,6 +7859,8 @@ function verifyOutput(pages) {
   assertNoOrphans();
   assertBestPages();
   assertEveryPageDisclosure();
+  assertReviewFixes();
+  assertNoFalseClear();
   assertBuyerPicks();
   assertAllPageVoice();
   assertHubReaderText();
@@ -7542,7 +7933,12 @@ function assertProductSeo(html, product) {
   const heading = "Official recalls for other models in this brand";
   if (others && !html.includes("<h3>" + heading + "</h3>")) throw new Error("Other-model heading missing on " + product.id);
   if (!others && html.includes(heading)) throw new Error("Other-model heading without notices on " + product.id);
-  if (/we tested|we bought|does not test/i.test(html)) throw new Error("Disallowed claim on " + product.id);
+    if (/we tested|we bought|does not test/i.test(html)) throw new Error("Disallowed claim on " + product.id);
+    const usStatus = product.recall && product.recall.us && product.recall.us.status;
+    const caStatus = product.recall && product.recall.ca && product.recall.ca.status;
+    if ((usStatus === "bin" || caStatus === "bin") && (html.includes("badge-clear") || html.includes("Clear · CPSC + HC"))) {
+      throw new Error("Clear badge on a recalled model: " + product.id);
+    }
 }
 
 function indexable(product) {

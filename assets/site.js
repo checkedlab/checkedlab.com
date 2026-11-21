@@ -81,8 +81,12 @@
     var category = document.body.dataset.category;
     var reg = region();
     if (page === "home") {
-      var input = document.querySelector("[data-model-search]");
-      var q = input ? input.value.trim().toLowerCase() : "";
+      var inputs = document.querySelectorAll("[data-model-search]");
+      var q = "";
+      Array.prototype.forEach.call(inputs, function (input) {
+        var value = input.value.trim().toLowerCase();
+        if (value) q = value;
+      });
       var title = document.getElementById("popular-title");
       var empty = document.getElementById("search-empty");
       var popular = q
@@ -107,8 +111,11 @@
     if (!mount) return;
     var shown = list;
     var query = "";
-    var search = document.querySelector("[data-model-search]");
-    if (search) query = search.value.trim().toLowerCase();
+    var searches = document.querySelectorAll("[data-model-search]");
+    Array.prototype.forEach.call(searches, function (search) {
+      var value = search.value.trim().toLowerCase();
+      if (value) query = value;
+    });
     if (page === "category") {
       shown = list.filter(function (product) { return product.category === category; });
       if (query) shown = shown.filter(function (product) { return blob(product).indexOf(query) !== -1; });
@@ -222,9 +229,16 @@
   }
 
   function recallStatus(product) {
-    var rec = (product.recall || {})[region() === "CA" ? "ca" : "us"] || {};
-    if (rec.status === "bin") return "Official recall found";
-    if (rec.status === "none") return "Recall checked";
+    if (window.CheckedLabCard && window.CheckedLabCard.badgeFor) {
+      var html = window.CheckedLabCard.badgeFor(product, region());
+      var match = html.match(/>([^<]+)</);
+      return match ? match[1] : "Check model";
+    }
+    var recall = product.recall || {};
+    var us = (recall.us || {}).status;
+    var ca = (recall.ca || {}).status;
+    if (us === "bin" || ca === "bin") return "BIN · Recalled";
+    if (us === "none" && ca === "none") return "Clear · CPSC + HC";
     return "Check model";
   }
 
@@ -247,7 +261,7 @@
     out.innerHTML = '<ul class="recall-hits">' + hits.map(function (product) {
       var href = "/" + product.category + "/" + product.id + "/";
       var label = recallStatus(product);
-      var tone = label === "Official recall found" ? "badge-bin" : label === "Recall checked" ? "badge-clear" : "badge-wait";
+      var tone = label.indexOf("BIN") === 0 ? "badge-bin" : label.indexOf("Clear") === 0 ? "badge-clear" : "badge-warn";
       return '<li><a href="' + esc(href) + '">' + esc(product.title) + '</a> <span class="badge ' + tone + '">' + esc(label) + "</span></li>";
     }).join("") + "</ul>";
   }

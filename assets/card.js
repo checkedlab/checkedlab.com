@@ -8,14 +8,14 @@
   var REL = "sponsored nofollow noopener";
   var STORES = {
     US: [
-      { id: "amazon", name: "Amazon", label: "Check price on Amazon" },
+      { id: "amazon", name: "Amazon", label: "Check on Amazon →" },
       { id: "bestbuy", name: "Best Buy", label: "Check price at Best Buy" },
       { id: "walmart", name: "Walmart", label: "Check price at Walmart" },
       { id: "target", name: "Target", label: "Check price at Target" },
       { id: "homedepot", name: "Home Depot", label: "Check price at Home Depot" }
     ],
     CA: [
-      { id: "amazon", name: "Amazon", label: "Check price on Amazon" },
+      { id: "amazon", name: "Amazon", label: "Check on Amazon →" },
       { id: "bestbuy", name: "Best Buy", label: "Check price at Best Buy" },
       { id: "canadiantire", name: "Canadian Tire", label: "Check price at Canadian Tire" },
       { id: "walmart", name: "Walmart", label: "Check price at Walmart" },
@@ -165,11 +165,38 @@
     return (product.recall || {})[regionKey(reg)] || { status: "not_recorded" };
   }
 
+  function worstRecall(product) {
+    var us = recallFor(product, "US");
+    var ca = recallFor(product, "CA");
+    if (us.status === "bin" || ca.status === "bin") return { status: "bin", us: us, ca: ca };
+    if (us.status === "none" && ca.status === "none") return { status: "none", clearedBoth: true, us: us, ca: ca };
+    var other = us.status && us.status !== "none" ? us : ca;
+    return { status: other.status || "not_recorded", us: us, ca: ca };
+  }
+
+  /* Clear is allowed only when both countries are clear, or for a non-product explainer card. */
   function badgeHtml(recall) {
-    var waiting = recall.status === "unconfirmed" || recall.status === "not_recorded" || !recall.status;
-    if (recall.status === "bin") return '<span class="badge badge-bin">Official recall found</span>';
-    if (waiting) return '<span class="badge badge-wait">Check model</span>';
-    return '<span class="badge badge-clear">Recall checked</span>';
+    recall = recall || {};
+    if (recall.kind === "serial" || recall.serial) return '<span class="badge badge-warn">Check serial</span>';
+    if (recall.kind === "partial" || recall.partial) return '<span class="badge badge-warn">Partial · Check model</span>';
+    if (recall.status === "bin" || recall.kind === "bin") return '<span class="badge badge-bin">BIN · Recalled</span>';
+    if (recall.kind === "clear" || recall.clearedBoth) return '<span class="badge badge-clear">Clear · CPSC + HC</span>';
+    return '<span class="badge badge-warn">Check model</span>';
+  }
+
+  function badgeFor(product, region) {
+    var us = recallFor(product, "US");
+    var ca = recallFor(product, "CA");
+    if (us.status === "bin" || ca.status === "bin") {
+      if (region === "CA" && us.status === "bin" && ca.status !== "bin") {
+        return '<span class="badge badge-bin">Recalled in US</span>';
+      }
+      if (region === "US" && ca.status === "bin" && us.status !== "bin") {
+        return '<span class="badge badge-bin">Recalled in CA</span>';
+      }
+      return '<span class="badge badge-bin">BIN · Recalled</span>';
+    }
+    return badgeHtml(worstRecall(product));
   }
 
   function honestLine(product, recall) {
@@ -524,20 +551,61 @@
     return String(model).toLowerCase().indexOf(String(type).toLowerCase()) !== -1;
   }
 
+  function modelCode(product) {
+    var title = String((product && product.title) || "").trim().toLowerCase();
+    var brand = String((product && product.sourceName) || "").trim().toLowerCase();
+    function usable(bit) {
+      var value = String(bit || "").replace(/\s+/g, " ").trim();
+      if (!value || value.length > 22) return "";
+      if (value.toLowerCase() === title || value.toLowerCase() === brand) return "";
+      if (/specs|model page|sourced|manual|list|linked|cooker|blender|heater|blanket|processor|machine|purifier|headphone/i.test(value)) return "";
+      var words = value.split(" ");
+      if (words.length > 3) return "";
+      if (!/[A-Za-z]/.test(value) || !/\d/.test(value)) return "";
+      return value;
+    }
+    var explicit = usable(product && product.model);
+    if (explicit) return explicit;
+    var bits = String((product && product.meta) || "").split(/\s*[•·]\s*/);
+    for (var i = 0; i < bits.length; i++) {
+      var found = usable(bits[i]);
+      if (found) return found;
+    }
+    return "";
+  }
+
   function specTile(product, opts) {
     product = product || {};
     opts = opts || {};
     var brand = String(product.sourceName || "").trim();
-    var model = displayModel(product);
-    var type = productType(product);
-    if (typeRepeatsModel(type, model)) type = "";
-    var facts = specFacts(product);
-    var html = '<div class="spec-tile' + (opts.under ? " spec-under" : "") + '" data-cat="' + esc(product.category || "") + '">';
+    var code = modelCode(product);
+    var html = '<div class="spec-tile spec-card-visual' + (opts.under ? " spec-under" : "") + '" data-cat="' + esc(product.category || "") + '">';
     if (brand) html += '<p class="spec-brand">' + esc(brand) + "</p>";
-    html += '<p class="spec-model">' + esc(model) + "</p>";
-    if (type) html += '<p class="spec-type">' + esc(type) + "</p>";
-    if (facts) html += '<p class="spec-facts">' + esc(facts) + "</p>";
+    html += '<p class="spec-model spec-card-model">' + esc(code || brand || "Model") + "</p>";
     return html + "</div>";
+  }
+
+  function makerSpecs(product) {
+    return ((product && product.specs) || []).filter(function (spec) {
+      return spec && spec.label && spec.value && !isIdSpec(spec, product);
+    }).sort(function (a, b) { return specRank(a.label, a.value) - specRank(b.label, b.value); }).slice(0, 2);
+  }
+
+  function specStrip(product) {
+    var specs = makerSpecs(product);
+    if (!specs.length) return "";
+    return '<div class="spec-strip">' + specs.map(function (spec) {
+      return '<div class="spec-item"><strong>' + esc(spec.label) + "</strong><span>" + esc(tidyMeasure(spec.value)) + "</span></div>";
+    }).join("") + "</div>";
+  }
+
+  function modelMeta(product, reg) {
+    var bits = [];
+    var model = shortModel(product);
+    if (model) bits.push(String(model));
+    var asin = amazonAsin(product, reg);
+    if (asin) bits.push(asin);
+    return bits.join(" · ");
   }
 
   function tile(product) {
@@ -549,18 +617,25 @@
 
   function card(product, reg, opts) {
     opts = opts || {};
-    var recall = recallFor(product, reg);
-    var href = esc(productPath(product));
-    var media = mediaWithSpecs(product, opts);
-    var hidden = media.indexOf("spec-tile") !== -1 ? " visually-hidden" : "";
-    var title = '<h2 class="p-title' + hidden + '"><a href="' + href + '">' + visibleTitle(product.title) + "</a></h2>";
-    var more = '<a class="hub-more" href="' + href + '">See specs and stores</a>';
-    var id = ' id="' + esc(product.id) + '" data-category="' + esc(product.category || "") + '"';
+    var href = productPath(product);
+    var photo = product && product.imageMatch === "exact" ? visual(product, opts) : "";
+    var media = photo && photo.indexOf("p-photo") !== -1
+      ? '<div class="prod-media">' + photo + "</div>"
+      : specTile(product);
+    var title = '<h2 class="p-title prod-title"><a href="' + esc(href) + '">' + visibleTitle(product.title) + "</a></h2>";
     var pickText = opts.pick === undefined ? pickLine(product) : opts.pick;
-    var pick = pickText ? '<p class="pick-if">' + esc(pickText) + "</p>" : "";
-    return '<article class="product-grid hub-card"' + id + '><div class="pick-media">' + media + "</div>" +
-      '<div class="p-main">' + badgeHtml(recall) + noteBadge(product) + title +
-      pick + more + "</div></article>";
+    var pick = pickText ? '<p class="pick-if prod-why">' + esc(pickText) + "</p>" : "";
+    var makerHref = safeUrl(product && product.sourceUrl) || href;
+    var makerAttrs = safeUrl(product && product.sourceUrl) ? ' target="_blank" rel="noopener"' : "";
+    var amazon = '<a class="btn-primary" href="' + esc(safeUrl(storeUrl(product, reg, "amazon"))) + '" target="_blank" rel="sponsored nofollow noopener">Check on Amazon →</a>';
+    var maker = '<a class="btn-outline" href="' + esc(makerHref) + '"' + makerAttrs + ">Maker specs ↗</a>";
+    var meta = modelMeta(product, reg);
+    var id = ' id="' + esc(product.id) + '" data-category="' + esc(product.category || "") + '"';
+    return '<article class="product-grid hub-card prod-card"' + id + ">" + media +
+      '<div class="p-main prod-body"><div class="prod-top">' + badgeFor(product) + noteBadge(product) +
+      (meta ? '<span class="prod-model">' + esc(meta) + "</span>" : "") + "</div>" +
+      title + pick + specStrip(product) +
+      '<div class="prod-actions">' + amazon + maker + "</div></div></article>";
   }
 
   var artSeq = 0;
@@ -871,7 +946,8 @@
 
   function visual(product, opts) {
     opts = opts || {};
-    if (opts.tileUnlessExact && (!product || product.imageMatch !== "exact")) return specTile(product || {});
+    if (!product || product.imageMatch !== "exact") return specTile(product || {});
+    if (opts.tileUnlessExact && product.imageMatch !== "exact") return specTile(product || {});
     var src = modelPhoto(product);
     if (!src || pageSeen[src]) return specTile(product || {});
     pageSeen[src] = 1;
@@ -899,9 +975,7 @@
   }
 
   function mediaWithSpecs(product, opts) {
-    var photo = visual(product, opts);
-    if (photo.indexOf("p-photo") === -1) return photo;
-    return photo + specTile(product, { under: true });
+    return visual(product, opts);
   }
 
   var SCENES = {
@@ -936,6 +1010,7 @@
     evidenceList: evidenceList,
     checkList: checkList,
     badgeHtml: badgeHtml,
+    badgeFor: badgeFor,
     honestLine: honestLine,
     imageHtml: imageHtml,
     imageColumn: imageColumn,
@@ -949,6 +1024,7 @@
     motifKey: motifKey,
     schemaImage: imageSrc,
     recallFor: recallFor,
+    worstRecall: worstRecall,
     productPath: productPath,
     visibleTitle: visibleTitle,
     esc: esc,
