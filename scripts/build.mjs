@@ -5407,11 +5407,68 @@ function toyHubHtml() {
   return toyShell(url, toyDoc.title, toyDoc.description, main, jsonLd);
 }
 
+function toyAnswerCard(guide) {
+  const block = guide.answerCard;
+  if (!block) return "";
+  if (!block.heading || !/^[a-z0-9-]+$/.test(block.id || "")) throw new Error("Answer card: " + guide.slug);
+  assertWinterCopy(block.heading, guide.slug + " answer");
+  const paragraphs = Array.isArray(block.paragraphs) ? block.paragraphs : [];
+  const points = Array.isArray(block.points) ? block.points : [];
+  if (!paragraphs.length) throw new Error("Answer card body: " + guide.slug);
+  const body = paragraphs.map((spans, index) =>
+    "<p>" + officialSpans(spans, guide.slug + " answer " + index) + "</p>"
+  ).join("");
+  const list = points.length
+    ? "<ul>" + points.map((spans, index) =>
+      "<li>" + officialSpans(spans, guide.slug + " point " + index) + "</li>"
+    ).join("") + "</ul>"
+    : "";
+  return '<div class="answer-stack"><article class="answer-card" id="' + card.esc(block.id) + '"><h2>' +
+    card.esc(block.heading) + "</h2>" + body + list + "</article></div>";
+}
+
+function toyRecallTable(guide) {
+  const table = guide.recallTable;
+  if (!table) return "";
+  if (!table.heading || !Array.isArray(table.intro) || !Array.isArray(table.rows) || table.rows.length < 2) {
+    throw new Error("Recall table: " + guide.slug);
+  }
+  if (!/^[a-z0-9-]+$/.test(table.id || "")) throw new Error("Recall table id: " + guide.slug);
+  assertWinterCopy(table.heading, guide.slug + " recalls");
+  const intro = officialSpans(table.intro, guide.slug + " recall intro");
+  const columns = ["Product", "Seller or brand", "Date", "Agency", "Notice"];
+  const head = "<tr>" + columns.map((column) => '<th scope="col">' + column + "</th>").join("") + "</tr>";
+  const body = [];
+  const stack = [];
+  for (const row of table.rows) {
+    if (!row || !row.product || !row.seller || !row.date || !row.agency || !row.url || !row.label) {
+      throw new Error("Recall row: " + guide.slug);
+    }
+    assertToyPatternUrl(row.url);
+    if (!/\/Recalls\/|\/alert-recall\//.test(row.url)) throw new Error("Recall row is not a notice: " + row.url);
+    assertWinterCopy([row.product, row.seller, row.date, row.agency, row.label].join(" "), guide.slug + " recall row");
+    const link = '<a href="' + card.esc(row.url) + '" target="_blank" rel="noopener">' + card.esc(row.label) + "</a>";
+    body.push("<tr><td>" + card.esc(row.product) + "</td><td>" + card.esc(row.seller) + "</td><td>" +
+      card.esc(row.date) + "</td><td>" + card.esc(row.agency) + "</td><td>" + link + "</td></tr>");
+    stack.push("<article><h3>" + card.esc(row.product) + "</h3><p><strong>Seller or brand.</strong> " +
+      card.esc(row.seller) + "</p><p><strong>Date.</strong> " + card.esc(row.date) +
+      "</p><p><strong>Agency.</strong> " + card.esc(row.agency) + "</p><p>" + link + "</p></article>");
+  }
+  const note = Array.isArray(table.note)
+    ? "<p>" + officialSpans(table.note, guide.slug + " recall note") + "</p>"
+    : "";
+  return '<section class="model-card" id="' + card.esc(table.id) + '"><h2>' + card.esc(table.heading) + "</h2><p>" +
+    intro + '</p><div class="model-scroll"><table class="model-table"><thead>' + head + "</thead><tbody>" +
+    body.join("") + '</tbody></table></div><div class="model-stack">' + stack.join("") + "</div>" + note + "</section>";
+}
+
 function toyGuideHtml(guide) {
   const url = ORIGIN + toyPath(guide);
   const main = sceneBlock("toy-safety") + toyCrumbs(guide.h1) +
     "<h1>" + card.esc(guide.h1) + "</h1>" +
     '<p class="lede">' + card.esc(guide.description) + "</p>" +
+    toyAnswerCard(guide) +
+    toyRecallTable(guide) +
     toyJumps(guide.slug) +
     "<h2>What to read on the label</h2>" + toyLook(guide) +
     "<h2>How to search a recall</h2>" + winterMethod(guide) +
@@ -5478,6 +5535,8 @@ function writeToySafety() {
       guide.methodExtra.forEach((spans, index) => officialSpans(spans, guide.slug + " method " + index));
     }
     toyLook(guide);
+    toyAnswerCard(guide);
+    toyRecallTable(guide);
     toyPatternsHtml(guide);
     winterSearchButtons(guide);
   }
@@ -5952,6 +6011,18 @@ function assertToyPages() {
       throw new Error("Toy internal links " + guide.slug);
     }
     if (!html.includes('href="/gifts/for-kids/"')) throw new Error("Toy guide misses the kids list " + guide.slug);
+    if (guide.answerCard) {
+      const answerAt = html.indexOf('id="' + guide.answerCard.id + '"');
+      const lookAt = html.indexOf("<h2>What to read on the label</h2>");
+      if (answerAt < 0 || lookAt < 0 || answerAt > lookAt) throw new Error("Answer card is not above the label list: " + guide.slug);
+      if (!html.includes("<h2>" + card.esc(guide.answerCard.heading) + "</h2>")) throw new Error("Answer card heading " + guide.slug);
+    }
+    if (guide.recallTable) {
+      if (!html.includes('id="' + guide.recallTable.id + '"')) throw new Error("Recall table " + guide.slug);
+      for (const row of guide.recallTable.rows) {
+        if (!html.includes('href="' + card.esc(row.url) + '"')) throw new Error("Recall row link " + row.url);
+      }
+    }
     if (!html.includes('data-region-set="US"') || !html.includes('data-region-set="CA"')) throw new Error("Toy region switch " + guide.slug);
     for (const pattern of guide.patterns) {
       if (!html.includes('href="' + card.esc(pattern.url) + '"')) throw new Error("Toy pattern link " + pattern.url);

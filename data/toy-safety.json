@@ -24,6 +24,28 @@
       "label": "Button batteries",
       "description": "What Reese’s Law and Health Canada say to read on a button or coin battery compartment, and where to search a recall.",
       "searches": ["button battery toy"],
+      "answerCard": {
+        "id": "reeses-law",
+        "heading": "Reese’s Law",
+        "paragraphs": [
+          [
+            {"text": "Reese’s Law, Public Law 117-171, is the US rule for button cell and coin batteries. "},
+            {"text": "CPSC’s guidance", "href": "https://www.cpsc.gov/Business--Manufacturing/Business-Education/Business-Guidance/Button-Cell-and-Coin-Battery"},
+            {"text": " says the agency adopted ANSI/UL 4200A-2023 as the mandatory button battery safety standard and codified it at 16 CFR part 1263."}
+          ]
+        ],
+        "points": [
+          [
+            {"text": "Secure compartment. The same page says a replaceable button cell or coin battery compartment needs a tool, or at least two independent and simultaneous hand movements, to open, and that the batteries must not come free in use and abuse testing."}
+          ],
+          [
+            {"text": "Warning labels. It says the standard requires a warning on the product packaging, on the product if practicable, and in the instructions. The wording required on battery packaging is in the questions below."}
+          ],
+          [
+            {"text": "Packaging. It says a button cell or coin battery sold on its own, or included separately with a product, has to meet child-resistant packaging under 16 CFR 1700.15. That requirement applies to batteries manufactured or imported after February 12, 2023."}
+          ]
+        ]
+      },
       "look": [
         [
           {"text": "On a product with a replaceable button cell or coin battery, read the compartment. "},
@@ -151,6 +173,39 @@
               "text": " says to recharge a battery only if it is marked rechargeable."
             }
           ]
+        },
+        {
+          "q": "What are button batteries used for?",
+          "a": "Health Canada’s advisory says button batteries are found in toys, watches, calculators, remote controls, hearing aids, flashing jewelry, flameless candles, laser pointers, singing books, and greeting cards. The September 11, 2023 CPSC release says they are used in products from keyless-entry remotes and wireless game controllers to toys and musical greeting cards.",
+          "body": [
+            {"text": "Health Canada’s advisory", "href": "https://recalls-rappels.canada.ca/en/alert-recall/button-batteries-pose-life-threatening-dangers-young-children"},
+            {"text": " says button batteries are found in toys, watches, calculators, remote controls, hearing aids, flashing jewelry, flameless candles, laser pointers, singing books, and greeting cards. The "},
+            {"text": "September 11, 2023 CPSC release", "href": "https://www.cpsc.gov/Newsroom/News-Releases/2023/Making-Families-Safer-from-Button-Cell-or-Coin-Battery-Dangers-Reeses-Law-Leads-to-New-Federal-Mandatory-Safety-Standard"},
+            {"text": " says they are used in products from keyless-entry remotes and wireless game controllers to toys and musical greeting cards."}
+          ]
+        },
+        {
+          "q": "Which toys use button batteries?",
+          "a": "The September 11, 2023 CPSC release names toys and musical greeting cards among the products that use these batteries. Health Canada’s advisory names toys and singing books.",
+          "body": [
+            {"text": "The "},
+            {"text": "September 11, 2023 CPSC release", "href": "https://www.cpsc.gov/Newsroom/News-Releases/2023/Making-Families-Safer-from-Button-Cell-or-Coin-Battery-Dangers-Reeses-Law-Leads-to-New-Federal-Mandatory-Safety-Standard"},
+            {"text": " names toys and musical greeting cards among the products that use these batteries. "},
+            {"text": "Health Canada’s advisory", "href": "https://recalls-rappels.canada.ca/en/alert-recall/button-batteries-pose-life-threatening-dangers-young-children"},
+            {"text": " names toys and singing books."}
+          ]
+        },
+        {
+          "q": "Are button batteries magnetic?",
+          "a": "CPSC defines a button cell or coin battery as a single cell battery with a diameter greater than its height. Small powerful magnets are a different product, covered by the magnet rule at 16 CFR part 1262, not by the button-battery rule. A small shiny disc can be either one. Read the battery door for a cell, and the magnet page if the pieces are magnets.",
+          "body": [
+            {"text": "CPSC", "href": "https://www.cpsc.gov/Business--Manufacturing/Business-Education/Business-Guidance/Button-Cell-and-Coin-Battery"},
+            {"text": " defines a button cell or coin battery as a single cell battery with a diameter greater than its height. Small powerful magnets are a different product. "},
+            {"text": "CPSC’s magnet guidance", "href": "https://www.cpsc.gov/Business--Manufacturing/Business-Education/Business-Guidance/Magnets"},
+            {"text": " covers them under 16 CFR part 1262, not under the button-battery rule. A small shiny disc can be either one. Read the battery door for a cell, and the "},
+            {"text": "magnet page", "href": "/toy-safety/magnets/"},
+            {"text": " if the pieces are magnets."}
+          ]
         }
       ]
     },
@@ -232,11 +287,102 @@
     },
     {
       "slug": "water-beads",
-      "title": "Water beads: what to read, then check the recall",
-      "h1": "Water beads",
+      "title": "Water beads: what they are, recalls and safety",
+      "h1": "Water beads: what they are, recalls and safety",
       "label": "Water beads",
-      "description": "What the current CPSC water-bead rule and the Health Canada advisory say, including which products the US rule covers.",
+      "description": "What water beads are, the CPSC and Health Canada notices that name them, and the US rule for water bead toys.",
       "searches": ["water beads"],
+      "answerCard": {
+        "id": "what-are-water-beads",
+        "heading": "What are water beads?",
+        "paragraphs": [
+          [
+            {"text": "Water beads are small gel beads that swell when they soak up liquid. "},
+            {"text": "CPSC", "href": "https://www.cpsc.gov/Business--Manufacturing/Business-Education/Business-Guidance/Water-Bead-Toys-Business-Guidance"},
+            {"text": " defines a water bead as a liquid-absorbent polymer, including materials such as polyacrylamide and polyacrylate, that expands when soaked. "},
+            {"text": "Health Canada", "href": "https://recalls-rappels.canada.ca/en/alert-recall/water-beads-may-pose-life-threatening-risks-young-children"},
+            {"text": " also calls them jelly beads, hydro orbs, crystal soil, sensory beads, or orb beads, and says they show up in toys, art kits, stress balls, vase fillers, and gardening products."}
+          ]
+        ]
+      },
+      "recallTable": {
+        "id": "water-bead-recalls",
+        "heading": "Water bead recalls",
+        "intro": [
+          {"text": "Checked November 21, 2026 in the "},
+          {"text": "CPSC SaferProducts recall feed", "href": "https://www.saferproducts.gov/RestWebServices/Recall"},
+          {"text": ", searching the title and the description for water bead, and in the "},
+          {"text": "Health Canada open recall dataset", "href": "https://recalls-rappels.canada.ca/sites/default/files/opendata-donneesouvertes/HCRSAMOpenData.json"},
+          {"text": ". The Canadian record is an advisory and does not name a brand. The "},
+          {"text": "March 12, 2026 CPSC release", "href": "https://www.cpsc.gov/Newsroom/News-Releases/2026/CPSC%E2%80%99s-New-Federal-Water-Beads-Safety-Standard-Takes-Effect-to-Protect-Children-from-Deadly-Hazard"},
+          {"text": " says water beads manufactured after that date must meet the federal standard, that water beads which fail it are illegal to sell in the United States, and that products not marketed as children’s toys fall outside the rule."}
+        ],
+        "rows": [
+          {
+            "product": "Squishy Dumpling, model 3655, and Crazy Squib Ball, model 3984",
+            "seller": "ABC Trading Inc., sold at ABC Trading stores",
+            "date": "2026-10-01",
+            "agency": "CPSC",
+            "label": "CPSC",
+            "url": "https://www.cpsc.gov/Recalls/2027/ABC-Trading-Recalls-Squishy-Toys-Due-to-Risk-of-Serious-Injury-or-Death-from-Water-Bead-Ingestion-Violate-Mandatory-Standard-for-Toys"
+          },
+          {
+            "product": "Mochi Malrang Mystery Dumpling Toys",
+            "seller": "LLK Trading Inc., sold at Easy Wholesale",
+            "date": "2026-10-01",
+            "agency": "CPSC",
+            "label": "CPSC",
+            "url": "https://www.cpsc.gov/Recalls/2027/LLK-Trading-Recalls-Mochi-Malrang-Mystery-Dumpling-Toys-Due-to-Risk-of-Serious-Injury-or-Death-from-Water-Bead-Ingestion-Violate-Mandatory-Standard-for-Toys"
+          },
+          {
+            "product": "Rainbow Mystery Squishy Bun Toys",
+            "seller": "Toyworld168 Inc., sold at third-party stores",
+            "date": "2026-09-17",
+            "agency": "CPSC",
+            "label": "CPSC",
+            "url": "https://www.cpsc.gov/Recalls/2026/Toyworld168-Recalls-Rainbow-Mystery-Squishy-Bun-Toys-Due-to-Risk-of-Serious-Injury-or-Death-from-Water-Bead-Ingestion-Violate-Mandatory-Standard-for-Toys"
+          },
+          {
+            "product": "GIHNJSI Squeezy Dumplings",
+            "seller": "Chenyuanhui, sold on Amazon.com",
+            "date": "2026-09-03",
+            "agency": "CPSC",
+            "label": "CPSC",
+            "url": "https://www.cpsc.gov/Recalls/2026/GIHNJSI-Squeezy-Dumplings-Toys-Recalled-Due-to-Serious-Ingestion-Choking-and-Obstruction-Hazards-Sold-on-Amazon-by-Chenyuanhui"
+          },
+          {
+            "product": "Rainbow Mystery Squishy Bun Toys, model D08004",
+            "seller": "OKK Trading Inc., sold at third-party stores",
+            "date": "2026-09-03",
+            "agency": "CPSC",
+            "label": "CPSC",
+            "url": "https://www.cpsc.gov/Recalls/2026/OKK-Trading-Recalls-Rainbow-Mystery-Squishy-Bun-Toys-Due-to-Risk-of-Serious-Injury-or-Death-from-Water-Bead-Ingestion-Violate-Mandatory-Standard-for-Toys"
+          },
+          {
+            "product": "Water beads, no brand named",
+            "seller": "Health Canada advisory",
+            "date": "2024-02-16",
+            "agency": "Health Canada",
+            "label": "Health Canada",
+            "url": "https://recalls-rappels.canada.ca/en/alert-recall/water-beads-may-pose-life-threatening-risks-young-children"
+          },
+          {
+            "product": "Chuckle & Roar Ultimate Water Beads Activity Kit",
+            "seller": "Buffalo Games, sold at Target",
+            "date": "2023-09-14",
+            "agency": "CPSC",
+            "label": "CPSC",
+            "url": "https://www.cpsc.gov/Recalls/2023/Buffalo-Games-Recalls-Chuckle-Roar-Ultimate-Water-Beads-Activity-Kits-Due-to-Serious-Ingestion-Choking-and-Obstruction-Hazards-One-Infant-Death-Reported-Sold-Exclusively-at-Target"
+          }
+        ],
+        "note": [
+          {"text": "A toy can also hide a button battery. That check is on the "},
+          {"text": "button battery page", "href": "/toy-safety/button-coin-batteries/"},
+          {"text": ". "},
+          {"text": "Gifts for kids", "href": "/gifts/for-kids/"},
+          {"text": " names mainstream kids products and the check to do."}
+        ]
+      },
       "look": [
         [
           {"text": "Read the date and the warnings on the package. "},

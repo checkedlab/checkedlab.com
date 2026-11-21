@@ -134,8 +134,8 @@
     },
     {
       "slug": "electric-blankets",
-      "title": "Electric & heated blanket recalls 2026 (by brand) + safety warnings",
-      "h1": "Electric & heated blanket recalls 2026 (by brand) + safety warnings",
+      "title": "Electric and heated blanket recalls by brand",
+      "h1": "Electric blankets and heated throws",
       "label": "Electric blankets",
       "description": "Heated blanket and throw recalls by brand, with the CPSC or Health Canada notice, plus what to read on the label and controller.",
       "intro": [
@@ -241,6 +241,10 @@
         {
           "href": "/recalls/heated-blanket-recalls/",
           "label": "Heated blanket recall list"
+        },
+        {
+          "href": "/gifts/for-the-home/",
+          "label": "Gifts for the home"
         }
       ],
       "faqs": [
