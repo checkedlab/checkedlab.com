@@ -618,7 +618,7 @@
   function card(product, reg, opts) {
     opts = opts || {};
     var href = productPath(product);
-    var photo = product && product.imageMatch === "exact" ? visual(product, opts) : "";
+    var photo = showablePhoto(product) ? visual(product, opts) : "";
     var media = photo && photo.indexOf("p-photo") !== -1
       ? '<div class="prod-media">' + photo + "</div>"
       : specTile(product);
@@ -877,6 +877,27 @@
     return src;
   }
 
+  /* A card photo has to be that model and look like the product.
+     Another color is fine. Another size is not. A box, a lookalike, or a
+     file that does not show the product cleanly stays a spec tile. */
+  var SAME_MODEL = {
+    "dewalt-dcd771": 1
+  };
+  var HIDE_PHOTO = {
+    "lodge-classic-skillet": 1,
+    "lecreuset-signature-5-5": 1,
+    "tempur-neck": 1,
+    "gopro-hero13": 1,
+    "kong-classic": 1
+  };
+
+  function showablePhoto(product) {
+    if (!product || HIDE_PHOTO[product.id]) return false;
+    if (!modelPhoto(product)) return false;
+    if (product.imageMatch === "exact") return true;
+    return product.imageMatch === "same_line" && SAME_MODEL[product.id] === 1;
+  }
+
   function licenseHref(product) {
     if (product.imageLicenseUrl) return String(product.imageLicenseUrl);
     var license = String(product.imageLicense || "");
@@ -918,6 +939,7 @@
 
   function photoAlt(product) {
     if (product.imageMatch === "exact") return product.title || product.imageShows || "Product photo";
+    if (product.imageMatch === "same_line") return product.imageShows || productType(product) || "Product photo";
     return productType(product) || "Product photo";
   }
 
@@ -946,7 +968,7 @@
 
   function visual(product, opts) {
     opts = opts || {};
-    if (!product || product.imageMatch !== "exact") return specTile(product || {});
+    if (!showablePhoto(product)) return specTile(product || {});
     if (opts.tileUnlessExact && product.imageMatch !== "exact") return specTile(product || {});
     var src = modelPhoto(product);
     if (!src || pageSeen[src]) return specTile(product || {});
@@ -976,6 +998,75 @@
 
   function mediaWithSpecs(product, opts) {
     return visual(product, opts);
+  }
+
+  function photoCard(product, reg, opts) {
+    opts = opts || {};
+    var photo = visual(product, opts);
+    if (photo.indexOf("p-photo") === -1) return "";
+    var href = productPath(product);
+    var line = opts.pick === undefined ? pickLine(product) : opts.pick;
+    var buy = '<div class="photo-buy"><div class="only-us">' + amazonButton(product, "US") + "</div>" +
+      '<div class="only-ca">' + amazonButton(product, "CA") + "</div></div>";
+    return '<article class="photo-card" id="checked-' + esc(product.id) + '" data-category="' + esc(product.category || "") + '">' +
+      '<a class="photo-well" href="' + esc(href) + '">' + photo + "</a>" +
+      '<div class="photo-copy">' + badgeFor(product, reg) +
+      '<h2 class="photo-title"><a href="' + esc(href) + '">' + visibleTitle(product.title) + "</a></h2>" +
+      (line ? '<p class="photo-line">' + esc(line) + "</p>" : "") +
+      buy + "</div></article>";
+  }
+
+  function compactRow(product, reg) {
+    var href = productPath(product);
+    var line = pickLine(product);
+    return '<li class="compact-row"><div class="compact-main"><a href="' + esc(href) + '">' + visibleTitle(product.title) + "</a>" +
+      (line ? '<span class="compact-line">' + esc(line) + "</span>" : "") +
+      "</div>" + badgeFor(product, reg) + "</li>";
+  }
+
+  function recentChecked(list, popularIds, hubs, limit) {
+    var chosen = [];
+    var seen = Object.create(null);
+    var seenSrc = Object.create(null);
+    var cap = limit || 12;
+    function add(product) {
+      if (!product || chosen.length >= cap || seen[product.id]) return false;
+      if (!showablePhoto(product)) return false;
+      var src = modelPhoto(product);
+      if (!src || seenSrc[src]) return false;
+      seen[product.id] = 1;
+      seenSrc[src] = 1;
+      chosen.push(product);
+      return true;
+    }
+    (popularIds || []).forEach(function (id) {
+      for (var i = 0; i < list.length; i++) {
+        if (list[i].id === id) add(list[i]);
+      }
+    });
+    var order = hubs || [];
+    var buckets = order.map(function () { return []; });
+    (list || []).forEach(function (product) {
+      var index = order.indexOf(product.category);
+      if (index >= 0) buckets[index].push(product);
+    });
+    var guard = 0;
+    while (chosen.length < cap && guard < 400) {
+      guard += 1;
+      var progressed = false;
+      for (var b = 0; b < buckets.length; b++) {
+        if (chosen.length >= cap) break;
+        while (buckets[b].length) {
+          var next = buckets[b].shift();
+          if (add(next)) {
+            progressed = true;
+            break;
+          }
+        }
+      }
+      if (!progressed) break;
+    }
+    return chosen;
   }
 
   var SCENES = {
@@ -1016,6 +1107,10 @@
     imageColumn: imageColumn,
     visual: visual,
     mediaWithSpecs: mediaWithSpecs,
+    showablePhoto: showablePhoto,
+    photoCard: photoCard,
+    compactRow: compactRow,
+    recentChecked: recentChecked,
     tile: tile,
     pickLine: pickLine,
     beginPage: beginPage,
