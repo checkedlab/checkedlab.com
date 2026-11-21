@@ -559,7 +559,11 @@ for (const hub of HUBS) {
   const popular = POPULAR_IDS.map((id) => byId.get(id)).filter(Boolean);
   const recallsOnHome = products.filter(isBin);
   card.beginPage();
-  html = fillMount(html, popular.map((product, index) => card.card(product, "US", index === 0 ? { eager: true } : {})).join("\n"), POP_START, POP_END);
+  if (html.includes(POP_START)) {
+    html = fillMount(html, popular.map((product, index) => card.card(product, "US", index === 0 ? { eager: true } : {})).join("\n"), POP_START, POP_END);
+  } else if (!html.includes('id="recent-mount"')) {
+    throw new Error("Missing mount markers " + POP_START);
+  }
   if (html.includes(REC_START)) {
     html = fillMount(html, recallsOnHome.length ? recallsOnHome.map((product) => card.card(product, "US")).join("\n") : '<p class="empty">No official model recall is on the list.</p>', REC_START, REC_END);
   }
@@ -6624,9 +6628,10 @@ function writePhotoCredits() {
     const who = extLink(product.imageSource, author);
     const terms = licenseHref ? extLink(licenseHref, license || "License") : card.esc(license);
     const source = extLink(product.imageSource, "Source page");
+    const used = card.showablePhoto(product) ? "Shown on the card" : "Not shown on the card";
     return '<li class="credit-line"><span class="credit-author">' + who + '</span><span class="credit-sep" aria-hidden="true"> · </span>' +
       '<span class="credit-license">' + terms + "</span> · " + source + " · Shows: " + card.esc(shows) +
-      " · " + card.esc(product.title) + "</li>";
+      " · " + card.esc(product.title) + " · " + used + "</li>";
   }).join("\n");
   const html = `<!DOCTYPE html>
 <html lang="en" data-region="US">
@@ -6652,7 +6657,7 @@ ${FONT_PRELOAD}
 <main id="main">
 <div class="wrap prose">
 <h1>Photo credits</h1>
-<p class="lede">Photos are stored on this site. Each catalogue line names the photographer, links the license and the source page, and says what the photo shows. A catalogue photo may be the exact model, another model of the same brand, or the same kind of product. Captions are not repeated under the photos.</p>
+<p class="lede">Photos are stored on this site. Each catalogue line names the photographer, links the license and the source page, and says what the photo shows. A card uses the file only when it is that model and the product is visible. Another color of the same model can stay. Another size, a retail box, a lookalike, or a shot that hides the product stays off the card. Captions are not repeated under the photos.</p>
 <h2>Catalogue photos</h2>
 <ul class="credits">
 ${catalogue}
@@ -6984,7 +6989,7 @@ ${deskHtml()}
 <div class="section-head">
 <div>
 <h2 id="recent-title">Recently checked</h2>
-<p class="section-sub" id="recent-sub">Model photos from the check on ${card.esc(when)}. A different model stays a spec card.</p>
+<p class="section-sub" id="recent-sub">Model photos from the check on ${card.esc(when)}. Another size or a different model stays a spec card.</p>
 </div>
 <a href="/recalls/">All recall checks →</a>
 </div>
@@ -7035,7 +7040,7 @@ ${parts.compact}
 <div class="method-strip">
 <div class="method-step"><strong>01 · Model match</strong><h3>Exact model number first</h3><p>The brand and model are matched to the CPSC SaferProducts feed and the Health Canada open dataset. The date on the card is the day that match was recorded.</p></div>
 <div class="method-step"><strong>02 · Official databases</strong><h3>CPSC &amp; Health Canada</h3><p>The numbers come from the brand’s product page, with the source link beside them. Search the same model on CPSC Recalls and on Health Canada recalls and safety alerts.</p></div>
-<div class="method-step"><strong>03 · Honest visuals</strong><h3>Real photos or spec cards</h3><p>An exact model photo stays on the card, and so does the same model in another color or size. A different model is a typographic spec card. The buttons open the store. Prices stay on the store.</p></div>
+<div class="method-step"><strong>03 · Honest visuals</strong><h3>Real photos or spec cards</h3><p>An exact model photo stays on the card, including another color of that model. Another size, a box, or a different model is a typographic spec card. The buttons open the store. Prices stay on the store.</p></div>
 </div>
 <p class="method-more"><a href="/how-we-check/">Read the full method</a></p>
 </div>
@@ -7051,6 +7056,8 @@ ${parts.widget || ""}
 ${parts.quiz || ""}
 </div>
 </section>
+${POP_START}
+${POP_END}
 </main>`;
 }
 
@@ -7090,7 +7097,7 @@ function reshapeHome(html) {
     return match[0];
   };
   const guide = take(/<!-- checkedlab:guide start -->[\s\S]*?<!-- checkedlab:guide end -->/);
-  const popular = take(/<!-- checkedlab:popular start -->[\s\S]*?<!-- checkedlab:popular end -->/);
+  const popular = take(/<!-- checkedlab:popular start -->[\s\S]*?<!-- checkedlab:popular end -->/) || (html.includes('id="recent-mount"') ? POP_START + "\n" + POP_END : "");
   const bf = take(/<!-- checkedlab:bf-home start -->[\s\S]*?<!-- checkedlab:bf-home end -->/);
   const pointer = take(/<!-- checkedlab:recall-home start -->[\s\S]*?<!-- checkedlab:recall-home end -->/);
   take(/<!-- checkedlab:recalls start -->[\s\S]*?<!-- checkedlab:recalls end -->/);
@@ -7609,6 +7616,9 @@ function assertNoFalseClear() {
 function assertPhotoRule() {
   const home = readFileSync(join(root, "index.html"), "utf8");
   if (!home.includes(">Recently checked</h2>")) throw new Error("Home photo band is missing");
+  if (!home.includes(POP_START) || !home.includes(POP_END)) throw new Error("Home popular markers were stripped");
+  const marker = home.slice(home.indexOf(POP_START), home.indexOf(POP_END));
+  if (marker.includes("<img")) throw new Error("Popular mount leaked onto the home page");
   const recentStart = home.indexOf('id="recent-mount"');
   const recentEnd = home.indexOf('id="popular-title"');
   const recent = home.slice(recentStart, recentEnd);
@@ -7616,17 +7626,22 @@ function assertPhotoRule() {
   if (imgs.length < 8 || imgs.length > 12) throw new Error("Home photo band has " + imgs.length + " images");
   const srcs = [...recent.matchAll(/\bsrc="([^"]+)"/g)].map((match) => match[1]);
   if (new Set(srcs).size !== srcs.length) throw new Error("Home photo band repeats a photo");
-  for (const id of ["dyson-v15-detect", "levoit-core-600s", "levoit-core-300s-p", "instant-pot-duo-plus", "baratza-encore-esp", "lasko-ct14401", "vitamix-e310"]) {
+  if (!recent.includes("only-us") || !recent.includes("only-ca")) throw new Error("Home photo cards are missing region buy buttons");
+  for (const id of ["dyson-v15-detect", "levoit-core-600s", "levoit-core-300s-p", "instant-pot-duo-plus", "baratza-encore-esp", "lasko-ct14401", "vitamix-e310", "lodge-classic-skillet", "lecreuset-signature-5-5", "tempur-neck", "gopro-hero13", "kong-classic"]) {
     const product = products.find((item) => item.id === id);
     const html = readFileSync(join(root, product.category, id, "index.html"), "utf8");
     const heroEnd = html.indexOf('class="toc"');
     const hero = html.slice(html.indexOf('class="fold-top"'), heroEnd);
-    if (hero.includes('class="p-photo"')) throw new Error("Lookalike photo rendered on " + id);
+    if (hero.includes('class="p-photo"')) throw new Error("Unshowable photo rendered on " + id);
   }
-  for (const id of ["kong-classic", "dewalt-dcd771", "lodge-classic-skillet", "lecreuset-signature-5-5", "kitchenaid-artisan"]) {
+  for (const id of ["dewalt-dcd771", "kitchenaid-artisan", "winix-5500-2", "dyson-v8"]) {
     const product = products.find((item) => item.id === id);
     const html = readFileSync(join(root, product.category, id, "index.html"), "utf8");
     if (!html.includes('class="p-photo"')) throw new Error("Showable photo missing on " + id);
+  }
+  const credits = readFileSync(join(root, "photo-credits", "index.html"), "utf8");
+  if (!credits.includes("Not shown on the card") || !credits.includes("Shown on the card")) {
+    throw new Error("Photo credits do not say which files are shown");
   }
   const kitchen = readFileSync(join(root, "kitchen", "index.html"), "utf8");
   const firstKitchen = (kitchen.match(/<article class="product-grid[\s\S]*?<\/article>/) || [])[0] || "";

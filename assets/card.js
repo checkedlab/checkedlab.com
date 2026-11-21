@@ -877,19 +877,22 @@
     return src;
   }
 
-  /* same_line means the same product line, not automatically the same model.
-     The caption in photoCaption calls it "same line". Several of those files
-     are a different model (a Duo for a Duo Plus, a V10 for a V15, a Core 300
-     for a 600S). Those stay spec tiles. A colour or size of the identical
-     product is showable. related and generic stay hidden. */
+  /* A card photo has to be that model and look like the product.
+     Another color is fine. Another size is not. A box, a lookalike, or a
+     file that does not show the product cleanly stays a spec tile. */
   var SAME_MODEL = {
-    "kong-classic": 1,
+    "dewalt-dcd771": 1
+  };
+  var HIDE_PHOTO = {
     "lodge-classic-skillet": 1,
     "lecreuset-signature-5-5": 1,
-    "dewalt-dcd771": 1
+    "tempur-neck": 1,
+    "gopro-hero13": 1,
+    "kong-classic": 1
   };
 
   function showablePhoto(product) {
+    if (!product || HIDE_PHOTO[product.id]) return false;
     if (!modelPhoto(product)) return false;
     if (product.imageMatch === "exact") return true;
     return product.imageMatch === "same_line" && SAME_MODEL[product.id] === 1;
@@ -1003,12 +1006,14 @@
     if (photo.indexOf("p-photo") === -1) return "";
     var href = productPath(product);
     var line = opts.pick === undefined ? pickLine(product) : opts.pick;
+    var buy = '<div class="photo-buy"><div class="only-us">' + amazonButton(product, "US") + "</div>" +
+      '<div class="only-ca">' + amazonButton(product, "CA") + "</div></div>";
     return '<article class="photo-card" id="checked-' + esc(product.id) + '" data-category="' + esc(product.category || "") + '">' +
       '<a class="photo-well" href="' + esc(href) + '">' + photo + "</a>" +
       '<div class="photo-copy">' + badgeFor(product, reg) +
       '<h2 class="photo-title"><a href="' + esc(href) + '">' + visibleTitle(product.title) + "</a></h2>" +
       (line ? '<p class="photo-line">' + esc(line) + "</p>" : "") +
-      "</div></article>";
+      buy + "</div></article>";
   }
 
   function compactRow(product, reg) {
